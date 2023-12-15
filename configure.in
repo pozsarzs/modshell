@@ -1,0 +1,83 @@
+dnl # +------------------------------------------------------------------------+
+dnl # | ModShell 0.1 * Command line Modbus utility                             |
+dnl # | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                   |
+dnl # | Makefile                                                               |
+dnl # | Makefile for Unix-like systems                                         |
+dnl # +------------------------------------------------------------------------+
+
+AC_INIT(source/modshell.pas)
+AC_CONFIG_AUX_DIR(config)
+AC_CANONICAL_SYSTEM
+
+AC_PATH_PROG(ln, ln, no)
+AC_PATH_PROG(rm, rm, no)
+AC_PATH_PROG(rmdir, rmdir, no)
+AC_PATH_PROG(install, install, no)
+
+AC_CHECK_PROGS(make, gmake make)
+test "$make" == "" && AC_MSG_ERROR(Make not found!)
+AC_CHECK_PROGS(hfpc,fpc,no)
+test x"$hfpc" == xno && AC_MSG_ERROR(FreePascal compiler not found!)
+
+AC_CHECK_FILE(document/VERSION,,AC_MSG_ERROR(VERSION file not found!))
+version=`cat document/VERSION`
+AC_CHECK_FILE(document/copyright,,AC_MSG_ERROR(copyright file not found!))
+copyright=`cat document/copyright`
+
+os=`fpc -iSO`
+architecture=`fpc -iSP`
+
+AC_PREFIX_DEFAULT("/usr/local")
+test x"$prefix" == xNONE && prefix="$ac_default_prefix"
+
+if test $prefix == "/usr" 
+then
+  vardir="/var"
+else
+  vardir="/var/local"
+fi
+
+mandir="$prefix/man"
+test "$os" = "linux" && mandir="$datarootdir/man"
+
+bprefix="$prefix"
+test "$stagedir" != "" && prefix="$stagedir"
+test "$stagedir" != "" && mandir="$prefix/man"
+
+
+AC_SUBST(architecture)
+AC_SUBST(copyright)
+AC_SUBST(os)
+AC_SUBST(prefix)
+AC_SUBST(version)
+
+AC_SUBST(bindir)
+AC_SUBST(bprefix)
+AC_SUBST(datarootdir)
+AC_SUBST(libdir)
+AC_SUBST(mandir)
+AC_SUBST(sysconfdir)
+AC_SUBST(vardir)
+
+AC_SUBST(fpflag)
+
+AC_SUBST(install)
+AC_SUBST(ln)
+AC_SUBST(make)
+AC_SUBST(rm)
+
+AC_OUTPUT( Makefile.global \
+           manual/modshell.1 \
+         )
+
+echo "
+Summary
+=======
+    Target op. system	$os
+    Target processor	$architecture
+    Target directory	$prefix
+
+
+  Type '${make}' for compilation and then '${make} install'.
+"
+test "$stagedir" != "" && echo Install to FreeBSD stage directory: $prefix

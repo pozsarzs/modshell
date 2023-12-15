@@ -1,0 +1,41 @@
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command line Modbus utility                                 |
+# | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
+# | Makefile                                                                   |
+# | Makefile for Unix-like systems                                             |
+# +----------------------------------------------------------------------------+
+
+copyright	= @copyright@
+name		= modshell
+version		= @version@
+architecture	= @architecture@
+os              = @os@
+
+prefix		= @prefix@
+bindir		= @bindir@
+datarootdir	= @datarootdir@
+exec_prefix	= @exec_prefix@
+libdir		= @libdir@
+localedir	= @datarootdir@/locale
+mandir		= @mandir@
+srcdir		= @srcdir@
+sysconfdir	= @sysconfdir@
+vardir		= @vardir@
+
+binmode		= 0755
+txtmode		= 0644
+
+install		= @install@
+ln		= @ln@ --symbolic --force
+make		= @make@
+rm		= @rm@ --force
+rmdir		= @rmdir@ --ignore-fail-on-non-empty
+
+fpflag		= -T@os@ \
+                  -MObjFPC \
+                  -Scgi \
+                  -O1 \
+                  -ve \
+                  -Fu. \
+                  -Fu../lib/@architecture@-@os@/ \
+                  -FE../lib/@architecture@-@os@/ \

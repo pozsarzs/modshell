@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=ModShell
+Exec=modshell
+Icon=modshell
+Comment=Command line Modbus utility
+Type=Application
+Categories=Application;Network;
+Terminal=true
+StartupNotify=true
+
