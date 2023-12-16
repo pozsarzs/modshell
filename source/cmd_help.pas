@@ -21,40 +21,65 @@
 // command 'help'
 procedure cmd_help(p1: string);
 var
-  b: byte;
+  b, bb: byte;
   valid: boolean;
+  buffer: array[0..31] of string;
+
+
+  // shorting content of buffer
+  procedure shorting;
+  var
+   i, j: byte;
+   s: string;
+  begin
+    for i := 0 to 30 do
+     for j := i + 1 to 31 do
+       if buffer[i] < buffer[j] then
+       begin
+         s := buffer[i];
+         buffer[i] := buffer[j];
+         buffer[j] := s;
+       end;
+  end;
 
 begin
+  for b := 0 to 31 do buffer[b] := '';
   if length(p1) = 0 then
   begin
     writeln(MSG03); // How to use help with command list.
     writeln;
-    for b := 0 to 12 do
+    for b := 0 to 15 do
     begin
-      write('  ' + COMMANDS[b]);
-      gotoxy(10, wherey);
+      buffer[b] := '  ' + COMMANDS[b];
+      for bb := 0 to 5 - length(COMMANDS[b]) + 2 do
+      buffer[b] := buffer[b] + ' ';
       case b of
-         0: writeln(DES00);
-         1: writeln(DES01);
-         2: writeln(DES02);
-         3: writeln(DES03);
-         4: writeln(DES04);
-         5: writeln(DES05);
-         6: writeln(DES06);
-         7: writeln(DES07);
-         8: writeln(DES08);
-         9: writeln(DES09);
-        10: writeln(DES10);
-        11: writeln(DES11);
-        12: writeln(DES12);
+         0: buffer[b] := buffer[b] + DES00;
+         1: buffer[b] := buffer[b] + DES01;
+         2: buffer[b] := buffer[b] + DES02;
+         3: buffer[b] := buffer[b] + DES03;
+         4: buffer[b] := buffer[b] + DES04;
+         5: buffer[b] := buffer[b] + DES05;
+         6: buffer[b] := buffer[b] + DES06;
+         7: buffer[b] := buffer[b] + DES07;
+         8: buffer[b] := buffer[b] + DES08;
+         9: buffer[b] := buffer[b] + DES09;
+        10: buffer[b] := buffer[b] + DES10;
+        11: buffer[b] := buffer[b] + DES11;
+        12: buffer[b] := buffer[b] + DES12;
+        13: buffer[b] := buffer[b] + DES13;
+        14: buffer[b] := buffer[b] + DES14;
+        15: buffer[b] := buffer[b] + DES15;
       end;
     end;
+    shorting;
+    for b := 15 downto 0 do writeln(buffer[b]);
     writeln;
   end else
   begin
     // check parameter
     valid := false;
-    for b := 0 to 12 do
+    for b := 0 to 15 do
       if p1 = COMMANDS[b] then
       begin
         valid := true;
@@ -80,6 +105,9 @@ begin
         10: writeln(USG10);
         11: writeln(USG11);
         12: writeln(USG12);
+        13: writeln(USG13);
+        14: writeln(USG14);
+        15: writeln(USG15);
       end;
     end;
     writeln;

@@ -70,9 +70,9 @@ const
     ('-f','--fullscreen','full screen mode')
   );
   // commands and parameters
-  COMMANDS: array[0..12] of string = ('copy','exit','get','help','let',
-                                      'print','read','reset','set','date',
-                                      'ver','write','cls');
+  COMMANDS: array[0..15] of string = ('copy','exit','get','help','let','print',
+                                      'read','reset','set','date','ver','write',
+                                      'cls','save','load','export');
   BOOLVALUES: array[0..1,0..2] of string =
   (
     ('0','L','FALSE'),
@@ -93,7 +93,7 @@ const
   
 resourcestring
   // general messages
-  MSG01 = '<F1> help  <F8> clear screen  <F10> exit';
+  MSG01 = '<F1> help  <F2> save cfg.  <F3> load cfg.  <F8> clear screen  <F10> exit';
   MSG02 = 'Command line Modbus utility';
   MSG03 = 'Use ''help COMMAND'' to show usage.';
   MSG04 = 'Usage this command:';
@@ -116,12 +116,12 @@ resourcestring
   ERR05 = 'Parameter(s) required!';
   ERR06 = 'UID must be 1-247!';
   // command description
-  DES00='       copy one or more register content between two connections';
+  DES00='       copy one or more register between two connections';
   DES01='F10    exit';
   DES02='ALT-G  get setting of a device, protocol or connection';
   DES03='F1     show description or usage of the commands';
-  DES04='ALT-L  set one or more buffer registers';
-  DES05='ALT-P  print content one of more buffer registers';
+  DES04='ALT-L  set value of a buffer registers';
+  DES05='ALT-P  print content of the one or more buffer registers';
   DES06='ALT-R  read one or more remote registers to buffer';
   DES07='ALT-T  reset device, protocol or connection';
   DES08='ALT-S  set device, protocol or connection';
@@ -129,6 +129,9 @@ resourcestring
   DES10='       show version and build information of this program';
   DES11='ALT-W  write data from buffer to one or more remote registers';
   DES12='F8     clear screen';
+  DES13='F2     save settings of device, protocol and connection';
+  DES14='F3     load settings of device, protocol and connection';
+  DES15='ALT-E  export content of the one or more buffer registers';
   // command usage
   USG00='copy con? di|coil con? coil ADDRESS [COUNT]' + #13 + #10 +
         '  copy con? ireg|hreg con? hreg ADDRESS [COUNT]' + #13 + #10 +
@@ -150,6 +153,9 @@ resourcestring
   USG10='ver';
   USG11='write con? coil|hreg ADDRESS [COUNT]' + #13 + #10 + '  ?: [0-7]';
   USG12='cls';
+  USG13='save PATH_AND_FILENAME';
+  USG14='load PATH_AND_FILENAME';
+  USG15='export di|coil|ireg|hreg ADDRESS [COUNT]';
 
 procedure version(h: boolean); forward;
 
@@ -164,6 +170,9 @@ procedure version(h: boolean); forward;
 {$I cmd_rst.pas}
 {$I cmd_set.pas}
 {$I cmd_wrte.pas}
+{$I cmd_save.pas}
+{$I cmd_load.pas}
+{$I cmd_exp.pas}
 
 // simple command line
 procedure simplecommandline;
@@ -199,8 +208,11 @@ begin
         if c = #20 then begin command := COMMANDS[7]; c := #32; end;  // ~T
         if c = #31 then begin command := COMMANDS[8]; c := #32; end;  // ~S
         if c = #17 then begin command := COMMANDS[11]; c := #32; end; // ~W
+        if c = #18 then begin command := COMMANDS[15]; c := #32; end; // ~E
         // insert and run
         if c = #59 then begin command := COMMANDS[3]; c:=#13; end;    // F1
+        if c = #60 then begin command := COMMANDS[13]; c:=#13; end;   // F2
+        if c = #61 then begin command := COMMANDS[14]; c:=#13; end;   // F3
         if c = #66 then begin command := COMMANDS[12]; c:=#13; end;   // F8
         if c = #68 then begin command := COMMANDS[1]; c:=#13; end;    // F10
       end;
@@ -268,7 +280,7 @@ begin
           if command[a] = #32 then break else splitted[b] := splitted[b] + command[a];
       // parse command
       o := false;
-      for b := 0 to 12 do
+      for b := 0 to 15 do
         if splitted[0] = COMMANDS[b] then
         begin
           o := true;
@@ -306,6 +318,12 @@ begin
              // write conn? coil|hreg ADDRESS [COUNT]
          12: clrscr;
              // cls
+         13: cmd_save(splitted[1]);
+             // save PATH_AND_FILENAME
+         14: cmd_load(splitted[1]);
+             // load PATH_AND_FILENAME
+         15: cmd_export(splitted[1], splitted[2], splitted[3]);
+             // export di|coil|ireg|hreg ADDRESS [COUNT]
         end;
       end;
     end;
