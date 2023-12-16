@@ -21,15 +21,26 @@
 // command 'reset'
 procedure cmd_reset(p1: string);
 var
-  pr: byte;
   i: integer;
-  valid: boolean;
+  pr: byte;
   s: string;
+  valid: boolean;
+  
+  //show valid 1st parameters
+  procedure showvalid1stparameters;
+  var
+    b: byte;
+  begin
+    write('1st ' + MSG05); // What is the 1st parameter?
+    for b := 0 to 2 do write(' ' + PREFIX[b]+'[0-7]');
+    writeln;
+  end;
+
 begin
   // check length of parameters
   if (length(p1) = 0) then
   begin
-    writeln(ERR11); // Parameter required!
+    writeln(ERR05); // Parameter required!
     exit;
   end;
   // check p1 parameter
@@ -43,9 +54,7 @@ begin
     end;
   if not valid then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
-    for i := 0 to 2 do write(' ' + PREFIX[i]+'[0-7]');
-    writeln;
+    showvalid1stparameters;
     exit;
   end;
   // primary mission
@@ -62,8 +71,8 @@ begin
     else
       case pr of
         0: writeln(ERR01); // Device number must be 0-7!
-        1: writeln(ERR09); // Protocol number must be 0-7!
-        2: writeln(ERR10); // Connection number must be 0-7!
+        1: writeln(ERR02); // Protocol number must be 0-7!
+        2: writeln(ERR03); // Connection number must be 0-7!
       end;
-  end;
+  end else showvalid1stparameters;
 end;

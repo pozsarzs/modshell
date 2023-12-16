@@ -18,6 +18,7 @@ procedure cmd_date;
 var
   y, mh, d, w, h, m, s, cs: word;
 
+  // insert zero before [0-9]
   function addzero(v: word): string;
   var
     u: string;

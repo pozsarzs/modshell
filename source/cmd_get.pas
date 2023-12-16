@@ -75,27 +75,36 @@ var
            writeln(PREFIX[pr], n, MSG06); end;
   end;
 
+  // show valid 1st parameters
+  procedure showvalid1stparameters;
+  var
+    b: byte;
+ 
+  begin
+    write('1st ' + MSG05); // What is the 1st parameter?
+    for b := 0 to 2 do write(' ' + PREFIX[b]+'[0-7]');
+    writeln;
+  end;
+
 begin
   // check length of parameters
   if (length(p1) = 0) then
   begin
-    writeln(ERR11); // Parameter required!
+    writeln(ERR05); // Parameter required!
     exit;
   end;
   // check p1 parameters
   s1 := p1;
   delete(s1, length(s1), 1);
   for pr := 0 to 2 do
-    if PREFIX[pr]  = s1 then
+    if PREFIX[pr] = s1 then
     begin
       valid := true;
       break;
     end;
   if not valid then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
-    for i := 0 to 2 do write(' ' + PREFIX[i]+'[0-7]');
-    writeln;
+    showvalid1stparameters;
     exit;
   end;
   // primary mission
@@ -108,8 +117,8 @@ begin
     else
       case pr of
         0: writeln(ERR01); // Device number must be 0-7!
-        1: writeln(ERR09); // Protocol number must be 0-7!
-        2: writeln(ERR10); // Connection number must be 0-7!
+        1: writeln(ERR02); // Protocol number must be 0-7!
+        2: writeln(ERR03); // Connection number must be 0-7!
       end;
-  end;
+  end else showvalid1stparameters;
 end;

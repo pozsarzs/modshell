@@ -23,6 +23,7 @@ procedure cmd_help(p1: string);
 var
   b: byte;
   valid: boolean;
+
 begin
   if length(p1) = 0 then
   begin

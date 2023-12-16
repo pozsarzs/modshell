@@ -16,7 +16,38 @@
 {$MODE OBJFPC}{$H+}
 unit umbascii;
 interface
+uses
+  userial;
+
+procedure readdinp;
+procedure readireg;
+procedure writecoil;
+procedure writehreg;
 
 implementation
+
+function createlrc: string;
+begin
+end;
+
+function chkecklrc: boolean;
+begin
+end;
+
+procedure readdinp;
+begin
+end;
+
+procedure readireg;
+begin
+end;
+
+procedure writecoil;
+begin
+end;
+
+procedure writehreg;
+begin
+end;
 
 end.

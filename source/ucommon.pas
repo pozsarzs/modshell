@@ -34,6 +34,7 @@ function checkipaddress(address: string): boolean;
 var
   b, c: byte;
   s: array[0..3] of string;
+
 begin
   c := 0;
   for b := 1 to length(address) do
@@ -56,6 +57,7 @@ var
   size: integer;
 {$ENDIF}
   s: string;
+
 begin
  {$IFDEF UNIX}
   s := getenvironmentvariable('LANG');
@@ -100,6 +102,7 @@ end;
 procedure ewrite(fg: byte; hl: byte; t: string);
 var
   b: byte;
+
 begin
   textcolor(fg);
   for b:=1 to length(t) do

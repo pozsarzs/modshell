@@ -22,8 +22,9 @@ uses
   strings,
   sysutils,
   ucommon,
-  umodbus,
-  userial;
+  umbascii,
+  umbrtu,
+  umbtcp;
 type
   tdevice = record
     valid: boolean;    // false|true: invalid|valid
@@ -60,7 +61,6 @@ var
   appmode: byte;
   b: byte;
   lang: string;
-
 const
   // command line parameters
   CMDLINEPARAMS: array[0..2, 0..2] of string =
@@ -110,17 +110,11 @@ resourcestring
   // error messages
   ERR00 = 'No such command!';
   ERR01 = 'Device number must be 0-7!';
-  ERR02 = 'Device type must be ''net'' or ''serial''!';
-  ERR03 = 'IP address is not valid!';
-  ERR04 = 'Device port number is not valid!';
-  ERR05 = 'Device speed is not valid!';
-  ERR06 = 'Device databit number must be ''7'' or ''8''!';
-  ERR07 = 'Device parity mode must be ''E'', ''N'' or ''O''!';
-  ERR08 = 'Device stopbit number must be ''1'' or ''2''!';
-  ERR09 = 'Protocol number must be 0-7!';
-  ERR10 = 'Connection number must be 0-7!';
-  ERR11 = 'Parameter(s) required!';
-  ERR12 = 'UID must be 1-247!';
+  ERR02 = 'Protocol number must be 0-7!';
+  ERR03 = 'Connection number must be 0-7!';
+  ERR04 = 'IP address is not valid!';
+  ERR05 = 'Parameter(s) required!';
+  ERR06 = 'UID must be 1-247!';
   // command description
   DES00='       copy one or more register content between two connections';
   DES01='F10    exit';
@@ -159,17 +153,17 @@ resourcestring
 
 procedure version(h: boolean); forward;
 
-// - commands -----------------------------------------------------------------
-// {$I cmd_copy.pas}
+{$I modbus.pas}
+{$I cmd_copy.pas}
 {$I cmd_date.pas}
 {$I cmd_get.pas}
 {$I cmd_help.pas}
 {$I cmd_let.pas}
 {$I cmd_prnt.pas}
-// {$I cmd_read.pas}
+{$I cmd_read.pas}
 {$I cmd_rst.pas}
 {$I cmd_set.pas}
-// {$I cmd_wrte.pas}
+{$I cmd_wrte.pas}
 
 // simple command line
 procedure simplecommandline;
@@ -180,18 +174,19 @@ var
   histbuff: array[0..255] of string;
   histitem: byte = 0;
   histlast: byte = 0;
+  o: boolean = false;
   s: string;
   splitted: array[0..7] of string;
-  o: boolean = false;
 
 begin
+  for b := 0 to 255 do histbuff[b] := '';
   if appmode = 0 then
     writeln(PRGNAME + ' v' + PRGVERSION);
   repeat
     write(PROMPT);
     command := '';
     repeat
-      c := lowercase(readkey);
+      c := readkey;
       // detect hotkeys
       if c = #0 then
       begin
@@ -282,7 +277,7 @@ begin
       if not o then writeln(ERR00) else
       begin
         case b of
-//          0: cmd_copy(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6);
+          0: cmd_copy(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
              // copy conn? di|coil conn? coil ADDRESS COUNT
              // copy conn? ireg|hreg conn? hreg ADDRESS COUNT
           2: cmd_get(splitted[1]);
@@ -293,7 +288,7 @@ begin
              // let dinp|coil|ireg|hreg ADDRESS VALUE
           5: cmd_print(splitted[1], splitted[2], splitted[3]);
              // print di|coil|ireg|hreg ADDRESS [COUNT]
-//          6: cmd_read(splitted[1], splitted[2], splitted[3], splitted[4]);
+          6: cmd_read(splitted[1], splitted[2], splitted[3], splitted[4]);
              // read conn? di|coil|ireg|hreg ADDRESS [COUNT]
           7: cmd_reset(splitted[1]);
              // reset dev?|prot?|conn?
@@ -307,7 +302,7 @@ begin
              // date
          10: version(false);
              // ver
-//         11: cmd_write(splitted[1], splitted[2], splitted[3], splitted[4]);
+         11: cmd_write(splitted[1], splitted[2], splitted[3], splitted[4]);
              // write conn? coil|hreg ADDRESS [COUNT]
          12: clrscr;
              // cls

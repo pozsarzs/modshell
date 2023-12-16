@@ -16,7 +16,38 @@
 {$MODE OBJFPC}{$H+}
 unit umbrtu;
 interface
+uses
+  userial;
+
+procedure readdinp;
+procedure readireg;
+procedure writecoil;
+procedure writehreg;
 
 implementation
+
+function createcrc: string;
+begin
+end;
+
+function chkeckcrc: boolean;
+begin
+end;
+
+procedure readdinp;
+begin
+end;
+
+procedure readireg;
+begin
+end;
+
+procedure writecoil;
+begin
+end;
+
+procedure writehreg;
+begin
+end;
 
 end.

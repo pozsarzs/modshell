@@ -22,11 +22,10 @@
   set con? dev?      pro?
 }
 
-
 // command 'set'
 procedure cmd_set(p1, p2, p3, p4, p5, p6, p7: string);
 var
-  i, i1: integer;
+  i1: integer;
   pr: byte;
   s1: string;
   valid: boolean = false;
@@ -39,7 +38,7 @@ var
     // 1st check length of parameters
     if (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0) then
     begin
-      writeln(ERR11); // Parameter required!
+      writeln(ERR05); // Parameter required!
       exit;
     end;
     // check p2 parameter
@@ -79,7 +78,7 @@ var
       // check length of parameters
       if (length(p5) = 0) or (length(p6) = 0) or (length(p7) = 0) then
       begin
-        writeln(ERR11); // Parameter required!
+        writeln(ERR05); // Parameter required!
         exit;
       end;
       // check p4 parameter
@@ -142,11 +141,12 @@ var
     i: integer;
     prt: byte;
     valid: boolean = false;
+
   begin
     // check length of parameters
     if (length(p2) = 0) or (length(p3) = 0) then
     begin
-      writeln(ERR11); // Parameter required!
+      writeln(ERR05); // Parameter required!
       exit;
     end;
     // check p2 parameter
@@ -168,13 +168,13 @@ var
     begin
       if (strtointdef(p3, -1) < 1) or (strtointdef(p3, -1) > 247) then
       begin
-        writeln(ERR12); // UID must be 1-247!
+        writeln(ERR06); // UID must be 1-247!
         exit;
       end;
     end else
       if not checkipaddress(p3) then
       begin
-        writeln(ERR03); // Invalid IP address!
+        writeln(ERR04); // Invalid IP address!
         exit;
       end;
     // primary mission
@@ -195,11 +195,12 @@ var
   var
     i2, i3: integer;
     s2, s3: string;
+  
   begin
     // check length of parameters
     if (length(p2) = 0) or (length(p3) = 0) then
     begin
-      writeln(ERR11);  // Parameters required!
+      writeln(ERR05);  // Parameters required!
       exit;
     end;
     s2 := p2;
@@ -218,6 +219,7 @@ var
       writeln(ERR01); // Device number must be 0-7!
       exit;
     end;
+
    // check p3 parameter
    if PREFIX[1] <> s3 then
     begin
@@ -227,9 +229,10 @@ var
     end;
     if length(p3) >= 4 then i3 := strtointdef(p3[4],-1) else
     begin
-      writeln(ERR09); // Protocol number must be 0-7!
+      writeln(ERR02); // Protocol number must be 0-7!
       exit;
     end;
+
     // primary mission
     with conn[strtoint(n)] do
     begin
@@ -239,11 +242,21 @@ var
     end;
   end;
 
+  //show valid 1st parameters
+  procedure showvalid1stparameters;
+  var
+    b: byte;
+  begin
+    write('1st ' + MSG05); // What is the 1st parameter?
+    for b := 0 to 2 do write(' ' + PREFIX[b]+'[0-7]');
+    writeln;
+  end;
+
 begin
   // check length of parameters
   if (length(p1) = 0) then
   begin
-    writeln(ERR11); // Parameter required!
+    writeln(ERR05); // Parameter required!
     exit;
   end;
   // check p1 parameter
@@ -257,9 +270,7 @@ begin
     end;
   if not valid then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
-    for i := 0 to 2 do write(' ' + PREFIX[i]+'[0-7]');
-    writeln;
+    showvalid1stparameters;
     exit;
   end;
   if length(p1) >= 4 then
@@ -276,8 +287,8 @@ begin
     else
       case pr of
         0: writeln(ERR01); // Device number must be 0-7!
-        1: writeln(ERR09); // Protocol number must be 0-7!
-        2: writeln(ERR10); // Connection number must be 0-7!
+        1: writeln(ERR02); // Protocol number must be 0-7!
+        2: writeln(ERR03); // Connection number must be 0-7!
       end;
-  end;
+  end else showvalid1stparameters;
 end;

@@ -23,11 +23,12 @@ procedure cmd_let(p1, p2, p3: string);
 var
   rt, x, y: byte;
   valid: boolean = false;
+
 begin
   // check length of parameters
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
-    writeln(ERR11); // Parameters required!
+    writeln(ERR05); // Parameters required!
     exit;
   end;
   // check p1 parameter

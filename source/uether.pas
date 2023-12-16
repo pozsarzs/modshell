@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command line Modbus utility                               | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
-{ | userial.pas                                                              | }
-{ | Serial port handler procedures and functions                             | }
+{ | uether.pas                                                               | }
+{ | Ethernet handler procedures and functions                                | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -14,16 +14,16 @@
 }
 
 {$MODE OBJFPC}{$H+}
-unit userial;
+unit uether;
 interface
 
-function serialinit: boolean;
-function serialread: string;
-function serialwrite: boolean;
+function ethernetinit: boolean;
+function ethernetread: string;
+function ethernetwrite: boolean;
 
 implementation
 
-function serialinit: boolean;
+function ethernetinit: boolean;
 begin
 {$IFDEF GO32V2}
 {$ELSE}
@@ -37,7 +37,7 @@ begin
 {$ENDIF}
 end;
 
-function serialread: string;
+function ethernetread: string;
 begin
 {$IFDEF GO32V2}
 {$ELSE}
@@ -51,7 +51,7 @@ begin
 {$ENDIF}
 end;
 
-function serialwrite: boolean;
+function ethernetwrite: boolean;
 begin
 {$IFDEF GO32V2}
 {$ELSE}
