@@ -17,6 +17,7 @@
 program modshell;
 uses
   dos,
+  convert,
   crt,
   gettext,
   strings,
@@ -91,6 +92,7 @@ const
   PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
   PROMPT = 'MODSH>';
+  NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
   
 resourcestring
   // general messages
@@ -290,7 +292,7 @@ begin
           if command[a] = #32 then break else splitted[b] := splitted[b] + command[a];
       // parse command
       o := false;
-      for b := 0 to 15 do
+      for b := 0 to 18 do
         if splitted[0] = COMMANDS[b] then
         begin
           o := true;
@@ -351,11 +353,11 @@ procedure fullscreencommandline;
 var
   x, y: byte;
 const
-{$IFDEF GO32V2}
-  FRAME: array[0..5] of string=(#201,#205,#187,#200,#186,#188); // cp437
-{$ELSE}
-  FRAME: array[0..5] of string=('+','-','+','+','|','+');
-{$ENDIF}
+  {$IFDEF GO32V2}
+    FRAME: array[0..5] of string=(#201,#205,#187,#200,#186,#188); // cp437
+  {$ELSE}
+    FRAME: array[0..5] of string=('+','-','+','+','|','+');
+  {$ENDIF}
 
 begin
   window(1, 1, screenwidth, screenheight);

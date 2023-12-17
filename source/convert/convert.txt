@@ -1,0 +1,128 @@
++------------------------------------------------------------------------------+
+| Original read.me file                                                        |
++------------------------------------------------------------------------------+
+
+Zu diesen Units und dem Programm:
+---------------------------------
+
+Die in diesem Paket enthaltenen Units das Programm sind vom Auto frei-
+gegeben als PUBLIC DOMAIN. Sie dürfen vom Anwender beliebig eingesetz
+und verändert werden. Für Verbesserungsvorschläge ist der Autor immer
+dankbar.
+
+
+Es wird eine einfache Methode dargestellt, innherhalb verschiedener
+Zahlensysteme Zahlen umzurechnen. Die hierfür benötigten Funktionen
+befinden sich in der Unit CONVERT.PAS, welche in allen Turbo Pascal
+Verionen größer gleich 3.0 eingesetzt werden kann. Um die Berechnung
+zu vereinfachen arbeiten alle Funktionen ausschließlich mit STRING-
+Variablen. Sollte Ihr Programm INTEGER oder REAL Typen benötigen,
+müssen diese von Ihnen selbst entsprechend umgewandelt werden.
+
+
+UNIT CONVERT.PAS:
+-----------------
+
+Es werden die Zahlensysteme BINÄR, OKTAL, DEZIMAL und HEXADEZIMAL
+berücksichtigt.
+
+Es folgt eine kurze Auflistung der zur Verfügung stehenden Funktionen
+in CONCERT.PAS:
+
+       BinToOkt,
+       BinToDez,
+       BinToHex,
+
+       OktToBin,
+       OktToDez,
+       OktToHex,
+
+       DezToBin,
+       DezToOkt,
+       DezToHex,
+
+       HexToBin,
+       HexToOkt,
+       HexToDez.
+
+
+Alle Funktionen sind wie folgt definiert:
+
+    function  XxxToYyy (xxx: string): string;
+
+
+
+
+UNIT TVNUMBER.PAS:
+------------------
+
+Diese Unit enthält ein Turbo Vision Object, welches auf die Unit CONVERT
+aufbauend, ein einfaches Dialogfenster zur Umrechnung innerhalb der
+Zahlensysteme zur Verfügung stellt. Sollten Sie keine Erfahrung mit
+der Turbo Vision besitzen, wird Ihnen zumindest das Programm DEMO.EXE
+einen Einblick in die komfortablen Möglichkeiten der Turbo Vision geben.
+
+Das Demoprogramm DEMO.EXE liegt auch als DEMO.PAS vor, um zu zeigen, wie
+das Objekt TConvertNumbers in eigene Programme eingebunden wird.
+
+
+Mit
+
+  procedure TMyApp.Umrechnung;
+  begin
+    DeskTop^.ExecView(New(PConvertNumbers,Init));
+  end;
+
+haben Sie das Objekt bereits voll funktionsfähig in Ihr Programm
+eingebunden.
+
+( Die Unit definiert den Befehl cmCalc = $3000 für eigene Zwecke )
+
+Einsetzbar ist die Unit TVNUMBER.PAS erst ab der Turbo Pascal Version
+6.0. Geschrieben wurde das Objekt in Borland Pascal 7.0 (Turbo Vision
+2.0), welche zwar einige neue, elegantere Möglichkeiten bietet ( z.B.
+Validierungsobjekte zur Eingabeprüfung oder der Befehl  inherited ),
+auf diese wurde jedoch aus Gründen der kompatiblität zu TV 1.0 ver-
+zichtet.
+
+
+Wichtig:
+--------
+
+In der vorliegenden Version von TVNUMBER.PAS ist die maximale Länge der
+Zahlenstrings auf 100 Zeichen begrenzt. Werden z.B. Dezimalzahlen einge-
+geben, die Binärzahlen ergeben, die eine Länge von mehr als 100 Zeichen
+ergeben, so wird Binär eine '0' ausgegeben. Da sich die Berechnung der
+anderen Zahlensysteme auf das Binärsystem stützt, werden im Oktal- sowie
+im Hexadezimalsystem ebenfalls '0' ausgegben. Wie die Voreinstellung von
+100 Zeichen geändert wird, entnehmen Sie dem Quelltext von TVNUMBER.PAS.
+
+
+Ich hoffe, der hier vorliegende Source-Code findet in Ihren Programmen
+Anwendung, so daß er nicht völlig umsonst geschrieben wurde.
+
+Tom Wellige.
+(Dieburg, den 19.03.1993)
+
++------------------------------------------------------------------------------+
+| Original freeware.txt file                                                   |
++------------------------------------------------------------------------------+
+
+Dear Programmer.
+
+The files in this package are all donated as freeware. This means, that
+you can make any use of them, alter them an give them away.
+
+I would appreciate if you let the original file header in each file and
+only add a view lines by your own to them.
+
+I mainly wrote these files to learn programming (I'm a professional
+programmer today) and now want to help others learning this beautiful
+prefession. I sincerely hope these files help someone doing so.
+
+
+Feel free to contact me on any question:
+
+    wellige@geocities.com
+
+Dortmund, 14.12.1997

@@ -25,44 +25,44 @@ implementation
 
 function ethernetinit: boolean;
 begin
-{$IFDEF GO32V2}
-{$ELSE}
-  {$IFDEF WINDOWS}
+  {$IFDEF GO32V2}
   {$ELSE}
-    {$IFDEF UNIX}
+    {$IFDEF WINDOWS}
     {$ELSE}
-      {$FATAL Not supported operation system!}
+      {$IFDEF UNIX}
+      {$ELSE}
+        {$FATAL Not supported operation system!}
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
-{$ENDIF}
 end;
 
 function ethernetread: string;
 begin
-{$IFDEF GO32V2}
-{$ELSE}
-  {$IFDEF WINDOWS}
+  {$IFDEF GO32V2}
   {$ELSE}
-    {$IFDEF UNIX}
+    {$IFDEF WINDOWS}
     {$ELSE}
-      {$FATAL Not supported operation system!}
+      {$IFDEF UNIX}
+      {$ELSE}
+        {$FATAL Not supported operation system!}
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
-{$ENDIF}
 end;
 
 function ethernetwrite: boolean;
 begin
-{$IFDEF GO32V2}
-{$ELSE}
-  {$IFDEF WINDOWS}
+  {$IFDEF GO32V2}
   {$ELSE}
-    {$IFDEF UNIX}
+    {$IFDEF WINDOWS}
     {$ELSE}
-      {$FATAL Not supported operation system!}
+      {$IFDEF UNIX}
+      {$ELSE}
+        {$FATAL Not supported operation system!}
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
-{$ENDIF}
 end;
 
 end.

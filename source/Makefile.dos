@@ -6,7 +6,7 @@
 # +----------------------------------------------------------------------------+
 
 outdir = lib\i386-dos
-fpflag = -Tgo32v2 -MObjFPC -Scgi -O1 -v0 -Filib -Fu. -Fu$(lib\outdir) -FE$(outdir)
+fpflag = -Tgo32v2 -MObjFPC -Scgi -O1 -v0 -Filib -Fu. -Fuconvert -Fu$(lib\outdir) -FE$(outdir)
 name = modshell
 
 all:

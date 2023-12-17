@@ -25,44 +25,44 @@ implementation
 
 function serialinit: boolean;
 begin
-{$IFDEF GO32V2}
-{$ELSE}
-  {$IFDEF WINDOWS}
+  {$IFDEF GO32V2}
   {$ELSE}
-    {$IFDEF UNIX}
+    {$IFDEF WINDOWS}
     {$ELSE}
-      {$FATAL Not supported operation system!}
+      {$IFDEF UNIX}
+      {$ELSE}
+        {$FATAL Not supported operation system!}
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
-{$ENDIF}
 end;
 
 function serialread: string;
 begin
-{$IFDEF GO32V2}
-{$ELSE}
-  {$IFDEF WINDOWS}
+  {$IFDEF GO32V2}
   {$ELSE}
-    {$IFDEF UNIX}
+    {$IFDEF WINDOWS}
     {$ELSE}
-      {$FATAL Not supported operation system!}
+      {$IFDEF UNIX}
+      {$ELSE}
+        {$FATAL Not supported operation system!}
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
-{$ENDIF}
 end;
 
 function serialwrite: boolean;
 begin
-{$IFDEF GO32V2}
-{$ELSE}
-  {$IFDEF WINDOWS}
+  {$IFDEF GO32V2}
   {$ELSE}
-    {$IFDEF UNIX}
+    {$IFDEF WINDOWS}
     {$ELSE}
-      {$FATAL Not supported operation system!}
+      {$IFDEF UNIX}
+      {$ELSE}
+        {$FATAL Not supported operation system!}
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
-{$ENDIF}
 end;
 
 end.

@@ -22,6 +22,8 @@ uses
 
 function checkipaddress(address: string): boolean;
 function getlang: string;
+function getexepath: string;
+function getuserdir: string;
 function terminalsize: boolean;
 procedure quit(halt_code: byte; clear: boolean; message: string);
 procedure ewrite(fg: byte; hl: byte; t: string);
@@ -59,26 +61,56 @@ var
   s: string;
 
 begin
- {$IFDEF UNIX}
-  s := getenvironmentvariable('LANG');
- {$ENDIF}
- {$IFDEF GO32V2}
-  s := getenvironmentvariable('LANG');
- {$ENDIF}
- {$IFDEF WINDOWS}
-  size := getlocaleinfo(LOCALE_USER_DEFAULT, LOCALE_SABBREVLANGNAME, nil, 0);
-  getmem(buffer, size);
-  try
-    getlocaleinfo(LOCALE_USER_DEFAULT, LOCALE_SABBREVLANGNAME, buffer, size);
-    s := string(buffer);
-  finally
-    freemem(buffer);
-  end;
- {$ENDIF}
+  {$IFDEF GO32V2}
+    s := getenvironmentvariable('LANG');
+  {$ELSE}
+    {$IFDEF WINDOWS}
+      size := getlocaleinfo(LOCALE_USER_DEFAULT, LOCALE_SABBREVLANGNAME, nil, 0);
+      getmem(buffer, size);
+      try
+        getlocaleinfo(LOCALE_USER_DEFAULT, LOCALE_SABBREVLANGNAME, buffer, size);
+        s := string(buffer);
+      finally
+        freemem(buffer);
+      end;
+    {$ELSE}
+      {$IFDEF UNIX}
+        s := getenvironmentvariable('LANG');
+      {$ELSE}
+        {$FATAL Not supported operation system!}
+      {$ENDIF}
+    {$ENDIF}
+  {$ENDIF} 
   if length(s) = 0 then
     s := 'en';
   s := lowercase(s[1..2]);
   getlang := s;
+end;
+
+// get path of the executable file;
+function getexepath: string;
+var
+  p: shortstring;
+begin
+  result := ExtractFilePath(ParamStr(0));
+end;
+
+// get user's directory
+function getuserdir: string;
+begin
+  {$IFDEF GO32V2}
+    result := getexepath;
+  {$ELSE}
+    {$IFDEF WINDOWS}
+      result := getuserprofile;
+    {$ELSE}
+      {$IFDEF UNIX}
+        result := getenvironmentvariable('HOME');
+      {$ELSE}
+        {$FATAL Not supported operation system!}
+      {$ENDIF}
+    {$ENDIF}
+  {$ENDIF}
 end;
 
 // check terminal size
