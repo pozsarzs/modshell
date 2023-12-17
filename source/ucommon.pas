@@ -1,5 +1,5 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command line Modbus utility                               | }
+{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
 { | ucommon.pas                                                              | }
 { | common procedures and functions                                          | }

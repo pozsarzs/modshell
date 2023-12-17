@@ -1,5 +1,5 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command line Modbus utility                               | }
+{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
 { | modshell.pas                                                             | }
 { | main program                                                             | }
@@ -70,9 +70,10 @@ const
     ('-f','--fullscreen','full screen mode')
   );
   // commands and parameters
-  COMMANDS: array[0..15] of string = ('copy','exit','get','help','let','print',
+  COMMANDS: array[0..18] of string = ('copy','exit','get','help','let','print',
                                       'read','reset','set','date','ver','write',
-                                      'cls','save','load','export');
+                                      'cls','save','load','expreg','impreg',
+                                      'exphis','conv');
   BOOLVALUES: array[0..1,0..2] of string =
   (
     ('0','L','FALSE'),
@@ -94,7 +95,7 @@ const
 resourcestring
   // general messages
   MSG01 = '<F1> help  <F2> save cfg.  <F3> load cfg.  <F8> clear screen  <F10> exit';
-  MSG02 = 'Command line Modbus utility';
+  MSG02 = 'Command-driven scriptable Modbus utility';
   MSG03 = 'Use ''help COMMAND'' to show usage.';
   MSG04 = 'Usage this command:';
   MSG05 = 'parameter:';
@@ -132,6 +133,9 @@ resourcestring
   DES13='F2     save settings of device, protocol and connection';
   DES14='F3     load settings of device, protocol and connection';
   DES15='ALT-E  export content of the one or more buffer registers';
+  DES16='ALT-I  import content of the one or more buffer registers';
+  DES17='       export command line history to make a script easily.';
+  DES18='       convert value between different numeral systems';
   // command usage
   USG00='copy con? di|coil con? coil ADDRESS [COUNT]' + #13 + #10 +
         '  copy con? ireg|hreg con? hreg ADDRESS [COUNT]' + #13 + #10 +
@@ -155,7 +159,10 @@ resourcestring
   USG12='cls';
   USG13='save PATH_AND_FILENAME';
   USG14='load PATH_AND_FILENAME';
-  USG15='export di|coil|ireg|hreg ADDRESS [COUNT]';
+  USG15='expreg FILENAME di|coil|ireg|hreg ADDRESS [COUNT]';
+  USG16='impreg FILENAME';
+  USG17='exphis FILENAME';
+  USG18='conv bin|dec|hex|oct bin|dec|hex|oct VALUE';
 
 procedure version(h: boolean); forward;
 
@@ -172,7 +179,10 @@ procedure version(h: boolean); forward;
 {$I cmd_wrte.pas}
 {$I cmd_save.pas}
 {$I cmd_load.pas}
-{$I cmd_exp.pas}
+{$I cmd_expr.pas}
+{$I cmd_impr.pas}
+{$I cmd_exph.pas}
+{$I cmd_conv.pas}
 
 // simple command line
 procedure simplecommandline;
@@ -322,8 +332,14 @@ begin
              // save PATH_AND_FILENAME
          14: cmd_load(splitted[1]);
              // load PATH_AND_FILENAME
-         15: cmd_export(splitted[1], splitted[2], splitted[3]);
-             // export di|coil|ireg|hreg ADDRESS [COUNT]
+         15: cmd_expreg(splitted[1], splitted[2], splitted[3], splitted[4]);
+             // expreg FILENAME di|coil|ireg|hreg ADDRESS [COUNT]
+         16: cmd_impreg(splitted[1]);
+             // impreg FILENAME
+         17: cmd_exphis(splitted[1]);
+             // exphis FILENAME
+         18: cmd_conv(splitted[1], splitted[2], splitted[3]);
+             // conv bin|dec|hex|oct bin|dec|hex|oct VALUE
         end;
       end;
     end;
@@ -408,7 +424,6 @@ begin
   writeln('FPC version: ',{$I %FPCVERSION%});
   writeln('Target OS:   ',{$I %FPCTARGETOS%});
   writeln('Target CPU:  ',{$I %FPCTARGETCPU%});
-  writeln;
   if h then quit(0, false, '');;
 end;
 

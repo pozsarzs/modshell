@@ -1,5 +1,5 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command line Modbus utility                               | }
+{ | ModShell 0.1 * Command-driven scriptable Modbus utility                              | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
 { | cmd_help.pas                                                             | }
 { | command 'help'                                                           | }
@@ -47,8 +47,7 @@ begin
   if length(p1) = 0 then
   begin
     writeln(MSG03); // How to use help with command list.
-    writeln;
-    for b := 0 to 15 do
+    for b := 0 to 18 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
       for bb := 0 to 5 - length(COMMANDS[b]) + 2 do
@@ -70,16 +69,18 @@ begin
         13: buffer[b] := buffer[b] + DES13;
         14: buffer[b] := buffer[b] + DES14;
         15: buffer[b] := buffer[b] + DES15;
+        16: buffer[b] := buffer[b] + DES16;
+        17: buffer[b] := buffer[b] + DES17;
+        18: buffer[b] := buffer[b] + DES18;
       end;
     end;
     shorting;
-    for b := 15 downto 0 do writeln(buffer[b]);
-    writeln;
+    for b := 18 downto 0 do writeln(buffer[b]);
   end else
   begin
     // check parameter
     valid := false;
-    for b := 0 to 15 do
+    for b := 0 to 18 do
       if p1 = COMMANDS[b] then
       begin
         valid := true;
@@ -108,8 +109,10 @@ begin
         13: writeln(USG13);
         14: writeln(USG14);
         15: writeln(USG15);
+        16: writeln(USG16);
+        17: writeln(USG17);
+        18: writeln(USG18);
       end;
     end;
-    writeln;
   end;
 end;

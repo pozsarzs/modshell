@@ -79,7 +79,7 @@ exported to a text file.
 |:------|------|----------------------------------------------------|
 |conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format|
 |if     |      |selection statement                                 |
-|impreg |ALT-E |import content of the one or more buffer registers  |
+|impreg |ALT-I |import content of the one or more buffer registers  |
 |exphis |      |export history to a text file                       |
 |for    |      |loop iteration                                      |
 
@@ -92,14 +92,14 @@ exported to a text file.
 
  **Planned mathematical operation:**  
 
-|sign      |description                   |
-|:---------|------------------------------|
-|ent       |add value to stack            |
-|add       |addition                      |
-|sub       |substraction                  |
-|mul       |multiplication                |
-|div       |division                      |
-|roll      |roll down stack               |
-|swap      |swap number with top of stack |
+|sign|description                   |
+|:---|------------------------------|
+|ent |add value to stack            |
+|add |addition                      |
+|sub |substraction                  |
+|mul |multiplication                |
+|div |division                      |
+|roll|roll down stack               |
+|swap|swap number with top of stack |
  
 (Reverse Polish Notation mode with 4 word size registers (x, y, z, t))
