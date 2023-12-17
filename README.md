@@ -73,20 +73,33 @@ exported to a text file.
 (Commands with function keys (F?) are executed immediately,
  modifier keys (ALT-?) only make typing easier.)  
 
-**Planned commands and operations:**  
+**Planned commands**  
 
-|command|hotkey|description                                           |
-|:------|------|------------------------------------------------------|
-|conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format  |
-|if     |      |selection statement                                   |
-|impreg |ALT-E |import content of the one or more buffer registers    |
-|exphis |      |export history to a text file                         |
-|for    |      |loop iteration                                        |
+|command|hotkey|description                                         |
+|:------|------|----------------------------------------------------|
+|conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format|
+|if     |      |selection statement                                 |
+|impreg |ALT-E |import content of the one or more buffer registers  |
+|exphis |      |export history to a text file                       |
+|for    |      |loop iteration                                      |
 
-**Planned operations:**  
+**Planned logical operations:**  
 
-|sign      |description                        |
-|:---------|-----------------------------------|
-|+ - * div |     mathematical operations (word)|
-|and or not|     logical operations (bit)      |
-|shl shr   |     bit shift (word)              |
+|sign             |description               |
+|:----------------|--------------------------|
+|and; or; not; xor|general logical operations|
+|shl; shr         |bit shift                 |
+
+ **Planned mathematical operation:**  
+
+|sign      |description                   |
+|:---------|------------------------------|
+|ent       |add value to stack            |
+|add       |addition                      |
+|sub       |substraction                  |
+|mul       |multiplication                |
+|div       |division                      |
+|roll      |roll down stack               |
+|swap      |swap number with top of stack |
+ 
+(Reverse Polish Notation mode with 4 word size registers (x, y, z, t))
