@@ -57,15 +57,18 @@ exported to a text file.
 |:------|------|------------------------------------------------------|
 |cls    |F8    |clear screen                                          |
 |copy   |      |copy one or more register between two connections     |
-|conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format|
+|conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format  |
 |date   |      |show system date and time                             |
 |exit   |F10   |exit                                                  |
+|exphis |      |export history to a text file                         |
 |get    |ALT-G |get setting of a device, protocol or connection       |
 |help   |F1    |show description or usage of the commands             |
 |let    |ALT-L |set value of a buffer registers                       |
+|load   |F3    |load settings of device, protocol and connection      |
 |print  |ALT-P |print content of the one or more buffer registers     |
 |read   |ALT-R |read one or more remote registers to buffer           |
 |reset  |ALT-T |reset device, protocol or connection                  |
+|save   |F2    |save settings of device, protocol and connection      |
 |set    |ALT-S |set device, protocol or connection                    |
 |ver    |      |show version and build information of this program    |
 |write  |ALT-W |write data from buffer to one or more remote registers|
@@ -79,11 +82,8 @@ exported to a text file.
 |:------|------|----------------------------------------------------|
 |if     |      |selection statement                                 |
 |impreg |ALT-I |import content of the one or more buffer registers  |
-|exphis |      |export history to a text file                       |
 |expreg |ALT-E |export content of the one or more buffer registers  |
 |for    |      |loop iteration                                      |
-|load   |F3    |load settings of device, protocol and connection    |
-|save   |F2    |save settings of device, protocol and connection    |
 
 **Planned logical operations:**  
 

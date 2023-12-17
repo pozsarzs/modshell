@@ -30,7 +30,7 @@ type
   tdevice = record
     valid: boolean;    // false|true: invalid|valid
     devtype: byte;     // 0..1 -> DEV_TYPE
-    device: string;    // /dev/ttySx, /dev/ttyUSBx, /dev/ttyAMAx, COMx, etc.
+    device: string[15];    // /dev/ttySx, /dev/ttyUSBx, /dev/ttyAMAx, COMx, etc.
     port: word;        // 0-65535
     speed: byte;       // 0..7 -> DEV_SPEED
     databit: byte;     // 7|8
@@ -40,7 +40,7 @@ type
   tprotocol = record
     valid: boolean;    // false|true: invalid|valid
     prottype: byte;    // 0..2 -> PROT_TYPE
-    ipaddress: string; // a.b.c.d
+    ipaddress: string[15]; // a.b.c.d
     uid: integer;      // 1..247
   end;
   tconnection = record
@@ -61,6 +61,7 @@ var
   // others
   appmode: byte;
   b: byte;
+  histbuff: array[0..255] of string;
   lang: string;
 const
   // command line parameters
@@ -109,6 +110,10 @@ resourcestring
   MSG11 = ' protocol:   ';
   MSG12 = ' IP address: ';
   MSG13 = ' device UID: ';
+  MSG14 = 'File exist, overwrite? (y/n)';
+  MSG15 = 'Command line history has exported to ';
+  MSG16 = 'Settings has saved to ';
+  MSG17 = 'Settings has loaded from ';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // error messages
   ERR00 = 'No such command!';
@@ -118,6 +123,9 @@ resourcestring
   ERR04 = 'IP address is not valid!';
   ERR05 = 'Parameter(s) required!';
   ERR06 = 'UID must be 1-247!';
+  ERR07 = 'Cannot export command line history to ';
+  ERR08 = 'Cannot save settings to ';
+  ERR09 = 'Cannot load settings from ';
   // command description
   DES00='       copy one or more register between two connections';
   DES01='F10    exit';
@@ -159,11 +167,11 @@ resourcestring
   USG10='ver';
   USG11='write con? coil|hreg ADDRESS [COUNT]' + #13 + #10 + '  ?: [0-7]';
   USG12='cls';
-  USG13='save PATH_AND_FILENAME';
-  USG14='load PATH_AND_FILENAME';
-  USG15='expreg FILENAME di|coil|ireg|hreg ADDRESS [COUNT]';
-  USG16='impreg FILENAME';
-  USG17='exphis FILENAME';
+  USG13='save DIRECTORY';
+  USG14='load DIRECTORY';
+  USG15='expreg PATH_AND_FILENAME di|coil|ireg|hreg ADDRESS [COUNT]';
+  USG16='impreg PATH_AND_FILENAME';
+  USG17='exphis PATH_AND_FILENAME';
   USG18='conv bin|dec|hex|oct bin|dec|hex|oct VALUE';
 
 procedure version(h: boolean); forward;
@@ -192,7 +200,6 @@ var
   a, b: byte;
   c: char;
   command: string;
-  histbuff: array[0..255] of string;
   histitem: byte = 0;
   histlast: byte = 0;
   o: boolean = false;
@@ -424,7 +431,9 @@ begin
   writeln('This program was compiled at ',{$I %TIME%},' on ',{$I %DATE%},
     ' by pozsarzs.');
   writeln('FPC version: ',{$I %FPCVERSION%});
-  writeln('Target OS:   ',{$I %FPCTARGETOS%});
+  write('Target OS:   ',{$I %FPCTARGETOS%});
+  if lowercase({$I %FPCTARGETOS%}) = 'go32v2' then write(' (DOS)');
+  writeln;
   writeln('Target CPU:  ',{$I %FPCTARGETCPU%});
   if h then quit(0, false, '');;
 end;
