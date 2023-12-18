@@ -65,16 +65,17 @@ var
   lang: string;
 const
   // command line parameters
-  CMDLINEPARAMS: array[0..2, 0..2] of string =
+  CMDLINEPARAMS: array[0..3, 0..2] of string =
   (
     ('-h','--help','show help'),
     ('-v','--version','show version and build information'),
-    ('-f','--fullscreen','full screen mode')
+    ('-f','--fullscreen','full screen mode'),
+    ('-r','--run','run script')
   );
   // commands and parameters
   COMMANDS: array[0..18] of string = ('copy','exit','get','help','let','print',
                                       'read','reset','set','date','ver','write',
-                                      'cls','save','load','expreg','impreg',
+                                      'cls','savecfg','loadcfg','expreg','impreg',
                                       'exphis','conv');
   BOOLVALUES: array[0..1,0..2] of string =
   (
@@ -94,6 +95,11 @@ const
   PRGVERSION = '0.1';
   PROMPT = 'MODSH>';
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
+  {$IFDEF UNIX}  
+    SLASH ='/';
+  {$ELSE}
+    SLASH ='\';
+  {$ENDIF}
   
 resourcestring
   // general messages
@@ -114,6 +120,8 @@ resourcestring
   MSG15 = 'Command line history has exported to ';
   MSG16 = 'Settings has saved to ';
   MSG17 = 'Settings has loaded from ';
+  MSG18 = 'Register content has exported to ';
+  MSG19 = 'Register content has imported from ';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // error messages
   ERR00 = 'No such command!';
@@ -126,6 +134,8 @@ resourcestring
   ERR07 = 'Cannot export command line history to ';
   ERR08 = 'Cannot save settings to ';
   ERR09 = 'Cannot load settings from ';
+  ERR10 = 'Cannot export register content to ';
+  ERR11 = 'Cannot import register content from ';
   // command description
   DES00='       copy one or more register between two connections';
   DES01='F10    exit';
@@ -142,9 +152,9 @@ resourcestring
   DES12='F8     clear screen';
   DES13='F2     save settings of device, protocol and connection';
   DES14='F3     load settings of device, protocol and connection';
-  DES15='ALT-E  export content of the one or more buffer registers';
-  DES16='ALT-I  import content of the one or more buffer registers';
-  DES17='       export command line history to make a script easily.';
+  DES15='ALT-E  export content of the one or more buffer registers (CSV)';
+  DES16='ALT-I  import content of the one or more buffer registers (CSV)';
+  DES17='       export command line history to make a script easily';
   DES18='       convert value between different numeral systems';
   // command usage
   USG00='copy con? di|coil con? coil ADDRESS [COUNT]' + #13 + #10 +
@@ -167,8 +177,8 @@ resourcestring
   USG10='ver';
   USG11='write con? coil|hreg ADDRESS [COUNT]' + #13 + #10 + '  ?: [0-7]';
   USG12='cls';
-  USG13='save DIRECTORY';
-  USG14='load DIRECTORY';
+  USG13='savecfg PATH_AND_FILENAME';
+  USG14='loadcfg PATH_AND_FILENAME';
   USG15='expreg PATH_AND_FILENAME di|coil|ireg|hreg ADDRESS [COUNT]';
   USG16='impreg PATH_AND_FILENAME';
   USG17='exphis PATH_AND_FILENAME';
@@ -337,9 +347,9 @@ begin
              // write conn? coil|hreg ADDRESS [COUNT]
          12: clrscr;
              // cls
-         13: cmd_save(splitted[1]);
+         13: cmd_savecfg(splitted[1]);
              // save PATH_AND_FILENAME
-         14: cmd_load(splitted[1]);
+         14: cmd_loadcfg(splitted[1]);
              // load PATH_AND_FILENAME
          15: cmd_expreg(splitted[1], splitted[2], splitted[3], splitted[4]);
              // expreg FILENAME di|coil|ireg|hreg ADDRESS [COUNT]
@@ -454,7 +464,7 @@ begin
     appmode #4: interpreter mode }
   if length(paramstr(1)) <> 0 then
   begin
-    for b := 0 to 2 do
+    for b := 0 to 3 do
     begin
       if paramstr(1) = CMDLINEPARAMS[b,0] then appmode := b + 1;
       if paramstr(1) = CMDLINEPARAMS[b,1] then appmode := b + 1;

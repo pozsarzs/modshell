@@ -14,8 +14,8 @@
 }
 {
   p0     p1
-  ---------------
-  exphis FILENAME
+  ------------------------
+  exphis PATH_AND_FILENAME
 }
 
 // command 'exphis'
@@ -23,7 +23,7 @@ procedure cmd_exphis(p1: string);
 var
   b: byte;
   c: char;
-  fn: string;
+  fp, fn: string;
   tf: text;
 
 begin
@@ -33,20 +33,17 @@ begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  // check path
+  // check p1
+  fp := extractfilepath(p1);
+  fn := extractfilename(p1);
+  if length(fp) = 0
+  then
   {$IFDEF GO32V2}
-    if length(extractfilepath(p1)) = 0 then fn := getexepath + '\' + p1;
+    fp := getexepath;
   {$ELSE}
-    {$IFDEF WINDOWS}
-      if length(extractfilepath(p1)) = 0 then fn := getuserdir + '\' + p1;
-    {$ELSE}
-      {$IFDEF UNIX}
-        if length(extractfilepath(p1)) = 0 then fn := getuserdir + '/' + p1;
-      {$ELSE}
-        {$FATAL Not supported operation system!}
-      {$ENDIF}
-    {$ENDIF}
+    fp := getuserdir;
   {$ENDIF}
+  fn := fp + fn;
   // check exist
   if fileexists(fn) then
   begin
@@ -61,10 +58,10 @@ begin
   try
     rewrite(tf);
     {$IFDEF LINUX}
-      writeln(tf, '#!/usr/bin/modshell');    
+      writeln(tf, '#!/usr/bin/modshell -r');    
     {$ENDIF}
     {$IFDEF BSD}
-      writeln(tf, '#!/usr/local/bin/modshell');    
+      writeln(tf, '#!/usr/local/bin/modshell -r');    
     {$ENDIF}
     for b := 0 to 255 do
       if length(histbuff[b]) > 0 then writeln(tf, histbuff[b]);

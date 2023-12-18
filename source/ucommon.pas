@@ -102,10 +102,10 @@ begin
     result := getexepath;
   {$ELSE}
     {$IFDEF WINDOWS}
-      result := getuserprofile;
+      result := getuserprofile + '\';
     {$ELSE}
       {$IFDEF UNIX}
-        result := getenvironmentvariable('HOME');
+        result := getenvironmentvariable('HOME') + '/';
       {$ELSE}
         {$FATAL Not supported operation system!}
       {$ENDIF}
