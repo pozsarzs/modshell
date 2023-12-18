@@ -82,7 +82,6 @@ exported to a text file.
 |command|hotkey|description                                         |
 |:------|------|----------------------------------------------------|
 |if     |      |selection statement                                 |
-|impreg |ALT-I |import content of the one or more buffer registers  |
 |for    |      |loop iteration                                      |
 
 **Planned logical operations:**  

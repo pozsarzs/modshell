@@ -47,7 +47,7 @@ begin
   if length(p1) = 0 then
   begin
     writeln(MSG03); // How to use help with command list.
-    for b := 0 to 18 do
+    for b := 0 to 17 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
       for bb := 0 to 5 - length(COMMANDS[b]) + 2 do
@@ -71,7 +71,6 @@ begin
         15: buffer[b] := buffer[b] + DES15;
         16: buffer[b] := buffer[b] + DES16;
         17: buffer[b] := buffer[b] + DES17;
-        18: buffer[b] := buffer[b] + DES18;
       end;
     end;
     shorting;
@@ -80,7 +79,7 @@ begin
   begin
     // check parameter
     valid := false;
-    for b := 0 to 18 do
+    for b := 0 to 17 do
       if p1 = COMMANDS[b] then
       begin
         valid := true;
@@ -111,7 +110,6 @@ begin
         15: writeln(USG15);
         16: writeln(USG16);
         17: writeln(USG17);
-        18: writeln(USG18);
       end;
     end;
   end;

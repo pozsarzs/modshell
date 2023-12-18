@@ -73,9 +73,9 @@ const
     ('-r','--run','run script')
   );
   // commands and parameters
-  COMMANDS: array[0..18] of string = ('copy','exit','get','help','let','print',
+  COMMANDS: array[0..17] of string = ('copy','exit','get','help','let','print',
                                       'read','reset','set','date','ver','write',
-                                      'cls','savecfg','loadcfg','expreg','impreg',
+                                      'cls','savecfg','loadcfg','expreg',
                                       'exphis','conv');
   BOOLVALUES: array[0..1,0..2] of string =
   (
@@ -153,9 +153,8 @@ resourcestring
   DES13='F2     save settings of device, protocol and connection';
   DES14='F3     load settings of device, protocol and connection';
   DES15='ALT-E  export content of the one or more buffer registers (CSV)';
-  DES16='ALT-I  import content of the one or more buffer registers (CSV)';
-  DES17='       export command line history to make a script easily';
-  DES18='       convert value between different numeral systems';
+  DES16='       export command line history to make a script easily';
+  DES17='       convert value between different numeral systems';
   // command usage
   USG00='copy con? di|coil con? coil ADDRESS [COUNT]' + #13 + #10 +
         '  copy con? ireg|hreg con? hreg ADDRESS [COUNT]' + #13 + #10 +
@@ -180,29 +179,27 @@ resourcestring
   USG13='savecfg PATH_AND_FILENAME';
   USG14='loadcfg PATH_AND_FILENAME';
   USG15='expreg PATH_AND_FILENAME di|coil|ireg|hreg ADDRESS [COUNT]';
-  USG16='impreg PATH_AND_FILENAME';
-  USG17='exphis PATH_AND_FILENAME';
-  USG18='conv bin|dec|hex|oct bin|dec|hex|oct VALUE';
+  USG16='exphis PATH_AND_FILENAME';
+  USG17='conv bin|dec|hex|oct bin|dec|hex|oct VALUE';
 
 procedure version(h: boolean); forward;
 
 {$I modbus.pas}
+{$I cmd_conv.pas}
 {$I cmd_copy.pas}
 {$I cmd_date.pas}
+{$I cmd_exph.pas}
+{$I cmd_expr.pas}
 {$I cmd_get.pas}
 {$I cmd_help.pas}
 {$I cmd_let.pas}
+{$I cmd_load.pas}
 {$I cmd_prnt.pas}
 {$I cmd_read.pas}
 {$I cmd_rst.pas}
+{$I cmd_save.pas}
 {$I cmd_set.pas}
 {$I cmd_wrte.pas}
-{$I cmd_save.pas}
-{$I cmd_load.pas}
-{$I cmd_expr.pas}
-{$I cmd_impr.pas}
-{$I cmd_exph.pas}
-{$I cmd_conv.pas}
 
 // simple command line
 procedure simplecommandline;
@@ -237,7 +234,6 @@ begin
         if c = #20 then begin command := COMMANDS[7]; c := #32; end;  // ~T
         if c = #31 then begin command := COMMANDS[8]; c := #32; end;  // ~S
         if c = #17 then begin command := COMMANDS[11]; c := #32; end; // ~W
-        if c = #18 then begin command := COMMANDS[15]; c := #32; end; // ~E
         // insert and run
         if c = #59 then begin command := COMMANDS[3]; c:=#13; end;    // F1
         if c = #60 then begin command := COMMANDS[13]; c:=#13; end;   // F2
@@ -309,7 +305,7 @@ begin
           if command[a] = #32 then break else splitted[b] := splitted[b] + command[a];
       // parse command
       o := false;
-      for b := 0 to 18 do
+      for b := 0 to 17 do
         if splitted[0] = COMMANDS[b] then
         begin
           o := true;
@@ -353,11 +349,9 @@ begin
              // load PATH_AND_FILENAME
          15: cmd_expreg(splitted[1], splitted[2], splitted[3], splitted[4]);
              // expreg FILENAME di|coil|ireg|hreg ADDRESS [COUNT]
-         16: cmd_impreg(splitted[1]);
-             // impreg FILENAME
-         17: cmd_exphis(splitted[1]);
+         16: cmd_exphis(splitted[1]);
              // exphis FILENAME
-         18: cmd_conv(splitted[1], splitted[2], splitted[3]);
+         17: cmd_conv(splitted[1], splitted[2], splitted[3]);
              // conv bin|dec|hex|oct bin|dec|hex|oct VALUE
         end;
       end;

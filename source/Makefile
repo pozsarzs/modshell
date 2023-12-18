@@ -1,5 +1,5 @@
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command line Modbus utility                                 |
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
 # | Makefile                                                                   |
 # | Make file for source code                                                  |
@@ -7,26 +7,26 @@
 
 include ../Makefile.global
 
-title="binary files \t"
+title="binary files  "
 removetargetdir=0
 sourcedir=lib/$(architecture)-$(os)
 targetdir=$(bindir)
 filemode=$(binmode)
 
-projectdirs=.
+projectdirs="modshell"
 
 all:
-	@mkdir --parents $(sourcedir)/
+	@mkdir -p $(sourcedir)/
 	@for x in $(projectdirs); do \
 	  if [ -d $$x ]; \
 	  then \
 	    cd $$x; \
-	    fpc $(fpflag) $$x.lpr; \
+	    fpc $(fpflag) $$x.pas; \
 	    cd ..; \
 	    echo ""; \
 	  fi; \
-	@rstconv -f po -p utf8 -i $(name).rsj  -o ../message/$(name).pot
 	done
+	@rstconv -f po -p utf-8 -i $(projectdirs)/$(name).rsj  -o ../message/$(name).pot
 
 clean:
 	@for x in $(projectdirs); do \
@@ -36,11 +36,11 @@ clean:
 
 install:
 	@echo -n "- Installing "$(title)"["
-	@$(install) --directory $(targetdir)
+	@$(install) -d $(targetdir)
 	@for x in $(projectdirs); do \
 	  if [ -f $(sourcedir)/$$x ]; \
 	  then \
-	    $(install) --mode $(filemode) $(sourcedir)/$$x $(targetdir); \
+	    $(install) -m $(filemode) $(sourcedir)/$$x $(targetdir); \
 	    echo -n "#"; \
 	  fi \
 	done

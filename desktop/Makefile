@@ -1,13 +1,13 @@
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command line Modbus utility                                 |
-# | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
+# | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                       |
 # | Makefile                                                                   |
 # | Makefile for many files of the same type                                   |
 # +----------------------------------------------------------------------------+
 
 include ../Makefile.global
 
-title="desktop files\t"
+title="desktop files "
 removetargetdir=0
 sourcedir="."
 filemode=$(txtmode)
@@ -22,19 +22,19 @@ clean:
 
 install:
 	@echo -n "- Installing "$(title)"["
-	@$(install) --directory $(targetdir1)
+	@$(install) -d $(targetdir1)
 	@for x in $(files1); do \
 	  if [ -f $(sourcedir)/$$x ]; \
 	  then \
-	    $(install) --mode $(filemode) $(sourcedir)/$$x $(targetdir1); \
+	    $(install) -m $(filemode) $(sourcedir)/$$x $(targetdir1); \
 	    echo -n "#"; \
 	  fi \
 	done
-	@$(install) --directory $(targetdir2)
+	@$(install) -d $(targetdir2)
 	@for x in $(files2); do \
 	  if [ -f $(sourcedir)/$$x ]; \
 	  then \
-	    $(install) --mode $(filemode) $(sourcedir)/$$x $(targetdir2); \
+	    $(install) -m $(filemode) $(sourcedir)/$$x $(targetdir2); \
 	    echo -n "#"; \
 	  fi \
 	done

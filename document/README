@@ -1,0 +1,64 @@
+Modshell - Command-driven scriptable Modbus utility
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. About software
+-----------------
+
+This is a utility that can be used on several operating systems,
+which can communicate with connected equipment using Modbus/ASCII,
+-/RTU and -/TCP protocols. The program can - even automatically -
+read, write or copy data from one device to another (e.g. transferring
+settings).
+
+2. How to get installer package for my OS?
+------------------------------------------
+a. Visit homepage (see later) to download installer packages:
+
+  operation system  arch.   package name
+  --------------------------------------------------------
+  DOS               i386    mdshell01.exe            (SFX)
+                    i386    mdshell01.zip
+  Linux             i386    modshell-0.1-i386.bin    (SFX)
+                    x86_64  modshell-0.1-amd64.bin   (SFX)
+                    armhf   modshell-0.1-armhf.bin   (SFX)
+                    i386    modshell-0.1-i386.zip
+                    amd64   modshell-0.1-amd64.zip
+                    armhf   modshell-0.1-armhf.zip
+  Debian GNU/Linux  i386    modshell_0.5-1_i386.deb
+                    x86_64  modshell_0.5-1_amd64.deb
+  Raspberry Pi OS   armhf   modshell_0.5-1_armhf.deb
+  FreeBSD           i386    modshell-0.1.txz
+                    amd64   modshell-0.1.txz       
+                    (port)  modshell-0.1-FreeBSD-Port.shar
+  Windows           i586    modshell-0.1-win32.zip
+                    x86_64  modshell-0.1-win64.zip
+                    i586    modshell-0.1-win32.exe
+                    x86_64  modshell-0.1-win64.exe
+                    i586    modshell-0.1-win32.msi
+                    x86_64  modshell-0.1-win64.msi
+  Source code       (src)   modshell-0.1.tar.gz
+
+b. Download from Github
+
+  $ git clone https://github.com/pozsarzs/modshell.git
+
+c. Download from Debian repository
+
+  set reporitory:
+  $ sudo echo "deb http://www.pozsarzs.hu/deb/ ./" >> /etc/apt/sources.list
+  $ sudo wget -q -O - http://www.pozsarzs.hu/deb/KEY.gpg | apt-key add -
+  $ sudo apt-get update
+
+  install:
+  $ sudo apt-get install modshell
+
+3. Contact
+----------
+   Homepage:             <http://www.pozsarzs.hu>
+   Author:               Pozsár Zsolt
+   E-mail:               <pozsarzs@gmail.com>           
+   Phone:                +36 56/470-272
+   Mobile:               +36 30/249-5030
+
+--------------------------------------------------------------------------------
+  ModShell * Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>

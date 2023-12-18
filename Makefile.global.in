@@ -26,17 +26,17 @@ binmode		= 0755
 txtmode		= 0644
 
 install		= @install@
-ln		= @ln@ --symbolic --force
+ln		= @ln@ -s -f
 make		= @make@
-rm		= @rm@ --force
-rmdir		= @rmdir@ --ignore-fail-on-non-empty
+rm		= @rm@ -f
+rmdir		= @rmdir@
 
 fpflag		= -T@os@ \
                   -MObjFPC \
                   -Scgi \
                   -O1 \
                   -ve \
+                  -Fu../convert/ \
                   -Fu. \
-                  -Fu. /convert/ \
                   -Fu../lib/@architecture@-@os@/ \
                   -FE../lib/@architecture@-@os@/ \

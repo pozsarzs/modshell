@@ -5,9 +5,10 @@ dnl # | Makefile                                                               |
 dnl # | Makefile for Unix-like systems                                         |
 dnl # +------------------------------------------------------------------------+
 
-AC_INIT(source/modshell.pas)
+AC_INIT
+AC_CONFIG_SRCDIR([source/modshell/modshell.pas])
 AC_CONFIG_AUX_DIR(config)
-AC_CANONICAL_SYSTEM
+AC_CANONICAL_TARGET
 
 AC_PATH_PROG(ln, ln, no)
 AC_PATH_PROG(rm, rm, no)
@@ -66,9 +67,10 @@ AC_SUBST(ln)
 AC_SUBST(make)
 AC_SUBST(rm)
 
-AC_OUTPUT( Makefile.global \
+AC_CONFIG_FILES([Makefile.global \
            manual/modshell.1 \
-         )
+         ])
+AC_OUTPUT
 
 echo "
 Summary

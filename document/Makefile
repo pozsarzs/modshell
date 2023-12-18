@@ -1,5 +1,5 @@
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command line Modbus utility                                 |
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
 # | Makefile                                                                   |
 # | Makefile for many files of the same type                                   |
@@ -7,7 +7,7 @@
 
 include ../Makefile.global
 
-title="documentation\t"
+title="documentation "
 removetargetdir=1
 sourcedir="."
 targetdir=$(datarootdir)/doc/$(name)
@@ -20,15 +20,15 @@ clean:
 
 install:
 	@echo -n "- Installing "$(title)"["
-	@$(install) --directory $(targetdir)
+	@$(install) -d $(targetdir)
 	@for x in $(files); do \
 	  if [ -f $(sourcedir)/$$x ]; \
 	  then \
-	    $(install) --mode $(filemode) $(sourcedir)/$$x $(targetdir); \
+	    $(install) -m $(filemode) $(sourcedir)/$$x $(targetdir); \
 	    echo -n "#"; \
 	  fi \
 	done
-	@$(install) --mode $(filemode) "../LICENCE" $(targetdir)	
+	@$(install) -m $(filemode) "../LICENCE" $(targetdir)	
 	@echo -n "#"
 	@echo "]"
 
