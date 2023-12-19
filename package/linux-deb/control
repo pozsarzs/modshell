@@ -1,0 +1,18 @@
+Package: modshell
+Version: 0.1
+Section: comm
+Priority: standard
+Depends: libc6
+Architecture: ???
+Installed-Size: ??? MB
+Maintainer: Pozsar Zsolt <pozsarzs@gmail.com>
+Homepage: <http://www.pozsarzs.hu>
+Description: Command-driven scriptable Modbus utility
+This is a utility that can be used on several
+operating systems, which can communicate with
+connected equipment using Modbus/ASCII, -/RTU
+and -/TCP protocols. The program can - even
+automatically - read, write or copy data from
+one device to another (e.g. transferring
+settings).
+

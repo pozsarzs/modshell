@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# create bin and zip package
+#
+
+NAME="modshell"
+LABEL="ModShell v0.1"
+VERSION="0.1"
+OS="linux"
+
+if [ `whoami` != 'root' ]
+then echo 'ERROR: You are not root!'; exit
+fi
+
+if [ $# -eq 0 ]
+then
+  read -p "Architecture: " ARCH
+else
+  ARCH=$1
+fi
+
+find $NAME -exec touch {} +
+chown -R root:root $NAME
+makeself $NAME "$NAME-0.1-$OS-$ARCH.bin" "$LABEL" ./install
+zip -r "$NAME-0.1-$OS-$ARCH.zip" $NAME

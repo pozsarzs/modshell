@@ -1,0 +1,10 @@
+        |-----handy-ruler-----------------------------------|
+modshell:Command-driven scriptable Modbus utility
+modshell:
+modshell:This is a utility that can be used on several
+modshell:operating systems, which can communicate with
+modshell:connected equipment using Modbus/ASCII, -/RTU
+modshell:and -/TCP protocols. The program can - even
+modshell:automatically - read, write or copy data from
+modshell:one device to another (e.g. transferring
+modshell:settings).

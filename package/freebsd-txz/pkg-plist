@@ -1,0 +1,11 @@
+bin/modshell
+man/man1/modshell.1.gz
+share/applications/modshell1.desktop
+share/applications/modshell2.desktop
+share/doc/modshell/AUTHORS
+share/doc/modshell/README
+share/doc/modshell/VERSION
+share/doc/modshell/changelog
+share/doc/modshell/copyright
+share/locale/hu/LC_MESSAGES/modshell.mo
+share/pixmaps/modshell.xpm

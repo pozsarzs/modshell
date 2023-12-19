@@ -1,0 +1,45 @@
+#!/usr/local/bin/makeself [ar
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command line Modbus utility                                 |
+# | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                       |
+# | remove_links                                                               |
+# | Symbolic link remover script                                               |
+# +----------------------------------------------------------------------------+
+
+# constants
+SWN="ModShell"
+SWV=`cat documents/VERSION`
+CR=`cat documents/copyright`
+INSTDIR=/opt/modshell
+LINKDIR=/usr/local
+BINFILES="modshell"
+
+# link remover
+clear
+echo "--------------------------------------------------------------------------------"
+echo "$SWN $SWV symbolic link remover script"
+echo "$CR"
+echo "--------------------------------------------------------------------------------"
+if [ `whoami` != 'root' ]
+then echo 'ERROR: You are not root!'; exit
+fi
+sleep 1
+echo "Removing symbolic links..."
+for f in $BINFILES
+do
+  rm -f $LINKDIR/bin/$f 2> /dev/null
+  echo "  $LINKDIR/bin/$f"
+  if [ -f $LINKDIR/bin/$f.desktop ];
+  then
+    rm -f $LINKDIR/share/applications/$f.desktop 2> /dev/null
+    echo "  $LINKDIR/share/applications/$f.desktop"
+  fi
+  if [ -f $f.xpm ];
+  then
+    rm -f $LINKDIR/share/pixmaps/$f.xpm 2> /dev/null
+    echo "  $LINKDIR/share/pixmaps/$f.xpm"
+  fi
+  rm -f $LINKDIR/man/man1/$f.1 2> /dev/null
+  echo "  $LINKDIR/man/man1/$f.1"
+done
+echo "Done."

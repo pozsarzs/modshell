@@ -1,0 +1,64 @@
+#!/bin/bash
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command line Modbus utility                                 |
+# | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
+# | create_links                                                               |
+# | Symbolic link creator script                                               |
+# +----------------------------------------------------------------------------+
+
+# constants
+SWN="ModShell"
+SWV=`cat documents/VERSION`
+CR=`cat documents/copyright`
+LINKDIR=/usr/local
+SYSDIRS="$LINKDIR/bin \
+         $LINKDIR/share/applications \
+         $LINKDIR/share/man/man1 \
+         $LINKDIR/share/pixmaps"
+BINFILES="modshell"
+README=./README
+
+# installer
+clear
+echo "--------------------------------------------------------------------------------"
+echo "$SWN $SWV symbolic link creator script"
+echo "$CR"
+echo "--------------------------------------------------------------------------------"
+if [ `whoami` != 'root' ]
+then echo 'ERROR: You are not root!'; exit
+fi
+echo "  This program is free software: you can redistribute it and/or modify it
+under the terms of the European Union Public License 1.2 version.
+
+  This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE."
+echo "--------------------------------------------------------------------------------"
+sleep 3
+echo "Creating symbolic links..."
+mkdir -p $INSTDIR 2> /dev/null
+for d in $SYSDIRS
+do
+  mkdir -p $d 2> /dev/null
+done
+for f in $BINFILES
+do
+  ln -s `pwd`/$f $LINKDIR/bin/$f 2> /dev/null
+  echo "  "`pwd`/$f' --> '$LINKDIR/bin/$f
+  if [ -f `pwd`/$f.desktop ];
+  then
+    ln -s `pwd`/$f.desktop $LINKDIR/share/applications/$f.desktop 2> /dev/null
+    echo "  "`pwd`/$f.desktop' --> '$LINKDIR/share/applications/$f.desktop
+  fi
+  if [ -f `pwd`/$f.xpm ];
+  then
+    ln -s `pwd`/$f.xpm $LINKDIR/share/pixmaps/$f.xpm 2> /dev/null
+    echo "  "`pwd`/$f.xpm' --> '$LINKDIR/share/pixmaps/$f.xpm
+  fi
+  ln -s `pwd`/manual/"$f"_en.1 $LINKDIR/share/man/man1/$f.1 2> /dev/null
+  echo "  "`pwd`/manual/"$f"_en.1' --> '$LINKDIR/share/man/man1/$f.1
+done
+echo "Done."
+echo ""
+echo "Thank you for installing $SWN,"
+echo "see $README for more information."

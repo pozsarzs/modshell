@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# create deb package
+#
+
+NAME="modshell"
+VERSION="0.1"
+RELEASE=1
+
+if [ $# -eq 0 ]
+then
+  read -p "Architecture: " ARCH
+else
+  ARCH=$1
+fi
+
+find $NAME -exec touch {} +
+fakeroot dpkg-deb --build "$NAME_$VERSION-RELEASE_$ARCH" && lintian "$NAME_$VERSION-RELEASE_$ARCH.deb"
+

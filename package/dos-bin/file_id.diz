@@ -1,0 +1,13 @@
+ModShell v0.1
+Command-driven scriptable Modbus utility
+
+This is a utility that can be used on several
+operating systems, which can communicate with
+connected equipment using Modbus/ASCII, -/RTU
+and -/TCP protocols. The program can - even
+automatically - read, write or copy data from
+one device to another (e.g. transferring
+settings).
+
+Licence: EUPL v1.2
+Copyright (C) 2023 Pozsár Zsolt
