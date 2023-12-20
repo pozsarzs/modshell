@@ -60,8 +60,8 @@ exported to a text file.
 |conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format  |
 |date   |      |show system date and time                             |
 |exit   |F10   |exit                                                  |
-|exphis |      |export history to a text file                         |
-|expreg |ALT-E |export content of the one or more buffer registers    |
+|exphis |      |export history to a text file (TXT)                   |
+|expreg |ALT-E |export one or more buffer registers (CSV)             |
 |get    |ALT-G |get setting of a device, protocol or connection       |
 |help   |F1    |show description or usage of the commands             |
 |let    |ALT-L |set value of a buffer registers                       |
@@ -79,10 +79,14 @@ exported to a text file.
 
 **Planned commands**  
 
-|command|hotkey|description                                         |
-|:------|------|----------------------------------------------------|
-|if     |      |selection statement                                 |
-|for    |      |loop iteration                                      |
+|command|hotkey|description                                   |
+|:------|------|----------------------------------------------|
+|if     |      |selection statement                           |
+|for    |      |loop iteration                                |
+|savereg|F4    |save all buffer registers                     |
+|loadreg|F5    |load all buffer registers                     |
+|expreg |ALT-E |export one or more buffer registers (INI, XML)|
+|impreg |ALT-I |import one or more buffer registers (INI, XML)|
 
 **Planned logical operations:**  
 

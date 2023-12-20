@@ -2,12 +2,12 @@
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
 # | Makefile                                                                   |
-# | Makefile for DOS                                                           |
+# | Makefile for 32 bit Windows                                                |
 # +----------------------------------------------------------------------------+
 
 name = modshell
 architecture = i386
-os = go32v2
+os = win32
 outdir = lib\$(architecture)-$(os)
 fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Filib -Fu. -Fuconvert -Fu$(outdir) -FE$(outdir)
 
