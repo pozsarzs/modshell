@@ -197,7 +197,7 @@ set command
 .TP
 \fBALT\fP-\fBW\fP
 write command
-.SH ENVIRONMENTAL VARIABLES"
+.SH ENVIRONMENTAL VARIABLES
 .TP
 .B LANG
 This is the system language on DOS and Unix-like operating systems.
@@ -207,26 +207,24 @@ To access the network on DOS, the packet driver of the network card is
 required. It uses an x86 interrupt number (INT) between 0x60 and 0x80. This
 variable tells the program this value. If there is no or it is empty, then
 the default 0x60 will be used.
-.SH "FILES"
-.LP
-.TP
-\fI ... \fP or \fI ... \fP
-main configuration file
-.SH "EXIT STATUS"
+.SH EXIT STATUS
 .TP
 .B 0
-normal exit
-.SH "HOMEPAGE"
+Normal exit.
+.TP
+.B 1
+Terminal size is smaller than 80x25 characters.
+.SH HOMEPAGE
 .UR http://www.pozsarzs.hu
 .UE
 .PP
 .UR https://github.com/pozsarzs/modshell
 .UE
- .SH "SEE ALSO"
+.SH SEE ALSO
 .PD 0
 .LP
-\fI ... \\fP or equivalent on your system.
-.SH "AUTHOR"
+Files in /usr/share/doc/modshell/ folder or equivalent on your system.
+.SH AUTHOR
 Pozsar Zsolt
 .MT pozsarzs@gmail.com
 .ME

@@ -23,8 +23,8 @@ GitHub: <https://github.com/pozsarzs/modshell>
 it is not yet suitable for its task.*
 
 This is a utility that can be used on several operating systems,
-which can communicate with connected equipment using [Modbus](https://modbus.org/)/ASCII,
--/RTU and -/TCP protocols.
+which can communicate with connected equipment using
+[Modbus](https://modbus.org/)/ASCII, -/RTU and -/TCP protocols.
 The program can - even automatically - read, write or copy data from
 one device to another (e.g. transferring settings). When copying, the
 source and destination register areas can be different.
@@ -60,16 +60,16 @@ exported to a text file.
 |conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format  |
 |date   |      |show system date and time                             |
 |exit   |F10   |exit                                                  |
-|exphis |      |export history to a text file (TXT)                   |
-|expreg |ALT-E |export one or more buffer registers (CSV)             |
+|exphis |      |export command line history to file (TXT)             |
+|expreg |ALT-E |export one or more buffer registers to file (CSV)     |
 |get    |ALT-G |get setting of a device, protocol or connection       |
 |help   |F1    |show description or usage of the commands             |
 |let    |ALT-L |set value of a buffer registers                       |
-|loadcfg|F3    |load settings of device, protocol and connection      |
+|loadcfg|F3    |load settings of device, protocol and connection (DAT)|
 |print  |ALT-P |print content of the one or more buffer registers     |
 |read   |ALT-R |read one or more remote registers to buffer           |
 |reset  |ALT-T |reset device, protocol or connection                  |
-|savecfg|F2    |save settings of device, protocol and connection      |
+|savecfg|F2    |save settings of device, protocol and connection (DAT)|
 |set    |ALT-S |set device, protocol or connection                    |
 |ver    |      |show version and build information of this program    |
 |write  |ALT-W |write data from buffer to one or more remote registers|
@@ -79,14 +79,14 @@ exported to a text file.
 
 **Planned commands**  
 
-|command|hotkey|description                                   |
-|:------|------|----------------------------------------------|
-|if     |      |selection statement                           |
-|for    |      |loop iteration                                |
-|savereg|F4    |save all buffer registers                     |
-|loadreg|F5    |load all buffer registers                     |
-|expreg |ALT-E |export one or more buffer registers (INI, XML)|
-|impreg |ALT-I |import one or more buffer registers (INI, XML)|
+|command|hotkey|description                                             |
+|:------|------|--------------------------------------------------------|
+|if     |      |selection statement                                     |
+|for    |      |loop iteration                                          |
+|savereg|F4    |save all buffer registers to typed file (DAT)           |
+|loadreg|F5    |load all buffer registers from typed file (DAT)         |
+|expreg |ALT-E |export one or more buffer registers to file (INI, XML)  |
+|impreg |ALT-I |import one or more buffer registers from file (INI, XML)|
 
 **Planned logical operations:**  
 

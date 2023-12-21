@@ -15,8 +15,8 @@ a. Visit homepage (see later) to download installer packages:
 
   operation system  arch.   package name
   --------------------------------------------------------------------
-  DOS               i386    mdshell01.exe                        (SFX)
-                    i386    mdshell01.zip
+  DOS               i386    modsh01.exe                          (SFX)
+                    i386    modsh01.zip
 
   Linux             i386    modshell-0.1-linux-i386.bin          (SFX)
                     x86_64  modshell-0.1-linux-amd64.bin         (SFX)

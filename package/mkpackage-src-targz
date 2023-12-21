@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# create tar.gz source  package on Linux
+#
+
+NAME="modshell"
+VERSION="0.1"
+
+if [ `whoami` != 'root' ]
+then echo 'ERROR: You are not root!'; exit
+fi
+
+find $NAME -exec touch {} +
+chown -R root:root $NAME
+tar -czf "$NAME-$VERSION.tar.gz" "$NAME"

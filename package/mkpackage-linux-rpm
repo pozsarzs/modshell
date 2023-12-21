@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# create rpm package on Linux
+#
+
+NAME="modshell"
+RELEASE="1"
+VERSION="0.1"
+
+if [ `whoami` != 'root' ]
+then echo 'ERROR: You are not root!'; exit
+fi
+
+find $NAME -exec touch {} +
+chown -R root:root $NAME
+rpmbuild -ba "SPECS/$NAME-$VERSION-$RELEASE.spec"

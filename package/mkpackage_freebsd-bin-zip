@@ -1,6 +1,6 @@
 #!/usr/local/bin/bash
 #
-# create bin and zip package
+# create bin and zip package on FreeBSD
 #
 
 NAME="modshell"
