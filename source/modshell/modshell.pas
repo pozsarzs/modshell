@@ -156,15 +156,15 @@ resourcestring
   DES16='       export command line history to make a script easily';
   DES17='       convert value between different numeral systems';
   // command usage
-  USG00='copy con? di|coil con? coil ADDRESS [COUNT]' + #13 + #10 +
+  USG00='copy con? dinp|coil con? coil ADDRESS [COUNT]' + #13 + #10 +
         '  copy con? ireg|hreg con? hreg ADDRESS [COUNT]' + #13 + #10 +
         '  ?: [0-7]';
   USG01='exit';
   USG02='get dev?|pro?|con?' + #13 + #10 + '  ?: [0-7]';
   USG03='help [COMMAND]';
   USG04='let dinp|coil|ireg|hreg ADDRESS VALUE';
-  USG05='print di|coil|ireg|hreg ADDRESS [COUNT]';
-  USG06='read con? di|coil|ireg|hreg ADDRESS [COUNT]' + #13 + #10 + '  ?: [0-7]';
+  USG05='print dinp|coil|ireg|hreg ADDRESS [COUNT]';
+  USG06='read con? dinp|coil|ireg|hreg ADDRESS [COUNT]' + #13 + #10 + '  ?: [0-7]';
   USG07='reset dev?|pro?|con?' + #13 + #10 + '  ?: [0-7]';
   USG08='set dev? net DEVICE PORT' + #13 + #10 +
         '  set dev? ser DEVICE BAUDRATE DATABIT PARITY STOPBIT' + #13 + #10 +

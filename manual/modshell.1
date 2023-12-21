@@ -1,0 +1,232 @@
+.TH ModShell 1 "2023 December 20" ""
+.SH NAME
+modshell \- Command-driven scriptable Modbus utility
+.SH SYNOPSIS
+.B modshell
+[options]
+.SH COPYRIGHT
+ModShell is Copyright (C) 2023 by Pozsar Zsolt.
+.SH DESCRIPTION
+This is a utility that can be used on several operating systems, which can
+communicate with connected equipment using Modbus/ASCII, Modbus/RTU and
+Modbus/TCP protocols. The program is designed for DOS, Windows and Unix-like
+operating systems.
+.SH OPTIONS
+.TP
+.B \-f \-\-fullscreen
+Start in full screen mode.
+.TP
+.B \-h \-\-help
+Write useable parameters.
+.TP
+.B \-r \-\-run script
+Run a script.
+.TP
+.B \-v \-\-version
+Write version and build information.
+.SH OPERATION
+The program can - even automatically - read, write or copy data from one device
+to another (e.g. transferring settings). When copying, the source and
+destination register areas can be different.
+.PP
+The program has a traditional (CLI) or full-screen (TUI) command-line interface
+and is also suitable for running pre-created scripts independently (as a command
+interpreter). The program provides help on the commands that can be used, and
+offers possible values when the parameters are entered incorrectly.
+.PP
+The issued commands are placed in history, which can be browsed with the up/down
+arrow keys. The history can be exported to a text file and provides it with the
+appropriate 'shebang' for the installation method and operating system (eg.
+#!/usr/local/bin/modshell). You can easily create a script from this raw file.
+.SS Operating principle
+It must be defined the I/O devices, then the protocols and the connections.
+There can be eight of each. These can be saved to disk to binary format and
+reloaded. The data traffic takes place between the preset connections. In all
+cases, the data is sent to or read from the internal buffer. The size of the
+buffer is suitable for storing 2*9999 logical and word values of the same size.
+The contents of the buffer can be exported to a text file.
+.SH BUILTIN COMMANDS
+.SS General commands
+.TP
+\fBcls\fP
+Clear screen.
+.TP
+\fBdate\fP
+Show system date and time.
+.TP
+\fBexit\fP
+Exit from program.
+.TP
+\fBhelp\fP
+Show description or usage of the builtin commands.
+.TP
+\fBver\fP
+Show version and build information of this program.
+.SS Mathematical commands
+.TP
+\fBconv\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIVALUE\fP
+convert numbers between binary, decimal, hexadecimal and octal numeral system.
+\fIVALUE\fP must be between 0 and 65535
+.SS Configuration commands
+.TP
+\fBget\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP
+Get configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
+(\fIcon?\fP). ? number must be 0-7.
+.TP
+\fBreset\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP
+Reset configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or
+connection (\fIcon?\fP). ? number must be 0-7.
+.TP
+\fBset\fP \fIdev?\fP \fInet\fP \fIDEVICE\fP \fIPORT\fP
+Set device (\fIdev?\fP) to ethernet (\fInet\fP) device. Device number must be
+between 0-7 and port number must be between 0-65535. The \fIDEVICE\fP name on
+DOS is always PACKET, on other systems is the name of the adapter (e.g. eth0,
+nfe0, etc.).
+.TP
+\fBset\fP \fIdev?\fP \fIser\fP \fIDEVICE\fP \fIBAUDRATE\fP \fIDATABIT\fP \fIPARITY\fP \fISTOPBIT\fP
+Set device (\fIdev?\fP) to serial (\fIser\fP) device. Device number must be
+between 0-7. The \fIDEVICE\fP name is the name of the adapter (e.g. com1, ttyS0,
+ttyUSB0, ttyAMA0 etc.). \fIBAUDRATE\fP must be: 1200; 2400; 4800; 9600; 19200;
+38400; 57600 or 115200. \fIDATABIT\fP must be 7 or 8, \fIPARITY\fP must be E/N/O
+(even/none/odd). \fISTOPBIT\fP must be 1 or 2.
+.TP
+\fBset\fP \fIpro?\fP \fIascii\fP|\fIrtu\fP \fIUID\fP
+Set protocol (\fIpro?\fP) to Modbus/ASCII (\fIascii\fP) or Modbus/RTU (\fIrtu\fP).
+Unit ID (\fIUID\fP) must be between 1-247.
+.TP
+\fBset\fP \fIpro?\fP \fItcp\fP \fIIP_ADDRESS\fP
+Set protocol (\fIpro?\fP) to Modbus/TCP (\fItcp\fP). Address of remote device
+(\fIIP_ADDRESS\fP) must be in a.b.c.d format, with values between 1-255.
+.TP
+\fBset\fP \fIcon?\fP \fIdev?\fP \fIpro?\fP
+Assigns a device (\fIdev?\fP) and a protocol (\fIpro?\fP) to a connection
+(\fIcon?\fP). ? number must be 0-7.
+.SS Data handler commands
+.TP
+\fBlet\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP \fIVALUE\fP
+Set value of a buffer registers. Register start address and the count must be
+between 1-9999, If register type is discrete input (\fIdinp\fP) and coil
+(\fIcoil\fP), \fIVALUE\fP must be 0/1, l/h or false/true. If it is input register
+(\fIireg\fP) or holding register (\fIhreg\fP), \fIVALUE\fP must be 0-65535.
+.TP
+\fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP [\fICOUNT\fP]
+Print content of the one or more buffer registers. Register start \fIADDRESS\fP and
+the \fICOUNT\fP must be between 1-9999.
+.SS Communication commands
+.TP
+\fBread\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP [\fICOUNT\fP]
+Read one or more remote registers to buffer. Number of connection (\fIcon?\fP)
+must be between 0-7, register start \fIADDRESS\fP and the \fICOUNT\fP must be
+between 1-9999.
+.TP
+\fBwrite\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fIADDRESS\fP [\fICOUNT\fP]
+Write data from buffer to one or more remote registers. Number of connection
+(\fIcon?\fP) must be between 0-7, register start address and the count must be
+between 1-9999.
+.TP
+\fBcopy\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP \fIcon?\fP \fIcoil?\fP \fIADDRESS\fP [\fICOUNT\fP]
+Copy logical data between connections (\fIcon?\fP). Number of connection
+(\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
+\fICOUNT\fP must be between 1-9999.
+.TP
+\fBcopy\fP \fIcon?\fP \fIireg\fP|\fIhreg\fP \fIcon?\fP \fIhreg?\fP \fIADDRESS\fP [\fICOUNT\fP]
+Copy numeral data between connections (\fIcon?\fP). Number of connection
+(\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
+\fICOUNT\fP must be between 1-9999.
+.SS File operation command
+The specified parameter does not contain a path, the file will be saved in the
+user's home directory (on DOS, in the program directory).
+.TP
+\fBexphis\fP \fIPATH_AND_FILENAME\fP
+Export command line history to a text file.
+.TP
+\fBexpreg\fP \fIPATH_AND_FILENAME\fP
+Export content of the one or more buffer registers to a text file in CSV format.
+.TP
+\fBloadcfg\fP \fIPATH_AND_FILENAME\fP
+Load settings of device, protocol and connection from own format files.
+.TP
+\fBsavecfg\fP \fIPATH_AND_FILENAME\fP
+Save settings of device, protocol and connection to four typed files. The
+specified file name will be supplemented with \fIdev\fP, \fIpro\fP and
+\fIcon\fP prefix. Eg: settings/em4_device.dat ->
+settings/\fIdev\fP-em4_device.dat, settings/\fIpro\fP-em4_device.dat,
+settings/\fIcon\fP-em4_device.dat.
+.SH HOTKEYS
+Commands with function keys (\fBF?\fP) are executed immediately,
+modifier keys (\fBALT\fP-\fB?\fP) only make typing easier.
+.TP
+\fBF1\fP
+help command
+.TP
+\fBF2\fP
+savecfg command
+.TP
+\fBF3\fP
+loadcfg command
+.TP
+\fBF8\fP
+cls command
+.TP
+\fBF10\fP
+exit command
+.TP
+\fBALT\fP-\fBC\fP
+conv command
+.TP
+\fBALT\fP-\fBE\fP
+expreg command
+.TP
+\fBALT\fP-\fBG\fP
+get command
+.TP
+\fBALT\fP-\fBL\fP
+let command
+.TP
+\fBALT\fP-\fBP\fP
+print command
+.TP
+\fBALT\fP-\fBR\fP
+read command
+.TP
+\fBALT\fP-\fBT\fP
+reset command
+.TP
+\fBALT\fP-\fBS\fP
+set command
+.TP
+\fBALT\fP-\fBW\fP
+write command
+.SH ENVIRONMENTAL VARIABLES"
+.TP
+.B LANG
+This is the system language on DOS and Unix-like operating systems.
+.TP
+.B PKTDRVINT
+To access the network on DOS, the packet driver of the network card is
+required. It uses an x86 interrupt number (INT) between 0x60 and 0x80. This
+variable tells the program this value. If there is no or it is empty, then
+the default 0x60 will be used.
+.SH "FILES"
+.LP
+.TP
+\fI ... \fP or \fI ... \fP
+main configuration file
+.SH "EXIT STATUS"
+.TP
+.B 0
+normal exit
+.SH "HOMEPAGE"
+.UR http://www.pozsarzs.hu
+.UE
+.PP
+.UR https://github.com/pozsarzs/modshell
+.UE
+ .SH "SEE ALSO"
+.PD 0
+.LP
+\fI ... \\fP or equivalent on your system.
+.SH "AUTHOR"
+Pozsar Zsolt
+.MT pozsarzs@gmail.com
+.ME

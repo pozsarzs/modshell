@@ -2336,7 +2336,7 @@ test "$stagedir" != "" && mandir="$prefix/man"
 
 
 
-ac_config_files="$ac_config_files Makefile.global manual/modshell.1"
+ac_config_files="$ac_config_files Makefile.global"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -3039,7 +3039,6 @@ for ac_config_target in $ac_config_targets
 do
   case $ac_config_target in
     "Makefile.global") CONFIG_FILES="$CONFIG_FILES Makefile.global" ;;
-    "manual/modshell.1") CONFIG_FILES="$CONFIG_FILES manual/modshell.1" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

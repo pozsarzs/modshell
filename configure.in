@@ -67,9 +67,7 @@ AC_SUBST(ln)
 AC_SUBST(make)
 AC_SUBST(rm)
 
-AC_CONFIG_FILES([Makefile.global \
-           manual/modshell.1 \
-         ])
+AC_CONFIG_FILES([Makefile.global])
 AC_OUTPUT
 
 echo "

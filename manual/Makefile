@@ -17,12 +17,6 @@ man1files=`ls $(sourcedir)/*.1 | grep -v Makefile | grep -v '\.in'`
 all:
 
 clean:
-	@for x in $(man1files); do \
-	  if [ -f $(sourcedir)/$$x ]; \
-	  then \
-	    $(rm) $(sourcedir)/$$x; \
-	  fi \
-	done
 
 install:
 	@echo -n "- Installing "$(title)"["
