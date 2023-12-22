@@ -1,0 +1,18 @@
+Dear Programmer.
+
+The files in this package are all donated as freeware. This means, that
+you can make any use of them, alter them an give them away.
+
+I would appreciate if you let the original file header in each file and
+only add a view lines by your own to them.
+
+I mainly wrote these files to learn programming (I'm a professional
+programmer today) and now want to help others learning this beautiful
+prefession. I sincerely hope these files help someone doing so.
+
+
+Feel free to contact me on any question:
+
+    wellige@geocities.com
+
+Dortmund, 14.12.1997

@@ -1,0 +1,101 @@
+Zu diesen Units und dem Programm:
+---------------------------------
+
+Die in diesem Paket enthaltenen Units das Programm sind vom Auto frei-
+gegeben als PUBLIC DOMAIN. Sie d�rfen vom Anwender beliebig eingesetz
+und ver�ndert werden. F�r Verbesserungsvorschl�ge ist der Autor immer
+dankbar.
+
+
+Es wird eine einfache Methode dargestellt, innherhalb verschiedener
+Zahlensysteme Zahlen umzurechnen. Die hierf�r ben�tigten Funktionen
+befinden sich in der Unit CONVERT.PAS, welche in allen Turbo Pascal
+Verionen gr��er gleich 3.0 eingesetzt werden kann. Um die Berechnung
+zu vereinfachen arbeiten alle Funktionen ausschlie�lich mit STRING-
+Variablen. Sollte Ihr Programm INTEGER oder REAL Typen ben�tigen,
+m�ssen diese von Ihnen selbst entsprechend umgewandelt werden.
+
+
+UNIT CONVERT.PAS:
+-----------------
+
+Es werden die Zahlensysteme BIN�R, OKTAL, DEZIMAL und HEXADEZIMAL
+ber�cksichtigt.
+
+Es folgt eine kurze Auflistung der zur Verf�gung stehenden Funktionen
+in CONCERT.PAS:
+
+       BinToOkt,
+       BinToDez,
+       BinToHex,
+
+       OktToBin,
+       OktToDez,
+       OktToHex,
+
+       DezToBin,
+       DezToOkt,
+       DezToHex,
+
+       HexToBin,
+       HexToOkt,
+       HexToDez.
+
+
+Alle Funktionen sind wie folgt definiert:
+
+    function  XxxToYyy (xxx: string): string;
+
+
+
+
+UNIT TVNUMBER.PAS:
+------------------
+
+Diese Unit enth�lt ein Turbo Vision Object, welches auf die Unit CONVERT
+aufbauend, ein einfaches Dialogfenster zur Umrechnung innerhalb der
+Zahlensysteme zur Verf�gung stellt. Sollten Sie keine Erfahrung mit
+der Turbo Vision besitzen, wird Ihnen zumindest das Programm DEMO.EXE
+einen Einblick in die komfortablen M�glichkeiten der Turbo Vision geben.
+
+Das Demoprogramm DEMO.EXE liegt auch als DEMO.PAS vor, um zu zeigen, wie
+das Objekt TConvertNumbers in eigene Programme eingebunden wird.
+
+
+Mit
+
+  procedure TMyApp.Umrechnung;
+  begin
+    DeskTop^.ExecView(New(PConvertNumbers,Init));
+  end;
+
+haben Sie das Objekt bereits voll funktionsf�hig in Ihr Programm
+eingebunden.
+
+( Die Unit definiert den Befehl cmCalc = $3000 f�r eigene Zwecke )
+
+Einsetzbar ist die Unit TVNUMBER.PAS erst ab der Turbo Pascal Version
+6.0. Geschrieben wurde das Objekt in Borland Pascal 7.0 (Turbo Vision
+2.0), welche zwar einige neue, elegantere M�glichkeiten bietet ( z.B.
+Validierungsobjekte zur Eingabepr�fung oder der Befehl  inherited ),
+auf diese wurde jedoch aus Gr�nden der kompatiblit�t zu TV 1.0 ver-
+zichtet.
+
+
+Wichtig:
+--------
+
+In der vorliegenden Version von TVNUMBER.PAS ist die maximale L�nge der
+Zahlenstrings auf 100 Zeichen begrenzt. Werden z.B. Dezimalzahlen einge-
+geben, die Bin�rzahlen ergeben, die eine L�nge von mehr als 100 Zeichen
+ergeben, so wird Bin�r eine '0' ausgegeben. Da sich die Berechnung der
+anderen Zahlensysteme auf das Bin�rsystem st�tzt, werden im Oktal- sowie
+im Hexadezimalsystem ebenfalls '0' ausgegben. Wie die Voreinstellung von
+100 Zeichen ge�ndert wird, entnehmen Sie dem Quelltext von TVNUMBER.PAS.
+
+
+Ich hoffe, der hier vorliegende Source-Code findet in Ihren Programmen
+Anwendung, so da� er nicht v�llig umsonst geschrieben wurde.
+
+Tom Wellige.
+(Dieburg, den 19.03.1993)

@@ -15,7 +15,9 @@ GitHub: <https://github.com/pozsarzs/modshell>
 
 #### Used external libraries
  - Bin/Oct/Dec/Hex number converter unit for Turbo Pascal v3.0
-   Public Domain, Copyright (C) 1993 by Tom Wellige
+   Public Domain, Copyright (C) 1993 Tom Wellige
+ - Ararat Synapse Release 40
+   modified BSD style license, Copyright (c) 1999-2012 Lukas Gebauer
 
 #### About
 
