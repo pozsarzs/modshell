@@ -4,14 +4,14 @@ Homepage: <http://www.pozsarzs.hu>
 GitHub: <https://github.com/pozsarzs/modshell>
 
 #### Software
-|features              |                                             |
-|:---------------------|---------------------------------------------|
-|architecture          |amd64, armhf, i386, x86_64                   |
-|operation system      |DOS, FreeBSD, Linux, Windows                 |
-|version               |v0.1                                         |
-|language              |en, hu                                       |
-|licence               |EUPL v1.2                                    |
-|local user interface  |CLI and TUI                                  |
+|features             |                            |
+|---------------------|----------------------------|
+|architecture         |amd64, armhf, i386, x86_64  |
+|operation system     |DOS, FreeBSD, Linux, Windows|
+|version              |v0.1                        |
+|language             |en, hu                      |
+|licence              |EUPL v1.2                   |
+|local user interface |CLI and TUI                 |
 
 #### Used external libraries
  - Bin/Oct/Dec/Hex number converter unit for Turbo Pascal v3.0
@@ -53,58 +53,54 @@ exported to a text file.
 
 **Already implemented commands:**  
 
-|command|hotkey|description                                           |
-|:------|------|------------------------------------------------------|
-|cls    |F8    |clear screen                                          |
-|copy   |      |copy one or more register between two connections     |
-|conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format  |
-|date   |      |show system date and time                             |
-|exit   |F10   |exit                                                  |
-|exphis |      |export command line history to file (TXT)             |
-|expreg |ALT-E |export one or more buffer registers to file (CSV)     |
-|get    |ALT-G |get setting of a device, protocol or connection       |
-|help   |F1    |show description or usage of the commands             |
-|let    |ALT-L |set value of a buffer registers                       |
-|loadcfg|F3    |load settings of device, protocol and connection (DAT)|
-|print  |ALT-P |print content of the one or more buffer registers     |
-|read   |ALT-R |read one or more remote registers to buffer           |
-|reset  |ALT-T |reset device, protocol or connection                  |
-|savecfg|F2    |save settings of device, protocol and connection (DAT)|
-|set    |ALT-S |set device, protocol or connection                    |
-|ver    |      |show version and build information of this program    |
-|write  |ALT-W |write data from buffer to one or more remote registers|
+|command|hotkey|description                                           |category      |
+|-------|------|------------------------------------------------------|--------------|
+|copy   |      |copy one or more register between two connections     |communication |
+|read   |ALT-R |read one or more remote registers to buffer           |communication |
+|write  |ALT-W |write data from buffer to one or more remote registers|communication |
+|exphis |      |export command line history to file (TXT)             |file operation|
+|expreg |ALT-E |export one or more buffer registers to file (CSV)     |file operation|
+|loadcfg|F3    |load settings of device, protocol and connection (DAT)|file operation|
+|savecfg|F2    |save settings of device, protocol and connection (DAT)|file operation|
+|cls    |F8    |clear screen                                          |general       |
+|date   |      |show system date and time                             |general       |
+|exit   |F10   |exit                                                  |general       |
+|help   |F1    |show description or usage of the commands             |general       |
+|ver    |      |show version and build information of this program    |general       |
+|let    |ALT-L |set value of a buffer registers                       |register      |
+|print  |ALT-P |print content of the one or more buffer registers     |register      |
+|conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format  |mathematic    |
+|get    |ALT-G |get setting of a device, protocol or connection       |settings      |
+|reset  |ALT-T |reset device, protocol or connection                  |settings      |
+|set    |ALT-S |set device, protocol or connection                    |settings      |
 
 (Commands with function keys (F?) are executed immediately,
  modifier keys (ALT-?) only make typing easier.)  
 
 **Planned commands**  
 
-|command|hotkey|description                                             |
-|:------|------|--------------------------------------------------------|
-|if     |      |selection statement                                     |
-|for    |      |loop iteration                                          |
-|savereg|F4    |save all buffer registers to typed file (DAT)           |
-|loadreg|F5    |load all buffer registers from typed file (DAT)         |
-|expreg |ALT-E |export one or more buffer registers to file (INI, XML)  |
-|impreg |ALT-I |import one or more buffer registers from file (INI, XML)|
-
-**Planned logical operations:**  
-
-|sign             |description               |
-|:----------------|--------------------------|
-|and; or; not; xor|general logical operations|
-|shl; shr         |bit shift                 |
-
- **Planned mathematical operation:**  
-
-|sign|description                   |
-|:---|------------------------------|
-|ent |add value to stack            |
-|add |addition                      |
-|sub |substraction                  |
-|mul |multiplication                |
-|div |division                      |
-|roll|roll down stack               |
-|swap|swap number with top of stack |
+|command|hotkey|description                                                     |category      |
+|-------|------|----------------------------------------------------------------|--------------|
+|srvtcp |      |start/stop transparent Modbus/TCP server                        |communication |
+|srvrtu |      |start/stop transparent Modbus/RTU slave                         |communication |
+|expreg |ALT-E |export one or more buffer registers to file (CSV, INI,JSON, XML)|file operation|
+|impreg |ALT-I |import one or more buffer registers from file (INI, JSON, XML)  |file operation|
+|loadreg|F5    |load all buffer registers from typed file (DAT)                 |file operation|
+|savereg|F4    |save all buffer registers to typed file (DAT)                   |file operation|
+|if     |      |selection statement                                             |general       |
+|for    |      |loop iteration                                                  |general       |
+|and    |      |logical operations                                              |logical       |
+|or     |      |logical operations                                              |logical       |
+|not    |      |logical operations                                              |logical       |
+|xor    |      |logical operations                                              |logical       |
+|shl    |      |bit shift                                                       |logical       |
+|shr    |      |bit shift                                                       |logical       |
+|add    |      |addition                                                        |mathematic    |
+|div    |      |division                                                        |mathematic    |
+|ent    |      |add value to stack                                              |mathematic    |
+|mul    |      |multiplication                                                  |mathematic    |
+|roll   |      |roll down stack                                                 |mathematic    |
+|sub    |      |substraction                                                    |mathematic    |
+|swap   |      |swap number with top of stack                                   |mathematic    |
  
 (Reverse Polish Notation mode with 4 word size registers (x, y, z, t))
