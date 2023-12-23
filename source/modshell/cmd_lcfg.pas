@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
-{ | cmd_load.pas                                                             | }
+{ | cmd_lcfg.pas                                                             | }
 { | command 'loadcfg'                                                        | }
 { +--------------------------------------------------------------------------+ }
 {

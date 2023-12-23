@@ -13,13 +13,14 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0  p1   p2        p3         p4       p5      p6     p7
-  -------------------------------------------------------------
-  set dev? net       DEVICE     PORT
-  set dev? ser       DEVICE     BAUDRATE DATABIT PARITY STOPBIT
-  set pro? ascii|rtu UID
-  set pro? tcp       IP_ADDRESS
-  set con? dev?      pro?
+  p0  p1   p2          p3         p4       p5      p6     p7
+  ---------------------------------------------------------------
+  set dev? net         DEVICE     PORT
+  set dev? ser         DEVICE     BAUDRATE DATABIT PARITY STOPBIT
+  set pro? ascii|rtu   UID
+  set pro? tcp         IP_ADDRESS
+  set con? dev?        pro?
+  set prj  PROJECTNAME
 }
 
 // command 'set'
@@ -219,7 +220,6 @@ var
       writeln(ERR01); // Device number must be 0-7!
       exit;
     end;
-
    // check p3 parameter
    if PREFIX[1] <> s3 then
     begin
@@ -232,7 +232,6 @@ var
       writeln(ERR02); // Protocol number must be 0-7!
       exit;
     end;
-
     // primary mission
     with conn[strtoint(n)] do
     begin
@@ -242,14 +241,46 @@ var
     end;
   end;
 
+  // set name of the project
+  procedure cmd_set_prj(p2: string);
+  var
+    b, bb: byte;
+    {$IFDEF GO32V2}
+      s: string[8];
+    {$ELSE}
+      s: string[16];
+    {$ENDIF}
+    valid : boolean = true;
+  begin
+    // search illegal characters
+    s := p2;
+    for b := 1 to length(s) do
+    begin
+      for bb := 0 to 44 do
+        if s[b] = chr(bb) then valid := false;
+      for bb := 46 to 47 do
+        if s[b] = chr(bb) then valid := false;
+      for bb := 58 to 64 do
+        if s[b] = chr(bb) then valid := false;
+      for bb := 91 to 94 do
+        if s[b] = chr(bb) then valid := false;
+      for bb := 96 to 96 do
+        if s[b] = chr(bb) then valid := false;
+      for bb := 123 to 255 do
+        if s[b] = chr(bb) then valid := false;
+    end;
+    if not valid then writeln(ERR14) else proj := s;
+  end;
+
   //show valid 1st parameters
   procedure showvalid1stparameters;
   var
     b: byte;
+
   begin
     write('1st ' + MSG05); // What is the 1st parameter?
-    for b := 0 to 2 do write(' ' + PREFIX[b]+'[0-7]');
-    writeln;
+    for b := 0 to 3 do write(' ' + PREFIX[b]+'[0-7]');
+    writeln(' ' + PREFIX[3]);
   end;
 
 begin
@@ -260,6 +291,11 @@ begin
     exit;
   end;
   // check p1 parameter
+  if p1 = PREFIX[3] then
+  begin
+    cmd_set_prj(p2);
+    exit;
+  end;
   s1 := p1;
   delete(s1, length(s1), 1);
   for pr := 0 to 2 do

@@ -55,54 +55,56 @@ exported to a text file.
 
 **Already implemented commands:**  
 
-|command|hotkey|description                                           |category      |
-|-------|------|------------------------------------------------------|--------------|
-|copy   |      |copy one or more register between two connections     |communication |
-|read   |ALT-R |read one or more remote registers to buffer           |communication |
-|write  |ALT-W |write data from buffer to one or more remote registers|communication |
-|exphis |      |export command line history to file (TXT)             |file operation|
-|expreg |ALT-E |export one or more buffer registers to file (CSV)     |file operation|
-|loadcfg|F3    |load settings of device, protocol and connection (DAT)|file operation|
-|savecfg|F2    |save settings of device, protocol and connection (DAT)|file operation|
-|cls    |F8    |clear screen                                          |general       |
-|date   |      |show system date and time                             |general       |
-|exit   |F10   |exit                                                  |general       |
-|help   |F1    |show description or usage of the commands             |general       |
-|ver    |      |show version and build information of this program    |general       |
-|let    |ALT-L |set value of a buffer registers                       |register      |
-|print  |ALT-P |print content of the one or more buffer registers     |register      |
-|conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format  |mathematic    |
-|get    |ALT-G |get setting of a device, protocol or connection       |settings      |
-|reset  |ALT-T |reset device, protocol or connection                  |settings      |
-|set    |ALT-S |set device, protocol or connection                    |settings      |
+|command|hotkey|description                                                      |category      |
+|-------|------|-----------------------------------------------------------------|--------------|
+|copy   |      |copy one or more register between two connections                |communication |
+|read   |ALT-R |read one or more remote registers to buffer                      |communication |
+|write  |ALT-W |write data from buffer to one or more remote registers           |communication |
+|exphis |      |export command line history to file (TXT)                        |file operation|
+|expreg |ALT-E |export one or more buffer registers to file (CSV)                |file operation|
+|loadcfg|F3    |load settings of device, protocol and connection (DAT)           |file operation|
+|savecfg|F2    |save settings of device, protocol and connection (DAT)           |file operation|
+|cls    |F8    |clear screen                                                     |general       |
+|date   |      |show system date and time                                        |general       |
+|exit   |F10   |exit                                                             |general       |
+|help   |F1    |show description or usage of the commands                        |general       |
+|ver    |      |show version and build information of this program               |general       |
+|let    |ALT-L |set value of a buffer registers                                  |register      |
+|print  |ALT-P |print content of the one or more buffer registers                |register      |
+|conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |mathematic    |
+|get    |ALT-G |get setting of a device, protocol, connection or get project name|settings      |
+|reset  |ALT-T |reset device, protocol or connection or reset project name       |settings      |
+|set    |ALT-S |set device, protocol or connection or set project name           |settings      |
 
 (Commands with function keys (F?) are executed immediately,
  modifier keys (ALT-?) only make typing easier.)  
 
 **Planned commands**  
 
-|command|hotkey|description                                                     |category      |
-|-------|------|----------------------------------------------------------------|--------------|
-|srvtcp |      |start/stop transparent Modbus/TCP server                        |communication |
-|srvrtu |      |start/stop transparent Modbus/RTU slave                         |communication |
-|expreg |ALT-E |export one or more buffer registers to file (CSV, INI,JSON, XML)|file operation|
-|impreg |ALT-I |import one or more buffer registers from file (INI, JSON, XML)  |file operation|
-|loadreg|F5    |load all buffer registers from typed file (DAT)                 |file operation|
-|savereg|F4    |save all buffer registers to typed file (DAT)                   |file operation|
-|if     |      |selection statement                                             |general       |
-|for    |      |loop iteration                                                  |general       |
-|and    |      |logical operations                                              |logical       |
-|or     |      |logical operations                                              |logical       |
-|not    |      |logical operations                                              |logical       |
-|xor    |      |logical operations                                              |logical       |
-|shl    |      |bit shift                                                       |logical       |
-|shr    |      |bit shift                                                       |logical       |
-|add    |      |addition                                                        |mathematic    |
-|div    |      |division                                                        |mathematic    |
-|ent    |      |add value to stack                                              |mathematic    |
-|mul    |      |multiplication                                                  |mathematic    |
-|roll   |      |roll down stack                                                 |mathematic    |
-|sub    |      |substraction                                                    |mathematic    |
-|swap   |      |swap number with top of stack                                   |mathematic    |
+|command|hotkey|description                                                   |category      |
+|-------|------|--------------------------------------------------------------|--------------|
+|srvtcp |      |start/stop transparent Modbus/TCP server                      |communication |
+|srvrtu |      |start/stop transparent Modbus/RTU slave                       |communication |
+|expreg |ALT-E |+ support INI, JSON, XML file formats                         |file operation|
+|impreg |ALT-I |import one or more buffer registers from file (INI, JSON, XML)|file operation|
+|loadreg|F5    |load all buffer registers from typed file (DAT)               |file operation|
+|savereg|F4    |save all buffer registers to typed file (DAT)                 |file operation|
+|if     |      |selection statement                                           |general       |
+|for    |      |loop iteration                                                |general       |
+|print  |ALT-P |+ print message, value of variable, value of stack registers  |reg. -> gen.  |
+|var    |      |define new variable                                           |general       |                                               
+|and    |      |logical operations                                            |logical       |
+|or     |      |logical operations                                            |logical       |
+|not    |      |logical operations                                            |logical       |
+|xor    |      |logical operations                                            |logical       |
+|shl    |      |bit shift                                                     |logical       |
+|shr    |      |bit shift                                                     |logical       |
+|add    |      |addition                                                      |mathematic    |
+|div    |      |division                                                      |mathematic    |
+|ent    |      |add value to stack                                            |mathematic    |
+|mul    |      |multiplication                                                |mathematic    |
+|roll   |      |roll down stack                                               |mathematic    |
+|sub    |      |substraction                                                  |mathematic    |
+|swap   |      |swap number with top of stack                                 |mathematic    |
  
-(Reverse Polish Notation mode with 4 word size registers (x, y, z, t))
+Calculator works in Rcverse Polish Notation mode with 4 word size registers (x, y, z, t).

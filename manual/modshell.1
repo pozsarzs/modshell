@@ -69,13 +69,13 @@ convert numbers between binary, decimal, hexadecimal and octal numeral system.
 \fIVALUE\fP must be between 0 and 65535
 .SS Configuration commands
 .TP
-\fBget\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP
+\fBget\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP
 Get configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
-(\fIcon?\fP). ? number must be 0-7.
+(\fIcon?\fP), or get project name (\fIprj\fP). ? number must be 0-7.
 .TP
-\fBreset\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP
-Reset configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or
-connection (\fIcon?\fP). ? number must be 0-7.
+\fBreset\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP
+Reset configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
+(\fIcon?\fP), or reset project name (\fIprj\fP). ? number must be 0-7.
 .TP
 \fBset\fP \fIdev?\fP \fInet\fP \fIDEVICE\fP \fIPORT\fP
 Set device (\fIdev?\fP) to ethernet (\fInet\fP) device. Device number must be
@@ -101,6 +101,10 @@ Set protocol (\fIpro?\fP) to Modbus/TCP (\fItcp\fP). Address of remote device
 \fBset\fP \fIcon?\fP \fIdev?\fP \fIpro?\fP
 Assigns a device (\fIdev?\fP) and a protocol (\fIpro?\fP) to a connection
 (\fIcon?\fP). ? number must be 0-7.
+.TP
+\fBset\fP \fIprj\fP PROJECT_NAME
+Set the project name. The name cannot contain spaces or special characters.
+The project directory will also be created with this name.
 .SS Data handler commands
 .TP
 \fBlet\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP \fIVALUE\fP
@@ -135,7 +139,8 @@ Copy numeral data between connections (\fIcon?\fP). Number of connection
 \fICOUNT\fP must be between 1-9999.
 .SS File operation command
 The specified parameter does not contain a path, the file will be saved in the
-user's home directory (on DOS, in the program directory).
+project directory in the user's home directory (on DOS, in project directory
+in the program directory).
 .TP
 \fBexphis\fP \fIPATH_AND_FILENAME\fP
 Export command line history to a text file.
@@ -149,9 +154,18 @@ Load settings of device, protocol and connection from own format files.
 \fBsavecfg\fP \fIPATH_AND_FILENAME\fP
 Save settings of device, protocol and connection to four typed files. The
 specified file name will be supplemented with \fIdev\fP, \fIpro\fP and
-\fIcon\fP prefix. Eg: settings/em4_device.dat ->
+\fIcon\fP prefix.
+.SH EXAMPLES
+.TP
+
+nhsdféasdfasdjklfhjkl
+Eg: settings/em4_device ->
 settings/\fIdev\fP-em4_device.dat, settings/\fIpro\fP-em4_device.dat,
 settings/\fIcon\fP-em4_device.dat.
+
+
+
+
 .SH HOTKEYS
 Commands with function keys (\fBF?\fP) are executed immediately,
 modifier keys (\fBALT\fP-\fB?\fP) only make typing easier.

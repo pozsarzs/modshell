@@ -14,8 +14,8 @@
 }
 {
   p0  p1
-  ------------------
-  get dev?|pro?|con?
+  ----------------------
+  get dev?|pro?|con?|prj
 }
 
 // command 'get'
@@ -68,11 +68,12 @@ var
            with conn[n] do
            begin
              writeln(PREFIX[pr], n, ':');
-             writeln(MSG07, PREFIX[0],dev);
-             writeln(MSG11, PREFIX[1],prot);
+             writeln(MSG07, PREFIX[0], dev);
+             writeln(MSG11, PREFIX[1], prot);
            end
          else
-           writeln(PREFIX[pr], n, MSG06); end;
+           writeln(PREFIX[pr], n, MSG06);
+    end;
   end;
 
   // show valid 1st parameters
@@ -82,8 +83,8 @@ var
  
   begin
     write('1st ' + MSG05); // What is the 1st parameter?
-    for b := 0 to 2 do write(' ' + PREFIX[b]+'[0-7]');
-    writeln;
+    for b := 0 to 2 do write(' ' + PREFIX[b] + '[0-7]');
+    writeln(' ' + PREFIX[3]);
   end;
 
 begin
@@ -94,6 +95,11 @@ begin
     exit;
   end;
   // check p1 parameters
+  if p1 = PREFIX[3] then
+  begin
+    writeln(proj);
+    exit;
+  end;
   s1 := p1;
   delete(s1, length(s1), 1);
   for pr := 0 to 2 do
@@ -110,7 +116,7 @@ begin
   // primary mission
   if length(p1) >= 4 then
   begin
-    i := strtointdef(p1[4],-1);
+    i := strtointdef(p1[4], -1);
     if (i >= 0) and (i < 8)
     then
       showsettings(pr,i)

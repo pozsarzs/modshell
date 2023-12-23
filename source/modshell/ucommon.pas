@@ -20,6 +20,8 @@ uses
   crt,
   sysutils;
 
+function booltoint(b: boolean): integer;
+function inttobool(i: integer): boolean;
 function checkipaddress(address: string): boolean;
 function getlang: string;
 function getexepath: string;
@@ -31,6 +33,18 @@ procedure xywrite(x, y: byte; c: boolean; s: string);
 
 implementation
 
+// convert boolean to integer;
+function booltoint(b: boolean): integer;
+begin
+  if b then result := 1 else result := 0;
+end;
+
+// convert integer to boolean;
+function inttobool(i: integer): boolean;
+begin
+  if i > 0 then result := true else result := false;
+end;
+
 // check IP address
 function checkipaddress(address: string): boolean;
 var
@@ -38,6 +52,7 @@ var
   s: array[0..3] of string;
 
 begin
+  for b := 0 to 3 do s[b] := '';
   c := 0;
   for b := 1 to length(address) do
     if address[b] <> '.'
@@ -89,8 +104,6 @@ end;
 
 // get path of the executable file;
 function getexepath: string;
-var
-  p: shortstring;
 begin
   result := ExtractFilePath(ParamStr(0));
 end;

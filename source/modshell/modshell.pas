@@ -48,16 +48,27 @@ type
     dev: byte;         // 0..7
     prot: byte;        // 0..7
   end;
+  tvariable = record
+    vname: string[16];
+    vvalue: string[255];
+  end;
 var
   // buffer
   coil: array[1..9999] of boolean;
   dinp: array[1..9999] of boolean;
   ireg: array[1..9999] of word;
   hreg: array[1..9999] of word;
-  // device, protocol, connection
+  // settings - device, project name, protocol, connection
   dev: array[0..7] of tdevice;
+  {$IFDEF GO32V2}
+    proj: string[8] = 'default';
+  {$ELSE}
+    proj: string[16] = 'default';
+  {$ENDIF}
   prot: array[0..7] of tprotocol;
   conn: array[0..7] of tconnection;
+  // variables
+  vars: array[0..63] of tvariable;
   // others
   appmode: byte;
   b: byte;
@@ -73,27 +84,27 @@ const
     ('-r','--run','run script')
   );
   // commands and parameters
-  COMMANDS: array[0..17] of string = ('copy','exit','get','help','let','print',
+  COMMANDS: array[0..19] of string = ('copy','exit','get','help','let','print',
                                       'read','reset','set','date','ver','write',
                                       'cls','savecfg','loadcfg','expreg',
-                                      'exphis','conv');
+                                      'exphis','conv','savereg','loadreg');
   BOOLVALUES: array[0..1,0..2] of string =
   (
     ('0','L','FALSE'),
     ('1','H','TRUE')
   );
+  PROMPT = 'MODSH|_>';
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
                                       '38400','57600','115200');
   DEV_PARITY: array[0..2] of string = ('e','n','o');
   PROT_TYPE: array[0..2] of string = ('ascii','rtu','tcp');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');
-  PREFIX: array[0..2] of string = ('dev','pro','con');
+  PREFIX: array[0..3] of string = ('dev','pro','con','prj');
   // others
   PRGCOPYRIGHT = '(C) 2023 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
-  PROMPT = 'MODSH>';
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
   {$IFDEF UNIX}  
     SLASH ='/';
@@ -122,6 +133,8 @@ resourcestring
   MSG17 = 'Settings has loaded from ';
   MSG18 = 'Register content has exported to ';
   MSG19 = 'Register content has imported from ';
+  MSG20 = 'Register content has saved to ';
+  MSG21 = 'Register content has loaded from ';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // error messages
   ERR00 = 'No such command!';
@@ -136,41 +149,47 @@ resourcestring
   ERR09 = 'Cannot load settings from ';
   ERR10 = 'Cannot export register content to ';
   ERR11 = 'Cannot import register content from ';
+  ERR12 = 'Cannot save register content to ';
+  ERR13 = 'Cannot load register content from ';
+  ERR14 = 'Illegal character in the project name!';
   // command description
   DES00='       copy one or more register between two connections';
   DES01='F10    exit';
-  DES02='ALT-G  get setting of a device, protocol or connection';
+  DES02='ALT-G  show device, protocol, connection or project name';
   DES03='F1     show description or usage of the commands';
   DES04='ALT-L  set value of a buffer registers';
   DES05='ALT-P  print content of the one or more buffer registers';
   DES06='ALT-R  read one or more remote registers to buffer';
-  DES07='ALT-T  reset device, protocol or connection';
-  DES08='ALT-S  set device, protocol or connection';
+  DES07='ALT-T  reset device, protocol, connection or project name';
+  DES08='ALT-S  set device, protocol, connection or project name';
   DES09='       show system date and time';
   DES10='       show version and build information of this program';
   DES11='ALT-W  write data from buffer to one or more remote registers';
   DES12='F8     clear screen';
   DES13='F2     save settings of device, protocol and connection';
   DES14='F3     load settings of device, protocol and connection';
-  DES15='ALT-E  export content of the one or more buffer registers (CSV)';
+  DES15='ALT-E  export content of the one or more buffer registers';
   DES16='       export command line history to make a script easily';
   DES17='       convert value between different numeral systems';
+  DES18='';
+  DES19='';
   // command usage
   USG00='copy con? dinp|coil con? coil ADDRESS [COUNT]' + #13 + #10 +
         '  copy con? ireg|hreg con? hreg ADDRESS [COUNT]' + #13 + #10 +
         '  ?: [0-7]';
   USG01='exit';
-  USG02='get dev?|pro?|con?' + #13 + #10 + '  ?: [0-7]';
+  USG02='get dev?|pro?|con?|prj' + #13 + #10 + '  ?: [0-7]';
   USG03='help [COMMAND]';
   USG04='let dinp|coil|ireg|hreg ADDRESS VALUE';
   USG05='print dinp|coil|ireg|hreg ADDRESS [COUNT]';
   USG06='read con? dinp|coil|ireg|hreg ADDRESS [COUNT]' + #13 + #10 + '  ?: [0-7]';
-  USG07='reset dev?|pro?|con?' + #13 + #10 + '  ?: [0-7]';
+  USG07='reset dev?|pro?|con?|prj' + #13 + #10 + '  ?: [0-7]';
   USG08='set dev? net DEVICE PORT' + #13 + #10 +
         '  set dev? ser DEVICE BAUDRATE DATABIT PARITY STOPBIT' + #13 + #10 +
         '  set pro? ascii|rtu UID' + #13 + #10 +
         '  set pro? tcp IP_ADDRESS' + #13 + #10 +
         '  set con? dev? pro?' + #13 + #10 +
+        '  set prj PROJECT_NAME' + #13 + #10 +
         '  ?: [0-7]';
   USG09='date';
   USG10='ver';
@@ -181,6 +200,8 @@ resourcestring
   USG15='expreg PATH_AND_FILENAME di|coil|ireg|hreg ADDRESS [COUNT]';
   USG16='exphis PATH_AND_FILENAME';
   USG17='conv bin|dec|hex|oct bin|dec|hex|oct VALUE';
+  USG18='';
+  USG19='';
 
 procedure version(h: boolean); forward;
 
@@ -193,11 +214,12 @@ procedure version(h: boolean); forward;
 {$I cmd_get.pas}
 {$I cmd_help.pas}
 {$I cmd_let.pas}
-{$I cmd_load.pas}
+{$I cmd_lcfg.pas}
 {$I cmd_prnt.pas}
 {$I cmd_read.pas}
 {$I cmd_rst.pas}
-{$I cmd_save.pas}
+{$I cmd_scfg.pas}
+{$I cmd_sreg.pas}
 {$I cmd_set.pas}
 {$I cmd_wrte.pas}
 
@@ -213,12 +235,18 @@ var
   s: string;
   splitted: array[0..7] of string;
 
+// insert project name into prompt
+function fullprompt: string;
+begin
+  result := stringreplace(PROMPT, '_' , proj, [rfReplaceAll]);
+end;
+
 begin
   for b := 0 to 255 do histbuff[b] := '';
   if appmode = 0 then
     writeln(PRGNAME + ' v' + PRGVERSION);
   repeat
-    write(PROMPT);
+    write(fullprompt);
     command := '';
     repeat
       c := readkey;
@@ -258,7 +286,7 @@ begin
          (c <> #13) and (c <> #27) and
          (c <> #75) and (c <> #77) and
          (c <> #72) and (c <> #80) then command := command + c;
-      xywrite(1, wherey, true, PROMPT + command);
+      xywrite(1, wherey, true, fullprompt + command);
     until (c = #13);
     if length(command) > 0 then
     begin
@@ -305,7 +333,7 @@ begin
           if command[a] = #32 then break else splitted[b] := splitted[b] + command[a];
       // parse command
       o := false;
-      for b := 0 to 17 do
+      for b := 0 to 19 do
         if splitted[0] = COMMANDS[b] then
         begin
           o := true;
@@ -318,7 +346,7 @@ begin
              // copy conn? di|coil conn? coil ADDRESS COUNT
              // copy conn? ireg|hreg conn? hreg ADDRESS COUNT
           2: cmd_get(splitted[1]);
-             // get [dev?|prot?|conn?]
+             // get dev?|prot?|conn?|prj
           3: cmd_help(splitted[1]);
              // help [COMMAND]
           4: cmd_let(splitted[1], splitted[2], splitted[3]);
@@ -328,13 +356,14 @@ begin
           6: cmd_read(splitted[1], splitted[2], splitted[3], splitted[4]);
              // read conn? di|coil|ireg|hreg ADDRESS [COUNT]
           7: cmd_reset(splitted[1]);
-             // reset dev?|prot?|conn?
+             // reset dev?|prot?|conn?|prj
           8: cmd_set(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6], splitted[7]);
              // set dev? ser DEVICE BAUDRATE DATABIT PARITY STOPBIT
              // set dev? net DEVICE PORT
              // set prot? ascii|rtu UID
              // set prot? tcp IP_ADDRESS
              // set conn? dev? prot?
+             // set prj PROJECT_NAME 
           9: cmd_date;
              // date
          10: version(false);
@@ -344,15 +373,19 @@ begin
          12: clrscr;
              // cls
          13: cmd_savecfg(splitted[1]);
-             // save PATH_AND_FILENAME
+             // savecfg PATH_AND_FILENAME
          14: cmd_loadcfg(splitted[1]);
-             // load PATH_AND_FILENAME
+             // loadcfg PATH_AND_FILENAME
          15: cmd_expreg(splitted[1], splitted[2], splitted[3], splitted[4]);
              // expreg FILENAME di|coil|ireg|hreg ADDRESS [COUNT]
          16: cmd_exphis(splitted[1]);
              // exphis FILENAME
          17: cmd_conv(splitted[1], splitted[2], splitted[3]);
              // conv bin|dec|hex|oct bin|dec|hex|oct VALUE
+         18: cmd_savereg(splitted[1]);
+             // savereg PATH_AND_FILENAME
+         //19: cmd_loadreg(splitted[1]);
+             // loadreg PATH_AND_FILENAME
         end;
       end;
     end;

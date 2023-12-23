@@ -14,8 +14,8 @@
 }
 {
   p0    p1
-  --------------------
-  reset dev?|pro?|con?
+  ------------------------
+  reset dev?|pro?|con?|prj
 }
 
 // command 'reset'
@@ -32,8 +32,8 @@ var
     b: byte;
   begin
     write('1st ' + MSG05); // What is the 1st parameter?
-    for b := 0 to 2 do write(' ' + PREFIX[b]+'[0-7]');
-    writeln;
+    for b := 0 to 2 do write(' ' + PREFIX[b] + '[0-7]');
+    writeln(' ' + PREFIX[3]);
   end;
 
 begin
@@ -44,6 +44,11 @@ begin
     exit;
   end;
   // check p1 parameter
+  if p1 = PREFIX[3] then
+  begin
+    proj := 'default';
+    exit;
+  end;
   s := p1;
   delete(s, length(s), 1);
   for pr := 0 to 2 do
@@ -60,7 +65,7 @@ begin
   // primary mission
   if length(p1) >= 4 then
   begin
-    i := strtointdef(p1[4],-1);
+    i := strtointdef(p1[4], -1);
     if (i >= 0) and (i < 8)
     then
       case pr of
