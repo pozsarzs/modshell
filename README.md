@@ -87,6 +87,7 @@ During saving, one text file is created, with CSV extension.
 |date   |      |show system date and time                                        |general       |
 |exit   |F10   |exit                                                             |general       |
 |help   |F1    |show description or usage of the commands                        |general       |
+|var    |      |define new variable and assign value                             |general       |
 |ver    |      |show version and build information of this program               |general       |
 |let    |ALT-L |set value of a buffer registers                                  |register      |
 |print  |ALT-P |print content of the one or more buffer registers                |register      |
@@ -109,7 +110,6 @@ During saving, one text file is created, with CSV extension.
 |if     |      |selection statement                                           |general       |
 |for    |      |loop iteration                                                |general       |
 |print  |ALT-P |+ print message, value of variable, value of stack registers  |reg. -> gen.  |
-|var    |      |define new variable                                           |general       |                                               
 |and    |      |logical operations                                            |logical       |
 |or     |      |logical operations                                            |logical       |
 |not    |      |logical operations                                            |logical       |
@@ -124,4 +124,4 @@ During saving, one text file is created, with CSV extension.
 |sub    |      |substraction                                                  |mathematic    |
 |swap   |      |swap number with top of stack                                 |mathematic    |
  
-Calculator works in Rcverse Polish Notation mode with 4 word size registers (x, y, z, t).
+Calculator works in Reverse Polish Notation mode with 4 word size registers (x, y, z, t).

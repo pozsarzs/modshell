@@ -84,10 +84,10 @@ const
     ('-r','--run','run script')
   );
   // commands and parameters
-  COMMANDS: array[0..19] of string = ('copy','exit','get','help','let','print',
+  COMMANDS: array[0..20] of string = ('copy','exit','get','help','let','print',
                                       'read','reset','set','date','ver','write',
                                       'cls','savecfg','loadcfg','expreg',
-                                      'exphis','conv','savereg','loadreg');
+                                      'exphis','conv','savereg','loadreg','var');
   BOOLVALUES: array[0..1,0..2] of string =
   (
     ('0','L','FALSE'),
@@ -152,7 +152,8 @@ resourcestring
   ERR12 = 'Cannot save register content to ';
   ERR13 = 'Cannot load register content from ';
   ERR14 = 'Illegal character in the project name!';
-//ERR15 = 'Cannot create this directory: ';
+  ERR15 = 'Illegal character in the variable name!';
+  ERR16 = 'Cannot define more variable!';
   // command description
   DES00='       copy one or more register between two connections';
   DES01='F10    exit';
@@ -174,6 +175,7 @@ resourcestring
   DES17='       convert value between different numeral systems';
   DES18='F4     save all registers';
   DES19='F5     load all registers';
+  DES20='       define new variable and assign value.';
   // command usage
   USG00='copy con? dinp|coil con? coil ADDRESS [COUNT]' + #13 + #10 +
         '  copy con? ireg|hreg con? hreg ADDRESS [COUNT]' + #13 + #10 +
@@ -203,6 +205,7 @@ resourcestring
   USG17='conv bin|dec|hex|oct bin|dec|hex|oct VALUE';
   USG18='savereg PATH_AND_FILENAME';
   USG19='loadreg PATH_AND_FILENAME';
+  USG20='var NAME [VALUE]';
 
 procedure version(h: boolean); forward;
 
@@ -223,6 +226,7 @@ procedure version(h: boolean); forward;
 {$I cmd_scfg.pas}
 {$I cmd_sreg.pas}
 {$I cmd_set.pas}
+{$I cmd_var.pas}
 {$I cmd_wrte.pas}
 
 // simple command line
@@ -335,7 +339,7 @@ begin
           if command[a] = #32 then break else splitted[b] := splitted[b] + command[a];
       // parse command
       o := false;
-      for b := 0 to 19 do
+      for b := 0 to 20 do
         if splitted[0] = COMMANDS[b] then
         begin
           o := true;
@@ -388,6 +392,8 @@ begin
              // savereg PATH_AND_FILENAME
          19: cmd_loadreg(splitted[1]);
              // loadreg PATH_AND_FILENAME
+         20: cmd_var(splitted[1],splitted[2]);
+             // var NAME [VALUE]
         end;
       end;
     end;
