@@ -62,8 +62,10 @@ exported to a text file.
 |write  |ALT-W |write data from buffer to one or more remote registers           |communication |
 |exphis |      |export command line history to file (TXT)                        |file operation|
 |expreg |ALT-E |export one or more buffer registers to file (CSV)                |file operation|
-|loadcfg|F3    |load settings of device, protocol and connection (DAT)           |file operation|
-|savecfg|F2    |save settings of device, protocol and connection (DAT)           |file operation|
+|loadcfg|F3    |load settings of device, protocol and connection (?DT)           |file operation|
+|loadreg|F5    |load all buffer registers from typed file (?DT)                  |file operation|
+|savecfg|F2    |save settings of device, protocol and connection (?DT)           |file operation|
+|savereg|F4    |save all buffer registers to typed file (?DT)                    |file operation|
 |cls    |F8    |clear screen                                                     |general       |
 |date   |      |show system date and time                                        |general       |
 |exit   |F10   |exit                                                             |general       |
@@ -87,8 +89,6 @@ exported to a text file.
 |srvrtu |      |start/stop transparent Modbus/RTU slave                       |communication |
 |expreg |ALT-E |+ support INI, JSON, XML file formats                         |file operation|
 |impreg |ALT-I |import one or more buffer registers from file (INI, JSON, XML)|file operation|
-|loadreg|F5    |load all buffer registers from typed file (DAT)               |file operation|
-|savereg|F4    |save all buffer registers to typed file (DAT)                 |file operation|
 |if     |      |selection statement                                           |general       |
 |for    |      |loop iteration                                                |general       |
 |print  |ALT-P |+ print message, value of variable, value of stack registers  |reg. -> gen.  |

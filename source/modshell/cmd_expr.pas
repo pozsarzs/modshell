@@ -23,7 +23,7 @@ procedure cmd_expreg(p1, p2, p3, p4: string);
 var
   c: char;
   i, i3, i4: integer;
-  fp, fn: string;
+  fpn, fp, fn, fx: string;
   rt: byte;
   tf: textfile;
   valid: boolean = false;
@@ -38,16 +38,25 @@ begin
   // check p1
   fp := extractfilepath(p1);
   fn := extractfilename(p1);
-  if length(fp) = 0
-  then
-  {$IFDEF GO32V2}
-    fp := getexepath;
-  {$ELSE}
-    fp := getuserdir;
-  {$ENDIF}
-  fn := fp + fn;
+  fx := extractfileext(p1);
+  if length(fp) = 0 then
+  begin
+    {$IFDEF GO32V2}
+      fp := getexepath + PRGNAME + SLASH;
+      createdir(fp);
+      fp := getexepath + PRGNAME + SLASH + proj + SLASH;
+      createdir(fp);
+    {$ELSE}
+      fp := getuserdir + PRGNAME + SLASH;
+      createdir(fp);
+      fp := getuserdir + PRGNAME + SLASH + proj + SLASH;
+      createdir(fp);
+    {$ENDIF}
+  end;
+    fn := stringreplace(fn, fx , '', [rfReplaceAll]);
+    fpn := fp + fn + '.csv';
   // check exist
-  if fileexists(fn) then
+  if fileexists(fpn) then
   begin
     writeln(MSG14);
     repeat
@@ -88,7 +97,7 @@ begin
   end else i4 := 1;
   // primary mission
   writeln(p1, p2, p3, p4);
-  assignfile(tf, fn);
+  assignfile(tf, fpn);
   rewrite(tf);
   try
     case rt of
@@ -103,8 +112,8 @@ begin
     end;
     closefile(tf);  
   except
-    writeln(ERR10 + fn + '!');
+    writeln(ERR10 + fpn + '!');
     exit;
   end;
-  writeln(MSG18 + fn + '.');
+  writeln(MSG18 + fpn + '.');
 end;

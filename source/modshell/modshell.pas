@@ -114,7 +114,7 @@ const
   
 resourcestring
   // general messages
-  MSG01 = '<F1> help  <F2> save cfg.  <F3> load cfg.  <F8> clear screen  <F10> exit';
+  MSG01 = '<F1> help  <F2> save cfg.  <F3> load cfg.  <F4> save reg.  <F5> load reg. <F8> clear screen  <F10> exit';
   MSG02 = 'Command-driven scriptable Modbus utility';
   MSG03 = 'Use ''help COMMAND'' to show usage.';
   MSG04 = 'Usage this command:';
@@ -152,6 +152,7 @@ resourcestring
   ERR12 = 'Cannot save register content to ';
   ERR13 = 'Cannot load register content from ';
   ERR14 = 'Illegal character in the project name!';
+//ERR15 = 'Cannot create this directory: ';
   // command description
   DES00='       copy one or more register between two connections';
   DES01='F10    exit';
@@ -171,8 +172,8 @@ resourcestring
   DES15='ALT-E  export content of the one or more buffer registers';
   DES16='       export command line history to make a script easily';
   DES17='       convert value between different numeral systems';
-  DES18='';
-  DES19='';
+  DES18='F4     save all registers';
+  DES19='F5     load all registers';
   // command usage
   USG00='copy con? dinp|coil con? coil ADDRESS [COUNT]' + #13 + #10 +
         '  copy con? ireg|hreg con? hreg ADDRESS [COUNT]' + #13 + #10 +
@@ -197,11 +198,11 @@ resourcestring
   USG12='cls';
   USG13='savecfg PATH_AND_FILENAME';
   USG14='loadcfg PATH_AND_FILENAME';
-  USG15='expreg PATH_AND_FILENAME di|coil|ireg|hreg ADDRESS [COUNT]';
+  USG15='expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]';
   USG16='exphis PATH_AND_FILENAME';
   USG17='conv bin|dec|hex|oct bin|dec|hex|oct VALUE';
-  USG18='';
-  USG19='';
+  USG18='savereg PATH_AND_FILENAME';
+  USG19='loadreg PATH_AND_FILENAME';
 
 procedure version(h: boolean); forward;
 
@@ -215,6 +216,7 @@ procedure version(h: boolean); forward;
 {$I cmd_help.pas}
 {$I cmd_let.pas}
 {$I cmd_lcfg.pas}
+{$I cmd_lreg.pas}
 {$I cmd_prnt.pas}
 {$I cmd_read.pas}
 {$I cmd_rst.pas}
@@ -384,7 +386,7 @@ begin
              // conv bin|dec|hex|oct bin|dec|hex|oct VALUE
          18: cmd_savereg(splitted[1]);
              // savereg PATH_AND_FILENAME
-         //19: cmd_loadreg(splitted[1]);
+         19: cmd_loadreg(splitted[1]);
              // loadreg PATH_AND_FILENAME
         end;
       end;

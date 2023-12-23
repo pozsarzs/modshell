@@ -23,7 +23,8 @@ procedure cmd_savereg(p1: string);
 var
   c: char;
   i: integer;
-  fpn, fp, fn: string;
+  fpn, fp, fn, fx: string;
+  ftb: file of boolean;
   ftw: file of word;
  
 begin
@@ -36,15 +37,23 @@ begin
   // check p1
   fp := extractfilepath(p1);
   fn := extractfilename(p1);
-  if length(fp) = 0
-  then
-  {$IFDEF GO32V2}
-    fp := getexepath;
-  {$ELSE}
-    fp := getuserdir;
-  {$ENDIF}
-  fpn := '';
-  fpn := fp + 'regs_' + fn;
+  fx := extractfileext(p1);
+  if length(fp) = 0 then
+  begin
+    {$IFDEF GO32V2}
+      fp := getexepath + PRGNAME + SLASH;
+      createdir(fp);
+      fp := getexepath + PRGNAME + SLASH + proj + SLASH;
+      createdir(fp);
+    {$ELSE}
+      fp := getuserdir + PRGNAME + SLASH;
+      createdir(fp);
+      fp := getuserdir + PRGNAME + SLASH + proj + SLASH;
+      createdir(fp);
+    {$ENDIF}
+  end;
+  fn := stringreplace(fn, fx , '', [rfReplaceAll]);
+  fpn := fp + fn;
   // check exist
   if fileexists(fpn) then
   begin
@@ -55,16 +64,24 @@ begin
     until c = 'y';
   end;
   // primary mission
+  // save dinp and coil
+  fpn := fp + fn + '.bdt';
+  assignfile(ftb, fpn);
+  try 
+    rewrite(ftb);
+    for i := 1 to 9999 do write(ftb, dinp[i]);
+    for i := 1 to 9999 do write(ftb, coil[i]);
+    closefile(ftb);
+  except
+    writeln(ERR12 + fpn + '!');
+    exit;
+  end;
+  writeln(MSG20 + fpn + '.');
+  // save ireg and hreg
+  fpn := fp + fn + '.idt';
   assignfile(ftw, fpn);
   try 
     rewrite(ftw);
-    // ezt átalakítani: 16 bitenként menteni
-
-    for i := 1 to 9999 do write(ftw, booltoint(dinp[i]));
-    for i := 1 to 9999 do write(ftw, booltoint(coil[i]));
-
-
-
     for i := 1 to 9999 do write(ftw, ireg[i]);
     for i := 1 to 9999 do write(ftw, hreg[i]);
     closefile(ftw);

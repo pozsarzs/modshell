@@ -22,7 +22,7 @@
 procedure cmd_loadcfg(p1: string);
 var
   b, bb: byte;
-  fpn, fp, fn: string;
+  fpn, fp, fn, fx: string;
   ftd: file of tdevice;
   ftp: file of tprotocol;
   ftc: file of tconnection;
@@ -37,17 +37,25 @@ begin
   // check p1
   fp := extractfilepath(p1);
   fn := extractfilename(p1);
-  if length(fp) = 0
-  then
-  {$IFDEF GO32V2}
-    fp := getexepath;
-  {$ELSE}
-    fp := getuserdir;
-  {$ENDIF}
+  fx := extractfileext(p1);
+  if length(fp) = 0 then
+  begin
+    {$IFDEF GO32V2}
+      fp := getexepath + PRGNAME + SLASH;
+      createdir(fp);
+      fp := getexepath + PRGNAME + SLASH + proj + SLASH;
+      createdir(fp);
+    {$ELSE}
+      fp := getuserdir + PRGNAME + SLASH;
+      createdir(fp);
+      fp := getuserdir + PRGNAME + SLASH + proj + SLASH;
+      createdir(fp);
+    {$ENDIF}
+  end;
   for b := 0 to 2 do
   begin
-    fpn := '';
-    fpn := fp + PREFIX[b] + '_' + fn;
+    fn := stringreplace(fn, fx , '', [rfReplaceAll]);
+    fpn := fp + fn + '.' + PREFIX[b][1] + 'dt';
     // primary mission
     case b of
       0: begin

@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
-{ | cmd_exph.pas                                                             | }
-{ | command 'exphis'                                                         | }
+{ | cmd_lreg.pas                                                             | }
+{ | command 'loadreg'                                                        | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -13,19 +13,20 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0     p1
-  ------------------------
-  exphis PATH_AND_FILENAME
+  p0      p1
+  -------------------------
+  loadreg PATH_AND_FILENAME
 }
 
-// command 'exphis'
-procedure cmd_exphis(p1: string);
+// command 'savecfg'
+procedure cmd_loadreg(p1: string);
 var
-  b: byte;
   c: char;
-  fpn, fp, fn: string;
-  tf: text;
-
+  i: integer;
+  fpn, fp, fn, fx: string;
+  ftb: file of boolean;
+  ftw: file of word;
+ 
 begin
   // check length of parameter
   if (length(p1) = 0) then
@@ -36,6 +37,7 @@ begin
   // check p1
   fp := extractfilepath(p1);
   fn := extractfilename(p1);
+  fx := extractfileext(p1);
   if length(fp) = 0 then
   begin
     {$IFDEF GO32V2}
@@ -50,6 +52,7 @@ begin
       createdir(fp);
     {$ENDIF}
   end;
+  fn := stringreplace(fn, fx , '', [rfReplaceAll]);
   fpn := fp + fn;
   // check exist
   if fileexists(fpn) then
@@ -61,21 +64,30 @@ begin
     until c = 'y';
   end;
   // primary mission
-  assignfile(tf, fpn);
-  try
-    rewrite(tf);
-    {$IFDEF LINUX}
-      writeln(tf, '#!/usr/bin/modshell -r');    
-    {$ENDIF}
-    {$IFDEF BSD}
-      writeln(tf, '#!/usr/local/bin/modshell -r');    
-    {$ENDIF}
-    for b := 0 to 255 do
-      if length(histbuff[b]) > 0 then writeln(tf, histbuff[b]);
-    closefile(tf);  
+  // save dinp and coil
+  fpn := fp + fn + '.bdt';
+  assignfile(ftb, fpn);
+  try 
+    reset(ftb);
+    for i := 1 to 9999 do read(ftb, dinp[i]);
+    for i := 1 to 9999 do read(ftb, coil[i]);
+    closefile(ftb);
   except
-    writeln(ERR07 + fpn + '!');
+    writeln(ERR13 + fpn + '!');
     exit;
   end;
-  writeln(MSG15 + fpn + '.');
+  writeln(MSG21 + fpn + '.');
+  // save ireg and hreg
+  fpn := fp + fn + '.idt';
+  assignfile(ftw, fpn);
+  try 
+    reset(ftw);
+    for i := 1 to 9999 do read(ftw, ireg[i]);
+    for i := 1 to 9999 do read(ftw, hreg[i]);
+    closefile(ftw);
+  except
+    writeln(ERR13 + fpn + '!');
+    exit;
+  end;
+  writeln(MSG21 + fpn + '.');
 end;
