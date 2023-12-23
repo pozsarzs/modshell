@@ -32,19 +32,35 @@ destination register areas can be different.
 The program has a traditional (CLI) or full-screen (TUI) command-line interface
 and is also suitable for running pre-created scripts independently (as a command
 interpreter). The program provides help on the commands that can be used, and
-offers possible values when the parameters are entered incorrectly.
-.PP
-The issued commands are placed in history, which can be browsed with the up/down
-arrow keys. The history can be exported to a text file and provides it with the
-appropriate 'shebang' for the installation method and operating system (eg.
-#!/usr/local/bin/modshell). You can easily create a script from this raw file.
+offers possible values when the parameters are entered incorrectly. The issued
+commands are placed in history, which can be browsed with the up/down arrow keys.
 .SS Operating principle
 It must be defined the I/O devices, then the protocols and the connections.
-There can be eight of each. These can be saved to disk to binary format and
-reloaded. The data traffic takes place between the preset connections. In all
-cases, the data is sent to or read from the internal buffer. The size of the
-buffer is suitable for storing 2*9999 logical and word values of the same size.
-The contents of the buffer can be exported to a text file.
+There can be eight of each. The data traffic takes place between the preset
+connections. In all cases, the data is sent to or read from the internal buffer.
+The size of the buffer is suitable for storing 2*9999 logical and word values of
+the same size.
+.SS Projects
+In the program, you can create projects for easier management of settings and
+data. The name of the current project is shown in the prompt. The project
+directory will be created in the program directory on DOS, and in the ModShell
+directory in the user's home directory on all other systems. If only filename
+is specified during file operations (without path), this directory will be the
+source/destination directory.
+.SS File operations
+The command line history can be exported to a text file and provides it with the
+appropriate 'shebang' for the installation method and operating system (eg.
+#!/usr/local/bin/modshell). You can easily create a script from this raw file.
+.PP
+Device, protocol and connection settings can be saved and loaded in their own
+format. During saving, three typed files are created, with the following
+extensions: DDT, PDT, CDT.
+.PP
+All register values can be saved and loaded in their own format. During saving,
+two typed files are created, with the following extensions: BDT, IDT.
+.PP
+One or more same type registers can be exported to file.
+During saving, one text file is created, with CSV extension.
 .SH BUILTIN COMMANDS
 .SS General commands
 .TP
@@ -151,21 +167,105 @@ Export content of the one or more buffer registers to a text file in CSV format.
 \fBloadcfg\fP \fIPATH_AND_FILENAME\fP
 Load settings of device, protocol and connection from own format files.
 .TP
+\fBloadreg\fP \fIPATH_AND_FILENAME\fP
+Load all registers from own format files.
+.TP
 \fBsavecfg\fP \fIPATH_AND_FILENAME\fP
-Save settings of device, protocol and connection to four typed files. The
-specified file name will be supplemented with \fIdev\fP, \fIpro\fP and
-\fIcon\fP prefix.
+Save settings of device, protocol and connection to four typed files.
+.TP
+\fBsavereg\fP \fIPATH_AND_FILENAME\fP
+Save all registers to four typed files.
 .SH EXAMPLES
 .TP
-
-nhsdféasdfasdjklfhjkl
-Eg: settings/em4_device ->
-settings/\fIdev\fP-em4_device.dat, settings/\fIpro\fP-em4_device.dat,
-settings/\fIcon\fP-em4_device.dat.
-
-
-
-
+.SS General commands
+.TP
+\fBhelp\fP
+Show short description of the useable commands.
+.TP
+\fBhelp\fP set
+Show usage of help command.
+.SS Mathematical commands
+.TP
+\fBconv\fP bin hex 1011000010110100
+Convert 45236 in binary to hex (result: B0B4).
+.SS Configuration commands
+.TP
+\fBget\fP dev2
+Get configuration of a device #2.
+.TP
+\fBreset\fP prj
+Reset project name (project name will be 'default').
+.TP
+\fBset\fP dev0 net eth0 502
+Set device #0 to '/dev/enp0s7' ethernet device with 502 port.
+.TP
+\fBset\fP dev1 ser ttyS0 9600 8 N 1
+Set device #1 to /dev/ttyS0 serial device, with 9600 baud, 8 databits,
+without parity check and 1 stopbit.
+.TP
+\fBset\fP dev1 ser COM1 9600 8 N 1
+Set device #1 to COM1 serial device, with 9600 baud, 8 databits,
+without parity check and 1 stopbit.
+.TP
+\fBset\fP pro0 ascii 100
+Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).
+.TP
+\fBset\fP pro2 tcp 192.168.100.2
+Set protocol #2 to Modbus/TCP with IP address of server.
+.TP
+\fBset\fP con0 dev0 pro2
+Assigns a device #0 and protocol #2 to connection #0.
+.TP
+\fBset\fP prj temp_meter
+Set the project name to 'temp_meter'.
+.SS Data handler commands
+.TP
+\fBlet\fP dinp 10 1
+Set value of the discrete input buffer register address 10 to 1.
+.TP
+\fBlet\fP dinp 10 true
+Set value of the discrete input buffer register address 10 to 1.
+.TP
+\fBlet\fP dinp 10 H
+Set value of the discrete input buffer register address 10 to 1.
+.TP
+\fBlet\fP ireg 10 to 65535
+Set value of the input register buffer register address 10 to 65535.
+.TP
+\fBprint\fP ireg 10 10
+Print value of the input register buffer register address 10 to 20.
+.SS Communication commands
+.TP
+\fBread\fP con0 hreg 100 15
+eWrite data from buffer to coil address 10 of the connection #2.
+Read remote holding registers of the connection #0 from address 100 to 115.
+.TP
+\fBwrite\fP con2 coil 10
+Write data from buffer to coil address 10 of the connection #2.
+.TP
+\fBcopy\fP con0 ireg con2 hreg 210 10
+Copy input register content of the connection #0 to holding register content of the
+connection #2 from address 210 to 220.
+.SS File operation command
+.TP
+\fBexphis\fP script
+Export command line history to project directory.
+.TP
+\fBexpreg\fP discrete_inputs.csv dinp 100 15
+Export values of discrete input buffer register from address 100 to 115
+to CSV file.
+.TP
+\fBloadcfg\fP test1
+Load settings of device, protocol and connection from project directory.
+.TP
+\fBloadreg\fP /home/username/Desktop/test1
+Load all registers from other directory.
+.TP
+\fBsavecfg\fP test1
+Save settings of device, protocol and connection to project directory.
+.TP
+\fBsavereg\fP /home/username/Desktop/test1
+Save all registers to other directory.
 .SH HOTKEYS
 Commands with function keys (\fBF?\fP) are executed immediately,
 modifier keys (\fBALT\fP-\fB?\fP) only make typing easier.
@@ -178,6 +278,12 @@ savecfg command
 .TP
 \fBF3\fP
 loadcfg command
+.TP
+\fBF4\fP
+savereg command
+.TP
+\fBF5\fP
+loadreg command
 .TP
 \fBF8\fP
 cls command

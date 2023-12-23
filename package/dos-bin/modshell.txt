@@ -1,0 +1,332 @@
+ModShell(1)                      General Commands Manual                      ModShell(1)
+
+NAME
+       modshell - Command-driven scriptable Modbus utility
+
+SYNOPSIS
+       modshell [options]
+
+COPYRIGHT
+       ModShell is Copyright (C) 2023 by Pozsar Zsolt.
+
+DESCRIPTION
+       This  is a utility that can be used on several operating systems, which can commu‐
+       nicate with connected equipment using Modbus/ASCII, Modbus/RTU and Modbus/TCP pro‐
+       tocols. The program is designed for DOS, Windows and Unix-like operating systems.
+
+OPTIONS
+       -f --fullscreen
+              Start in full screen mode.
+
+       -h --help
+              Write useable parameters.
+
+       -r --run script
+              Run a script.
+
+       -v --version
+              Write version and build information.
+
+OPERATION
+       The program can - even automatically - read, write or copy data from one device to
+       another (e.g. transferring settings). When copying,  the  source  and  destination
+       register areas can be different.
+
+       The  program  has  a traditional (CLI) or full-screen (TUI) command-line interface
+       and is also suitable for running pre-created scripts independently (as  a  command
+       interpreter).  The program provides help on the commands that can be used, and of‐
+       fers possible values when the parameters are entered incorrectly. The issued  com‐
+       mands are placed in history, which can be browsed with the up/down arrow keys.
+
+   Operating principle
+       It must be defined the I/O devices, then the protocols and the connections.  There
+       can be eight of each. The data traffic takes place between the preset connections.
+       In  all  cases, the data is sent to or read from the internal buffer.  The size of
+       the buffer is suitable for storing 2*9999 logical and  word  values  of  the  same
+       size.
+
+   Projects
+       In  the  program,  you  can  create projects for easier management of settings and
+       data. The name of the current project is shown in the prompt. The  project  direc‐
+       tory  will  be created in the program directory on DOS, and in the ModShell direc‐
+       tory in the user's home directory on all other systems. If only filename is speci‐
+       fied during file operations (without path), this directory will be the source/des‐
+       tination directory.
+
+   File operations
+       The command line history can be exported to a text file and provides it  with  the
+       appropriate  'shebang'  for  the  installation  method  and  operating system (eg.
+       #!/usr/local/bin/modshell). You can easily create a script from this raw file.
+
+       Device, protocol and connection settings can be saved and loaded in their own for‐
+       mat.  During saving, three typed files are created, with the following extensions:
+       DDT, PDT, CDT.
+
+       All register values can be saved and loaded in their own  format.  During  saving,
+       two typed files are created, with the following extensions: BDT, IDT.
+
+       One  or more same type registers can be exported to file.  During saving, one text
+       file is created, with CSV extension.
+
+BUILTIN COMMANDS
+   General commands
+       cls    Clear screen.
+
+       date   Show system date and time.
+
+       exit   Exit from program.
+
+       help   Show description or usage of the builtin commands.
+
+       ver    Show version and build information of this program.
+
+   Mathematical commands
+       conv bin|dec|hex|oct bin|dec|hex|oct VALUE
+              convert numbers between binary, decimal, hexadecimal and octal numeral sys‐
+              tem.  VALUE must be between 0 and 65535
+
+   Configuration commands
+       get dev?|pro?|con?|prj
+              Get configuration of a device (dev?), protocol (pro?) or connection (con?),
+              or get project name (prj). ? number must be 0-7.
+
+       reset dev?|pro?|con?|prj
+              Reset configuration of a  device  (dev?),  protocol  (pro?)  or  connection
+              (con?), or reset project name (prj). ? number must be 0-7.
+
+       set dev? net DEVICE PORT
+              Set  device  (dev?) to ethernet (net) device. Device number must be between
+              0-7 and port number must be between 0-65535. The DEVICE name on DOS is  al‐
+              ways  PACKET, on other systems is the name of the adapter (e.g. eth0, nfe0,
+              etc.).
+
+       set dev? ser DEVICE BAUDRATE DATABIT PARITY STOPBIT
+              Set device (dev?) to serial (ser) device. Device  number  must  be  between
+              0-7. The DEVICE name is the name of the adapter (e.g. com1, ttyS0, ttyUSB0,
+              ttyAMA0 etc.). BAUDRATE must be: 1200;  2400;  4800;  9600;  19200;  38400;
+              57600   or   115200.  DATABIT  must  be  7  or  8,  PARITY  must  be  E/N/O
+              (even/none/odd). STOPBIT must be 1 or 2.
+
+       set pro? ascii|rtu UID
+              Set protocol (pro?) to Modbus/ASCII (ascii) or Modbus/RTU (rtu).   Unit  ID
+              (UID) must be between 1-247.
+
+       set pro? tcp IP_ADDRESS
+              Set  protocol  (pro?) to Modbus/TCP (tcp). Address of remote device (IP_AD‐
+              DRESS) must be in a.b.c.d format, with values between 1-255.
+
+       set con? dev? pro?
+              Assigns a device (dev?) and a protocol (pro?) to  a  connection  (con?).  ?
+              number must be 0-7.
+
+       set prj PROJECT_NAME
+              Set the project name. The name cannot contain spaces or special characters.
+              The project directory will also be created with this name.
+
+   Data handler commands
+       let dinp|coil|ireg|hreg ADDRESS VALUE
+              Set value of a buffer registers. Register start address and the count  must
+              be  between  1-9999,  If  register  type  is discrete input (dinp) and coil
+              (coil), VALUE must be 0/1, l/h or  false/true.  If  it  is  input  register
+              (ireg) or holding register (hreg), VALUE must be 0-65535.
+
+       print dinp|coil|ireg|hreg ADDRESS [COUNT]
+              Print  content  of the one or more buffer registers. Register start ADDRESS
+              and the COUNT must be between 1-9999.
+
+   Communication commands
+       read con? dinp|coil|ireg|hreg ADDRESS [COUNT]
+              Read one or more remote registers to buffer. Number  of  connection  (con?)
+              must  be  between 0-7, register start ADDRESS and the COUNT must be between
+              1-9999.
+
+       write con? coil|hreg ADDRESS [COUNT]
+              Write data from buffer to one or more remote registers. Number  of  connec‐
+              tion  (con?) must be between 0-7, register start address and the count must
+              be between 1-9999.
+
+       copy con? dinp|coil con? coil? ADDRESS [COUNT]
+              Copy logical data between connections (con?). Number of  connection  (con?)
+              must  be  between 0-7, register start ADDRESS and the COUNT must be between
+              1-9999.
+
+       copy con? ireg|hreg con? hreg? ADDRESS [COUNT]
+              Copy numeral data between connections (con?). Number of  connection  (con?)
+              must  be  between 0-7, register start ADDRESS and the COUNT must be between
+              1-9999.
+
+   File operation command
+       The specified parameter does not contain a path, the file will  be  saved  in  the
+       project  directory  in  the user's home directory (on DOS, in project directory in
+       the program directory).
+
+       exphis PATH_AND_FILENAME
+              Export command line history to a text file.
+
+       expreg PATH_AND_FILENAME
+              Export content of the one or more buffer registers to a text  file  in  CSV
+              format.
+
+       loadcfg PATH_AND_FILENAME
+              Load settings of device, protocol and connection from own format files.
+
+       loadreg PATH_AND_FILENAME
+              Load all registers from own format files.
+
+       savecfg PATH_AND_FILENAME
+              Save settings of device, protocol and connection to four typed files.
+
+       savereg PATH_AND_FILENAME
+              Save all registers to four typed files.
+
+EXAMPLES
+          General commands
+
+       help   Show short description of the useable commands.
+
+       help set
+              Show usage of help command.
+
+   Mathematical commands
+       conv bin hex 1011000010110100
+              Convert 45236 in binary to hex (result: B0B4).
+
+   Configuration commands
+       get dev2
+              Get configuration of a device #2.
+
+       reset prj
+              Reset project name (project name will be 'default').
+
+       set dev0 net eth0 502
+              Set device #0 to '/dev/enp0s7' ethernet device with 502 port.
+
+       set dev1 ser ttyS0 9600 8 N 1
+              Set  device  #1  to  /dev/ttyS0  serial device, with 9600 baud, 8 databits,
+              without parity check and 1 stopbit.
+
+       set dev1 ser COM1 9600 8 N 1
+              Set device #1 to COM1 serial device, with 9600 baud,  8  databits,  without
+              parity check and 1 stopbit.
+
+       set pro0 ascii 100
+              Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).
+
+       set pro2 tcp 192.168.100.2
+              Set protocol #2 to Modbus/TCP with IP address of server.
+
+       set con0 dev0 pro2
+              Assigns a device #0 and protocol #2 to connection #0.
+
+       set prj temp_meter
+              Set the project name to 'temp_meter'.
+
+   Data handler commands
+       let dinp 10 1
+              Set value of the discrete input buffer register address 10 to 1.
+
+       let dinp 10 true
+              Set value of the discrete input buffer register address 10 to 1.
+
+       let dinp 10 H
+              Set value of the discrete input buffer register address 10 to 1.
+
+       let ireg 10 to 65535
+              Set value of the input register buffer register address 10 to 65535.
+
+       print ireg 10 10
+              Print value of the input register buffer register address 10 to 20.
+
+   Communication commands
+       read con0 hreg 100 15
+              eWrite  data from buffer to coil address 10 of the connection #2.  Read re‐
+              mote holding registers of the connection #0 from address 100 to 115.
+
+       write con2 coil 10
+              Write data from buffer to coil address 10 of the connection #2.
+
+       copy con0 ireg con2 hreg 210 10
+              Copy input register content of the connection #0 to holding  register  con‐
+              tent of the connection #2 from address 210 to 220.
+
+   File operation command
+       exphis script
+              Export command line history to project directory.
+
+       expreg discrete_inputs.csv dinp 100 15
+              Export  values of discrete input buffer register from address 100 to 115 to
+              CSV file.
+
+       loadcfg test1
+              Load settings of device, protocol and connection from project directory.
+
+       loadreg /home/username/Desktop/test1
+              Load all registers from other directory.
+
+       savecfg test1
+              Save settings of device, protocol and connection to project directory.
+
+       savereg /home/username/Desktop/test1
+              Save all registers to other directory.
+
+HOTKEYS
+       Commands with function keys (F?) are executed immediately, modifier  keys  (ALT-?)
+       only make typing easier.
+
+       F1     help command
+
+       F2     savecfg command
+
+       F3     loadcfg command
+
+       F4     savereg command
+
+       F5     loadreg command
+
+       F8     cls command
+
+       F10    exit command
+
+       ALT-C  conv command
+
+       ALT-E  expreg command
+
+       ALT-G  get command
+
+       ALT-L  let command
+
+       ALT-P  print command
+
+       ALT-R  read command
+
+       ALT-T  reset command
+
+       ALT-S  set command
+
+       ALT-W  write command
+
+ENVIRONMENTAL VARIABLES
+       LANG   This is the system language on DOS and Unix-like operating systems.
+
+       PKTDRVINT
+              To  access the network on DOS, the packet driver of the network card is re‐
+              quired. It uses an x86 interrupt number (INT) between 0x60 and  0x80.  This
+              variable  tells the program this value. If there is no or it is empty, then
+              the default 0x60 will be used.
+
+EXIT STATUS
+       0      Normal exit.
+
+       1      Terminal size is smaller than 80x25 characters.
+
+HOMEPAGE
+       ⟨http://www.pozsarzs.hu⟩
+
+       ⟨https://github.com/pozsarzs/modshell⟩
+
+SEE ALSO
+       Files in /usr/share/doc/modshell/ folder or equivalent on your system.
+AUTHOR
+       Pozsar Zsolt ⟨pozsarzs@gmail.com⟩
+
+                                     2023 December 20                         ModShell(1)

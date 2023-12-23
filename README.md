@@ -31,27 +31,44 @@ The program can - even automatically - read, write or copy data from
 one device to another (e.g. transferring settings). When copying, the
 source and destination register areas can be different.
 
-The program has a traditional (CLI) or full-screen (TUI) command-line
-interface and is also suitable for running pre-created scripts
-independently (as a command interpreter). The program provides help
-on the commands that can be used, and offers possible values when
-the parameters are entered incorrectly.
-The issued commands are placed in history, which can be browsed with
-the up/down arrow keys. The history can be exported to a text file and
-provides it with the appropriate 'shebang' for the installation method
-and operating system (eg. #!/usr/local/bin/modshell). You can easily
-create a script from this raw file.
+The program has a traditional (CLI) or full-screen (TUI) command-line interface
+and is also suitable for running pre-created scripts independently (as a command
+interpreter). The program provides help on the commands that can be used, and
+offers possible values when the parameters are entered incorrectly. The issued
+commands are placed in history, which can be browsed with the up/down arrow keys.
 
-**Operating principle:**  
+**Operating principle**
 
-It must be defined the I/O devices, then the protocols and the
-connections. There can be eight of each. These can be saved to
-disk to binary format and reloaded. The data traffic takes place
-between the preset connections.
-In all cases, the data is sent to or read from the internal buffer.
-The size of the buffer is suitable for storing 2*9999 logical and
-word values of the same size. The contents of the buffer can be
-exported to a text file.
+It must be defined the I/O devices, then the protocols and the connections.
+There can be eight of each. The data traffic takes place between the preset
+connections. In all cases, the data is sent to or read from the internal buffer.
+The size of the buffer is suitable for storing 2*9999 logical and word values of
+the same size.
+
+**Projects**
+
+In the program, you can create projects for easier management of settings and
+data. The name of the current project is shown in the prompt. The project
+directory will be created in the program directory on DOS, and in the ModShell
+directory in the user's home directory on all other systems. If only filename
+is specified during file operations (without path), this directory will be the
+source/destination directory.
+
+**File operations**
+
+The command line history can be exported to a text file and provides it with the
+appropriate 'shebang' for the installation method and operating system (eg.
+#!/usr/local/bin/modshell). You can easily create a script from this raw file.
+
+Device, protocol and connection settings can be saved and loaded in their own
+format. During saving, three typed files are created, with the following
+extensions: DDT, PDT, CDT.
+
+All register values can be saved and loaded in their own format. During saving,
+two typed files are created, with the following extensions: BDT, IDT.
+
+One or more same type registers can be exported to file.
+During saving, one text file is created, with CSV extension.
 
 **Already implemented commands:**  
 
