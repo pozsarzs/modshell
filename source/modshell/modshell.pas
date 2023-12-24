@@ -107,9 +107,9 @@ const
   PRGVERSION = '0.1';
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
   {$IFDEF UNIX}  
-    SLASH ='/';
+    SLASH = #47;
   {$ELSE}
-    SLASH ='\';
+    SLASH = #92;
   {$ENDIF}
   
 resourcestring
@@ -154,13 +154,14 @@ resourcestring
   ERR14 = 'Illegal character in the project name!';
   ERR15 = 'Illegal character in the variable name!';
   ERR16 = 'Cannot define more variable!';
+  ERR17 = 'There is already a variable with that name';
   // command description
   DES00='       copy one or more register between two connections';
   DES01='F10    exit';
   DES02='ALT-G  show device, protocol, connection or project name';
   DES03='F1     show description or usage of the commands';
   DES04='ALT-L  set value of a buffer registers';
-  DES05='ALT-P  print content of the one or more buffer registers';
+  DES05='ALT-P  print message, value of the variable and register';
   DES06='ALT-R  read one or more remote registers to buffer';
   DES07='ALT-T  reset device, protocol, connection or project name';
   DES08='ALT-S  set device, protocol, connection or project name';
@@ -184,7 +185,9 @@ resourcestring
   USG02='get dev?|pro?|con?|prj' + #13 + #10 + '  ?: [0-7]';
   USG03='help [COMMAND]';
   USG04='let dinp|coil|ireg|hreg ADDRESS VALUE';
-  USG05='print dinp|coil|ireg|hreg ADDRESS [COUNT]';
+  USG05='print dinp|coil|ireg|hreg ADDRESS [COUNT]' + #13 + #10 +
+        '  print $VARIABLE' + #13 + #10 +
+        '  print "single\ line\ message"';
   USG06='read con? dinp|coil|ireg|hreg ADDRESS [COUNT]' + #13 + #10 + '  ?: [0-7]';
   USG07='reset dev?|pro?|con?|prj' + #13 + #10 + '  ?: [0-7]';
   USG08='set dev? net DEVICE PORT' + #13 + #10 +
@@ -274,24 +277,23 @@ begin
         if c = #61 then begin command := COMMANDS[14]; c:=#13; end;   // F3
         if c = #66 then begin command := COMMANDS[12]; c:=#13; end;   // F8
         if c = #68 then begin command := COMMANDS[1]; c:=#13; end;    // F10
+        if c = #72 then
+        begin
+          if histitem > 0 then dec(histitem);
+          command := histbuff[histitem];
+        end;
+        if c = #80 then
+        begin
+          if histitem < 255 then inc(histitem);
+          command := histbuff[histitem];
+        end;
       end;
       if c = #8 then delete(command, length(command), 1);
       if c = #9 then c := #32;
       if c = #27 then command := '';
-      if c = #72 then
-      begin
-        if histitem > 0 then dec(histitem);
-        command := histbuff[histitem];
-      end;
-      if c = #80 then
-      begin
-        if histitem < 255 then inc(histitem);
-        command := histbuff[histitem];
-      end;
-      if (c <> #8) and
-         (c <> #13) and (c <> #27) and
-         (c <> #75) and (c <> #77) and
-         (c <> #72) and (c <> #80) then command := command + c;
+      if (c <> #8) and (c <> #13) and (c <> #27) and
+         (c <> #72) and (c <> #75) and (c <> #77) and (c <> #80)
+      then command := command + c;
       xywrite(1, wherey, true, fullprompt + command);
     until (c = #13);
     if length(command) > 0 then
@@ -333,10 +335,14 @@ begin
       for b := 0 to 7 do
         splitted[b] := '';
       for a := 1 to length(command) do
-        if command[a] = #32 then break else splitted[0] := splitted[0] + command[a];
+        if (command[a] = #32) and (command[a - 1] <> #92)
+          then break
+          else splitted[0] := splitted[0] + command[a];
       for b:= 1 to 7 do
         for a := a + 1 to length(command) do
-          if command[a] = #32 then break else splitted[b] := splitted[b] + command[a];
+          if (command[a] = #32) and (command[a - 1] <> #92)
+            then break
+            else splitted[b] := splitted[b] + command[a];
       // parse command
       o := false;
       for b := 0 to 20 do

@@ -87,10 +87,10 @@ During saving, one text file is created, with CSV extension.
 |date   |      |show system date and time                                        |general       |
 |exit   |F10   |exit                                                             |general       |
 |help   |F1    |show description or usage of the commands                        |general       |
+|print  |ALT-P |print message, value of the variable and buffer register         |general       |
 |var    |      |define new variable and assign value                             |general       |
 |ver    |      |show version and build information of this program               |general       |
 |let    |ALT-L |set value of a buffer registers                                  |register      |
-|print  |ALT-P |print content of the one or more buffer registers                |register      |
 |conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |mathematic    |
 |get    |ALT-G |get setting of a device, protocol, connection or get project name|settings      |
 |reset  |ALT-T |reset device, protocol or connection or reset project name       |settings      |
@@ -109,7 +109,6 @@ During saving, one text file is created, with CSV extension.
 |impreg |ALT-I |import one or more buffer registers from file (INI, JSON, XML)|file operation|
 |if     |      |selection statement                                           |general       |
 |for    |      |loop iteration                                                |general       |
-|print  |ALT-P |+ print message, value of variable, value of stack registers  |reg. -> gen.  |
 |and    |      |logical operations                                            |logical       |
 |or     |      |logical operations                                            |logical       |
 |not    |      |logical operations                                            |logical       |

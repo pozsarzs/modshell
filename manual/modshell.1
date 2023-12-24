@@ -76,8 +76,19 @@ Exit from program.
 \fBhelp\fP
 Show description or usage of the builtin commands.
 .TP
-\fBvar\fP \fINAME\fP [\fIVALUE\fP]
-Define new variable (\fINAME\fP) and assign value (\fIVALUE\fP).
+\fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP [\fICOUNT\fP]
+Print content of the one or more buffer registers. Register start \fIADDRESS\fP and
+the \fICOUNT\fP must be between 1-9999.
+.TP
+\fBprint\fP \fI$VARIABLE\fP
+Print value of the \fI$VARIABLE\fP.
+.TP
+\fBprint\fP "\fImessage\fP"
+Print a single line message.
+.TP
+\fBvar\fP \fIVARIABLE\fP [\fIVALUE\fP]
+Define new variable (\fVARIABLE\fP) and assign value (\fIVALUE\fP).
+Use a backslash before a space.
 .TP
 \fBver\fP
 Show version and build information of this program.
@@ -131,10 +142,6 @@ Set value of a buffer registers. Register start address and the count must be
 between 1-9999, If register type is discrete input (\fIdinp\fP) and coil
 (\fIcoil\fP), \fIVALUE\fP must be 0/1, l/h or false/true. If it is input register
 (\fIireg\fP) or holding register (\fIhreg\fP), \fIVALUE\fP must be 0-65535.
-.TP
-\fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP [\fICOUNT\fP]
-Print content of the one or more buffer registers. Register start \fIADDRESS\fP and
-the \fICOUNT\fP must be between 1-9999.
 .SS Communication commands
 .TP
 \fBread\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP [\fICOUNT\fP]
@@ -179,7 +186,6 @@ Save settings of device, protocol and connection to four typed files.
 \fBsavereg\fP \fIPATH_AND_FILENAME\fP
 Save all registers to four typed files.
 .SH EXAMPLES
-.TP
 .SS General commands
 .TP
 \fBhelp\fP
@@ -187,6 +193,12 @@ Show short description of the useable commands.
 .TP
 \fBhelp\fP set
 Show usage of help command.
+.TP
+\fBprint\fP $MYVAR
+Print value of the MYVAR variable.
+.TP
+\fBprint\fP "Hello\ world!"
+Print 'Hello world!' message.
 .TP
 \fBvar\fP MYVAR 12
 Define MYVAR variable and assign 12 value to it.

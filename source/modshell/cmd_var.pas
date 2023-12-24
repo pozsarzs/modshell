@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
-{ | cmd_var.pas                                                             | }
-{ | command 'var'                                                        | }
+{ | cmd_var.pas                                                              | }
+{ | command 'var'                                                            | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -33,6 +33,8 @@ begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
+  // change '\ ' to space
+  p2 := stringreplace(p2, #92+#32, #32, [rfReplaceAll]);
   // search illegal characters
   s := p1;
   for b := 1 to length(s) do
@@ -60,11 +62,22 @@ begin
         valid := true;
         break;
       end;
-    if valid then
+    if not valid then
     begin
-      // primary mission
-      vars[l].vname := lowercase(p1);
-      vars[l].vvalue := p2;     
-    end else writeln(ERR16);
+      writeln(ERR16);
+      exit;
+    end;
+    // comparing existing names with the new one
+    valid := true;
+    for l := 0 to 63 do
+      if vars[l].vname = lowercase(p1) then valid := false;
+    if not valid then
+    begin
+      writeln(ERR17);
+      exit;
+    end;
+    // primary mission
+    vars[l].vname := lowercase(p1);
+    vars[l].vvalue := p2;
   end;
 end;

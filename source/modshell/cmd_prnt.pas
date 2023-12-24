@@ -16,6 +16,8 @@
   p0    p1                  p2      p3
   -----------------------------------------
   print dinp|coil|ireg|hreg ADDRESS [COUNT]
+  print $VARIABLE
+  print "Hello\ world!"
 }
 
 // command 'print'
@@ -23,13 +25,32 @@ procedure cmd_print(p1, p2, p3: string);
 var
   i, j: integer;
   rt: byte;
+  s1: string;
   valid: boolean = false;
 
 begin
   // check length of parameters
-  if (length(p1) = 0) or (length(p2) = 0) then
+  if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    exit;
+  end;
+  s1 := p1;
+  // print single line message
+  if (s1[1] = #34) and (s1[length(p1)] = #34) then
+  begin
+    s1 := stringreplace(s1, #34 , '', [rfReplaceAll]);
+    s1 := stringreplace(s1, #92+#32 , #32, [rfReplaceAll]);
+    writeln(s1);
+    exit;
+  end;
+  // print value of the variable
+  if (s1[1] = #36) then
+  begin
+    s1 := stringreplace(s1, #36 , '', [rfReplaceAll]);
+    for i := 0 to 63 do
+      if vars[i].vname = lowercase(s1)
+      then writeln(stringreplace(vars[i].vvalue, #92+#32 , #32, [rfReplaceAll]));
     exit;
   end;
   // check p1 parameter
@@ -64,7 +85,7 @@ begin
     end;
   // range check
   i := strtointdef(p2, -1); // start address
-  j := strtointdef(p3, -1); // count
+  j := strtointdef(p3, 1); // count
   if (i + j) > 9999 then j := (i + j) - 9999;
   // primary mission
   for i := i  to i + j - 1 do

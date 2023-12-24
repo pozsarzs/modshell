@@ -82,8 +82,19 @@ BUILTIN COMMANDS
 
        help   Show description or usage of the builtin commands.
 
-       var NAME [VALUE]
-              Define new variable (NAME) and assign value (VALUE).
+       print dinp|coil|ireg|hreg ADDRESS [COUNT]
+              Print content of the one  or  more  buffer  registers.  Register
+              start ADDRESS and the COUNT must be between 1-9999.
+
+       print $VARIABLE
+              Print value of the $VARIABLE.
+
+       print "message"
+              Print a single line message.
+
+       var VARIABLE [VALUE]
+              Define  new  variable (ARIABLE) and assign value (VALUE).  Use a
+              backslash before a space.
 
        ver    Show version and build information of this program.
 
@@ -142,41 +153,37 @@ BUILTIN COMMANDS
               it  is  input  register (ireg) or holding register (hreg), VALUE
               must be 0-65535.
 
-       print dinp|coil|ireg|hreg ADDRESS [COUNT]
-              Print content of the one  or  more  buffer  registers.  Register
-              start ADDRESS and the COUNT must be between 1-9999.
-
    Communication commands
        read con? dinp|coil|ireg|hreg ADDRESS [COUNT]
-              Read  one  or more remote registers to buffer. Number of connec‐
+              Read one or more remote registers to buffer. Number  of  connec‐
               tion (con?)  must be between 0-7, register start ADDRESS and the
               COUNT must be between 1-9999.
 
        write con? coil|hreg ADDRESS [COUNT]
-              Write  data  from buffer to one or more remote registers. Number
+              Write data from buffer to one or more remote  registers.  Number
               of connection (con?) must be between 0-7, register start address
               and the count must be between 1-9999.
 
        copy con? dinp|coil con? coil? ADDRESS [COUNT]
-              Copy  logical data between connections (con?). Number of connec‐
-              tion (con?) must be between 0-7, register start ADDRESS and  the
+              Copy logical data between connections (con?). Number of  connec‐
+              tion  (con?) must be between 0-7, register start ADDRESS and the
               COUNT must be between 1-9999.
 
        copy con? ireg|hreg con? hreg? ADDRESS [COUNT]
-              Copy  numeral data between connections (con?). Number of connec‐
-              tion (con?) must be between 0-7, register start ADDRESS and  the
+              Copy numeral data between connections (con?). Number of  connec‐
+              tion  (con?) must be between 0-7, register start ADDRESS and the
               COUNT must be between 1-9999.
 
    File operation command
        The specified parameter does not contain a path, the file will be saved
-       in the project directory in the  user's  home  directory  (on  DOS,  in
+       in  the  project  directory  in  the  user's home directory (on DOS, in
        project directory in the program directory).
 
        exphis PATH_AND_FILENAME
               Export command line history to a text file.
 
        expreg PATH_AND_FILENAME
-              Export  content  of  the  one or more buffer registers to a text
+              Export content of the one or more buffer  registers  to  a  text
               file in CSV format.
 
        loadcfg PATH_AND_FILENAME
@@ -187,19 +194,24 @@ BUILTIN COMMANDS
               Load all registers from own format files.
 
        savecfg PATH_AND_FILENAME
-              Save  settings  of device, protocol and connection to four typed
+              Save settings of device, protocol and connection to  four  typed
               files.
 
        savereg PATH_AND_FILENAME
               Save all registers to four typed files.
 
 EXAMPLES
-          General commands
-
+   General commands
        help   Show short description of the useable commands.
 
        help set
               Show usage of help command.
+
+       print $MYVAR
+              Print value of the MYVAR variable.
+
+       print "Hello world!"
+              Print 'Hello world!' message.
 
        var MYVAR 12
               Define MYVAR variable and assign 12 value to it.
@@ -219,7 +231,7 @@ EXAMPLES
               Set device #0 to '/dev/enp0s7' ethernet device with 502 port.
 
        set dev1 ser ttyS0 9600 8 N 1
-              Set device #1 to /dev/ttyS0 serial device,  with  9600  baud,  8
+              Set  device  #1  to  /dev/ttyS0 serial device, with 9600 baud, 8
               databits, without parity check and 1 stopbit.
 
        set dev1 ser COM1 9600 8 N 1
@@ -249,17 +261,17 @@ EXAMPLES
               Set value of the discrete input buffer register address 10 to 1.
 
        let ireg 10 to 65535
-              Set value of the input register buffer register  address  10  to
+              Set  value  of  the input register buffer register address 10 to
               65535.
 
        print ireg 10 10
-              Print  value of the input register buffer register address 10 to
+              Print value of the input register buffer register address 10  to
               20.
 
    Communication commands
        read con0 hreg 100 15
               eWrite data from buffer to coil address 10 of the connection #2.
-              Read  remote holding registers of the connection #0 from address
+              Read remote holding registers of the connection #0 from  address
               100 to 115.
 
        write con2 coil 10
@@ -278,21 +290,21 @@ EXAMPLES
               to 115 to CSV file.
 
        loadcfg test1
-              Load settings of device, protocol and  connection  from  project
+              Load  settings  of  device, protocol and connection from project
               directory.
 
        loadreg /home/username/Desktop/test1
               Load all registers from other directory.
 
        savecfg test1
-              Save  settings of device, protocol and connection to project di‐
+              Save settings of device, protocol and connection to project  di‐
               rectory.
 
        savereg /home/username/Desktop/test1
               Save all registers to other directory.
 
 HOTKEYS
-       Commands with function keys (F?)  are  executed  immediately,  modifier
+       Commands  with  function  keys  (F?) are executed immediately, modifier
        keys (ALT-?) only make typing easier.
 
        F1     help command
@@ -328,13 +340,13 @@ HOTKEYS
        ALT-W  write command
 
 ENVIRONMENTAL VARIABLES
-       LANG   This  is the system language on DOS and Unix-like operating sys‐
+       LANG   This is the system language on DOS and Unix-like operating  sys‐
               tems.
 
        PKTDRVINT
-              To access the network on DOS, the packet driver of  the  network
-              card  is required. It uses an x86 interrupt number (INT) between
-              0x60 and 0x80. This variable tells the program  this  value.  If
+              To  access  the network on DOS, the packet driver of the network
+              card is required. It uses an x86 interrupt number (INT)  between
+              0x60  and  0x80.  This variable tells the program this value. If
               there is no or it is empty, then the default 0x60 will be used.
 
 EXIT STATUS
