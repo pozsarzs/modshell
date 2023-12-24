@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{$MODE OBJFPC}{$H+}
+{$MODE OBJFPC}{$H+}{$MACRO ON} 
 program modshell;
 uses
   dos,
@@ -23,9 +23,11 @@ uses
   strings,
   sysutils,
   ucommon,
+  uconfig,
   umbascii,
   umbrtu,
-  umbtcp;
+  umbtcp,
+  utranslt;
 type
   tdevice = record
     valid: boolean;    // false|true: invalid|valid
@@ -75,6 +77,11 @@ var
   histbuff: array[0..255] of string;
   lang: string;
 const
+  BOOLVALUES: array[0..1,0..2] of string =
+  (
+    ('0','L','FALSE'),
+    ('1','H','TRUE')
+  );
   // command line parameters
   CMDLINEPARAMS: array[0..3, 0..2] of string =
   (
@@ -88,11 +95,6 @@ const
                                       'read','reset','set','date','ver','write',
                                       'cls','savecfg','loadcfg','expreg',
                                       'exphis','conv','savereg','loadreg','var');
-  BOOLVALUES: array[0..1,0..2] of string =
-  (
-    ('0','L','FALSE'),
-    ('1','H','TRUE')
-  );
   PROMPT = 'MODSH|_>';
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
@@ -106,15 +108,17 @@ const
   PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
+
+  {$DEFINE BASENAME := lowercase(PRGNAME)}
   {$IFDEF UNIX}  
-    SLASH = #47;
+    {$DEFINE SLASH := #47}
   {$ELSE}
-    SLASH = #92;
+    {$DEFINE SLASH := #92}
   {$ENDIF}
   
 resourcestring
   // general messages
-  MSG01 = '<F1> help  <F2> save cfg.  <F3> load cfg.  <F4> save reg.  <F5> load reg. <F8> clear screen  <F10> exit';
+  MSG01 = '<F1> help  <F2> save cfg  <F3> load cfg  <F4> save reg  <F5> load reg <F8> clear  <F10> exit';
   MSG02 = 'Command-driven scriptable Modbus utility';
   MSG03 = 'Use ''help COMMAND'' to show usage.';
   MSG04 = 'Usage this command:';
@@ -264,19 +268,21 @@ begin
       begin
         c := readkey;
         // only insert
-        if c = #34 then begin command := COMMANDS[2]; c := #32; end;  // ~G
-        if c = #38 then begin command := COMMANDS[4]; c := #32; end;  // ~L
-        if c = #25 then begin command := COMMANDS[5]; c := #32; end;  // ~P
-        if c = #19 then begin command := COMMANDS[6]; c := #32; end;  // ~R
-        if c = #20 then begin command := COMMANDS[7]; c := #32; end;  // ~T
-        if c = #31 then begin command := COMMANDS[8]; c := #32; end;  // ~S
+        if c = #34 then begin command := COMMANDS[2]; c := #32; end; // ~G
+        if c = #38 then begin command := COMMANDS[4]; c := #32; end; // ~L
+        if c = #25 then begin command := COMMANDS[5]; c := #32; end; // ~P
+        if c = #19 then begin command := COMMANDS[6]; c := #32; end; // ~R
+        if c = #20 then begin command := COMMANDS[7]; c := #32; end; // ~T
+        if c = #31 then begin command := COMMANDS[8]; c := #32; end; // ~S
         if c = #17 then begin command := COMMANDS[11]; c := #32; end; // ~W
         // insert and run
-        if c = #59 then begin command := COMMANDS[3]; c:=#13; end;    // F1
-        if c = #60 then begin command := COMMANDS[13]; c:=#13; end;   // F2
-        if c = #61 then begin command := COMMANDS[14]; c:=#13; end;   // F3
-        if c = #66 then begin command := COMMANDS[12]; c:=#13; end;   // F8
-        if c = #68 then begin command := COMMANDS[1]; c:=#13; end;    // F10
+        if c = #59 then begin command := COMMANDS[3]; c:=#13; end; // F1
+        if c = #60 then begin command := COMMANDS[13] + #32 + proj; c:=#13; end; // F2
+        if c = #61 then begin command := COMMANDS[14] + #32 + proj; c:=#13; end; // F3
+        if c = #62 then begin command := COMMANDS[18] + #32 + proj; c:=#13; end; // F4
+        if c = #63 then begin command := COMMANDS[19] + #32 + proj; c:=#13; end; // F5
+        if c = #66 then begin command := COMMANDS[12]; c:=#13; end; // F8
+        if c = #68 then begin command := COMMANDS[1]; c:=#13; end; // F10
         if c = #72 then
         begin
           if histitem > 0 then dec(histitem);
@@ -408,15 +414,6 @@ end;
 
 // full screen command line
 procedure fullscreencommandline;
-var
-  x, y: byte;
-const
-  {$IFDEF GO32V2}
-    FRAME: array[0..5] of string=(#201,#205,#187,#200,#186,#188); // cp437
-  {$ELSE}
-    FRAME: array[0..5] of string=('+','-','+','+','|','+');
-  {$ENDIF}
-
 begin
   window(1, 1, screenwidth, screenheight);
   textbackground(lightgray); textcolor(black); clrscr;
@@ -424,21 +421,8 @@ begin
   xywrite(screenwidth - length(MSG02), 1, false, MSG02);
   gotoxy(2,screenheight); ewrite(black, red, MSG01);
   window(1, 2, screenwidth, screenheight - 1);
-  textbackground(blue); textcolor(lightcyan); clrscr;
-  window(1, 1, screenwidth, screenheight);
-  for x := 1 to screenwidth do
-    for y := 2 to screenheight -1 do
-    begin
-      if (y = 2) or (y = screenheight - 1) then xywrite(x, y, false, FRAME[1]);
-      if (x = 1) or (x = screenwidth) then xywrite(x, y, false, FRAME[4]);
-      if (x = 1) and (y = 2) then xywrite(x, y, false, FRAME[0]);
-      if (x = 1) and (y = screenheight - 1) then xywrite(x, y, false, FRAME[3]);
-      if (x = screenwidth) and (y = 2) then xywrite(x, y, false, FRAME[2]);
-      if (x = screenwidth) and (y = screenheight - 1) then xywrite(x, y, false, FRAME[5]);
-    end;
-  window(3, 3, screenwidth - 2, screenheight - 2);
   textbackground(black); textcolor(lightgray); clrscr;
-  window(4, 3, screenwidth - 3, screenheight - 2);
+  window(2, 2, screenwidth - 1, screenheight - 1);
   simplecommandline;
   window(1, 1, screenwidth, screenheight);
   textbackground(black); textcolor(lightgray); clrscr;
@@ -459,7 +443,7 @@ begin
   if mode then
     writeln('There are one or more bad parameter in command line.') else
     begin
-      writeln('Usage: modshell [parameter]');
+      writeln('Usage: ' + BASENAME + ' [parameter]');
       writeln;
       writeln('parameters:');
       for b := 0 to 2 do
@@ -516,10 +500,13 @@ begin
       0: help(true);
     end;
   end;
+  loadconfiguration(BASENAME,'.ini');
+  translatemessages(LANG,BASENAME,'.mo');
   case appmode of
     0: simplecommandline;
     3: fullscreencommandline;
     4: interpreter;
   end;
+  saveconfiguration(BASENAME,'.ini');
   quit(0, false, '');
 end.

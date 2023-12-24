@@ -24,7 +24,7 @@ function booltoint(b: boolean): integer;
 function inttobool(i: integer): boolean;
 function checkipaddress(address: string): boolean;
 function getlang: string;
-function getexepath: string;
+function getexedir: string;
 function getuserdir: string;
 function terminalsize: boolean;
 procedure quit(halt_code: byte; clear: boolean; message: string);
@@ -103,7 +103,7 @@ begin
 end;
 
 // get path of the executable file;
-function getexepath: string;
+function getexedir: string;
 begin
   result := ExtractFilePath(ParamStr(0));
 end;
@@ -112,7 +112,7 @@ end;
 function getuserdir: string;
 begin
   {$IFDEF GO32V2}
-    result := getexepath;
+    result := getexedir;
   {$ELSE}
     {$IFDEF WINDOWS}
       result := getuserprofile + '\';

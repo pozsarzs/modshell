@@ -345,6 +345,11 @@ To access the network on DOS, the packet driver of the network card is
 required. It uses an x86 interrupt number (INT) between 0x60 and 0x80. This
 variable tells the program this value. If there is no or it is empty, then
 the default 0x60 will be used.
+.SH FILES
+.TP
+.B modshell.ini
+General configuration file in user's directory on Windows or Unix-like system
+or in the settings folder of the program on DOS.
 .SH EXIT STATUS
 .TP
 .B 0
@@ -361,7 +366,7 @@ Terminal size is smaller than 80x25 characters.
 .SH SEE ALSO
 .PD 0
 .LP
-Files in /usr/share/doc/modshell/ folder or equivalent on your system.
+Files in document or /usr/share/doc/modshell/ folder (or equivalent on your system).
 .SH AUTHOR
 Pozsar Zsolt
 .MT pozsarzs@gmail.com
