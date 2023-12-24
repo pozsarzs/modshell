@@ -107,6 +107,7 @@ During saving, one text file is created, with CSV extension.
 |srvrtu |      |start/stop transparent Modbus/RTU slave                       |communication |
 |expreg |ALT-E |+ support INI, JSON, XML file formats                         |file operation|
 |impreg |ALT-I |import one or more buffer registers from file (INI, JSON, XML)|file operation|
+|color  |      |set foreground and background color in full screen mode       |general       |
 |if     |      |selection statement                                           |general       |
 |for    |      |loop iteration                                                |general       |
 |and    |      |logical operations                                            |logical       |

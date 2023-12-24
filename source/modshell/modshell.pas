@@ -421,7 +421,7 @@ begin
   xywrite(screenwidth - length(MSG02), 1, false, MSG02);
   gotoxy(2,screenheight); ewrite(black, red, MSG01);
   window(1, 2, screenwidth, screenheight - 1);
-  textbackground(black); textcolor(lightgray); clrscr;
+  textbackground(uconfig.backgroundcolor); textcolor(uconfig.foregroundcolor); clrscr;
   window(2, 2, screenwidth - 1, screenheight - 1);
   simplecommandline;
   window(1, 1, screenwidth, screenheight);

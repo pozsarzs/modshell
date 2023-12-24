@@ -18,13 +18,18 @@ unit uconfig;
 interface
 uses
  ucommon,
- sysutils;
+ sysutils,
+ inifiles;
 var
   b: byte;
-  fn: string;
-  confdir: array[0..2] of string;
+  confdir: string;
+  ini: TINIFile;
+  // settings from/to ini file
+  backgroundcolor, foregroundcolor: integer;
+const
+  SECTION: array[0..0] of string = ('fullscreen-console');
 
-{$IFDEF UNIX}  
+{$IFDEF UNIX}
   {$DEFINE SLASH := #47}
 {$ELSE}
   {$DEFINE SLASH := #92}
@@ -36,38 +41,59 @@ function loadconfiguration(basename, extension: string): boolean;
 implementation
 
 // set configuration directories
-procedure setconfdir(basename, extension: string);
+procedure setconfdir(basename: string; mkdirs: boolean);
 begin
-  fn := SLASH + basename + extension;
-  confdir[0] := getexedir + 'settings'; // DOS, Windows, Unix-like
-  confdir[1] := getuserdir + '/.config/' + basename; // Unix-like only
-  confdir[2] := getuserdir + '\Appdata\Local\' + basename; // Windows only
+  {$IFDEF GO32V2}
+    confdir := getexedir + 'settings';
+  {$ELSE}
+    {$IFDEF WINDOWS}
+      confdir := getuserdir + '\Appdata\Local\' + basename;
+    {$ELSE}
+      {$IFDEF UNIX}
+        confdir := getuserdir + '/.config/' + basename;
+      {$ELSE}
+        {$FATAL Not supported operation system!}
+      {$ENDIF}
+    {$ENDIF}
+  {$ENDIF}
+  if mkdirs then forcedirectories(confdir);
 end;
 
 // save configuration
 function saveconfiguration(basename, extension: string): boolean;
+var
+  fn: string;
 begin
   result := false;
-  setconfdir(basename, extension);
-  for b := 0 to 2 do
-    if fileexists(confdir[b] + fn) then
-    begin
-      {...}
-      result := true;
-    end;
+  setconfdir(basename, true);
+  fn := SLASH + basename + extension;
+  ini := tinifile.create(confdir + fn);
+  try
+    ini.writeinteger(SECTION[0], 'foregroundcolor', foregroundcolor);
+    ini.writeinteger(SECTION[0], 'backgroundcolor', backgroundcolor);
+  except
+    result := false;
+  end;
+  result := true;
+  ini.free;
 end;
 
 // load configuration
 function loadconfiguration(basename, extension: string): boolean;
+var
+  fn: string;
 begin
-  result := false;
-  setconfdir(basename, extension);
-  for b := 0 to 2 do
-    if fileexists(confdir[b] + fn) then
-    begin
-      {...}
-      result := true;
-    end;
+  setconfdir(basename, false);
+  fn := SLASH + basename + extension;
+  ini := tinifile.create(confdir + fn);
+  try
+    foregroundcolor := ini.readinteger(SECTION[0], 'foregroundcolor', 7);
+    backgroundcolor := ini.readinteger(SECTION[0], 'backgroundcolor', 0);
+  except
+    result := false;
+  end;
+  result := true;
+  ini.free;
 end;
 
 end.
