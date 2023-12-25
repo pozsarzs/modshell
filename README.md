@@ -70,6 +70,9 @@ two typed files are created, with the following extensions: BDT, IDT.
 One or more same type registers can be exported to file.
 During saving, one text file is created, with CSV extension.
 
+On exit, the command line history and full screen mode command line colors are
+preserved.
+
 **Already implemented commands:**  
 
 |command|hotkey|description                                                      |category      |
@@ -120,6 +123,7 @@ During saving, one text file is created, with CSV extension.
 |div    |      |division                                                      |mathematic    |
 |ent    |      |add value to stack                                            |mathematic    |
 |mul    |      |multiplication                                                |mathematic    |
+|mov    |      |move value between buffer register, stack or variable         |mathematic    |
 |roll   |      |roll down stack                                               |mathematic    |
 |sub    |      |substraction                                                  |mathematic    |
 |swap   |      |swap number with top of stack                                 |mathematic    |

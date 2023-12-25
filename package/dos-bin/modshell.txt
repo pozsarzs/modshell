@@ -68,6 +68,10 @@ OPERATION
        One  or more same type registers can be exported to file.  During saving, one text
        file is created, with CSV extension.
 
+       On exit, the command line history and full screen mode command line colors are pre-
+       served.
+       
+
 BUILTIN COMMANDS
    General commands
        cls    Clear screen.

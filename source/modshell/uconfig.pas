@@ -26,8 +26,11 @@ var
   ini: TINIFile;
   // settings from/to ini file
   backgroundcolor, foregroundcolor: integer;
+  histbuff: array[0..255] of string;
+  histitem: byte;
+  histlast: byte;
 const
-  SECTION: array[0..0] of string = ('fullscreen-console');
+  SECTION: array[0..1] of string = ('cmdline-colors','cmdline-history');
 
 {$IFDEF UNIX}
   {$DEFINE SLASH := #47}
@@ -69,8 +72,12 @@ begin
   fn := SLASH + basename + extension;
   ini := tinifile.create(confdir + fn);
   try
-    ini.writeinteger(SECTION[0], 'foregroundcolor', foregroundcolor);
-    ini.writeinteger(SECTION[0], 'backgroundcolor', backgroundcolor);
+    ini.writeinteger(SECTION[0], 'foreground', foregroundcolor);
+    ini.writeinteger(SECTION[0], 'background', backgroundcolor);
+    ini.writeinteger(SECTION[1], 'histitem', histitem);
+    ini.writeinteger(SECTION[1], 'histlast', histlast);
+    for b := 0 to 255 do
+      ini.writestring(SECTION[1], 'line' + inttostr(b), histbuff[b]);
   except
     result := false;
   end;
@@ -89,6 +96,10 @@ begin
   try
     foregroundcolor := ini.readinteger(SECTION[0], 'foregroundcolor', 7);
     backgroundcolor := ini.readinteger(SECTION[0], 'backgroundcolor', 0);
+    histitem := ini.readinteger(SECTION[1], 'histitem', 0);
+    histlast := ini.readinteger(SECTION[1], 'histlast', 0);
+    for b := 0 to 255 do
+      histbuff[b] := ini.readstring(SECTION[1], 'line' + inttostr(b), '');
   except
     result := false;
   end;

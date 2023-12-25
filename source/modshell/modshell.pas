@@ -74,7 +74,6 @@ var
   // others
   appmode: byte;
   b: byte;
-  histbuff: array[0..255] of string;
   lang: string;
 const
   BOOLVALUES: array[0..1,0..2] of string =
@@ -91,10 +90,12 @@ const
     ('-r','--run','run script')
   );
   // commands and parameters
-  COMMANDS: array[0..20] of string = ('copy','exit','get','help','let','print',
-                                      'read','reset','set','date','ver','write',
-                                      'cls','savecfg','loadcfg','expreg',
-                                      'exphis','conv','savereg','loadreg','var');
+  COMMANDS: array[0..22] of string = ('copy','exit','get','help','let',
+                                      'print','read','reset','set','date',
+                                      'ver','write','cls','savecfg',
+                                      'loadcfg','expreg','exphis','conv',
+                                      'savereg','loadreg','var','color',
+                                      'impreg');
   PROMPT = 'MODSH|_>';
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
@@ -175,12 +176,14 @@ resourcestring
   DES12='F8     clear screen';
   DES13='F2     save settings of device, protocol and connection';
   DES14='F3     load settings of device, protocol and connection';
-  DES15='ALT-E  export content of the one or more buffer registers';
+  DES15='ALT-E  export value of the one or more buffer registers';
   DES16='       export command line history to make a script easily';
   DES17='       convert value between different numeral systems';
   DES18='F4     save all registers';
   DES19='F5     load all registers';
-  DES20='       define new variable and assign value.';
+  DES20='       define new variable and assign value';
+  DES21='       set foreground and background color in full screen mode';
+  DES22='ALT-I  import value of the one or more buffer registers';
   // command usage
   USG00='copy con? dinp|coil con? coil ADDRESS [COUNT]' + #13 + #10 +
         '  copy con? ireg|hreg con? hreg ADDRESS [COUNT]' + #13 + #10 +
@@ -207,12 +210,14 @@ resourcestring
   USG12='cls';
   USG13='savecfg PATH_AND_FILENAME';
   USG14='loadcfg PATH_AND_FILENAME';
-  USG15='expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]';
+  USG15='expreg PATH_AND_FILENAME CSV|INI|XML|JSON dinp|coil|ireg|hreg ADDRESS [COUNT]';
   USG16='exphis PATH_AND_FILENAME';
   USG17='conv bin|dec|hex|oct bin|dec|hex|oct VALUE';
   USG18='savereg PATH_AND_FILENAME';
   USG19='loadreg PATH_AND_FILENAME';
   USG20='var NAME [VALUE]';
+  USG21='color FOREGROUND BACKGROUND' + #13 + #10 + '  colors: 0-15';
+  USG22='impreg PATH_AND_FILENAME';
 
 procedure version(h: boolean); forward;
 
@@ -242,8 +247,6 @@ var
   a, b: byte;
   c: char;
   command: string;
-  histitem: byte = 0;
-  histlast: byte = 0;
   o: boolean = false;
   s: string;
   splitted: array[0..7] of string;
@@ -255,7 +258,6 @@ begin
 end;
 
 begin
-  for b := 0 to 255 do histbuff[b] := '';
   if appmode = 0 then
     writeln(PRGNAME + ' v' + PRGVERSION);
   repeat
@@ -285,13 +287,13 @@ begin
         if c = #68 then begin command := COMMANDS[1]; c:=#13; end; // F10
         if c = #72 then
         begin
-          if histitem > 0 then dec(histitem);
-          command := histbuff[histitem];
+          if uconfig.histitem > 0 then dec(uconfig.histitem);
+          command := uconfig.histbuff[uconfig.histitem];
         end;
         if c = #80 then
         begin
-          if histitem < 255 then inc(histitem);
-          command := histbuff[histitem];
+          if uconfig.histitem < 255 then inc(uconfig.histitem);
+          command := uconfig.histbuff[uconfig.histitem];
         end;
       end;
       if c = #8 then delete(command, length(command), 1);
@@ -304,17 +306,17 @@ begin
     until (c = #13);
     if length(command) > 0 then
     begin
-      if histlast < 255 then
+      if uconfig.histlast < 255 then
       begin
-        histbuff[histlast] := command;
-        inc(histlast);
+        uconfig.histbuff[uconfig.histlast] := command;
+        inc(uconfig.histlast);
       end else
       begin
         for b := 1 to 255 do
-          histbuff[b - 1] := histbuff[b];
-        histbuff[histlast] := command;
+          uconfig.histbuff[b - 1] := uconfig.histbuff[b];
+        uconfig.histbuff[uconfig.histlast] := command;
       end;
-      histitem := histlast;
+      uconfig.histitem := uconfig.histlast;
     end;
     writeln;
     if length(command) > 0 then
@@ -351,7 +353,7 @@ begin
             else splitted[b] := splitted[b] + command[a];
       // parse command
       o := false;
-      for b := 0 to 20 do
+      for b := 0 to 22 do
         if splitted[0] = COMMANDS[b] then
         begin
           o := true;
