@@ -70,6 +70,17 @@ preserved.
 \fBcls\fP
 Clear screen.
 .TP
+\fBcolor\fP \fIFOREGROUND\fP \fIBACKGROUND\fP
+Set foreground and background color in full screen mode.
+.EX
+
+\fIColors:\fP
+0: black  4: red         8: darkgray    12: lightred
+1: blue   5: magenta:    9: lightblue   13: lightmagenta
+2: green  6: brown      10: lightgreen  14: yellow
+3: cyan   7: lightgray  11: lightcyan   15: white
+.EE
+.TP
 \fBdate\fP
 Show system date and time.
 .TP
@@ -103,7 +114,7 @@ convert numbers between binary, decimal, hexadecimal and octal numeral system.
 .SS Configuration commands
 .TP
 \fBget\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP
-Get configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
+\fIGet configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
 (\fIcon?\fP), or get project name (\fIprj\fP). ? number must be 0-7.
 .TP
 \fBreset\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP

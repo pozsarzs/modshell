@@ -48,7 +48,7 @@ begin
   // check p2 parameter
   if (strtointdef(p2, -1) < 1 ) or (strtointdef(p2, -1) > 9999) then
   begin
-    writeln('2nd ' + MSG05 + ' 1-9999'); // What 2nd the 1st parameter?
+    writeln('2nd ' + MSG05 + ' 1-9999'); // What is the 2nd parameter?
     exit;
   end;
   // check p3 parameter

@@ -216,12 +216,18 @@ resourcestring
   USG18='savereg PATH_AND_FILENAME';
   USG19='loadreg PATH_AND_FILENAME';
   USG20='var NAME [VALUE]';
-  USG21='color FOREGROUND BACKGROUND' + #13 + #10 + '  colors: 0-15';
+  USG21='color FOREGROUND BACKGROUND' + #13 + #10 +
+        '  colors:' + #13 + #10 +
+        '      0: black  4: red         8: darkgray    12: lightred' + #13 + #10 +
+        '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + #13 + #10 +
+        '      2: green  6: brown      10: lightgreen  14: yellow' + #13 + #10 +
+        '      3: cyan   7: lightgray  11: lightcyan   15: white';
   USG22='impreg PATH_AND_FILENAME';
 
 procedure version(h: boolean); forward;
 
 {$I modbus.pas}
+{$I cmd_colr.pas}
 {$I cmd_conv.pas}
 {$I cmd_copy.pas}
 {$I cmd_date.pas}
@@ -258,9 +264,13 @@ begin
 end;
 
 begin
-  if appmode = 0 then
-    writeln(PRGNAME + ' v' + PRGVERSION);
+  if appmode = 0 then writeln(PRGNAME + ' v' + PRGVERSION);
   repeat
+    if appmode = 3 then
+    begin
+      textbackground(uconfig.backgroundcolor);
+      textcolor(uconfig.foregroundcolor);
+    end;
     write(fullprompt);
     command := '';
     repeat
@@ -408,6 +418,10 @@ begin
              // loadreg PATH_AND_FILENAME
          20: cmd_var(splitted[1],splitted[2]);
              // var NAME [VALUE]
+         21: cmd_color(splitted[1],splitted[2]);
+             // color FOREGROUND BACKGROUND
+         //22: cmd_impreg(splitted[1],splitted[2]);
+             // var NAME [VALUE]
         end;
       end;
     end;
@@ -424,7 +438,7 @@ begin
   gotoxy(2,screenheight); ewrite(black, red, MSG01);
   window(1, 2, screenwidth, screenheight - 1);
   textbackground(uconfig.backgroundcolor); textcolor(uconfig.foregroundcolor); clrscr;
-  window(2, 2, screenwidth - 1, screenheight - 1);
+  window(1, 2, screenwidth, screenheight - 1);
   simplecommandline;
   window(1, 1, screenwidth, screenheight);
   textbackground(black); textcolor(lightgray); clrscr;

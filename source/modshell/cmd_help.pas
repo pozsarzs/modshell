@@ -94,7 +94,6 @@ begin
     begin
       // primary mission
       writeln(MSG04);
-      writeln;
       gotoxy(3, wherey);
       case b of
          0: writeln(USG00);

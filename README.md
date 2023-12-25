@@ -87,6 +87,7 @@ preserved.
 |savecfg|F2    |save settings of device, protocol and connection (?DT)           |file operation|
 |savereg|F4    |save all buffer registers to typed file (?DT)                    |file operation|
 |cls    |F8    |clear screen                                                     |general       |
+|color  |      |set foreground and background color in full screen mode          |general       |
 |date   |      |show system date and time                                        |general       |
 |exit   |F10   |exit                                                             |general       |
 |help   |F1    |show description or usage of the commands                        |general       |
@@ -110,7 +111,6 @@ preserved.
 |srvrtu |      |start/stop transparent Modbus/RTU slave                       |communication |
 |expreg |ALT-E |+ support INI, JSON, XML file formats                         |file operation|
 |impreg |ALT-I |import one or more buffer registers from file (INI, JSON, XML)|file operation|
-|color  |      |set foreground and background color in full screen mode       |general       |
 |if     |      |selection statement                                           |general       |
 |for    |      |loop iteration                                                |general       |
 |and    |      |logical operations                                            |logical       |
