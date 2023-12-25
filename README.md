@@ -13,6 +13,11 @@ GitHub: <https://github.com/pozsarzs/modshell>
 |licence              |EUPL v1.2                   |
 |local user interface |CLI and TUI                 |
 
+#### Screenshots
+![CLI](document/picture/modshell.png)
+
+![TUI](document/picture/modshell-f.png)
+
 #### Used external libraries
  - Bin/Oct/Dec/Hex number converter unit for Turbo Pascal v3.0
    Public Domain, Copyright (C) 1993 Tom Wellige
