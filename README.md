@@ -81,7 +81,8 @@ preserved.
 |read   |ALT-R |read one or more remote registers to buffer                      |communication |
 |write  |ALT-W |write data from buffer to one or more remote registers           |communication |
 |exphis |      |export command line history to file (TXT)                        |file operation|
-|expreg |ALT-E |export one or more buffer registers to file (CSV)                |file operation|
+|expreg |ALT-E |export one or more buffer registers to file (CSV, INI, XML)      |file operation|
+|impreg |ALT-I |export one or more buffer registers from file (CSV, INI, XML)    |file operation|
 |loadcfg|F3    |load settings of device, protocol and connection (?DT)           |file operation|
 |loadreg|F5    |load all buffer registers from typed file (?DT)                  |file operation|
 |savecfg|F2    |save settings of device, protocol and connection (?DT)           |file operation|
@@ -109,8 +110,6 @@ preserved.
 |-------|------|--------------------------------------------------------------|--------------|
 |srvtcp |      |start/stop transparent Modbus/TCP server                      |communication |
 |srvrtu |      |start/stop transparent Modbus/RTU slave                       |communication |
-|expreg |ALT-E |+ support INI, JSON, XML file formats                         |file operation|
-|impreg |ALT-I |import one or more buffer registers from file (INI, JSON, XML)|file operation|
 |if     |      |selection statement                                           |general       |
 |for    |      |loop iteration                                                |general       |
 |and    |      |logical operations                                            |logical       |

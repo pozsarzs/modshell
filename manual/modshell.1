@@ -57,10 +57,10 @@ format. During saving, three typed files are created, with the following
 extensions: DDT, PDT, CDT.
 .PP
 All register values can be saved and loaded in their own format. During saving,
-two typed files are created, with the following extensions: BDT, IDT.
+two typed files are created, with the following extensions: BDT, WDT.
 .PP
 One or more same type registers can be exported to file. During saving, one text
-file is created, with CSV extension.
+file is created, with CSV, INI or XML extension.
 .PP
 On exit, the command line history and full screen mode command line colors are
 preserved.
@@ -185,8 +185,14 @@ in the program directory).
 \fBexphis\fP \fIPATH_AND_FILENAME\fP
 Export command line history to a text file.
 .TP
-\fBexpreg\fP \fIPATH_AND_FILENAME\fP
-Export content of the one or more buffer registers to a text file in CSV format.
+\fBexpreg\fP \fIPATH_AND_FILENAME\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP [\fICOUNT\fP]
+Export content of the one or more buffer registers to a text file in CSV, INI
+or XML format. The file format is specified by the destination file extension.
+If the file exists, it will overwrite or append the new data.
+.TP
+\fBimpreg\fP \fIPATH_AND_FILENAME\fP
+Import content of the one or more buffer registers from a text file in CSV, INI
+or XML format. The file format is specified by the destination file extension.
 .TP
 \fBloadcfg\fP \fIPATH_AND_FILENAME\fP
 Load settings of device, protocol and connection from own format files.
@@ -287,6 +293,10 @@ Export command line history to project directory.
 Export values of discrete input buffer register from address 100 to 115
 to CSV file.
 .TP
+\fBimpreg\fP discrete_inputs.xml
+Import values from a XML file. The target and range are determined by the
+contents of the file.
+.TP
 \fBloadcfg\fP test1
 Load settings of device, protocol and connection from project directory.
 .TP
@@ -332,6 +342,9 @@ expreg command
 \fBALT\fP-\fBG\fP
 get command
 .TP
+\fBALT\fP-\fBI\fP
+impreg command
+.TP
 \fBALT\fP-\fBL\fP
 let command
 .TP
@@ -364,6 +377,107 @@ the default 0x60 will be used.
 .B modshell.ini
 General configuration file in user's directory on Windows or Unix-like system
 or in the settings folder of the program on DOS.
+.TP
+.B "*.DDT"
+Saved device setting in typed file with seven TDevice type values.
+.EX
+type TDevice = record
+       valid: boolean;     // settings validity: false|true
+       devtype: byte;      // type of device: 0..1 -> see DEV_TYPE
+       device: string[15]; // device: /dev/ttySx, COMx, /dev/eth0 etc.
+       port: word;         // ethernet port: 0-65535
+       speed: byte;        // serial speed: 0..7 -> see DEV_SPEED
+       databit: byte;      // serial databits: 7|8
+       parity: byte;       // serial parity: 0..2 -> see DEV_PARITY
+       stopbit: byte;      // serial stopbit: 1|2
+     end;
+.EE
+.TP
+.B "*.PDT"
+Saved protocol setting in typed file with seven TProtocol type values.
+.EX
+type TProtocol = record
+       valid: boolean;        // settings validity: false|true
+       prottype: byte;        // type of protocol: 0..2 -> see PROT_TYPE
+       ipaddress: string[15]; // IP address in a.b.c.d format
+       uid: integer;          // Modbus Unit ID: 1..247
+     end;
+.TP
+.B "*.CDT"
+Saved connection setting in typed file with seven TConnection type values.
+.EX
+type TConnection = record
+       valid: boolean;        // settings validity: false|true
+       dev: byte;             // assigned device: 0..7
+       prot: byte;            // assigned protocol: 0..7
+     end;
+.EE
+.TP
+.B "*.BDT"
+Saved boolean type register values in typed file with 2x9999 boolean values.
+.TP
+.B "*.WDT"
+Saved word type register values in typed file with 2x9999 word values.
+.TP
+.B "*.CSV"
+Exported boolean or word type register values in CSV text file. Cannot be imported.
+Internal structure:
+.EX
+  1,102
+    ...
+  9999,33332
+.EE
+.TP
+.B "*.INI"
+Exported register values in INI text file in this structure:
+.EX
+  [dinp]
+  reg1=0
+    ...
+  reg9999=1
+
+  [coil]
+  reg1=0
+    ...
+  reg9999=1
+
+  [ireg]
+  reg1=102
+    ...
+  reg9999=33332
+
+  [hreg]
+  reg1=5342
+    ...
+  reg9999=12
+.EE
+.TP
+.B "*.XML"
+Exported register values in XML text file in this structure:
+.EX
+  <xml>
+    <dinp>
+      <reg1>0</reg1>
+              ...
+      <reg9999>1</reg9999>
+    </dinp>
+    <coil>
+      <reg1>0</reg1>
+              ...
+      <reg9999>1</reg9999>
+    </coil>
+    <ireg>
+      <reg1>102</reg1>
+              ...
+      <reg9999>33332</reg9999>
+    </ireg>
+    <hreg>
+      <reg1>5342</reg1>
+              ...
+      <reg9999>12</reg9999>
+    </hreg>
+  </xml>
+.EE
 .SH EXIT STATUS
 .TP
 .B 0

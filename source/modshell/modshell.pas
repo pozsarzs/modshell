@@ -20,6 +20,7 @@ uses
   convert,
   crt,
   gettext,
+  inifiles,
   strings,
   sysutils,
   ucommon,
@@ -101,6 +102,7 @@ const
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
                                       '38400','57600','115200');
   DEV_PARITY: array[0..2] of string = ('e','n','o');
+  FILE_TYPE: array[0..2] of string = ('csv','ini','xml');
   PROT_TYPE: array[0..2] of string = ('ascii','rtu','tcp');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');
   PREFIX: array[0..3] of string = ('dev','pro','con','prj');
@@ -140,6 +142,8 @@ resourcestring
   MSG19 = 'Register content has imported from ';
   MSG20 = 'Register content has saved to ';
   MSG21 = 'Register content has loaded from ';
+  MSG22 = 'Useable file types: ';
+  MSG23 = 'File exist, overwrite or append? (y/n/a)';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // error messages
   ERR00 = 'No such command!';
@@ -210,7 +214,7 @@ resourcestring
   USG12='cls';
   USG13='savecfg PATH_AND_FILENAME';
   USG14='loadcfg PATH_AND_FILENAME';
-  USG15='expreg PATH_AND_FILENAME CSV|INI|XML|JSON dinp|coil|ireg|hreg ADDRESS [COUNT]';
+  USG15='expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]';
   USG16='exphis PATH_AND_FILENAME';
   USG17='conv bin|dec|hex|oct bin|dec|hex|oct VALUE';
   USG18='savereg PATH_AND_FILENAME';
@@ -235,6 +239,7 @@ procedure version(h: boolean); forward;
 {$I cmd_expr.pas}
 {$I cmd_get.pas}
 {$I cmd_help.pas}
+{$I cmd_impr.pas}
 {$I cmd_let.pas}
 {$I cmd_lcfg.pas}
 {$I cmd_lreg.pas}
@@ -373,7 +378,7 @@ begin
       begin
         case b of
           0: cmd_copy(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
-             // copy conn? di|coil conn? coil ADDRESS COUNT
+             // copy conn? dinp|coil conn? coil ADDRESS COUNT
              // copy conn? ireg|hreg conn? hreg ADDRESS COUNT
           2: cmd_get(splitted[1]);
              // get dev?|prot?|conn?|prj
@@ -382,9 +387,9 @@ begin
           4: cmd_let(splitted[1], splitted[2], splitted[3]);
              // let dinp|coil|ireg|hreg ADDRESS VALUE
           5: cmd_print(splitted[1], splitted[2], splitted[3]);
-             // print di|coil|ireg|hreg ADDRESS [COUNT]
+             // print dinp|coil|ireg|hreg ADDRESS [COUNT]
           6: cmd_read(splitted[1], splitted[2], splitted[3], splitted[4]);
-             // read conn? di|coil|ireg|hreg ADDRESS [COUNT]
+             // read conn? dinp|coil|ireg|hreg ADDRESS [COUNT]
           7: cmd_reset(splitted[1]);
              // reset dev?|prot?|conn?|prj
           8: cmd_set(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6], splitted[7]);
@@ -407,7 +412,7 @@ begin
          14: cmd_loadcfg(splitted[1]);
              // loadcfg PATH_AND_FILENAME
          15: cmd_expreg(splitted[1], splitted[2], splitted[3], splitted[4]);
-             // expreg FILENAME di|coil|ireg|hreg ADDRESS [COUNT]
+             // expreg FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]
          16: cmd_exphis(splitted[1]);
              // exphis FILENAME
          17: cmd_conv(splitted[1], splitted[2], splitted[3]);
@@ -420,8 +425,8 @@ begin
              // var NAME [VALUE]
          21: cmd_color(splitted[1],splitted[2]);
              // color FOREGROUND BACKGROUND
-         //22: cmd_impreg(splitted[1],splitted[2]);
-             // var NAME [VALUE]
+         22: cmd_impreg(splitted[1]);
+             // impreg FILENAME
         end;
       end;
     end;

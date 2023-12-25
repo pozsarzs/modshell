@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
-{ | cmd_sreg.pas                                                             | }
-{ | command 'savereg'                                                        | }
+{ | cmd_impr.pas                                                             | }
+{ | command 'impreg'                                                         | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -13,22 +13,22 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0      p1
-  -------------------------
-  savereg PATH_AND_FILENAME
+  p0     p1               
+  ------------------------
+  impreg PATH_AND_FILENAME
 }
 
-// command 'savecfg'
-procedure cmd_savereg(p1: string);
+// command 'impreg'
+procedure cmd_impreg(p1: string);
 var
-  c: char;
   i: integer;
+  ini: TINIFile;
   fpn, fp, fn, fx: string;
-  ftb: file of boolean;
-  ftw: file of word;
- 
+  ft: byte;
+  valid: boolean = false;
+
 begin
-  // check length of parameter
+  // check length of parameters
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
@@ -52,42 +52,36 @@ begin
       createdir(fp);
     {$ENDIF}
   end;
-  fn := stringreplace(fn, fx , '', [rfReplaceAll]);
   fpn := fp + fn;
-  // check exist
-  if fileexists(fpn) then
+  // check file extension
+  for ft := 1 to 3 do
+    if '.' + FILE_TYPE[ft] = lowercase(fx) then
+    begin
+      valid := true;
+      break;
+    end;
+  if not valid then
   begin
-    writeln(MSG14);
-    repeat
-      c:= lowercase(readkey);
-      if c = 'n' then exit;
-    until c = 'y';
+    write(MSG22); // What is the file extension?
+    for ft := 1 to 3 do write(' ' + FILE_TYPE[ft]);
+    writeln;
+    exit;
   end;
+  valid := false;
   // primary mission
-  // save dinp and coil
-  fpn := fp + fn + '.bdt';
-  assignfile(ftb, fpn);
-  try 
-    rewrite(ftb);
-    for i := 1 to 9999 do write(ftb, dinp[i]);
-    for i := 1 to 9999 do write(ftb, coil[i]);
-    closefile(ftb);
-  except
-    writeln(ERR12 + fpn + '!');
-    exit;
+  case ft of
+    1: begin
+         ini := tinifile.create(fpn);
+         try
+           writeln(MSG99);
+         except
+           writeln(ERR11 + fpn + '!');
+         end;
+         ini.free;
+       end;
+    2: begin
+         writeln(MSG99);
+       end;
   end;
-  writeln(MSG20 + fpn + '.');
-  // save ireg and hreg
-  fpn := fp + fn + '.wdt';
-  assignfile(ftw, fpn);
-  try 
-    rewrite(ftw);
-    for i := 1 to 9999 do write(ftw, ireg[i]);
-    for i := 1 to 9999 do write(ftw, hreg[i]);
-    closefile(ftw);
-  except
-    writeln(ERR12 + fpn + '!');
-    exit;
-  end;
-  writeln(MSG20 + fpn + '.');
+  writeln(MSG19 + fpn + '.');
 end;

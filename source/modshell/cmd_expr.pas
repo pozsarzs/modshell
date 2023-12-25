@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0     p1                p2                  p3      p4
+  p0     p1                p2                  p3      p3
   ------------------------------------------------------------
   expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]
 }
@@ -21,9 +21,12 @@
 // command 'expreg'
 procedure cmd_expreg(p1, p2, p3, p4: string);
 var
+  appendfile: boolean = false;
   c: char;
   i, i3, i4: integer;
+  ini: TINIFile;
   fpn, fp, fn, fx: string;
+  ft: byte;
   rt: byte;
   tf: textfile;
   valid: boolean = false;
@@ -53,17 +56,32 @@ begin
       createdir(fp);
     {$ENDIF}
   end;
-    fn := stringreplace(fn, fx , '', [rfReplaceAll]);
-    fpn := fp + fn + '.csv';
+  fpn := fp + fn;
   // check exist
   if fileexists(fpn) then
   begin
-    writeln(MSG14);
+    writeln(MSG23);
     repeat
       c:= lowercase(readkey);
       if c = 'n' then exit;
-    until c = 'y';
+      if c = 'a' then appendfile := true;
+    until (c = 'y') or (c = 'a');
   end;
+  // check file extension
+  for ft := 0 to 3 do
+    if '.' + FILE_TYPE[ft] = lowercase(fx) then
+    begin
+      valid := true;
+      break;
+    end;
+  if not valid then
+  begin
+    write(MSG22); // What is the file extension?
+    for ft := 0 to 3 do write(' ' + FILE_TYPE[ft]);
+    writeln;
+    exit;
+  end;
+  valid := false;
   // check p2 parameter
   for rt := 0 to 3 do
     if REG_TYPE[rt] = p2 then
@@ -96,24 +114,49 @@ begin
     end;
   end else i4 := 1;
   // primary mission
-  writeln(p1, p2, p3, p4);
-  assignfile(tf, fpn);
-  rewrite(tf);
-  try
-    case rt of
-      0: for i := i3 to i3 + i4 -1 do
-           if i < 10000 then writeln(tf, inttostr(i) + ',' + booltostr(dinp[i]));
-      1: for i := i3 to i3 + i4 do
-           if i < 10000 then writeln(tf, inttostr(i) + ',' + booltostr(coil[i]));
-      2: for i := i3 to i3 + i4 -1 do
-           if i < 10000 then writeln(tf, inttostr(i) + ',' + inttostr(ireg[i]));
-      3: for i := i3 to i3 + i4 - 1 do
-           if i < 10000 then writeln(tf, inttostr(i) + ',' + inttostr(hreg[i]));
-    end;
-    closefile(tf);  
-  except
-    writeln(ERR10 + fpn + '!');
-    exit;
+  case ft of
+    0: begin
+         assignfile(tf, fpn);
+         if appendfile then append(tf) else rewrite(tf);
+         try
+           case rt of
+             0: for i := i3 to i3 + i4 -1 do
+                  if i < 10000 then writeln(tf, inttostr(i) + ',' + booltostr(dinp[i]));
+             1: for i := i3 to i3 + i4 do
+                  if i < 10000 then writeln(tf, inttostr(i) + ',' + booltostr(coil[i]));
+             2: for i := i3 to i3 + i4 -1 do
+                  if i < 10000 then writeln(tf, inttostr(i) + ',' + inttostr(ireg[i]));
+             3: for i := i3 to i3 + i4 - 1 do
+                  if i < 10000 then writeln(tf, inttostr(i) + ',' + inttostr(hreg[i]));
+           end;
+           closefile(tf);  
+         except
+           writeln(ERR10 + fpn + '!');
+           exit;
+         end;
+       end;
+    1: begin
+         if not appendfile then deletefile(fpn);
+         ini := tinifile.create(fpn);
+         try
+           case rt of
+             0: for i := i3 to i3 + i4 -1 do
+                  if i < 10000 then ini.writebool(REG_TYPE[rt], 'reg' + inttostr(i), dinp[i]);
+             1: for i := i3 to i3 + i4 -1 do
+                  if i < 10000 then ini.writebool(REG_TYPE[rt], 'reg' + inttostr(i), coil[i]);
+             2: for i := i3 to i3 + i4 -1 do
+                  if i < 10000 then ini.writeinteger(REG_TYPE[rt], 'reg' + inttostr(i), ireg[i]);
+             3: for i := i3 to i3 + i4 - 1 do
+                  if i < 10000 then ini.writeinteger(REG_TYPE[rt], 'reg' + inttostr(i), hreg[i]);
+           end;
+         except
+           writeln(ERR10 + fpn + '!');
+         end;
+         ini.free;
+       end;
+    2: begin
+         writeln(MSG99);
+       end;
   end;
   writeln(MSG18 + fpn + '.');
 end;
