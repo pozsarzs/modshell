@@ -24,12 +24,16 @@ var
   appendfile: boolean = false;
   c: char;
   i, i3, i4: integer;
-  ini: TINIFile;
+  ini: tinifile;
   fpn, fp, fn, fx: string;
   ft: byte;
+  rootnode, parentnode, itemnode: tdomnode; 
   rt: byte;
   tf: textfile;
   valid: boolean = false;
+  xml: txmldocument;
+const
+  PREFIX: string = 'addr';
 
 begin
   // check length of parameters
@@ -121,13 +125,13 @@ begin
          try
            case rt of
              0: for i := i3 to i3 + i4 -1 do
-                  if i < 10000 then writeln(tf, inttostr(i) + ',' + booltostr(dinp[i]));
+                  if i < 10000 then writeln(tf,REG_TYPE[rt] + ',' + inttostr(i) + ',' + booltostr(dinp[i]));
              1: for i := i3 to i3 + i4 do
-                  if i < 10000 then writeln(tf, inttostr(i) + ',' + booltostr(coil[i]));
+                  if i < 10000 then writeln(tf,REG_TYPE[rt] + ',' +  inttostr(i) + ',' + booltostr(coil[i]));
              2: for i := i3 to i3 + i4 -1 do
-                  if i < 10000 then writeln(tf, inttostr(i) + ',' + inttostr(ireg[i]));
+                  if i < 10000 then writeln(tf,REG_TYPE[rt] + ',' +  inttostr(i) + ',' + inttostr(ireg[i]));
              3: for i := i3 to i3 + i4 - 1 do
-                  if i < 10000 then writeln(tf, inttostr(i) + ',' + inttostr(hreg[i]));
+                  if i < 10000 then writeln(tf,REG_TYPE[rt] + ',' +  inttostr(i) + ',' + inttostr(hreg[i]));
            end;
            closefile(tf);  
          except
@@ -141,13 +145,13 @@ begin
          try
            case rt of
              0: for i := i3 to i3 + i4 -1 do
-                  if i < 10000 then ini.writebool(REG_TYPE[rt], 'reg' + inttostr(i), dinp[i]);
+                  if i < 10000 then ini.writebool(REG_TYPE[rt], PREFIX + '_' + inttostr(i), dinp[i]);
              1: for i := i3 to i3 + i4 -1 do
-                  if i < 10000 then ini.writebool(REG_TYPE[rt], 'reg' + inttostr(i), coil[i]);
+                  if i < 10000 then ini.writebool(REG_TYPE[rt], PREFIX + '_' + inttostr(i), coil[i]);
              2: for i := i3 to i3 + i4 -1 do
-                  if i < 10000 then ini.writeinteger(REG_TYPE[rt], 'reg' + inttostr(i), ireg[i]);
+                  if i < 10000 then ini.writeinteger(REG_TYPE[rt], PREFIX + '_' + inttostr(i), ireg[i]);
              3: for i := i3 to i3 + i4 - 1 do
-                  if i < 10000 then ini.writeinteger(REG_TYPE[rt], 'reg' + inttostr(i), hreg[i]);
+                  if i < 10000 then ini.writeinteger(REG_TYPE[rt], PREFIX + '_' + inttostr(i), hreg[i]);
            end;
          except
            writeln(ERR10 + fpn + '!');
@@ -155,7 +159,62 @@ begin
          ini.free;
        end;
     2: begin
-         writeln(MSG99);
+
+         // a hozzáfűzés még nincs benne!
+         
+         xml := txmldocument.create;
+         rootnode := xml.createelement('xml');
+         xml.appendchild(rootnode); 
+         for b := 0 to 3 do
+         begin
+           rootnode:= xml.documentelement;
+           parentnode := xml.createelement(REG_TYPE[b]);
+           rootnode.appendchild(parentnode);
+         end;
+         case rt of
+           0: for i := i3 to i3 + i4 -1 do
+                if i < 10000 then
+                begin
+                  parentnode := xml.createelement('reg');               
+                  tdomelement(parentNode).setattribute(PREFIX, inttostr(i));
+                  itemnode := xml.createtextnode(booltostr(dinp[i]));
+                  parentnode.appendchild(itemnode);
+                  rootnode.childnodes.item[rt].appendchild(parentnode);
+                end;
+           1: for i := i3 to i3 + i4 -1 do
+                if i < 10000 then
+                begin
+                  parentnode := xml.createelement('reg');               
+                  tdomelement(parentNode).setattribute(PREFIX, inttostr(i));
+                  itemnode := xml.createtextnode(booltostr(coil[i]));
+                  parentnode.appendchild(itemnode);
+                  rootnode.childnodes.item[rt].appendchild(parentnode);
+                end;
+           2: for i := i3 to i3 + i4 -1 do
+                if i < 10000 then
+                begin
+                  parentnode := xml.createelement('reg');               
+                  tdomelement(parentNode).setattribute(PREFIX, inttostr(i));
+                  itemnode := xml.createtextnode(inttostr(ireg[i]));
+                  parentnode.appendchild(itemnode);
+                  rootnode.childnodes.item[rt].appendchild(parentnode);
+                end;
+           3: for i := i3 to i3 + i4 -1 do
+                if i < 10000 then
+                begin
+                  parentnode := xml.createelement('reg');               
+                  tdomelement(parentNode).setattribute(PREFIX, inttostr(i));
+                  itemnode := xml.createtextnode(inttostr(hreg[i]));
+                  parentnode.appendchild(itemnode);
+                  rootnode.childnodes.item[rt].appendchild(parentnode);
+                end;
+         end;
+         try
+           writeXMLFile(xml, fpn);
+         except
+           writeln(ERR10 + fpn + '!');
+         end;
+         xml.free;
        end;
   end;
   writeln(MSG18 + fpn + '.');

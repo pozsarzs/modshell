@@ -1,0 +1,14 @@
+Begin3
+Title:		ModShell          
+Version:        0.1
+Entered-date:   2023-12-20
+Description:    Command-driven scriptable Modbus utility
+Keywords:       modbus
+Author:         Pozsar Zsolt <pozsarzs@gmail.com>
+Maintained-by:
+Primary-site:
+Alternate-site:
+Original-site:  http://www.pozsarzs.hu
+Platforms:      DOS, FreeBSD, Linux, Windows (FreePascal)
+Copying-policy: EUPL v1.2
+End

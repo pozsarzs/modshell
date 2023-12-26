@@ -25,6 +25,8 @@ var
   ini: TINIFile;
   fpn, fp, fn, fx: string;
   ft: byte;
+  rt: byte;
+  s: string;
   valid: boolean = false;
 
 begin
@@ -73,7 +75,17 @@ begin
     1: begin
          ini := tinifile.create(fpn);
          try
-           writeln(MSG99);
+           for rt := 0 to 3 do
+             for i := 1 to 9999 do
+             begin
+               s := ini.readstring(REG_TYPE[rt], 'reg' + inttostr(i),'x');
+               case rt of
+                 0: if s <> 'x' then dinp[i] := strtobooldef(s, false);
+                 1: if s <> 'x' then coil[i] := strtobooldef(s, false);
+                 2: if s <> 'x' then ireg[i] := strtointdef(s, 0);
+                 3: if s <> 'x' then hreg[i] := strtointdef(s, 0);
+               end;
+             end; 
          except
            writeln(ERR11 + fpn + '!');
          end;

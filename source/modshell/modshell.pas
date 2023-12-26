@@ -16,9 +16,10 @@
 {$MODE OBJFPC}{$H+}{$MACRO ON} 
 program modshell;
 uses
-  dos,
   convert,
   crt,
+  dom,
+  dos,
   gettext,
   inifiles,
   strings,
@@ -28,7 +29,9 @@ uses
   umbascii,
   umbrtu,
   umbtcp,
-  utranslt;
+  utranslt,
+  xmlread,
+  xmlwrite;
 type
   tdevice = record
     valid: boolean;    // false|true: invalid|valid

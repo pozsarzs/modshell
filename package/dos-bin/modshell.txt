@@ -395,52 +395,62 @@ FILES
 
        *.CSV  Exported boolean or word type register values in CSV text file.  Cannot  be
               imported.  Internal structure:
-                1,102
-                  ...
-                9999,33332
+                dinp,1,0
+                    ...
+                dinp,9999,1
+                coil,1,0
+                    ...
+                coil,9999,1
+                ireg,1,102
+                    ...
+                ireg,9999,33332
+                hreg,1,5342
+                    ...
+                hreg,9999,12
 
        *.INI  Exported register values in INI text file in this structure:
                 [dinp]
-                reg1=0
+                addr_1=0
                   ...
-                reg9999=1
+                addr_9999=1
 
                 [coil]
-                reg1=0
+                addr_1=0
                   ...
-                reg9999=1
+                addr_9999=1
 
                 [ireg]
-                reg1=102
+                addr_1=102
                   ...
-                reg9999=33332
+                addr_9999=33332
 
                 [hreg]
-                reg1=5342
+                addr_1=5342
                   ...
-                reg9999=12
+                addr_9999=12
 
        *.XML  Exported register values in XML text file in this structure:
+                <?xml version="1.0" encoding="utf-8"?>
                 <xml>
                   <dinp>
-                    <reg1>0</reg1>
+                    <reg addr="1">0</reg>
                             ...
-                    <reg9999>1</reg9999>
+                    <reg addr="9999">1</reg>
                   </dinp>
                   <coil>
-                    <reg1>0</reg1>
+                    <reg addr="1">0</reg>
                             ...
-                    <reg9999>1</reg9999>
+                    <reg addr="9999">1</reg>
                   </coil>
                   <ireg>
-                    <reg1>102</reg1>
+                    <reg addr="1">102</reg>
                             ...
-                    <reg9999>33332</reg9999>
+                    <reg addr="33332">1</reg>
                   </ireg>
                   <hreg>
-                    <reg1>5342</reg1>
+                    <reg addr="1">5342</reg>
                             ...
-                    <reg9999>12</reg9999>
+                    <reg addr="33332">12</reg>
                   </hreg>
                 </xml>
 
