@@ -19,34 +19,54 @@ interface
 uses
   userial;
 
-procedure readdinp;
-procedure readireg;
-procedure writecoil;
-procedure writehreg;
+procedure rtu_readdinp(device, uid, address, count: integer);
+procedure rtu_readcoil(device, uid, address, count: integer);
+procedure rtu_readireg(device, uid, address, count: integer);
+procedure rtu_readhreg(device, uid, address, count: integer);
+procedure rtu_writecoil(device, uid, address, count: integer);
+procedure rtu_writehreg(device, uid, address, count: integer);
 
 implementation
 
-function createcrc: string;
+// create Cyclic Redundancy Check (CRC) value
+function crc(s: string): word;
+begin
+  result := 0;
+end;
+
+// check CRC of a string
+function chkeckcrc(s: string; l: word): boolean;
+begin
+  result := true;
+end;
+
+// read remote discrete input
+procedure rtu_readdinp(device, uid, address, count: integer);
 begin
 end;
 
-function chkeckcrc: boolean;
+// read remote coil
+procedure rtu_readcoil(device, uid, address, count: integer);
 begin
 end;
 
-procedure readdinp;
+// read remote input register
+procedure rtu_readireg(device, uid, address, count: integer);
 begin
 end;
 
-procedure readireg;
+// read remote holding register
+procedure rtu_readhreg(device, uid, address, count: integer);
 begin
 end;
 
-procedure writecoil;
+// write remote coil
+procedure rtu_writecoil(device, uid, address, count: integer);
 begin
 end;
 
-procedure writehreg;
+// write remote holding register
+procedure rtu_writehreg(device, uid, address, count: integer);
 begin
 end;
 

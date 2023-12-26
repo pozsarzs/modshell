@@ -19,34 +19,54 @@ interface
 uses
   uether;
 
-procedure readdinp;
-procedure readireg;
-procedure writecoil;
-procedure writehreg;
+procedure tcp_readdinp(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_readcoil(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_readireg(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_readhreg(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_writecoil(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_writehreg(device: integer; ipaddress: string; address, count: integer);
 
 implementation
 
-function createcrc: string;
+// create Cyclic Redundancy Check (CRC) value
+function crc(s: string): word;
+begin
+  result := 0;
+end;
+
+// check CRC of a string
+function chkeckcrc(s: string; l: word): boolean;
+begin
+  result := true;
+end;
+
+// read remote discrete input
+procedure tcp_readdinp(device: integer; ipaddress: string; address, count: integer);
 begin
 end;
 
-function chkeckcrc: boolean;
+// read remote coil
+procedure tcp_readcoil(device: integer; ipaddress: string; address, count: integer);
 begin
 end;
 
-procedure readdinp;
+// read remote input register
+procedure tcp_readireg(device: integer; ipaddress: string; address, count: integer);
 begin
 end;
 
-procedure readireg;
+// read remote holding register
+procedure tcp_readhreg(device: integer; ipaddress: string; address, count: integer);
 begin
 end;
 
-procedure writecoil;
+// write remote coil
+procedure tcp_writecoil(device: integer; ipaddress: string; address, count: integer);
 begin
 end;
 
-procedure writehreg;
+// write remote holding register
+procedure tcp_writehreg(device: integer; ipaddress: string; address, count: integer);
 begin
 end;
 

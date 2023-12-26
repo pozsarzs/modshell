@@ -18,11 +18,13 @@ unit umbascii;
 interface
 uses
   userial;
-
-procedure readdinp;
-procedure readireg;
-procedure writecoil;
-procedure writehreg;
+  
+procedure asc_readdinp(device, uid, address, count: integer);
+procedure asc_readcoil(device, uid, address, count: integer);
+procedure asc_readireg(device, uid, address, count: integer);
+procedure asc_readhreg(device, uid, address, count: integer);
+procedure asc_writecoil(device, uid, address, count: integer);
+procedure asc_writehreg(device, uid, address, count: integer);
 
 implementation
 
@@ -30,7 +32,7 @@ implementation
 function hex2(s: string): string;
 var
   b:       byte;
-  c, d, e: integer;
+  d, e: integer;
   res:     string;
 begin
   b := 1;
@@ -57,23 +59,39 @@ begin
   lrc := res;
 end;
 
-function chkecklrc: boolean;
+// check LRC of a string
+function chkecklrc(s: string; l: word): boolean;
+begin
+  result := true;
+end;
+
+// read remote discrete input
+procedure asc_readdinp(device, uid, address, count: integer);
 begin
 end;
 
-procedure readdinp;
+// read remote coil
+procedure asc_readcoil(device, uid, address, count: integer);
 begin
 end;
 
-procedure readireg;
+// read remote input register
+procedure asc_readireg(device, uid, address, count: integer);
 begin
 end;
 
-procedure writecoil;
+// read remote holding register
+procedure asc_readhreg(device, uid, address, count: integer);
 begin
 end;
 
-procedure writehreg;
+// write remote coil
+procedure asc_writecoil(device, uid, address, count: integer);
+begin
+end;
+
+// write remote holding register
+procedure asc_writehreg(device, uid, address, count: integer);
 begin
 end;
 

@@ -233,6 +233,19 @@ resourcestring
 
 procedure version(h: boolean); forward;
 
+// check validity of dev?/pro?/con?'
+function validity(sets, number: byte): boolean;
+begin
+  case sets of
+    0: result := dev[number].valid;
+    1: result := prot[number].valid;
+    2: result := conn[number].valid;
+  else
+    result := false;
+  end;
+  if not result then writeln(PREFIX[sets], number, MSG06);
+end;
+
 {$I modbus.pas}
 {$I cmd_colr.pas}
 {$I cmd_conv.pas}

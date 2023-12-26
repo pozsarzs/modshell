@@ -220,6 +220,7 @@ var
       writeln(ERR01); // Device number must be 0-7!
       exit;
     end;
+    if not validity(0, i2) then exit;
    // check p3 parameter
    if PREFIX[1] <> s3 then
     begin
@@ -232,6 +233,7 @@ var
       writeln(ERR02); // Protocol number must be 0-7!
       exit;
     end;
+    if not validity(1, i2) then exit;
     // primary mission
     with conn[strtoint(n)] do
     begin
