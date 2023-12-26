@@ -21,7 +21,7 @@
 // command 'expreg'
 procedure cmd_expreg(p1, p2, p3, p4: string);
 var
-  appendfile: boolean = false;
+  // appendfile: boolean = false;
   c: char;
   i, i3, i4: integer;
   ini: tinifile;
@@ -68,8 +68,8 @@ begin
     repeat
       c:= lowercase(readkey);
       if c = 'n' then exit;
-      if c = 'a' then appendfile := true;
-    until (c = 'y') or (c = 'a');
+      // if c = 'a' then appendfile := true;
+    until (c = 'y') { or (c = 'a') };
   end;
   // check file extension
   for ft := 0 to 3 do
@@ -121,7 +121,7 @@ begin
   case ft of
     0: begin
          assignfile(tf, fpn);
-         if appendfile then append(tf) else rewrite(tf);
+         rewrite(tf);
          try
            case rt of
              0: for i := i3 to i3 + i4 -1 do
@@ -140,7 +140,7 @@ begin
          end;
        end;
     1: begin
-         if not appendfile then deletefile(fpn);
+         deletefile(fpn);
          ini := tinifile.create(fpn);
          try
            case rt of
@@ -159,16 +159,13 @@ begin
          ini.free;
        end;
     2: begin
-
-         // a hozzáfűzés még nincs benne!
-         
          xml := txmldocument.create;
          rootnode := xml.createelement('xml');
          xml.appendchild(rootnode); 
          for b := 0 to 3 do
          begin
            rootnode:= xml.documentelement;
-           parentnode := xml.createelement(REG_TYPE[b]);
+           parentnode := xml.createelement(utf8decode(REG_TYPE[b]));
            rootnode.appendchild(parentnode);
          end;
          case rt of
@@ -176,8 +173,8 @@ begin
                 if i < 10000 then
                 begin
                   parentnode := xml.createelement('reg');               
-                  tdomelement(parentNode).setattribute(PREFIX, inttostr(i));
-                  itemnode := xml.createtextnode(booltostr(dinp[i]));
+                  tdomelement(parentnode).setattribute(utf8decode(PREFIX), utf8decode(inttostr(i)));
+                  itemnode := xml.createtextnode(utf8decode(booltostr(dinp[i])));
                   parentnode.appendchild(itemnode);
                   rootnode.childnodes.item[rt].appendchild(parentnode);
                 end;
@@ -185,8 +182,8 @@ begin
                 if i < 10000 then
                 begin
                   parentnode := xml.createelement('reg');               
-                  tdomelement(parentNode).setattribute(PREFIX, inttostr(i));
-                  itemnode := xml.createtextnode(booltostr(coil[i]));
+                  tdomelement(parentnode).setattribute(utf8decode(PREFIX), utf8decode(inttostr(i)));
+                  itemnode := xml.createtextnode(utf8decode(booltostr(coil[i])));
                   parentnode.appendchild(itemnode);
                   rootnode.childnodes.item[rt].appendchild(parentnode);
                 end;
@@ -194,8 +191,8 @@ begin
                 if i < 10000 then
                 begin
                   parentnode := xml.createelement('reg');               
-                  tdomelement(parentNode).setattribute(PREFIX, inttostr(i));
-                  itemnode := xml.createtextnode(inttostr(ireg[i]));
+                  tdomelement(parentnode).setattribute(utf8decode(PREFIX), utf8decode(inttostr(i)));
+                  itemnode := xml.createtextnode(utf8decode(inttostr(ireg[i])));
                   parentnode.appendchild(itemnode);
                   rootnode.childnodes.item[rt].appendchild(parentnode);
                 end;
@@ -203,14 +200,14 @@ begin
                 if i < 10000 then
                 begin
                   parentnode := xml.createelement('reg');               
-                  tdomelement(parentNode).setattribute(PREFIX, inttostr(i));
-                  itemnode := xml.createtextnode(inttostr(hreg[i]));
+                  tdomelement(parentnode).setattribute(utf8decode(PREFIX), utf8decode(inttostr(i)));
+                  itemnode := xml.createtextnode(utf8decode(inttostr(hreg[i])));
                   parentnode.appendchild(itemnode);
                   rootnode.childnodes.item[rt].appendchild(parentnode);
                 end;
          end;
          try
-           writeXMLFile(xml, fpn);
+           writexmlfile(xml, fpn);
          except
            writeln(ERR10 + fpn + '!');
          end;

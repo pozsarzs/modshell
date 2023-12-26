@@ -21,13 +21,15 @@
 // command 'impreg'
 procedure cmd_impreg(p1: string);
 var
-  i: integer;
+  i, j: integer;
   ini: TINIFile;
   fpn, fp, fn, fx: string;
   ft: byte;
+  childnode: tdomnode; 
   rt: byte;
   s: string;
   valid: boolean = false;
+  xml: txmldocument;
 
 begin
   // check length of parameters
@@ -92,7 +94,41 @@ begin
          ini.free;
        end;
     2: begin
-         writeln(MSG99);
+         readxmlfile(xml, fpn);
+         childnode := xml.documentelement.firstchild;
+         while assigned(childnode) do
+         begin
+           with childnode.childnodes do
+             try
+               for j := 0 to (count - 1) do
+               begin
+                 if item[j].NodeName = 'reg' then
+                 begin
+                   valid := false;
+                   for rt := 0 to 3 do
+                     if REG_TYPE[rt] = lowercase(utf8encode(childnode.nodename)) then
+                     begin
+                       valid := true;
+                       break;
+                     end;
+                   if valid then
+                     if (strtointdef(utf8encode(item[j].attributes.item[0].textcontent), 0) > 0) and
+                        (strtointdef(utf8encode(item[j].attributes.item[0].textcontent), 0) < 10000) then
+                       case rt of
+                         0: dinp[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] := strtobooldef(utf8encode(item[j].firstchild.nodevalue), false);
+                         1: coil[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] := strtobooldef(utf8encode(item[j].firstchild.nodevalue), false);
+                         2: ireg[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] := strtointdef(utf8encode(item[j].firstchild.nodevalue), 0);
+                         3: hreg[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] := strtointdef(utf8encode(item[j].firstchild.nodevalue), 0);
+                       end;
+                 end;
+               end;
+             except
+               writeln(err10 + fpn + '!');
+               exit;
+             end;
+           childnode := childnode.nextsibling;
+         end;
+         xml.free;
        end;
   end;
   writeln(MSG19 + fpn + '.');

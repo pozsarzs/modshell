@@ -109,7 +109,7 @@ preserved.
 (Commands with function keys (F?) are executed immediately,
  modifier keys (ALT-?) only make typing easier.)  
 
-**Planned commands**  
+**Planned commands in next release (v0.2)**  
 
 |command|hotkey|description                                                   |category      |
 |-------|------|--------------------------------------------------------------|--------------|

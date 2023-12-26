@@ -146,7 +146,7 @@ resourcestring
   MSG20 = 'Register content has saved to ';
   MSG21 = 'Register content has loaded from ';
   MSG22 = 'Useable file types: ';
-  MSG23 = 'File exist, overwrite or append? (y/n/a)';
+  MSG23 = 'File exist, overwrite? (y/n)';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // error messages
   ERR00 = 'No such command!';
