@@ -19,12 +19,12 @@ interface
 uses
   userial;
 
-procedure rtu_readdinp(device, uid, address, count: integer);
-procedure rtu_readcoil(device, uid, address, count: integer);
-procedure rtu_readireg(device, uid, address, count: integer);
-procedure rtu_readhreg(device, uid, address, count: integer);
-procedure rtu_writecoil(device, uid, address, count: integer);
-procedure rtu_writehreg(device, uid, address, count: integer);
+procedure rtu_readdinp(uid, address, count: integer);
+procedure rtu_readcoil(uid, address, count: integer);
+procedure rtu_readireg(uid, address, count: integer);
+procedure rtu_readhreg(uid, address, count: integer);
+procedure rtu_writecoil(uid, address, count: integer);
+procedure rtu_writehreg(uid, address, count: integer);
 
 implementation
 
@@ -41,32 +41,32 @@ begin
 end;
 
 // read remote discrete input
-procedure rtu_readdinp(device, uid, address, count: integer);
+procedure rtu_readdinp(uid, address, count: integer);
 begin
 end;
 
 // read remote coil
-procedure rtu_readcoil(device, uid, address, count: integer);
+procedure rtu_readcoil(uid, address, count: integer);
 begin
 end;
 
 // read remote input register
-procedure rtu_readireg(device, uid, address, count: integer);
+procedure rtu_readireg(uid, address, count: integer);
 begin
 end;
 
 // read remote holding register
-procedure rtu_readhreg(device, uid, address, count: integer);
+procedure rtu_readhreg(uid, address, count: integer);
 begin
 end;
 
 // write remote coil
-procedure rtu_writecoil(device, uid, address, count: integer);
+procedure rtu_writecoil(uid, address, count: integer);
 begin
 end;
 
 // write remote holding register
-procedure rtu_writehreg(device, uid, address, count: integer);
+procedure rtu_writehreg(uid, address, count: integer);
 begin
 end;
 

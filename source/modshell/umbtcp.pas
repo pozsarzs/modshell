@@ -19,12 +19,12 @@ interface
 uses
   uether;
 
-procedure tcp_readdinp(device: integer; ipaddress: string; address, count: integer);
-procedure tcp_readcoil(device: integer; ipaddress: string; address, count: integer);
-procedure tcp_readireg(device: integer; ipaddress: string; address, count: integer);
-procedure tcp_readhreg(device: integer; ipaddress: string; address, count: integer);
-procedure tcp_writecoil(device: integer; ipaddress: string; address, count: integer);
-procedure tcp_writehreg(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_readdinp(ipaddress: string; address, count: integer);
+procedure tcp_readcoil(ipaddress: string; address, count: integer);
+procedure tcp_readireg(ipaddress: string; address, count: integer);
+procedure tcp_readhreg(ipaddress: string; address, count: integer);
+procedure tcp_writecoil(ipaddress: string; address, count: integer);
+procedure tcp_writehreg(ipaddress: string; address, count: integer);
 
 implementation
 
@@ -41,32 +41,32 @@ begin
 end;
 
 // read remote discrete input
-procedure tcp_readdinp(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_readdinp(ipaddress: string; address, count: integer);
 begin
 end;
 
 // read remote coil
-procedure tcp_readcoil(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_readcoil(ipaddress: string; address, count: integer);
 begin
 end;
 
 // read remote input register
-procedure tcp_readireg(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_readireg(ipaddress: string; address, count: integer);
 begin
 end;
 
 // read remote holding register
-procedure tcp_readhreg(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_readhreg(ipaddress: string; address, count: integer);
 begin
 end;
 
 // write remote coil
-procedure tcp_writecoil(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_writecoil(ipaddress: string; address, count: integer);
 begin
 end;
 
 // write remote holding register
-procedure tcp_writehreg(device: integer; ipaddress: string; address, count: integer);
+procedure tcp_writehreg(ipaddress: string; address, count: integer);
 begin
 end;
 

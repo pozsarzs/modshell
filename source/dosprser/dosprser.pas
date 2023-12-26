@@ -72,8 +72,8 @@ var
   rds: boolean;
   i: byte;
 
-function  getchar: char;
-procedure putchar(c: char);
+function  getstring: string;
+procedure putstring(s: string);
 procedure init(defaults: byte; com: word; speed: word);
 procedure done;
 
@@ -220,6 +220,29 @@ asm
    sub   dx, 3
    in    al, dx
 end ['eax', 'edx'];
+
+procedure putstring(const s: string);
+var
+   i: integer;
+begin
+  for i := 1 to length(s) do
+    putchar(s[i]);
+end;
+
+function getstring: string;
+var
+  c:  char;
+  res: string;
+begin
+  res := '';
+  delay(500);
+  repeat
+    c := getchar;
+    if rds then
+      res := res + c;
+  until rbs = rbe;
+  getstring := res;
+end;
 
 procedure init(defaults: byte; com: word; speed: word);
 begin

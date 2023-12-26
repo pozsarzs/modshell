@@ -26,9 +26,11 @@ uses
   sysutils,
   ucommon,
   uconfig,
+  uether,
   umbascii,
   umbrtu,
   umbtcp,
+  userial,
   utranslt,
   xmlread,
   xmlwrite;
@@ -167,6 +169,7 @@ resourcestring
   ERR15 = 'Illegal character in the variable name!';
   ERR16 = 'Cannot define more variable!';
   ERR17 = 'There is already a variable with that name';
+  ERR18 = 'Cannot initialize serial port!';
   // command description
   DES00='       copy one or more register between two connections';
   DES01='F10    exit';

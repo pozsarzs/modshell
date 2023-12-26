@@ -19,12 +19,12 @@ interface
 uses
   userial;
   
-procedure asc_readdinp(device, uid, address, count: integer);
-procedure asc_readcoil(device, uid, address, count: integer);
-procedure asc_readireg(device, uid, address, count: integer);
-procedure asc_readhreg(device, uid, address, count: integer);
-procedure asc_writecoil(device, uid, address, count: integer);
-procedure asc_writehreg(device, uid, address, count: integer);
+procedure asc_readdinp(uid, address, count: integer);
+procedure asc_readcoil(uid, address, count: integer);
+procedure asc_readireg(uid, address, count: integer);
+procedure asc_readhreg(uid, address, count: integer);
+procedure asc_writecoil(uid, address, count: integer);
+procedure asc_writehreg(uid, address, count: integer);
 
 implementation
 
@@ -66,32 +66,32 @@ begin
 end;
 
 // read remote discrete input
-procedure asc_readdinp(device, uid, address, count: integer);
+procedure asc_readdinp(uid, address, count: integer);
 begin
 end;
 
 // read remote coil
-procedure asc_readcoil(device, uid, address, count: integer);
+procedure asc_readcoil(uid, address, count: integer);
 begin
 end;
 
 // read remote input register
-procedure asc_readireg(device, uid, address, count: integer);
+procedure asc_readireg(uid, address, count: integer);
 begin
 end;
 
 // read remote holding register
-procedure asc_readhreg(device, uid, address, count: integer);
+procedure asc_readhreg(uid, address, count: integer);
 begin
 end;
 
 // write remote coil
-procedure asc_writecoil(device, uid, address, count: integer);
+procedure asc_writecoil(uid, address, count: integer);
 begin
 end;
 
 // write remote holding register
-procedure asc_writehreg(device, uid, address, count: integer);
+procedure asc_writehreg(uid, address, count: integer);
 begin
 end;
 

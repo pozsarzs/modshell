@@ -16,52 +16,42 @@
 {$MODE OBJFPC}{$H+}
 unit uether;
 interface
+{$IFDEF GO32V2}
+{$ELSE}
+{$ENDIF}
 
-function ethernetinit: boolean;
-function ethernetread: string;
-function ethernetwrite: boolean;
+function etherread: string;
+procedure etherwrite(s: string);
+function  etherinit: boolean;
+procedure etherclose;
 
 implementation
 
-function ethernetinit: boolean;
+function etherread: string;
 begin
   {$IFDEF GO32V2}
   {$ELSE}
-    {$IFDEF WINDOWS}
-    {$ELSE}
-      {$IFDEF UNIX}
-      {$ELSE}
-        {$FATAL Not supported operation system!}
-      {$ENDIF}
-    {$ENDIF}
   {$ENDIF}
 end;
 
-function ethernetread: string;
+function  etherinit: boolean;
 begin
   {$IFDEF GO32V2}
   {$ELSE}
-    {$IFDEF WINDOWS}
-    {$ELSE}
-      {$IFDEF UNIX}
-      {$ELSE}
-        {$FATAL Not supported operation system!}
-      {$ENDIF}
-    {$ENDIF}
   {$ENDIF}
 end;
 
-function ethernetwrite: boolean;
+procedure etherwrite(s: string);
 begin
   {$IFDEF GO32V2}
   {$ELSE}
-    {$IFDEF WINDOWS}
-    {$ELSE}
-      {$IFDEF UNIX}
-      {$ELSE}
-        {$FATAL Not supported operation system!}
-      {$ENDIF}
-    {$ENDIF}
+  {$ENDIF}
+end;
+
+procedure etherclose;
+begin
+  {$IFDEF GO32V2}
+  {$ELSE}
   {$ENDIF}
 end;
 
