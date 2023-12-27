@@ -126,7 +126,7 @@ const
   
 resourcestring
   // general messages
-  MSG01 = '<F1> help  <F2> save cfg  <F3> load cfg  <F4> save reg  <F5> load reg <F8> clear  <F10> exit';
+  MSG01 = '<F1> help  <F2> savecfg  <F3> loadcfg  <F4> savereg  <F5> loadreg <F8> clear  <F10> exit';
   MSG02 = 'Command-driven scriptable Modbus utility';
   MSG03 = 'Use ''help COMMAND'' to show usage.';
   MSG04 = 'Usage this command:';

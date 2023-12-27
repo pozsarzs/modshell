@@ -1,5 +1,5 @@
 #: modshell:msg01
-msgid "<F1> help  <F2> save cfg.  <F3> load cfg.  <F8> clear screen  <F10> exit"
+msgid "<F1> help  <F2> savecfg  <F3> loadcfg  <F4> savereg  <F5> loadreg <F8> clear  <F10> exit"
 msgstr ""
 
 #: modshell:msg02
@@ -74,6 +74,22 @@ msgstr ""
 msgid "Register content has imported from "
 msgstr ""
 
+#: modshell:msg20
+msgid "Register content has saved to "
+msgstr ""
+
+#: modshell:msg21
+msgid "Register content has loaded from "
+msgstr ""
+
+#: modshell:msg22
+msgid "Useable file types: "
+msgstr ""
+
+#: modshell:msg23
+msgid "File exist, overwrite? (y/n)"
+msgstr ""
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr ""
@@ -126,6 +142,34 @@ msgstr ""
 msgid "Cannot import register content from "
 msgstr ""
 
+#: modshell:err12
+msgid "Cannot save register content to "
+msgstr ""
+
+#: modshell:err13
+msgid "Cannot load register content from "
+msgstr ""
+
+#: modshell:err14
+msgid "Illegal character in the project name!"
+msgstr ""
+
+#: modshell:err15
+msgid "Illegal character in the variable name!"
+msgstr ""
+
+#: modshell:err16
+msgid "Cannot define more variable!"
+msgstr ""
+
+#: modshell:err17
+msgid "There is already a variable with that name"
+msgstr ""
+
+#: modshell:err18
+msgid "Cannot initialize serial port!"
+msgstr ""
+
 #: modshell:des00
 msgid "       copy one or more register between two connections"
 msgstr ""
@@ -135,7 +179,7 @@ msgid "F10    exit"
 msgstr ""
 
 #: modshell:des02
-msgid "ALT-G  get setting of a device, protocol or connection"
+msgid "ALT-G  show device, protocol, connection or project name"
 msgstr ""
 
 #: modshell:des03
@@ -147,7 +191,7 @@ msgid "ALT-L  set value of a buffer registers"
 msgstr ""
 
 #: modshell:des05
-msgid "ALT-P  print content of the one or more buffer registers"
+msgid "ALT-P  print message, value of the variable and register"
 msgstr ""
 
 #: modshell:des06
@@ -155,11 +199,11 @@ msgid "ALT-R  read one or more remote registers to buffer"
 msgstr ""
 
 #: modshell:des07
-msgid "ALT-T  reset device, protocol or connection"
+msgid "ALT-T  reset device, protocol, connection or project name"
 msgstr ""
 
 #: modshell:des08
-msgid "ALT-S  set device, protocol or connection"
+msgid "ALT-S  set device, protocol, connection or project name"
 msgstr ""
 
 #: modshell:des09
@@ -187,24 +231,40 @@ msgid "F3     load settings of device, protocol and connection"
 msgstr ""
 
 #: modshell:des15
-msgid "ALT-E  export content of the one or more buffer registers (CSV)"
+msgid "ALT-E  export value of the one or more buffer registers"
 msgstr ""
 
 #: modshell:des16
-msgid "ALT-I  import content of the one or more buffer registers (CSV)"
-msgstr ""
-
-#: modshell:des17
 msgid "       export command line history to make a script easily"
 msgstr ""
 
-#: modshell:des18
+#: modshell:des17
 msgid "       convert value between different numeral systems"
+msgstr ""
+
+#: modshell:des18
+msgid "F4     save all registers"
+msgstr ""
+
+#: modshell:des19
+msgid "F5     load all registers"
+msgstr ""
+
+#: modshell:des20
+msgid "       define new variable and assign value"
+msgstr ""
+
+#: modshell:des21
+msgid "       set foreground and background color in full screen mode"
+msgstr ""
+
+#: modshell:des22
+msgid "ALT-I  import value of the one or more buffer registers"
 msgstr ""
 
 #: modshell:usg00
 msgid ""
-"copy con? di|coil con? coil ADDRESS [COUNT]\015\n"
+"copy con? dinp|coil con? coil ADDRESS [COUNT]\015\n"
 "  copy con? ireg|hreg con? hreg ADDRESS [COUNT]\015\n"
 "  ?: [0-7]"
 msgstr ""
@@ -215,7 +275,7 @@ msgstr ""
 
 #: modshell:usg02
 msgid ""
-"get dev?|pro?|con?\015\n"
+"get dev?|pro?|con?|prj\015\n"
 "  ?: [0-7]"
 msgstr ""
 
@@ -228,18 +288,21 @@ msgid "let dinp|coil|ireg|hreg ADDRESS VALUE"
 msgstr ""
 
 #: modshell:usg05
-msgid "print di|coil|ireg|hreg ADDRESS [COUNT]"
+msgid ""
+"print dinp|coil|ireg|hreg ADDRESS [COUNT]\015\n"
+"  print $VARIABLE\015\n"
+"  print \"single\\ line\\ message\""
 msgstr ""
 
 #: modshell:usg06
 msgid ""
-"read con? di|coil|ireg|hreg ADDRESS [COUNT]\015\n"
+"read con? dinp|coil|ireg|hreg ADDRESS [COUNT]\015\n"
 "  ?: [0-7]"
 msgstr ""
 
 #: modshell:usg07
 msgid ""
-"reset dev?|pro?|con?\015\n"
+"reset dev?|pro?|con?|prj\015\n"
 "  ?: [0-7]"
 msgstr ""
 
@@ -250,6 +313,7 @@ msgid ""
 "  set pro? ascii|rtu UID\015\n"
 "  set pro? tcp IP_ADDRESS\015\n"
 "  set con? dev? pro?\015\n"
+"  set prj PROJECT_NAME\015\n"
 "  ?: [0-7]"
 msgstr ""
 
@@ -280,18 +344,40 @@ msgid "loadcfg PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg15
-msgid "expreg PATH_AND_FILENAME di|coil|ireg|hreg ADDRESS [COUNT]"
+msgid "expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]"
 msgstr ""
 
 #: modshell:usg16
-msgid "impreg PATH_AND_FILENAME"
-msgstr ""
-
-#: modshell:usg17
 msgid "exphis PATH_AND_FILENAME"
 msgstr ""
 
-#: modshell:usg18
+#: modshell:usg17
 msgid "conv bin|dec|hex|oct bin|dec|hex|oct VALUE"
+msgstr ""
+
+#: modshell:usg18
+msgid "savereg PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg19
+msgid "loadreg PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg20
+msgid "var NAME [VALUE]"
+msgstr ""
+
+#: modshell:usg21
+msgid ""
+"color FOREGROUND BACKGROUND\015\n"
+"  colors:\015\n"
+"      0: black  4: red         8: darkgray    12: lightred\015\n"
+"      1: blue   5: magenta:    9: lightblue   13: lightmagenta\015\n"
+"      2: green  6: brown      10: lightgreen  14: yellow\015\n"
+"      3: cyan   7: lightgray  11: lightcyan   15: white"
+msgstr ""
+
+#: modshell:usg22
+msgid "impreg PATH_AND_FILENAME"
 msgstr ""
 

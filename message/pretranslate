@@ -1,0 +1,38 @@
+#!/usr/bin/python3
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command line Modbus utility                                 |
+# | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
+# | pretranslate                                                               |
+# | Pre-translator for po files                                                |
+# +----------------------------------------------------------------------------+
+
+# Original file: https://gist.github.com/d-demirci/f84110931d8b8af4867169e97581af60
+
+from googletrans import Translator
+import os  
+import polib
+import sys
+
+# command line arguments
+if (len(sys.argv) == 1):
+  print("Usage: ",sys.argv[0]," LANG")
+  print("       LANG: tr, de, hu etc.")
+  exit(1)
+
+# make target directory
+try:  
+  os.mkdir(sys.argv[1])  
+except OSError as error:  
+  print("")
+
+# translate  
+translator = Translator(service_urls=['translate.google.com'])
+po = polib.pofile('modshell.pot') 
+for entry in po.untranslated_entries():
+    result = translator.translate(entry.msgid, dest=sys.argv[1])
+    new_entry = polib.POEntry(
+    msgid=entry.msgid,
+    msgstr=result.text,
+    occurrences=entry.occurrences )
+    po.append(new_entry)
+po.save(sys.argv[1] + '/pre-modshell.po')
