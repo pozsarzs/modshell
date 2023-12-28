@@ -68,7 +68,7 @@ msgstr " IP-cím: "
 msgid " device UID: "
 msgstr " eszköz UID: "
 
-#: modshell:msg14 modshell:msg23
+#: modshell:msg14
 msgid "File exist, overwrite? (y/n)"
 msgstr "Létezik a fájl, felülírjam? (y/n)"
 
@@ -303,16 +303,16 @@ msgid "help [COMMAND]"
 msgstr "help [PARANCS]"
 
 #: modshell:usg04
-msgid "let dinp|coil|ireg|hreg ADDRESS VALUE"
-msgstr "let dinp|coil|ireg|hreg CÍM ÉRTÉK"
+msgid "let dinp|coil|ireg|hreg ADDRESS|$VARIABLE VALUE|$VARIABLE"
+msgstr "let dinp|coil|ireg|hreg CÍM|$VÁLTOZÓ ÉRTÉK|$VÁLTOZÓ"
 
 #: modshell:usg05
 msgid ""
-"print dinp|coil|ireg|hreg ADDRESS [COUNT]\\015\n"
+"print dinp|coil|ireg|hreg ADDRESS|$VARIABLE [COUNT|$VARIABLE]\\015\n"
 "  print $VARIABLE\\015\n"
 "  print \"single\\ line\\ message\""
 msgstr ""
-"print dinp|coil|ireg|hreg CÍM [MENNYISÉG]\\015\n"
+"print dinp|coil|ireg|hreg CÍM|$VÁLTOZÓ [MENNYISÉG|$VÁLTOZÓ]\\015\n"
 "  print $VARIABLE\\015\n"
 "  print \"single\\ line\\ message\""
 
@@ -387,8 +387,8 @@ msgid "exphis PATH_AND_FILENAME"
 msgstr "exphis ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg17
-msgid "conv bin|dec|hex|oct bin|dec|hex|oct VALUE"
-msgstr "conv bin|dec|hex|oct bin|dec|hex|oct ÉRTÉK"
+msgid "conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE"
+msgstr "conv bin|dec|hex|oct bin|dec|hex|oct ÉRTÉK|$VÁLTOZÓ"
 
 #: modshell:usg18
 msgid "savereg PATH_AND_FILENAME"
@@ -399,8 +399,8 @@ msgid "loadreg PATH_AND_FILENAME"
 msgstr "loadreg ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg20
-msgid "var NAME [VALUE]"
-msgstr "var NÉV [ÉRTÉK]"
+msgid "var NAME [VALUE|$VARIABLE]"
+msgstr "var NÉV [ÉRTÉK|$VÁLTOZÓ]"
 
 #: modshell:usg21
 msgid ""
@@ -414,7 +414,8 @@ msgstr ""
 "color ELŐTÉRSZÍN HÁTTÉRSZÍN\\015\n"
 "\n"
 "  Színek: \\ 015\n"
-"      0: fekete  4: vörös           8: sötétszürke  12: világosvörös\\015\n"
+"      0: fekete  4: vörös           8: sötétszürke  12: "
+"világosvörös\\015\n"
 "      1: kék     5: magenta:        9: világoskék   13: "
 "világosmagenta\\015\n"
 "      2: zöld    6: barna          10: világoszöld  14: sárga\\015\n"

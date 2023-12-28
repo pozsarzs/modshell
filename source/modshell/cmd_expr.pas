@@ -64,7 +64,7 @@ begin
   // check exist
   if fileexists(fpn) then
   begin
-    writeln(MSG23);
+    writeln(MSG14);
     repeat
       c:= lowercase(readkey);
       if c = 'n' then exit;

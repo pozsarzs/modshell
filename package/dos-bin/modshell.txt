@@ -100,7 +100,7 @@ BUILTIN COMMANDS
        print "message"
               Print a single line message.
 
-       var VARIABLE [VALUE]
+       var VARIABLE [VALUE|$VARIABLE]
               Define new variable (ARIABLE) and assign value (VALUE).   Use  a  backslash
               before a space.
 
@@ -214,14 +214,17 @@ EXAMPLES
        help set
               Show usage of help command.
 
-       print $MYVAR
-              Print value of the MYVAR variable.
+       print $A
+              Print value of the $A variable.
 
        print "Hello world!"
               Print 'Hello world!' message.
 
-       var MYVAR 12
-              Define MYVAR variable and assign 12 value to it.
+       var A 12
+              Define $A variable and assign 12 value to it.
+
+       var B $A
+              Define $B variable and assign value of the $A.
 
    Mathematical commands
        conv bin hex 1011000010110100

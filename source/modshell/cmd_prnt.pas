@@ -44,7 +44,7 @@ begin
   end;
   // check p1 parameter: is it a variable?
   s1 := isitvariable(p1);
-  if length(s1) > 0 then
+  if length(s1) > 0 then 
   begin
     writeln(s1);
     exit;

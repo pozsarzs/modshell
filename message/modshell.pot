@@ -86,10 +86,6 @@ msgstr ""
 msgid "Useable file types: "
 msgstr ""
 
-#: modshell:msg23
-msgid "File exist, overwrite? (y/n)"
-msgstr ""
-
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr ""
@@ -284,7 +280,7 @@ msgid "help [COMMAND]"
 msgstr ""
 
 #: modshell:usg04
-msgid "let dinp|coil|ireg|hreg ADDRESS VALUE"
+msgid "let dinp|coil|ireg|hreg ADDRESS|$VARIABLE VALUE|$VARIABLE"
 msgstr ""
 
 #: modshell:usg05
@@ -364,7 +360,7 @@ msgid "loadreg PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg20
-msgid "var NAME [VALUE]"
+msgid "var NAME [VALUE|$VARIABLE]"
 msgstr ""
 
 #: modshell:usg21

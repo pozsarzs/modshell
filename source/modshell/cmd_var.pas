@@ -14,8 +14,8 @@
 }
 {
   p0  p1   p2
-  --------------
-  var NAME [VALUE]
+  --------------------------
+  var NAME [VALUE|$VARIABLE]
 }
 
 // command 'var'
@@ -23,7 +23,7 @@ procedure cmd_var(p1, p2: string);
 var
   b, bb: byte;
   l: byte;
-  s: string;
+  s1, s2: string;
   valid: boolean = true;
 
 begin
@@ -33,24 +33,22 @@ begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  // change '\ ' to space
-  p2 := stringreplace(p2, #92+#32, #32, [rfReplaceAll]);
-  // search illegal characters
-  s := p1;
-  for b := 1 to length(s) do
+  // search illegal characters in p1
+  s1 := p1;
+  for b := 1 to length(s1) do
   begin
     for bb := 0 to 44 do
-      if s[b] = chr(bb) then valid := false;
+      if s1[b] = chr(bb) then valid := false;
     for bb := 46 to 47 do
-      if s[b] = chr(bb) then valid := false;
+      if s1[b] = chr(bb) then valid := false;
     for bb := 58 to 64 do
-      if s[b] = chr(bb) then valid := false;
+      if s1[b] = chr(bb) then valid := false;
     for bb := 91 to 94 do
-      if s[b] = chr(bb) then valid := false;
+      if s1[b] = chr(bb) then valid := false;
     for bb := 96 to 96 do
-      if s[b] = chr(bb) then valid := false;
+      if s1[b] = chr(bb) then valid := false;
     for bb := 123 to 255 do
-      if s[b] = chr(bb) then valid := false;
+      if s1[b] = chr(bb) then valid := false;
   end;
   if not valid then writeln(ERR15) else
   begin
@@ -76,8 +74,13 @@ begin
       writeln(ERR17);
       exit;
     end;
+    // check p2 parameter
+    s2 := isitvariable(p2);
+    if length(s2) = 0 then s2 := p2;
+    // change '\ ' to space in p2
+    s2 := stringreplace(s2, #92+#32, #32, [rfReplaceAll]);
     // primary mission
-    vars[l].vname := lowercase(p1);
-    vars[l].vvalue := p2;
+    vars[l].vname := lowercase(s1);
+    vars[l].vvalue := s2;
   end;
 end;

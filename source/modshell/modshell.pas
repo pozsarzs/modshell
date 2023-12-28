@@ -150,7 +150,6 @@ resourcestring
   MSG20 = 'Register content has saved to ';
   MSG21 = 'Register content has loaded from ';
   MSG22 = 'Useable file types: ';
-  MSG23 = 'File exist, overwrite? (y/n)';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // error messages
   ERR00 = 'No such command!';
@@ -203,7 +202,7 @@ resourcestring
   USG01='exit';
   USG02='get dev?|pro?|con?|prj' + #13 + #10 + '  ?: [0-7]';
   USG03='help [COMMAND]';
-  USG04='let dinp|coil|ireg|hreg ADDRESS VALUE';
+  USG04='let dinp|coil|ireg|hreg ADDRESS|$VARIABLE VALUE|$VARIABLE';
   USG05='print dinp|coil|ireg|hreg ADDRESS|$VARIABLE [COUNT|$VARIABLE]' + #13 + #10 +
         '  print $VARIABLE' + #13 + #10 +
         '  print "single\ line\ message"';
@@ -227,7 +226,7 @@ resourcestring
   USG17='conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE';
   USG18='savereg PATH_AND_FILENAME';
   USG19='loadreg PATH_AND_FILENAME';
-  USG20='var NAME [VALUE]';
+  USG20='var NAME [VALUE|$VARIABLE]';
   USG21='color FOREGROUND BACKGROUND' + #13 + #10 +
         '  colors:' + #13 + #10 +
         '      0: black  4: red         8: darkgray    12: lightred' + #13 + #10 +

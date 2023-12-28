@@ -90,7 +90,7 @@ Exit from program.
 \fBhelp\fP
 Show description or usage of the builtin commands.
 .TP
-\fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS|$VARIABLE\fP [\fICOUNT|$VARIABLE\fP]
+\fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP|\fI$VARIABLE\fP [\fICOUNT\fP|\fI$VARIABLE\fP]
 Print content of the one or more buffer registers. Register start \fIADDRESS\fP and
 the \fICOUNT\fP must be between 1-9999.
 .TP
@@ -100,7 +100,7 @@ Print value of the \fI$VARIABLE\fP.
 \fBprint\fP "\fImessage\fP"
 Print a single line message.
 .TP
-\fBvar\fP \fIVARIABLE\fP [\fIVALUE\fP]
+\fBvar\fP \fIVARIABLE\fP [\fIVALUE\fP|\fI$VARIABLE\fP]
 Define new variable (\fVARIABLE\fP) and assign value (\fIVALUE\fP).
 Use a backslash before a space.
 .TP
@@ -108,7 +108,7 @@ Use a backslash before a space.
 Show version and build information of this program.
 .SS Mathematical commands
 .TP
-\fBconv\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIVALUE|$VARIABLE\fP
+\fBconv\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIVALUE\fP|\fI$VARIABLE\fP
 convert numbers between binary, decimal, hexadecimal and octal numeral system.
 \fIVALUE\fP must be between 0 and 65535
 .SS Configuration commands
@@ -151,7 +151,7 @@ Set the project name. The name cannot contain spaces or special characters.
 The project directory will also be created with this name.
 .SS Data handler commands
 .TP
-\fBlet\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP \fIVALUE\fP
+\fBlet\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP|\fI$VARIABLE\fP \fIVALUE\fP|\fI$VARIABLE\fP
 Set value of a buffer registers. Register start address and the count must be
 between 1-9999, If register type is discrete input (\fIdinp\fP) and coil
 (\fIcoil\fP), \fIVALUE\fP must be 0/1, l/h or false/true. If it is input register
@@ -214,14 +214,17 @@ Show short description of the useable commands.
 \fBhelp\fP set
 Show usage of help command.
 .TP
-\fBprint\fP $MYVAR
-Print value of the MYVAR variable.
+\fBprint\fP $A
+Print value of the $A variable.
 .TP
 \fBprint\fP "Hello\ world!"
 Print 'Hello world!' message.
 .TP
-\fBvar\fP MYVAR 12
-Define MYVAR variable and assign 12 value to it.
+\fBvar\fP A 12
+Define $A variable and assign 12 value to it.
+.TP
+\fBvar\fP B $A
+Define $B variable and assign value of the $A.
 .SS Mathematical commands
 .TP
 \fBconv\fP bin hex 1011000010110100
@@ -270,8 +273,11 @@ Set value of the discrete input buffer register address 10 to 1.
 \fBlet\fP dinp 10 H
 Set value of the discrete input buffer register address 10 to 1.
 .TP
-\fBlet\fP ireg 10 to 65535
+\fBlet\fP ireg 10 65535
 Set value of the input register buffer register address 10 to 65535.
+.TP
+\fBlet\fP ireg $A $B
+Set value of the input register buffer register address value of the $A to value of the $B.
 .TP
 \fBprint\fP ireg 10 10
 Print value of the input register buffer register address 10 to 20.
