@@ -14,8 +14,8 @@
 }
 {
   p0   p1              p2              p3
-  ------------------------------------------
-  conv bin|dec|hex|oct bin|dec|hex|oct VALUE
+  -----------------------------------------------------
+  conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE
 }
 
 // command 'conv'
@@ -23,7 +23,7 @@ procedure cmd_conv(p1, p2, p3: string);
 var
   ns1, ns2: byte;
   valid: boolean = false;
-  s: string;
+  s, s3: string;
 begin
   // check length of parameters
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
@@ -60,32 +60,35 @@ begin
     writeln;
     exit;
   end;
+  // check p3 parameter: is it a variable?
+  s3 := isitvariable(p3);
+  if length(s3) = 0 then s3 := p3;
   // check p3 parameter
   case ns1 of
     0: begin
-         s := BinToDez(p3);
-         if DezToBin(s) <> p3 then
+         s := BinToDez(s3);
+         if DezToBin(s) <> s3 then
          begin
            writeln('3rd ' + MSG05 + ' 0-1111111111111111'); // What is the 3rd parameter?
            exit;
          end;
        end;
-    1: if (strtointdef(p3, -1) < 0 ) or (strtointdef(p3, -1) > 65535) then
+    1: if (strtointdef(s3, -1) < 0 ) or (strtointdef(p3, -1) > 65535) then
        begin
          writeln('3rd ' + MSG05 + ' 0-65535'); // What is the 3rd parameter?
          exit;
        end;
     2: begin
-         s := HexToDez(p3);
-         if DezToHex(s) <> uppercase(p3) then
+         s := HexToDez(s3);
+         if DezToHex(s) <> uppercase(s3) then
          begin
            writeln('3rd ' + MSG05 + ' 0-FFFF'); // What is the 3rd parameter?
            exit;
          end;
        end;
     3: begin
-         s := OktToDez(p3);
-         if DezToOkt(s) <> p3 then
+         s := OktToDez(s3);
+         if DezToOkt(s) <> s3 then
          begin
            writeln('3rd ' + MSG05 + ' 0-177777'); // What is the 3rd parameter?
            exit;
@@ -107,21 +110,21 @@ begin
   b := 10 * ns1 + ns2;
   case b of
     0: s := p3;
-    1: s := BinToDez(p3);
-    2: s := BinToHex(p3);
-    3: s := BinToOkt(p3);
-    10: s := DezToBin(p3);
-    11: s := p3;
-    12: s := DezToHex(p3);
-    13: s := DezToOkt(p3);
-    20: s := HexToBin(p3);
-    21: s := HexToDez(p3);
-    22: s := p3;
-    23: s := HexToOkt(p3);
-    30: s := OktToBin(p3);
-    31: s := OktToDez(p3);
-    32: s := OktToHex(p3);
-    33: s := p3;
+    1: s := BinToDez(s3);
+    2: s := BinToHex(s3);
+    3: s := BinToOkt(s3);
+    10: s := DezToBin(s3);
+    11: s := s3;
+    12: s := DezToHex(s3);
+    13: s := DezToOkt(s3);
+    20: s := HexToBin(s3);
+    21: s := HexToDez(s3);
+    22: s := s3;
+    23: s := HexToOkt(s3);
+    30: s := OktToBin(s3);
+    31: s := OktToDez(s3);
+    32: s := OktToHex(s3);
+    33: s := s3;
   end;
   writeln(s);
 end;

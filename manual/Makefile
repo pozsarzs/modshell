@@ -15,6 +15,11 @@ filemode=$(txtmode)
 man1files=`ls $(sourcedir)/*.1 | grep -v Makefile | grep -v '\.in'`
 
 all:
+	@if [ -f $(name).1 ]; \
+	then \
+	  man ./$(name).1 > ../package/dos-bin/$(name).txt; \
+	  unix2dos ../package/dos-bin/$(name).txt; \
+	fi
 
 clean:
 

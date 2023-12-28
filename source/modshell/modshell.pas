@@ -117,12 +117,14 @@ const
   PRGVERSION = '0.1';
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
 
-  {$DEFINE BASENAME := lowercase(PRGNAME)}
-  {$IFDEF UNIX}  
-    {$DEFINE SLASH := #47}
-  {$ELSE}
-    {$DEFINE SLASH := #92}
-  {$ENDIF}
+{$R *.res}
+
+{$DEFINE BASENAME := lowercase(PRGNAME)}
+{$IFDEF UNIX}  
+  {$DEFINE SLASH := #47}
+{$ELSE}
+  {$DEFINE SLASH := #92}
+{$ENDIF}
   
 resourcestring
   // general messages
@@ -202,7 +204,7 @@ resourcestring
   USG02='get dev?|pro?|con?|prj' + #13 + #10 + '  ?: [0-7]';
   USG03='help [COMMAND]';
   USG04='let dinp|coil|ireg|hreg ADDRESS VALUE';
-  USG05='print dinp|coil|ireg|hreg ADDRESS [COUNT]' + #13 + #10 +
+  USG05='print dinp|coil|ireg|hreg ADDRESS|$VARIABLE [COUNT|$VARIABLE]' + #13 + #10 +
         '  print $VARIABLE' + #13 + #10 +
         '  print "single\ line\ message"';
   USG06='read con? dinp|coil|ireg|hreg ADDRESS [COUNT]' + #13 + #10 + '  ?: [0-7]';
@@ -222,7 +224,7 @@ resourcestring
   USG14='loadcfg PATH_AND_FILENAME';
   USG15='expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]';
   USG16='exphis PATH_AND_FILENAME';
-  USG17='conv bin|dec|hex|oct bin|dec|hex|oct VALUE';
+  USG17='conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE';
   USG18='savereg PATH_AND_FILENAME';
   USG19='loadreg PATH_AND_FILENAME';
   USG20='var NAME [VALUE]';
@@ -235,6 +237,33 @@ resourcestring
   USG22='impreg PATH_AND_FILENAME';
 
 procedure version(h: boolean); forward;
+
+// if s is a variable, it returns its value
+function isitvariable(s: string): string;
+var
+  i: integer;
+begin
+  result := '';
+  if (s[1] = #36) then
+  begin
+    s := stringreplace(s, #36 , '', [rfReplaceAll]);
+    for i := 0 to 63 do
+      if vars[i].vname = lowercase(s)
+      then result := stringreplace(vars[i].vvalue, #92+#32 , #32, [rfReplaceAll]);
+  end;
+end;
+
+// if s is a message, it returns its value
+function isitmessage(s: string): string;
+begin
+  result := '';
+  if (s[1] = #34) and (s[length(s)] = #34) then
+  begin
+    s := stringreplace(s, #34 , '', [rfReplaceAll]);
+    s := stringreplace(s, #92+#32 , #32, [rfReplaceAll]);
+    result := s;
+  end;
+end;
 
 // check validity of dev?/pro?/con?'
 function validity(sets, number: byte): boolean;

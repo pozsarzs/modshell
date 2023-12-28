@@ -289,7 +289,7 @@ msgstr ""
 
 #: modshell:usg05
 msgid ""
-"print dinp|coil|ireg|hreg ADDRESS [COUNT]\015\n"
+"print dinp|coil|ireg|hreg ADDRESS|$VARIABLE [COUNT|$VARIABLE]\015\n"
 "  print $VARIABLE\015\n"
 "  print \"single\\ line\\ message\""
 msgstr ""
@@ -352,7 +352,7 @@ msgid "exphis PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg17
-msgid "conv bin|dec|hex|oct bin|dec|hex|oct VALUE"
+msgid "conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE"
 msgstr ""
 
 #: modshell:usg18

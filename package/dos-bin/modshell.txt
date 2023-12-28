@@ -90,7 +90,7 @@ BUILTIN COMMANDS
 
        help   Show description or usage of the builtin commands.
 
-       print dinp|coil|ireg|hreg ADDRESS [COUNT]
+       print dinp|coil|ireg|hreg ADDRESS|$VARIABLE [COUNT|$VARIABLE]
               Print  content  of the one or more buffer registers. Register start ADDRESS
               and the COUNT must be between 1-9999.
 
@@ -107,7 +107,7 @@ BUILTIN COMMANDS
        ver    Show version and build information of this program.
 
    Mathematical commands
-       conv bin|dec|hex|oct bin|dec|hex|oct VALUE
+       conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE
               convert numbers between binary, decimal, hexadecimal and octal numeral sys‐
               tem.  VALUE must be between 0 and 65535
 
@@ -227,6 +227,9 @@ EXAMPLES
        conv bin hex 1011000010110100
               Convert 45236 in binary to hex (result: B0B4).
 
+       conv hex dec $I
+              Convert value of the $I in hexadecimal to decimal.
+
    Configuration commands
        get dev2
               Get configuration of a device #2.
@@ -273,16 +276,20 @@ EXAMPLES
        print ireg 10 10
               Print value of the input register buffer register address 10 to 20.
 
+       print ireg $A $B
+              Print value of the input register buffer register address value  of  $A  to
+              value of $B.
+
    Communication commands
        read con0 hreg 100 15
-              eWrite data from buffer to coil address 10 of the connection #2.  Read  re‐
+              eWrite  data from buffer to coil address 10 of the connection #2.  Read re‐
               mote holding registers of the connection #0 from address 100 to 115.
 
        write con2 coil 10
               Write data from buffer to coil address 10 of the connection #2.
 
        copy con0 ireg con2 hreg 210 10
-              Copy  input  register content of the connection #0 to holding register con‐
+              Copy input register content of the connection #0 to holding  register  con‐
               tent of the connection #2 from address 210 to 220.
 
    File operation command
@@ -290,11 +297,11 @@ EXAMPLES
               Export command line history to project directory.
 
        expreg discrete_inputs.csv dinp 100 15
-              Export values of discrete input buffer register from address 100 to 115  to
+              Export  values of discrete input buffer register from address 100 to 115 to
               CSV file.
 
        impreg discrete_inputs.xml
-              Import  values  from a XML file. The target and range are determined by the
+              Import values from a XML file. The target and range are determined  by  the
               contents of the file.
 
        loadcfg test1
@@ -310,7 +317,7 @@ EXAMPLES
               Save all registers to other directory.
 
 HOTKEYS
-       Commands with function keys (F?) are executed immediately, modifier  keys  (ALT-?)
+       Commands  with  function keys (F?) are executed immediately, modifier keys (ALT-?)
        only make typing easier.
 
        F1     help command
@@ -351,9 +358,9 @@ ENVIRONMENTAL VARIABLES
        LANG   This is the system language on DOS and Unix-like operating systems.
 
        PKTDRVINT
-              To  access the network on DOS, the packet driver of the network card is re‐
-              quired. It uses an x86 interrupt number (INT) between 0x60 and  0x80.  This
-              variable  tells the program this value. If there is no or it is empty, then
+              To access the network on DOS, the packet driver of the network card is  re‐
+              quired.  It  uses an x86 interrupt number (INT) between 0x60 and 0x80. This
+              variable tells the program this value. If there is no or it is empty,  then
               the default 0x60 will be used.
 
 FILES
@@ -388,12 +395,12 @@ FILES
                      prot: byte;            // assigned protocol: 0..7
                    end;
 
-       *.BDT  Saved  boolean  type register values in typed file with 2x9999 boolean val‐
+       *.BDT  Saved boolean type register values in typed file with 2x9999  boolean  val‐
               ues.
 
        *.WDT  Saved word type register values in typed file with 2x9999 word values.
 
-       *.CSV  Exported boolean or word type register values in CSV text file.  Cannot  be
+       *.CSV  Exported  boolean  or word type register values in CSV text file. Cannot be
               imported.  Internal structure:
                 dinp,1,0
                     ...
@@ -465,7 +472,7 @@ HOMEPAGE
        ⟨https://github.com/pozsarzs/modshell⟩
 
 SEE ALSO
-       Files  in  document or /usr/share/doc/modshell/ folder (or equivalent on your sys‐
+       Files in document or /usr/share/doc/modshell/ folder (or equivalent on  your  sys‐
        tem).
 AUTHOR
        Pozsar Zsolt ⟨pozsarzs@gmail.com⟩
