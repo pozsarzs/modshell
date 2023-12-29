@@ -15,6 +15,7 @@
 {
   p0  p1   p2
   -------------------
+  var
   var NAME [[$]VALUE]
 }
 
@@ -23,14 +24,29 @@ procedure cmd_var(p1, p2: string);
 var
   b, bb: byte;
   l: byte;
-  s1, s2: string;
+  line: byte;
+  s1, s2: string;         // parameters in other type
   valid: boolean = true;
 
 begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    line := 0;
+    for l := 0 to 63 do
+      if length(vars[l].vname) > 0 then
+      begin
+        xywrite(2, wherey, false, '$' + vars[l].vname);
+        xywrite(20, wherey, false, vars[l].vvalue);
+        writeln;
+        inc(line);
+        if line >= (screenheight - 4) then
+        begin
+          write(MSG23); readkey;
+          writeln;
+          line := 0;
+        end;
+      end;        
     exit;
   end;
   // SEARCH ILLEGAL CHARACTERS IN P1
@@ -52,6 +68,15 @@ begin
   end;
   if not valid then writeln(ERR15) else
   begin
+    // COMPARING EXISTING NAMES WITH THE NEW ONE
+    valid := true;
+    for l := 0 to 63 do
+      if vars[l].vname = lowercase(p1) then valid := false;
+    if not valid then
+    begin
+      writeln(ERR17);
+      exit;
+    end;
     // CHECK EMPTY SPACE IN VARIABLE TABLE
     valid := false;
     for l := 0 to 63 do
@@ -65,18 +90,12 @@ begin
       writeln(ERR16);
       exit;
     end;
-    // COMPARING EXISTING NAMES WITH THE NEW ONE
-    valid := true;
-    for l := 0 to 63 do
-      if vars[l].vname = lowercase(p1) then valid := false;
-    if not valid then
-    begin
-      writeln(ERR17);
-      exit;
-    end;
     // CHECK P2 PARAMETER
-    s2 := isitvariable(p2);
-    if length(s2) = 0 then s2 := p2;
+    if (length(p2) > 0) then
+    begin
+      s2 := isitvariable(p2);
+      if length(s2) = 0 then s2 := p2;
+    end;
     // CHANGE '\ ' TO SPACE IN P2
     s2 := stringreplace(s2, #92+#32, #32, [rfReplaceAll]);
     // PRIMARY MISSION

@@ -150,6 +150,10 @@ resourcestring
   MSG20 = 'Register content has saved to ';
   MSG21 = 'Register content has loaded from ';
   MSG22 = 'Useable file types: ';
+  MSG23 = 'Press a key to continue... ';
+  MSG24 = 'Note:' + #13 + #10 +
+          '  - register: local buffer register' + #13 + #10 +
+          '  - remote register: register of the connected device' + #13 + #10;
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // ERROR MESSAGES
   ERR00 = 'No such command!';
@@ -172,11 +176,11 @@ resourcestring
   ERR17 = 'There is already a variable with that name';
   ERR18 = 'Cannot initialize serial port!';
   // COMMAND DESCRIPTION
-  DES00='       copy one or more register between two connections';
+  DES00='       copy one or more remote reg. between two connections';
   DES01='F10    exit';
   DES02='ALT-G  show device, protocol, connection or project name';
   DES03='F1     show description or usage of the commands';
-  DES04='ALT-L  set value of a buffer registers';
+  DES04='ALT-L  set value of a variable or a register';
   DES05='ALT-P  print message, value of the variable and register';
   DES06='ALT-R  read one or more remote registers to buffer';
   DES07='ALT-T  reset device, protocol, connection or project name';
@@ -187,14 +191,14 @@ resourcestring
   DES12='F8     clear screen';
   DES13='F2     save settings of device, protocol and connection';
   DES14='F3     load settings of device, protocol and connection';
-  DES15='ALT-E  export value of the one or more buffer registers';
+  DES15='ALT-E  export value of the one or more registers';
   DES16='       export command line history to make a script easily';
   DES17='       convert value between different numeral systems';
   DES18='F4     save all registers';
   DES19='F5     load all registers';
-  DES20='       define new variable and assign value';
+  DES20='       list all variable with value or define a new one';
   DES21='       set foreground and background color in full screen mode';
-  DES22='ALT-I  import value of the one or more buffer registers';
+  DES22='ALT-I  import value of the one or more registers';
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #13 + #10 +
         'Notes:' + #13 + #10 +
@@ -206,6 +210,8 @@ resourcestring
         '  - The ''?'' value can be 0-7.';
   USG03='help [COMMAND]';
   USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + #13 + #10 +
+        '  let $VARIABLE [$]VALUE' + #13 + #10 +
+        '  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS' + #13 + #10 +
         'Notes:' + #13 + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
   USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]' + #13 + #10 +
@@ -244,7 +250,8 @@ resourcestring
         '  - The ''$'' sign indicates a variable not a direct value.';
   USG18='savereg PATH_AND_FILENAME';
   USG19='loadreg PATH_AND_FILENAME';
-  USG20='var NAME [[$]VALUE]' + #13 + #10 +
+  USG20='var' + #13 + #10 +
+        '  var NAME [[$]VALUE]' + #13 + #10 +
         'Notes:' + #13 + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
   USG21='color FOREGROUND BACKGROUND' + #13 + #10 +

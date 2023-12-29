@@ -13,9 +13,11 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0  p1                  p2         p3
-  -------------------------------------------
-  let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE
+  p0  p1                  p2                  p3
+  ------------------------------------------------------
+  let dinp|coil|ireg|hreg [$]ADDRESS          [$]VALUE
+  let $VARIABLE           [$]VALUE
+  let $VARIABLE           dinp|coil|ireg|hreg [$]ADDRESS
 }
 
 // COMMAND 'LET'

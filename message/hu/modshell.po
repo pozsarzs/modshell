@@ -104,6 +104,20 @@ msgstr "A regisztertartalom betöltve ebből: "
 msgid "Useable file types: "
 msgstr "Használható fájltípusok: "
 
+#: modshell:msg23
+msgid "Press a key to continue... "
+msgstr "Nyomjon meg egy billentyűt a folytatáshoz… "
+
+#: modshell:msg24
+msgid ""
+"Note:\\015\n"
+"  - register: local buffer register\\015\n"
+"  - remote register: register of the connected device\\015\n"
+msgstr ""
+"Megjegyzés:\\015\n"
+"  - regiszter: helyi puffer regiszter\\015\n"
+"  - távoli regiszter: a csatlakoztatott eszköz regisztere\\015\n"
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr "Sajnálom, hogy ez a szolgáltatás még nem valósult meg."
@@ -185,8 +199,9 @@ msgid "Cannot initialize serial port!"
 msgstr "Nem lehet inicializálni a soros portot!"
 
 #: modshell:des00
-msgid "       copy one or more register between two connections"
-msgstr "       egy vagy több regiszter másolása két kapcsolat között"
+msgid "       copy one or more remote reg. between two connections"
+msgstr ""
+"       egy vagy több távoli regiszter másolása két kapcsolat között"
 
 #: modshell:des01
 msgid "F10    exit"
@@ -201,7 +216,7 @@ msgid "F1     show description or usage of the commands"
 msgstr "F1     parancs leírás vagy használat megjelenítése"
 
 #: modshell:des04
-msgid "ALT-L  set value of a buffer registers"
+msgid "ALT-L  set value of a variable or a register"
 msgstr "Alt-L  regisztertartalom beállítása"
 
 #: modshell:des05
@@ -245,7 +260,7 @@ msgid "F3     load settings of device, protocol and connection"
 msgstr "F3    eszköz-, protokoll- és kapcsolatbeállítások betöltése"
 
 #: modshell:des15
-msgid "ALT-E  export value of the one or more buffer registers"
+msgid "ALT-E  export value of the one or more registers"
 msgstr "ALT-E  egy vagy több regisztertartalom exportálása"
 
 #: modshell:des16
@@ -265,15 +280,16 @@ msgid "F5     load all registers"
 msgstr "F5     összes regisztertartalom betöltése"
 
 #: modshell:des20
-msgid "       define new variable and assign value"
-msgstr "       új változó definiálás és értékadás"
+msgid "       list all variable with value or define a new one"
+msgstr ""
+"       az összes változó kiírása az értékükkel vagy új létrehozása"
 
 #: modshell:des21
 msgid "       set foreground and background color in full screen mode"
 msgstr "       előtér- és a háttérszín beállítása (fullscreen)"
 
 #: modshell:des22
-msgid "ALT-I  import value of the one or more buffer registers"
+msgid "ALT-I  import value of the one or more registers"
 msgstr "ALT-I  egy vagy több regisztertartalom importálása"
 
 #: modshell:usg00
@@ -309,10 +325,14 @@ msgstr "help [PARANCS]"
 #: modshell:usg04
 msgid ""
 "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\\015\n"
+"  let $VARIABLE [$]VALUE\\015\n"
+"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS\\015\n"
 "Notes:\\015\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\\015\n"
+"  let $VARIABLE [$]VALUE\\015\n"
+"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS\\015\n"
 "Megjegyzés:\\015\n"
 "  - A '$' jel jelzi, hogy ez változó és nem közvetlen érték."
 
@@ -434,11 +454,13 @@ msgstr "loadreg ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg20
 msgid ""
-"var NAME [[$]VALUE]\\015\n"
+"var\\015\n"
+"  var NAME [[$]VALUE]\\015\n"
 "Notes:\\015\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
-"var NAME [[$]VALUE]\\015\n"
+"var\\015\n"
+"  var NAME [[$]VALUE]\\015\n"
 "Megjegyzés:\\015\n"
 "  - A '$' jel jelzi, hogy ez változó és nem közvetlen érték."
 
@@ -464,6 +486,18 @@ msgstr ""
 #: modshell:usg22
 msgid "impreg PATH_AND_FILENAME"
 msgstr "impreg ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#~ msgid "       define new variable and assign value"
+#~ msgstr "       új változó definiálás és értékadás"
+
+#~ msgid ""
+#~ "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\\015\n"
+#~ "Notes:\\015\n"
+#~ "  - The '$' sign indicates a variable not a direct value."
+#~ msgstr ""
+#~ "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\\015\n"
+#~ "Megjegyzés:\\015\n"
+#~ "  - A '$' jel jelzi, hogy ez változó és nem közvetlen érték."
 
 #~ msgid ""
 #~ "copy con? dinp|coil con? coil ADDRESS [COUNT]\\015\n"

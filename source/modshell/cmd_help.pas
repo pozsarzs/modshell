@@ -24,6 +24,7 @@ var
   b, bb: byte;
   valid: boolean;
   buffer: array[0..31] of string;
+  line: byte;
 
   // SHORTING CONTENT OF BUFFER
   procedure shorting;
@@ -46,6 +47,7 @@ begin
   if length(p1) = 0 then
   begin
     writeln(MSG03); // How to use help with command list.
+    writeln;
     for b := 0 to 22 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
@@ -78,7 +80,19 @@ begin
       end;
     end;
     shorting;
-    for b := 22 downto 0 do writeln(buffer[b]);
+    buffer[23] := MSG24;
+    line := 0;
+    for b := 23 downto 0 do
+    begin
+      writeln(buffer[b]);
+      inc(line);
+      if line >= (screenheight - 6) then
+      begin
+        write(MSG23); readkey;
+        writeln;
+        line := 0;
+      end;
+    end;
   end else
   begin
     // CHECK P1 PARAMETER

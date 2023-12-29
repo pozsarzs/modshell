@@ -86,6 +86,17 @@ msgstr ""
 msgid "Useable file types: "
 msgstr ""
 
+#: modshell:msg23
+msgid "Press a key to continue... "
+msgstr ""
+
+#: modshell:msg24
+msgid ""
+"Note:\015\n"
+"  - register: local buffer register\015\n"
+"  - remote register: register of the connected device\015\n"
+msgstr ""
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr ""
@@ -167,7 +178,7 @@ msgid "Cannot initialize serial port!"
 msgstr ""
 
 #: modshell:des00
-msgid "       copy one or more register between two connections"
+msgid "       copy one or more remote reg. between two connections"
 msgstr ""
 
 #: modshell:des01
@@ -183,7 +194,7 @@ msgid "F1     show description or usage of the commands"
 msgstr ""
 
 #: modshell:des04
-msgid "ALT-L  set value of a buffer registers"
+msgid "ALT-L  set value of a variable or a register"
 msgstr ""
 
 #: modshell:des05
@@ -227,7 +238,7 @@ msgid "F3     load settings of device, protocol and connection"
 msgstr ""
 
 #: modshell:des15
-msgid "ALT-E  export value of the one or more buffer registers"
+msgid "ALT-E  export value of the one or more registers"
 msgstr ""
 
 #: modshell:des16
@@ -247,7 +258,7 @@ msgid "F5     load all registers"
 msgstr ""
 
 #: modshell:des20
-msgid "       define new variable and assign value"
+msgid "       list all variable with value or define a new one"
 msgstr ""
 
 #: modshell:des21
@@ -255,7 +266,7 @@ msgid "       set foreground and background color in full screen mode"
 msgstr ""
 
 #: modshell:des22
-msgid "ALT-I  import value of the one or more buffer registers"
+msgid "ALT-I  import value of the one or more registers"
 msgstr ""
 
 #: modshell:usg00
@@ -284,6 +295,8 @@ msgstr ""
 #: modshell:usg04
 msgid ""
 "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\015\n"
+"  let $VARIABLE [$]VALUE\015\n"
+"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS\015\n"
 "Notes:\015\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
@@ -377,7 +390,8 @@ msgstr ""
 
 #: modshell:usg20
 msgid ""
-"var NAME [[$]VALUE]\015\n"
+"var\015\n"
+"  var NAME [[$]VALUE]\015\n"
 "Notes:\015\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""

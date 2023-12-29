@@ -65,8 +65,11 @@ file is created, with CSV, INI or XML extension.
 On exit, the command line history and full screen mode command line colors are
 preserved.
 .SH BUILTIN COMMANDS
+Notes:
+  - register: local buffer register;
+  - remote register: register of the connected device;
+  - The '$' sign indicates a variable not a direct value.
 .SS General commands
-The '$' sign indicates a variable not a direct value.
 .TP
 \fBcls\fP
 Clear screen.
@@ -92,7 +95,7 @@ Exit from program.
 Show description or usage of the builtin commands.
 .TP
 \fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
-Print content of the one or more buffer registers. Register start \fIADDRESS\fP and
+Print content of the one or more registers. Register start \fIADDRESS\fP and
 the \fICOUNT\fP must be between 1-9999.
 .TP
 \fBprint\fP \fI$VARIABLE\fP
@@ -100,6 +103,9 @@ Print value of the \fI$VARIABLE\fP.
 .TP
 \fBprint\fP "\fImessage\fP"
 Print a single line message.
+.TP
+\fBvar\fP
+Print all defined variables with their values.
 .TP
 \fBvar\fP \fIVARIABLE\fP [\f[$]IVALUE\fP]
 Define new variable (\fVARIABLE\fP) and assign value (\fIVALUE\fP).
@@ -153,19 +159,28 @@ The project directory will also be created with this name.
 .SS Data handler commands
 .TP
 \fBlet\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP \fI[$]VALUE\fP
-Set value of a buffer registers. Register start address and the count must be
-between 1-9999, If register type is discrete input (\fIdinp\fP) and coil
+Set value of a register. Register start address must be between 1-9999.
+If register type is discrete input (\fIdinp\fP) and coil
 (\fIcoil\fP), \fIVALUE\fP must be 0/1, l/h or false/true. If it is input register
 (\fIireg\fP) or holding register (\fIhreg\fP), \fIVALUE\fP must be 0-65535.
+.TP
+\fBlet\fP \fI$VARIABLE\fP \fI[$]VALUE\fP
+Set value of a variable \fI$VARIABLE\fP to value \fI[$]VALUE\fP.
+.TP
+\fBlet\fP \fI$VARIABLE\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP
+Set value of a variable \fI$VARIABLE\fP to register content. Register start address
+and must be between 1-9999, If register type is discrete input (\fIdinp\fP) and coil
+(\fIcoil\fP), value of the variable must be 0/1, l/h or false/true. If it is input register
+(\fIireg\fP) or holding register (\fIhreg\fP), value of the variable must be 0-65535.
 .SS Communication commands
 .TP
 \fBread\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\f[$]ICOUNT\fP]
-Read one or more remote registers to buffer. Number of connection (\fIcon?\fP)
+Read one or more remote registers. Number of connection (\fIcon?\fP)
 must be between 0-7, register start \fIADDRESS\fP and the \fICOUNT\fP must be
 between 1-9999.
 .TP
 \fBwrite\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
-Write data from buffer to one or more remote registers. Number of connection
+Write data to one or more remote registers. Number of connection
 (\fIcon?\fP) must be between 0-7, register start address and the count must be
 between 1-9999.
 .TP
@@ -187,12 +202,12 @@ in the program directory).
 Export command line history to a text file.
 .TP
 \fBexpreg\fP \fIPATH_AND_FILENAME\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP [\fICOUNT\fP]
-Export content of the one or more buffer registers to a text file in CSV, INI
+Export content of the one or more registers to a text file in CSV, INI
 or XML format. The file format is specified by the destination file extension.
 If the file exists, it will overwrite or append the new data.
 .TP
 \fBimpreg\fP \fIPATH_AND_FILENAME\fP
-Import content of the one or more buffer registers from a text file in CSV, INI
+Import content of the one or more registers from a text file in CSV, INI
 or XML format. The file format is specified by the destination file extension.
 .TP
 \fBloadcfg\fP \fIPATH_AND_FILENAME\fP
@@ -273,25 +288,31 @@ Set the project name to 'temp_meter'.
 .SS Data handler commands
 .TP
 \fBlet\fP dinp 10 1
-Set value of the discrete input buffer register address 10 to 1.
+Set value of the discrete input register address 10 to 1.
 .TP
 \fBlet\fP dinp 10 true
-Set value of the discrete input buffer register address 10 to 1.
+Set value of the discrete input register address 10 to 1.
 .TP
 \fBlet\fP dinp 10 H
-Set value of the discrete input buffer register address 10 to 1.
+Set value of the discrete input register address 10 to 1.
 .TP
 \fBlet\fP ireg 10 65535
-Set value of the input register buffer register address 10 to 65535.
+Set value of the input register address 10 to 65535.
 .TP
 \fBlet\fP ireg $A $B
-Set value of the input register buffer register address value of the $A to value of the $B.
+Set value of the input register (address value of the $A) to value of the $B.
+.TP
+\fBlet\fP $A ireg 100
+Set $A to input register address 100.
+.TP
+\fBlet\fP $A 10
+Set $A variable to 10.
 .TP
 \fBprint\fP ireg 10 10
-Print value of the input register buffer register address 10 to 20.
+Print value of the input register address 10 to 20.
 .TP
 \fBprint\fP ireg $A $B
-Print value of the input register buffer register address value of $A to value of $B.
+Print value of the input register address value of $A to value of $B.
 .SS Communication commands
 .TP
 \fBread\fP con0 hreg 100 15
@@ -301,10 +322,10 @@ Read remote holding registers of the connection #0 from address 100 to 115.
 Read remote holding registers of the connection #0 from address value of the $A to $A+15.
 .TP
 \fBwrite\fP con2 coil 10
-Write data from buffer to coil address 10 of the connection #2.
+Write data from to coil address 10 of the connection #2.
 .TP
 \fBwrite\fP con2 coil $C
-Write data from buffer to coil address value of the $C of the connection #2.
+Write data from to coil address value of the $C of the connection #2.
 .TP
 \fBcopy\fP con0 ireg con2 hreg 210 10
 Copy input register content of the connection #0 to holding register content of the
@@ -319,7 +340,7 @@ connection #2 from address value of the $A to $A+$B.
 Export command line history to project directory.
 .TP
 \fBexpreg\fP discrete_inputs.csv dinp 100 15
-Export values of discrete input buffer register from address 100 to 115
+Export values of discrete input register from address 100 to 115
 to CSV file.
 .TP
 \fBimpreg\fP discrete_inputs.xml

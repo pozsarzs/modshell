@@ -26,7 +26,10 @@ all:
 	    echo ""; \
 	  fi; \
 	done
-	@rstconv -f po -p utf-8 -i $(sourcedir)/$(name).rsj  -o ../message/$(name).pot
+	@if [ -f $(sourcedir)/$(name).rsj ]; \
+	  then \
+	    rstconv -f po -p utf-8 -i $(sourcedir)/$(name).rsj  -o ../message/$(name).pot; \
+	fi
 
 clean:
 	@for x in $(projectdirs); do \
