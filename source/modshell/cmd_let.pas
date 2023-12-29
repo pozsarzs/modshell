@@ -23,18 +23,79 @@
 // COMMAND 'LET'
 procedure cmd_let(p1, p2, p3: string);
 var
-  rt, x, y: byte;
-  s2, s3: string;          // parameters in other type
+  rt: byte;                // register type
+  x, y: byte;
+  s1, s2, s3: string;      // parameters in other type
   valid: boolean = false;
 
 begin
   // CHECK LENGTH OF PARAMETERS
-  if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
+  if (length(p1) = 0) or (length(p2) = 0) then
   begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
   // CHECK P1 PARAMETER
+  if boolisitvariable(p1) then  // if p1 is a variable
+  begin
+    for rt := 0 to 3 do
+      if REG_TYPE[rt] = p2 then
+      begin
+        valid := true;
+        break;
+      end;
+    if not valid then
+    begin
+      // ASSIGN VALUE TO A VARIABLE FROM VARIABLE OR NUMBER
+      // CHECK P2 PARAMETER
+      s2 := isitvariable(p2);
+      if length(s2) = 0 then s2 := p2;
+      // CHANGE '\ ' TO SPACE IN P2
+      s2 := stringreplace(s2, #92+#32, #32, [rfReplaceAll]);
+      // PRIMARY MISSION
+      vars[intisitvariable(p1)].vvalue := s2;
+      exit;
+    end else
+    begin
+      // ASSIGN VALUE TO A VARIABLE FROM REGISTER
+      // CHECK P2 PARAMETER
+      valid := false;
+      for rt := 0 to 3 do
+        if REG_TYPE[rt] = p2 then
+        begin
+          valid := true;
+          break;
+        end;
+      if not valid then
+      begin
+        write('1st ' + MSG05); // What is the 1st parameter?
+        for x := 0 to 3 do write(' ' + REG_TYPE[x]);
+        writeln;
+        exit;
+      end;
+      // CHECK P2 PARAMETER
+      s3 := isitvariable(p3);
+      if length(s3) = 0 then s3 := p3;
+      // CHANGE '\ ' TO SPACE IN P2
+      s3 := stringreplace(s3, #92+#32, #32, [rfReplaceAll]);
+      // RANGE CHECK
+      if (strtointdef(s3, -1) < 1 ) or (strtointdef(s3, -1) > 9999) then
+      begin
+        writeln('2nd ' + MSG05 + ' 1-9999'); // What is the 2nd parameter?
+        exit;
+      end;
+      // PRIMARY MISSION
+      case rt of
+        0: vars[intisitvariable(p1)].vvalue := booltostr(dinp[strtoint(s3)]);
+        1: vars[intisitvariable(p1)].vvalue := booltostr(coil[strtoint(s3)]);
+        2: vars[intisitvariable(p1)].vvalue := inttostr(ireg[strtoint(s3)]);
+        3: vars[intisitvariable(p1)].vvalue := inttostr(hreg[strtoint(s3)]);
+      end;
+      exit;
+    end;  
+  end;    
+  // ASSIGN VALUE TO A REGISTER
+  valid := false;
   for rt := 0 to 3 do
     if REG_TYPE[rt] = p1 then
     begin

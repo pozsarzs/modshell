@@ -82,25 +82,25 @@ preserved.
 
 |command|hotkey|description                                                      |category      |
 |-------|------|-----------------------------------------------------------------|--------------|
-|copy   |      |copy one or more register between two connections                |communication |
-|read   |ALT-R |read one or more remote registers to buffer                      |communication |
-|write  |ALT-W |write data from buffer to one or more remote registers           |communication |
+|copy   |      |copy one or more remote registers between two connections        |communication |
+|read   |ALT-R |read one or more remote registers                                |communication |
+|write  |ALT-W |write data to one or more remote registers                       |communication |
 |exphis |      |export command line history to file (TXT)                        |file operation|
-|expreg |ALT-E |export one or more buffer registers to file (CSV, INI, XML)      |file operation|
-|impreg |ALT-I |export one or more buffer registers from file (CSV, INI, XML)    |file operation|
+|expreg |ALT-E |export one or more registers to file (CSV, INI, XML)             |file operation|
+|impreg |ALT-I |export one or more registers from file (CSV, INI, XML)           |file operation|
 |loadcfg|F3    |load settings of device, protocol and connection (?DT)           |file operation|
 |loadreg|F5    |load all buffer registers from typed file (?DT)                  |file operation|
 |savecfg|F2    |save settings of device, protocol and connection (?DT)           |file operation|
-|savereg|F4    |save all buffer registers to typed file (?DT)                    |file operation|
+|savereg|F4    |save all registers to typed file (?DT)                           |file operation|
 |cls    |F8    |clear screen                                                     |general       |
 |color  |      |set foreground and background color in full screen mode          |general       |
 |date   |      |show system date and time                                        |general       |
 |exit   |F10   |exit                                                             |general       |
 |help   |F1    |show description or usage of the commands                        |general       |
-|print  |ALT-P |print message, value of the variable and buffer register         |general       |
-|var    |      |define new variable and assign value                             |general       |
+|print  |ALT-P |print message, value of the variable and register                |general       |
+|var    |      |show all variable with theirs value or define a new one          |general       |
 |ver    |      |show version and build information of this program               |general       |
-|let    |ALT-L |set value of a buffer registers                                  |register      |
+|let    |ALT-L |set value of a variable or register                              |register      |
 |conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |mathematic    |
 |get    |ALT-G |get setting of a device, protocol, connection or get project name|settings      |
 |reset  |ALT-T |reset device, protocol or connection or reset project name       |settings      |
@@ -127,7 +127,6 @@ preserved.
 |div    |      |division                                                      |mathematic    |
 |ent    |      |add value to stack                                            |mathematic    |
 |mul    |      |multiplication                                                |mathematic    |
-|mov    |      |move value between buffer register, stack or variable         |mathematic    |
 |roll   |      |roll down stack                                               |mathematic    |
 |sub    |      |substraction                                                  |mathematic    |
 |swap   |      |swap number with top of stack                                 |mathematic    |

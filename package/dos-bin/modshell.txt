@@ -308,6 +308,9 @@ EXAMPLES
        let $A 10
               Set $A variable to 10.
 
+       let $A $B
+              Set $A variable to value of $B.
+
        print ireg 10 10
               Print value of the input register address 10 to 20.
 

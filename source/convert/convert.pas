@@ -172,7 +172,6 @@ end;
 
 function BinToOkt(bin: string): string;
 var s, sn, vk, nk: string;
-    i: word;
 begin
   vk:= GetVorKomma(bin);              {Trennung von Vor- und Nachkommazahl }
   nk:= GetNachKomma(bin);
@@ -212,7 +211,7 @@ end;
 
 
 function BinToDez(bin: string): string;
-var s, sn, vk, nk: string;
+var s, vk, nk: string;
     i, x: word;
     num, num1, num2, y: real;
 
@@ -220,7 +219,7 @@ begin
   vk:= GetVorKomma(bin);              {Trennung von Vor- und Nachkommazahl }
   nk:= GetNachKomma(bin);
   num1:=0;
-  sn:='';
+  s:='';
   if length(vk)=0 then num1:=0 else
     for i:=1 to length(vk) do
       if copy(vk, length(vk)+1-i, 1)='1' then
@@ -260,7 +259,6 @@ end;
 
 function BinToHex(bin: string): string;
 var s, sn, vk, nk: string;
-    i: word;
 begin
   vk:= GetVorKomma(bin);              {Trennung von Vor- und Nachkommazahl }
   nk:= GetNachKomma(bin);
@@ -340,7 +338,7 @@ end;
 
 
 function DezToBin(dez: string): string;
-var s, sn, vk, nk, nn: string;
+var s, sn, vk, nk: string;
     i, v: word;
     n: real;
 

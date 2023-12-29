@@ -264,6 +264,36 @@ resourcestring
 
 procedure version(h: boolean); forward;
 
+// IF S IS A VARIABLE, IT RETURNS theirs number
+function intisitvariable(s: string): integer;
+var
+  i: integer;
+begin
+  result := 0;
+  if (s[1] = #36) then
+  begin
+    s := stringreplace(s, #36 , '', [rfReplaceAll]);
+    for i := 0 to 63 do
+      if vars[i].vname = lowercase(s)
+      then result := i;
+  end;
+end;
+
+// IF S IS A VARIABLE, IT RETURNS TRUE
+function boolisitvariable(s: string): boolean;
+var
+  i: integer;
+begin
+  result := false;
+  if (s[1] = #36) then
+  begin
+    s := stringreplace(s, #36 , '', [rfReplaceAll]);
+    for i := 0 to 63 do
+      if vars[i].vname = lowercase(s)
+      then result := true;
+  end;
+end;
+
 // IF S IS A VARIABLE, IT RETURNS ITS VALUE
 function isitvariable(s: string): string;
 var
