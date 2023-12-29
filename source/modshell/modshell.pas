@@ -96,12 +96,13 @@ const
     ('-r','--run','run script')
   );
   // COMMANDS AND PARAMETERS
-  COMMANDS: array[0..22] of string = ('copy','exit','get','help','let',
+  COMMANDS: array[0..32] of string = ('copy','exit','get','help','let',
                                       'print','read','reset','set','date',
                                       'ver','write','cls','savecfg',
                                       'loadcfg','expreg','exphis','conv',
                                       'savereg','loadreg','var','color',
-                                      'impreg');
+                                      'impreg','and','or','not','xor','shl',
+                                      'shr','add','sub','mul','div');
   PROMPT = 'MODSH|_>';
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
@@ -199,6 +200,16 @@ resourcestring
   DES20='       list all variable with value or define a new one';
   DES21='       set foreground and background color in full screen mode';
   DES22='ALT-I  import value of the one or more registers';
+  DES23='       AND logical operations';
+  DES24='       OR logical operations';
+  DES25='       NOT logical operations';
+  DES26='       XOR logical operations';
+  DES27='       bit shift to left';
+  DES28='       bit shift to right';
+  DES29='       addition mathematical operation';
+  DES30='       substraction mathematical operation';
+  DES31='       multiplication mathematical operation';
+  DES32='       division mathematical operation';
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #13 + #10 +
         'Notes:' + #13 + #10 +
@@ -261,6 +272,16 @@ resourcestring
         '      2: green  6: brown      10: lightgreen  14: yellow' + #13 + #10 +
         '      3: cyan   7: lightgray  11: lightcyan   15: white';
   USG22='impreg PATH_AND_FILENAME';
+  USG23='and $TARGET [$]VALUE1 [$]VALUE2';
+  USG24='or $TARGET [$]VALUE1 [$]VALUE2';
+  USG25='not $TARGET [$]VALUE';
+  USG26='xor $TARGET [$]VALUE1 [$]VALUE2';
+  USG27='shl $TARGET [$]VALUE1 [$]VALUE2';
+  USG28='shr $TARGET [$]VALUE1 [$]VALUE2';
+  USG29='add $TARGET [$]VALUE1 [$]VALUE2';
+  USG30='sub $TARGET [$]VALUE1 [$]VALUE2';
+  USG31='mul $TARGET [$]VALUE1 [$]VALUE2';
+  USG32='div $TARGET [$]VALUE1 [$]VALUE2';
 
 procedure version(h: boolean); forward;
 
@@ -346,7 +367,9 @@ end;
 {$I cmd_impr.pas}
 {$I cmd_let.pas}
 {$I cmd_lcfg.pas}
+{$I cmd_logc.pas}
 {$I cmd_lreg.pas}
+{$I cmd_math.pas}
 {$I cmd_prnt.pas}
 {$I cmd_read.pas}
 {$I cmd_rst.pas}
@@ -472,7 +495,7 @@ begin
             else splitted[b] := splitted[b] + command[a];
       // PARSE COMMAND
       o := false;
-      for b := 0 to 22 do
+      for b := 0 to 28 do
         if splitted[0] = COMMANDS[b] then
         begin
           o := true;
@@ -525,12 +548,17 @@ begin
              // savereg PATH_AND_FILENAME
          19: cmd_loadreg(splitted[1]);
              // loadreg PATH_AND_FILENAME
-         20: cmd_var(splitted[1],splitted[2]);
+         20: cmd_var(splitted[1], splitted[2]);
              // var NAME [VALUE]
-         21: cmd_color(splitted[1],splitted[2]);
+         21: cmd_color(splitted[1], splitted[2]);
              // color FOREGROUND BACKGROUND
          22: cmd_impreg(splitted[1]);
              // impreg FILENAME
+        else
+          begin
+            if (b > 22) and (b < 29) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
+            if (b > 28) and (b < 33) then cmd_math(b, splitted[1], splitted[2], splitted[3]);
+          end;
         end;
       end;
     end;

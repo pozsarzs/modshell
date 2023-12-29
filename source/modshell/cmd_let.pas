@@ -25,7 +25,7 @@ procedure cmd_let(p1, p2, p3: string);
 var
   rt: byte;                // register type
   x, y: byte;
-  s1, s2, s3: string;      // parameters in other type
+  s2, s3: string;          // parameters in other type
   valid: boolean = false;
 
 begin

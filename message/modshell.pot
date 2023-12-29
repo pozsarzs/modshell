@@ -269,6 +269,46 @@ msgstr ""
 msgid "ALT-I  import value of the one or more registers"
 msgstr ""
 
+#: modshell:des23
+msgid "       AND logical operations"
+msgstr ""
+
+#: modshell:des24
+msgid "       OR logical operations"
+msgstr ""
+
+#: modshell:des25
+msgid "       NOT logical operations"
+msgstr ""
+
+#: modshell:des26
+msgid "       XOR logical operations"
+msgstr ""
+
+#: modshell:des27
+msgid "       bit shift to left"
+msgstr ""
+
+#: modshell:des28
+msgid "       bit shift to right"
+msgstr ""
+
+#: modshell:des29
+msgid "       addition mathematical operation"
+msgstr ""
+
+#: modshell:des30
+msgid "       substraction mathematical operation"
+msgstr ""
+
+#: modshell:des31
+msgid "       multiplication mathematical operation"
+msgstr ""
+
+#: modshell:des32
+msgid "       division mathematical operation"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\015\n"
@@ -408,5 +448,45 @@ msgstr ""
 
 #: modshell:usg22
 msgid "impreg PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg23
+msgid "and $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg24
+msgid "or $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg25
+msgid "not $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg26
+msgid "xor $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg27
+msgid "shl $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg28
+msgid "shr $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg29
+msgid "add $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg30
+msgid "sub $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg31
+msgid "mul $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg32
+msgid "div $TARGET [$]VALUE1 [$]VALUE2"
 msgstr ""
 

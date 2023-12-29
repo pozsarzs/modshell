@@ -109,14 +109,10 @@ preserved.
 (Commands with function keys (F?) are executed immediately,
  modifier keys (ALT-?) only make typing easier.)  
 
-**Planned commands in next release (v0.2)**  
+**Planned commands**  
 
 |command|hotkey|description                                                   |category      |
 |-------|------|--------------------------------------------------------------|--------------|
-|srvtcp |      |start/stop transparent Modbus/TCP server                      |communication |
-|srvrtu |      |start/stop transparent Modbus/RTU slave                       |communication |
-|if     |      |selection statement                                           |general       |
-|for    |      |loop iteration                                                |general       |
 |and    |      |logical operations                                            |logical       |
 |or     |      |logical operations                                            |logical       |
 |not    |      |logical operations                                            |logical       |
@@ -125,10 +121,15 @@ preserved.
 |shr    |      |bit shift                                                     |logical       |
 |add    |      |addition                                                      |mathematic    |
 |div    |      |division                                                      |mathematic    |
-|ent    |      |add value to stack                                            |mathematic    |
 |mul    |      |multiplication                                                |mathematic    |
-|roll   |      |roll down stack                                               |mathematic    |
 |sub    |      |substraction                                                  |mathematic    |
-|swap   |      |swap number with top of stack                                 |mathematic    |
- 
-Calculator works in Reverse Polish Notation mode with 4 word size registers (x, y, z, t).
+
+**Planned commands in next release (v0.2)**  
+
+|command|hotkey|description                                                   |category      |
+|-------|------|--------------------------------------------------------------|--------------|
+|srvtcp |      |start/stop transparent Modbus/TCP server                      |communication |
+|srvrtu |      |start/stop transparent Modbus/RTU slave                       |communication |
+|if     |      |selection statement                                           |general       |
+|for    |      |loop iteration                                                |general       |
+

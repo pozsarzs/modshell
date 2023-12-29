@@ -23,7 +23,7 @@ procedure cmd_help(p1: string);
 var
   b, bb: byte;
   valid: boolean;
-  buffer: array[0..31] of string;
+  buffer: array[0..41] of string;
   line: byte;
 
   // SHORTING CONTENT OF BUFFER
@@ -32,8 +32,8 @@ var
    i, j: byte;
    s: string;
   begin
-    for i := 0 to 30 do
-     for j := i + 1 to 31 do
+    for i := 0 to 40 do
+     for j := i + 1 to 41 do
        if buffer[i] < buffer[j] then
        begin
          s := buffer[i];
@@ -43,12 +43,12 @@ var
   end;
 
 begin
-  for b := 0 to 31 do buffer[b] := '';
+  for b := 0 to 41 do buffer[b] := '';
   if length(p1) = 0 then
   begin
     writeln(MSG03); // How to use help with command list.
     writeln;
-    for b := 0 to 22 do
+    for b := 0 to 32 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
       for bb := 0 to 5 - length(COMMANDS[b]) + 2 do
@@ -77,12 +77,22 @@ begin
         20: buffer[b] := buffer[b] + DES20;
         21: buffer[b] := buffer[b] + DES21;
         22: buffer[b] := buffer[b] + DES22;
+        23: buffer[b] := buffer[b] + DES23;
+        24: buffer[b] := buffer[b] + DES24;
+        25: buffer[b] := buffer[b] + DES25;
+        26: buffer[b] := buffer[b] + DES26;
+        27: buffer[b] := buffer[b] + DES27;
+        28: buffer[b] := buffer[b] + DES28;
+        29: buffer[b] := buffer[b] + DES29;
+        30: buffer[b] := buffer[b] + DES30;
+        31: buffer[b] := buffer[b] + DES31;
+        32: buffer[b] := buffer[b] + DES32;
       end;
     end;
     shorting;
-    buffer[23] := MSG24;
+    buffer[33] := MSG24;
     line := 0;
-    for b := 23 downto 0 do
+    for b := 33 downto 0 do
     begin
       writeln(buffer[b]);
       inc(line);
@@ -97,7 +107,7 @@ begin
   begin
     // CHECK P1 PARAMETER
     valid := false;
-    for b := 0 to 22 do
+    for b := 0 to 32 do
       if p1 = COMMANDS[b] then
       begin
         valid := true;
@@ -132,6 +142,16 @@ begin
         20: writeln(USG20);
         21: writeln(USG21);
         22: writeln(USG22);
+        23: writeln(USG23);
+        24: writeln(USG24);
+        25: writeln(USG25);
+        26: writeln(USG26);
+        27: writeln(USG27);
+        28: writeln(USG28);
+        29: writeln(USG29);
+        30: writeln(USG30);
+        31: writeln(USG31);
+        32: writeln(USG32);
       end;
     end;
   end;
