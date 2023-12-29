@@ -18,19 +18,19 @@
   color FOREGROUND BACKGROUND
 }
 
-// command 'color'
+// COMMAND 'COLOR'
 procedure cmd_color(p1, p2: string);
 var
-  i1, i2: integer;
+  i1, i2: integer; // parameters in other type
 
 begin
-  // check length of parameter
+  // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) or (length(p2) = 0)  then
   begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  // check range
+  // CHECK RANGE OF PARAMETERS
   i1 := strtointdef(p1, -1);
   i2 := strtointdef(p2, -1);
   if (i1 < 0) or (i1 > 15) then
@@ -43,7 +43,7 @@ begin
     writeln('2nd ' + MSG05 + ' 0-15'); // What is the 2nd parameter?
     exit;
   end;
-  // primary mission
+  // PRIMARY MISSION
   uconfig.foregroundcolor := i1;
   uconfig.backgroundcolor := i2;
 end;

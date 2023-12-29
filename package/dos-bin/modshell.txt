@@ -73,6 +73,8 @@ OPERATION
 
 BUILTIN COMMANDS
    General commands
+       The '$' sign indicates a variable not a direct value.
+
        cls    Clear screen.
 
        color FOREGROUND BACKGROUND
@@ -90,7 +92,7 @@ BUILTIN COMMANDS
 
        help   Show description or usage of the builtin commands.
 
-       print dinp|coil|ireg|hreg ADDRESS|$VARIABLE [COUNT|$VARIABLE]
+       print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
               Print  content  of the one or more buffer registers. Register start ADDRESS
               and the COUNT must be between 1-9999.
 
@@ -100,14 +102,14 @@ BUILTIN COMMANDS
        print "message"
               Print a single line message.
 
-       var VARIABLE [VALUE|$VARIABLE]
+       var VARIABLE [IVALUE]
               Define new variable (ARIABLE) and assign value (VALUE).   Use  a  backslash
               before a space.
 
        ver    Show version and build information of this program.
 
    Mathematical commands
-       conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE
+       conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
               convert numbers between binary, decimal, hexadecimal and octal numeral sys‐
               tem.  VALUE must be between 0 and 65535
 
@@ -120,24 +122,24 @@ BUILTIN COMMANDS
               Reset  configuration  of  a  device  (dev?),  protocol (pro?) or connection
               (con?), or reset project name (prj). ? number must be 0-7.
 
-       set dev? net DEVICE PORT
+       set dev? net [$]DEVICE [$]PORT
               Set device (dev?) to ethernet (net) device. Device number must  be  between
               0-7  and port number must be between 0-65535. The DEVICE name on DOS is al‐
               ways PACKET, on other systems is the name of the adapter (e.g. eth0,  nfe0,
               etc.).
 
-       set dev? ser DEVICE BAUDRATE DATABIT PARITY STOPBIT
+       set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT
               Set  device  (dev?)  to  serial (ser) device. Device number must be between
               0-7. The DEVICE name is the name of the adapter (e.g. com1, ttyS0, ttyUSB0,
               ttyAMA0  etc.).  BAUDRATE  must  be:  1200; 2400; 4800; 9600; 19200; 38400;
               57600  or  115200.  DATABIT  must  be  7  or  8,  PARITY  must   be   E/N/O
               (even/none/odd). STOPBIT must be 1 or 2.
 
-       set pro? ascii|rtu UID
+       set pro? ascii|rtu [$]UID
               Set  protocol  (pro?) to Modbus/ASCII (ascii) or Modbus/RTU (rtu).  Unit ID
               (UID) must be between 1-247.
 
-       set pro? tcp IP_ADDRESS
+       set pro? tcp [$]IP_ADDRESS
               Set protocol (pro?) to Modbus/TCP (tcp). Address of remote  device  (IP_AD‐
               DRESS) must be in a.b.c.d format, with values between 1-255.
 
@@ -145,34 +147,34 @@ BUILTIN COMMANDS
               Assigns  a  device  (dev?)  and a protocol (pro?) to a connection (con?). ?
               number must be 0-7.
 
-       set prj PROJECT_NAME
+       set prj [$]PROJECT_NAME
               Set the project name. The name cannot contain spaces or special characters.
               The project directory will also be created with this name.
 
    Data handler commands
-       let dinp|coil|ireg|hreg ADDRESS VALUE
+       let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE
               Set  value of a buffer registers. Register start address and the count must
               be between 1-9999, If register type  is  discrete  input  (dinp)  and  coil
               (coil),  VALUE  must  be  0/1,  l/h  or false/true. If it is input register
               (ireg) or holding register (hreg), VALUE must be 0-65535.
 
    Communication commands
-       read con? dinp|coil|ireg|hreg ADDRESS [COUNT]
+       read con? dinp|coil|ireg|hreg [$]ADDRESS [ICOUNT]
               Read one or more remote registers to buffer. Number  of  connection  (con?)
               must  be  between 0-7, register start ADDRESS and the COUNT must be between
               1-9999.
 
-       write con? coil|hreg ADDRESS [COUNT]
+       write con? coil|hreg [$]ADDRESS [[$]COUNT]
               Write data from buffer to one or more remote registers. Number  of  connec‐
               tion  (con?) must be between 0-7, register start address and the count must
               be between 1-9999.
 
-       copy con? dinp|coil con? coil? ADDRESS [COUNT]
+       copy con? dinp|coil con? coil? [$]ADDRESS [[$]COUNT]
               Copy logical data between connections (con?). Number of  connection  (con?)
               must  be  between 0-7, register start ADDRESS and the COUNT must be between
               1-9999.
 
-       copy con? ireg|hreg con? hreg? ADDRESS [COUNT]
+       copy con? ireg|hreg con? hreg? [$]ADDRESS [[$]COUNT]
               Copy numeral data between connections (con?). Number of  connection  (con?)
               must  be  between 0-7, register start ADDRESS and the COUNT must be between
               1-9999.
@@ -240,8 +242,11 @@ EXAMPLES
        reset prj
               Reset project name (project name will be 'default').
 
-       set dev0 net eth0 502
+       set dev0 net /dev/enp0s7 502
               Set device #0 to '/dev/enp0s7' ethernet device with 502 port.
+
+       set dev0 net /dev/enp0s7 $P
+              Set device #0 to '/dev/enp0s7' ethernet device with value of the $P port.
 
        set dev1 ser ttyS0 9600 8 N 1
               Set device #1 to /dev/ttyS0 serial device,  with  9600  baud,  8  databits,
@@ -250,6 +255,10 @@ EXAMPLES
        set dev1 ser COM1 9600 8 N 1
               Set  device  #1  to COM1 serial device, with 9600 baud, 8 databits, without
               parity check and 1 stopbit.
+
+       set dev1 ser $P $S $D $P $S
+              Set device #1 to $P serial device, with $S baud,  $D  databits,  $P  parity
+              check and $S stopbit.
 
        set pro0 ascii 100
               Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).
@@ -273,8 +282,12 @@ EXAMPLES
        let dinp 10 H
               Set value of the discrete input buffer register address 10 to 1.
 
-       let ireg 10 to 65535
+       let ireg 10 65535
               Set value of the input register buffer register address 10 to 65535.
+
+       let ireg $A $B
+              Set  value of the input register buffer register address value of the $A to
+              value of the $B.
 
        print ireg 10 10
               Print value of the input register buffer register address 10 to 20.
@@ -285,15 +298,26 @@ EXAMPLES
 
    Communication commands
        read con0 hreg 100 15
-              eWrite  data from buffer to coil address 10 of the connection #2.  Read re‐
-              mote holding registers of the connection #0 from address 100 to 115.
+              Read remote holding registers of the connection #0 from address 100 to 115.
+
+       read con0 hreg $A 15
+              Read  remote  holding  registers of the connection #0 from address value of
+              the $A to $A+15.
 
        write con2 coil 10
               Write data from buffer to coil address 10 of the connection #2.
 
+       write con2 coil $C
+              Write data from buffer to coil address value of the $C  of  the  connection
+              #2.
+
        copy con0 ireg con2 hreg 210 10
-              Copy input register content of the connection #0 to holding  register  con‐
+              Copy  input  register content of the connection #0 to holding register con‐
               tent of the connection #2 from address 210 to 220.
+
+       copy con0 ireg con2 hreg $A $B
+              Copy input register content of the connection #0 to holding  register  con‐
+              tent of the connection #2 from address value of the $A to $A+$B.
 
    File operation command
        exphis script

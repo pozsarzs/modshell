@@ -66,6 +66,7 @@ On exit, the command line history and full screen mode command line colors are
 preserved.
 .SH BUILTIN COMMANDS
 .SS General commands
+The '$' sign indicates a variable not a direct value.
 .TP
 \fBcls\fP
 Clear screen.
@@ -90,7 +91,7 @@ Exit from program.
 \fBhelp\fP
 Show description or usage of the builtin commands.
 .TP
-\fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP|\fI$VARIABLE\fP [\fICOUNT\fP|\fI$VARIABLE\fP]
+\fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Print content of the one or more buffer registers. Register start \fIADDRESS\fP and
 the \fICOUNT\fP must be between 1-9999.
 .TP
@@ -100,7 +101,7 @@ Print value of the \fI$VARIABLE\fP.
 \fBprint\fP "\fImessage\fP"
 Print a single line message.
 .TP
-\fBvar\fP \fIVARIABLE\fP [\fIVALUE\fP|\fI$VARIABLE\fP]
+\fBvar\fP \fIVARIABLE\fP [\f[$]IVALUE\fP]
 Define new variable (\fVARIABLE\fP) and assign value (\fIVALUE\fP).
 Use a backslash before a space.
 .TP
@@ -108,37 +109,37 @@ Use a backslash before a space.
 Show version and build information of this program.
 .SS Mathematical commands
 .TP
-\fBconv\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIVALUE\fP|\fI$VARIABLE\fP
+\fBconv\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fI[$]VALUE\fP
 convert numbers between binary, decimal, hexadecimal and octal numeral system.
 \fIVALUE\fP must be between 0 and 65535
 .SS Configuration commands
 .TP
 \fBget\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP
-\fIGet configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
+Get configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
 (\fIcon?\fP), or get project name (\fIprj\fP). ? number must be 0-7.
 .TP
 \fBreset\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP
 Reset configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
 (\fIcon?\fP), or reset project name (\fIprj\fP). ? number must be 0-7.
 .TP
-\fBset\fP \fIdev?\fP \fInet\fP \fIDEVICE\fP \fIPORT\fP
+\fBset\fP \fIdev?\fP \fInet\fP \fI[$]DEVICE\fP \fI[$]PORT\fP
 Set device (\fIdev?\fP) to ethernet (\fInet\fP) device. Device number must be
 between 0-7 and port number must be between 0-65535. The \fIDEVICE\fP name on
 DOS is always PACKET, on other systems is the name of the adapter (e.g. eth0,
 nfe0, etc.).
 .TP
-\fBset\fP \fIdev?\fP \fIser\fP \fIDEVICE\fP \fIBAUDRATE\fP \fIDATABIT\fP \fIPARITY\fP \fISTOPBIT\fP
+\fBset\fP \fIdev?\fP \fIser\fP \fI[$]DEVICE\fP \fI[$]BAUDRATE\fP \fI[$]DATABIT\fP \fI[$]PARITY\fP \fI[$]STOPBIT\fP
 Set device (\fIdev?\fP) to serial (\fIser\fP) device. Device number must be
 between 0-7. The \fIDEVICE\fP name is the name of the adapter (e.g. com1, ttyS0,
 ttyUSB0, ttyAMA0 etc.). \fIBAUDRATE\fP must be: 1200; 2400; 4800; 9600; 19200;
 38400; 57600 or 115200. \fIDATABIT\fP must be 7 or 8, \fIPARITY\fP must be E/N/O
 (even/none/odd). \fISTOPBIT\fP must be 1 or 2.
 .TP
-\fBset\fP \fIpro?\fP \fIascii\fP|\fIrtu\fP \fIUID\fP
+\fBset\fP \fIpro?\fP \fIascii\fP|\fIrtu\fP \fI[$]UID\fP
 Set protocol (\fIpro?\fP) to Modbus/ASCII (\fIascii\fP) or Modbus/RTU (\fIrtu\fP).
 Unit ID (\fIUID\fP) must be between 1-247.
 .TP
-\fBset\fP \fIpro?\fP \fItcp\fP \fIIP_ADDRESS\fP
+\fBset\fP \fIpro?\fP \fItcp\fP \fI[$]IP_ADDRESS\fP
 Set protocol (\fIpro?\fP) to Modbus/TCP (\fItcp\fP). Address of remote device
 (\fIIP_ADDRESS\fP) must be in a.b.c.d format, with values between 1-255.
 .TP
@@ -146,34 +147,34 @@ Set protocol (\fIpro?\fP) to Modbus/TCP (\fItcp\fP). Address of remote device
 Assigns a device (\fIdev?\fP) and a protocol (\fIpro?\fP) to a connection
 (\fIcon?\fP). ? number must be 0-7.
 .TP
-\fBset\fP \fIprj\fP PROJECT_NAME
+\fBset\fP \fIprj\fP [$]PROJECT_NAME
 Set the project name. The name cannot contain spaces or special characters.
 The project directory will also be created with this name.
 .SS Data handler commands
 .TP
-\fBlet\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP|\fI$VARIABLE\fP \fIVALUE\fP|\fI$VARIABLE\fP
+\fBlet\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP \fI[$]VALUE\fP
 Set value of a buffer registers. Register start address and the count must be
 between 1-9999, If register type is discrete input (\fIdinp\fP) and coil
 (\fIcoil\fP), \fIVALUE\fP must be 0/1, l/h or false/true. If it is input register
 (\fIireg\fP) or holding register (\fIhreg\fP), \fIVALUE\fP must be 0-65535.
 .SS Communication commands
 .TP
-\fBread\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fIADDRESS\fP [\fICOUNT\fP]
+\fBread\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\f[$]ICOUNT\fP]
 Read one or more remote registers to buffer. Number of connection (\fIcon?\fP)
 must be between 0-7, register start \fIADDRESS\fP and the \fICOUNT\fP must be
 between 1-9999.
 .TP
-\fBwrite\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fIADDRESS\fP [\fICOUNT\fP]
+\fBwrite\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Write data from buffer to one or more remote registers. Number of connection
 (\fIcon?\fP) must be between 0-7, register start address and the count must be
 between 1-9999.
 .TP
-\fBcopy\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP \fIcon?\fP \fIcoil?\fP \fIADDRESS\fP [\fICOUNT\fP]
+\fBcopy\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP \fIcon?\fP \fIcoil?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Copy logical data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
 \fICOUNT\fP must be between 1-9999.
 .TP
-\fBcopy\fP \fIcon?\fP \fIireg\fP|\fIhreg\fP \fIcon?\fP \fIhreg?\fP \fIADDRESS\fP [\fICOUNT\fP]
+\fBcopy\fP \fIcon?\fP \fIireg\fP|\fIhreg\fP \fIcon?\fP \fIhreg?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Copy numeral data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
 \fICOUNT\fP must be between 1-9999.
@@ -240,8 +241,11 @@ Get configuration of a device #2.
 \fBreset\fP prj
 Reset project name (project name will be 'default').
 .TP
-\fBset\fP dev0 net eth0 502
+\fBset\fP dev0 net /dev/enp0s7 502
 Set device #0 to '/dev/enp0s7' ethernet device with 502 port.
+.TP
+\fBset\fP dev0 net /dev/enp0s7 $P
+Set device #0 to '/dev/enp0s7' ethernet device with value of the $P port.
 .TP
 \fBset\fP dev1 ser ttyS0 9600 8 N 1
 Set device #1 to /dev/ttyS0 serial device, with 9600 baud, 8 databits,
@@ -250,6 +254,10 @@ without parity check and 1 stopbit.
 \fBset\fP dev1 ser COM1 9600 8 N 1
 Set device #1 to COM1 serial device, with 9600 baud, 8 databits,
 without parity check and 1 stopbit.
+.TP
+\fBset\fP dev1 ser $P $S $D $P $S
+Set device #1 to $P serial device, with $S baud, $D databits, $P
+parity check and $S stopbit.
 .TP
 \fBset\fP pro0 ascii 100
 Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).
@@ -287,15 +295,24 @@ Print value of the input register buffer register address value of $A to value o
 .SS Communication commands
 .TP
 \fBread\fP con0 hreg 100 15
-eWrite data from buffer to coil address 10 of the connection #2.
 Read remote holding registers of the connection #0 from address 100 to 115.
+.TP
+\fBread\fP con0 hreg $A 15
+Read remote holding registers of the connection #0 from address value of the $A to $A+15.
 .TP
 \fBwrite\fP con2 coil 10
 Write data from buffer to coil address 10 of the connection #2.
 .TP
+\fBwrite\fP con2 coil $C
+Write data from buffer to coil address value of the $C of the connection #2.
+.TP
 \fBcopy\fP con0 ireg con2 hreg 210 10
 Copy input register content of the connection #0 to holding register content of the
 connection #2 from address 210 to 220.
+.TP
+\fBcopy\fP con0 ireg con2 hreg $A $B
+Copy input register content of the connection #0 to holding register content of the
+connection #2 from address value of the $A to $A+$B.
 .SS File operation command
 .TP
 \fBexphis\fP script

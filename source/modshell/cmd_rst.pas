@@ -18,7 +18,7 @@
   reset dev?|pro?|con?|prj
 }
 
-// command 'reset'
+// COMMAND 'RESET'
 procedure cmd_reset(p1: string);
 var
   i: integer;
@@ -26,7 +26,7 @@ var
   s: string;
   valid: boolean;
   
-  //show valid 1st parameters
+  //SHOW VALID 1ST PARAMETERS
   procedure showvalid1stparameters;
   var
     b: byte;
@@ -37,7 +37,7 @@ var
   end;
 
 begin
-  // check length of parameters
+  // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameter required!
@@ -62,7 +62,7 @@ begin
     showvalid1stparameters;
     exit;
   end;
-  // primary mission
+  // PRIMARY MISSION
   if length(p1) >= 4 then
   begin
     i := strtointdef(p1[4], -1);

@@ -18,7 +18,7 @@
   loadreg PATH_AND_FILENAME
 }
 
-// command 'savecfg'
+// COMMAND 'SAVECFG'
 procedure cmd_loadreg(p1: string);
 var
   c: char;
@@ -28,13 +28,13 @@ var
   ftw: file of word;
  
 begin
-  // check length of parameter
+  // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  // check p1
+  // CHECK P1 PARAMETER
   fp := extractfilepath(p1);
   fn := extractfilename(p1);
   fx := extractfileext(p1);
@@ -54,7 +54,7 @@ begin
   end;
   fn := stringreplace(fn, fx , '', [rfReplaceAll]);
   fpn := fp + fn;
-  // check exist
+  // CHECK EXIST
   if fileexists(fpn) then
   begin
     writeln(MSG14);
@@ -63,8 +63,8 @@ begin
       if c = 'n' then exit;
     until c = 'y';
   end;
-  // primary mission
-  // save dinp and coil
+  // PRIMARY MISSION
+  // load dinp and coil
   fpn := fp + fn + '.bdt';
   assignfile(ftb, fpn);
   try 
@@ -77,7 +77,7 @@ begin
     exit;
   end;
   writeln(MSG21 + fpn + '.');
-  // save ireg and hreg
+  // load ireg and hreg
   fpn := fp + fn + '.idt';
   assignfile(ftw, fpn);
   try 

@@ -14,24 +14,25 @@
 }
 {
   p0   p1              p2              p3
-  -----------------------------------------------------
-  conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE
+  ---------------------------------------------
+  conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
 }
 
-// command 'conv'
+// COMMAND 'CONV'
 procedure cmd_conv(p1, p2, p3: string);
 var
-  ns1, ns2: byte;
+  ns1, ns2: byte;          // numerical system
+  s: string;
+  s3: string;              // parameter in other type
   valid: boolean = false;
-  s, s3: string;
 begin
-  // check length of parameters
+  // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  // check p1 parameter
+  // CHECK P1 PARAMETER
   for ns1 := 0 to 3 do
     if NUM_SYS[ns1] = p1 then
     begin
@@ -46,7 +47,7 @@ begin
     exit;
   end;
   valid := false;
-  // check p2 parameter
+  // CHECK P2 PARAMETER
   for ns2 := 0 to 3 do
     if NUM_SYS[ns2] = p2 then
     begin
@@ -60,10 +61,9 @@ begin
     writeln;
     exit;
   end;
-  // check p3 parameter: is it a variable?
+  // CHECK P3 PARAMETER
   s3 := isitvariable(p3);
   if length(s3) = 0 then s3 := p3;
-  // check p3 parameter
   case ns1 of
     0: begin
          s := BinToDez(s3);
@@ -95,7 +95,7 @@ begin
          end;
        end;
   end;
-  // primary mission
+  // PRIMARY MISSION
   {
     y-axis: from (ns1)
     x-axis: to (ns2)
@@ -109,7 +109,7 @@ begin
   }
   b := 10 * ns1 + ns2;
   case b of
-    0: s := p3;
+    0: s := s3;
     1: s := BinToDez(s3);
     2: s := BinToHex(s3);
     3: s := BinToOkt(s3);

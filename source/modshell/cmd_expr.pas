@@ -18,17 +18,18 @@
   expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]
 }
 
-// command 'expreg'
+// COMMAND 'EXPREG'
 procedure cmd_expreg(p1, p2, p3, p4: string);
 var
   // appendfile: boolean = false;
   c: char;
-  i, i3, i4: integer;
+  i: integer;
+  i3, i4: integer;                          // parameters in other type
   ini: tinifile;
   fpn, fp, fn, fx: string;
   ft: byte;
   rootnode, parentnode, itemnode: tdomnode; 
-  rt: byte;
+  rt: byte;                                 // register type
   tf: textfile;
   valid: boolean = false;
   xml: txmldocument;
@@ -36,13 +37,13 @@ const
   PREFIX: string = 'addr';
 
 begin
-  // check length of parameters
+  // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  // check p1
+  // CHECK P1 PARAMETER
   fp := extractfilepath(p1);
   fn := extractfilename(p1);
   fx := extractfileext(p1);
@@ -61,7 +62,7 @@ begin
     {$ENDIF}
   end;
   fpn := fp + fn;
-  // check exist
+  // CHECK EXIST
   if fileexists(fpn) then
   begin
     writeln(MSG14);
@@ -71,7 +72,7 @@ begin
       // if c = 'a' then appendfile := true;
     until (c = 'y') { or (c = 'a') };
   end;
-  // check file extension
+  // CHECK FILE EXTENSION
   for ft := 0 to 3 do
     if '.' + FILE_TYPE[ft] = lowercase(fx) then
     begin
@@ -86,7 +87,7 @@ begin
     exit;
   end;
   valid := false;
-  // check p2 parameter
+  // CHECK P2 PARAMETER
   for rt := 0 to 3 do
     if REG_TYPE[rt] = p2 then
     begin
@@ -100,14 +101,14 @@ begin
     writeln;
     exit;
   end;
-  // check p3 parameter
+  // CHECK P3 PARAMETER
   i3 := strtointdef(p3, -1);
   if (i3 < 1) or (i3 > 9999) then
   begin
     writeln('3rd ' + MSG05 + ' 1-9999'); // What is the 3rd parameter?
     exit;
   end;
-  // check p4 parameter
+  // CHECK P4 PARAMETER
   if length(p4) > 0 then
   begin
     i4 := strtointdef(p4, -1);
@@ -117,7 +118,7 @@ begin
       exit;
     end;
   end else i4 := 1;
-  // primary mission
+  // PRIMARY MISSION
   case ft of
     0: begin
          assignfile(tf, fpn);

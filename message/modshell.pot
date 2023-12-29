@@ -260,9 +260,10 @@ msgstr ""
 
 #: modshell:usg00
 msgid ""
-"copy con? dinp|coil con? coil ADDRESS [COUNT]\015\n"
-"  copy con? ireg|hreg con? hreg ADDRESS [COUNT]\015\n"
-"  ?: [0-7]"
+"copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\015\n"
+"Notes:\015\n"
+"  - The '$' sign indicates a variable not a direct value.\015\n"
+"  - The '?' value can be 0-7."
 msgstr ""
 
 #: modshell:usg01
@@ -272,7 +273,8 @@ msgstr ""
 #: modshell:usg02
 msgid ""
 "get dev?|pro?|con?|prj\015\n"
-"  ?: [0-7]"
+"Notes:\015\n"
+"  - The '?' value can be 0-7."
 msgstr ""
 
 #: modshell:usg03
@@ -280,37 +282,46 @@ msgid "help [COMMAND]"
 msgstr ""
 
 #: modshell:usg04
-msgid "let dinp|coil|ireg|hreg ADDRESS|$VARIABLE VALUE|$VARIABLE"
+msgid ""
+"let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\015\n"
+"Notes:\015\n"
+"  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 
 #: modshell:usg05
 msgid ""
-"print dinp|coil|ireg|hreg ADDRESS|$VARIABLE [COUNT|$VARIABLE]\015\n"
+"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]\015\n"
 "  print $VARIABLE\015\n"
-"  print \"single\\ line\\ message\""
+"  print \"single\\ line\\ message\"\015\n"
+"Notes:\015\n"
+"  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 
 #: modshell:usg06
 msgid ""
-"read con? dinp|coil|ireg|hreg ADDRESS [COUNT]\015\n"
-"  ?: [0-7]"
+"read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]\015\n"
+"Notes:\015\n"
+"  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 
 #: modshell:usg07
 msgid ""
 "reset dev?|pro?|con?|prj\015\n"
-"  ?: [0-7]"
+"Notes:\015\n"
+"  - The '?' value can be 0-7."
 msgstr ""
 
 #: modshell:usg08
 msgid ""
-"set dev? net DEVICE PORT\015\n"
-"  set dev? ser DEVICE BAUDRATE DATABIT PARITY STOPBIT\015\n"
-"  set pro? ascii|rtu UID\015\n"
-"  set pro? tcp IP_ADDRESS\015\n"
+"set dev? net [$]DEVICE [$]PORT\015\n"
+"  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\015\n"
+"  set pro? ascii|rtu [$]UID\015\n"
+"  set pro? tcp [$]IP_ADDRESS\015\n"
 "  set con? dev? pro?\015\n"
-"  set prj PROJECT_NAME\015\n"
-"  ?: [0-7]"
+"  set prj [$]PROJECT_NAME\015\n"
+"Notes:\015\n"
+"  - The '$' sign indicates a variable not a direct value.\015\n"
+"  - The '?' value can be 0-7."
 msgstr ""
 
 #: modshell:usg09
@@ -323,8 +334,10 @@ msgstr ""
 
 #: modshell:usg11
 msgid ""
-"write con? coil|hreg ADDRESS [COUNT]\015\n"
-"  ?: [0-7]"
+"write con? coil|hreg [$]ADDRESS [[$]COUNT]\015\n"
+"Notes:\015\n"
+"  - The '$' sign indicates a variable not a direct value.\015\n"
+"  - The '?' value can be 0-7."
 msgstr ""
 
 #: modshell:usg12
@@ -348,7 +361,10 @@ msgid "exphis PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg17
-msgid "conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE"
+msgid ""
+"conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE\015\n"
+"Notes:\015\n"
+"  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 
 #: modshell:usg18
@@ -360,7 +376,10 @@ msgid "loadreg PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg20
-msgid "var NAME [VALUE|$VARIABLE]"
+msgid ""
+"var NAME [[$]VALUE]\015\n"
+"Notes:\015\n"
+"  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 
 #: modshell:usg21

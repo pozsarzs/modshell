@@ -18,7 +18,7 @@
   savecfg PATH_AND_FILENAME
 }
 
-// command 'savecfg'
+// COMMAND 'SAVECFG'
 procedure cmd_savecfg(p1: string);
 var
   b, bb: byte;
@@ -29,13 +29,13 @@ var
   ftc: file of tconnection;
 
 begin
-  // check length of parameter
+  // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  // check p1
+  // CHECK P1 PARAMETER
   fp := extractfilepath(p1);
   fn := extractfilename(p1);
   fx := extractfileext(p1);
@@ -57,7 +57,7 @@ begin
   begin
     fn := stringreplace(fn, fx , '', [rfReplaceAll]);
     fpn := fp + fn + '.' + PREFIX[b][1] + 'dt';
-    // check exist
+    // CHECK EXIST
     if fileexists(fpn) then
     begin
       writeln(MSG14);
@@ -66,7 +66,7 @@ begin
         if c = 'n' then exit;
       until c = 'y';
     end;
-    // primary mission
+    // PRIMARY MISSION
     case b of
       0: begin
            assignfile(ftd, fpn);

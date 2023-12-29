@@ -18,15 +18,14 @@
   help [COMMAND]
 }
 
-// command 'help'
+// COMMAND 'HELP'
 procedure cmd_help(p1: string);
 var
   b, bb: byte;
   valid: boolean;
   buffer: array[0..31] of string;
 
-
-  // shorting content of buffer
+  // SHORTING CONTENT OF BUFFER
   procedure shorting;
   var
    i, j: byte;
@@ -82,7 +81,7 @@ begin
     for b := 22 downto 0 do writeln(buffer[b]);
   end else
   begin
-    // check parameter
+    // CHECK P1 PARAMETER
     valid := false;
     for b := 0 to 22 do
       if p1 = COMMANDS[b] then
@@ -92,7 +91,7 @@ begin
       end;
     if not valid then writeln(ERR00) else // No such command!
     begin
-      // primary mission
+      // PRIMARY MISSION
       writeln(MSG04);
       gotoxy(3, wherey);
       case b of

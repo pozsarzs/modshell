@@ -31,7 +31,7 @@ function translatemessages(lang, basename, extension: string): boolean;
 
 implementation
 
-// try to translate messages
+// TRY TO TRANSLATE MESSAGES
 function translatemessages(lang, basename, extension: string): boolean;
 var
   b: byte;

@@ -14,11 +14,11 @@
 }
 {
   p0  p1   p2
-  --------------------------
-  var NAME [VALUE|$VARIABLE]
+  -------------------
+  var NAME [[$]VALUE]
 }
 
-// command 'var'
+// COMMAND 'VAR'
 procedure cmd_var(p1, p2: string);
 var
   b, bb: byte;
@@ -27,13 +27,13 @@ var
   valid: boolean = true;
 
 begin
-  // check length of parameter
+  // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  // search illegal characters in p1
+  // SEARCH ILLEGAL CHARACTERS IN P1
   s1 := p1;
   for b := 1 to length(s1) do
   begin
@@ -52,7 +52,7 @@ begin
   end;
   if not valid then writeln(ERR15) else
   begin
-    // check empty space in variable table
+    // CHECK EMPTY SPACE IN VARIABLE TABLE
     valid := false;
     for l := 0 to 63 do
       if length(vars[l].vname) = 0 then
@@ -65,7 +65,7 @@ begin
       writeln(ERR16);
       exit;
     end;
-    // comparing existing names with the new one
+    // COMPARING EXISTING NAMES WITH THE NEW ONE
     valid := true;
     for l := 0 to 63 do
       if vars[l].vname = lowercase(p1) then valid := false;
@@ -74,12 +74,12 @@ begin
       writeln(ERR17);
       exit;
     end;
-    // check p2 parameter
+    // CHECK P2 PARAMETER
     s2 := isitvariable(p2);
     if length(s2) = 0 then s2 := p2;
-    // change '\ ' to space in p2
+    // CHANGE '\ ' TO SPACE IN P2
     s2 := stringreplace(s2, #92+#32, #32, [rfReplaceAll]);
-    // primary mission
+    // PRIMARY MISSION
     vars[l].vname := lowercase(s1);
     vars[l].vvalue := s2;
   end;

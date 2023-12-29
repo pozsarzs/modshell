@@ -18,7 +18,7 @@
   exphis PATH_AND_FILENAME
 }
 
-// command 'exphis'
+// COMMAND 'EXPHIS'
 procedure cmd_exphis(p1: string);
 var
   b: byte;
@@ -27,13 +27,13 @@ var
   tf: text;
 
 begin
-  // check length of parameter
+  // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  // check p1
+  // CHECK P1 PARAMETER
   fp := extractfilepath(p1);
   fn := extractfilename(p1);
   if length(fp) = 0 then
@@ -51,7 +51,7 @@ begin
     {$ENDIF}
   end;
   fpn := fp + fn;
-  // check exist
+  // CHECK EXIST
   if fileexists(fpn) then
   begin
     writeln(MSG14);
@@ -60,7 +60,7 @@ begin
       if c = 'n' then exit;
     until c = 'y';
   end;
-  // primary mission
+  // PRIMARY MISSION
   assignfile(tf, fpn);
   try
     rewrite(tf);

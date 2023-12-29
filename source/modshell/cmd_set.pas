@@ -13,36 +13,38 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0  p1   p2          p3         p4       p5      p6     p7
-  ---------------------------------------------------------------
-  set dev? net         DEVICE     PORT
-  set dev? ser         DEVICE     BAUDRATE DATABIT PARITY STOPBIT
-  set pro? ascii|rtu   UID
-  set pro? tcp         IP_ADDRESS
-  set con? dev?        pro?
-  set prj  PROJECTNAME
+  p0  p1   p2             p3            p4          p5         p6        p7
+  ---------------------------------------------------------------------------------
+  set dev? net            [$]DEVICE     PORT
+  set dev? ser            [$]DEVICE     [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT
+  set pro? ascii|rtu      [$]UID
+  set pro? tcp            [$]IP_ADDRESS
+  set con? dev?           pro?
+  set prj  [$]PROJECTNAME
 }
 
-// command 'set'
+// COMMAND 'SET'
 procedure cmd_set(p1, p2, p3, p4, p5, p6, p7: string);
 var
-  i1: integer;
+  i1: integer;             // parameters in other type
   pr: byte;
-  s1: string;
+  s1: string;              // parameters in other type
   valid: boolean = false;
 
-  // command 'set dev'
+  // COMMAND 'SET DEV'
   procedure cmd_set_dev(n, p2, p3, p4, p5, p6, p7: string);
   var
-    dvt, i, i4, i6: integer;
+    dvt, i: integer;
+    i4, i6: integer;         // parameters in other type
+    s4, s5, s6, s7: string;  // parameters in other type
   begin
-    // 1st check length of parameters
+    // 1ST CHECK LENGTH OF PARAMETERS
     if (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0) then
     begin
       writeln(ERR05); // Parameter required!
       exit;
     end;
-    // check p2 parameter
+    // CHECK P2 PARAMETER
     for dvt := 0 to 1 do
       if DEV_TYPE[dvt] = p2 then
       begin
@@ -58,31 +60,35 @@ var
     end;
     if dvt = 0 then
     begin
-      // net
-      // check p4 parameter
-      if (strtointdef(p4, -1) < 0 ) or (strtointdef(p4, -1) > 65535) then
+      // DEVICE TYPE: NET
+      // CHECK P4 PARAMETER
+      s4 := isitvariable(p4);
+      if length(s4) = 0 then s4 := p4;
+      if (strtointdef(s4, -1) < 0 ) or (strtointdef(s4, -1) > 65535) then
       begin
         writeln('4th ' + MSG05 + ' 0-65535'); // What is the 4th parameter?
         exit;
       end;
-      // primary mission
+      // PRIMARY MISSION
       with dev[strtoint(n)] do
       begin
         valid := true;
         devtype := dvt;
         device := p3;
-        port := strtointdef(p4, 0);
+        port := strtointdef(s4, 0);
       end;
     end else
     begin
-      // ser
-      // check length of parameters
+      // DEVICE TYPE: SER
+      // CHECK LENGTH OF PARAMETERS
       if (length(p5) = 0) or (length(p6) = 0) or (length(p7) = 0) then
       begin
         writeln(ERR05); // Parameter required!
         exit;
       end;
-      // check p4 parameter
+      // CHECK P4 PARAMETER
+      s4 := isitvariable(p4);
+      if length(s4) = 0 then s4 := p4;
       for i4 := 0 to 7 do
         if DEV_SPEED[i4] = p4 then
         begin
@@ -96,15 +102,19 @@ var
         writeln;
         exit;
       end;
-      // check p5 parameter
-      if (strtointdef(p5, -1) < 7 ) or (strtointdef(p5, -1) > 8) then
+      // CHECK P5 PARAMETER
+      s5 := isitvariable(p5);
+      if length(s5) = 0 then s5 := p5;
+      if (strtointdef(s5, -1) < 7 ) or (strtointdef(s5, -1) > 8) then
       begin
         writeln('5th ' + MSG05 + ' 7-8'); // What is the 5th parameter?
         exit;
       end;
-      // check p6 parameter
+      // CHECK P6 PARAMETER
+      s6 := isitvariable(p6);
+      if length(s6) = 0 then s6 := p6;
       for i6 := 0 to 2 do
-        if DEV_PARITY[i6] = p6 then
+        if DEV_PARITY[i6] = s6 then
         begin
           valid := true;
           break;
@@ -116,41 +126,44 @@ var
         writeln;
         exit;
       end;
-      // check p7 parameter
-      if (strtointdef(p7, -1) < 1 ) or (strtointdef(p7, -1) > 2) then
+      // CHECK P7 PARAMETER
+      s7 := isitvariable(p7);
+      if length(s7) = 0 then s7 := p7;
+      if (strtointdef(s7, -1) < 1 ) or (strtointdef(s7, -1) > 2) then
       begin
         writeln('7th ' + MSG05 + ' 1-2'); // What is the 7th parameter?
         exit;
       end;
-      // primary mission
+      // PRIMARY MISSION
       with dev[strtoint(n)] do
       begin
         valid := true;
         devtype := dvt;
         device := p3;
         speed := i4;
-        databit := strtointdef(p5, 8);
+        databit := strtointdef(s5, 8);
         parity := i6;
-        stopbit := strtointdef(p7, 1);
+        stopbit := strtointdef(s7, 1);
       end;
     end;
   end;
 
-  // command 'set pro'
+  // COMMAND 'SET PRO'
   procedure cmd_set_pro(n, p2, p3: string);
   var
     i: integer;
     prt: byte;
+    s3: string;              // parameter in other type
     valid: boolean = false;
 
   begin
-    // check length of parameters
+    // CHECK LENGTH OF PARAMETERS
     if (length(p2) = 0) or (length(p3) = 0) then
     begin
       writeln(ERR05); // Parameter required!
       exit;
     end;
-    // check p2 parameter
+    // CHECK P2 PARAMETER
     for prt := 0 to 2 do
       if PROT_TYPE[prt] = p2 then
       begin
@@ -164,41 +177,43 @@ var
       writeln;
       exit;
     end;
-    // check p3 parameter
+    // CHECK P3 PARAMETER
     if prt < 2 then
     begin
-      if (strtointdef(p3, -1) < 1) or (strtointdef(p3, -1) > 247) then
+      s3 := isitvariable(p3);
+      if length(s3) = 0 then s3 := p3;
+      if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 247) then
       begin
         writeln(ERR06); // UID must be 1-247!
         exit;
       end;
     end else
-      if not checkipaddress(p3) then
+      if not checkipaddress(s3) then
       begin
         writeln(ERR04); // Invalid IP address!
         exit;
       end;
-    // primary mission
+    // PRIMARY MISSION
     with prot[strtoint(n)] do
     begin
       valid := true;
       prottype := prt;
       if prt < 2
       then
-        uid := strtointdef(p3, 1)
+        uid := strtointdef(s3, 1)
       else
-        ipaddress := p3;
+        ipaddress := s3;
     end;
   end;
 
-  // command 'set con'
+  // COMMAND 'SET CON'
   procedure cmd_set_con(n, p2, p3: string);
   var
     i2, i3: integer;
     s2, s3: string;
   
   begin
-    // check length of parameters
+    // CHECK LENGTH OF PARAMETERS
     if (length(p2) = 0) or (length(p3) = 0) then
     begin
       writeln(ERR05);  // Parameters required!
@@ -208,7 +223,7 @@ var
     s3 := p3;
     delete(s2, length(s2), 1);
     delete(s3, length(s3), 1);
-    // check p2 parameter
+    // CHECK P2 PARAMETER
     if PREFIX[0] <> s2 then
     begin
       write('2nd ' + MSG05); // What is the 2nd parameter?
@@ -221,7 +236,7 @@ var
       exit;
     end;
     if not validity(0, i2) then exit;
-   // check p3 parameter
+   // CHECK P3 PARAMETER
    if PREFIX[1] <> s3 then
     begin
       write('3rd ' + MSG05); // What is the 3rd parameter?
@@ -234,7 +249,7 @@ var
       exit;
     end;
     if not validity(1, i2) then exit;
-    // primary mission
+    // PRIMARY MISSION
     with conn[strtoint(n)] do
     begin
       valid := true;
@@ -243,19 +258,22 @@ var
     end;
   end;
 
-  // set name of the project
+  // SET NAME OF THE PROJECT
   procedure cmd_set_prj(p2: string);
   var
     b, bb: byte;
+    s2: string;              // parameter in other type
     {$IFDEF GO32V2}
       s: string[8];
     {$ELSE}
       s: string[16];
     {$ENDIF}
-    valid : boolean = true;
+    valid : boolean = true;  
   begin
-    // search illegal characters
-    s := p2;
+    // SEARCH ILLEGAL CHARACTERS
+    s2 := isitvariable(p2);
+    if length(s2) = 0 then s2 := p2;
+    s := s2;
     for b := 1 to length(s) do
     begin
       for bb := 0 to 44 do
@@ -274,7 +292,7 @@ var
     if not valid then writeln(ERR14) else proj := s;
   end;
 
-  //show valid 1st parameters
+  //SHOW VALID 1ST PARAMETERS
   procedure showvalid1stparameters;
   var
     b: byte;
@@ -286,13 +304,13 @@ var
   end;
 
 begin
-  // check length of parameters
+  // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameter required!
     exit;
   end;
-  // check p1 parameter
+  // CHECK P1 PARAMETER
   if p1 = PREFIX[3] then
   begin
     cmd_set_prj(p2);
@@ -313,7 +331,7 @@ begin
   end;
   if length(p1) >= 4 then
   begin
-    // primary mission
+    // PRIMARY MISSION
     i1 := strtointdef(p1[4],-1);
     if (i1 >= 0) and (i1 < 8)
     then

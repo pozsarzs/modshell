@@ -13,12 +13,12 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-// command 'date'
+// COMMAND 'DATE'
 procedure cmd_date;
 var
   y, mh, d, w, h, m, s, cs: word;
 
-  // insert zero before [0-9]
+  // INSERT ZERO BEFORE [0-9]
   function addzero(v: word): string;
   var
     u: string;

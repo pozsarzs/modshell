@@ -37,7 +37,7 @@ procedure serialclose;
 
 implementation
 
-// read string from serial port
+// READ STRING FROM SERIAL PORT
 function serialread: string;
 begin
   {$IFDEF GO32V2}
@@ -46,7 +46,7 @@ begin
   {$ENDIF}
 end;
 
-// write string to serial port
+// WRITE STRING TO SERIAL PORT
 procedure serialwrite(s: string);
 begin
   {$IFDEF GO32V2}
@@ -55,7 +55,7 @@ begin
   {$ENDIF}
 end;
 
-// open serial port
+// OPEN SERIAL PORT
 function serialinit(device: string; speed: byte; databit: byte; stopbit: byte): boolean;
 var
   b: byte;
@@ -71,7 +71,7 @@ begin
   {$ENDIF}
 end;
 
-// close serial port
+// CLOSE SERIAL PORT
 procedure serialclose;
 begin
   {$IFDEF GO32V2}

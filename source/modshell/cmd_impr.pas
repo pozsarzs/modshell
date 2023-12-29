@@ -18,7 +18,7 @@
   impreg PATH_AND_FILENAME
 }
 
-// command 'impreg'
+// COMMAND 'IMPREG'
 procedure cmd_impreg(p1: string);
 var
   i, j: integer;
@@ -26,19 +26,19 @@ var
   fpn, fp, fn, fx: string;
   ft: byte;
   childnode: tdomnode; 
-  rt: byte;
+  rt: byte;               // register type
   s: string;
   valid: boolean = false;
   xml: txmldocument;
 
 begin
-  // check length of parameters
+  // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  // check p1
+  // CHECK P1 PARAMETER
   fp := extractfilepath(p1);
   fn := extractfilename(p1);
   fx := extractfileext(p1);
@@ -57,7 +57,7 @@ begin
     {$ENDIF}
   end;
   fpn := fp + fn;
-  // check file extension
+  // CHECK FILE EXTENSION
   for ft := 1 to 3 do
     if '.' + FILE_TYPE[ft] = lowercase(fx) then
     begin
@@ -72,7 +72,7 @@ begin
     exit;
   end;
   valid := false;
-  // primary mission
+  // PRIMARY MISSION
   case ft of
     1: begin
          ini := tinifile.create(fpn);

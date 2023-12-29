@@ -28,44 +28,44 @@ procedure tcp_writehreg(ipaddress: string; address, count: integer);
 
 implementation
 
-// create Cyclic Redundancy Check (CRC) value
+// CREATE CYCLIC REDUNDANCY CHECK (CRC) VALUE
 function crc(s: string): word;
 begin
   result := 0;
 end;
 
-// check CRC of a string
+// CHECK CRC OF A STRING
 function chkeckcrc(s: string; l: word): boolean;
 begin
   result := true;
 end;
 
-// read remote discrete input
+// READ REMOTE DISCRETE INPUT
 procedure tcp_readdinp(ipaddress: string; address, count: integer);
 begin
 end;
 
-// read remote coil
+// READ REMOTE COIL
 procedure tcp_readcoil(ipaddress: string; address, count: integer);
 begin
 end;
 
-// read remote input register
+// READ REMOTE INPUT REGISTER
 procedure tcp_readireg(ipaddress: string; address, count: integer);
 begin
 end;
 
-// read remote holding register
+// READ REMOTE HOLDING REGISTER
 procedure tcp_readhreg(ipaddress: string; address, count: integer);
 begin
 end;
 
-// write remote coil
+// WRITE REMOTE COIL
 procedure tcp_writecoil(ipaddress: string; address, count: integer);
 begin
 end;
 
-// write remote holding register
+// WRITE REMOTE HOLDING REGISTER
 procedure tcp_writehreg(ipaddress: string; address, count: integer);
 begin
 end;

@@ -18,15 +18,15 @@
   get dev?|pro?|con?|prj
 }
 
-// command 'get'
+// COMMAND 'GET'
 procedure cmd_get(p1: string);
 var
   pr: byte;
   i: integer;
-  s1: string;
+  s1: string;      // parameter in other type
   valid: boolean;
 
-  // show settings
+  // SHOW SETTINGS
   procedure showsettings(pr, n: byte);
   begin
     case pr of
@@ -76,7 +76,7 @@ var
     end;
   end;
 
-  // show valid 1st parameters
+  // SHOW VALID 1ST PARAMETERS
   procedure showvalid1stparameters;
   var
     b: byte;
@@ -88,13 +88,13 @@ var
   end;
 
 begin
-  // check length of parameters
+  // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameter required!
     exit;
   end;
-  // check p1 parameters
+  // CHECK P1 PARAMETERS
   if p1 = PREFIX[3] then
   begin
     writeln(proj);
@@ -113,7 +113,7 @@ begin
     showvalid1stparameters;
     exit;
   end;
-  // primary mission
+  // PRIMARY MISSION
   if length(p1) >= 4 then
   begin
     i := strtointdef(p1[4], -1);

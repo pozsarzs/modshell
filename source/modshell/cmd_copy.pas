@@ -13,22 +13,22 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0   p1   p2        p3   p4   p5      p6
-  ---------------------------------------------
-  copy con? di|coil   con? coil ADDRESS [COUNT]
-  copy con? ireg|hreg con? hreg ADDRESS [COUNT]
+  p0   p1   p2        p3   p4   p5         p6
+  ---------------------------------------------------
+  copy con? di|coil   con? coil [$]ADDRESS [[$]COUNT]
+  copy con? ireg|hreg con? hreg [$]ADDRESS [[$]COUNT]
 }
 
-// command 'copy'
+// COMMAND 'COPY'
 procedure cmd_copy(p1, p2, p3, p4, p5, p6: string);
 var
-  i1, i3, i5, i6: integer;
-  rt: byte;
-  s1, s3: string;
+  i1, i3, i5, i6: integer;  // parameters in other type
+  rt: byte;                 // register type
+  s1, s3, s5, s6: string;   // parameters in other type
   valid: boolean = false;
 
 begin
-  // check length of parameters
+  // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
      (length(p4) = 0) or (length(p5) = 0) then
   begin
@@ -37,7 +37,7 @@ begin
   end;
   s1 := p1;
   delete(s1, length(s1), 1);
-  // check p1 parameter
+  // CHECK P1 PARAMETER
   if PREFIX[2] <> s1 then
   begin
     write('1st ' + MSG05); // What is the 1nd parameter?
@@ -49,7 +49,7 @@ begin
     writeln(ERR01); // Device number must be 0-7!
     exit;
   end;
-  // check p2 parameter
+  // CHECK P2 PARAMETER
   for rt := 0 to 3 do
     if REG_TYPE[rt] = p2 then
     begin
@@ -65,7 +65,7 @@ begin
   end;
   s3 := p3;
   delete(s3, length(s3), 1);
-  // check p3 parameter
+  // CHECK P3 PARAMETER
   if PREFIX[2] <> s1 then
   begin
     write('1st ' + MSG05); // What is the 3rd parameter?
@@ -78,7 +78,7 @@ begin
     exit;
   end;
   valid := false;
-  // check p4 parameter
+  // CHECK P4 PARAMETER
   if rt <= 1 then
   begin
     if REG_TYPE[1] = p4 then valid := true
@@ -94,24 +94,28 @@ begin
     else
       write('4th ' + MSG05 + ' ' + REG_TYPE[3]); // What is the 4th parameter?
   end;
-  // check p5 parameter
-  i5 := strtointdef(p5, -1);
+  // CHECK P5 PARAMETER
+  s5 := isitvariable(p5);
+  if length(s5) = 0 then s5 := p5;
+  i5 := strtointdef(s5, -1);
   if (i5 < 1) or (i5 > 9999) then
   begin
     writeln('5th ' + MSG05 + ' 1-9999'); // What is the 5th parameter?
     exit;
   end;
-  // check p6 parameter
+  // CHECK P6 PARAMETER
   if length(p6) > 0 then
   begin
-    i6 := strtointdef(p6, -1);
+    s6 := isitvariable(p6);
+    if length(s6) = 0 then s6 := p6;
+    i6 := strtointdef(s6, -1);
     if (i6 < 1 ) or (i6 > 125) then
     begin
       writeln('6th ' + MSG05 + ' 1-125'); // What is the 6th parameter?
       exit;
     end;
   end else i6 := 1;
-  // primary mission
+  // PRIMARY MISSION
   case rt of
     0: begin
          mbreaddinp(i1, i5, i6);

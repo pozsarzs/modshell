@@ -33,19 +33,19 @@ procedure xywrite(x, y: byte; c: boolean; s: string);
 
 implementation
 
-// convert boolean to integer;
+// CONVERT BOOLEAN TO INTEGER;
 function booltoint(b: boolean): integer;
 begin
   if b then result := 1 else result := 0;
 end;
 
-// convert integer to boolean;
+// CONVERT INTEGER TO BOOLEAN;
 function inttobool(i: integer): boolean;
 begin
   if i > 0 then result := true else result := false;
 end;
 
-// check IP address
+// CHECK IP ADDRESS
 function checkipaddress(address: string): boolean;
 var
   b, c: byte;
@@ -66,7 +66,7 @@ begin
   if (c > 0) then result := false else result := true;
 end;
 
-// get system language
+// GET SYSTEM LANGUAGE
 function getlang: string;
 var
 {$IFDEF WINDOWS}
@@ -102,13 +102,13 @@ begin
   getlang := s;
 end;
 
-// get path of the executable file;
+// GET PATH OF THE EXECUTABLE FILE;
 function getexedir: string;
 begin
   result := ExtractFilePath(ParamStr(0));
 end;
 
-// get user's directory
+// GET USER'S DIRECTORY
 function getuserdir: string;
 begin
   {$IFDEF GO32V2}
@@ -126,7 +126,7 @@ begin
   {$ENDIF}
 end;
 
-// check terminal size
+// CHECK TERMINAL SIZE
 function terminalsize: boolean;
 begin
   if (screenwidth>=80) and (screenheight>=25)
@@ -134,7 +134,7 @@ begin
     else terminalsize:=false;
 end;
 
-// exit
+// EXIT
 procedure quit(halt_code: byte; clear: boolean; message: string);
 begin
   textcolor(lightgray); textbackground(black);
@@ -143,7 +143,7 @@ begin
   halt(halt_code);
 end;
 
-// write procedure with highlighted words
+// WRITE PROCEDURE WITH HIGHLIGHTED WORDS
 procedure ewrite(fg: byte; hl: byte; t: string);
 var
   b: byte;
@@ -160,7 +160,7 @@ begin
   end;
 end;
 
-// write to a position
+// WRITE TO A POSITION
 procedure xywrite(x, y: byte; c: boolean; s: string);
 begin
   gotoxy(x, y);

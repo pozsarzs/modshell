@@ -13,43 +13,43 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0    p1                  p2                p3
-  -------------------------------------------------------------
-  print dinp|coil|ireg|hreg ADDRESS|$VARIABLE [COUNT|$VARIABLE]
+  p0    p1                  p2         p3
+  -----------------------------------------------
+  print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
   print $VARIABLE
   print "Hello\ world!"
 }
 
-// command 'print'
+// COMMAND 'PRINT'
 procedure cmd_print(p1, p2, p3: string);
 var
-  i, i2, i3: integer;
-  rt: byte;
-  s1, s2, s3: string;
+  i, i2, i3: integer;      // parameters in other type
+  rt: byte;                // register type
+  s1, s2, s3: string;      // parameters in other type
   valid: boolean = false;
 
 begin
-  // check length of parameters
+  // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  // check p1 parameter: is it a message?
+  // CHECK P1 PARAMETER: IS IT A MESSAGE?
   s1 := isitmessage(p1);
   if length(s1) > 0 then 
   begin
     writeln(s1);
     exit;
   end;
-  // check p1 parameter: is it a variable?
+  // CHECK P1 PARAMETER: IS IT A VARIABLE?
   s1 := isitvariable(p1);
   if length(s1) > 0 then 
   begin
     writeln(s1);
     exit;
   end;
-  // check p1 parameter
+  // CHECK P1 PARAMETER
   for rt := 0 to 3 do
     if REG_TYPE[rt] = p1 then
     begin
@@ -63,7 +63,7 @@ begin
     writeln;
     exit;
   end;
-  // check p2 parameter
+  // CHECK P2 PARAMETER
   s2 := isitvariable(p2);
   if length(s2) = 0 then s2 := p2;
   i2 := strtointdef(s2, -1); // start address
@@ -72,7 +72,7 @@ begin
     writeln('2nd ' + MSG05 + ' 1-9999'); // What is the 2nd parameter?
     exit;
   end;
-  // check p3 parameter
+  // CHECK P3 PARAMETER
   if length(p3) = 0 then i3 := 1 else
   begin
     s3 := isitvariable(p3);
@@ -84,9 +84,9 @@ begin
     writeln('3rd ' + MSG05 + ' 1-9999'); // What is the 3rd parameter?
     exit;
   end;
-  // range check
+  // RANGE CHECK
   if (i2 + i3) > 9999 then i3 := (i2 + i3) - 9999;
-  // primary mission
+  // PRIMARY MISSION
   for i2 := i2  to i2 + i3 - 1 do
     case rt of
       0: write(dinp[i2],' ');

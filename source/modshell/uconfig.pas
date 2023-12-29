@@ -43,7 +43,7 @@ function loadconfiguration(basename, extension: string): boolean;
 
 implementation
 
-// set configuration directories
+// SET CONFIGURATION DIRECTORIES
 procedure setconfdir(basename: string; mkdirs: boolean);
 begin
   {$IFDEF GO32V2}
@@ -62,7 +62,7 @@ begin
   if mkdirs then forcedirectories(confdir);
 end;
 
-// save configuration
+// SAVE CONFIGURATION
 function saveconfiguration(basename, extension: string): boolean;
 var
   fn: string;
@@ -85,7 +85,7 @@ begin
   ini.free;
 end;
 
-// load configuration
+// LOAD CONFIGURATION
 function loadconfiguration(basename, extension: string): boolean;
 var
   fn: string;

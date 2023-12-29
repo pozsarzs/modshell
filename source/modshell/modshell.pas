@@ -61,12 +61,12 @@ type
     vvalue: string[255];
   end;
 var
-  // buffer
+  // BUFFER
   coil: array[1..9999] of boolean;
   dinp: array[1..9999] of boolean;
   ireg: array[1..9999] of word;
   hreg: array[1..9999] of word;
-  // settings - device, project name, protocol, connection
+  // SETTINGS - DEVICE, PROJECT NAME, PROTOCOL, CONNECTION
   dev: array[0..7] of tdevice;
   {$IFDEF GO32V2}
     proj: string[8] = 'default';
@@ -75,9 +75,9 @@ var
   {$ENDIF}
   prot: array[0..7] of tprotocol;
   conn: array[0..7] of tconnection;
-  // variables
+  // VARIABLES
   vars: array[0..63] of tvariable;
-  // others
+  // OTHERS
   appmode: byte;
   b: byte;
   lang: string;
@@ -87,7 +87,7 @@ const
     ('0','L','FALSE'),
     ('1','H','TRUE')
   );
-  // command line parameters
+  // COMMAND LINE PARAMETERS
   CMDLINEPARAMS: array[0..3, 0..2] of string =
   (
     ('-h','--help','show help'),
@@ -95,7 +95,7 @@ const
     ('-f','--fullscreen','full screen mode'),
     ('-r','--run','run script')
   );
-  // commands and parameters
+  // COMMANDS AND PARAMETERS
   COMMANDS: array[0..22] of string = ('copy','exit','get','help','let',
                                       'print','read','reset','set','date',
                                       'ver','write','cls','savecfg',
@@ -111,7 +111,7 @@ const
   PROT_TYPE: array[0..2] of string = ('ascii','rtu','tcp');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');
   PREFIX: array[0..3] of string = ('dev','pro','con','prj');
-  // others
+  // OTHERS
   PRGCOPYRIGHT = '(C) 2023 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
@@ -127,7 +127,7 @@ const
 {$ENDIF}
   
 resourcestring
-  // general messages
+  // GENERAL MESSAGES
   MSG01 = '<F1> help  <F2> savecfg  <F3> loadcfg  <F4> savereg  <F5> loadreg <F8> clear  <F10> exit';
   MSG02 = 'Command-driven scriptable Modbus utility';
   MSG03 = 'Use ''help COMMAND'' to show usage.';
@@ -151,7 +151,7 @@ resourcestring
   MSG21 = 'Register content has loaded from ';
   MSG22 = 'Useable file types: ';
   MSG99 = 'Sorry, this feature is not yet implemented.';
-  // error messages
+  // ERROR MESSAGES
   ERR00 = 'No such command!';
   ERR01 = 'Device number must be 0-7!';
   ERR02 = 'Protocol number must be 0-7!';
@@ -171,7 +171,7 @@ resourcestring
   ERR16 = 'Cannot define more variable!';
   ERR17 = 'There is already a variable with that name';
   ERR18 = 'Cannot initialize serial port!';
-  // command description
+  // COMMAND DESCRIPTION
   DES00='       copy one or more register between two connections';
   DES01='F10    exit';
   DES02='ALT-G  show device, protocol, connection or project name';
@@ -195,38 +195,58 @@ resourcestring
   DES20='       define new variable and assign value';
   DES21='       set foreground and background color in full screen mode';
   DES22='ALT-I  import value of the one or more buffer registers';
-  // command usage
-  USG00='copy con? dinp|coil con? coil ADDRESS [COUNT]' + #13 + #10 +
-        '  copy con? ireg|hreg con? hreg ADDRESS [COUNT]' + #13 + #10 +
-        '  ?: [0-7]';
+  // COMMAND USAGE
+  USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.' + #13 + #10 +
+        '  - The ''?'' value can be 0-7.';
   USG01='exit';
-  USG02='get dev?|pro?|con?|prj' + #13 + #10 + '  ?: [0-7]';
+  USG02='get dev?|pro?|con?|prj' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''?'' value can be 0-7.';
   USG03='help [COMMAND]';
-  USG04='let dinp|coil|ireg|hreg ADDRESS|$VARIABLE VALUE|$VARIABLE';
-  USG05='print dinp|coil|ireg|hreg ADDRESS|$VARIABLE [COUNT|$VARIABLE]' + #13 + #10 +
+  USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.';
+  USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]' + #13 + #10 +
         '  print $VARIABLE' + #13 + #10 +
-        '  print "single\ line\ message"';
-  USG06='read con? dinp|coil|ireg|hreg ADDRESS [COUNT]' + #13 + #10 + '  ?: [0-7]';
-  USG07='reset dev?|pro?|con?|prj' + #13 + #10 + '  ?: [0-7]';
-  USG08='set dev? net DEVICE PORT' + #13 + #10 +
-        '  set dev? ser DEVICE BAUDRATE DATABIT PARITY STOPBIT' + #13 + #10 +
-        '  set pro? ascii|rtu UID' + #13 + #10 +
-        '  set pro? tcp IP_ADDRESS' + #13 + #10 +
+        '  print "single\ line\ message"' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.';
+  USG06='read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.';
+  USG07='reset dev?|pro?|con?|prj' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''?'' value can be 0-7.';
+  USG08='set dev? net [$]DEVICE [$]PORT' + #13 + #10 +
+        '  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT' + #13 + #10 +
+        '  set pro? ascii|rtu [$]UID' + #13 + #10 +
+        '  set pro? tcp [$]IP_ADDRESS' + #13 + #10 +
         '  set con? dev? pro?' + #13 + #10 +
-        '  set prj PROJECT_NAME' + #13 + #10 +
-        '  ?: [0-7]';
+        '  set prj [$]PROJECT_NAME' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.' + #13 + #10 +
+        '  - The ''?'' value can be 0-7.';
   USG09='date';
   USG10='ver';
-  USG11='write con? coil|hreg ADDRESS [COUNT]' + #13 + #10 + '  ?: [0-7]';
+  USG11='write con? coil|hreg [$]ADDRESS [[$]COUNT]' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.' + #13 + #10 +
+        '  - The ''?'' value can be 0-7.';
   USG12='cls';
   USG13='savecfg PATH_AND_FILENAME';
   USG14='loadcfg PATH_AND_FILENAME';
   USG15='expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]';
   USG16='exphis PATH_AND_FILENAME';
-  USG17='conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE';
+  USG17='conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.';
   USG18='savereg PATH_AND_FILENAME';
   USG19='loadreg PATH_AND_FILENAME';
-  USG20='var NAME [VALUE|$VARIABLE]';
+  USG20='var NAME [[$]VALUE]' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.';
   USG21='color FOREGROUND BACKGROUND' + #13 + #10 +
         '  colors:' + #13 + #10 +
         '      0: black  4: red         8: darkgray    12: lightred' + #13 + #10 +
@@ -237,7 +257,7 @@ resourcestring
 
 procedure version(h: boolean); forward;
 
-// if s is a variable, it returns its value
+// IF S IS A VARIABLE, IT RETURNS ITS VALUE
 function isitvariable(s: string): string;
 var
   i: integer;
@@ -252,7 +272,7 @@ begin
   end;
 end;
 
-// if s is a message, it returns its value
+// IF S IS A MESSAGE, IT RETURNS ITS VALUE
 function isitmessage(s: string): string;
 begin
   result := '';
@@ -264,7 +284,7 @@ begin
   end;
 end;
 
-// check validity of dev?/pro?/con?'
+// CHECK VALIDITY OF DEV?/PRO?/CON?'
 function validity(sets, number: byte): boolean;
 begin
   case sets of
@@ -299,7 +319,7 @@ end;
 {$I cmd_var.pas}
 {$I cmd_wrte.pas}
 
-// simple command line
+// SIMPLE COMMAND LINE
 procedure simplecommandline;
 var
   a, b: byte;
@@ -309,7 +329,7 @@ var
   s: string;
   splitted: array[0..7] of string;
 
-// insert project name into prompt
+// INSERT PROJECT NAME INTO PROMPT
 function fullprompt: string;
 begin
   result := stringreplace(PROMPT, '_' , proj, [rfReplaceAll]);
@@ -327,11 +347,11 @@ begin
     command := '';
     repeat
       c := readkey;
-      // detect hotkeys
+      // DETECT HOTKEYS
       if c = #0 then
       begin
         c := readkey;
-        // only insert
+        // ONLY INSERT
         if c = #34 then begin command := COMMANDS[2]; c := #32; end; // ~G
         if c = #38 then begin command := COMMANDS[4]; c := #32; end; // ~L
         if c = #25 then begin command := COMMANDS[5]; c := #32; end; // ~P
@@ -339,7 +359,7 @@ begin
         if c = #20 then begin command := COMMANDS[7]; c := #32; end; // ~T
         if c = #31 then begin command := COMMANDS[8]; c := #32; end; // ~S
         if c = #17 then begin command := COMMANDS[11]; c := #32; end; // ~W
-        // insert and run
+        // INSERT AND RUN
         if c = #59 then begin command := COMMANDS[3]; c:=#13; end; // F1
         if c = #60 then begin command := COMMANDS[13] + #32 + proj; c:=#13; end; // F2
         if c = #61 then begin command := COMMANDS[14] + #32 + proj; c:=#13; end; // F3
@@ -383,13 +403,13 @@ begin
     writeln;
     if length(command) > 0 then
     begin
-      // remove space and tab from start of line
+      // REMOVE SPACE AND TAB FROM START OF LINE
       while (command[1] = #32) or (command[1] = #9) do
         delete(command, 1, 1);
-      // remove space and tab from end of line
+      // REMOVE SPACE AND TAB FROM END OF LINE
       while (command[length(command)] = #32) or (command[length(command)] = #9) do
         delete(command, length(command), 1);
-      // remove extra space and tab from line
+      // REMOVE EXTRA SPACE AND TAB FROM LINE
       for b := 1 to 255 do
       begin
         if b = length(command) then break;
@@ -401,7 +421,7 @@ begin
       for b := 1 to length(command) do
         if command[b] <> '@' then s := s + command[b];
       command := s;
-      // split command to eight slices
+      // SPLIT COMMAND TO EIGHT SLICES
       for b := 0 to 7 do
         splitted[b] := '';
       for a := 1 to length(command) do
@@ -413,7 +433,7 @@ begin
           if (command[a] = #32) and (command[a - 1] <> #92)
             then break
             else splitted[b] := splitted[b] + command[a];
-      // parse command
+      // PARSE COMMAND
       o := false;
       for b := 0 to 22 do
         if splitted[0] = COMMANDS[b] then
@@ -480,7 +500,7 @@ begin
   until command = COMMANDS[1]; // exit
 end;
 
-// full screen command line
+// FULL SCREEN COMMAND LINE
 procedure fullscreencommandline;
 begin
   window(1, 1, screenwidth, screenheight);
@@ -496,14 +516,14 @@ begin
   textbackground(black); textcolor(lightgray); clrscr;
 end;
 
-// script interpreter
+// SCRIPT INTERPRETER
 procedure interpreter;
 begin
   writeln(MSG99);
 end;
 
-// - command line parameters --------------------------------------------------
-// show useable parameters
+// - COMMAND LINE PARAMETERS --------------------------------------------------
+// SHOW USEABLE PARAMETERS
 procedure help(mode: boolean);
 var
   b: byte;
@@ -525,7 +545,7 @@ begin
   quit(0, false, '');
 end;
 
-// show version and build information
+// SHOW VERSION AND BUILD INFORMATION
 procedure version(h: boolean);
 begin
   writeln(PRGNAME + ' v' + PRGVERSION + ' * ' + MSG02);
@@ -541,14 +561,14 @@ begin
   if h then quit(0, false, '');;
 end;
 
-// -- main program -------------------------------------------------------------
+// -- MAIN PROGRAM -------------------------------------------------------------
 begin
-  // check size of terminal
+  // CHECK SIZE OF TERMINAL
   if not terminalsize
     then quit(1, false, 'ERROR: minimal terminal size is 80x25!');
-  // detect language
+  // DETECT LANGUAGE
   lang := getlang;
-  // parse command line parameters
+  // PARSE COMMAND LINE PARAMETERS
   appmode := 0;
   { appmode #0: simple command line
     appmode #1: show useable parameters

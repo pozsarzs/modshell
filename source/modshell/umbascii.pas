@@ -28,7 +28,7 @@ procedure asc_writehreg(uid, address, count: integer);
 
 implementation
 
-// convert a string of ASCII coded hexa bytes to string of hexa bytes }
+// CONVERT A STRING OF ASCII CODED HEXA BYTES TO STRING OF HEXA BYTES }
 function hex2(s: string): string;
 var
   b:       byte;
@@ -45,7 +45,7 @@ begin
   hex2 := res;
 end;
 
-// create Longitudinal Redundancy Check (LRC) value
+// CREATE LONGITUDINAL REDUNDANCY CHECK (LRC) VALUE
 function lrc(s: string): word;
 var
    b:   byte;
@@ -59,38 +59,38 @@ begin
   lrc := res;
 end;
 
-// check LRC of a string
+// CHECK LRC OF A STRING
 function chkecklrc(s: string; l: word): boolean;
 begin
   result := true;
 end;
 
-// read remote discrete input
+// READ REMOTE DISCRETE INPUT
 procedure asc_readdinp(uid, address, count: integer);
 begin
 end;
 
-// read remote coil
+// READ REMOTE COIL
 procedure asc_readcoil(uid, address, count: integer);
 begin
 end;
 
-// read remote input register
+// READ REMOTE INPUT REGISTER
 procedure asc_readireg(uid, address, count: integer);
 begin
 end;
 
-// read remote holding register
+// READ REMOTE HOLDING REGISTER
 procedure asc_readhreg(uid, address, count: integer);
 begin
 end;
 
-// write remote coil
+// WRITE REMOTE COIL
 procedure asc_writecoil(uid, address, count: integer);
 begin
 end;
 
-// write remote holding register
+// WRITE REMOTE HOLDING REGISTER
 procedure asc_writehreg(uid, address, count: integer);
 begin
 end;

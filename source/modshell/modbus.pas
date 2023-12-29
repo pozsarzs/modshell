@@ -13,14 +13,14 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-// read discrete input(s)
+// READ DISCRETE INPUT(S)
 procedure mbreaddinp(connection, address, count: integer);
 begin
-  // check validity
+  // CHECK VALIDITY
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
-  // init serial port
+  // INIT SERIAL PORT
   if prot[conn[connection].prot].prottype < 2 then
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
@@ -30,7 +30,7 @@ begin
       writeln(ERR18);
       exit;
     end;
-  // call next procedure
+  // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: asc_readdinp(prot[conn[connection].prot].uid, address, count);
     1: rtu_readdinp(prot[conn[connection].prot].uid, address, count);
@@ -38,14 +38,14 @@ begin
   end; 
 end;
 
-// read coil(s)
+// READ COIL(S)
 procedure mbreadcoil(connection, address, count: integer);
 begin
-  // check validity
+  // CHECK VALIDITY
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
-  // init serial port
+  // INIT SERIAL PORT
   if prot[conn[connection].prot].prottype < 2 then
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
@@ -55,7 +55,7 @@ begin
       writeln(ERR18);
       exit;
     end;
-  // call next procedure
+  // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: asc_readcoil(prot[conn[connection].prot].uid, address, count);
     1: rtu_readcoil(prot[conn[connection].prot].uid, address, count);
@@ -63,14 +63,14 @@ begin
   end; 
 end;
 
-// read input register(s)
+// READ INPUT REGISTER(S)
 procedure mbreadireg(connection, address, count: integer);
 begin
-  // check validity
+  // CHECK VALIDITY
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
-  // init serial port
+  // INIT SERIAL PORT
   if prot[conn[connection].prot].prottype < 2 then
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
@@ -80,7 +80,7 @@ begin
       writeln(ERR18);
       exit;
     end;
-  // call next procedure
+  // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: asc_readireg(prot[conn[connection].prot].uid, address, count);
     1: rtu_readireg(prot[conn[connection].prot].uid, address, count);
@@ -88,14 +88,14 @@ begin
   end; 
 end;
 
-// read holding register(s)
+// READ HOLDING REGISTER(S)
 procedure mbreadhreg(connection, address, count: integer);
 begin
-  // check validity
+  // CHECK VALIDITY
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
-  // init serial port
+  // INIT SERIAL PORT
   if prot[conn[connection].prot].prottype < 2 then
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
@@ -105,7 +105,7 @@ begin
       writeln(ERR18);
       exit;
     end;
-  // call next procedure
+  // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: asc_readhreg(prot[conn[connection].prot].uid, address, count);
     1: rtu_readhreg(prot[conn[connection].prot].uid, address, count);
@@ -113,14 +113,14 @@ begin
   end; 
 end;
 
-// write coil(s)
+// WRITE COIL(S)
 procedure mbwritecoil(connection, address, count: integer);
 begin
-  // check validity
+  // CHECK VALIDITY
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
-  // init serial port
+  // INIT SERIAL PORT
   if prot[conn[connection].prot].prottype < 2 then
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
@@ -130,7 +130,7 @@ begin
       writeln(ERR18);
       exit;
     end;
-  // call next procedure
+  // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: asc_writecoil(prot[conn[connection].prot].uid, address, count);
     1: rtu_writecoil(prot[conn[connection].prot].uid, address, count);
@@ -138,14 +138,14 @@ begin
   end; 
 end;
 
-// write holding register(s)
+// WRITE HOLDING REGISTER(S)
 procedure mbwritehreg(connection, address, count: integer);
 begin
-  // check validity
+  // CHECK VALIDITY
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
-  // init serial port
+  // INIT SERIAL PORT
   if prot[conn[connection].prot].prottype < 2 then
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
@@ -155,7 +155,7 @@ begin
       writeln(ERR18);
       exit;
     end;
-  // call next procedure
+  // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: asc_writehreg(prot[conn[connection].prot].uid, address, count);
     1: rtu_writehreg(prot[conn[connection].prot].uid, address, count);
