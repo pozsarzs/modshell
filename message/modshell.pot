@@ -101,6 +101,14 @@ msgstr ""
 msgid "Select register type: "
 msgstr ""
 
+#: modshell:msg26
+msgid "Local register type (dinp/coil/ireg/hreg: 1/2/3/4): "
+msgstr ""
+
+#: modshell:msg27
+msgid "Start address (0-9990): "
+msgstr ""
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr ""
@@ -187,6 +195,18 @@ msgstr ""
 
 #: modshell:err20
 msgid "Calculating error!"
+msgstr ""
+
+#: modshell:err21
+msgid "No such script file: "
+msgstr ""
+
+#: modshell:err22
+msgid "Cannot load script from "
+msgstr ""
+
+#: modshell:err23
+msgid "Script buffer is full!"
 msgstr ""
 
 #: modshell:des00

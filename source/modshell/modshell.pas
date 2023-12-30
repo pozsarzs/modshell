@@ -81,6 +81,8 @@ var
   appmode: byte;
   b: byte;
   lang: string;
+  // splitted command line
+  splitted: array[0..7] of string;
 const
   BOOLVALUES: array[0..1,0..2] of string =
   (
@@ -121,6 +123,7 @@ const
 {$R *.res}
 
 {$DEFINE BASENAME := lowercase(PRGNAME)}
+{$DEFINE COMMENT := #35}
 {$IFDEF UNIX}  
   {$DEFINE SLASH := #47}
 {$ELSE}
@@ -156,6 +159,8 @@ resourcestring
           '  - register: local buffer register' + #13 + #10 +
           '  - remote register: register of the connected device' + #13 + #10;
   MSG25 = 'Select register type: ';
+  MSG26 = 'Local register type (dinp/coil/ireg/hreg: 1/2/3/4): ';
+  MSG27 = 'Start address (0-9990): ';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // ERROR MESSAGES
   ERR00 = 'No such command!';
@@ -179,6 +184,9 @@ resourcestring
   ERR18 = 'Cannot initialize serial port!';
   ERR19 = 'No such variable: ';
   ERR20 = 'Calculating error!';
+  ERR21 = 'No such script file: ';
+  ERR22 = 'Cannot load script from ';
+  ERR23 = 'Script buffer is full!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
   DES01='F10    exit';
@@ -385,123 +393,50 @@ end;
 {$I cmd_var.pas}
 {$I cmd_wrte.pas}
 
-// SIMPLE COMMAND LINE
-procedure simplecommandline;
+// PARSING COMMANDS
+procedure parsingcommands(command: string);
 var
-  a, b: byte;
-  c: char;
-  command: string;
-  o: boolean = false;
-  s: string;
-  splitted: array[0..7] of string;
-
-// INSERT PROJECT NAME INTO PROMPT
-function fullprompt: string;
+ a, b: byte;
+ s: string;
+ o: boolean;
+ 
 begin
-  result := stringreplace(PROMPT, '_' , proj, [rfReplaceAll]);
-end;
-
-begin
-  if appmode = 0 then writeln(PRGNAME + ' v' + PRGVERSION);
-  repeat
-    if appmode = 3 then
+  if length(command) > 0 then
+  begin
+    // REMOVE SPACE AND TAB FROM START OF LINE
+    while (command[1] = #32) or (command[1] = #9) do
+      delete(command, 1, 1);
+    // REMOVE SPACE AND TAB FROM END OF LINE
+    while (command[length(command)] = #32) or (command[length(command)] = #9) do
+      delete(command, length(command), 1);
+    // REMOVE EXTRA SPACE AND TAB FROM LINE
+    for b := 1 to 255 do
     begin
-      textbackground(uconfig.backgroundcolor);
-      textcolor(uconfig.foregroundcolor);
+      if b = length(command) then break;
+      if command[b] <> #32 then o := false;
+      if (command[b] = #32) and o then command[b] :='@';
+      if command[b] = #32 then o := true;
     end;
-    write(fullprompt);
-    command := '';
-    repeat
-      c := readkey;
-      // DETECT HOTKEYS
-      if c = #0 then
-      begin
-        c := readkey;
-        // ONLY INSERT
-        if c = #34 then begin command := COMMANDS[2]; c := #32; end;             // ~G
-        if c = #38 then begin command := COMMANDS[4]; c := #32; end;             // ~L
-        if c = #25 then begin command := COMMANDS[5]; c := #32; end;             // ~P
-        if c = #19 then begin command := COMMANDS[6]; c := #32; end;             // ~R
-        if c = #20 then begin command := COMMANDS[7]; c := #32; end;             // ~T
-        if c = #31 then begin command := COMMANDS[8]; c := #32; end;             // ~S
-        if c = #17 then begin command := COMMANDS[11]; c := #32; end;            // ~W
-        // INSERT AND RUN
-        if c = #59 then begin command := COMMANDS[3]; c:=#13; end;               // F1
-        if c = #60 then begin command := COMMANDS[13] + #32 + proj; c:=#13; end; // F2
-        if c = #61 then begin command := COMMANDS[14] + #32 + proj; c:=#13; end; // F3
-        if c = #62 then begin command := COMMANDS[18] + #32 + proj; c:=#13; end; // F4
-        if c = #63 then begin command := COMMANDS[19] + #32 + proj; c:=#13; end; // F5
-        if c = #64 then begin command := COMMANDS[33] + #32 + proj; c:=#13; end; // F6
-        if c = #66 then begin command := COMMANDS[12]; c:=#13; end;              // F8
-        if c = #68 then begin command := COMMANDS[1]; c:=#13; end;               // F10
-        if c = #72 then
-        begin
-          if uconfig.histitem > 0 then dec(uconfig.histitem);
-          command := uconfig.histbuff[uconfig.histitem];
-        end;
-        if c = #80 then
-        begin
-          if uconfig.histitem < 255 then inc(uconfig.histitem);
-          command := uconfig.histbuff[uconfig.histitem];
-        end;
-      end;
-      if c = #8 then delete(command, length(command), 1);
-      if c = #9 then c := #32;
-      if c = #27 then command := '';
-      if (c <> #8) and (c <> #13) and (c <> #27) and
-         (c <> #72) and (c <> #75) and (c <> #77) and (c <> #80)
-      then command := command + c;
-      xywrite(1, wherey, true, fullprompt + command);
-    until (c = #13);
-    if length(command) > 0 then
-    begin
-      if uconfig.histlast < 255 then
-      begin
-        uconfig.histbuff[uconfig.histlast] := command;
-        inc(uconfig.histlast);
-      end else
-      begin
-        for b := 1 to 255 do
-          uconfig.histbuff[b - 1] := uconfig.histbuff[b];
-        uconfig.histbuff[uconfig.histlast] := command;
-      end;
-      uconfig.histitem := uconfig.histlast;
-    end;
-    writeln;
-    if length(command) > 0 then
-    begin
-      // REMOVE SPACE AND TAB FROM START OF LINE
-      while (command[1] = #32) or (command[1] = #9) do
-        delete(command, 1, 1);
-      // REMOVE SPACE AND TAB FROM END OF LINE
-      while (command[length(command)] = #32) or (command[length(command)] = #9) do
-        delete(command, length(command), 1);
-      // REMOVE EXTRA SPACE AND TAB FROM LINE
-      for b := 1 to 255 do
-      begin
-        if b = length(command) then break;
-        if command[b] <> #32 then o := false;
-        if (command[b] = #32) and o then command[b] :='@';
-        if command[b] = #32 then o := true;
-      end;
-      s := '';
-      for b := 1 to length(command) do
-        if command[b] <> '@' then s := s + command[b];
-      command := s;
-      // SPLIT COMMAND TO EIGHT SLICES
-      for b := 0 to 7 do
-        splitted[b] := '';
-      for a := 1 to length(command) do
+    s := '';
+    for b := 1 to length(command) do
+      if command[b] <> '@' then s := s + command[b];
+    command := s;
+    // SPLIT COMMAND TO EIGHT SLICES
+    for b := 0 to 7 do
+      splitted[b] := '';
+    for a := 1 to length(command) do
+      if (command[a] = #32) and (command[a - 1] <> #92)
+        then break
+        else splitted[0] := splitted[0] + command[a];
+    for b:= 1 to 7 do
+      for a := a + 1 to length(command) do
         if (command[a] = #32) and (command[a - 1] <> #92)
           then break
-          else splitted[0] := splitted[0] + command[a];
-      for b:= 1 to 7 do
-        for a := a + 1 to length(command) do
-          if (command[a] = #32) and (command[a - 1] <> #92)
-            then break
-            else splitted[b] := splitted[b] + command[a];
-      // PARSE COMMAND
-      o := false;
+          else splitted[b] := splitted[b] + command[a];
+    // PARSE COMMAND
+    o := false;
+    if splitted[0][1] <> COMMENT then
+    begin
       for b := 0 to 33 do
         if splitted[0] = COMMANDS[b] then
         begin
@@ -576,6 +511,89 @@ begin
         end;
       end;
     end;
+  end;
+end;
+
+// SIMPLE COMMAND LINE
+procedure simplecommandline;
+var
+  command: string;
+  c: char;
+
+// INSERT PROJECT NAME INTO PROMPT
+function fullprompt: string;
+begin
+  result := stringreplace(PROMPT, '_' , proj, [rfReplaceAll]);
+end;
+
+begin
+  if appmode = 0 then writeln(PRGNAME + ' v' + PRGVERSION);
+  repeat
+    if appmode = 3 then
+    begin
+      textbackground(uconfig.backgroundcolor);
+      textcolor(uconfig.foregroundcolor);
+    end;
+    write(fullprompt);
+    command := '';
+    repeat
+      c := readkey;
+      // DETECT HOTKEYS
+      if c = #0 then
+      begin
+        c := readkey;
+        // ONLY INSERT
+        if c = #34 then begin command := COMMANDS[2]; c := #32; end;             // ~G
+        if c = #38 then begin command := COMMANDS[4]; c := #32; end;             // ~L
+        if c = #25 then begin command := COMMANDS[5]; c := #32; end;             // ~P
+        if c = #19 then begin command := COMMANDS[6]; c := #32; end;             // ~R
+        if c = #20 then begin command := COMMANDS[7]; c := #32; end;             // ~T
+        if c = #31 then begin command := COMMANDS[8]; c := #32; end;             // ~S
+        if c = #17 then begin command := COMMANDS[11]; c := #32; end;            // ~W
+        // INSERT AND RUN
+        if c = #59 then begin command := COMMANDS[3]; c:=#13; end;               // F1
+        if c = #60 then begin command := COMMANDS[13] + #32 + proj; c:=#13; end; // F2
+        if c = #61 then begin command := COMMANDS[14] + #32 + proj; c:=#13; end; // F3
+        if c = #62 then begin command := COMMANDS[18] + #32 + proj; c:=#13; end; // F4
+        if c = #63 then begin command := COMMANDS[19] + #32 + proj; c:=#13; end; // F5
+        if c = #64 then begin command := COMMANDS[33] + #32 + proj; c:=#13; end; // F6
+        if c = #66 then begin command := COMMANDS[12]; c:=#13; end;              // F8
+        if c = #68 then begin command := COMMANDS[1]; c:=#13; end;               // F10
+        if c = #72 then
+        begin
+          if uconfig.histitem > 0 then dec(uconfig.histitem);
+          command := uconfig.histbuff[uconfig.histitem];
+        end;
+        if c = #80 then
+        begin
+          if uconfig.histitem < 255 then inc(uconfig.histitem);
+          command := uconfig.histbuff[uconfig.histitem];
+        end;
+      end;
+      if c = #8 then delete(command, length(command), 1);
+      if c = #9 then c := #32;
+      if c = #27 then command := '';
+      if (c <> #8) and (c <> #13) and (c <> #27) and
+         (c <> #72) and (c <> #75) and (c <> #77) and (c <> #80)
+      then command := command + c;
+      xywrite(1, wherey, true, fullprompt + command);
+    until (c = #13);
+    if length(command) > 0 then
+    begin
+      if uconfig.histlast < 255 then
+      begin
+        uconfig.histbuff[uconfig.histlast] := command;
+        inc(uconfig.histlast);
+      end else
+      begin
+        for b := 1 to 255 do
+          uconfig.histbuff[b - 1] := uconfig.histbuff[b];
+        uconfig.histbuff[uconfig.histlast] := command;
+      end;
+      uconfig.histitem := uconfig.histlast;
+    end;
+    writeln;
+    parsingcommands(command);
   until command = COMMANDS[1]; // exit
 end;
 
@@ -596,9 +614,44 @@ begin
 end;
 
 // SCRIPT INTERPRETER
-procedure interpreter;
+procedure interpreter(f: string);
+var
+  line: byte;
+  s: string;
+  sbuffer: array[0..254] of string;
+  sf: textfile;
+  
 begin
-  writeln(MSG99);
+  if not fileexists(f) then quit(2, false, ERR21 + f + '!');
+  for line := 0 to 254 do sbuffer[line] := '';
+  assignfile(sf, f);
+  try
+    reset(sf);
+    line := 0;
+    repeat
+      readln(sf,s);
+      if length(s) > 0 then
+      begin
+        // REMOVE SPACE AND TAB FROM START OF LINE
+        while (s[1] = #32) or (s[1] = #9) do
+          delete(s, 1, 1);
+        if s[1] <> COMMENT then
+        begin
+          if line < 255 then
+          begin
+            sbuffer[line] := s;
+            inc(line);
+          end else quit(4, false, ERR23);
+        end;
+      end;
+    until eof(sf);
+    closefile(sf);  
+  except
+    quit(3, false, ERR22 + f + '!');
+  end;
+  // PARSING SCRIPT
+  for line := 0 to 254 do
+    if length(sbuffer[line]) > 0 then  parsingcommands(sbuffer[line]);
 end;
 
 // - COMMAND LINE PARAMETERS --------------------------------------------------
@@ -675,7 +728,7 @@ begin
   case appmode of
     0: simplecommandline;
     3: fullscreencommandline;
-    4: interpreter;
+    4: interpreter(paramstr(2));
   end;
   saveconfiguration(BASENAME,'.ini');
   quit(0, false, '');

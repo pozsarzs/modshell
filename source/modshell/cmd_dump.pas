@@ -41,7 +41,7 @@ begin
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
     // ASKS FOR REGISTER TYPE
-    write('Local register type (dinp/coil/ireg/hreg: 1/2/3/4): ');
+    write(MSG26);
     repeat
       rt := ord(readkey);
       if rt = 27 then  begin writeln; exit; end;
@@ -49,7 +49,7 @@ begin
     writeln(chr(rt));
     rt := rt - 49;
     // ASKS FOR START ADDRESS
-    write('Start address (0-9990): ');
+    write(MSG27);
     repeat
       c := readkey;
       if c = #27 then begin writeln; exit; end;
@@ -58,7 +58,7 @@ begin
       if length(s2) < 4 then
         if (c >= #48) and (c <= #57) then s2 := s2 + c;
       if strtointdef(s2, 0) > 9990 then s2 := '9990';
-      xywrite(length('Start address (0-9990): ') + 1, wherey, true, s2);
+      xywrite(length(MSG27) + 1, wherey, true, s2);
     until (c = #13) and (length(s2) > 0);
     writeln;
     i2 := strtointdef(s2, 0);

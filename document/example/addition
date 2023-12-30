@@ -1,0 +1,28 @@
+#!/usr/local/bin/modshell -r
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command line Modbus utility                                 |
+# | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
+# | addition                                                                   |
+# | Example script * use of variables                                          |
+# +----------------------------------------------------------------------------+
+
+print "Example\ script\ -\ How\ to\ use\ variables?"
+print "--------------------------------------------"
+var a 24
+var b
+var c 
+let $b 2
+
+print "Value\ of\ the\ variable\ $A:"
+  print $a
+print "Value\ of\ the\ variable\ $B:"
+  print $b
+
+add $c $a $b
+
+print "The\ sum\ of\ $A\ and\ $B:"
+  print $c
+
+print "--------------------------------------------"
+print "All\ variables:"
+  var
