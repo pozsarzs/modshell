@@ -566,7 +566,7 @@ begin
              // color FOREGROUND BACKGROUND
          22: cmd_impreg(splitted[1]);
              // impreg FILENAME
-         33: cmd_dump(splitted[1]);
+         33: cmd_dump(splitted[1], splitted[2]);
              // dump [dinp|coil|ireg|hreg]
         else
           begin

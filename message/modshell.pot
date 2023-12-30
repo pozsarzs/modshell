@@ -507,6 +507,6 @@ msgid "div $TARGET [$]VALUE1 [$]VALUE2"
 msgstr ""
 
 #: modshell:usg33
-msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
+msgid "dump [[dinp|coil|ireg|hreg] ADDRESS]"
 msgstr ""
 
