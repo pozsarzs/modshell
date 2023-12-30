@@ -14,11 +14,11 @@ msgstr ""
 
 #: modshell:msg01
 msgid ""
-"<F1> help  <F2> savecfg  <F3> loadcfg  <F4> savereg  <F5> loadreg <F8> "
-"clear  <F10> exit"
+"<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> "
+"clear <F10> exit"
 msgstr ""
-"<F1> help  <F2> savecfg  <F3> loadcfg  <F4> savereg  <F5> loadreg  <F8> "
-"clear  <F10> exit"
+"<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> "
+"clear <F10> exit"
 
 #: modshell:msg02
 msgid "Command-driven scriptable Modbus utility"
@@ -118,6 +118,18 @@ msgstr ""
 "  - regiszter: helyi puffer regiszter\\015\n"
 "  - távoli regiszter: a csatlakoztatott eszköz regisztere\\015\n"
 
+#: modshell:msg25
+msgid "Select register type: "
+msgstr "Válasszon regisztertípust: "
+
+#: modshell:msg26
+msgid "Local register type (dinp/coil/ireg/hreg: 1/2/3/4): "
+msgstr "Helyi regiszter típus (dinp/coil/ireg/hreg: 1/2/3/4): "
+
+#: modshell:msg27
+msgid "Start address (0-9990): "
+msgstr "Kezdőcím (0-9990): "
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr "Sajnálom, hogy ez a szolgáltatás még nem valósult meg."
@@ -198,10 +210,29 @@ msgstr "Van már egy változó ezzel a névvel"
 msgid "Cannot initialize serial port!"
 msgstr "Nem lehet inicializálni a soros portot!"
 
+#: modshell:err19
+msgid "No such variable: "
+msgstr "Nincs ilyen változó: "
+
+#: modshell:err20
+msgid "Calculating error!"
+msgstr "Számítási hiba!"
+
+#: modshell:err21
+msgid "No such script file: "
+msgstr "Nincs ilyen szkriptfájl: "
+
+#: modshell:err22
+msgid "Cannot load script from "
+msgstr "Nem lehet betölteni a szkriptet ebből: "
+
+#: modshell:err23
+msgid "Script buffer is full!"
+msgstr "A szkript puffer megtelt!"
+
 #: modshell:des00
 msgid "       copy one or more remote reg. between two connections"
-msgstr ""
-"       egy vagy több távoli regiszter másolása két kapcsolat között"
+msgstr "       egy vagy több távoli regiszter másolása két kapcsolat között"
 
 #: modshell:des01
 msgid "F10    exit"
@@ -281,8 +312,7 @@ msgstr "F5     összes regisztertartalom betöltése"
 
 #: modshell:des20
 msgid "       list all variable with value or define a new one"
-msgstr ""
-"       az összes változó kiírása az értékükkel vagy új létrehozása"
+msgstr "       az összes változó kiírása az értékükkel vagy új létrehozása"
 
 #: modshell:des21
 msgid "       set foreground and background color in full screen mode"
@@ -291,6 +321,50 @@ msgstr "       előtér- és a háttérszín beállítása (fullscreen)"
 #: modshell:des22
 msgid "ALT-I  import value of the one or more registers"
 msgstr "ALT-I  egy vagy több regisztertartalom importálása"
+
+#: modshell:des23
+msgid "       AND logical operations"
+msgstr "       ÉS logikai művelet"
+
+#: modshell:des24
+msgid "       OR logical operations"
+msgstr "       VAGY logikai művelet"
+
+#: modshell:des25
+msgid "       NOT logical operations"
+msgstr "       NOT logikai művelet"
+
+#: modshell:des26
+msgid "       XOR logical operations"
+msgstr "       XOR logikai művelet"
+
+#: modshell:des27
+msgid "       bit shift to left"
+msgstr "       biteltolás balra"
+
+#: modshell:des28
+msgid "       bit shift to right"
+msgstr "       biteltolás jobbra"
+
+#: modshell:des29
+msgid "       addition mathematical operation"
+msgstr "       összeadás matematikai művelet"
+
+#: modshell:des30
+msgid "       substraction mathematical operation"
+msgstr "       kivonás matematikai művelet"
+
+#: modshell:des31
+msgid "       multiplication mathematical operation"
+msgstr "       szorzás matematikai művelet"
+
+#: modshell:des32
+msgid "       division mathematical operation"
+msgstr "       osztás matematikai művelet"
+
+#: modshell:des33
+msgid "F6     dump all registers in binary/hexadecimal format to a table"
+msgstr "F6     táblázatos regiszterkiírás bináris/hexadecimális formátumban"
 
 #: modshell:usg00
 msgid ""
@@ -373,8 +447,7 @@ msgstr ""
 #: modshell:usg08
 msgid ""
 "set dev? net [$]DEVICE [$]PORT\\015\n"
-"  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY "
-"[$]STOPBIT\\015\n"
+"  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\\015\n"
 "  set pro? ascii|rtu [$]UID\\015\n"
 "  set pro? tcp [$]IP_ADDRESS\\015\n"
 "  set con? dev? pro?\\015\n"
@@ -384,8 +457,7 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 "set dev? net [$]DEVICE [$]PORT\\015\n"
-"  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY "
-"[$]STOPBIT\\015\n"
+"  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\\015\n"
 "  set pro? ascii|rtu [$]UID\\015\n"
 "  set pro? tcp [$]IP_ADDRESS\\015\n"
 "  set con? dev? pro?\\015\n"
@@ -476,16 +548,58 @@ msgstr ""
 "color ELŐTÉRSZÍN HÁTTÉRSZÍN\\015\n"
 "\n"
 "  Színek: \\ 015\n"
-"      0: fekete  4: vörös           8: sötétszürke  12: "
-"világosvörös\\015\n"
-"      1: kék     5: magenta:        9: világoskék   13: "
-"világosmagenta\\015\n"
+"      0: fekete  4: vörös           8: sötétszürke  12: világosvörös\\015\n"
+"      1: kék     5: magenta:        9: világoskék   13: világosmagenta\\015\n"
 "      2: zöld    6: barna          10: világoszöld  14: sárga\\015\n"
 "      3: cián    7: világosszürke  11: világoscián  15: fehér"
 
 #: modshell:usg22
 msgid "impreg PATH_AND_FILENAME"
 msgstr "impreg ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg23
+msgid "and $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "and $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: modshell:usg24
+msgid "or $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "or $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: modshell:usg25
+msgid "not $TARGET [$]VALUE"
+msgstr "not $CÉL [$]ÉRTÉK"
+
+#: modshell:usg26
+msgid "xor $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "xor $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: modshell:usg27
+msgid "shl $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "shl $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: modshell:usg28
+msgid "shr $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "shr $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: modshell:usg29
+msgid "add $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "add $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: modshell:usg30
+msgid "sub $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "sub $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: modshell:usg31
+msgid "mul $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "mul $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: modshell:usg32
+msgid "div $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "div $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: modshell:usg33
+msgid "dump [[dinp|coil|ireg|hreg] ADDRESS]"
+msgstr "dump [[dinp|coil|ireg|hreg] CÍM]"
 
 #~ msgid "       define new variable and assign value"
 #~ msgstr "       új változó definiálás és értékadás"

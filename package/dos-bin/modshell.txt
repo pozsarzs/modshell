@@ -489,6 +489,37 @@ FILES
               General configuration file in user's directory on Windows or Unix-like sys‐
               tem or in the settings folder of the program on DOS.
 
+       scriptfiles
+              The  script file is used for batch execution of ModShell commands. The com‐
+              mands must be entered in the same form as if we were working in the  built-
+              in  command line. If the first valuable character (not a space or tab) of a
+              line is a hash, then that line is not interpreted. You can find examples in
+              the documents library.
+
+              A simple example:
+
+              #!/usr/local/bin/modshell -r
+              # Example script * use of variables
+
+              print "Example script - How to use variables?"
+              print "--------------------------------------------"
+              var a 24
+              var b
+              var c
+              let $b 2
+
+              print "Value of the variable $A:"
+                print $a
+              print "Value of the variable $B:"
+                print $b
+
+              add $c $a $b
+
+              print "The sum of $A and $B:"
+                print $c
+
+              print "--------------------------------------------"
+
        *.DDT  Saved device setting in typed file with seven TDevice type values.
               type TDevice = record
                      valid: boolean;     // settings validity: false|true
@@ -586,6 +617,12 @@ EXIT STATUS
        0      Normal exit.
 
        1      Terminal size is smaller than 80x25 characters.
+
+       2      The specified script file does not exist.
+
+       3      The specified script file cannot be loaded.
+
+       4      Script buffer is full.
 
 HOMEPAGE
        ⟨http://www.pozsarzs.hu⟩
