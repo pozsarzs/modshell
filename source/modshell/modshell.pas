@@ -96,13 +96,13 @@ const
     ('-r','--run','run script')
   );
   // COMMANDS AND PARAMETERS
-  COMMANDS: array[0..32] of string = ('copy','exit','get','help','let',
+  COMMANDS: array[0..33] of string = ('copy','exit','get','help','let',
                                       'print','read','reset','set','date',
                                       'ver','write','cls','savecfg',
                                       'loadcfg','expreg','exphis','conv',
                                       'savereg','loadreg','var','color',
                                       'impreg','and','or','not','xor','shl',
-                                      'shr','add','sub','mul','div');
+                                      'shr','add','sub','mul','div','dump');
   PROMPT = 'MODSH|_>';
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
@@ -129,7 +129,7 @@ const
   
 resourcestring
   // GENERAL MESSAGES
-  MSG01 = '<F1> help  <F2> savecfg  <F3> loadcfg  <F4> savereg  <F5> loadreg <F8> clear  <F10> exit';
+  MSG01 = '<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> clear <F10> exit';
   MSG02 = 'Command-driven scriptable Modbus utility';
   MSG03 = 'Use ''help COMMAND'' to show usage.';
   MSG04 = 'Usage this command:';
@@ -155,6 +155,7 @@ resourcestring
   MSG24 = 'Note:' + #13 + #10 +
           '  - register: local buffer register' + #13 + #10 +
           '  - remote register: register of the connected device' + #13 + #10;
+  MSG25 = 'Select register type: ';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // ERROR MESSAGES
   ERR00 = 'No such command!';
@@ -176,6 +177,8 @@ resourcestring
   ERR16 = 'Cannot define more variable!';
   ERR17 = 'There is already a variable with that name';
   ERR18 = 'Cannot initialize serial port!';
+  ERR19 = 'No such variable: ';
+  ERR20 = 'Calculating error!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
   DES01='F10    exit';
@@ -210,6 +213,7 @@ resourcestring
   DES30='       substraction mathematical operation';
   DES31='       multiplication mathematical operation';
   DES32='       division mathematical operation';
+  DES33='F6     dump all registers in binary/hexadecimal format to a table';
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #13 + #10 +
         'Notes:' + #13 + #10 +
@@ -282,6 +286,7 @@ resourcestring
   USG30='sub $TARGET [$]VALUE1 [$]VALUE2';
   USG31='mul $TARGET [$]VALUE1 [$]VALUE2';
   USG32='div $TARGET [$]VALUE1 [$]VALUE2';
+  USG33='dump [[dinp|coil|ireg|hreg] ADDRESS]';
 
 procedure version(h: boolean); forward;
 
@@ -360,6 +365,7 @@ end;
 {$I cmd_conv.pas}
 {$I cmd_copy.pas}
 {$I cmd_date.pas}
+{$I cmd_dump.pas}
 {$I cmd_exph.pas}
 {$I cmd_expr.pas}
 {$I cmd_get.pas}
@@ -412,21 +418,22 @@ begin
       begin
         c := readkey;
         // ONLY INSERT
-        if c = #34 then begin command := COMMANDS[2]; c := #32; end; // ~G
-        if c = #38 then begin command := COMMANDS[4]; c := #32; end; // ~L
-        if c = #25 then begin command := COMMANDS[5]; c := #32; end; // ~P
-        if c = #19 then begin command := COMMANDS[6]; c := #32; end; // ~R
-        if c = #20 then begin command := COMMANDS[7]; c := #32; end; // ~T
-        if c = #31 then begin command := COMMANDS[8]; c := #32; end; // ~S
-        if c = #17 then begin command := COMMANDS[11]; c := #32; end; // ~W
+        if c = #34 then begin command := COMMANDS[2]; c := #32; end;             // ~G
+        if c = #38 then begin command := COMMANDS[4]; c := #32; end;             // ~L
+        if c = #25 then begin command := COMMANDS[5]; c := #32; end;             // ~P
+        if c = #19 then begin command := COMMANDS[6]; c := #32; end;             // ~R
+        if c = #20 then begin command := COMMANDS[7]; c := #32; end;             // ~T
+        if c = #31 then begin command := COMMANDS[8]; c := #32; end;             // ~S
+        if c = #17 then begin command := COMMANDS[11]; c := #32; end;            // ~W
         // INSERT AND RUN
-        if c = #59 then begin command := COMMANDS[3]; c:=#13; end; // F1
+        if c = #59 then begin command := COMMANDS[3]; c:=#13; end;               // F1
         if c = #60 then begin command := COMMANDS[13] + #32 + proj; c:=#13; end; // F2
         if c = #61 then begin command := COMMANDS[14] + #32 + proj; c:=#13; end; // F3
         if c = #62 then begin command := COMMANDS[18] + #32 + proj; c:=#13; end; // F4
         if c = #63 then begin command := COMMANDS[19] + #32 + proj; c:=#13; end; // F5
-        if c = #66 then begin command := COMMANDS[12]; c:=#13; end; // F8
-        if c = #68 then begin command := COMMANDS[1]; c:=#13; end; // F10
+        if c = #64 then begin command := COMMANDS[33] + #32 + proj; c:=#13; end; // F6
+        if c = #66 then begin command := COMMANDS[12]; c:=#13; end;              // F8
+        if c = #68 then begin command := COMMANDS[1]; c:=#13; end;               // F10
         if c = #72 then
         begin
           if uconfig.histitem > 0 then dec(uconfig.histitem);
@@ -495,7 +502,7 @@ begin
             else splitted[b] := splitted[b] + command[a];
       // PARSE COMMAND
       o := false;
-      for b := 0 to 28 do
+      for b := 0 to 33 do
         if splitted[0] = COMMANDS[b] then
         begin
           o := true;
@@ -513,8 +520,12 @@ begin
              // help [COMMAND]
           4: cmd_let(splitted[1], splitted[2], splitted[3]);
              // let dinp|coil|ireg|hreg ADDRESS VALUE
+             // let $VARIABLE VALUE
+             // let $VARIABLE dinp|coil|ireg|hreg ADDRESS
           5: cmd_print(splitted[1], splitted[2], splitted[3]);
              // print dinp|coil|ireg|hreg ADDRESS [COUNT]
+             // print $VARIABLE
+             // print "Hello\ world!"
           6: cmd_read(splitted[1], splitted[2], splitted[3], splitted[4]);
              // read conn? dinp|coil|ireg|hreg ADDRESS [COUNT]
           7: cmd_reset(splitted[1]);
@@ -549,11 +560,14 @@ begin
          19: cmd_loadreg(splitted[1]);
              // loadreg PATH_AND_FILENAME
          20: cmd_var(splitted[1], splitted[2]);
+             // var
              // var NAME [VALUE]
          21: cmd_color(splitted[1], splitted[2]);
              // color FOREGROUND BACKGROUND
          22: cmd_impreg(splitted[1]);
              // impreg FILENAME
+         33: cmd_dump(splitted[1]);
+             // dump [dinp|coil|ireg|hreg]
         else
           begin
             if (b > 22) and (b < 29) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
@@ -612,17 +626,20 @@ end;
 
 // SHOW VERSION AND BUILD INFORMATION
 procedure version(h: boolean);
+var
+  username: string = {$I %USER%};
 begin
   writeln(PRGNAME + ' v' + PRGVERSION + ' * ' + MSG02);
   writeln(PRGCOPYRIGHT);
   writeln;
-  writeln('This program was compiled at ',{$I %TIME%},' on ',{$I %DATE%},
-    ' by pozsarzs.');
-  writeln('FPC version: ',{$I %FPCVERSION%});
-  write('Target OS:   ',{$I %FPCTARGETOS%});
+  if length(username) > 0 then username := ' by ' +username;
+
+  writeln('This program was compiled at ', {$I %TIME%}, ' on ', {$I %DATE%}, username, '.');
+  writeln('FPC version: ', {$I %FPCVERSION%});
+  write('Target OS:   ', {$I %FPCTARGETOS%});
   if lowercase({$I %FPCTARGETOS%}) = 'go32v2' then write(' (DOS)');
   writeln;
-  writeln('Target CPU:  ',{$I %FPCTARGETCPU%});
+  writeln('Target CPU:  ', {$I %FPCTARGETCPU%});
   if h then quit(0, false, '');;
 end;
 

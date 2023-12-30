@@ -48,7 +48,7 @@ begin
   begin
     writeln(MSG03); // How to use help with command list.
     writeln;
-    for b := 0 to 32 do
+    for b := 0 to 33 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
       for bb := 0 to 5 - length(COMMANDS[b]) + 2 do
@@ -87,12 +87,13 @@ begin
         30: buffer[b] := buffer[b] + DES30;
         31: buffer[b] := buffer[b] + DES31;
         32: buffer[b] := buffer[b] + DES32;
+        33: buffer[b] := buffer[b] + DES33;
       end;
     end;
     shorting;
-    buffer[33] := MSG24;
+    buffer[34] := MSG24;
     line := 0;
-    for b := 33 downto 0 do
+    for b := 34 downto 0 do
     begin
       writeln(buffer[b]);
       inc(line);
@@ -107,7 +108,7 @@ begin
   begin
     // CHECK P1 PARAMETER
     valid := false;
-    for b := 0 to 32 do
+    for b := 0 to 33 do
       if p1 = COMMANDS[b] then
       begin
         valid := true;
@@ -152,6 +153,7 @@ begin
         30: writeln(USG30);
         31: writeln(USG31);
         32: writeln(USG32);
+        33: writeln(USG33);
       end;
     end;
   end;

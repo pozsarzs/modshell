@@ -1,5 +1,5 @@
 #: modshell:msg01
-msgid "<F1> help  <F2> savecfg  <F3> loadcfg  <F4> savereg  <F5> loadreg <F8> clear  <F10> exit"
+msgid "<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> clear <F10> exit"
 msgstr ""
 
 #: modshell:msg02
@@ -97,6 +97,10 @@ msgid ""
 "  - remote register: register of the connected device\015\n"
 msgstr ""
 
+#: modshell:msg25
+msgid "Select register type: "
+msgstr ""
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr ""
@@ -175,6 +179,14 @@ msgstr ""
 
 #: modshell:err18
 msgid "Cannot initialize serial port!"
+msgstr ""
+
+#: modshell:err19
+msgid "No such variable: "
+msgstr ""
+
+#: modshell:err20
+msgid "Calculating error!"
 msgstr ""
 
 #: modshell:des00
@@ -307,6 +319,10 @@ msgstr ""
 
 #: modshell:des32
 msgid "       division mathematical operation"
+msgstr ""
+
+#: modshell:des33
+msgid "F6     dump all registers in binary/hexadecimal format to a table"
 msgstr ""
 
 #: modshell:usg00
@@ -488,5 +504,9 @@ msgstr ""
 
 #: modshell:usg32
 msgid "div $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg33
+msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
 msgstr ""
 

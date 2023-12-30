@@ -48,7 +48,10 @@ It must be defined the I/O devices, then the protocols and the connections.
 There can be eight of each. The data traffic takes place between the preset
 connections. In all cases, the data is sent to or read from the internal buffer.
 The size of the buffer is suitable for storing 2*9999 logical and word values of
-the same size.
+the same size. Sixty-four variables can be created in the program, to which we
+can assign a value of any type (eg.: message, boolean or integer register
+value, etc.) Variables can be used to perform logical and basic mathematical
+operations, and can be used to pass values to commands.
 
 **Projects**
 
@@ -100,29 +103,25 @@ preserved.
 |print  |ALT-P |print message, value of the variable and register                |general       |
 |var    |      |show all variable with theirs value or define a new one          |general       |
 |ver    |      |show version and build information of this program               |general       |
+|dump   |F6    |dump all registers in binary/hexadecimal format to a table       |register      |
 |let    |ALT-L |set value of a variable or register                              |register      |
+|and    |      |AND logical operations                                           |logical       |
+|or     |      |OR logical operations                                            |logical       |
+|not    |      |NOT logical operations                                           |logical       |
+|shl    |      |bit shift to left                                                |logical       |
+|shr    |      |bit shift to right                                               |logical       |
+|xor    |      |XOR logical operations                                           |logical       |
+|add    |      |addition                                                         |mathematic    |
 |conv   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |mathematic    |
+|div    |      |division                                                         |mathematic    |
+|mul    |      |multiplication                                                   |mathematic    |
+|sub    |      |substraction                                                     |mathematic    |
 |get    |ALT-G |get setting of a device, protocol, connection or get project name|settings      |
 |reset  |ALT-T |reset device, protocol or connection or reset project name       |settings      |
 |set    |ALT-S |set device, protocol or connection or set project name           |settings      |
 
 (Commands with function keys (F?) are executed immediately,
  modifier keys (ALT-?) only make typing easier.)  
-
-**Planned commands**  
-
-|command|hotkey|description                                                   |category      |
-|-------|------|--------------------------------------------------------------|--------------|
-|and    |      |logical operations                                            |logical       |
-|or     |      |logical operations                                            |logical       |
-|not    |      |logical operations                                            |logical       |
-|xor    |      |logical operations                                            |logical       |
-|shl    |      |bit shift                                                     |logical       |
-|shr    |      |bit shift                                                     |logical       |
-|add    |      |addition                                                      |mathematic    |
-|div    |      |division                                                      |mathematic    |
-|mul    |      |multiplication                                                |mathematic    |
-|sub    |      |substraction                                                  |mathematic    |
 
 **Planned commands in next release (v0.2)**  
 
@@ -132,4 +131,3 @@ preserved.
 |srvrtu |      |start/stop transparent Modbus/RTU slave                       |communication |
 |if     |      |selection statement                                           |general       |
 |for    |      |loop iteration                                                |general       |
-

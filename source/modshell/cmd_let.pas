@@ -86,8 +86,8 @@ begin
       end;
       // PRIMARY MISSION
       case rt of
-        0: vars[intisitvariable(p1)].vvalue := booltostr(dinp[strtoint(s3)]);
-        1: vars[intisitvariable(p1)].vvalue := booltostr(coil[strtoint(s3)]);
+        0: if dinp[strtoint(s3)] then vars[intisitvariable(p1)].vvalue := '1' else vars[intisitvariable(p1)].vvalue := '0';
+        1: if coil[strtoint(s3)] then vars[intisitvariable(p1)].vvalue := '1' else vars[intisitvariable(p1)].vvalue := '0';
         2: vars[intisitvariable(p1)].vvalue := inttostr(ireg[strtoint(s3)]);
         3: vars[intisitvariable(p1)].vvalue := inttostr(hreg[strtoint(s3)]);
       end;

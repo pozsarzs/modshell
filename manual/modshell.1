@@ -39,7 +39,10 @@ It must be defined the I/O devices, then the protocols and the connections.
 There can be eight of each. The data traffic takes place between the preset
 connections. In all cases, the data is sent to or read from the internal buffer.
 The size of the buffer is suitable for storing 2*9999 logical and word values of
-the same size.
+the same size. Sixty-four variables can be created in the program, to which we
+can assign a value of any type (eg.: message, boolean or integer register
+value, etc.) Variables can be used to perform logical and basic mathematical
+operations, and can be used to pass values to commands.
 .SS Projects
 In the program, you can create projects for easier management of settings and
 data. The name of the current project is shown in the prompt. The project
@@ -107,17 +110,60 @@ Print a single line message.
 \fBvar\fP
 Print all defined variables with their values.
 .TP
-\fBvar\fP \fIVARIABLE\fP [\f[$]IVALUE\fP]
+\fBvar\fP \fIVARIABLE\fP [\fI[$]VALUE\fP]
 Define new variable (\fVARIABLE\fP) and assign value (\fIVALUE\fP).
 Use a backslash before a space.
 .TP
 \fBver\fP
 Show version and build information of this program.
+.SS Logical commands
+.TP
+\fBand\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Performs the AND operation between the two values or variables
+(\fI[$]VALUE1\fP \fI[$]VALUE2\fP) and the result is placed in
+\fI$TARGET\fP.
+.TP
+\fBor\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Performs the OR operation between the two values or variables
+(\fI[$]VALUE1\fP \fI[$]VALUE2\fP) and the result is placed in
+\fI$TARGET\fP.
+.TP
+\fBnot\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Performs the NOT operation on value or variable (\fI[$]VALUE\fP)
+and the result is placed in \fI$TARGET\fP.
+.TP
+\fBxor\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Performs the XOR operation between the two values or variables
+(\fI[$]VALUE1\fP \fI[$]VALUE2\fP) and the result is placed in
+\fI$TARGET\fP.
+.TP
+\fBshl\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Shifts bits of the \fI[$]VALUE1\fP to the left by position
+\fI[$]VALUE2\fP and the result is placed in \fI$TARGET\fP.
+.TP
+\fBshr\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Shifts bits of the \fI[$]VALUE1\fP to the right by position
+\fI[$]VALUE2\fP and the result is placed in \fI$TARGET\fP.
 .SS Mathematical commands
+\fBadd\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Adds the two values or variables (\fI[$]VALUE1\fP \fI[$]VALUE2\fP)
+and the result is placed in \fI$TARGET\fP.
 .TP
 \fBconv\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fI[$]VALUE\fP
 convert numbers between binary, decimal, hexadecimal and octal numeral system.
 \fIVALUE\fP must be between 0 and 65535
+.TP
+\fBdiv\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Divide \fI[$]VALUE1\fP by \fI[$]VALUE2\fP and the result
+is placed in \fI$TARGET\fP. (integer division)
+.TP
+\fBmul\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Multiply the two two values or variables (\fI[$]VALUE1\fP \fI[$]VALUE2\fP)
+and the result is placed in \fI$TARGET\fP.
+.TP
+\fBsub\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Substract \fI[$]VALUE2\fP from \fI[$]VALUE1\fP and the result
+is placed in \fI$TARGET\fP.
 .SS Configuration commands
 .TP
 \fBget\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP
@@ -158,6 +204,10 @@ Set the project name. The name cannot contain spaces or special characters.
 The project directory will also be created with this name.
 .SS Data handler commands
 .TP
+\fBdump\fP [\fI[dinp|coil|ireg|hreg] ADDRESS\fP]
+Dump one page register content from \fIADDRESS\fP in binary/hexadecimal format
+to a table.
+.TP
 \fBlet\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP \fI[$]VALUE\fP
 Set value of a register. Register start address must be between 1-9999.
 If register type is discrete input (\fIdinp\fP) and coil
@@ -168,10 +218,10 @@ If register type is discrete input (\fIdinp\fP) and coil
 Set value of a variable \fI$VARIABLE\fP to value \fI[$]VALUE\fP.
 .TP
 \fBlet\fP \fI$VARIABLE\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP
-Set value of a variable \fI$VARIABLE\fP to register content. Register start address
+Set value of a variable \fI$VARIABLE\fP from register content. Register start address
 and must be between 1-9999, If register type is discrete input (\fIdinp\fP) and coil
-(\fIcoil\fP), value of the variable must be 0/1, l/h or false/true. If it is input register
-(\fIireg\fP) or holding register (\fIhreg\fP), value of the variable must be 0-65535.
+(\fIcoil\fP), value will be 0/1, if it is input register
+(\fIireg\fP) or holding register (\fIhreg\fP), value of the variable will be 0-65535.
 .SS Communication commands
 .TP
 \fBread\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\f[$]ICOUNT\fP]
@@ -230,24 +280,47 @@ Show short description of the useable commands.
 \fBhelp\fP set
 Show usage of help command.
 .TP
-\fBprint\fP $A
-Print value of the $A variable.
+\fBprint\fP $a
+Print value of the $a variable.
 .TP
 \fBprint\fP "Hello\ world!"
 Print 'Hello world!' message.
 .TP
 \fBvar\fP A 12
-Define $A variable and assign 12 value to it.
+Define $a variable and assign 12 value to it.
 .TP
-\fBvar\fP B $A
-Define $B variable and assign value of the $A.
+\fBvar\fP B $a
+Define $b variable and assign value of the $a.
+.SS Logical commands
+.TP
+\fBand\fP $result 1234 1345
+Performs AND operation with 1234 and 1345, and the
+result is placed in $result.
+.TP
+\fBor\fP $result 1234 $b
+Performs OR operation with 1234 and $b, and the
+result is placed in $result.
+.TP
+\fBnot\fP $result $a
+Performs negation on 1234 and the
+result is placed in $result.
+.TP
+\fBshr\fP $result $source $shift
+Shifts bits of the $source to the left by position
+$shift and the result is placed in $result.
 .SS Mathematical commands
+.TP
+\fBadd\fP $result 12 13
+Adds 12 and 13, and the result is placed in $result.
 .TP
 \fBconv\fP bin hex 1011000010110100
 Convert 45236 in binary to hex (result: B0B4).
 .TP
 \fBconv\fP hex dec $I
 Convert value of the $I in hexadecimal to decimal.
+.TP
+\fBsubs\fP $result 12 13
+Substract 13 from 12, and the result is placed in $result.
 .SS Configuration commands
 .TP
 \fBget\fP dev2
@@ -270,9 +343,9 @@ without parity check and 1 stopbit.
 Set device #1 to COM1 serial device, with 9600 baud, 8 databits,
 without parity check and 1 stopbit.
 .TP
-\fBset\fP dev1 ser $P $S $D $P $S
-Set device #1 to $P serial device, with $S baud, $D databits, $P
-parity check and $S stopbit.
+\fBset\fP dev1 ser $p $s $d $p $t
+Set device #1 to $p serial device, with $s baud, $d databits, $p
+parity check and $t stopbit.
 .TP
 \fBset\fP pro0 ascii 100
 Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).
@@ -287,6 +360,12 @@ Assigns a device #0 and protocol #2 to connection #0.
 Set the project name to 'temp_meter'.
 .SS Data handler commands
 .TP
+\fBdump\fP
+Start dump with requesting register type and start address.
+.TP
+\fBdump\fP hreg 1121
+Start discrete input register dump from address 1121.
+.TP
 \fBlet\fP dinp 10 1
 Set value of the discrete input register address 10 to 1.
 .TP
@@ -299,44 +378,44 @@ Set value of the discrete input register address 10 to 1.
 \fBlet\fP ireg 10 65535
 Set value of the input register address 10 to 65535.
 .TP
-\fBlet\fP ireg $A $B
-Set value of the input register (address value of the $A) to value of the $B.
+\fBlet\fP ireg $a $b
+Set value of the input register (address value of the $a) to value of the $b.
 .TP
-\fBlet\fP $A ireg 100
-Set $A to input register address 100.
+\fBlet\fP $a ireg 100
+Set $a to input register address 100.
 .TP
-\fBlet\fP $A 10
-Set $A variable to 10.
+\fBlet\fP $a 10
+Set $a variable to 10.
 .TP
-\fBlet\fP $A $B
-Set $A variable to value of $B.
+\fBlet\fP $a $b
+Set $a variable to value of $b.
 .TP
 \fBprint\fP ireg 10 10
 Print value of the input register address 10 to 20.
 .TP
-\fBprint\fP ireg $A $B
-Print value of the input register address value of $A to value of $B.
+\fBprint\fP ireg $a $b
+Print value of the input register address value of $a to value of $b.
 .SS Communication commands
 .TP
 \fBread\fP con0 hreg 100 15
 Read remote holding registers of the connection #0 from address 100 to 115.
 .TP
-\fBread\fP con0 hreg $A 15
-Read remote holding registers of the connection #0 from address value of the $A to $A+15.
+\fBread\fP con0 hreg $a 15
+Read remote holding registers of the connection #0 from address value of the $a to $a+15.
 .TP
 \fBwrite\fP con2 coil 10
 Write data from to coil address 10 of the connection #2.
 .TP
-\fBwrite\fP con2 coil $C
-Write data from to coil address value of the $C of the connection #2.
+\fBwrite\fP con2 coil $c
+Write data from to coil address value of the $c of the connection #2.
 .TP
 \fBcopy\fP con0 ireg con2 hreg 210 10
 Copy input register content of the connection #0 to holding register content of the
 connection #2 from address 210 to 220.
 .TP
-\fBcopy\fP con0 ireg con2 hreg $A $B
+\fBcopy\fP con0 ireg con2 hreg $a $b
 Copy input register content of the connection #0 to holding register content of the
-connection #2 from address value of the $A to $A+$B.
+connection #2 from address value of the $a to $a+$b.
 .SS File operation command
 .TP
 \fBexphis\fP script
@@ -379,6 +458,9 @@ savereg command
 .TP
 \fBF5\fP
 loadreg command
+.TP
+\fBF6\fP
+dump command
 .TP
 \fBF8\fP
 cls command

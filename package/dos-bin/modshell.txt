@@ -43,32 +43,35 @@ OPERATION
        can be eight of each. The data traffic takes place between the preset connections.
        In  all  cases, the data is sent to or read from the internal buffer.  The size of
        the buffer is suitable for storing 2*9999 logical and  word  values  of  the  same
-       size.
+       size. Sixty-four variables can be created in the program, to which we can assign a
+       value of any type (eg.: message, boolean or integer register  value,  etc.)  Vari‐
+       ables can be used to perform logical and basic mathematical operations, and can be
+       used to pass values to commands.
 
    Projects
-       In  the  program,  you  can  create projects for easier management of settings and
-       data. The name of the current project is shown in the prompt. The  project  direc‐
-       tory  will  be created in the program directory on DOS, and in the ModShell direc‐
+       In the program, you can create projects for  easier  management  of  settings  and
+       data.  The  name of the current project is shown in the prompt. The project direc‐
+       tory will be created in the program directory on DOS, and in the  ModShell  direc‐
        tory in the user's home directory on all other systems. If only filename is speci‐
        fied during file operations (without path), this directory will be the source/des‐
        tination directory.
 
    File operations
-       The command line history can be exported to a text file and provides it  with  the
-       appropriate  'shebang'  for  the  installation  method  and  operating system (eg.
+       The  command  line history can be exported to a text file and provides it with the
+       appropriate 'shebang' for  the  installation  method  and  operating  system  (eg.
        #!/usr/local/bin/modshell). You can easily create a script from this raw file.
 
        Device, protocol and connection settings can be saved and loaded in their own for‐
-       mat.  During saving, three typed files are created, with the following extensions:
+       mat. During saving, three typed files are created, with the following  extensions:
        DDT, PDT, CDT.
 
-       All register values can be saved and loaded in their own  format.  During  saving,
+       All  register  values  can be saved and loaded in their own format. During saving,
        two typed files are created, with the following extensions: BDT, WDT.
 
-       One  or  more same type registers can be exported to file. During saving, one text
+       One or more same type registers can be exported to file. During saving,  one  text
        file is created, with CSV, INI or XML extension.
 
-       On exit, the command line history and full screen mode  command  line  colors  are
+       On  exit,  the  command  line history and full screen mode command line colors are
        preserved.
 
 BUILTIN COMMANDS
@@ -96,7 +99,7 @@ BUILTIN COMMANDS
        help   Show description or usage of the builtin commands.
 
        print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
-              Print  content of the one or more registers. Register start ADDRESS and the
+              Print content of the one or more registers. Register start ADDRESS and  the
               COUNT must be between 1-9999.
 
        print $VARIABLE
@@ -107,16 +110,55 @@ BUILTIN COMMANDS
 
        var    Print all defined variables with their values.
 
-       var VARIABLE [IVALUE]
-              Define new variable (ARIABLE) and assign value (VALUE).   Use  a  backslash
+       var VARIABLE [[$]VALUE]
+              Define  new  variable  (ARIABLE) and assign value (VALUE).  Use a backslash
               before a space.
 
        ver    Show version and build information of this program.
 
+   Logical commands
+       and $TARGET [$]VALUE1 [$]VALUE2
+              Performs the AND operation between the two values or  variables  ([$]VALUE1
+              [$]VALUE2) and the result is placed in $TARGET.
+
+       or $TARGET [$]VALUE1 [$]VALUE2
+              Performs  the  OR  operation between the two values or variables ([$]VALUE1
+              [$]VALUE2) and the result is placed in $TARGET.
+
+       not $TARGET [$]VALUE
+              Performs the NOT operation on value or variable ([$]VALUE) and  the  result
+              is placed in $TARGET.
+
+       xor $TARGET [$]VALUE1 [$]VALUE2
+              Performs  the  XOR operation between the two values or variables ([$]VALUE1
+              [$]VALUE2) and the result is placed in $TARGET.
+
+       shl $TARGET [$]VALUE1 [$]VALUE2
+              Shifts bits of the [$]VALUE1 to the left by position [$]VALUE2 and the  re‐
+              sult is placed in $TARGET.
+
+       shr $TARGET [$]VALUE1 [$]VALUE2
+              Shifts bits of the [$]VALUE1 to the right by position [$]VALUE2 and the re‐
+              sult is placed in $TARGET.
+
    Mathematical commands
+       add $TARGET [$]VALUE1 [$]VALUE2  Adds  the  two  values  or  variables  ([$]VALUE1
+       [$]VALUE2) and the result is placed in $TARGET.
+
        conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
               convert numbers between binary, decimal, hexadecimal and octal numeral sys‐
               tem.  VALUE must be between 0 and 65535
+
+       div $TARGET [$]VALUE1 [$]VALUE2
+              Divide [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET. (integer
+              division)
+
+       mul $TARGET [$]VALUE1 [$]VALUE2
+              Multiply  the two two values or variables ([$]VALUE1 [$]VALUE2) and the re‐
+              sult is placed in $TARGET.
+
+       sub $TARGET [$]VALUE1 [$]VALUE2
+              Substract [$]VALUE2 from [$]VALUE1 and the result is placed in $TARGET.
 
    Configuration commands
        get dev?|pro?|con?|prj
@@ -157,21 +199,24 @@ BUILTIN COMMANDS
               The project directory will also be created with this name.
 
    Data handler commands
+       dump [[dinp|coil|ireg|hreg] ADDRESS]
+              Dump one page register content from ADDRESS in binary/hexadecimal format to
+              a table.
+
        let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE
               Set value of a register. Register start address must be between 1-9999.  If
-              register type is discrete input (dinp) and coil (coil), VALUE must be  0/1,
-              l/h  or  false/true.  If  it  is  input register (ireg) or holding register
+              register  type is discrete input (dinp) and coil (coil), VALUE must be 0/1,
+              l/h or false/true. If it is  input  register  (ireg)  or  holding  register
               (hreg), VALUE must be 0-65535.
 
        let $VARIABLE [$]VALUE
               Set value of a variable $VARIABLE to value [$]VALUE.
 
        let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS
-              Set value of a variable $VARIABLE to register content. Register  start  ad‐
+              Set value of a variable $VARIABLE from register content. Register start ad‐
               dress and must be between 1-9999, If register type is discrete input (dinp)
-              and coil (coil), value of the variable must be 0/1, l/h or  false/true.  If
-              it  is input register (ireg) or holding register (hreg), value of the vari‐
-              able must be 0-65535.
+              and coil (coil), value will be 0/1, if it is input register (ireg) or hold‐
+              ing register (hreg), value of the variable will be 0-65535.
 
    Communication commands
        read con? dinp|coil|ireg|hreg [$]ADDRESS [ICOUNT]
@@ -229,24 +274,46 @@ EXAMPLES
        help set
               Show usage of help command.
 
-       print $A
-              Print value of the $A variable.
+       print $a
+              Print value of the $a variable.
 
        print "Hello world!"
               Print 'Hello world!' message.
 
        var A 12
-              Define $A variable and assign 12 value to it.
+              Define $a variable and assign 12 value to it.
 
-       var B $A
-              Define $B variable and assign value of the $A.
+       var B $a
+              Define $b variable and assign value of the $a.
+
+   Logical commands
+       and $result 1234 1345
+              Performs AND operation with 1234 and 1345, and the result is placed in $re‐
+              sult.
+
+       or $result 1234 $b
+              Performs  OR  operation  with 1234 and $b, and the result is placed in $re‐
+              sult.
+
+       not $result $a
+              Performs negation on 1234 and the result is placed in $result.
+
+       shr $result $source $shift
+              Shifts bits of the $source to the left by position $shift and the result is
+              placed in $result.
 
    Mathematical commands
+       add $result 12 13
+              Adds 12 and 13, and the result is placed in $result.
+
        conv bin hex 1011000010110100
               Convert 45236 in binary to hex (result: B0B4).
 
        conv hex dec $I
               Convert value of the $I in hexadecimal to decimal.
+
+       subs $result 12 13
+              Substract 13 from 12, and the result is placed in $result.
 
    Configuration commands
        get dev2
@@ -262,16 +329,16 @@ EXAMPLES
               Set device #0 to '/dev/enp0s7' ethernet device with value of the $P port.
 
        set dev1 ser ttyS0 9600 8 N 1
-              Set device #1 to /dev/ttyS0 serial device,  with  9600  baud,  8  databits,
+              Set  device  #1  to  /dev/ttyS0  serial device, with 9600 baud, 8 databits,
               without parity check and 1 stopbit.
 
        set dev1 ser COM1 9600 8 N 1
-              Set  device  #1  to COM1 serial device, with 9600 baud, 8 databits, without
+              Set device #1 to COM1 serial device, with 9600 baud,  8  databits,  without
               parity check and 1 stopbit.
 
-       set dev1 ser $P $S $D $P $S
-              Set device #1 to $P serial device, with $S baud,  $D  databits,  $P  parity
-              check and $S stopbit.
+       set dev1 ser $p $s $d $p $t
+              Set  device  #1  to  $p serial device, with $s baud, $d databits, $p parity
+              check and $t stopbit.
 
        set pro0 ascii 100
               Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).
@@ -286,6 +353,11 @@ EXAMPLES
               Set the project name to 'temp_meter'.
 
    Data handler commands
+       dump   Start dump with requesting register type and start address.
+
+       dump hreg 1121
+              Start discrete input register dump from address 1121.
+
        let dinp 10 1
               Set value of the discrete input register address 10 to 1.
 
@@ -298,57 +370,57 @@ EXAMPLES
        let ireg 10 65535
               Set value of the input register address 10 to 65535.
 
-       let ireg $A $B
-              Set  value  of the input register (address value of the $A) to value of the
-              $B.
+       let ireg $a $b
+              Set value of the input register (address value of the $a) to value  of  the
+              $b.
 
-       let $A ireg 100
-              Set $A to input register address 100.
+       let $a ireg 100
+              Set $a to input register address 100.
 
-       let $A 10
-              Set $A variable to 10.
+       let $a 10
+              Set $a variable to 10.
 
-       let $A $B
-              Set $A variable to value of $B.
+       let $a $b
+              Set $a variable to value of $b.
 
        print ireg 10 10
               Print value of the input register address 10 to 20.
 
-       print ireg $A $B
-              Print value of the input register address value of $A to value of $B.
+       print ireg $a $b
+              Print value of the input register address value of $a to value of $b.
 
    Communication commands
        read con0 hreg 100 15
               Read remote holding registers of the connection #0 from address 100 to 115.
 
-       read con0 hreg $A 15
-              Read remote holding registers of the connection #0 from  address  value  of
-              the $A to $A+15.
+       read con0 hreg $a 15
+              Read  remote  holding  registers of the connection #0 from address value of
+              the $a to $a+15.
 
        write con2 coil 10
               Write data from to coil address 10 of the connection #2.
 
-       write con2 coil $C
-              Write data from to coil address value of the $C of the connection #2.
+       write con2 coil $c
+              Write data from to coil address value of the $c of the connection #2.
 
        copy con0 ireg con2 hreg 210 10
-              Copy  input  register content of the connection #0 to holding register con‐
+              Copy input register content of the connection #0 to holding  register  con‐
               tent of the connection #2 from address 210 to 220.
 
-       copy con0 ireg con2 hreg $A $B
-              Copy input register content of the connection #0 to holding  register  con‐
-              tent of the connection #2 from address value of the $A to $A+$B.
+       copy con0 ireg con2 hreg $a $b
+              Copy  input  register content of the connection #0 to holding register con‐
+              tent of the connection #2 from address value of the $a to $a+$b.
 
    File operation command
        exphis script
               Export command line history to project directory.
 
        expreg discrete_inputs.csv dinp 100 15
-              Export  values  of  discrete  input register from address 100 to 115 to CSV
+              Export values of discrete input register from address 100  to  115  to  CSV
               file.
 
        impreg discrete_inputs.xml
-              Import values from a XML file. The target and range are determined  by  the
+              Import  values  from a XML file. The target and range are determined by the
               contents of the file.
 
        loadcfg test1
@@ -364,7 +436,7 @@ EXAMPLES
               Save all registers to other directory.
 
 HOTKEYS
-       Commands  with  function keys (F?) are executed immediately, modifier keys (ALT-?)
+       Commands with function keys (F?) are executed immediately, modifier  keys  (ALT-?)
        only make typing easier.
 
        F1     help command
@@ -376,6 +448,8 @@ HOTKEYS
        F4     savereg command
 
        F5     loadreg command
+
+       F6     dump command
 
        F8     cls command
 
@@ -405,9 +479,9 @@ ENVIRONMENTAL VARIABLES
        LANG   This is the system language on DOS and Unix-like operating systems.
 
        PKTDRVINT
-              To access the network on DOS, the packet driver of the network card is  re‐
-              quired.  It  uses an x86 interrupt number (INT) between 0x60 and 0x80. This
-              variable tells the program this value. If there is no or it is empty,  then
+              To  access the network on DOS, the packet driver of the network card is re‐
+              quired. It uses an x86 interrupt number (INT) between 0x60 and  0x80.  This
+              variable  tells the program this value. If there is no or it is empty, then
               the default 0x60 will be used.
 
 FILES
@@ -442,12 +516,12 @@ FILES
                      prot: byte;            // assigned protocol: 0..7
                    end;
 
-       *.BDT  Saved boolean type register values in typed file with 2x9999  boolean  val‐
+       *.BDT  Saved  boolean  type register values in typed file with 2x9999 boolean val‐
               ues.
 
        *.WDT  Saved word type register values in typed file with 2x9999 word values.
 
-       *.CSV  Exported  boolean  or word type register values in CSV text file. Cannot be
+       *.CSV  Exported boolean or word type register values in CSV text file.  Cannot  be
               imported.  Internal structure:
                 dinp,1,0
                     ...
@@ -519,7 +593,7 @@ HOMEPAGE
        ⟨https://github.com/pozsarzs/modshell⟩
 
 SEE ALSO
-       Files in document or /usr/share/doc/modshell/ folder (or equivalent on  your  sys‐
+       Files  in  document or /usr/share/doc/modshell/ folder (or equivalent on your sys‐
        tem).
 AUTHOR
        Pozsar Zsolt ⟨pozsarzs@gmail.com⟩

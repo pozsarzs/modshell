@@ -18,7 +18,6 @@
   print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
   print $VARIABLE
   print "Hello\ world!"
-  print vars
 }
 
 // COMMAND 'PRINT'
