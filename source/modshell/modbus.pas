@@ -25,6 +25,7 @@ begin
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
                       dev[conn[connection].dev].databit,
+                      dev[conn[connection].dev].parity,
                       dev[conn[connection].dev].stopbit) then
     begin
       writeln(ERR18);
@@ -35,7 +36,7 @@ begin
     0: asc_readdinp(prot[conn[connection].prot].uid, address, count);
     1: rtu_readdinp(prot[conn[connection].prot].uid, address, count);
     2: tcp_readdinp(prot[conn[connection].prot].ipaddress, address, count);
-  end; 
+  end;
 end;
 
 // READ COIL(S)
@@ -50,6 +51,7 @@ begin
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
                       dev[conn[connection].dev].databit,
+                      dev[conn[connection].dev].parity,
                       dev[conn[connection].dev].stopbit) then
     begin
       writeln(ERR18);
@@ -60,7 +62,7 @@ begin
     0: asc_readcoil(prot[conn[connection].prot].uid, address, count);
     1: rtu_readcoil(prot[conn[connection].prot].uid, address, count);
     2: tcp_readcoil(prot[conn[connection].prot].ipaddress, address, count);
-  end; 
+  end;
 end;
 
 // READ INPUT REGISTER(S)
@@ -75,6 +77,7 @@ begin
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
                       dev[conn[connection].dev].databit,
+                      dev[conn[connection].dev].parity,
                       dev[conn[connection].dev].stopbit) then
     begin
       writeln(ERR18);
@@ -85,7 +88,7 @@ begin
     0: asc_readireg(prot[conn[connection].prot].uid, address, count);
     1: rtu_readireg(prot[conn[connection].prot].uid, address, count);
     2: tcp_readireg(prot[conn[connection].prot].ipaddress, address, count);
-  end; 
+  end;
 end;
 
 // READ HOLDING REGISTER(S)
@@ -100,6 +103,7 @@ begin
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
                       dev[conn[connection].dev].databit,
+                      dev[conn[connection].dev].parity,
                       dev[conn[connection].dev].stopbit) then
     begin
       writeln(ERR18);
@@ -110,7 +114,7 @@ begin
     0: asc_readhreg(prot[conn[connection].prot].uid, address, count);
     1: rtu_readhreg(prot[conn[connection].prot].uid, address, count);
     2: tcp_readhreg(prot[conn[connection].prot].ipaddress, address, count);
-  end; 
+  end;
 end;
 
 // WRITE COIL(S)
@@ -125,6 +129,7 @@ begin
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
                       dev[conn[connection].dev].databit,
+                      dev[conn[connection].dev].parity,
                       dev[conn[connection].dev].stopbit) then
     begin
       writeln(ERR18);
@@ -135,7 +140,7 @@ begin
     0: asc_writecoil(prot[conn[connection].prot].uid, address, count);
     1: rtu_writecoil(prot[conn[connection].prot].uid, address, count);
     2: tcp_writecoil(prot[conn[connection].prot].ipaddress, address, count);
-  end; 
+  end;
 end;
 
 // WRITE HOLDING REGISTER(S)
@@ -150,6 +155,7 @@ begin
     if not serialinit(dev[conn[connection].dev].device,
                       dev[conn[connection].dev].speed,
                       dev[conn[connection].dev].databit,
+                      dev[conn[connection].dev].parity,
                       dev[conn[connection].dev].stopbit) then
     begin
       writeln(ERR18);
@@ -160,5 +166,5 @@ begin
     0: asc_writehreg(prot[conn[connection].prot].uid, address, count);
     1: rtu_writehreg(prot[conn[connection].prot].uid, address, count);
     2: tcp_writehreg(prot[conn[connection].prot].ipaddress, address, count);
-  end; 
+  end;
 end;

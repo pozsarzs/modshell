@@ -8,17 +8,17 @@
 name = modshell
 architecture = i386
 os = go32v2
-outdir = lib\$(architecture)-$(os)
-fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Filib -Fu. -Fuconvert -Fu$(outdir) -FE$(outdir)
+outdir = lib\$(architecture)-dos
+fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Fi..\lib -Fu. -Fu..\convert -Fu..\dosprser -Fu..\$(outdir) -FE..\$(outdir)
 
 all:
 	@if not exist lib\nul mkdir lib
 	@if not exist $(outdir)\nul mkdir $(outdir)
 	@cd $(name)
 	@fpc $(fpflag) $(name).pas
-	@rstconv -f po -i $(outdir)/$(name).rsj  -o ..\message\$(name).pot
-	@move $(outdir)\$(name).exe ..
 	@cd ..
+	@rstconv -c cp852 -f po -i $(outdir)\$(name).rst  -o ..\message\$(name).pot
+	@move $(outdir)\$(name).exe ..\
 
 clean:
 	@erase $(outdir)\*.*

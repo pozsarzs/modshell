@@ -9,16 +9,16 @@ name = modshell
 architecture = x86_64
 os = win64
 outdir = lib\$(architecture)-$(os)
-fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Filib -Fu. -Fuconvert -Fu$(outdir) -FE$(outdir)
+fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Fi..\lib -Fu. -Fu..\convert -Fu..\dosprser -Fu..\$(outdir) -FE..\$(outdir)
 
 all:
 	@if not exist lib\nul mkdir lib
 	@if not exist $(outdir)\nul mkdir $(outdir)
 	@cd $(name)
 	@fpc $(fpflag) $(name).pas
-	@rstconv -f po -i $(outdir)/$(name).rsj  -o ..\message\$(name).pot
-	@move $(outdir)\$(name).exe ..
 	@cd ..
+	@rstconv -f po -i $(outdir)\$(name).rst  -o ..\message\$(name).pot
+	@move $(outdir)\$(name).exe ..\
 
 clean:
 	@erase $(outdir)\*.*

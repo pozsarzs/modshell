@@ -17,7 +17,7 @@
 unit userial;
 interface
 {$IFDEF GO32V2}
-  uses dosprser;
+  uses sysutils, dosprser;
 {$ELSE}
 {$ENDIF}
 
@@ -32,7 +32,7 @@ const
 
 function serialread: string;
 procedure serialwrite(s: string);
-function serialinit(device: string; speed: byte; databit: byte; stopbit: byte): boolean;
+function serialinit(device: string; speed: byte; databit: byte; parity: byte; stopbit: byte): boolean;
 procedure serialclose;
 
 implementation
@@ -56,16 +56,16 @@ begin
 end;
 
 // OPEN SERIAL PORT
-function serialinit(device: string; speed: byte; databit: byte; stopbit: byte): boolean;
+function serialinit(device: string; speed: byte; databit: byte; parity: byte; stopbit: byte): boolean;
 var
   b: byte;
 begin
   result := true;
   {$IFDEF GO32V2}
     for b := 0 to 4 do
-      if lowercase(device) = 'com' + inttostr(b + 1) then break
+      if lowercase(device) = 'com' + inttostr(b + 1) then break;
     if b < 4
-      then init(PAR[parity] or DBIT[databit] or SBIT[stopbit], b,SPD[speed]);
+      then init(PAR[parity] or DBIT[databit] or SBIT[stopbit], b,SPD[speed])
       else result := false;
   {$ELSE}
   {$ENDIF}

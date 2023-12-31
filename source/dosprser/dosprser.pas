@@ -18,7 +18,7 @@
 unit dosprser;
 interface
 uses
-  crt, 
+  crt,
   go32;
 const
   bps1200 = 96;
@@ -221,7 +221,7 @@ asm
    in    al, dx
 end ['eax', 'edx'];
 
-procedure putstring(const s: string);
+procedure putstring(s: string);
 var
    i: integer;
 begin

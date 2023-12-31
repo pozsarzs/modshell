@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{$MODE OBJFPC}{$H+}{$MACRO ON} 
+{$MODE OBJFPC}{$H+}{$MACRO ON}
 program modshell;
 uses
   convert,
@@ -120,7 +120,9 @@ const
   PRGVERSION = '0.1';
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
 
-{$R *.res}
+{$IFNDEF GO32V2}
+  {$R *.res}
+{$ENDIF}
 
 {$DEFINE BASENAME := lowercase(PRGNAME)}
 {$DEFINE COMMENT := #35}
@@ -147,14 +149,14 @@ const
       {$ENDIF}
     {$ENDIF}
   {$ENDIF}
-{$ENDIF}      
+{$ENDIF}
 
-{$IFDEF UNIX}  
+{$IFDEF UNIX}
   {$DEFINE SLASH := #47}
 {$ELSE}
   {$DEFINE SLASH := #92}
 {$ENDIF}
-  
+
 resourcestring
   // GENERAL MESSAGES
   MSG01 = '<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> clear <F10> exit';
