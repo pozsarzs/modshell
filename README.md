@@ -4,6 +4,7 @@
 Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>  
 Homepage: <http://www.pozsarzs.hu>  
 GitHub: <https://github.com/pozsarzs/modshell>
+Online manual: <https://github.com/pozsarzs/modshell/wiki>
 
 #### Software
 |features             |                            |
