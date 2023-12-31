@@ -124,6 +124,31 @@ const
 
 {$DEFINE BASENAME := lowercase(PRGNAME)}
 {$DEFINE COMMENT := #35}
+
+// Uncomment following line, if you want to build binary file
+// for deb, rpm, tgz package.
+// {$DEFINE INSTPKGMAN}
+
+{$IFDEF GO32V2}
+  {$DEFINE SHEBANG := ''}
+{$ELSE}
+  {$IFDEF BSD}
+    {$DEFINE SHEBANG := ''}
+  {$ELSE}
+    {$IFDEF LINUX}
+      {$IFDEF INSTPKGMAN}
+        {$DEFINE SHEBANG := '#!/usr/bin/modshell -r'}
+      {$ELSE}
+        {$DEFINE SHEBANG := '#!/usr/local/bin/modshell -r'}
+      {$ENDIF}
+    {$ELSE}
+      {$IFDEF WINDOWS}
+        {$DEFINE SHEBANG := ''}
+      {$ENDIF}
+    {$ENDIF}
+  {$ENDIF}
+{$ENDIF}      
+
 {$IFDEF UNIX}  
   {$DEFINE SLASH := #47}
 {$ELSE}
@@ -231,7 +256,7 @@ resourcestring
   USG02='get dev?|pro?|con?|prj' + #13 + #10 +
         'Notes:' + #13 + #10 +
         '  - The ''?'' value can be 0-7.';
-  USG03='help [COMMAND]';
+  USG03='help [[$]COMMAND]';
   USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + #13 + #10 +
         '  let $VARIABLE [$]VALUE' + #13 + #10 +
         '  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS' + #13 + #10 +
@@ -264,26 +289,26 @@ resourcestring
         '  - The ''$'' sign indicates a variable not a direct value.' + #13 + #10 +
         '  - The ''?'' value can be 0-7.';
   USG12='cls';
-  USG13='savecfg PATH_AND_FILENAME';
-  USG14='loadcfg PATH_AND_FILENAME';
-  USG15='expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]';
-  USG16='exphis PATH_AND_FILENAME';
+  USG13='savecfg [$]PATH_AND_FILENAME';
+  USG14='loadcfg [$]PATH_AND_FILENAME';
+  USG15='expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
+  USG16='exphis [$]PATH_AND_FILENAME';
   USG17='conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE' + #13 + #10 +
         'Notes:' + #13 + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
-  USG18='savereg PATH_AND_FILENAME';
-  USG19='loadreg PATH_AND_FILENAME';
+  USG18='savereg [$]PATH_AND_FILENAME';
+  USG19='loadreg [$]PATH_AND_FILENAME';
   USG20='var' + #13 + #10 +
         '  var NAME [[$]VALUE]' + #13 + #10 +
         'Notes:' + #13 + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
-  USG21='color FOREGROUND BACKGROUND' + #13 + #10 +
+  USG21='color [$]FOREGROUND [$]BACKGROUND' + #13 + #10 +
         '  colors:' + #13 + #10 +
         '      0: black  4: red         8: darkgray    12: lightred' + #13 + #10 +
         '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + #13 + #10 +
         '      2: green  6: brown      10: lightgreen  14: yellow' + #13 + #10 +
         '      3: cyan   7: lightgray  11: lightcyan   15: white';
-  USG22='impreg PATH_AND_FILENAME';
+  USG22='impreg [$]PATH_AND_FILENAME';
   USG23='and $TARGET [$]VALUE1 [$]VALUE2';
   USG24='or $TARGET [$]VALUE1 [$]VALUE2';
   USG25='not $TARGET [$]VALUE';
@@ -294,7 +319,7 @@ resourcestring
   USG30='sub $TARGET [$]VALUE1 [$]VALUE2';
   USG31='mul $TARGET [$]VALUE1 [$]VALUE2';
   USG32='div $TARGET [$]VALUE1 [$]VALUE2';
-  USG33='dump [[dinp|coil|ireg|hreg] ADDRESS]';
+  USG33='dump [[dinp|coil|ireg|hreg] [$]ADDRESS]';
 
 procedure version(h: boolean); forward;
 

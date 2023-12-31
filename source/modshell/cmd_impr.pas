@@ -14,8 +14,8 @@
 }
 {
   p0     p1               
-  ------------------------
-  impreg PATH_AND_FILENAME
+  ---------------------------
+  impreg [$]PATH_AND_FILENAME
 }
 
 // COMMAND 'IMPREG'
@@ -28,6 +28,7 @@ var
   childnode: tdomnode; 
   rt: byte;               // register type
   s: string;
+  s1: string;             // parameters in other type
   valid: boolean = false;
   xml: txmldocument;
 
@@ -39,9 +40,11 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  fp := extractfilepath(p1);
-  fn := extractfilename(p1);
-  fx := extractfileext(p1);
+  s1 := isitvariable(p1);
+  if length(s1) = 0 then s1 := p1;
+  fp := extractfilepath(s1);
+  fn := extractfilename(s1);
+  fx := extractfileext(s1);
   if length(fp) = 0 then
   begin
     {$IFDEF GO32V2}

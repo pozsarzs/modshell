@@ -1,3 +1,5 @@
+#### Attention! This software is still under development.
+---
 ## Modshell * Command-driven scriptable Modbus utility
 Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>  
 Homepage: <http://www.pozsarzs.hu>  
@@ -14,9 +16,14 @@ GitHub: <https://github.com/pozsarzs/modshell>
 |local user interface |CLI and TUI                 |
 
 #### Screenshots
-![CLI](document/picture/modshell.png)
+Normal command line  
+![CLI](document/picture/modshell.png)  
+Fullscreen command line  
 
-![TUI](document/picture/modshell-f.png)
+![TUI](document/picture/modshell-f.png)  
+
+Run example script on bash with ModShell interpreter  
+![script running](document/picture/modshell-r.png)  
 
 #### Used external libraries
  - Bin/Oct/Dec/Hex number converter unit for Turbo Pascal v3.0
@@ -31,13 +38,13 @@ it is not yet suitable for its task.*
 
 This is a utility that can be used on several operating systems,
 which can communicate with connected equipment using
-[Modbus](https://modbus.org/)/ASCII, -/RTU and -/TCP protocols.
+[Modbus](https://modbus.org/)/ASCII, Modbus/RTU and Modbus/TCP protocols.
 The program can - even automatically - read, write or copy data from
 one device to another (e.g. transferring settings). When copying, the
 source and destination register areas can be different.
 
-The program has a traditional (CLI) or full-screen (TUI) command-line interface
-and is also suitable for running pre-created scripts independently (as a command
+The program has a *traditional (CLI)* or *full-screen (TUI) command-line* interface
+and is also *suitable for running pre-created scripts* independently (as a command
 interpreter). The program provides help on the commands that can be used, and
 offers possible values when the parameters are entered incorrectly. The issued
 commands are placed in history, which can be browsed with the up/down arrow keys.
@@ -64,9 +71,9 @@ source/destination directory.
 
 **File operations**
 
-The command line history can be exported to a text file and provides it with the
-appropriate 'shebang' for the installation method and operating system (eg.
-#!/usr/local/bin/modshell). You can easily create a script from this raw file.
+The command line history can be exported to a text file and provides it with
+the appropriate 'shebang' for the installation method and operating system. You
+can easily create a script from this raw file.
 
 Device, protocol and connection settings can be saved and loaded in their own
 format. During saving, three typed files are created, with the following

@@ -14,8 +14,8 @@
 }
 {
   p0   p1                   p2
-  ----------------------------------
-  dump [dinp|coil|ireg|hreg ADDRESS]
+  -------------------------------------
+  dump [dinp|coil|ireg|hreg [$]ADDRESS]
 }
 
 // COMMAND 'DUMP'
@@ -73,16 +73,18 @@ begin
       end;
     if not valid then
     begin
-      write('2nd ' + MSG05); // What is the 2nd parameter?
+      write('1st ' + MSG05); // What is the 2nd parameter?
       for rt := 0 to 3 do write(' ' + REG_TYPE[rt]);
       writeln;
       exit;
     end;
     // CHECK P2 PARAMETER
-    i2 := strtointdef(p2, -1);
+    s2 := isitvariable(p2);
+    if length(s2) = 0 then s2 := p2;
+    i2 := strtointdef(s2, -1);
     if (i2 < 1) or (i2 > 9990) then
     begin
-      writeln('3rd ' + MSG05 + ' 1-9990'); // What is the 3rd parameter?
+      writeln('2nd ' + MSG05 + ' 1-9990'); // What is the 3rd parameter?
       exit;
     end;
   end;

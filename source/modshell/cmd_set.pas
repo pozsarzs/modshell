@@ -248,7 +248,7 @@ var
       writeln(ERR02); // Protocol number must be 0-7!
       exit;
     end;
-    if not validity(1, i2) then exit;
+    if not validity(1, i3) then exit;
     // PRIMARY MISSION
     with conn[strtoint(n)] do
     begin

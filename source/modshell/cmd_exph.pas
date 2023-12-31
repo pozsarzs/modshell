@@ -14,8 +14,8 @@
 }
 {
   p0     p1
-  ------------------------
-  exphis PATH_AND_FILENAME
+  ---------------------------
+  exphis [$]PATH_AND_FILENAME
 }
 
 // COMMAND 'EXPHIS'
@@ -24,6 +24,7 @@ var
   b: byte;
   c: char;
   fpn, fp, fn: string;
+  s1: string = '';      // parameter in other type
   tf: text;
 
 begin
@@ -34,8 +35,10 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  fp := extractfilepath(p1);
-  fn := extractfilename(p1);
+  s1 := isitvariable(p1);
+  if length(s1) = 0 then s1 := p1;
+  fp := extractfilepath(s1);
+  fn := extractfilename(s1);
   if length(fp) = 0 then
   begin
     {$IFDEF GO32V2}
@@ -64,12 +67,7 @@ begin
   assignfile(tf, fpn);
   try
     rewrite(tf);
-    {$IFDEF LINUX}
-      writeln(tf, '#!/usr/bin/modshell -r');    
-    {$ENDIF}
-    {$IFDEF BSD}
-      writeln(tf, '#!/usr/local/bin/modshell -r');    
-    {$ENDIF}
+    writeln(tf, SHEBANG);    
     for b := 0 to 255 do
       if length(histbuff[b]) > 0 then writeln(tf, histbuff[b]);
     closefile(tf);  

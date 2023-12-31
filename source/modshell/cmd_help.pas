@@ -14,8 +14,8 @@
 }
 {
   p0   p1
-  --------------
-  help [COMMAND]
+  -----------------
+  help [[$]COMMAND]
 }
 
 // COMMAND 'HELP'
@@ -25,6 +25,7 @@ var
   valid: boolean;
   buffer: array[0..41] of string;
   line: byte;
+  s1: string;                      // parameters in other type
 
   // SHORTING CONTENT OF BUFFER
   procedure shorting;
@@ -107,9 +108,11 @@ begin
   end else
   begin
     // CHECK P1 PARAMETER
+    s1 := isitvariable(p1);
+    if length(s1) = 0 then s1 := p1;
     valid := false;
     for b := 0 to 33 do
-      if p1 = COMMANDS[b] then
+      if s1 = COMMANDS[b] then
       begin
         valid := true;
         break;

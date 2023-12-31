@@ -14,8 +14,8 @@
 }
 {
   p0      p1
-  -------------------------
-  savecfg PATH_AND_FILENAME
+  ----------------------------
+  savecfg [$]PATH_AND_FILENAME
 }
 
 // COMMAND 'SAVECFG'
@@ -27,6 +27,7 @@ var
   ftd: file of tdevice;
   ftp: file of tprotocol;
   ftc: file of tconnection;
+  s1: string;                // parameters in other type
 
 begin
   // CHECK LENGTH OF PARAMETER
@@ -36,9 +37,11 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  fp := extractfilepath(p1);
-  fn := extractfilename(p1);
-  fx := extractfileext(p1);
+  s1 := isitvariable(p1);
+  if length(s1) = 0 then s1 := p1;
+  fp := extractfilepath(s1);
+  fn := extractfilename(s1);
+  fx := extractfileext(s1);
   if length(fp) = 0 then
   begin
     {$IFDEF GO32V2}

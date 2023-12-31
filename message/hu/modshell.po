@@ -393,8 +393,8 @@ msgstr ""
 "  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg03
-msgid "help [COMMAND]"
-msgstr "help [PARANCS]"
+msgid "help [[$]COMMAND]"
+msgstr "help [[$]PARANCS]"
 
 #: modshell:usg04
 msgid ""
@@ -491,20 +491,21 @@ msgid "cls"
 msgstr "cls"
 
 #: modshell:usg13
-msgid "savecfg PATH_AND_FILENAME"
-msgstr "savecfg ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+msgid "savecfg [$]PATH_AND_FILENAME"
+msgstr "savecfg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg14
-msgid "loadcfg PATH_AND_FILENAME"
-msgstr "loadcfg ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+msgid "loadcfg [$]PATH_AND_FILENAME"
+msgstr "loadcfg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg15
-msgid "expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]"
-msgstr "expreg ELÉRÉSI_ÚT_ÉS_FÁJLNÉV dinp|coil|ireg|hreg CÍM [MENNYISÉG]"
+msgid "expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr ""
+"expreg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
 
 #: modshell:usg16
-msgid "exphis PATH_AND_FILENAME"
-msgstr "exphis ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+msgid "exphis [$]PATH_AND_FILENAME"
+msgstr "exphis [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg17
 msgid ""
@@ -517,12 +518,12 @@ msgstr ""
 "  - A '$' jel jelzi, hogy ez változó és nem közvetlen érték."
 
 #: modshell:usg18
-msgid "savereg PATH_AND_FILENAME"
-msgstr "savereg ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+msgid "savereg [$]PATH_AND_FILENAME"
+msgstr "savereg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg19
-msgid "loadreg PATH_AND_FILENAME"
-msgstr "loadreg ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+msgid "loadreg [$]PATH_AND_FILENAME"
+msgstr "loadreg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg20
 msgid ""
@@ -538,14 +539,14 @@ msgstr ""
 
 #: modshell:usg21
 msgid ""
-"color FOREGROUND BACKGROUND\\015\n"
+"color [$]FOREGROUND [$]BACKGROUND\\015\n"
 "  colors:\\015\n"
 "      0: black  4: red         8: darkgray    12: lightred\\015\n"
 "      1: blue   5: magenta:    9: lightblue   13: lightmagenta\\015\n"
 "      2: green  6: brown      10: lightgreen  14: yellow\\015\n"
 "      3: cyan   7: lightgray  11: lightcyan   15: white"
 msgstr ""
-"color ELŐTÉRSZÍN HÁTTÉRSZÍN\\015\n"
+"color [$]ELŐTÉRSZÍN [$]HÁTTÉRSZÍN\\015\n"
 "\n"
 "  Színek: \\ 015\n"
 "      0: fekete  4: vörös           8: sötétszürke  12: világosvörös\\015\n"
@@ -554,8 +555,8 @@ msgstr ""
 "      3: cián    7: világosszürke  11: világoscián  15: fehér"
 
 #: modshell:usg22
-msgid "impreg PATH_AND_FILENAME"
-msgstr "impreg ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+msgid "impreg [$]PATH_AND_FILENAME"
+msgstr "impreg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg23
 msgid "and $TARGET [$]VALUE1 [$]VALUE2"
@@ -598,8 +599,8 @@ msgid "div $TARGET [$]VALUE1 [$]VALUE2"
 msgstr "div $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg33
-msgid "dump [[dinp|coil|ireg|hreg] ADDRESS]"
-msgstr "dump [[dinp|coil|ireg|hreg] CÍM]"
+msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
+msgstr "dump [[dinp|coil|ireg|hreg] [$]CÍM]"
 
 #~ msgid "       define new variable and assign value"
 #~ msgstr "       új változó definiálás és értékadás"

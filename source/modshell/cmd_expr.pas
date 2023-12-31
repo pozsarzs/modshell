@@ -13,9 +13,9 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0     p1                p2                  p3      p3
-  ------------------------------------------------------------
-  expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]
+  p0     p1                   p2                  p3         p4
+  ---------------------------------------------------------------------
+  expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
 }
 
 // COMMAND 'EXPREG'
@@ -30,6 +30,7 @@ var
   ft: byte;
   rootnode, parentnode, itemnode: tdomnode; 
   rt: byte;                                 // register type
+  s1, s3, s4: string;                       // parameters in other type
   tf: textfile;
   valid: boolean = false;
   xml: txmldocument;
@@ -44,9 +45,11 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  fp := extractfilepath(p1);
-  fn := extractfilename(p1);
-  fx := extractfileext(p1);
+  s1 := isitvariable(p1);
+  if length(s1) = 0 then s1 := p1;
+  fp := extractfilepath(s1);
+  fn := extractfilename(s1);
+  fx := extractfileext(s1);
   if length(fp) = 0 then
   begin
     {$IFDEF GO32V2}
@@ -102,7 +105,9 @@ begin
     exit;
   end;
   // CHECK P3 PARAMETER
-  i3 := strtointdef(p3, -1);
+  s3 := isitvariable(p3);
+  if length(s3) = 0 then s3 := p3;
+  i3 := strtointdef(s3, -1);
   if (i3 < 1) or (i3 > 9999) then
   begin
     writeln('3rd ' + MSG05 + ' 1-9999'); // What is the 3rd parameter?
@@ -111,7 +116,9 @@ begin
   // CHECK P4 PARAMETER
   if length(p4) > 0 then
   begin
-    i4 := strtointdef(p4, -1);
+    s4 := isitvariable(p4);
+    if length(s4) = 0 then s4 := p4;
+    i4 := strtointdef(s4, -1);
     if (i4 < 1 ) or (i4 > 9999) then
     begin
       writeln('4th ' + MSG05 + ' 1-9999'); // What is the 4rd parameter?

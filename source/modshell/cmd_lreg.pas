@@ -14,8 +14,8 @@
 }
 {
   p0      p1
-  -------------------------
-  loadreg PATH_AND_FILENAME
+  ----------------------------
+  loadreg [$]PATH_AND_FILENAME
 }
 
 // COMMAND 'SAVECFG'
@@ -26,7 +26,8 @@ var
   fpn, fp, fn, fx: string;
   ftb: file of boolean;
   ftw: file of word;
- 
+  s1: string;               // parameters in other type
+
 begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
@@ -35,9 +36,11 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  fp := extractfilepath(p1);
-  fn := extractfilename(p1);
-  fx := extractfileext(p1);
+  s1 := isitvariable(p1);
+  if length(s1) = 0 then s1 := p1;
+  fp := extractfilepath(s1);
+  fn := extractfilename(s1);
+  fx := extractfileext(s1);
   if length(fp) = 0 then
   begin
     {$IFDEF GO32V2}

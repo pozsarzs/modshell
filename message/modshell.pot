@@ -365,7 +365,7 @@ msgid ""
 msgstr ""
 
 #: modshell:usg03
-msgid "help [COMMAND]"
+msgid "help [[$]COMMAND]"
 msgstr ""
 
 #: modshell:usg04
@@ -434,19 +434,19 @@ msgid "cls"
 msgstr ""
 
 #: modshell:usg13
-msgid "savecfg PATH_AND_FILENAME"
+msgid "savecfg [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg14
-msgid "loadcfg PATH_AND_FILENAME"
+msgid "loadcfg [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg15
-msgid "expreg PATH_AND_FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]"
+msgid "expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
 msgstr ""
 
 #: modshell:usg16
-msgid "exphis PATH_AND_FILENAME"
+msgid "exphis [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg17
@@ -457,11 +457,11 @@ msgid ""
 msgstr ""
 
 #: modshell:usg18
-msgid "savereg PATH_AND_FILENAME"
+msgid "savereg [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg19
-msgid "loadreg PATH_AND_FILENAME"
+msgid "loadreg [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg20
@@ -474,7 +474,7 @@ msgstr ""
 
 #: modshell:usg21
 msgid ""
-"color FOREGROUND BACKGROUND\015\n"
+"color [$]FOREGROUND [$]BACKGROUND\015\n"
 "  colors:\015\n"
 "      0: black  4: red         8: darkgray    12: lightred\015\n"
 "      1: blue   5: magenta:    9: lightblue   13: lightmagenta\015\n"
@@ -483,7 +483,7 @@ msgid ""
 msgstr ""
 
 #: modshell:usg22
-msgid "impreg PATH_AND_FILENAME"
+msgid "impreg [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg23
@@ -527,6 +527,6 @@ msgid "div $TARGET [$]VALUE1 [$]VALUE2"
 msgstr ""
 
 #: modshell:usg33
-msgid "dump [[dinp|coil|ireg|hreg] ADDRESS]"
+msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
 msgstr ""
 
