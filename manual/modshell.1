@@ -513,37 +513,49 @@ the default 0x60 will be used.
 General configuration file in user's directory on Windows or Unix-like system
 or in the settings folder of the program on DOS.
 .TP
-.B scriptfiles
+.B scriptfiles[.bat]
 The script file is used for batch execution of ModShell commands. The commands
 must be entered in the same form as if we were working in the built-in command
 line. If the first valuable character (not a space or tab) of a line is a hash,
 then that line is not interpreted. You can find examples in the documents library.
 
-A simple example:
+A simple example on Unix-like OS:
 
 .EX
 #!/usr/local/bin/modshell -r
-# Example script * use of variables
 
+# Example script * use of variables
 print "Example\ script\ -\ How\ to\ use\ variables?"
 print "--------------------------------------------"
 var a 24
 var b
 var c 
 let $b 2
-
-print "Value\ of\ the\ variable\ $A:"
-  print $a
-print "Value\ of\ the\ variable\ $B:"
-  print $b
-
-add $c $a $b
-
+ (...)
 print "The\ sum\ of\ $A\ and\ $B:"
-  print $c
-
 print "--------------------------------------------"
 .EE
+
+A simple example on DOS and Windows OS:
+
+.EX
+@modshell.exe -r %0
+@goto :eof
+
+# Example script * use of variables
+print "Example\ script\ -\ How\ to\ use\ variables?"
+print "--------------------------------------------"
+var a 24
+var b
+var c 
+let $b 2
+ (...)
+print "The\ sum\ of\ $A\ and\ $B:"
+print "--------------------------------------------"
+
+:eof
+.EE
+
 .TP
 .B "*.DDT"
 Saved device setting in typed file with seven TDevice type values.

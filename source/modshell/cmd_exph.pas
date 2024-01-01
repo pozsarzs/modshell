@@ -23,8 +23,8 @@ procedure cmd_exphis(p1: string);
 var
   b: byte;
   c: char;
-  fpn, fp, fn: string;
-  s1: string = '';      // parameter in other type
+  fpn, fp, fn {$IFDEF GO32V2}, fx{$ENDIF}: string;
+  s1: string = ''; // parameter in other type
   tf: text;
 
 begin
@@ -39,20 +39,27 @@ begin
   if length(s1) = 0 then s1 := p1;
   fp := extractfilepath(s1);
   fn := extractfilename(s1);
+  {$IFDEF GO32V2}
+    fx := extractfileext(s1);
+  {$ENDIF}
   if length(fp) = 0 then
   begin
     {$IFDEF GO32V2}
-      fp := getexedir + PRGNAME + SLASH;
-      createdir(fp);
-      fp := getexedir + PRGNAME + SLASH + proj + SLASH;
+      fp := getexedir + proj;
       createdir(fp);
     {$ELSE}
-      fp := getuserdir + PRGNAME + SLASH;
+      fp := getuserdir + PRGNAME;
       createdir(fp);
-      fp := getuserdir + PRGNAME + SLASH + proj + SLASH;
+      fp := getuserdir + PRGNAME + SLASH + proj;
       createdir(fp);
     {$ENDIF}
+    fp := fp + SLASH;
   end;
+  {$IFDEF GO32V2}
+    if length(fx) > 0
+      then fn := stringreplace(fn, fx , '.bat', [rfReplaceAll])
+      else fn := fn + '.bat';
+  {$ENDIF}
   fpn := fp + fn;
   // CHECK EXIST
   if fileexists(fpn) then
@@ -67,10 +74,15 @@ begin
   assignfile(tf, fpn);
   try
     rewrite(tf);
-    writeln(tf, SHEBANG);    
+    writeln(tf, SHEBANG);
+    writeln(tf,'');
     for b := 0 to 255 do
       if length(histbuff[b]) > 0 then writeln(tf, histbuff[b]);
-    closefile(tf);  
+    {$IFDEF LABELEOF}
+      writeln(tf,'');
+      writeln(tf, LABELEOF);
+    {$ENDIF}
+    closefile(tf);
   except
     writeln(ERR07 + fpn + '!');
     exit;

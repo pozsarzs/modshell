@@ -132,10 +132,11 @@ const
 // {$DEFINE INSTPKGMAN}
 
 {$IFDEF GO32V2}
-  {$DEFINE SHEBANG := ''}
+  {$DEFINE SHEBANG := '@modshell -r %0' + #13 + #10 + '@goto :eof'}
+  {$DEFINE LABELEOF := ':eof'}
 {$ELSE}
   {$IFDEF BSD}
-    {$DEFINE SHEBANG := ''}
+    {$DEFINE SHEBANG := '#!/usr/local/bin/modshell -r'}
   {$ELSE}
     {$IFDEF LINUX}
       {$IFDEF INSTPKGMAN}
@@ -145,7 +146,8 @@ const
       {$ENDIF}
     {$ELSE}
       {$IFDEF WINDOWS}
-        {$DEFINE SHEBANG := ''}
+        {$DEFINE SHEBANG := '@modshell -r %0' + #13 + #10 + '@goto :eof'}
+        {$DEFINE LABELEOF := ':eof'}
       {$ENDIF}
     {$ENDIF}
   {$ENDIF}
@@ -428,109 +430,110 @@ var
  o: boolean;
  
 begin
-  if length(command) > 0 then
-  begin
-    // REMOVE SPACE AND TAB FROM START OF LINE
-    while (command[1] = #32) or (command[1] = #9) do
-      delete(command, 1, 1);
-    // REMOVE SPACE AND TAB FROM END OF LINE
-    while (command[length(command)] = #32) or (command[length(command)] = #9) do
-      delete(command, length(command), 1);
-    // REMOVE EXTRA SPACE AND TAB FROM LINE
-    for b := 1 to 255 do
+  if (length(command) > 0) then
+    if (command[1] <> #58) and (command[1] <> #64) then
     begin
-      if b = length(command) then break;
-      if command[b] <> #32 then o := false;
-      if (command[b] = #32) and o then command[b] :='@';
-      if command[b] = #32 then o := true;
-    end;
-    s := '';
-    for b := 1 to length(command) do
-      if command[b] <> '@' then s := s + command[b];
-    command := s;
-    // SPLIT COMMAND TO EIGHT SLICES
-    for b := 0 to 7 do
-      splitted[b] := '';
-    for a := 1 to length(command) do
-      if (command[a] = #32) and (command[a - 1] <> #92)
-        then break
-        else splitted[0] := splitted[0] + command[a];
-    for b:= 1 to 7 do
-      for a := a + 1 to length(command) do
+      // REMOVE SPACE AND TAB FROM START OF LINE
+      while (command[1] = #32) or (command[1] = #9) do
+        delete(command, 1, 1);
+      // REMOVE SPACE AND TAB FROM END OF LINE
+      while (command[length(command)] = #32) or (command[length(command)] = #9) do
+        delete(command, length(command), 1);
+      // REMOVE EXTRA SPACE AND TAB FROM LINE
+      for b := 1 to 255 do
+      begin
+        if b = length(command) then break;
+        if command[b] <> #32 then o := false;
+        if (command[b] = #32) and o then command[b] :='@';
+        if command[b] = #32 then o := true;
+      end;
+      s := '';
+      for b := 1 to length(command) do
+        if command[b] <> '@' then s := s + command[b];
+      command := s;
+      // SPLIT COMMAND TO EIGHT SLICES
+      for b := 0 to 7 do
+        splitted[b] := '';
+      for a := 1 to length(command) do
         if (command[a] = #32) and (command[a - 1] <> #92)
           then break
-          else splitted[b] := splitted[b] + command[a];
-    // PARSE COMMAND
-    o := false;
-    if splitted[0][1] <> COMMENT then
-    begin
-      for b := 0 to 33 do
-        if splitted[0] = COMMANDS[b] then
-        begin
-          o := true;
-          break;
-        end;
-      if not o then writeln(ERR00) else
+          else splitted[0] := splitted[0] + command[a];
+      for b:= 1 to 7 do
+        for a := a + 1 to length(command) do
+          if (command[a] = #32) and (command[a - 1] <> #92)
+            then break
+            else splitted[b] := splitted[b] + command[a];
+      // PARSE COMMAND
+      o := false;
+      if splitted[0][1] <> COMMENT then
       begin
-        case b of
-          0: cmd_copy(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
-             // copy conn? dinp|coil conn? coil ADDRESS COUNT
-             // copy conn? ireg|hreg conn? hreg ADDRESS COUNT
-          2: cmd_get(splitted[1]);
-             // get dev?|prot?|conn?|prj
-          3: cmd_help(splitted[1]);
-             // help [COMMAND]
-          4: cmd_let(splitted[1], splitted[2], splitted[3]);
-             // let dinp|coil|ireg|hreg ADDRESS VALUE
-             // let $VARIABLE VALUE
-             // let $VARIABLE dinp|coil|ireg|hreg ADDRESS
-          5: cmd_print(splitted[1], splitted[2], splitted[3]);
-             // print dinp|coil|ireg|hreg ADDRESS [COUNT]
-             // print $VARIABLE
-             // print "Hello\ world!"
-          6: cmd_read(splitted[1], splitted[2], splitted[3], splitted[4]);
-             // read conn? dinp|coil|ireg|hreg ADDRESS [COUNT]
-          7: cmd_reset(splitted[1]);
-             // reset dev?|prot?|conn?|prj
-          8: cmd_set(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6], splitted[7]);
-             // set dev? ser DEVICE BAUDRATE DATABIT PARITY STOPBIT
-             // set dev? net DEVICE PORT
-             // set prot? ascii|rtu UID
-             // set prot? tcp IP_ADDRESS
-             // set conn? dev? prot?
-             // set prj PROJECT_NAME 
-          9: cmd_date;
-             // date
-         10: version(false);
-             // ver
-         11: cmd_write(splitted[1], splitted[2], splitted[3], splitted[4]);
-             // write conn? coil|hreg ADDRESS [COUNT]
-         12: clrscr;
-             // cls
-         13: cmd_savecfg(splitted[1]);
-             // savecfg PATH_AND_FILENAME
-         14: cmd_loadcfg(splitted[1]);
-             // loadcfg PATH_AND_FILENAME
-         15: cmd_expreg(splitted[1], splitted[2], splitted[3], splitted[4]);
-             // expreg FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]
-         16: cmd_exphis(splitted[1]);
-             // exphis FILENAME
-         17: cmd_conv(splitted[1], splitted[2], splitted[3]);
-             // conv bin|dec|hex|oct bin|dec|hex|oct VALUE
-         18: cmd_savereg(splitted[1]);
-             // savereg PATH_AND_FILENAME
-         19: cmd_loadreg(splitted[1]);
-             // loadreg PATH_AND_FILENAME
-         20: cmd_var(splitted[1], splitted[2]);
-             // var
-             // var NAME [VALUE]
-         21: cmd_color(splitted[1], splitted[2]);
-             // color FOREGROUND BACKGROUND
-         22: cmd_impreg(splitted[1]);
-             // impreg FILENAME
-         33: cmd_dump(splitted[1], splitted[2]);
-             // dump [dinp|coil|ireg|hreg]
-        else
+        for b := 0 to 33 do
+          if splitted[0] = COMMANDS[b] then
+          begin
+            o := true;
+            break;
+          end;
+        if not o then writeln(ERR00) else
+        begin
+          case b of
+            0: cmd_copy(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
+               // copy conn? dinp|coil conn? coil ADDRESS COUNT
+               // copy conn? ireg|hreg conn? hreg ADDRESS COUNT
+            2: cmd_get(splitted[1]);
+               // get dev?|prot?|conn?|prj
+            3: cmd_help(splitted[1]);
+               // help [COMMAND]
+            4: cmd_let(splitted[1], splitted[2], splitted[3]);
+               // let dinp|coil|ireg|hreg ADDRESS VALUE
+               // let $VARIABLE VALUE
+               // let $VARIABLE dinp|coil|ireg|hreg ADDRESS
+            5: cmd_print(splitted[1], splitted[2], splitted[3]);
+               // print dinp|coil|ireg|hreg ADDRESS [COUNT]
+                // print $VARIABLE
+               // print "Hello\ world!"
+            6: cmd_read(splitted[1], splitted[2], splitted[3], splitted[4]);
+               // read conn? dinp|coil|ireg|hreg ADDRESS [COUNT]
+            7: cmd_reset(splitted[1]);
+               // reset dev?|prot?|conn?|prj
+            8: cmd_set(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6], splitted[7]);
+               // set dev? ser DEVICE BAUDRATE DATABIT PARITY STOPBIT
+               // set dev? net DEVICE PORT
+               // set prot? ascii|rtu UID
+               // set prot? tcp IP_ADDRESS
+               // set conn? dev? prot?
+               // set prj PROJECT_NAME
+            9: cmd_date;
+               // date
+           10: version(false);
+               // ver
+           11: cmd_write(splitted[1], splitted[2], splitted[3], splitted[4]);
+               // write conn? coil|hreg ADDRESS [COUNT]
+           12: clrscr;
+               // cls
+           13: cmd_savecfg(splitted[1]);
+               // savecfg PATH_AND_FILENAME
+           14: cmd_loadcfg(splitted[1]);
+               // loadcfg PATH_AND_FILENAME
+           15: cmd_expreg(splitted[1], splitted[2], splitted[3], splitted[4]);
+               // expreg FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]
+           16: cmd_exphis(splitted[1]);
+               // exphis FILENAME
+           17: cmd_conv(splitted[1], splitted[2], splitted[3]);
+               // conv bin|dec|hex|oct bin|dec|hex|oct VALUE
+           18: cmd_savereg(splitted[1]);
+               // savereg PATH_AND_FILENAME
+           19: cmd_loadreg(splitted[1]);
+               // loadreg PATH_AND_FILENAME
+           20: cmd_var(splitted[1], splitted[2]);
+               // var
+               // var NAME [VALUE]
+           21: cmd_color(splitted[1], splitted[2]);
+               // color FOREGROUND BACKGROUND
+           22: cmd_impreg(splitted[1]);
+               // impreg FILENAME
+           33: cmd_dump(splitted[1], splitted[2]);
+               // dump [dinp|coil|ireg|hreg]
+          else
           begin
             if (b > 22) and (b < 29) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
             if (b > 28) and (b < 33) then cmd_math(b, splitted[1], splitted[2], splitted[3]);

@@ -48,16 +48,15 @@ begin
   if length(fp) = 0 then
   begin
     {$IFDEF GO32V2}
-      fp := getexedir + PRGNAME + SLASH;
-      createdir(fp);
-      fp := getexedir + PRGNAME + SLASH + proj + SLASH;
+      fp := getexedir + proj;
       createdir(fp);
     {$ELSE}
-      fp := getuserdir + PRGNAME + SLASH;
+      fp := getuserdir + PRGNAME;
       createdir(fp);
-      fp := getuserdir + PRGNAME + SLASH + proj + SLASH;
+      fp := getuserdir + PRGNAME + SLASH + proj;
       createdir(fp);
     {$ENDIF}
+    fp := fp + SLASH;
   end;
   fpn := fp + fn;
   // CHECK FILE EXTENSION
