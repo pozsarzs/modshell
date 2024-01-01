@@ -118,20 +118,20 @@ begin
   // PRIMARY MISSION
   case rt of
     0: begin
-         mbreaddinp(i1, i5, i6);
-         mbwritecoil(i3, i5, i6);
+         mb_readdinp(i1, i5, i6);
+         mb_writecoil(i3, i5, i6);
        end;
     1: begin
-         mbreadcoil(i1, i5, i6);
-         mbwritecoil(i3, i5, i6);
+         mb_readcoil(i1, i5, i6);
+         mb_writecoil(i3, i5, i6);
        end;
     2: begin
-         mbreadireg(i1, i5, i6);
-         mbwritehreg(i3, i5, i6);
+         mb_readireg(i1, i5, i6);
+         mb_writehreg(i3, i5, i6);
        end;
     3: begin
-         mbreadhreg(i1, i5, i6);
-         mbwritehreg(i3, i5, i6);
+         mb_readhreg(i1, i5, i6);
+         mb_writehreg(i3, i5, i6);
        end;
   end;
 end;

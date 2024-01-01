@@ -92,7 +92,7 @@ begin
   end else i4 := 1;
   // PRIMARY MISSION
   case rt of
-    1: mbwritecoil(i1, i3, i4);
-    3: mbwritehreg(i1, i3, i4);
+    1: mb_writecoil(i1, i3, i4);
+    3: mb_writehreg(i1, i3, i4);
   end;
 end;

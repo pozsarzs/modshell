@@ -27,9 +27,6 @@ uses
   ucommon,
   uconfig,
   uether,
-  umbascii,
-  umbrtu,
-  umbtcp,
   userial,
   utranslt,
   xmlread,
@@ -397,6 +394,9 @@ begin
   if not result then writeln(PREFIX[sets], number, MSG06);
 end;
 
+{$I mbascii.pas}
+{$I mbrtu.pas}
+{$I mbtcp.pas}
 {$I modbus.pas}
 {$I cmd_colr.pas}
 {$I cmd_conv.pas}

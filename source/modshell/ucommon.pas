@@ -20,6 +20,9 @@ uses
   crt,
   sysutils;
 
+function hex2(s: string): string;
+function lrc(s: string): word;
+function chkecklrc(s: string; l: word): boolean;
 function booltoint(b: boolean): integer;
 function inttobool(i: integer): boolean;
 function checkipaddress(address: string): boolean;
@@ -32,6 +35,45 @@ procedure ewrite(fg: byte; hl: byte; t: string);
 procedure xywrite(x, y: byte; c: boolean; s: string);
 
 implementation
+
+// CONVERT A STRING OF ASCII CODED HEXA BYTES TO STRING OF HEXA BYTES }
+function hex2(s: string): string;
+var
+  b: byte;
+  d, e: integer;
+  res: string;
+begin
+  b := 1;
+  res := '';
+  repeat
+    val('$' + s[b] + s[b + 1], d, e);
+    res := res + char(d);
+    b:=b + 2;
+  until b >= length(s);
+  hex2 := res;
+end;
+
+// CREATE LONGITUDINAL REDUNDANCY CHECK (LRC) VALUE
+function lrc(s: string): word;
+var
+   b: byte;
+   res: word;
+begin
+  s := hex2(s);
+  res := 0;
+  for b := 1 to length(s) do
+    res := res + ord(s[b]) and $FF;
+  res := (((res xor $FF) + 1) and $FF);
+  lrc := res;
+end;
+
+// CHECK LRC OF A STRING
+function chkecklrc(s: string; l: word): boolean;
+begin
+  if l = lrc(s)
+    then result := true
+    else result := false;
+end;
 
 // CONVERT BOOLEAN TO INTEGER;
 function booltoint(b: boolean): integer;
