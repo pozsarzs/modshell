@@ -345,6 +345,22 @@ msgstr ""
 msgid "F6     dump all registers in binary/hexadecimal format to a table"
 msgstr ""
 
+#: modshell:des34
+msgid "       print a message and wait for a keystroke or specified time"
+msgstr ""
+
+#: modshell:des35
+msgid "F7     open a simple serial console"
+msgstr ""
+
+#: modshell:des36
+msgid "       read string from serial device"
+msgstr ""
+
+#: modshell:des37
+msgid "       write string to serial device"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\015\n"
@@ -528,5 +544,35 @@ msgstr ""
 
 #: modshell:usg33
 msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
+msgstr ""
+
+#: modshell:usg34
+msgid ""
+"pause [\"MESSAGE\"] [[$]TIME]\015\n"
+"  pause [$MESSAGE] [[$]TIME]\015\n"
+"Notes:\015\n"
+"  - The '$' sign indicates a variable not a direct value."
+msgstr ""
+
+#: modshell:usg35
+msgid ""
+"sercons [dev?]\015\n"
+"Notes:\015\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg36
+msgid ""
+"serread dev? [$TARGET]\015\n"
+"Notes:\015\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg37
+msgid ""
+"serwrite dev? $MESSAGE\015\n"
+"  swrite dev? \"MESSAGE\"\015\n"
+"Notes:\015\n"
+"  - The '?' value can be 0-7."
 msgstr ""
 

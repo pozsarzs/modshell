@@ -20,14 +20,16 @@ uses
   crt,
   dom,
   dos,
+  {$IFDEF GO32V2}
+    dosprser;
+  {$ELSE}
+  {$ENDIF}
   gettext,
   inifiles,
   strings,
   sysutils,
   ucommon,
   uconfig,
-  uether,
-  userial,
   utranslt,
   xmlread,
   xmlwrite;
@@ -95,13 +97,14 @@ const
     ('-r','--run','run script')
   );
   // COMMANDS AND PARAMETERS
-  COMMANDS: array[0..33] of string = ('copy','exit','get','help','let',
+  COMMANDS: array[0..37] of string = ('copy','exit','get','help','let',
                                       'print','read','reset','set','date',
                                       'ver','write','cls','savecfg',
                                       'loadcfg','expreg','exphis','conv',
                                       'savereg','loadreg','var','color',
                                       'impreg','and','or','not','xor','shl',
-                                      'shr','add','sub','mul','div','dump');
+                                      'shr','add','sub','mul','div','dump',
+                                      'pause','sercons','serread','serwrite');
   PROMPT = 'MODSH|_>';
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
@@ -248,6 +251,10 @@ resourcestring
   DES31='       multiplication mathematical operation';
   DES32='       division mathematical operation';
   DES33='F6     dump all registers in binary/hexadecimal format to a table';
+  DES34='       print a message and wait for a keystroke or specified time';
+  DES35='F7     open a simple serial console';
+  DES36='       read string from serial device';
+  DES37='       write string to serial device';
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #13 + #10 +
         'Notes:' + #13 + #10 +
@@ -321,6 +328,20 @@ resourcestring
   USG31='mul $TARGET [$]VALUE1 [$]VALUE2';
   USG32='div $TARGET [$]VALUE1 [$]VALUE2';
   USG33='dump [[dinp|coil|ireg|hreg] [$]ADDRESS]';
+  USG34='pause ["MESSAGE"] [[$]TIME]' + #13 + #10 +
+        '  pause [$MESSAGE] [[$]TIME]' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.';
+  USG35='sercons [dev?]' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''?'' value can be 0-7.';
+  USG36='serread dev? [$TARGET]' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''?'' value can be 0-7.';
+  USG37='serwrite dev? $MESSAGE' + #13 + #10 +
+        '  swrite dev? "MESSAGE"' + #13 + #10 +
+        'Notes:' + #13 + #10 +
+        '  - The ''?'' value can be 0-7.';
 
 procedure version(h: boolean); forward;
 
@@ -394,6 +415,8 @@ begin
   if not result then writeln(PREFIX[sets], number, MSG06);
 end;
 
+{$I ethernet.pas}
+{$I serport.pas}
 {$I mbascii.pas}
 {$I mbrtu.pas}
 {$I mbtcp.pas}
@@ -413,10 +436,14 @@ end;
 {$I cmd_logc.pas}
 {$I cmd_lreg.pas}
 {$I cmd_math.pas}
+{$I cmd_paus.pas}
 {$I cmd_prnt.pas}
 {$I cmd_read.pas}
 {$I cmd_rst.pas}
 {$I cmd_scfg.pas}
+{$I cmd_secn.pas}
+{$I cmd_serd.pas}
+{$I cmd_sewr.pas}
 {$I cmd_sreg.pas}
 {$I cmd_set.pas}
 {$I cmd_var.pas}
@@ -467,7 +494,7 @@ begin
       o := false;
       if splitted[0][1] <> COMMENT then
       begin
-        for b := 0 to 33 do
+        for b := 0 to 37 do
           if splitted[0] = COMMANDS[b] then
           begin
             o := true;
@@ -533,6 +560,16 @@ begin
                // impreg FILENAME
            33: cmd_dump(splitted[1], splitted[2]);
                // dump [dinp|coil|ireg|hreg]
+           34: cmd_pause(splitted[1], splitted[2]);
+               // pause ["MESSAGE"] [[$]TIME]
+               // pause [$MESSAGE] [[$]TIME]
+           35: cmd_sercons(splitted[1]);
+               // sercons [dev?]
+           36: cmd_serread(splitted[1], splitted[2]);
+               // serread dev? [$TARGET]
+           37: cmd_serwrite(splitted[1], splitted[2]);
+               // serwrite dev? "MESSAGE"
+               // serwrite dev? $MESSAGE
           else
           begin
             if (b > 22) and (b < 29) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
@@ -587,6 +624,7 @@ begin
         if c = #62 then begin command := COMMANDS[18] + #32 + proj; c:=#13; end; // F4
         if c = #63 then begin command := COMMANDS[19] + #32 + proj; c:=#13; end; // F5
         if c = #64 then begin command := COMMANDS[33] + #32 + proj; c:=#13; end; // F6
+        if c = #65 then begin command := COMMANDS[35]; c:=#13; end;              // F7
         if c = #66 then begin command := COMMANDS[12]; c:=#13; end;              // F8
         if c = #68 then begin command := COMMANDS[1]; c:=#13; end;               // F10
         if c = #72 then

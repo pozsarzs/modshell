@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
-{ | uether.pas                                                               | }
+{ | ethernet.pas                                                             | }
 { | Ethernet handler procedures and functions                                | }
 { +--------------------------------------------------------------------------+ }
 {
@@ -13,46 +13,30 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{$MODE OBJFPC}{$H+}
-unit uether;
-interface
-{$IFDEF GO32V2}
-{$ELSE}
-{$ENDIF}
-
-function etherread: string;
-procedure etherwrite(s: string);
-function  etherinit: boolean;
-procedure etherclose;
-
-implementation
-
-function etherread: string;
+function eth_read: string;
 begin
   {$IFDEF GO32V2}
   {$ELSE}
   {$ENDIF}
 end;
 
-function  etherinit: boolean;
+function  eth_init: boolean;
 begin
   {$IFDEF GO32V2}
   {$ELSE}
   {$ENDIF}
 end;
 
-procedure etherwrite(s: string);
+procedure eth_write(s: string);
 begin
   {$IFDEF GO32V2}
   {$ELSE}
   {$ENDIF}
 end;
 
-procedure etherclose;
+procedure eth_close;
 begin
   {$IFDEF GO32V2}
   {$ELSE}
   {$ENDIF}
 end;
-
-end.

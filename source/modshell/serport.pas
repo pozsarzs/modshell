@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
-{ | userial.pas                                                              | }
+{ | serport.pas                                                              | }
 { | Serial port handler procedures and functions                             | }
 { +--------------------------------------------------------------------------+ }
 {
@@ -13,14 +13,6 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{$MODE OBJFPC}{$H+}
-unit userial;
-interface
-{$IFDEF GO32V2}
-  uses sysutils, dosprser;
-{$ELSE}
-{$ENDIF}
-
 {$IFDEF GO32V2}
 const
   SPD: array[0..7] of integer = (96, 48, 24, 12, 6, 3, 2, 1);
@@ -30,15 +22,8 @@ const
 {$ELSE}
 {$ENDIF}
 
-function serialread: string;
-procedure serialwrite(s: string);
-function serialinit(device: string; speed: byte; databit: byte; parity: byte; stopbit: byte): boolean;
-procedure serialclose;
-
-implementation
-
 // READ STRING FROM SERIAL PORT
-function serialread: string;
+function ser_read: string;
 begin
   {$IFDEF GO32V2}
     result := getstring;
@@ -47,7 +32,7 @@ begin
 end;
 
 // WRITE STRING TO SERIAL PORT
-procedure serialwrite(s: string);
+procedure ser_write(s: string);
 begin
   {$IFDEF GO32V2}
     putstring(s);
@@ -56,7 +41,7 @@ begin
 end;
 
 // OPEN SERIAL PORT
-function serialinit(device: string; speed: byte; databit: byte; parity: byte; stopbit: byte): boolean;
+function ser_init(device: string; speed: byte; databit: byte; parity: byte; stopbit: byte): boolean;
 var
   b: byte;
 begin
@@ -72,12 +57,10 @@ begin
 end;
 
 // CLOSE SERIAL PORT
-procedure serialclose;
+procedure ser_close;
 begin
   {$IFDEF GO32V2}
     done;
   {$ELSE}
   {$ENDIF}
 end;
-
-end.
