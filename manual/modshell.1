@@ -97,6 +97,12 @@ Exit from program.
 \fBhelp\fP
 Show description or usage of the builtin commands.
 .TP
+\fBpause\fP pause \fI["MESSAGE"]\fP \fI[[$]TIME]\fP
+Print a message and wait for a keystroke or specified time.
+.TP
+\fBpause\fP pause \fI[$MESSAGE]\fP \fI[[$]TIME]\fP
+Print a message from variable and wait for a keystroke or specified time.
+.TP
 \fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Print content of the one or more registers. Register start \fIADDRESS\fP and
 the \fICOUNT\fP must be between 1-9999.
@@ -243,6 +249,20 @@ Copy logical data between connections (\fIcon?\fP). Number of connection
 Copy numeral data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
 \fICOUNT\fP must be between 1-9999.
+.TP
+\fBsercons\fP \fI[dev?]\fP
+Open a simple serial console. Number of device (\fIdev?\fP) must be between 0-7.
+.TP
+\fBserread\fP \fI[dev?]\fP \fI[$TARGET]\fP
+Read string from serial device to variable \fI$TARGET\fP or write screen.
+Number of device (\fIdev?\fP) must be between 0-7.
+.TP
+\fBserwrite\fP \fI[dev?]\fP \fI$MESSAGE\fP
+Write string to serial device from \fI$MESSAGE\fP.
+Number of device (\fIdev?\fP) must be between 0-7.
+.TP
+\fBserwrite\fP \fI[dev?]\fP \fI"MESSAGE"\fP
+Write "MESSAGE" to serial device. Number of device (\fIdev?\fP) must be between 0-7.
 .SS File operation command
 The specified parameter does not contain a path, the file will be saved in the
 project directory in the user's home directory (on DOS, in project directory
@@ -279,6 +299,18 @@ Show short description of the useable commands.
 .TP
 \fBhelp\fP set
 Show usage of help command.
+.TP
+\fBpause\fP
+Wait for a key press.
+.TP
+\fBpause\fP 5
+Wait for 5 sec.
+.TP
+\fBpause "Press\ any\ key\ to\ continue..."\fP
+Show message and wait for a key press.
+.TP
+\fBpause $MESSAGE 5
+Show message from $MESSAGE and wait 5 sec.
 .TP
 \fBprint\fP $a
 Print value of the $a variable.
@@ -416,6 +448,24 @@ connection #2 from address 210 to 220.
 \fBcopy\fP con0 ireg con2 hreg $a $b
 Copy input register content of the connection #0 to holding register content of the
 connection #2 from address value of the $a to $a+$b.
+.TP
+\fBsercon\fP
+Open serial console with requesting device number.
+.TP
+\fBsercon\fP dev0
+Open serial console with dev0 device.
+.TP
+\fBserread\fP dev0
+Read string from dev0 device and write to screen.
+.TP
+\fBserread\fP dev0 $TARGET
+Read string from dev0 device and write to $TARGET variable.
+.TP
+\fBserwrite\fP dev0 "The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog."
+Write string to dev0 device.
+.TP
+\fBserwrite\fP dev0 "$MESSAGE"
+Write string from $MESSAGE variable to dev0 device.
 .SS File operation command
 .TP
 \fBexphis\fP script

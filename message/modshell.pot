@@ -209,6 +209,14 @@ msgstr ""
 msgid "Script buffer is full!"
 msgstr ""
 
+#: modshell:err24
+msgid "Specified device is not a serial port!"
+msgstr ""
+
+#: modshell:err25
+msgid "Specified device is not a ethernet port!"
+msgstr ""
+
 #: modshell:des00
 msgid "       copy one or more remote reg. between two connections"
 msgstr ""

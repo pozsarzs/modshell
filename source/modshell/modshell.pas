@@ -216,6 +216,8 @@ resourcestring
   ERR21 = 'No such script file: ';
   ERR22 = 'Cannot load script from ';
   ERR23 = 'Script buffer is full!';
+  ERR24 = 'Specified device is not a serial port!';
+  ERR25 = 'Specified device is not a ethernet port!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
   DES01='F10    exit';
