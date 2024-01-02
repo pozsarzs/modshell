@@ -52,8 +52,8 @@ is specified during file operations (without path), this directory will be the
 source/destination directory.
 .SS File operations
 The command line history can be exported to a text file and provides it with the
-appropriate 'shebang' for the installation method and operating system (eg.
-#!/usr/local/bin/modshell). You can easily create a script from this raw file.
+appropriate 'shebang' for all operating system. You can easily create a script
+from this raw file.
 .PP
 Device, protocol and connection settings can be saved and loaded in their own
 format. During saving, three typed files are created, with the following
@@ -64,6 +64,9 @@ two typed files are created, with the following extensions: BDT, WDT.
 .PP
 One or more same type registers can be exported to file. During saving, one text
 file is created, with CSV, INI or XML extension.
+.PP
+The program has a simple serial console whose traffic is logged in the project
+directory as console.log.
 .PP
 On exit, the command line history and full screen mode command line colors are
 preserved.
@@ -512,6 +515,9 @@ loadreg command
 .TP
 \fBF6\fP
 dump command
+.TP
+\fBF7\fP
+sercons command
 .TP
 \fBF8\fP
 cls command
