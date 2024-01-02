@@ -251,7 +251,8 @@ Copy numeral data between connections (\fIcon?\fP). Number of connection
 \fICOUNT\fP must be between 1-9999.
 .TP
 \fBsercons\fP \fI[dev?]\fP
-Open a simple serial console. Number of device (\fIdev?\fP) must be between 0-7.
+Open a simple serial console. Data traffic is logged to the project directory
+named \fIconsole.log\fP. Number of device (\fIdev?\fP) must be between 0-7.
 .TP
 \fBserread\fP \fI[dev?]\fP \fI[$TARGET]\fP
 Read string from serial device to variable \fI$TARGET\fP or write screen.
@@ -449,10 +450,10 @@ connection #2 from address 210 to 220.
 Copy input register content of the connection #0 to holding register content of the
 connection #2 from address value of the $a to $a+$b.
 .TP
-\fBsercon\fP
+\fBsercons\fP
 Open serial console with requesting device number.
 .TP
-\fBsercon\fP dev0
+\fBsercons\fP dev0
 Open serial console with dev0 device.
 .TP
 \fBserread\fP dev0
@@ -562,6 +563,9 @@ the default 0x60 will be used.
 .B modshell.ini
 General configuration file in user's directory on Windows or Unix-like system
 or in the settings folder of the program on DOS.
+.TP
+.B console.log
+Serial console traffic.
 .TP
 .B scriptfiles[.bat]
 The script file is used for batch execution of ModShell commands. The commands
