@@ -102,10 +102,10 @@ BUILTIN COMMANDS
 
        help   Show description or usage of the builtin commands.
 
-       pause pause ["MESSAGE"] [[$]TIME]
+       pause ["MESSAGE"] [[$]TIME]
               Print a message and wait for a keystroke or specified time.
 
-       pause pause [$MESSAGE] [[$]TIME]
+       pause [$MESSAGE] [[$]TIME]
               Print a message from variable and wait for a keystroke or specified time.
 
        print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
