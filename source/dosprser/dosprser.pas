@@ -72,12 +72,19 @@ var
   rds: boolean;
   i: byte;
 
-function  getstring: string;
+function getchar: char;
+function getstring: string;
+procedure putchar(c: char);
 procedure putstring(s: string);
 procedure init(defaults: byte; com: word; speed: word);
 procedure done;
 
 implementation
+
+function newchar: boolean;
+begin
+  if rbs <> rbe then result := true else result := false;
+end;
 
 procedure receiveirq; assembler;
 asm
@@ -104,7 +111,7 @@ procedure endreceiveirq;
 begin
 end;
 
-function  getchar: char; assembler;
+function getchar: char; assembler;
 asm
    mov   rds, 0
    mov   eax, rbs

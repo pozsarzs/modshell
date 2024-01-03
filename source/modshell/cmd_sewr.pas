@@ -81,7 +81,7 @@ begin
         1: writeln(s2);
         2: begin
              for b := 1 to length(s2) do
-               write(deztohex(inttostr(ord(s2[b]))) + ' ');
+               write(addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ');
              writeln;
            end;
       end;

@@ -20,5 +20,85 @@
 
 // COMMAND 'SERCONS'
 procedure cmd_sercons(p1: string);
+var
+  c: char;
+  i1: integer;             // parameters other type
+  s1: string;              // parameters in other type
+  valid: boolean = false;
+  x: boolean = false;
+
+  // LOCAL ECHO
+  procedure localecho(c: char);
+  begin
+    case echo of
+      1: write(c);
+      2: write(addsomezero(2, deztohex(inttostr(ord(c)))) + ' ');    
+    end;
+  end;
+
 begin
+  // CHECK LENGTH OF PARAMETER
+  if (length(p1) = 0) then
+  begin
+    write(MSG30);
+    repeat
+      c := readkey;
+      i1 := ord(c);
+    until ((i1 > 47) and (i1 < 56)) or (c = #27);
+    if c = #27 then exit;
+    writeln(c);
+    i1 := i1 - 48;
+  end else
+  begin
+    // CHECK P1 PARAMETER
+    s1 := p1;
+    delete(s1, length(s1), 1);
+    if PREFIX[0]  = s1 then valid := true;
+    if valid then
+      if length(p1) >= 4 then
+      begin
+         i1 := strtointdef(p1[4],-1);
+         if (i1 >= 0) and (i1 < 8) then valid := true;
+      end;
+    if not valid then
+    begin
+      write('1st ' + MSG05); // What is the 1st parameter?
+      writeln(' ' + PREFIX[0] + '[0-7]');
+      exit;
+    end;
+  end;  
+  if not dev[i1].valid then
+  begin
+    writeln(PREFIX[0], i1, MSG06);
+    exit;
+  end;
+  if not (dev[i1].devtype = 1) then
+  begin
+    writeln(MSG24);
+    exit;
+  end;
+  // PRIMARY MISSION
+  with dev[i1] do
+    if ser_init(device, speed, databit, parity, stopbit) then  
+    begin
+      writeln(MSG29);
+      writeln(MSG28 + ECHO_ARG[echo]);        
+      repeat
+        c := readkey;
+        if c = #0 then
+          if readkey = #68 then x := true;
+        ser_chwrite(c);
+        localecho(c);
+        if c = #13 then
+        begin
+          c := #10;
+          ser_chwrite(c);
+          localecho(c);
+        end;
+        write(ser_chread);
+      until x;
+      ser_close;
+      writeln;
+      writeln;
+    end else writeln(MSG18);
 end;

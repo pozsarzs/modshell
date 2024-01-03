@@ -20,6 +20,8 @@ uses
   crt,
   sysutils;
 
+function addzero(v: word): string;
+function addsomezero(n: byte; s: string): string;
 function hex2(s: string): string;
 function lrc(s: string): word;
 function chkecklrc(s: string; l: word): boolean;
@@ -35,6 +37,24 @@ procedure ewrite(fg: byte; hl: byte; t: string);
 procedure xywrite(x, y: byte; c: boolean; s: string);
 
 implementation
+
+// INSERT ZERO BEFORE [0-9]
+function addzero(v: word): string;
+var
+  u: string;
+begin
+  str(v:0, u);
+  if length(u) = 1 then u := '0' + u;
+   addzero := u;
+end;
+
+// INSERT SOME ZERO BEFORE STRING
+function addsomezero(n: byte; s: string): string;
+begin
+  while length(s) <> n do
+    s := '0' + s;
+  result := s;
+end;
 
 // CONVERT A STRING OF ASCII CODED HEXA BYTES TO STRING OF HEXA BYTES }
 function hex2(s: string): string;

@@ -18,16 +18,6 @@ procedure cmd_date;
 var
   y, mh, d, w, h, m, s, cs: word;
 
-  // INSERT ZERO BEFORE [0-9]
-  function addzero(v: word): string;
-  var
-    u: string;
-  begin
-    str(v:0, u);
-    if length(u) = 1 then u := '0' + u;
-    addzero := u;
-  end;
-
 begin
   getdate(y, mh, d, w);
   gettime(h, m, s, cs);

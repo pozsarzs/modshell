@@ -28,14 +28,6 @@ var
   rt: byte;               // register type
   valid: boolean = false;
 
-  // INSERT SOME ZERO BEFORE STRING
-  function addzero(n: byte; s: string): string;
-  begin
-    while length(s) <> n do
-      s := '0' + s;
-    result := s;
-  end;
-  
 begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) then
@@ -94,15 +86,15 @@ begin
   writeln;
   for line := 0 to screenheight - 5 do
   begin
-    write(addzero(4, inttostr(i2 + (line * 10)))); // address
+    write(addsomezero(4, inttostr(i2 + (line * 10)))); // address
     for column := 0 to 9 do  // content
       if ((i2 + column) + line * 10) < 10000 then
       begin
         case rt of
           0: xywrite((5 * (column + 1)) + 2, wherey, false, inttostr(booltoint(dinp[(i2 + column) + line * 10])));
           1: xywrite((5 * (column + 1)) + 2, wherey, false, inttostr(booltoint(coil[(i2 + column) + line * 10])));
-          2: xywrite((5 * (column + 1)) + 2, wherey, false, addzero(4, deztohex(inttostr(ireg[(i2 + column) + line * 10]))));
-          3: xywrite((5 * (column + 1)) + 2, wherey, false, addzero(4, deztohex(inttostr(hreg[(i2 + column) + line * 10]))));
+          2: xywrite((5 * (column + 1)) + 2, wherey, false, addsomezero(4, deztohex(inttostr(ireg[(i2 + column) + line * 10]))));
+          3: xywrite((5 * (column + 1)) + 2, wherey, false, addsomezero(4, deztohex(inttostr(hreg[(i2 + column) + line * 10]))));
         end;
       end else exit;
     writeln;

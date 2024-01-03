@@ -194,6 +194,8 @@ resourcestring
   MSG26 = 'Local register type (dinp/coil/ireg/hreg: 1/2/3/4): ';
   MSG27 = 'Start address (0-9990): ';
   MSG28 = 'Echo mode: ';
+  MSG29 = 'Mini serial console (exit: <F10>)';
+  MSG30 = 'Device number (0-7): ';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // ERROR MESSAGES
   ERR00 = 'No such command!';

@@ -113,6 +113,14 @@ msgstr ""
 msgid "Echo mode: "
 msgstr ""
 
+#: modshell:msg29
+msgid "Mini serial console (exit: <F10>)"
+msgstr ""
+
+#: modshell:msg30
+msgid "Device number (0-7): "
+msgstr ""
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr ""

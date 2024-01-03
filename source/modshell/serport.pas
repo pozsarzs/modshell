@@ -30,15 +30,43 @@ const
 {$ELSE}
 {$ENDIF}
 
+// READ CHAR FROM SERIAL PORT
+function ser_chread: char;
+begin
+  {$IFDEF LOOPCONNECT}
+    result := loopconnectbuffer[1];
+    delay(25);
+  {$ELSE}
+    {$IFDEF GO32V2}
+      result := getchar;
+    {$ELSE}
+    {$ENDIF}
+  {$ENDIF}
+end;
+
 // READ STRING FROM SERIAL PORT
 function ser_read: string;
 begin
   {$IFDEF LOOPCONNECT}
     result := loopconnectbuffer;
-    delay(500);
+    delay(25);
   {$ELSE}
     {$IFDEF GO32V2}
       result := getstring;
+    {$ELSE}
+    {$ENDIF}
+  {$ENDIF}
+end;
+
+// WRITE CHAR TO SERIAL PORT
+procedure ser_chwrite(c: char);
+begin
+  {$IFDEF LOOPCONNECT}
+    loopconnectbuffer := c;
+    delay(25);
+  {$ELSE}
+    {$IFDEF GO32V2}
+      putchar(c);
     {$ELSE}
     {$ENDIF}
   {$ENDIF}
@@ -49,7 +77,7 @@ procedure ser_write(s: string);
 begin
   {$IFDEF LOOPCONNECT}
     loopconnectbuffer := s;
-    delay(500);
+    delay(25);
   {$ELSE}
     {$IFDEF GO32V2}
       putstring(s);
