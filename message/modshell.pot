@@ -109,6 +109,10 @@ msgstr ""
 msgid "Start address (0-9990): "
 msgstr ""
 
+#: modshell:msg28
+msgid "Echo mode: "
+msgstr ""
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr ""
@@ -286,7 +290,7 @@ msgid "       export command line history to make a script easily"
 msgstr ""
 
 #: modshell:des17
-msgid "       convert value between different numeral systems"
+msgid "ALT-C  convert value between different numeral systems"
 msgstr ""
 
 #: modshell:des18
@@ -354,7 +358,7 @@ msgid "F6     dump all registers in binary/hexadecimal format to a table"
 msgstr ""
 
 #: modshell:des34
-msgid "       print a message and wait for a keystroke or specified time"
+msgid "       wait for a keystroke or specified time"
 msgstr ""
 
 #: modshell:des35
@@ -367,6 +371,10 @@ msgstr ""
 
 #: modshell:des37
 msgid "       write string to serial device"
+msgstr ""
+
+#: modshell:des38
+msgid "F9     query local echo status or enable/disable it"
 msgstr ""
 
 #: modshell:usg00
@@ -556,8 +564,7 @@ msgstr ""
 
 #: modshell:usg34
 msgid ""
-"pause [\"MESSAGE\"] [[$]TIME]\015\n"
-"  pause [$MESSAGE] [[$]TIME]\015\n"
+"pause [[$]TIME]\015\n"
 "Notes:\015\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
@@ -582,5 +589,9 @@ msgid ""
 "  swrite dev? \"MESSAGE\"\015\n"
 "Notes:\015\n"
 "  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg38
+msgid "echo [off|on|hex]"
 msgstr ""
 

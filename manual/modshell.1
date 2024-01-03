@@ -94,17 +94,18 @@ Set foreground and background color in full screen mode.
 \fBdate\fP
 Show system date and time.
 .TP
+\fBecho\fP [\fIoff\fP|\fIon\fP|\fIhex\fP]
+Query local echo status or enable/disable it for serial connections.
+Hex means the hexadecimal representation of the bytes.
+.TP
 \fBexit\fP
 Exit from program.
 .TP
 \fBhelp\fP
 Show description or usage of the builtin commands.
 .TP
-\fBpause\fP \fI["MESSAGE"]\fP \fI[[$]TIME]\fP
-Print a message and wait for a keystroke or specified time.
-.TP
-\fBpause\fP \fI[$MESSAGE]\fP \fI[[$]TIME]\fP
-Print a message from variable and wait for a keystroke or specified time.
+\fBpause\fP \fI[[$]TIME]\fP
+Wait for a keystroke or specified time.
 .TP
 \fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Print content of the one or more registers. Register start \fIADDRESS\fP and
@@ -298,6 +299,15 @@ Save all registers to four typed files.
 .SH EXAMPLES
 .SS General commands
 .TP
+\fBecho\fP
+Query local echo status.
+.TP
+\fBecho\fP on
+Enable local echo it for serial connections.
+.TP
+\fBecho\fP hex
+Enable local echo with hexadecimal representation of the bytes.
+.TP
 \fBhelp\fP
 Show short description of the useable commands.
 .TP
@@ -310,11 +320,8 @@ Wait for a key press.
 \fBpause\fP 5
 Wait for 5 sec.
 .TP
-\fBpause "Press\ any\ key\ to\ continue..."\fP
-Show message and wait for a key press.
-.TP
-\fBpause $MESSAGE 5
-Show message from $MESSAGE and wait 5 sec.
+\fBpause\fP $TIME
+Wait for value of the $TIME sec.
 .TP
 \fBprint\fP $a
 Print value of the $a variable.
@@ -521,6 +528,9 @@ sercons command
 .TP
 \fBF8\fP
 cls command
+.TP
+\fBF9\fP
+echo swap command
 .TP
 \fBF10\fP
 exit command

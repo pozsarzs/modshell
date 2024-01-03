@@ -22,6 +22,7 @@
 // COMMAND 'SERWRITE'
 procedure cmd_serwrite(p1, p2: string);
 var
+  b: byte;
   i1: integer;             // parameters other type
   s1, s2: string;          // parameters in other type
   valid: boolean = false;
@@ -59,14 +60,31 @@ begin
     writeln(MSG24);
     exit;
   end;
-  // CHECK P2 PARAMETER
-  s2 := isitvariable(p2);
-  if length(s2) = 0 then s2 := p2;
+  // CHECK P2 PARAMETER: IS IT A MESSAGE?
+  s2 := isitmessage(p2);
+  if length(s2) = 0 then 
+  begin
+    // CHECK P2 PARAMETER
+    s2 := isitvariable(p2);
+    if length(s2) = 0 then
+    begin
+      write ('hiba');
+      exit;
+    end;
+  end;
   // PRIMARY MISSION
   with dev[i1] do
     if ser_init(device, speed, databit, parity, stopbit) then  
     begin
       ser_write(s2);
+      case echo of
+        1: writeln(s2);
+        2: begin
+             for b := 1 to length(s2) do
+               write(deztohex(inttostr(ord(s2[b]))) + ' ');
+             writeln;
+           end;
+      end;
       ser_close;
     end else writeln(MSG18);
 end;

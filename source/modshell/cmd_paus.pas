@@ -13,11 +13,26 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0  p1      p2         p3
-  -------------------------------
+  p0    p1
+  ---------------
+  pause [[$]TIME]
+  pause [[$]TIME]
 }
 
 // COMMAND 'PAUSE'
-procedure cmd_pause(p1, p2: string);
+procedure cmd_pause(p1: string);
+var
+  s1: string;  // parameter in other type
 begin
+  // CHECK LENGTH OF PARAMETERS
+  if (length(p1) = 0) then readkey else
+  begin
+    // CHECK P1 PARAMETER
+    s1 := isitvariable(p1);
+    if length(s1) = 0 then s1 := p1;
+    // PRIMARY MISSION
+    if strtointdef(s1, -1) > -1
+      then delay(strtoint(s1) * 1000)
+      else writeln('1st ' + MSG05 + ' 1-65535'); // What is the 1st parameter?
+  end;
 end;

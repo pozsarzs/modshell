@@ -96,6 +96,7 @@ preserved.
 |cls     |general |F8    |clear screen                                                     |
 |color   |general |      |set foreground and background color in full screen mode          |
 |date    |general |      |show system date and time                                        |
+|echo    |general |      |enable/disable local echo for serial connections                 |
 |exit    |general |F10   |exit                                                             |
 |help    |general |F1    |show description or usage of the commands                        |
 |pause   |general |      |print a message and wait for a keystroke or specified time       |

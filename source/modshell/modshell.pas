@@ -79,6 +79,7 @@ var
   // OTHERS
   appmode: byte;
   b: byte;
+  echo: byte = 0;
   lang: string;
   // splitted command line
   splitted: array[0..7] of string;
@@ -97,14 +98,15 @@ const
     ('-r','--run','run script')
   );
   // COMMANDS AND PARAMETERS
-  COMMANDS: array[0..37] of string = ('copy','exit','get','help','let',
+  COMMANDS: array[0..38] of string = ('copy','exit','get','help','let',
                                       'print','read','reset','set','date',
                                       'ver','write','cls','savecfg',
                                       'loadcfg','expreg','exphis','conv',
                                       'savereg','loadreg','var','color',
                                       'impreg','and','or','not','xor','shl',
                                       'shr','add','sub','mul','div','dump',
-                                      'pause','sercons','serread','serwrite');
+                                      'pause','sercons','serread','serwrite',
+                                      'echo');
   PROMPT = 'MODSH|_>';
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
@@ -114,6 +116,7 @@ const
   PROT_TYPE: array[0..2] of string = ('ascii','rtu','tcp');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');
   PREFIX: array[0..3] of string = ('dev','pro','con','prj');
+  ECHO_ARG: array[0..3] of string = ('off','on','hex','swap');
   // OTHERS
   PRGCOPYRIGHT = '(C) 2023 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'ModShell';
@@ -190,6 +193,7 @@ resourcestring
   MSG25 = 'Select register type: ';
   MSG26 = 'Local register type (dinp/coil/ireg/hreg: 1/2/3/4): ';
   MSG27 = 'Start address (0-9990): ';
+  MSG28 = 'Echo mode: ';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // ERROR MESSAGES
   ERR00 = 'No such command!';
@@ -236,7 +240,7 @@ resourcestring
   DES14='F3     load settings of device, protocol and connection';
   DES15='ALT-E  export value of the one or more registers';
   DES16='       export command line history to make a script easily';
-  DES17='       convert value between different numeral systems';
+  DES17='ALT-C  convert value between different numeral systems';
   DES18='F4     save all registers';
   DES19='F5     load all registers';
   DES20='       list all variable with value or define a new one';
@@ -253,10 +257,11 @@ resourcestring
   DES31='       multiplication mathematical operation';
   DES32='       division mathematical operation';
   DES33='F6     dump all registers in binary/hexadecimal format to a table';
-  DES34='       print a message and wait for a keystroke or specified time';
+  DES34='       wait for a keystroke or specified time';
   DES35='F7     open a simple serial console';
   DES36='       read string from serial device';
   DES37='       write string to serial device';
+  DES38='F9     query local echo status or enable/disable it';
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #13 + #10 +
         'Notes:' + #13 + #10 +
@@ -330,8 +335,7 @@ resourcestring
   USG31='mul $TARGET [$]VALUE1 [$]VALUE2';
   USG32='div $TARGET [$]VALUE1 [$]VALUE2';
   USG33='dump [[dinp|coil|ireg|hreg] [$]ADDRESS]';
-  USG34='pause ["MESSAGE"] [[$]TIME]' + #13 + #10 +
-        '  pause [$MESSAGE] [[$]TIME]' + #13 + #10 +
+  USG34='pause [[$]TIME]' + #13 + #10 +
         'Notes:' + #13 + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
   USG35='sercons [dev?]' + #13 + #10 +
@@ -344,7 +348,7 @@ resourcestring
         '  swrite dev? "MESSAGE"' + #13 + #10 +
         'Notes:' + #13 + #10 +
         '  - The ''?'' value can be 0-7.';
-
+  USG38='echo [off|on|hex]';
 procedure version(h: boolean); forward;
 
 // IF S IS A VARIABLE, IT RETURNS theirs number
@@ -428,6 +432,7 @@ end;
 {$I cmd_copy.pas}
 {$I cmd_date.pas}
 {$I cmd_dump.pas}
+{$I cmd_echo.pas}
 {$I cmd_exph.pas}
 {$I cmd_expr.pas}
 {$I cmd_get.pas}
@@ -496,7 +501,7 @@ begin
       o := false;
       if splitted[0][1] <> COMMENT then
       begin
-        for b := 0 to 37 do
+        for b := 0 to 38 do
           if splitted[0] = COMMANDS[b] then
           begin
             o := true;
@@ -562,9 +567,8 @@ begin
                // impreg FILENAME
            33: cmd_dump(splitted[1], splitted[2]);
                // dump [dinp|coil|ireg|hreg]
-           34: cmd_pause(splitted[1], splitted[2]);
-               // pause ["MESSAGE"] [[$]TIME]
-               // pause [$MESSAGE] [[$]TIME]
+           34: cmd_pause(splitted[1]);
+               // pause [[$]TIME]
            35: cmd_sercons(splitted[1]);
                // sercons [dev?]
            36: cmd_serread(splitted[1], splitted[2]);
@@ -572,6 +576,8 @@ begin
            37: cmd_serwrite(splitted[1], splitted[2]);
                // serwrite dev? "MESSAGE"
                // serwrite dev? $MESSAGE
+           38: cmd_echo(splitted[1]);
+               // echo [off|on|hex|swap]
           else
           begin
             if (b > 22) and (b < 29) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
@@ -612,23 +618,47 @@ begin
       begin
         c := readkey;
         // ONLY INSERT
-        if c = #34 then begin command := COMMANDS[2]; c := #32; end;             // ~G
-        if c = #38 then begin command := COMMANDS[4]; c := #32; end;             // ~L
-        if c = #25 then begin command := COMMANDS[5]; c := #32; end;             // ~P
-        if c = #19 then begin command := COMMANDS[6]; c := #32; end;             // ~R
-        if c = #20 then begin command := COMMANDS[7]; c := #32; end;             // ~T
-        if c = #31 then begin command := COMMANDS[8]; c := #32; end;             // ~S
-        if c = #17 then begin command := COMMANDS[11]; c := #32; end;            // ~W
+        if c = #34 then
+          begin command := COMMANDS[17]; c := #32; end;                    // ~C
+        if c = #34 then
+          begin command := COMMANDS[15]; c := #32; end;                    // ~E
+        if c = #34 then
+          begin command := COMMANDS[22]; c := #32; end;                    // ~I
+        if c = #34 then
+          begin command := COMMANDS[2]; c := #32; end;                     // ~G
+        if c = #38 then
+          begin command := COMMANDS[4]; c := #32; end;                     // ~L
+        if c = #25 then
+          begin command := COMMANDS[5]; c := #32; end;                     // ~P
+        if c = #19 then
+          begin command := COMMANDS[6]; c := #32; end;                     // ~R
+        if c = #20 then
+          begin command := COMMANDS[7]; c := #32; end;                     // ~T
+        if c = #31 then
+          begin command := COMMANDS[8]; c := #32; end;                     // ~S
+        if c = #17 then
+          begin command := COMMANDS[11]; c := #32; end;                    // ~W
         // INSERT AND RUN
-        if c = #59 then begin command := COMMANDS[3]; c:=#13; end;               // F1
-        if c = #60 then begin command := COMMANDS[13] + #32 + proj; c:=#13; end; // F2
-        if c = #61 then begin command := COMMANDS[14] + #32 + proj; c:=#13; end; // F3
-        if c = #62 then begin command := COMMANDS[18] + #32 + proj; c:=#13; end; // F4
-        if c = #63 then begin command := COMMANDS[19] + #32 + proj; c:=#13; end; // F5
-        if c = #64 then begin command := COMMANDS[33] + #32 + proj; c:=#13; end; // F6
-        if c = #65 then begin command := COMMANDS[35]; c:=#13; end;              // F7
-        if c = #66 then begin command := COMMANDS[12]; c:=#13; end;              // F8
-        if c = #68 then begin command := COMMANDS[1]; c:=#13; end;               // F10
+        if c = #59 then
+          begin command := COMMANDS[3]; c:=#13; end;                       // F1
+        if c = #60 then 
+          begin command := COMMANDS[13] + #32 + proj; c:=#13; end;         // F2
+        if c = #61 then
+          begin command := COMMANDS[14] + #32 + proj; c:=#13; end;         // F3
+        if c = #62 then
+          begin command := COMMANDS[18] + #32 + proj; c:=#13; end;         // F4
+        if c = #63 then 
+          begin command := COMMANDS[19] + #32 + proj; c:=#13; end;         // F5
+        if c = #64 then 
+          begin command := COMMANDS[33] + #32 + proj; c:=#13; end;         // F6
+        if c = #65 then
+          begin command := COMMANDS[35]; c:=#13; end;                      // F7
+        if c = #66 then
+          begin command := COMMANDS[12]; c:=#13; end;                      // F8
+        if c = #67 then
+          begin command := COMMANDS[38] + #32 + ECHO_ARG[3]; c:=#13; end;  // F9
+        if c = #68 then
+          begin command := COMMANDS[1]; c:=#13; end;                       // F10
         if c = #72 then
         begin
           if uconfig.histitem > 0 then dec(uconfig.histitem);
