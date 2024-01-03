@@ -345,7 +345,7 @@ resourcestring
         'Notes:' + #13 + #10 +
         '  - The ''?'' value can be 0-7.';
   USG37='serwrite dev? $MESSAGE' + #13 + #10 +
-        '  swrite dev? "MESSAGE"' + #13 + #10 +
+        '  serwrite dev? "MESSAGE"' + #13 + #10 +
         'Notes:' + #13 + #10 +
         '  - The ''?'' value can be 0-7.';
   USG38='echo [off|on|hex]';

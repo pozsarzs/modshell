@@ -586,7 +586,7 @@ msgstr ""
 #: modshell:usg37
 msgid ""
 "serwrite dev? $MESSAGE\015\n"
-"  swrite dev? \"MESSAGE\"\015\n"
+"  serwrite dev? \"MESSAGE\"\015\n"
 "Notes:\015\n"
 "  - The '?' value can be 0-7."
 msgstr ""

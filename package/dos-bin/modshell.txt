@@ -315,8 +315,8 @@ EXAMPLES
        pause 5
               Wait for 5 sec.
 
-       pause $TIME
-              Wait for value of the $TIME sec.
+       pause $time
+              Wait for value of the $time sec.
 
        print $a
               Print value of the $a variable.
@@ -465,14 +465,14 @@ EXAMPLES
        serread dev0
               Read string from dev0 device and write to screen.
 
-       serread dev0 $TARGET
-              Read string from dev0 device and write to $TARGET variable.
+       serread dev0 $target
+              Read string from dev0 device and write to $target variable.
 
        serwrite dev0 "The quick brown fox jumps over the lazy dog."
               Write string to dev0 device.
 
-       serwrite dev0 "$MESSAGE"
-              Write string from $MESSAGE variable to dev0 device.
+       serwrite dev0 "$message"
+              Write string from $message variable to dev0 device.
 
    File operation command
        exphis script
