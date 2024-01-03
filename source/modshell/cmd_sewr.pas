@@ -68,7 +68,7 @@ begin
     s2 := isitvariable(p2);
     if length(s2) = 0 then
     begin
-      write ('hiba');
+      writeln(ERR19);
       exit;
     end;
   end;

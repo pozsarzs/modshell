@@ -13,6 +13,14 @@
   FOR A PARTICULAR PURPOSE.
 }
 
+// Uncomment following line, if you want to simulate serial connection.
+{$DEFINE LOOPCONNECT}
+
+{$IFDEF LOOPCONNECT}
+var
+  loopconnectbuffer: string;
+{$ENDIF}
+
 {$IFDEF GO32V2}
 const
   SPD: array[0..7] of integer = (96, 48, 24, 12, 6, 3, 2, 1);
@@ -25,18 +33,28 @@ const
 // READ STRING FROM SERIAL PORT
 function ser_read: string;
 begin
-  {$IFDEF GO32V2}
-    result := getstring;
+  {$IFDEF LOOPCONNECT}
+    result := loopconnectbuffer;
+    delay(500);
   {$ELSE}
+    {$IFDEF GO32V2}
+      result := getstring;
+    {$ELSE}
+    {$ENDIF}
   {$ENDIF}
 end;
 
 // WRITE STRING TO SERIAL PORT
 procedure ser_write(s: string);
 begin
-  {$IFDEF GO32V2}
-    putstring(s);
+  {$IFDEF LOOPCONNECT}
+    loopconnectbuffer := s;
+    delay(500);
   {$ELSE}
+    {$IFDEF GO32V2}
+      putstring(s);
+    {$ELSE}
+    {$ENDIF}
   {$ENDIF}
 end;
 
@@ -46,21 +64,25 @@ var
   b: byte;
 begin
   result := true;
-  {$IFDEF GO32V2}
-    for b := 0 to 4 do
-      if lowercase(device) = 'com' + inttostr(b + 1) then break;
-    if b < 4
-      then init(PAR[parity] or DBIT[databit] or SBIT[stopbit], b,SPD[speed])
-      else result := false;
-  {$ELSE}
+  {$IFNDEF LOOPCONNECT}
+    {$IFDEF GO32V2}
+      for b := 0 to 4 do
+        if lowercase(device) = 'com' + inttostr(b + 1) then break;
+      if b < 4
+        then init(PAR[parity] or DBIT[databit] or SBIT[stopbit], b,SPD[speed])
+        else result := false;
+    {$ELSE}
+    {$ENDIF}
   {$ENDIF}
 end;
 
 // CLOSE SERIAL PORT
 procedure ser_close;
 begin
-  {$IFDEF GO32V2}
-    done;
-  {$ELSE}
+  {$IFNDEF LOOPCONNECT}
+    {$IFDEF GO32V2}
+      done;
+    {$ELSE}
+    {$ENDIF}
   {$ENDIF}
 end;

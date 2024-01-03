@@ -13,8 +13,9 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0  p1      p2         p3
-  -------------------------------
+  p0     p1
+  -------------
+  sercon [dev?]
 }
 
 // COMMAND 'SERCONS'
