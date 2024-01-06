@@ -78,6 +78,9 @@ function ser_open(device: string; speed: byte; databit: byte; parity: byte; stop
 begin
   result := true;
   {$IFDEF GO32V2}
+    connect(device);
+    config(speed, databit, parity, stopbit);
+    result := not geterror;
   {$ELSE}
     ser := tblockserial.create;
     try

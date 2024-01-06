@@ -28,10 +28,10 @@ var
   newvec: tseginfo; // new interrupt vector
   oldvec: tseginfo; // old interrupt vector
   orgds: word; external name '___v2prt0_ds_alias';
-  rda: boolean = false; // received data available
   ba: word; // base address of the device
-  irq: byte; // IRQ line of the device
   error: boolean = false; // collected error flag
+  irq: byte; // IRQ line of the device
+  rda: boolean = false; // received data available
   
 const
   // default base address and IRQ
@@ -49,25 +49,37 @@ const
   LSR = $05; // Line Status Register
   MSR = $06; // Modem Status Register
   SCR = $07; // Scratch Register
+  // 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200
+  BAUDRATE: array[0..7] of byte = (96, 48, 24, 12, 6, 3, 2, 1);
+  DATABIT: array[7..8] of byte = ($02, $03);
+  // even, none, odd
+  PARITY: array[0..2] of byte = ($18, $00, $08);
+  STOPBIT: array[1..2] of byte = ($00, $04);
   
-function canread(timeout: integer): boolean;
-function canwrite(timeout: integer): boolean;
+function geterror: boolean;
+function canread: boolean;
+function canwrite: boolean;
 function getportaddr: word; 
-function recvbyte(timeout: integer): byte;
-function recvstring(timeout: integer): string;
-procedure config(baud, bits: integer; parity: char; stop: integer);
+function recvbyte: byte;
+function recvstring: string;
+procedure config(baud, bits, par, stop: integer);
 procedure connect(comport: string);
 procedure sendbyte(data: byte);
 procedure sendstring(data: string);
 
 implementation
 
+function geterror: boolean;
+begin
+  result := error;
+end;
+
 procedure recvirq; assembler;
 asm
 end;
 
-procedure recvirqend; assembler;
-asm
+procedure recvirqend;
+begin
 end;
 
 function  getchar: char; assembler;
@@ -88,6 +100,7 @@ end;
 
 function canread(timeout: integer): boolean;
 begin
+  result := rda;
 end;
 
 function canwrite(timeout: integer): boolean;
@@ -96,6 +109,7 @@ end;
 
 function getportaddr: word; 
 begin
+  result := ba;
 end;
 
 function recvbyte(timeout: integer): byte;
@@ -106,8 +120,17 @@ function recvstring(timeout: integer): string;
 begin
 end;
 
-procedure config(baud, bits: integer; parity: char; stop: integer);
+procedure config(baud, bits, par, stop: integer);
 begin
+  disable;
+  init(PARITY[par] or DATABIT[bits] OR STOPBITS[stop]);
+  setspeed(BAUDRATE[speed]);
+
+
+
+
+
+  enable;
 end;
 
 procedure connect(comport: string);
