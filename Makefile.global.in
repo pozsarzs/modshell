@@ -37,6 +37,7 @@ fpflag		= -T@os@ \
                   -O1 \
                   -ve \
                   -Fu../convert/ \
+                  -Fu../synapse/ \
                   -Fu. \
                   -Fu../lib/@architecture@-@os@/ \
                   -FE../lib/@architecture@-@os@/ \

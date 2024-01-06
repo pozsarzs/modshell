@@ -73,18 +73,21 @@ begin
     end;
   end;
   // PRIMARY MISSION
-  with dev[i1] do
+  with dev[i1] do  
     if ser_open(device, speed, databit, parity, stopbit) then  
     begin
-      ser_write(s2);
-      case echo of
-        1: writeln(s2);
-        2: begin
-             for b := 1 to length(s2) do
-               write(addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ');
-             writeln;
-           end;
-      end;
+      if ser_canwrite then
+      begin
+        ser_sendstring(s2);
+        case echo of
+          1: writeln(s2);
+          2: begin
+               for b := 1 to length(s2) do
+                 write(addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ');
+               writeln;
+             end;
+        end;
+      end else writeln(ERR27);
       ser_close;
-    end else writeln(MSG18);
+    end else writeln(ERR18, dev[i1].device);
 end;

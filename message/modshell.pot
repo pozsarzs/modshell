@@ -198,7 +198,7 @@ msgid "There is already a variable with that name"
 msgstr ""
 
 #: modshell:err18
-msgid "Cannot initialize serial port!"
+msgid "Cannot initialize serial port: "
 msgstr ""
 
 #: modshell:err19
@@ -227,6 +227,14 @@ msgstr ""
 
 #: modshell:err25
 msgid "Specified device is not a ethernet port!"
+msgstr ""
+
+#: modshell:err26
+msgid "Cannot read data from serial port!"
+msgstr ""
+
+#: modshell:err27
+msgid "Cannot write data to serial port!"
 msgstr ""
 
 #: modshell:des00

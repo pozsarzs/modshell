@@ -13,90 +13,88 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-// Uncomment following line, if you want to simulate serial connection.
-{$DEFINE LOOPCONNECT}
+// TRUE IF THERE IS RECEIVED DATA	
+function ser_canread: boolean;
+begin
+  {$IFDEF GO32V2}
+    result := canread;
+  {$ELSE}
+    result := ser.canread(DEV_TIMEOUT);
+  {$ENDIF}
+end;
 
-{$IFDEF LOOPCONNECT}
-var
-  loopconnectbuffer: string;
-{$ENDIF}
+// TRUE, ALL DATA HAS BEEN SENT
+function ser_canwrite: boolean;
+begin
+  {$IFDEF GO32V2}
+    result := canwrite;
+  {$ELSE}
+    result := ser.canwrite(DEV_TIMEOUT);
+  {$ENDIF}
+end;
 
 // READ CHAR FROM SERIAL PORT
-function ser_chread: char;
+function ser_recvbyte: byte;
 begin
-  {$IFDEF LOOPCONNECT}
-    result := loopconnectbuffer[1];
-    delay(25);
+  {$IFDEF GO32V2}
+    result := recvbyte;
   {$ELSE}
-    {$IFDEF GO32V2}
-    {$ELSE}
-    {$ENDIF}
+    result := ser.recvbyte(DEV_TIMEOUT);
   {$ENDIF}
 end;
 
 // READ STRING FROM SERIAL PORT
-function ser_read: string;
+function ser_recvstring: string;
 begin
-  {$IFDEF LOOPCONNECT}
-    result := loopconnectbuffer;
-    delay(25);
+  {$IFDEF GO32V2}
+    result := recvstring;
   {$ELSE}
-    {$IFDEF GO32V2}
-    {$ELSE}
-    {$ENDIF}
+    result := ser.recvstring(DEV_TIMEOUT);
   {$ENDIF}
 end;
 
 // WRITE CHAR TO SERIAL PORT
-procedure ser_chwrite(c: char);
+procedure ser_sendbyte(b: byte);
 begin
-  {$IFDEF LOOPCONNECT}
-    loopconnectbuffer := c;
-    delay(25);
+  {$IFDEF GO32V2}
+    sendbyte(b);
   {$ELSE}
-    {$IFDEF GO32V2}
-    {$ELSE}
-    {$ENDIF}
+    ser.sendbyte(b);
   {$ENDIF}
 end;
 
 // WRITE STRING TO SERIAL PORT
-procedure ser_write(s: string);
+procedure ser_sendstring(s: string);
 begin
-  {$IFDEF LOOPCONNECT}
-    loopconnectbuffer := s;
-    delay(25);
+  {$IFDEF GO32V2}
+    sendstring(s);
   {$ELSE}
-    {$IFDEF GO32V2}
-    {$ELSE}
-    {$ENDIF}
+    ser.sendstring(s);
   {$ENDIF}
 end;
 
 // OPEN SERIAL PORT
 function ser_open(device: string; speed: byte; databit: byte; parity: byte; stopbit: byte): boolean;
-var
-  b: byte;
 begin
   result := true;
-  {$IFNDEF LOOPCONNECT}
-    {$IFDEF GO32V2}
-      for b := 0 to 4 do
-        if lowercase(device) = 'com' + inttostr(b + 1) then break;
-      if b < 4
-        then begin end;
-        else result := false;
-    {$ELSE}
-    {$ENDIF}
+  {$IFDEF GO32V2}
+  {$ELSE}
+    ser := tblockserial.create;
+    try
+      ser.connect(device);
+      ser.config(strtoint(DEV_SPEED[speed]), databit, DEV_PARITY[parity], stopbit, False, False);
+    except
+      writeln(ERR18, device);
+      result := false;
+    end;
   {$ENDIF}
 end;
 
 // CLOSE SERIAL PORT
 procedure ser_close;
 begin
-  {$IFNDEF LOOPCONNECT}
-    {$IFDEF GO32V2}
-    {$ELSE}
-    {$ENDIF}
+  {$IFDEF GO32V2}
+  {$ELSE}
+    ser.free;
   {$ENDIF}
 end;

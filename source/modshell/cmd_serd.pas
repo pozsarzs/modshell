@@ -73,17 +73,20 @@ begin
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then  
     begin
-      s := ser_read;
-      case echo of
-        1: writeln(s);
-        2: begin
-             for b := 1 to length(s) do
-               write(addsomezero(2, deztohex(inttostr(ord(s[b])))) + ' ');
-             writeln;
-           end;
-      end;
-      if (echo = 0) and (length(p2) = 0) then writeln(s);
-      if length(p2) > 0 then vars[intisitvariable(p1)].vvalue := s;
+      if ser_canread then
+      begin
+        s := ser_recvstring;
+        case echo of
+          1: writeln(s);
+          2: begin
+               for b := 1 to length(s) do
+                 write(addsomezero(2, deztohex(inttostr(ord(s[b])))) + ' ');
+               writeln;
+             end;
+        end;
+        if (echo = 0) and (length(p2) = 0) then writeln(s);
+        if length(p2) > 0 then vars[intisitvariable(p1)].vvalue := s;
+      end else writeln(ERR26);
       ser_close;
-    end else writeln(MSG18);
+    end else writeln(ERR18, dev[i1].device);
 end;

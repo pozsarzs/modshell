@@ -16,6 +16,11 @@
 {$MODE OBJFPC}{$H+}{$MACRO ON}
 program modshell;
 uses
+  {$IFDEF GO32V2}
+    protcom,
+  {$ELSE}
+    synaser,
+  {$ENDIF}
   convert,
   crt,
   dom,
@@ -56,6 +61,7 @@ type
     vvalue: string[255];
   end;
 var
+  ser: tblockserial;
   // BUFFER
   coil: array[1..9999] of boolean;
   dinp: array[1..9999] of boolean;
@@ -107,7 +113,8 @@ const
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
                                       '38400','57600','115200');
-  DEV_PARITY: array[0..2] of string = ('e','n','o');
+  DEV_PARITY: array[0..2] of char = ('e','n','o');
+  DEV_TIMEOUT: integer = 5000;
   FILE_TYPE: array[0..2] of string = ('csv','ini','xml');
   PROT_TYPE: array[0..2] of string = ('ascii','rtu','tcp');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');
@@ -212,7 +219,7 @@ resourcestring
   ERR15 = 'Illegal character in the variable name!';
   ERR16 = 'Cannot define more variable!';
   ERR17 = 'There is already a variable with that name';
-  ERR18 = 'Cannot initialize serial port!';
+  ERR18 = 'Cannot initialize serial port: ';
   ERR19 = 'No such variable: ';
   ERR20 = 'Calculating error!';
   ERR21 = 'No such script file: ';
@@ -220,6 +227,8 @@ resourcestring
   ERR23 = 'Script buffer is full!';
   ERR24 = 'Specified device is not a serial port!';
   ERR25 = 'Specified device is not a ethernet port!';
+  ERR26 = 'Cannot read data from serial port!';
+  ERR27 = 'Cannot write data to serial port!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
   DES01='F10    exit';

@@ -85,21 +85,24 @@ begin
       writeln(MSG28 + ECHO_ARG[echo]);        
       repeat
         while not keypressed do
-          write(ser_chread);
+          if ser_canread then write(chr(ser_recvbyte)) else writeln(ERR26);
         c := readkey;
         if c = #0 then
           if readkey = #68 then x := true;
-        ser_chwrite(c);
-        localecho(c);
-        if c = #13 then
+        if ser_canwrite then
         begin
-          c := #10;
-          ser_chwrite(c);
+          ser_sendbyte(ord(c));
           localecho(c);
-        end;
+          if c = #13 then
+          begin
+            c := #10;
+            ser_sendbyte(ord(c));
+            localecho(c);
+          end;
+        end else writeln(ERR27);
       until x;
       ser_close;
       writeln;
       writeln;
-    end else writeln(MSG18);
+    end else writeln(ERR18);
 end;
