@@ -74,7 +74,7 @@ begin
   end;
   // PRIMARY MISSION
   with dev[i1] do
-    if ser_init(device, speed, databit, parity, stopbit) then  
+    if ser_open(device, speed, databit, parity, stopbit) then  
     begin
       ser_write(s2);
       case echo of

@@ -21,15 +21,6 @@ var
   loopconnectbuffer: string;
 {$ENDIF}
 
-{$IFDEF GO32V2}
-const
-  SPD: array[0..7] of integer = (96, 48, 24, 12, 6, 3, 2, 1);
-  PAR: array[0..2] of integer = ($18, $00, $08);
-  DBIT: array[7..8] of integer = ($02, $03);
-  SBIT: array[1..2] of integer = ($00, $04);
-{$ELSE}
-{$ENDIF}
-
 // READ CHAR FROM SERIAL PORT
 function ser_chread: char;
 begin
@@ -38,7 +29,6 @@ begin
     delay(25);
   {$ELSE}
     {$IFDEF GO32V2}
-      result := getchar;
     {$ELSE}
     {$ENDIF}
   {$ENDIF}
@@ -52,7 +42,6 @@ begin
     delay(25);
   {$ELSE}
     {$IFDEF GO32V2}
-      result := getstring;
     {$ELSE}
     {$ENDIF}
   {$ENDIF}
@@ -66,7 +55,6 @@ begin
     delay(25);
   {$ELSE}
     {$IFDEF GO32V2}
-      putchar(c);
     {$ELSE}
     {$ENDIF}
   {$ENDIF}
@@ -80,14 +68,13 @@ begin
     delay(25);
   {$ELSE}
     {$IFDEF GO32V2}
-      putstring(s);
     {$ELSE}
     {$ENDIF}
   {$ENDIF}
 end;
 
 // OPEN SERIAL PORT
-function ser_init(device: string; speed: byte; databit: byte; parity: byte; stopbit: byte): boolean;
+function ser_open(device: string; speed: byte; databit: byte; parity: byte; stopbit: byte): boolean;
 var
   b: byte;
 begin
@@ -97,7 +84,7 @@ begin
       for b := 0 to 4 do
         if lowercase(device) = 'com' + inttostr(b + 1) then break;
       if b < 4
-        then init(PAR[parity] or DBIT[databit] or SBIT[stopbit], b,SPD[speed])
+        then begin end;
         else result := false;
     {$ELSE}
     {$ENDIF}
@@ -109,7 +96,6 @@ procedure ser_close;
 begin
   {$IFNDEF LOOPCONNECT}
     {$IFDEF GO32V2}
-      done;
     {$ELSE}
     {$ENDIF}
   {$ENDIF}

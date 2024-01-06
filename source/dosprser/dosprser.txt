@@ -1,2 +1,0 @@
-The 'dosprser.pas' unit was created based on the 'serial3.pas' sample  program
-of the 'A PC hardver programozása' by László József (ISBN: 963 618 298 1) book.

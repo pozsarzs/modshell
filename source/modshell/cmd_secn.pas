@@ -79,11 +79,13 @@ begin
   end;
   // PRIMARY MISSION
   with dev[i1] do
-    if ser_init(device, speed, databit, parity, stopbit) then  
+    if ser_open(device, speed, databit, parity, stopbit) then  
     begin
       writeln(MSG29);
       writeln(MSG28 + ECHO_ARG[echo]);        
       repeat
+        while not keypressed do
+          write(ser_chread);
         c := readkey;
         if c = #0 then
           if readkey = #68 then x := true;
@@ -95,7 +97,6 @@ begin
           ser_chwrite(c);
           localecho(c);
         end;
-        write(ser_chread);
       until x;
       ser_close;
       writeln;

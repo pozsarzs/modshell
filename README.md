@@ -106,7 +106,7 @@ preserved.
 |copy    |comm.   |      |copy one or more remote registers between two connections        |
 |read    |comm.   |ALT-R |read one or more remote registers                                |
 |write   |comm.   |ALT-W |write data to one or more remote registers                       |
-|sercon  |comm.   |F7    |serial console                                                   |
+|sercons |comm.   |F7    |serial console                                                   |
 |serread |comm.   |      |read a string from serial device                                 |
 |serwrite|comm.   |      |write a string from serial device                                |
 |exphis  |file op.|      |export command line history to file (TXT)                        |

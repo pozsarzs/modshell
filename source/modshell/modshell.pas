@@ -20,10 +20,6 @@ uses
   crt,
   dom,
   dos,
-  {$IFDEF GO32V2}
-    dosprser;
-  {$ELSE}
-  {$ENDIF}
   gettext,
   inifiles,
   strings,
