@@ -1,8 +1,7 @@
-#### Attention! This software is still under development.
+> [!IMPORTANT]
+> The program is still under development, it is not yet suitable for its task.  
+> You can check the status of the program's completion in [DEVSTAT.md](DEVSTAT.md) file.
 
-You can check the status of the program's completion here: <DEVSTAT.md>
-
----
 ## Modshell * Command-driven scriptable Modbus utility
 Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>  
 Homepage: <http://www.pozsarzs.hu>  
@@ -36,9 +35,6 @@ Run example script on bash with ModShell interpreter
    modified BSD style license, Copyright (c) 1999-2012 Lukas Gebauer
 
 #### About
-
-*ATTENTION! The program is still under development,
-it is not yet suitable for its task.*
 
 This is a utility that can be used on several operating systems,
 which can communicate with connected equipment using
