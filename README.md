@@ -1,10 +1,13 @@
 #### Attention! This software is still under development.
+
+You can check the status of the program's completion here: <DEVSTAT.md>
+
 ---
 ## Modshell * Command-driven scriptable Modbus utility
-Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>
-Homepage: <http://www.pozsarzs.hu>
-GitHub: <https://github.com/pozsarzs/modshell>
-Online manual: <https://github.com/pozsarzs/modshell/wiki>
+Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>  
+Homepage: <http://www.pozsarzs.hu>  
+GitHub: <https://github.com/pozsarzs/modshell>  
+Online manual: <https://github.com/pozsarzs/modshell/wiki>  
 
 #### Software
 |features             |                            |

@@ -102,12 +102,23 @@ begin
 end;
 
 // RECEIVE A BYTE
-function recvbyte: byte;
-begin
+function recvbyte: byte; assembler;
+asm
+   mov   RDS,0                  { T�r�lj�k a vett karakter �rv�nyes jelet   }
+   mov   eax,RBS
+   cmp   eax,RBE                { Az �r�si �s az olvas�si mutat� egyezik?   }
+   jz    @exit                  { Kiugr�s, ha igen, nincs �jabb karakter    }
+   lea   ebx,RecvBuff           { Az ebx-et a v�teli bufferre �ll�tjuk      }
+   add   ebx,RBE                { A k�vetkez� olvas�si helyre poz�cion�lunk }
+   mov   al,[ebx]               { Beolvassuk a karaktert                    }
+   inc   RBE                    { N�velj�k az olvas�si mutat�t              }
+   and   RBE,RecvBuffMask       { Maszkoljuk a mutat�t                      }
+   inc   RDS                    { A vett karakter �rv�nyes jelet be�ll�tjuk }
+@exit:
 end;
 
 // RECEIVE A STRING
-function recvstring(timeout: integer): string;
+function recvstring: string;
 begin
 end;
 
@@ -127,8 +138,29 @@ begin
 end;
 
 // NEW INTERRUPT PROCEDURE
-procedure recvirq;
-begin
+procedure recvirq; assembler;
+asm
+   push  DS                     { T�roljuk a regisztereket                  }
+   push  eax
+   push  edx
+
+   mov   DS,CS:[OrgDS]          { A DS-t az adatszegmensre �ll�tjuk         }
+
+   mov   dx,Base                { A b�zisc�met a dx-be t�ltj�k              }
+   in    al,dx                  { Beolvassuk az RBR regisztert              }
+   lea   edx,RecvBuff           { A bx-et a v�teli bufferre �ll�tjuk        }
+   add   edx,RBS                { A k�vetkez� �res helyre poz�cion�lunk     }
+   mov   [edx],al               { T�roljuk a karaktert a bufferben          }
+   inc   RBS                    { N�velj�k az �r�si mutat�t                 }
+   and   RBS,RecvBuffMask       { Maszkoljuk a mutat�t                      }
+
+   mov   al, $20                 { Megszak�t�s v�ge jel az I8259A-nak        }
+   out   $20,al
+
+   pop   edx                    
+   pop   eax
+   pop   DS
+   iret
 end;
 
 // END OF THE NEW INTERRUPT PROCEDURE
