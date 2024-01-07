@@ -97,6 +97,7 @@ end;
 procedure ser_close;
 begin
   {$IFDEF GO32V2}
+    disconnect;
   {$ELSE}
     ser.free;
   {$ENDIF}
