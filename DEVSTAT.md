@@ -130,10 +130,10 @@
 |source/modshell/cmd_read.pas         |READY      |         |
 |source/modshell/cmd_rst.pas          |READY      |         |
 |source/modshell/cmd_scfg.pas         |READY      |         |
-|source/modshell/cmd_secn.pas         |IS WAITING |         |
-|source/modshell/cmd_serd.pas         |IS WAITING |         |
+|source/modshell/cmd_secn.pas         |IN PROGRESS|         |
+|source/modshell/cmd_serd.pas         |IN PROGRESS|         |
 |source/modshell/cmd_set.pas          |READY      |         |
-|source/modshell/cmd_sewr.pas         |IS WAITING |         |
+|source/modshell/cmd_sewr.pas         |IN PROGRESS|         |
 |source/modshell/cmd_sreg.pas         |READY      |         |
 |source/modshell/cmd_var.pas          |READY      |         |
 |source/modshell/cmd_wrte.pas         |READY      |         |
@@ -150,6 +150,7 @@
 |source/modshell/uconfig.pas          |READY      |         |
 |source/modshell/utranslt.pas         |READY      |         |
 |*source/protcom*                     |           |directory|
-|source/protcom/protcom.pas           |IN PROGRESS|         |
+|source/protcom/protcom.pas           |READY      |         |
+|source/protcom/testprco.pas          |READY      |         |
 |*source/synapse*                     |(FOREIGN)  |directory|
 

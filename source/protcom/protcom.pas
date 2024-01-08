@@ -2,7 +2,7 @@
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
 { | protcom.pas                                                              | }
-{ | protected mode serial port handler for DOS                               | }
+{ | ProtCOM unit * protected mode serial port handler for DOS                | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -14,25 +14,16 @@
 }
 
 {$IFNDEF GO32V2}
-  {$MESSAGE FATAL This unit can only be used on DOS!} 
+  {$MESSAGE FATAL This unit can only be used on DOS!}
 {$ENDIF}
 
-{$MODE FPC}
+{$MODE OBJFPC}
 {$ASMMODE INTEL}
 unit protcom;
 interface
 uses
   go32,
   sysutils;
-var
-  newvec: tseginfo; // new interrupt vector
-  oldvec: tseginfo; // old interrupt vector
-  orgds: word; external name '___v2prt0_ds_alias';
-  ba: word; // base address of the UART
-  error: boolean = false; // collected error flag
-  irq: byte; // IRQ line of the device
-  rda: boolean = false; // received data available
-  //recvbuffer
 const
   // default address and IRQ
   DEF_IBA: word = $0020; // PIC
@@ -59,29 +50,34 @@ const
   PARITY: array[0..2] of byte = ($18, $00, $08);
   STOPBIT: array[1..2] of byte = ($00, $04);
   INTMASK: array[3..4] of byte = ($08, $10);
+  RECVBUFFERSIZE = 8192;
+  RECVBUFFERMASK = RECVBUFFERSIZE - 1;
+var
+  newvec: tseginfo; // new interrupt vector
+  oldvec: tseginfo; // old interrupt vector
+  orgds: word; external name '___v2prt0_ds_alias';
+  ba: word; // base address of the UART
+  irq: byte; // IRQ line of the device
+  rda: boolean = false; // received data available
+  nwb: longint; // next byte to write in the receive buffer
+  nrb: longint; // next byte to read in the receive buffer
+  recvbuffer: array[0..RECVBUFFERSIZE - 1] of byte; // receive buffer
 
-function geterror: boolean;
-function getportaddr: word; 
+function getportaddr: word;
 function canread: boolean;
 function canwrite: boolean;
 function recvbyte: byte;
 function recvstring: string;
 procedure sendbyte(data: byte);
 procedure sendstring(data: string);
-procedure connect(comport: string);
+function connect(comport: string): boolean;
 procedure disconnect;
 procedure config(baud, bits, par, stop: integer);
 
 implementation
 
-// GET STATUS OF THE COLLECTED ERROR FLAG
-function geterror: boolean;
-begin
-  result := error;
-end;
-
 // GET BASE ADDRESS OF THE SERIAL PORT
-unction getportaddr: word; 
+function getportaddr: word;
 begin
   result := ba;
 end;
@@ -89,7 +85,7 @@ end;
 // ARE THERE ANY RECEIVED DATA IN THE BUFFER?
 function canread: boolean;
 begin
-  result := rda;
+  if nrb = nwb then result := false else result := true;
 end;
 
 // ALL DATA HAS TRANSMITTED?
@@ -102,32 +98,35 @@ begin
 end;
 
 // RECEIVE A BYTE
-function recvbyte: byte; assembler;
-asm
-   mov   RDS,0                  { T�r�lj�k a vett karakter �rv�nyes jelet   }
-   mov   eax,RBS
-   cmp   eax,RBE                { Az �r�si �s az olvas�si mutat� egyezik?   }
-   jz    @exit                  { Kiugr�s, ha igen, nincs �jabb karakter    }
-   lea   ebx,RecvBuff           { Az ebx-et a v�teli bufferre �ll�tjuk      }
-   add   ebx,RBE                { A k�vetkez� olvas�si helyre poz�cion�lunk }
-   mov   al,[ebx]               { Beolvassuk a karaktert                    }
-   inc   RBE                    { N�velj�k az olvas�si mutat�t              }
-   and   RBE,RecvBuffMask       { Maszkoljuk a mutat�t                      }
-   inc   RDS                    { A vett karakter �rv�nyes jelet be�ll�tjuk }
-@exit:
+function recvbyte: byte;
+begin
+  rda := false;
+  if canread then
+  begin
+    result := recvbuffer[nrb];
+    inc(nrb);
+    nrb := nrb and RECVBUFFERMASK;
+    rda := true;
+  end;
 end;
 
 // RECEIVE A STRING
 function recvstring: string;
+var
+  s: string = '';
 begin
+  repeat
+    s := s + char(recvbyte);
+  until (length(s)=255) or (not canread);
+  result := s;
 end;
 
 // SEND A BYTE
 procedure sendbyte(data: byte);
 begin
-  repeat until not canwrite;
-  writeportb(ba + THR, data);            // data to Transmit Holding Register
-end; 
+  repeat until canwrite;
+  outportb(ba + THR, data);            // data to Transmit Holding Register
+end;
 
 // SEND A STRING
 procedure sendstring(data: string);
@@ -140,26 +139,27 @@ end;
 // NEW INTERRUPT PROCEDURE
 procedure recvirq; assembler;
 asm
-   push  DS                     { T�roljuk a regisztereket                  }
+   push  DS                              // original contents
    push  eax
    push  edx
 
-   mov   DS,CS:[OrgDS]          { A DS-t az adatszegmensre �ll�tjuk         }
+   mov   DS, CS:[OrgDS]                  // set datasegment
 
-   mov   dx,Base                { A b�zisc�met a dx-be t�ltj�k              }
-   in    al,dx                  { Beolvassuk az RBR regisztert              }
-   lea   edx,RecvBuff           { A bx-et a v�teli bufferre �ll�tjuk        }
-   add   edx,RBS                { A k�vetkez� �res helyre poz�cion�lunk     }
-   mov   [edx],al               { T�roljuk a karaktert a bufferben          }
-   inc   RBS                    { N�velj�k az �r�si mutat�t                 }
-   and   RBS,RecvBuffMask       { Maszkoljuk a mutat�t                      }
+   mov   dx, ba                          // read Receive Buffer Register
+   in    al, dx
+   lea   edx, recvbuffer                 // store received char in the recvbuffer
+   add   edx, nwb
+   mov   [edx], al
+   inc   nwb
+   and   nwb, recvbuffermask
 
-   mov   al, $20                 { Megszak�t�s v�ge jel az I8259A-nak        }
-   out   $20,al
+   mov   al, $20                         // end of interrupt for PIC
+   out   $20, al
 
-   pop   edx                    
+   pop   edx                             // restore original content
    pop   eax
    pop   DS
+
    iret
 end;
 
@@ -174,7 +174,7 @@ var
   defaults: byte;
   l: byte;
 begin
-  defaults := PARITY[par] or DATABIT[bits] OR STOPBITS[stop];
+  defaults := PARITY[par] or DATABIT[bits] OR STOPBIT[stop];
   // DISABLE ALL INTERRUPTS
   disable;
   // INITIALIZE UART
@@ -190,7 +190,7 @@ begin
   // set Divisor Latch Access bit (7 bit) of the Line Control Register to 1
   l := inportb(ba + LCR) or $80;
   outportb(ba + LCR, l);
-  outportw(ba, speed);                   // set Divisor Latch Low and High registers
+  outportw(ba, BAUDRATE[baud]);                   // set Divisor Latch Low and High registers
   // set Divisor Latch Access bit (7 bit) of the Line Control Register to 0
   l := l and $7f;
   outportb(ba + LCR, l);
@@ -201,7 +201,7 @@ begin
   lock_code(@recvirq, longint(@recvirqend) - longint(@recvirq));
   lock_data(ba, sizeof(ba));
   lock_data(recvbuffer, sizeof(recvbuffer));
-  lock_data(rba, sizeof(rba));
+  lock_data(rda, sizeof(rda));
   // SET INTERRUPT VECTOR
   newvec.offset:=@recvirq;
   newvec.segment:=get_cs;
@@ -209,7 +209,7 @@ begin
   set_pm_interrupt(irq + 8, newvec);
   // ENABLE IRQ LINE OF THE PIC
   // set 4th or 5th bit of the Interrupt Mask Register to 0
-  outportb($DEF_IBA + IMR21, inportb($DEF_IBA + IMR21) and not INTMASK[irq]);
+  outportb(DEF_IBA + IMR, inportb(DEF_IBA + IMR) and not INTMASK[irq]);
   // ENABLE ALL INTERRUPTS
   enable;
 end;
@@ -243,16 +243,16 @@ begin
   unlock_code(@recvirq, longint(@recvirqend) - longint(@recvirq));
   unlock_data(ba, sizeof(ba));
   unlock_data(recvbuffer, sizeof(recvbuffer));
-  unlock_data(rba, sizeof(rba));
+  unlock_data(rda, sizeof(rda));
 end;
 
 // set base address and IRQ line
-procedure connect(comport: string);
+function connect(comport: string): boolean;
 var
   i: byte;
   s: string = '';
 begin
-  error := false;
+  result := true;
   if length(comport) >= 4 then
   begin
     for i := 1 to 3 do s := s + comport[i];
@@ -261,9 +261,9 @@ begin
       i := strtointdef(comport[4], 0);
       if (i > 0) and (i < 5) then
       begin
-        ba := DEF_BA[i];
+        ba := DEF_SBA[i];
         irq := DEF_IRQ[i];
-      end else error := true;
+      end else result := false;
     end;
   end;
 end;
