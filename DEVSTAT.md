@@ -18,6 +18,8 @@
 |desktop/Makefile                     |READY      |         |
 |desktop/modshell1.desktop            |READY      |         |
 |desktop/modshell2.desktop            |READY      |         |
+|desktop/modshell.ico                 |READY      |         |
+|desktop/modshell.png                 |READY      |         |
 |desktop/modshell.xpm                 |READY      |         |
 |*document*                           |           |directory|
 |document/AUTHORS                     |READY      |         |
