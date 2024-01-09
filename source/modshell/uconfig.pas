@@ -25,13 +25,15 @@ var
   confdir: string;
   ini: TINIFile;
   // settings from/to ini file
-  backgroundcolor, foregroundcolor: integer;
+  colors: array[0..3] of integer;
   histbuff: array[0..255] of string;
   histitem: byte;
   histlast: byte;
+  echo: byte;
 const
-  SECTION: array[0..1] of string = ('cmdline-colors','cmdline-history');
-
+  SECTION: array[0..2] of string = ('cmdline-colors',
+                                    'connection',
+                                    'cmdline-history');
 {$IFDEF UNIX}
   {$DEFINE SLASH := #47}
 {$ELSE}
@@ -72,12 +74,15 @@ begin
   fn := SLASH + basename + extension;
   ini := tinifile.create(confdir + fn);
   try
-    ini.writeinteger(SECTION[0], 'foreground', foregroundcolor);
-    ini.writeinteger(SECTION[0], 'background', backgroundcolor);
-    ini.writeinteger(SECTION[1], 'histitem', histitem);
-    ini.writeinteger(SECTION[1], 'histlast', histlast);
+    ini.writeinteger(SECTION[0], 'foreground', colors[0]);
+    ini.writeinteger(SECTION[0], 'background', colors[1]);
+    ini.writeinteger(SECTION[0], 'receivedtext', colors[2]);
+    ini.writeinteger(SECTION[0], 'transmittedtext', colors[3]);
+    ini.writeinteger(SECTION[1], 'echo', echo);
+    ini.writeinteger(SECTION[2], 'histitem', histitem);
+    ini.writeinteger(SECTION[2], 'histlast', histlast);
     for b := 0 to 255 do
-      ini.writestring(SECTION[1], 'line' + inttostr(b), histbuff[b]);
+      ini.writestring(SECTION[2], 'line' + inttostr(b), histbuff[b]);
   except
     result := false;
   end;
@@ -94,12 +99,15 @@ begin
   fn := SLASH + basename + extension;
   ini := tinifile.create(confdir + fn);
   try
-    foregroundcolor := ini.readinteger(SECTION[0], 'foregroundcolor', 7);
-    backgroundcolor := ini.readinteger(SECTION[0], 'backgroundcolor', 0);
-    histitem := ini.readinteger(SECTION[1], 'histitem', 0);
-    histlast := ini.readinteger(SECTION[1], 'histlast', 0);
+    colors[0] := ini.readinteger(SECTION[0], 'foreground', 7);
+    colors[1] := ini.readinteger(SECTION[0], 'background', 0);
+    colors[2] := ini.readinteger(SECTION[0], 'receivedtext', 10);
+    colors[3] := ini.readinteger(SECTION[0], 'transmittedtext', 12);
+    echo := ini.readinteger(SECTION[1], 'echo', 0);
+    histitem := ini.readinteger(SECTION[2], 'histitem', 0);
+    histlast := ini.readinteger(SECTION[2], 'histlast', 0);
     for b := 0 to 255 do
-      histbuff[b] := ini.readstring(SECTION[1], 'line' + inttostr(b), '');
+      histbuff[b] := ini.readstring(SECTION[2], 'line' + inttostr(b), '');
   except
     result := false;
   end;

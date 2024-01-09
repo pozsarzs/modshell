@@ -121,6 +121,10 @@ msgstr ""
 msgid "Device number (0-7): "
 msgstr ""
 
+#: modshell:msg31
+msgid "Press <Esc> to stop receiving."
+msgstr ""
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr ""
@@ -322,7 +326,7 @@ msgid "       list all variable with value or define a new one"
 msgstr ""
 
 #: modshell:des21
-msgid "       set foreground and background color in full screen mode"
+msgid "       set colors"
 msgstr ""
 
 #: modshell:des22
@@ -522,7 +526,7 @@ msgstr ""
 
 #: modshell:usg21
 msgid ""
-"color [$]FOREGROUND [$]BACKGROUND\015\n"
+"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT\015\n"
 "  colors:\015\n"
 "      0: black  4: red         8: darkgray    12: lightred\015\n"
 "      1: blue   5: magenta:    9: lightblue   13: lightmagenta\015\n"

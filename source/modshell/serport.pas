@@ -80,7 +80,6 @@ begin
   {$IFDEF GO32V2}
     connect(device);
     config(speed, databit, parity, stopbit);
-    result := not geterror;
   {$ELSE}
     ser := tblockserial.create;
     try

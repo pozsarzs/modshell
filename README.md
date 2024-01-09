@@ -85,17 +85,16 @@ two typed files are created, with the following extensions: BDT, IDT.
 One or more same type registers can be exported to file.
 During saving, one text file is created, with CSV extension.
 
-On exit, the command line history and full screen mode command line colors are
-preserved.
+On exit, the command line history, echo mode and colors are preserved.
 
 **Already implemented commands:**
 
 |command |category|hotkey|description                                                      |
 |--------|--------|------|-----------------------------------------------------------------|
 |cls     |general |F8    |clear screen                                                     |
-|color   |general |      |set foreground and background color in full screen mode          |
+|color   |general |      |set colors                                                       |
 |date    |general |      |show system date and time                                        |
-|echo    |general |      |enable/disable local echo for serial connections                 |
+|echo    |general |      |enable/hexadecimal/disable local echo for serial connections     |
 |exit    |general |F10   |exit                                                             |
 |help    |general |F1    |show description or usage of the commands                        |
 |pause   |general |      |print a message and wait for a keystroke or specified time       |

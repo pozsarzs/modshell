@@ -61,7 +61,9 @@ type
     vvalue: string[255];
   end;
 var
-  ser: tblockserial;
+  {$IFNDEF GO32V2}
+    ser: tblockserial;
+  {$ENDIF}
   // BUFFER
   coil: array[1..9999] of boolean;
   dinp: array[1..9999] of boolean;
@@ -81,7 +83,6 @@ var
   // OTHERS
   appmode: byte;
   b: byte;
-  echo: byte = 0;
   lang: string;
   // splitted command line
   splitted: array[0..7] of string;
@@ -199,6 +200,7 @@ resourcestring
   MSG28 = 'Echo mode: ';
   MSG29 = 'Mini serial console (exit: <F10>)';
   MSG30 = 'Device number (0-7): ';
+  MSG31 = 'Press <Esc> to stop receiving.';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // ERROR MESSAGES
   ERR00 = 'No such command!';
@@ -251,7 +253,7 @@ resourcestring
   DES18='F4     save all registers';
   DES19='F5     load all registers';
   DES20='       list all variable with value or define a new one';
-  DES21='       set foreground and background color in full screen mode';
+  DES21='       set colors';
   DES22='ALT-I  import value of the one or more registers';
   DES23='       AND logical operations';
   DES24='       OR logical operations';
@@ -324,7 +326,7 @@ resourcestring
         '  var NAME [[$]VALUE]' + #13 + #10 +
         'Notes:' + #13 + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
-  USG21='color [$]FOREGROUND [$]BACKGROUND' + #13 + #10 +
+  USG21='color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT' + #13 + #10 +
         '  colors:' + #13 + #10 +
         '      0: black  4: red         8: darkgray    12: lightred' + #13 + #10 +
         '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + #13 + #10 +
@@ -469,7 +471,7 @@ var
  a, b: byte;
  s: string;
  o: boolean;
- 
+
 begin
   if (length(command) > 0) then
     if (command[1] <> #58) and (command[1] <> #64) then
@@ -568,7 +570,7 @@ begin
            20: cmd_var(splitted[1], splitted[2]);
                // var
                // var NAME [VALUE]
-           21: cmd_color(splitted[1], splitted[2]);
+           21: cmd_color(splitted[1], splitted[2], splitted[3], splitted[4]);
                // color FOREGROUND BACKGROUND
            22: cmd_impreg(splitted[1]);
                // impreg FILENAME
@@ -613,8 +615,8 @@ begin
   repeat
     if appmode = 3 then
     begin
-      textbackground(uconfig.backgroundcolor);
-      textcolor(uconfig.foregroundcolor);
+      textbackground(uconfig.colors[1]);
+      textcolor(uconfig.colors[0]);
     end;
     write(fullprompt);
     command := '';
@@ -648,15 +650,15 @@ begin
         // INSERT AND RUN
         if c = #59 then
           begin command := COMMANDS[3]; c:=#13; end;                       // F1
-        if c = #60 then 
+        if c = #60 then
           begin command := COMMANDS[13] + #32 + proj; c:=#13; end;         // F2
         if c = #61 then
           begin command := COMMANDS[14] + #32 + proj; c:=#13; end;         // F3
         if c = #62 then
           begin command := COMMANDS[18] + #32 + proj; c:=#13; end;         // F4
-        if c = #63 then 
+        if c = #63 then
           begin command := COMMANDS[19] + #32 + proj; c:=#13; end;         // F5
-        if c = #64 then 
+        if c = #64 then
           begin command := COMMANDS[33] + #32 + proj; c:=#13; end;         // F6
         if c = #65 then
           begin command := COMMANDS[35]; c:=#13; end;                      // F7
@@ -713,7 +715,7 @@ begin
   xywrite(screenwidth - length(MSG02), 1, false, MSG02);
   gotoxy(2,screenheight); ewrite(black, red, MSG01);
   window(1, 2, screenwidth, screenheight - 1);
-  textbackground(uconfig.backgroundcolor); textcolor(uconfig.foregroundcolor); clrscr;
+  textbackground(uconfig.colors[1]); textcolor(uconfig.colors[0]); clrscr;
   window(1, 2, screenwidth, screenheight - 1);
   simplecommandline;
   window(1, 1, screenwidth, screenheight);
@@ -727,7 +729,7 @@ var
   s: string;
   sbuffer: array[0..254] of string;
   sf: textfile;
-  
+
 begin
   if not fileexists(f) then quit(2, false, ERR21 + f + '!');
   for line := 0 to 254 do sbuffer[line] := '';
@@ -752,7 +754,7 @@ begin
         end;
       end;
     until eof(sf);
-    closefile(sf);  
+    closefile(sf);
   except
     quit(3, false, ERR22 + f + '!');
   end;

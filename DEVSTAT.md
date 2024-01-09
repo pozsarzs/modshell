@@ -35,7 +35,7 @@
 |document/example/copyset2            |READY      |         |
 |document/example/copyset2.bat        |READY      |         |
 |document/example/Makefile            |READY      |         |
-|*document/picture*                   |READY      |directory|
+|*document/picture*                   |           |directory|
 |document/picture/modshell-f.png      |READY      |         |
 |document/picture/modshell.png        |READY      |         |
 |document/picture/modshell-r.png      |READY      |         |
@@ -44,7 +44,7 @@
 |manual/modshell.1                    |READY      |         |
 |*message*                            |           |directory|
 |message/Makefile                     |READY      |         |
-|message/modshell.pot                 |IN PROGRESS|         |
+|message/modshell.pot                 |IS WAITING |         |
 |message/pretranslate                 |READY      |         |
 |*message/hu*                         |           |directory|
 |message/hu/modshell.mo               |IS WAITING |         |
@@ -130,15 +130,15 @@
 |source/modshell/cmd_read.pas         |READY      |         |
 |source/modshell/cmd_rst.pas          |READY      |         |
 |source/modshell/cmd_scfg.pas         |READY      |         |
-|source/modshell/cmd_secn.pas         |IN PROGRESS|         |
-|source/modshell/cmd_serd.pas         |IN PROGRESS|         |
+|source/modshell/cmd_secn.pas         |READY      |         |
+|source/modshell/cmd_serd.pas         |READY      |         |
 |source/modshell/cmd_set.pas          |READY      |         |
-|source/modshell/cmd_sewr.pas         |IN PROGRESS|         |
+|source/modshell/cmd_sewr.pas         |READY      |         |
 |source/modshell/cmd_sreg.pas         |READY      |         |
 |source/modshell/cmd_var.pas          |READY      |         |
 |source/modshell/cmd_wrte.pas         |READY      |         |
 |source/modshell/ethernet.pas         |NOT STARTED|         |
-|source/modshell/mbascii.pas          |NOT STARTED|         |
+|source/modshell/mbascii.pas          |IN PROGRESS|         |
 |source/modshell/mbrtu.pas            |NOT STARTED|         |
 |source/modshell/mbtcp.pas            |NOT STARTED|         |
 |source/modshell/modbus.pas           |READY      |         |

@@ -68,8 +68,7 @@ file is created, with CSV, INI or XML extension.
 The program has a simple serial console whose traffic is logged in the project
 directory as console.log.
 .PP
-On exit, the command line history and full screen mode command line colors are
-preserved.
+On exit, the command line history, echo mode and colors are preserved.
 .SH BUILTIN COMMANDS
 Notes:
   - register: local buffer register;
@@ -80,7 +79,7 @@ Notes:
 \fBcls\fP
 Clear screen.
 .TP
-\fBcolor\fP \fI[$]FOREGROUND\fP \fI[$]BACKGROUND\fP
+\fBcolor\fP \fI[$]FOREGROUND\fP \fI[$]BACKGROUND\fP \fI[$]RXD_TEXT\fP \fI[$]TXD_TEXT\fP 
 Set foreground and background color in full screen mode.
 .EX
 

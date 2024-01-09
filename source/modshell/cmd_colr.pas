@@ -13,20 +13,22 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0    p1            p2
-  ---------------------------------
-  color [$]FOREGROUND [$]BACKGROUND
+  p0    p1            p2            p3              p4
+  --------------------------------------------------------------------
+  color [$]FOREGROUND [$]BACKGROUND [$]RECEIVEDTEXT [$]TRANSMITTEDTEXT
 }
 
 // COMMAND 'COLOR'
-procedure cmd_color(p1, p2: string);
+procedure cmd_color(p1, p2, p3, p4: string);
 var
-  i1, i2: integer; // parameters in other type
-  s1, s2: string;  // parameters in other type
+  i1, i2, i3, i4: integer; // parameters in other type
+  s1, s2, s3, s4: string;  // parameters in other type
 
 begin
   // CHECK LENGTH OF PARAMETER
-  if (length(p1) = 0) or (length(p2) = 0)  then
+  if (length(p1) = 0) or (length(p2) = 0) or
+     (length(p3) = 0) or (length(p4) = 0)
+ then
   begin
     writeln(ERR05); // Parameters required!
     exit;
@@ -49,7 +51,27 @@ begin
     writeln('2nd ' + MSG05 + ' 0-15'); // What is the 2nd parameter?
     exit;
   end;
+  // CHECK P3 PARAMETER
+  s3 := isitvariable(p3);
+  if length(s3) = 0 then s3 := p3;
+  i2 := strtointdef(s3, -1);
+  if (i3 < 0) or (i3 > 15) then
+  begin
+    writeln('3rd ' + MSG05 + ' 0-15'); // What is the 3rd parameter?
+    exit;
+  end;
+  // CHECK P4 PARAMETER
+  s4 := isitvariable(p4);
+  if length(s4) = 0 then s4 := p4;
+  i4 := strtointdef(s4, -1);
+  if (i4 < 0) or (i4 > 15) then
+  begin
+    writeln('4th ' + MSG05 + ' 0-15'); // What is the 4th parameter?
+    exit;
+  end;
   // PRIMARY MISSION
-  uconfig.foregroundcolor := i1;
-  uconfig.backgroundcolor := i2;
+  uconfig.colors[0] := i1;
+  uconfig.colors[1] := i2;
+  uconfig.colors[2] := i3;
+  uconfig.colors[3] := i4;
 end;

@@ -62,7 +62,7 @@ begin
   end;
   // CHECK P2 PARAMETER: IS IT A MESSAGE?
   s2 := isitmessage(p2);
-  if length(s2) = 0 then 
+  if length(s2) = 0 then
   begin
     // CHECK P2 PARAMETER
     s2 := isitvariable(p2);
@@ -73,13 +73,14 @@ begin
     end;
   end;
   // PRIMARY MISSION
-  with dev[i1] do  
-    if ser_open(device, speed, databit, parity, stopbit) then  
+  with dev[i1] do
+    if ser_open(device, speed, databit, parity, stopbit) then
     begin
+      textcolor(uconfig.colors[3]);
       if ser_canwrite then
       begin
         ser_sendstring(s2);
-        case echo of
+        case uconfig.echo of
           1: writeln(s2);
           2: begin
                for b := 1 to length(s2) do
@@ -87,6 +88,8 @@ begin
                writeln;
              end;
         end;
+        if (uconfig.echo = 1) and (b = 13) then write(#10);
+        textcolor(uconfig.colors[0]);
       end else writeln(ERR27);
       ser_close;
     end else writeln(ERR18, dev[i1].device);

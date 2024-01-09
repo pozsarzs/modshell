@@ -22,8 +22,9 @@
 procedure cmd_serread(p1, p2: string);
 var
   b: byte;
+  c: char;
   i1: integer;             // parameters other type
-  s: string;
+  s: string = '';
   s1: string;              // parameters in other type
   valid: boolean = false;
 
@@ -71,22 +72,27 @@ begin
   end;
   // PRIMARY MISSION
   with dev[i1] do
-    if ser_open(device, speed, databit, parity, stopbit) then  
+    if ser_open(device, speed, databit, parity, stopbit) then
     begin
-      if ser_canread then
-      begin
-        s := ser_recvstring;
-        case echo of
-          1: writeln(s);
-          2: begin
-               for b := 1 to length(s) do
-                 write(addsomezero(2, deztohex(inttostr(ord(s[b])))) + ' ');
-               writeln;
-             end;
+      writeln(MSG31);
+      textcolor(uconfig.colors[2]);
+      repeat
+        if ser_canread then
+        begin
+          b := ser_recvbyte;
+          case uconfig.echo of
+            1: write(char(b));
+            2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+          end;
+          s := s + char(b);
+          if (uconfig.echo = 1) and (b = 13) then write(#10);
         end;
-        if (echo = 0) and (length(p2) = 0) then writeln(s);
-        if length(p2) > 0 then vars[intisitvariable(p1)].vvalue := s;
-      end else writeln(ERR26);
+        if keypressed then c := readkey;
+      until (c = #27)  or (length(s) = 255);
+      writeln;
+      if length(p2) = 0 then writeln(s);
+      textcolor(uconfig.colors[0]);
+      if length(p2) > 0 then vars[intisitvariable(p1)].vvalue := s;
       ser_close;
     end else writeln(ERR18, dev[i1].device);
 end;

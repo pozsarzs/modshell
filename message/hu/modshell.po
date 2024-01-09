@@ -142,6 +142,10 @@ msgstr "Mini soros konzol (kilépés: <F10>)"
 msgid "Device number (0-7): "
 msgstr "Eszközszám (0-7): "
 
+#: modshell:msg31
+msgid "Press <Esc> to stop receiving."
+msgstr "Nyomd meg az <Esc>-et a vétel befejezéséhez."
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr "Sajnálom, hogy ez a szolgáltatás még nem valósult meg."
@@ -219,8 +223,8 @@ msgid "There is already a variable with that name"
 msgstr "Van már egy változó ezzel a névvel"
 
 #: modshell:err18
-msgid "Cannot initialize serial port!"
-msgstr "Nem lehet inicializálni a soros portot!"
+msgid "Cannot initialize serial port: "
+msgstr "Nem lehet inicializálni a soros portot! "
 
 #: modshell:err19
 msgid "No such variable: "
@@ -249,6 +253,14 @@ msgstr "A megadott eszköz nem soros port!"
 #: modshell:err25
 msgid "Specified device is not a ethernet port!"
 msgstr "A megadott eszköz nem ethernet port!"
+
+#: modshell:err26
+msgid "Cannot read data from serial port!"
+msgstr "Nem lehet olvasni a soros portról!"
+
+#: modshell:err27
+msgid "Cannot write data to serial port!"
+msgstr "Nem lehet írni a soros portot!"
 
 #: modshell:des00
 msgid "       copy one or more remote reg. between two connections"
@@ -335,8 +347,8 @@ msgid "       list all variable with value or define a new one"
 msgstr "       az összes változó kiírása az értékükkel vagy új létrehozása"
 
 #: modshell:des21
-msgid "       set foreground and background color in full screen mode"
-msgstr "       előtér- és a háttérszín beállítása (fullscreen)"
+msgid "       set colors"
+msgstr "       színek beállítása"
 
 #: modshell:des22
 msgid "ALT-I  import value of the one or more registers"
@@ -579,14 +591,14 @@ msgstr ""
 
 #: modshell:usg21
 msgid ""
-"color [$]FOREGROUND [$]BACKGROUND\\015\n"
+"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT\\015\n"
 "  colors:\\015\n"
 "      0: black  4: red         8: darkgray    12: lightred\\015\n"
 "      1: blue   5: magenta:    9: lightblue   13: lightmagenta\\015\n"
 "      2: green  6: brown      10: lightgreen  14: yellow\\015\n"
 "      3: cyan   7: lightgray  11: lightcyan   15: white"
 msgstr ""
-"color [$]ELŐTÉRSZÍN [$]HÁTTÉRSZÍN\\015\n"
+"color [$]ELŐTÉRSZÍN [$]HÁTTÉRSZÍN [$]VÉTELSZÍN [$]ADÁSSZÍN\\015\n"
 "\n"
 "  Színek: \\ 015\n"
 "      0: fekete  4: vörös           8: sötétszürke  12: világosvörös\\015\n"
@@ -687,6 +699,9 @@ msgstr ""
 #: modshell:usg38
 msgid "echo [off|on|hex]"
 msgstr "echo [off|on|hex]"
+
+#~ msgid "       set foreground and background color in full screen mode"
+#~ msgstr "       előtér- és a háttérszín beállítása (fullscreen)"
 
 #~ msgid "       define new variable and assign value"
 #~ msgstr "       új változó definiálás és értékadás"
