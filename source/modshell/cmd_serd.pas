@@ -75,15 +75,16 @@ begin
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
       writeln(MSG31);
-      textcolor(uconfig.colors[2]);
       repeat
         if ser_canread then
         begin
           b := ser_recvbyte;
+          textcolor(uconfig.colors[2]);
           case uconfig.echo of
             1: write(char(b));
             2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
           end;
+          textcolor(uconfig.colors[0]);
           s := s + char(b);
           if (uconfig.echo = 1) and (b = 13) then write(#10);
         end;
@@ -91,7 +92,6 @@ begin
       until (c = #27)  or (length(s) = 255);
       writeln;
       if length(p2) = 0 then writeln(s);
-      textcolor(uconfig.colors[0]);
       if length(p2) > 0 then vars[intisitvariable(p1)].vvalue := s;
       ser_close;
     end else writeln(ERR18, dev[i1].device);

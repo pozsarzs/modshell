@@ -231,6 +231,7 @@ resourcestring
   ERR25 = 'Specified device is not a ethernet port!';
   ERR26 = 'Cannot read data from serial port!';
   ERR27 = 'Cannot write data to serial port!';
+  ERR28 = 'Modbus telegram parsing error!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
   DES01='F10    exit';

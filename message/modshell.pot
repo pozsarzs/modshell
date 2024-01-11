@@ -241,6 +241,10 @@ msgstr ""
 msgid "Cannot write data to serial port!"
 msgstr ""
 
+#: modshell:err28
+msgid "Modbus telegram parsing error!"
+msgstr ""
+
 #: modshell:des00
 msgid "       copy one or more remote reg. between two connections"
 msgstr ""

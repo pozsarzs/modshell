@@ -76,10 +76,10 @@ begin
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
-      textcolor(uconfig.colors[3]);
       if ser_canwrite then
       begin
         ser_sendstring(s2);
+        textcolor(uconfig.colors[3]);
         case uconfig.echo of
           1: writeln(s2);
           2: begin
@@ -88,8 +88,8 @@ begin
                writeln;
              end;
         end;
-        if (uconfig.echo = 1) and (b = 13) then write(#10);
         textcolor(uconfig.colors[0]);
+        if (uconfig.echo = 1) and (b = 13) then write(#10);
       end else writeln(ERR27);
       ser_close;
     end else writeln(ERR18, dev[i1].device);
