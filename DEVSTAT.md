@@ -1,5 +1,4 @@
-## The status of the files in this package is under development
-
+## The status of the files in this package is under development  
 
 | FILENAME                            | STATUS    | NOTE    |
 |-------------------------------------|-----------|---------|
@@ -101,7 +100,7 @@
 |source/Makefile.dos                  |READY      |         |
 |source/Makefile.w32                  |READY      |         |
 |source/Makefile.w64                  |READY      |         |
-|*source/convert*                     |(FOREIGN)  |directory|
+|*source/convert*                     |(EXTERNAL) |directory|
 |*source/lib*                         |           |directory|
 |*source/lib/i386-dos*                |           |directory|
 |*source/lib/i386-freebsd*            |           |directory|
@@ -151,8 +150,6 @@
 |source/modshell/ucommon.pas          |READY      |         |
 |source/modshell/uconfig.pas          |READY      |         |
 |source/modshell/utranslt.pas         |READY      |         |
-|*source/protcom*                     |           |directory|
-|source/protcom/protcom.pas           |READY      |         |
-|source/protcom/testprco.pas          |READY      |         |
-|*source/synapse*                     |(FOREIGN)  |directory|
+|*source/protcom*                     |(EXTERNAL) |directory|
+|*source/synapse*                     |(EXTERNAL) |directory|
 

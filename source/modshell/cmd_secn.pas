@@ -4,14 +4,14 @@
 { | cmd_secn.pas                                                             | }
 { | command 'sercons'                                                        | }
 { +--------------------------------------------------------------------------+ }
-{
+(*
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
   This program is distributed in the hope that it will be useful, but WITHOUT
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
-}
+*)
 {
   p0     p1
   -------------
@@ -66,6 +66,18 @@ begin
     begin
       writeln(MSG31);
       repeat
+        if keypressed then
+        begin
+          c := readkey;
+          if ser_canwrite then
+          begin
+            ser_sendstring(c);
+            textcolor(uconfig.colors[3]);
+            write(c);
+            if c = #13 then write(#10);
+            textcolor(uconfig.colors[0]);
+          end else writeln(ERR27);
+        end;
         if ser_canread then
         begin
           b := ser_recvbyte;
@@ -74,20 +86,9 @@ begin
           if b = 13 then write(#10);
           textcolor(uconfig.colors[0]);
         end;
-        if keypressed then
-        begin
-          c := readkey;
-          if ser_canwrite then
-          begin
-            ser_sendbyte(ord(c));
-            textcolor(uconfig.colors[3]);
-            write(c);
-            if c = #13 then write(#10);
-            textcolor(uconfig.colors[0]);
-          end else writeln(ERR27);
-        end;
       until c = #27;
       writeln;
       ser_close;
+      writeln;
     end else writeln(ERR18, dev[i1].device);
 end;

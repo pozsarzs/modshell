@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command line Modbus utility                                 |
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
 # | pretranslate                                                               |
 # | Pre-translator for po files                                                |

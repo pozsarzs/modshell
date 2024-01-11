@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
+{ | ProtCOM v0.1 * Protected mode serial port handler for DOS                | }
+{ | Copyright (C) 2024 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
 { | protcom.pas                                                              | }
-{ | ProtCOM unit * protected mode serial port handler for DOS                | }
+{ | FreePascal unit                                                          | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is Public Domain, you can redistribute it and/or modify

@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
+{ | ProtCOM v0.1 * Protected mode serial port handler for DOS                | }
+{ | Copyright (C) 2024 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
 { | testprco.pas                                                             | }
 { | test program for ProtCOM unit                                            | }
 { +--------------------------------------------------------------------------+ }

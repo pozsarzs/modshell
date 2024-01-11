@@ -115,7 +115,7 @@ const
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
                                       '38400','57600','115200');
   DEV_PARITY: array[0..2] of char = ('e','n','o');
-  DEV_TIMEOUT: integer = 5000;
+  DEV_TIMEOUT: integer = 0;
   FILE_TYPE: array[0..2] of string = ('csv','ini','xml');
   PROT_TYPE: array[0..2] of string = ('ascii','rtu','tcp');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');

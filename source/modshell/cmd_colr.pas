@@ -54,7 +54,7 @@ begin
   // CHECK P3 PARAMETER
   s3 := isitvariable(p3);
   if length(s3) = 0 then s3 := p3;
-  i2 := strtointdef(s3, -1);
+  i3 := strtointdef(s3, -1);
   if (i3 < 0) or (i3 > 15) then
   begin
     writeln('3rd ' + MSG05 + ' 0-15'); // What is the 3rd parameter?

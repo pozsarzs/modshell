@@ -22,6 +22,7 @@ uses
 
 function addzero(v: word): string;
 function addsomezero(n: byte; s: string): string;
+function hex1(n: byte; w: word): string;
 function hex2(s: string): string;
 function lrc(s: string): word;
 function chkecklrc(s: string; l: word): boolean;
@@ -54,6 +55,26 @@ begin
   while length(s) <> n do
     s := '0' + s;
   result := s;
+end;
+
+// CONVERT A BYTE/WORD NUMBER TO 2/4 DIGIT HEX NUMBER AS STRING
+function hex1(n: byte; w: word): string;
+var
+  b:         byte;
+  remainder: word;
+  res:       string;
+begin
+  res := '';
+  for b := 1 to n do
+  begin
+    remainder := w mod 16;
+    w := w div 16;
+    if remainder <= 9 then
+      res := chr (remainder + 48) + res
+    else
+      res := chr (remainder + 87) + res;
+  end;
+  hex1 := res;
 end;
 
 // CONVERT A STRING OF ASCII CODED HEXA BYTES TO STRING OF HEXA BYTES }

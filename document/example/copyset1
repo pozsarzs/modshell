@@ -1,6 +1,6 @@
 #!/home/pozsarzs/testroot/bin/modshell -r
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command line Modbus utility                                 |
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
 # | copyset1.msh                                                               |
 # | Example script * copy settings between same devices                        |

@@ -29,10 +29,15 @@ Run example script on bash with ModShell interpreter
 ![script running](document/picture/modshell-r.png)
 
 #### Used external libraries
- - Bin/Oct/Dec/Hex number converter unit for Turbo Pascal v3.0
-   Public Domain, Copyright (C) 1993 Tom Wellige
- - Ararat Synapse Release 40
-   modified BSD style license, Copyright (c) 1999-2012 Lukas Gebauer
+ - _Convert - Bin/Oct/Dec/Hex number converter_  
+   Unit for Turbo Pascal v3.0  
+   Public Domain, Copyright (C) 1993 Tom Wellige  
+ - _Ararat Synapse Release 40_  
+   TCP/IP and serial library for FreePascal  
+   Modified BSD style license, Copyright (C) 1999-2012 Lukas Gebauer  
+ - _ProtCOM v0.1 Protected mode serial port handler for DOS_  
+   Unit for FreePascal  
+   Creative Common Zero Universal v1.0, Copyright (C) 2024 Pozsar Zsolt  
 
 #### About
 
@@ -89,47 +94,47 @@ On exit, the command line history, echo mode and colors are preserved.
 
 **Already implemented commands:**
 
-|command |category|hotkey|description                                                      |
-|--------|--------|------|-----------------------------------------------------------------|
-|cls     |general |F8    |clear screen                                                     |
-|color   |general |      |set colors                                                       |
-|date    |general |      |show system date and time                                        |
-|echo    |general |      |enable/hexadecimal/disable local echo for serial connections     |
-|exit    |general |F10   |exit                                                             |
-|help    |general |F1    |show description or usage of the commands                        |
-|pause   |general |      |print a message and wait for a keystroke or specified time       |
-|print   |general |ALT-P |print message, value of the variable and register                |
-|var     |general |      |show all variable with theirs value or define a new one          |
-|ver     |general |      |show version and build information of this program               |
-|copy    |comm.   |      |copy one or more remote registers between two connections        |
-|read    |comm.   |ALT-R |read one or more remote registers                                |
-|write   |comm.   |ALT-W |write data to one or more remote registers                       |
-|sercons |comm.   |F7    |serial console                                                   |
-|serread |comm.   |      |read a string from serial device                                 |
-|serwrite|comm.   |      |write a string from serial device                                |
-|exphis  |file op.|      |export command line history to file (TXT)                        |
-|expreg  |file op.|ALT-E |export one or more registers to file (CSV, INI, XML)             |
-|impreg  |file op.|ALT-I |export one or more registers from file (CSV, INI, XML)           |
-|loadcfg |file op.|F3    |load settings of device, protocol and connection (?DT)           |
-|loadreg |file op.|F5    |load all buffer registers from typed file (?DT)                  |
-|savecfg |file op.|F2    |save settings of device, protocol and connection (?DT)           |
-|savereg |file op.|F4    |save all registers to typed file (?DT)                           |
-|and     |logic   |      |AND logical operations                                           |
-|or      |logic   |      |OR logical operations                                            |
-|not     |logic   |      |NOT logical operations                                           |
-|shl     |logic   |      |bit shift to left                                                |
-|shr     |logic   |      |bit shift to right                                               |
-|xor     |logic   |      |XOR logical operations                                           |
-|add     |maths   |      |addition                                                         |
-|conv    |maths   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |
-|div     |maths   |      |division                                                         |
-|mul     |maths   |      |multiplication                                                   |
-|sub     |maths   |      |substraction                                                     |
-|dump    |register|F6    |dump all registers in binary/hexadecimal format to a table       |
-|let     |register|ALT-L |set value of a variable or register                              |
-|get     |settings|ALT-G |get setting of a device, protocol, connection or get project name|
-|reset   |settings|ALT-T |reset device, protocol or connection or reset project name       |
-|set     |settings|ALT-S |set device, protocol or connection or set project name           |
+|command |category  |hotkey|description                                                      |
+|--------|----------|------|-----------------------------------------------------------------|
+|cls     |general   |F8    |clear screen                                                     |
+|color   |general   |      |set colors                                                       |
+|date    |general   |      |show system date and time                                        |
+|echo    |general   |F9    |enable/hexadecimal/disable local echo for serial connections     |
+|exit    |general   |F10   |exit                                                             |
+|help    |general   |F1    |show description or usage of the commands                        |
+|pause   |general   |      |print a message and wait for a keystroke or specified time       |
+|print   |general   |ALT-P |print message, value of the variable and register                |
+|var     |general   |      |show all variable with theirs value or define a new one          |
+|ver     |general   |      |show version and build information of this program               |
+|copy    |connection|      |copy one or more remote registers between two connections        |
+|read    |connection|ALT-R |read one or more remote registers                                |
+|write   |connection|ALT-W |write data to one or more remote registers                       |
+|sercons |connection|F7    |serial console                                                   |
+|serread |connection|      |read a string from serial device                                 |
+|serwrite|connection|      |write a string from serial device                                |
+|exphis  |files     |      |export command line history to file (TXT)                        |
+|expreg  |files     |ALT-E |export one or more registers to file (CSV, INI, XML)             |
+|impreg  |files     |ALT-I |export one or more registers from file (CSV, INI, XML)           |
+|loadcfg |files     |F3    |load settings of device, protocol and connection (?DT)           |
+|loadreg |files     |F5    |load all buffer registers from typed file (?DT)                  |
+|savecfg |files     |F2    |save settings of device, protocol and connection (?DT)           |
+|savereg |files     |F4    |save all registers to typed file (?DT)                           |
+|and     |logic     |      |AND logical operations                                           |
+|or      |logic     |      |OR logical operations                                            |
+|not     |logic     |      |NOT logical operations                                           |
+|shl     |logic     |      |bit shift to left                                                |
+|shr     |logic     |      |bit shift to right                                               |
+|xor     |logic     |      |XOR logical operations                                           |
+|add     |maths     |      |addition                                                         |
+|conv    |maths     |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |
+|div     |maths     |      |division                                                         |
+|mul     |maths     |      |multiplication                                                   |
+|sub     |maths     |      |substraction                                                     |
+|dump    |register  |F6    |dump all registers in binary/hexadecimal format to a table       |
+|let     |register  |ALT-L |set value of a variable or register                              |
+|get     |settings  |ALT-G |get setting of a device, protocol, connection or get project name|
+|reset   |settings  |ALT-T |reset device, protocol or connection or reset project name       |
+|set     |settings  |ALT-S |set device, protocol or connection or set project name           |
 
 (Commands with function keys (F?) are executed immediately,
  modifier keys (ALT-?) only make typing easier.)
@@ -142,3 +147,13 @@ On exit, the command line history, echo mode and colors are preserved.
 |srvrtu |communication |      |start/stop transparent Modbus/RTU slave                       |
 |if     |general       |      |selection statement                                           |
 |for    |general       |      |loop iteration                                                |
+
+**Documentation and Help**
+
+Modshell has a minimal built-in help which you can access by typing help. Additionally, you can
+view the manual page from *nix shell (_man modshell_) or _modshell.txt_ on other systems.
+
+**Contributing**
+
+If you find any bugs, please report them! I am also happy to accept pull requests from anyone.
+You can use the GitHub issue tracker to report bugs, ask questions, or suggest new features.
