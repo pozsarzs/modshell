@@ -139,15 +139,6 @@ On exit, the command line history, echo mode and colors are preserved.
 (Commands with function keys (F?) are executed immediately,
  modifier keys (ALT-?) only make typing easier.)
 
-**Planned commands in next release (v0.2)**
-
-|command|category      |hotkey|description                                                   |
-|-------|--------------|------|--------------------------------------------------------------|
-|srvtcp |communication |      |start/stop transparent Modbus/TCP server                      |
-|srvrtu |communication |      |start/stop transparent Modbus/RTU slave                       |
-|if     |general       |      |selection statement                                           |
-|for    |general       |      |loop iteration                                                |
-
 **Documentation and Help**
 
 Modshell has a minimal built-in help which you can access by typing help. Additionally, you can
@@ -157,3 +148,16 @@ view the manual page from *nix shell (_man modshell_) or _modshell.txt_ on other
 
 If you find any bugs, please report them! I am also happy to accept pull requests from anyone.
 You can use the GitHub issue tracker to report bugs, ask questions, or suggest new features.
+
+####Planned feature  
+
+**Commands**
+
+|command|category   |hotkey|description                                                   |
+|-------|-----------|------|--------------------------------------------------------------|
+|srvtcp |connection |      |start/stop transparent Modbus/TCP server                      |
+|srvrtu |connection |      |start/stop transparent Modbus/RTU slave                       |
+|if     |general    |      |selection statement                                           |
+|for    |general    |      |loop iteration                                                |
+|loadscr|files      |      |load scriptfile
+|run    |general    |      |run loaded script

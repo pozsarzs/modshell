@@ -113,9 +113,9 @@ BUILTIN COMMANDS
 
        print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]
               Print  content  of the one or more registers. Register start AD‐
-              DRESS and the COUNT must be between 1-9999.The -n parameter does
-              not raise a line and the cursor does not return to the beginning
-              of the line.
+              DRESS and the COUNT must be between  1-9999.  The  -n  parameter
+              does  not raise a line and the cursor does not return to the be‐
+              ginning of the line.
 
        print $VARIABLE [-n]
               Print value of the $VARIABLE. The -n parameter does not raise  a

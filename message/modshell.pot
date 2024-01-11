@@ -122,7 +122,7 @@ msgid "Device number (0-7): "
 msgstr ""
 
 #: modshell:msg31
-msgid "Press <Esc> to stop receiving."
+msgid "Press <Esc> to break receiving."
 msgstr ""
 
 #: modshell:msg99

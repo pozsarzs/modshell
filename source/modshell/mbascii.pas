@@ -30,21 +30,17 @@ end;
 
 // READ REMOTE INPUT REGISTER
 procedure mbasc_readireg(protocol, device, address, count: integer);
-begin
-end;
-
-// READ REMOTE HOLDING REGISTER
-procedure mbasc_readhreg(protocol, device, address, count: integer);
 var
   b: byte;
   c: char;
   e: integer;
+  t: integer = 0;
   telegram: string;
 
 begin
   // create ASCII telegram
   telegram := hex1(2, prot[protocol].uid) + // UID
-              hex1(2, 3) +                  // FC
+              hex1(2, $04) +                // FC
               hex1(4, address) +            // data
               hex1(4, count);
   telegram := ':' +                         // start
@@ -75,6 +71,7 @@ begin
     repeat
       if ser_canread then
       begin
+        t := 0;
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
@@ -83,9 +80,89 @@ begin
         end;
         textcolor(uconfig.colors[0]);
         telegram := telegram + char(b);
+      end else
+      begin
+        delay(1);
+        if t < 65535 then inc(t);
       end;
       if keypressed then c := readkey;
-    until (c = #27) or (length(telegram) = 255) or ((length(telegram) > 0) and (telegram[length(telegram)] = #10));
+    until (c = #27) or (length(telegram) = 255) or (t = DEV_TIMEOUT);
+    if uconfig.echo > 0 then writeln;
+    // disconnect serial port
+    ser_close;
+    // parse answer and store in the buffer
+    try
+      for b := 0 to count - 1 do
+        val('$' + telegram[8 + 4 * b] +
+        telegram[9 + 4 * b] +
+        telegram[10 + 4 * b] +
+        telegram[11 + 4 * b],
+        ireg[address + b], e);
+    except
+      writeln(ERR28);
+    end;    
+  end else writeln(ERR18, dev[device].device);
+end;
+
+// READ REMOTE HOLDING REGISTER
+procedure mbasc_readhreg(protocol, device, address, count: integer);
+var
+  b: byte;
+  c: char;
+  e: integer;
+  t: integer = 0;
+  telegram: string;
+
+begin
+  // create ASCII telegram
+  telegram := hex1(2, prot[protocol].uid) + // UID
+              hex1(2, $03) +                // FC
+              hex1(4, address) +            // data
+              hex1(4, count);
+  telegram := ':' +                         // start
+              telegram +                    // UID, FC, data
+              hex1(2, lrc(telegram)) +      // LRC
+              #13 + #10;                    // STOP
+  // connect to serial port
+  if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
+  begin
+    writeln(MSG31);
+    // send request
+    if ser_canwrite then
+    begin
+      ser_sendstring(telegram);
+      textcolor(uconfig.colors[3]);
+      case uconfig.echo of
+        1: write(telegram);
+        2: begin
+             for b := 1 to length(telegram) do
+               write(addsomezero(2, deztohex(inttostr(ord(telegram[b])))) + ' ');
+             writeln;
+           end;
+      end;
+      textcolor(uconfig.colors[0]);
+    end else writeln(ERR27);
+    // receive answer
+    telegram := '';
+    repeat
+      if ser_canread then
+      begin
+        t := 0;
+        b := ser_recvbyte;
+        textcolor(uconfig.colors[2]);
+        case uconfig.echo of
+          1: if b <> 10 then write(char(b));
+          2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+        end;
+        textcolor(uconfig.colors[0]);
+        telegram := telegram + char(b);
+      end else
+      begin
+        delay(1);
+        if t < 65535 then inc(t);
+      end;
+      if keypressed then c := readkey;
+    until (c = #27) or (length(telegram) = 255) or (t = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
     // disconnect serial port
     ser_close;

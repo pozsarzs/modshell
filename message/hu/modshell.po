@@ -143,8 +143,8 @@ msgid "Device number (0-7): "
 msgstr "Eszközszám (0-7): "
 
 #: modshell:msg31
-msgid "Press <Esc> to stop receiving."
-msgstr "Nyomd meg az <Esc>-et a vétel befejezéséhez."
+msgid "Press <Esc> to break receiving."
+msgstr "Nyomd meg az <Esc>-et a vétel megszakításához."
 
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
@@ -276,7 +276,7 @@ msgstr "F10    kilépés"
 
 #: modshell:des02
 msgid "ALT-G  show device, protocol, connection or project name"
-msgstr "Alt-G  eszköz, protokoll, kapcsolat vagy projektnév megjelenítése"
+msgstr "Alt-G  eszköz, protokoll, kapcsolat vagy projektnév kiírása"
 
 #: modshell:des03
 msgid "F1     show description or usage of the commands"
@@ -292,7 +292,7 @@ msgstr "ALT-P  üzenet, a változó vagy regisztertartalom kiírása"
 
 #: modshell:des06
 msgid "ALT-R  read one or more remote registers to buffer"
-msgstr "Alt-R  adat olvasása egy vagy több távoli regiszterből a pufferbe"
+msgstr "Alt-R  adat olvasása távoli regiszterből a pufferbe"
 
 #: modshell:des07
 msgid "ALT-T  reset device, protocol, connection or project name"
@@ -340,7 +340,7 @@ msgstr "ALT-C  konvertálás a különböző számrendszerek között"
 
 #: modshell:des18
 msgid "F4     save all registers"
-msgstr "F5     összes regisztertartalom mentése"
+msgstr "F4     összes regisztertartalom mentése"
 
 #: modshell:des19
 msgid "F5     load all registers"
@@ -348,7 +348,7 @@ msgstr "F5     összes regisztertartalom betöltése"
 
 #: modshell:des20
 msgid "       list all variable with value or define a new one"
-msgstr "       az összes változó kiírása az értékükkel vagy új létrehozása"
+msgstr "       az összes változó kiírása vagy új létrehozása"
 
 #: modshell:des21
 msgid "       set colors"
@@ -400,7 +400,7 @@ msgstr "       osztás matematikai művelet"
 
 #: modshell:des33
 msgid "F6     dump all registers in binary/hexadecimal format to a table"
-msgstr "F6     táblázatos regiszterkiírás bináris/hexadecimális formátumban"
+msgstr "F6     táblázatos regiszterkiírás bin. vagy hexadec. formában"
 
 #: modshell:des34
 msgid "       wait for a keystroke or specified time"

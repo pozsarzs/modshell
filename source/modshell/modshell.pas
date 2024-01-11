@@ -115,7 +115,7 @@ const
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
                                       '38400','57600','115200');
   DEV_PARITY: array[0..2] of char = ('e','n','o');
-  DEV_TIMEOUT: integer = 0;
+  DEV_TIMEOUT: integer = 500; // in ms
   FILE_TYPE: array[0..2] of string = ('csv','ini','xml');
   PROT_TYPE: array[0..2] of string = ('ascii','rtu','tcp');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');
@@ -200,7 +200,7 @@ resourcestring
   MSG28 = 'Echo mode: ';
   MSG29 = 'Mini serial console (exit: <F10>)';
   MSG30 = 'Device number (0-7): ';
-  MSG31 = 'Press <Esc> to stop receiving.';
+  MSG31 = 'Press <Esc> to break receiving.';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // ERROR MESSAGES
   ERR00 = 'No such command!';

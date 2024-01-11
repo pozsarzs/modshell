@@ -19,7 +19,7 @@ begin
   {$IFDEF GO32V2}
     result := canread;
   {$ELSE}
-    result := ser.canread(DEV_TIMEOUT);
+    result := ser.canread(0);
   {$ENDIF}
 end;
 
@@ -29,7 +29,7 @@ begin
   {$IFDEF GO32V2}
     result := canwrite;
   {$ELSE}
-    result := ser.canwrite(DEV_TIMEOUT);
+    result := ser.canwrite(0);
   {$ENDIF}
 end;
 
@@ -39,7 +39,7 @@ begin
   {$IFDEF GO32V2}
     result := recvbyte;
   {$ELSE}
-    result := ser.recvbyte(DEV_TIMEOUT);
+    result := ser.recvbyte(0);
   {$ENDIF}
 end;
 
@@ -49,7 +49,7 @@ begin
   {$IFDEF GO32V2}
     result := recvstring;
   {$ELSE}
-    result := ser.recvstring(DEV_TIMEOUT);
+    result := ser.recvstring(0);
   {$ENDIF}
 end;
 
