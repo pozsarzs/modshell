@@ -112,13 +112,13 @@ On exit, the command line history, echo mode and colors are preserved.
 |sercons |connection|F7    |serial console                                                   |
 |serread |connection|      |read a string from serial device                                 |
 |serwrite|connection|      |write a string from serial device                                |
-|exphis  |files     |      |export command line history to file (TXT)                        |
-|expreg  |files     |ALT-E |export one or more registers to file (CSV, INI, XML)             |
-|impreg  |files     |ALT-I |export one or more registers from file (CSV, INI, XML)           |
-|loadcfg |files     |F3    |load settings of device, protocol and connection (?DT)           |
-|loadreg |files     |F5    |load all buffer registers from typed file (?DT)                  |
-|savecfg |files     |F2    |save settings of device, protocol and connection (?DT)           |
-|savereg |files     |F4    |save all registers to typed file (?DT)                           |
+|exphis  |file      |      |export command line history to file (TXT)                        |
+|expreg  |file      |ALT-E |export one or more registers to file (CSV, INI, XML)             |
+|impreg  |file      |ALT-I |export one or more registers from file (CSV, INI, XML)           |
+|loadcfg |file      |F3    |load settings of device, protocol and connection (?DT)           |
+|loadreg |file      |F5    |load all buffer registers from typed file (?DT)                  |
+|savecfg |file      |F2    |save settings of device, protocol and connection (?DT)           |
+|savereg |file      |F4    |save all registers to typed file (?DT)                           |
 |and     |logic     |      |AND logical operations                                           |
 |or      |logic     |      |OR logical operations                                            |
 |not     |logic     |      |NOT logical operations                                           |
@@ -132,6 +132,9 @@ On exit, the command line history, echo mode and colors are preserved.
 |sub     |maths     |      |substraction                                                     |
 |dump    |register  |F6    |dump all registers in binary/hexadecimal format to a table       |
 |let     |register  |ALT-L |set value of a variable or register                              |
+|list    |script    |      |list loaded script                                               |
+|loadscr |script    |      |load scriptfile                                                  |
+|run     |script    |      |run loaded script                                                |
 |get     |settings  |ALT-G |get setting of a device, protocol, connection or get project name|
 |reset   |settings  |ALT-T |reset device, protocol or connection or reset project name       |
 |set     |settings  |ALT-S |set device, protocol or connection or set project name           |
@@ -159,5 +162,3 @@ You can use the GitHub issue tracker to report bugs, ask questions, or suggest n
 |srvrtu |connection |      |start/stop transparent Modbus/RTU slave                       |
 |if     |general    |      |selection statement                                           |
 |for    |general    |      |loop iteration                                                |
-|loadscr|files      |      |load scriptfile
-|run    |general    |      |run loaded script

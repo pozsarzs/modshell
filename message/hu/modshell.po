@@ -422,6 +422,18 @@ msgstr "       string írása soros portra"
 msgid "F9     query local echo status or enable/disable it"
 msgstr "F9     visszahang állapot lekérése/beállítása"
 
+#: modshell:des39
+msgid "       load Modshell script from file"
+msgstr "       Modshell szkript betöltése fájlból"
+
+#: modshell:des40
+msgid "       run loaded Modshell script"
+msgstr "       betöltött ModShell szkript futattása"
+
+#: modshell:des41
+msgid "       list loaded Modshell script"
+msgstr "       betöltött ModShell szkript listázása"
+
 #: modshell:usg00
 msgid ""
 "copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\\015\n"
@@ -703,6 +715,18 @@ msgstr ""
 #: modshell:usg38
 msgid "echo [off|on|hex]"
 msgstr "echo [off|on|hex]"
+
+#: modshell:usg39
+msgid "loadscr [$]PATH_AND_FILENAME"
+msgstr "loadscr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg40
+msgid "run [-s]"
+msgstr "run [-s]"
+
+#: modshell:usg41
+msgid "list"
+msgstr "list"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       előtér- és a háttérszín beállítása (fullscreen)"

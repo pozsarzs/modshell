@@ -23,7 +23,7 @@ procedure cmd_help(p1: string);
 var
   b, bb: byte;
   valid: boolean;
-  buffer: array[0..41] of string;
+  buffer: array[0..51] of string;
   line: byte;
   s1: string;                      // parameters in other type
 
@@ -33,8 +33,8 @@ var
    i, j: byte;
    s: string;
   begin
-    for i := 0 to 40 do
-     for j := i + 1 to 41 do
+    for i := 0 to 50 do
+     for j := i + 1 to 51 do
        if buffer[i] < buffer[j] then
        begin
          s := buffer[i];
@@ -44,12 +44,12 @@ var
   end;
 
 begin
-  for b := 0 to 41 do buffer[b] := '';
+  for b := 0 to 51 do buffer[b] := '';
   if length(p1) = 0 then
   begin
     writeln(MSG03); // How to use help with command list.
     writeln;
-    for b := 0 to 37 do
+    for b := 0 to 41 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
       for bb := 0 to 6 - length(COMMANDS[b]) + 2 do
@@ -93,12 +93,16 @@ begin
         35: buffer[b] := buffer[b] + DES35;
         36: buffer[b] := buffer[b] + DES36;
         37: buffer[b] := buffer[b] + DES37;
+        38: buffer[b] := buffer[b] + DES28;
+        39: buffer[b] := buffer[b] + DES29;
+        40: buffer[b] := buffer[b] + DES30;
+        41: buffer[b] := buffer[b] + DES31;
       end;
     end;
 //    shorting;
-    buffer[38] := MSG24;
+    buffer[42] := MSG24;
     line := 0;
-    for b := 38 downto 0 do
+    for b := 42 downto 0 do
     begin
       writeln(buffer[b]);
       inc(line);
@@ -115,7 +119,7 @@ begin
     s1 := isitvariable(p1);
     if length(s1) = 0 then s1 := p1;
     valid := false;
-    for b := 0 to 37 do
+    for b := 0 to 41 do
       if s1 = COMMANDS[b] then
       begin
         valid := true;
@@ -165,6 +169,10 @@ begin
         35: writeln(USG35);
         36: writeln(USG36);
         37: writeln(USG37);
+        38: writeln(USG37);
+        39: writeln(USG37);
+        40: writeln(USG37);
+        41: writeln(USG37);
       end;
     end;
   end;

@@ -78,6 +78,8 @@ var
   {$ENDIF}
   prot: array[0..7] of tprotocol;
   conn: array[0..7] of tconnection;
+  // buffer for script
+  sbuffer: array[0..254] of string;
   // VARIABLES
   vars: array[0..63] of tvariable;
   // OTHERS
@@ -101,7 +103,7 @@ const
     ('-r','--run','run script')
   );
   // COMMANDS AND PARAMETERS
-  COMMANDS: array[0..38] of string = ('copy','exit','get','help','let',
+  COMMANDS: array[0..41] of string = ('copy','exit','get','help','let',
                                       'print','read','reset','set','date',
                                       'ver','write','cls','savecfg',
                                       'loadcfg','expreg','exphis','conv',
@@ -109,7 +111,7 @@ const
                                       'impreg','and','or','not','xor','shl',
                                       'shr','add','sub','mul','div','dump',
                                       'pause','sercons','serread','serwrite',
-                                      'echo');
+                                      'echo', 'loadscr', 'run', 'list');
   PROMPT = 'MODSH|_>';
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
@@ -272,6 +274,9 @@ resourcestring
   DES36='       read string from serial device';
   DES37='       write string to serial device';
   DES38='F9     query local echo status or enable/disable it';
+  DES39='       load Modshell script from file';
+  DES40='       run loaded Modshell script';
+  DES41='       list loaded Modshell script';
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #13 + #10 +
         'Notes:' + #13 + #10 +
@@ -359,6 +364,12 @@ resourcestring
         'Notes:' + #13 + #10 +
         '  - The ''?'' value can be 0-7.';
   USG38='echo [off|on|hex]';
+  USG39='loadscr [$]PATH_AND_FILENAME';
+  USG40='run [-s]';
+  USG41='list';
+
+procedure interpreter(f: string); forward;
+procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
 // IF S IS A VARIABLE, IT RETURNS theirs number
@@ -448,15 +459,18 @@ end;
 {$I cmd_get.pas}
 {$I cmd_help.pas}
 {$I cmd_impr.pas}
-{$I cmd_let.pas}
 {$I cmd_lcfg.pas}
+{$I cmd_let.pas}
+{$I cmd_list.pas}
 {$I cmd_logc.pas}
 {$I cmd_lreg.pas}
+{$I cmd_lscr.pas}
 {$I cmd_math.pas}
 {$I cmd_paus.pas}
 {$I cmd_prnt.pas}
 {$I cmd_read.pas}
 {$I cmd_rst.pas}
+{$I cmd_run.pas}
 {$I cmd_scfg.pas}
 {$I cmd_secn.pas}
 {$I cmd_serd.pas}
@@ -511,7 +525,7 @@ begin
       o := false;
       if splitted[0][1] <> COMMENT then
       begin
-        for b := 0 to 38 do
+        for b := 0 to 41 do
           if splitted[0] = COMMANDS[b] then
           begin
             o := true;
@@ -588,6 +602,12 @@ begin
                // serwrite dev? $MESSAGE
            38: cmd_echo(splitted[1]);
                // echo [off|on|hex|swap]
+           39: cmd_loadscr(splitted[1]);
+               // loadscr PATH_AND_FILENAME
+           40: cmd_run(splitted[1]);
+               // run [-s]
+           41: cmd_list;
+               // list
           else
           begin
             if (b > 22) and (b < 29) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
@@ -728,7 +748,6 @@ procedure interpreter(f: string);
 var
   line: byte;
   s: string;
-  sbuffer: array[0..254] of string;
   sf: textfile;
 
 begin

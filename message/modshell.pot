@@ -401,6 +401,18 @@ msgstr ""
 msgid "F9     query local echo status or enable/disable it"
 msgstr ""
 
+#: modshell:des39
+msgid "       load Modshell script from file"
+msgstr ""
+
+#: modshell:des40
+msgid "       run loaded Modshell script"
+msgstr ""
+
+#: modshell:des41
+msgid "       list loaded Modshell script"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\015\n"
@@ -617,5 +629,17 @@ msgstr ""
 
 #: modshell:usg38
 msgid "echo [off|on|hex]"
+msgstr ""
+
+#: modshell:usg39
+msgid "loadscr [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg40
+msgid "run [-s]"
+msgstr ""
+
+#: modshell:usg41
+msgid "list"
 msgstr ""
 
