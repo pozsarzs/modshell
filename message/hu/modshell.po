@@ -262,6 +262,10 @@ msgstr "Nem lehet olvasni a soros portról!"
 msgid "Cannot write data to serial port!"
 msgstr "Nem lehet írni a soros portot!"
 
+#: modshell:err28
+msgid "Modbus telegram parsing error!"
+msgstr "Modbus telegram értelmezési hiba!"
+
 #: modshell:des00
 msgid "       copy one or more remote reg. between two connections"
 msgstr "       egy vagy több távoli regiszter másolása két kapcsolat között"
@@ -464,15 +468,15 @@ msgstr ""
 
 #: modshell:usg05
 msgid ""
-"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]\\015\n"
-"  print $VARIABLE\\015\n"
-"  print \"single\\ line\\ message\"\\015\n"
+"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]\\015\n"
+"  print $VARIABLE [-n]\\015\n"
+"  print \"single\\ line\\ message\" [-n]\\015\n"
 "Notes:\\015\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
-"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]\\015\n"
-"  print $VARIABLE\\015\n"
-"  print \"single\\ line\\ message\"\\015\n"
+"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]\\015\n"
+"  print $VARIABLE [-n]\\015\n"
+"  print \"single\\ line\\ message\" [-n]\\015\n"
 "Megjegyzés:\\015\n"
 "  - A '$' jel jelzi, hogy ez változó és nem közvetlen érték."
 

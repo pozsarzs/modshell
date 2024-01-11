@@ -287,9 +287,9 @@ resourcestring
         '  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS' + #13 + #10 +
         'Notes:' + #13 + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
-  USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]' + #13 + #10 +
-        '  print $VARIABLE' + #13 + #10 +
-        '  print "single\ line\ message"' + #13 + #10 +
+  USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]' + #13 + #10 +
+        '  print $VARIABLE [-n]' + #13 + #10 +
+        '  print "single\ line\ message" [-n]' + #13 + #10 +
         'Notes:' + #13 + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
   USG06='read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]' + #13 + #10 +
@@ -531,10 +531,10 @@ begin
                // let dinp|coil|ireg|hreg ADDRESS VALUE
                // let $VARIABLE VALUE
                // let $VARIABLE dinp|coil|ireg|hreg ADDRESS
-            5: cmd_print(splitted[1], splitted[2], splitted[3]);
-               // print dinp|coil|ireg|hreg ADDRESS [COUNT]
-                // print $VARIABLE
-               // print "Hello\ world!"
+            5: cmd_print(splitted[1], splitted[2], splitted[3], splitted[4]);
+               // print dinp|coil|ireg|hreg ADDRESS [COUNT] [-n]
+               // print $VARIABLE [-n]
+               // print "Hello\ world!" [-n]
             6: cmd_read(splitted[1], splitted[2], splitted[3], splitted[4]);
                // read conn? dinp|coil|ireg|hreg ADDRESS [COUNT]
             7: cmd_reset(splitted[1]);

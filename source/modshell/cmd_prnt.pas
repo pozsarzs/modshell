@@ -13,22 +13,30 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0    p1                  p2         p3
-  -----------------------------------------------
-  print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
-  print $VARIABLE
-  print "Hello\ world!"
+  p0    p1                  p2         p3         p4
+  ----------------------------------------------------
+  print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]
+  print $VARIABLE           [-n]
+  print "Hello\ world!"     [-n]
 }
 
 // COMMAND 'PRINT'
-procedure cmd_print(p1, p2, p3: string);
+procedure cmd_print(p1, p2, p3, p4: string);
+const
+  N: string[2] = '-n';
 var
   i, i2, i3: integer;      // parameters in other type
   rt: byte;                // register type
   s1, s2, s3: string;      // parameters in other type
   valid: boolean = false;
-
+  crlf: boolean = true;    // carriage return and line feed
+  
 begin
+  // SEARCH -N IN ALL PARAMETERS
+  if ((length(p1) > 0) and (p1 = N)) or
+     ((length(p2) > 0) and (p2 = N)) or
+     ((length(p3) > 0) and (p3 = N)) or
+     ((length(p4) > 0) and (p4 = N)) then crlf := false else crlf := true;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
@@ -39,14 +47,16 @@ begin
   s1 := isitmessage(p1);
   if length(s1) > 0 then 
   begin
-    writeln(s1);
+    write(s1);
+    if crlf then writeln;
     exit;
   end;
   // CHECK P1 PARAMETER: IS IT A VARIABLE?
   s1 := isitvariable(p1);
   if length(s1) > 0 then 
   begin
-    writeln(s1);
+    write(s1);
+    if crlf then writeln;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -94,5 +104,5 @@ begin
       2: write(ireg[i2],' ');
       3: write(hreg[i2],' ');
     end;
-  writeln;
+    if crlf then writeln;
 end;

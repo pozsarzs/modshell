@@ -106,15 +106,18 @@ Show description or usage of the builtin commands.
 \fBpause\fP \fI[[$]TIME]\fP
 Wait for a keystroke or specified time.
 .TP
-\fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
+\fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP] [\fI-n\fP]
 Print content of the one or more registers. Register start \fIADDRESS\fP and
-the \fICOUNT\fP must be between 1-9999.
+the \fICOUNT\fP must be between 1-9999.The -n parameter does not raise a line
+and the cursor does not return to the beginning of the line.
 .TP
-\fBprint\fP \fI$VARIABLE\fP
-Print value of the \fI$VARIABLE\fP.
+\fBprint\fP \fI$VARIABLE\fP [\fI-n\fP]
+Print value of the \fI$VARIABLE\fP. The -n parameter does not raise a line
+and the cursor does not return to the beginning of the line.
 .TP
-\fBprint\fP "\fImessage\fP"
-Print a single line message.
+\fBprint\fP "\fImessage\fP" [\fI-n\fP]
+Print a single line message. The -n parameter does not raise a line and the
+cursor does not return to the beginning of the line.
 .TP
 \fBvar\fP
 Print all defined variables with their values.
@@ -322,8 +325,8 @@ Wait for 5 sec.
 \fBpause\fP $time
 Wait for value of the $time sec.
 .TP
-\fBprint\fP $a
-Print value of the $a variable.
+\fBprint\fP $a -n
+Print value of the $a variable without new line.
 .TP
 \fBprint\fP "Hello\ world!"
 Print 'Hello world!' message.

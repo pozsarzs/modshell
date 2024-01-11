@@ -111,15 +111,21 @@ BUILTIN COMMANDS
        pause [[$]TIME]
               Wait for a keystroke or specified time.
 
-       print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
+       print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]
               Print  content  of the one or more registers. Register start AD‐
-              DRESS and the COUNT must be between 1-9999.
+              DRESS and the COUNT must be between 1-9999.The -n parameter does
+              not raise a line and the cursor does not return to the beginning
+              of the line.
 
-       print $VARIABLE
-              Print value of the $VARIABLE.
+       print $VARIABLE [-n]
+              Print value of the $VARIABLE. The -n parameter does not raise  a
+              line  and  the  cursor  does  not return to the beginning of the
+              line.
 
-       print "message"
-              Print a single line message.
+       print "message" [-n]
+              Print a single line message. The -n parameter does not  raise  a
+              line  and  the  cursor  does  not return to the beginning of the
+              line.
 
        var    Print all defined variables with their values.
 
@@ -332,8 +338,8 @@ EXAMPLES
        pause $time
               Wait for value of the $time sec.
 
-       print $a
-              Print value of the $a variable.
+       print $a -n
+              Print value of the $a variable without new line.
 
        print "Hello world!"
               Print 'Hello world!' message.

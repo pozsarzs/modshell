@@ -435,9 +435,9 @@ msgstr ""
 
 #: modshell:usg05
 msgid ""
-"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]\015\n"
-"  print $VARIABLE\015\n"
-"  print \"single\\ line\\ message\"\015\n"
+"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]\015\n"
+"  print $VARIABLE [-n]\015\n"
+"  print \"single\\ line\\ message\" [-n]\015\n"
 "Notes:\015\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
