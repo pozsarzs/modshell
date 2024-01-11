@@ -298,6 +298,17 @@ Save settings of device, protocol and connection to four typed files.
 .TP
 \fBsavereg\fP \fI[$]PATH_AND_FILENAME\fP
 Save all registers to four typed files.
+.SS Script operation command
+.TP
+\fBlist\fP
+List loaded script.
+.TP
+\fBloadscr\fP \fI[$]PATH_AND_FILENAME\fP
+Load ModShell scriptfile.
+.TP
+\fBrun\fP \fI[-s]\fP
+Run loaded script. \fI[-s]\fP parameter means
+step-by-step program execution.
 .SH EXAMPLES
 .SS General commands
 .TP
@@ -503,6 +514,13 @@ Save settings of device, protocol and connection to project directory.
 .TP
 \fBsavereg\fP /home/username/Desktop/test1
 Save all registers to other directory.
+.SS Script operation command
+.TP
+\fBloadscr\fP /home/username/Desktop/dt510
+Load dt510 scriptfile other directory.
+.TP
+\fBrun\fP -s
+Run loaded script step-by-step.
 .SH HOTKEYS
 Commands with function keys (\fBF?\fP) are executed immediately,
 modifier keys (\fBALT\fP-\fB?\fP) only make typing easier.
