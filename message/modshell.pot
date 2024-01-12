@@ -92,9 +92,9 @@ msgstr ""
 
 #: modshell:msg24
 msgid ""
-"Note:\015\n"
-"  - register: local buffer register\015\n"
-"  - remote register: register of the connected device\015\n"
+"Note:\n"
+"  - register: local buffer register\n"
+"  - remote register: register of the connected device\n"
 msgstr ""
 
 #: modshell:msg25
@@ -415,9 +415,9 @@ msgstr ""
 
 #: modshell:usg00
 msgid ""
-"copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\015\n"
-"Notes:\015\n"
-"  - The '$' sign indicates a variable not a direct value.\015\n"
+"copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"Notes:\n"
+"  - The '$' sign indicates a variable not a direct value.\n"
 "  - The '?' value can be 0-7."
 msgstr ""
 
@@ -427,8 +427,8 @@ msgstr ""
 
 #: modshell:usg02
 msgid ""
-"get dev?|pro?|con?|prj\015\n"
-"Notes:\015\n"
+"get dev?|pro?|con?|prj\n"
+"Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
 
@@ -438,46 +438,46 @@ msgstr ""
 
 #: modshell:usg04
 msgid ""
-"let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\015\n"
-"  let $VARIABLE [$]VALUE\015\n"
-"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS\015\n"
-"Notes:\015\n"
+"let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
+"  let $VARIABLE [$]VALUE\n"
+"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS\n"
+"Notes:\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 
 #: modshell:usg05
 msgid ""
-"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]\015\n"
-"  print $VARIABLE [-n]\015\n"
-"  print \"single\\ line\\ message\" [-n]\015\n"
-"Notes:\015\n"
+"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]\n"
+"  print $VARIABLE [-n]\n"
+"  print \"single\\ line\\ message\" [-n]\n"
+"Notes:\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 
 #: modshell:usg06
 msgid ""
-"read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]\015\n"
-"Notes:\015\n"
+"read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]\n"
+"Notes:\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 
 #: modshell:usg07
 msgid ""
-"reset dev?|pro?|con?|prj\015\n"
-"Notes:\015\n"
+"reset dev?|pro?|con?|prj\n"
+"Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
 
 #: modshell:usg08
 msgid ""
-"set dev? net [$]DEVICE [$]PORT\015\n"
-"  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\015\n"
-"  set pro? ascii|rtu [$]UID\015\n"
-"  set pro? tcp [$]IP_ADDRESS\015\n"
-"  set con? dev? pro?\015\n"
-"  set prj [$]PROJECT_NAME\015\n"
-"Notes:\015\n"
-"  - The '$' sign indicates a variable not a direct value.\015\n"
+"set dev? net [$]DEVICE [$]PORT\n"
+"  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
+"  set pro? ascii|rtu [$]UID\n"
+"  set pro? tcp [$]IP_ADDRESS\n"
+"  set con? dev? pro?\n"
+"  set prj [$]PROJECT_NAME\n"
+"Notes:\n"
+"  - The '$' sign indicates a variable not a direct value.\n"
 "  - The '?' value can be 0-7."
 msgstr ""
 
@@ -491,9 +491,9 @@ msgstr ""
 
 #: modshell:usg11
 msgid ""
-"write con? coil|hreg [$]ADDRESS [[$]COUNT]\015\n"
-"Notes:\015\n"
-"  - The '$' sign indicates a variable not a direct value.\015\n"
+"write con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"Notes:\n"
+"  - The '$' sign indicates a variable not a direct value.\n"
 "  - The '?' value can be 0-7."
 msgstr ""
 
@@ -519,8 +519,8 @@ msgstr ""
 
 #: modshell:usg17
 msgid ""
-"conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE\015\n"
-"Notes:\015\n"
+"conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE\n"
+"Notes:\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 
@@ -534,19 +534,19 @@ msgstr ""
 
 #: modshell:usg20
 msgid ""
-"var\015\n"
-"  var NAME [[$]VALUE]\015\n"
-"Notes:\015\n"
+"var\n"
+"  var NAME [[$]VALUE]\n"
+"Notes:\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 
 #: modshell:usg21
 msgid ""
-"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT\015\n"
-"  colors:\015\n"
-"      0: black  4: red         8: darkgray    12: lightred\015\n"
-"      1: blue   5: magenta:    9: lightblue   13: lightmagenta\015\n"
-"      2: green  6: brown      10: lightgreen  14: yellow\015\n"
+"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT\n"
+"  colors:\n"
+"      0: black  4: red         8: darkgray    12: lightred\n"
+"      1: blue   5: magenta:    9: lightblue   13: lightmagenta\n"
+"      2: green  6: brown      10: lightgreen  14: yellow\n"
 "      3: cyan   7: lightgray  11: lightcyan   15: white"
 msgstr ""
 
@@ -600,30 +600,30 @@ msgstr ""
 
 #: modshell:usg34
 msgid ""
-"pause [[$]TIME]\015\n"
-"Notes:\015\n"
+"pause [[$]TIME]\n"
+"Notes:\n"
 "  - The '$' sign indicates a variable not a direct value."
 msgstr ""
 
 #: modshell:usg35
 msgid ""
-"sercons [dev?]\015\n"
-"Notes:\015\n"
+"sercons [dev?]\n"
+"Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
 
 #: modshell:usg36
 msgid ""
-"serread dev? [$TARGET]\015\n"
-"Notes:\015\n"
+"serread dev? [$TARGET]\n"
+"Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
 
 #: modshell:usg37
 msgid ""
-"serwrite dev? $MESSAGE\015\n"
-"  serwrite dev? \"MESSAGE\"\015\n"
-"Notes:\015\n"
+"serwrite dev? $MESSAGE\n"
+"  serwrite dev? \"MESSAGE\"\n"
+"Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
 

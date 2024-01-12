@@ -93,10 +93,10 @@ begin
         35: buffer[b] := buffer[b] + DES35;
         36: buffer[b] := buffer[b] + DES36;
         37: buffer[b] := buffer[b] + DES37;
-        38: buffer[b] := buffer[b] + DES28;
-        39: buffer[b] := buffer[b] + DES29;
-        40: buffer[b] := buffer[b] + DES30;
-        41: buffer[b] := buffer[b] + DES31;
+        38: buffer[b] := buffer[b] + DES38;
+        39: buffer[b] := buffer[b] + DES39;
+        40: buffer[b] := buffer[b] + DES40;
+        41: buffer[b] := buffer[b] + DES41;
       end;
     end;
 //    shorting;
@@ -109,7 +109,8 @@ begin
       if line >= (screenheight - 6) then
       begin
         write(MSG23); readkey;
-        writeln;
+        write(#13); clreol;
+        // writeln;
         line := 0;
       end;
     end;
@@ -169,10 +170,10 @@ begin
         35: writeln(USG35);
         36: writeln(USG36);
         37: writeln(USG37);
-        38: writeln(USG37);
-        39: writeln(USG37);
-        40: writeln(USG37);
-        41: writeln(USG37);
+        38: writeln(USG38);
+        39: writeln(USG39);
+        40: writeln(USG40);
+        41: writeln(USG41);
       end;
     end;
   end;

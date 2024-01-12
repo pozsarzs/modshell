@@ -46,9 +46,9 @@ mul $q $q 3000
 div $q $q 32767
 mul $s $s 3000
 div $s $s 32767
-mul $u $u 3677
-div $u $u 327670
-mul $i $i 8170
+mul $u $u 367.7
+div $u $u 32767
+mul $i $i 8.17
 div $i $i 32767
 
 # result
@@ -68,6 +68,6 @@ print $u -n
 print "\ V"
 print "I:\ " -n
 print $i -n
-print "\ mA"
+print "\ A"
 
 :eof

@@ -193,9 +193,9 @@ resourcestring
   MSG21 = 'Register content has loaded from ';
   MSG22 = 'Useable file types: ';
   MSG23 = 'Press a key to continue... ';
-  MSG24 = 'Note:' + #13 + #10 +
-          '  - register: local buffer register' + #13 + #10 +
-          '  - remote register: register of the connected device' + #13 + #10;
+  MSG24 = 'Note:' +  #10 +
+          '  - register: local buffer register' + #10 +
+          '  - remote register: register of the connected device' + #10;
   MSG25 = 'Select register type: ';
   MSG26 = 'Local register type (dinp/coil/ireg/hreg: 1/2/3/4): ';
   MSG27 = 'Start address (0-9990): ';
@@ -278,65 +278,65 @@ resourcestring
   DES40='       run loaded Modshell script';
   DES41='       list loaded Modshell script';
   // COMMAND USAGE
-  USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #13 + #10 +
-        'Notes:' + #13 + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.' + #13 + #10 +
+  USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #10 +
+        'Notes:' + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.' + #10 +
         '  - The ''?'' value can be 0-7.';
   USG01='exit';
-  USG02='get dev?|pro?|con?|prj' + #13 + #10 +
-        'Notes:' + #13 + #10 +
+  USG02='get dev?|pro?|con?|prj' + #10 +
+        'Notes:' + #10 +
         '  - The ''?'' value can be 0-7.';
   USG03='help [[$]COMMAND]';
-  USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + #13 + #10 +
-        '  let $VARIABLE [$]VALUE' + #13 + #10 +
-        '  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS' + #13 + #10 +
-        'Notes:' + #13 + #10 +
+  USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + #10 +
+        '  let $VARIABLE [$]VALUE' + #10 +
+        '  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS' + #10 +
+        'Notes:' + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
-  USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]' + #13 + #10 +
-        '  print $VARIABLE [-n]' + #13 + #10 +
-        '  print "single\ line\ message" [-n]' + #13 + #10 +
-        'Notes:' + #13 + #10 +
+  USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]' + #10 +
+        '  print $VARIABLE [-n]' + #10 +
+        '  print "single\ line\ message" [-n]' + #10 +
+        'Notes:' + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
-  USG06='read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]' + #13 + #10 +
-        'Notes:' + #13 + #10 +
+  USG06='read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]' + #10 +
+        'Notes:' + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
-  USG07='reset dev?|pro?|con?|prj' + #13 + #10 +
-        'Notes:' + #13 + #10 +
+  USG07='reset dev?|pro?|con?|prj' + #10 +
+        'Notes:' + #10 +
         '  - The ''?'' value can be 0-7.';
-  USG08='set dev? net [$]DEVICE [$]PORT' + #13 + #10 +
-        '  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT' + #13 + #10 +
-        '  set pro? ascii|rtu [$]UID' + #13 + #10 +
-        '  set pro? tcp [$]IP_ADDRESS' + #13 + #10 +
-        '  set con? dev? pro?' + #13 + #10 +
-        '  set prj [$]PROJECT_NAME' + #13 + #10 +
-        'Notes:' + #13 + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.' + #13 + #10 +
+  USG08='set dev? net [$]DEVICE [$]PORT' + #10 +
+        '  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT' + #10 +
+        '  set pro? ascii|rtu [$]UID' + #10 +
+        '  set pro? tcp [$]IP_ADDRESS' + #10 +
+        '  set con? dev? pro?' + #10 +
+        '  set prj [$]PROJECT_NAME' + #10 +
+        'Notes:' + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.' + #10 +
         '  - The ''?'' value can be 0-7.';
   USG09='date';
   USG10='ver';
-  USG11='write con? coil|hreg [$]ADDRESS [[$]COUNT]' + #13 + #10 +
-        'Notes:' + #13 + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.' + #13 + #10 +
+  USG11='write con? coil|hreg [$]ADDRESS [[$]COUNT]' + #10 +
+        'Notes:' + #10 +
+        '  - The ''$'' sign indicates a variable not a direct value.' + #10 +
         '  - The ''?'' value can be 0-7.';
   USG12='cls';
   USG13='savecfg [$]PATH_AND_FILENAME';
   USG14='loadcfg [$]PATH_AND_FILENAME';
   USG15='expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
   USG16='exphis [$]PATH_AND_FILENAME';
-  USG17='conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE' + #13 + #10 +
-        'Notes:' + #13 + #10 +
+  USG17='conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE' + #10 +
+        'Notes:' + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
   USG18='savereg [$]PATH_AND_FILENAME';
   USG19='loadreg [$]PATH_AND_FILENAME';
-  USG20='var' + #13 + #10 +
-        '  var NAME [[$]VALUE]' + #13 + #10 +
-        'Notes:' + #13 + #10 +
+  USG20='var' + #10 +
+        '  var NAME [[$]VALUE]' + #10 +
+        'Notes:' + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
-  USG21='color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT' + #13 + #10 +
-        '  colors:' + #13 + #10 +
-        '      0: black  4: red         8: darkgray    12: lightred' + #13 + #10 +
-        '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + #13 + #10 +
-        '      2: green  6: brown      10: lightgreen  14: yellow' + #13 + #10 +
+  USG21='color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT' + #10 +
+        '  colors:' + #10 +
+        '      0: black  4: red         8: darkgray    12: lightred' + #10 +
+        '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + #10 +
+        '      2: green  6: brown      10: lightgreen  14: yellow' + #10 +
         '      3: cyan   7: lightgray  11: lightcyan   15: white';
   USG22='impreg [$]PATH_AND_FILENAME';
   USG23='and $TARGET [$]VALUE1 [$]VALUE2';
@@ -350,18 +350,18 @@ resourcestring
   USG31='mul $TARGET [$]VALUE1 [$]VALUE2';
   USG32='div $TARGET [$]VALUE1 [$]VALUE2';
   USG33='dump [[dinp|coil|ireg|hreg] [$]ADDRESS]';
-  USG34='pause [[$]TIME]' + #13 + #10 +
-        'Notes:' + #13 + #10 +
+  USG34='pause [[$]TIME]' + #10 +
+        'Notes:' + #10 +
         '  - The ''$'' sign indicates a variable not a direct value.';
-  USG35='sercons [dev?]' + #13 + #10 +
-        'Notes:' + #13 + #10 +
+  USG35='sercons [dev?]' + #10 +
+        'Notes:' + #10 +
         '  - The ''?'' value can be 0-7.';
-  USG36='serread dev? [$TARGET]' + #13 + #10 +
-        'Notes:' + #13 + #10 +
+  USG36='serread dev? [$TARGET]' + #10 +
+        'Notes:' + #10 +
         '  - The ''?'' value can be 0-7.';
-  USG37='serwrite dev? $MESSAGE' + #13 + #10 +
-        '  serwrite dev? "MESSAGE"' + #13 + #10 +
-        'Notes:' + #13 + #10 +
+  USG37='serwrite dev? $MESSAGE' + #10 +
+        '  serwrite dev? "MESSAGE"' + #10 +
+        'Notes:' + #10 +
         '  - The ''?'' value can be 0-7.';
   USG38='echo [off|on|hex]';
   USG39='loadscr [$]PATH_AND_FILENAME';
