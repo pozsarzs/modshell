@@ -50,6 +50,11 @@ mul $u $u 367.7
 div $u $u 32767
 mul $i $i 8.17
 div $i $i 32767
+round $p $p 1
+round $q $q 1
+round $s $s 1
+round $u $u 1
+round $i $i 3
 
 # result
 print "\ "

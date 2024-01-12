@@ -413,6 +413,10 @@ msgstr ""
 msgid "       list loaded Modshell script"
 msgstr ""
 
+#: modshell:des42
+msgid "       round real number"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
@@ -641,5 +645,9 @@ msgstr ""
 
 #: modshell:usg41
 msgid "list"
+msgstr ""
+
+#: modshell:usg42
+msgid "round $TARGET [$]VALUE [$]DEC_PLACES"
 msgstr ""
 

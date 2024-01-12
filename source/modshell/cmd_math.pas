@@ -19,6 +19,7 @@
   sub $TARGET [$]VALUE1 [$]VALUE2
   mul $TARGET [$]VALUE1 [$]VALUE2
   div $TARGET [$]VALUE1 [$]VALUE2
+  round $TARGET [$]VALUE [$]DEC_PLACES
 }
 
 // MATHEMATICAL OPERATIONS
@@ -47,15 +48,11 @@ begin
   // PRIMARY MISSION
   try
     case op of
-{      29: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) + strtointdef(s3, 0));
-      30: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) - strtointdef(s3, 0));
-      31: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) * strtointdef(s3, 1));
-      32: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) div strtointdef(s3, 1));
-}      
       29: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) + strtofloatdef(s3, 0));
       30: vars[intisitvariable(p1)].vvalue :=  floattostr(strtofloatdef(s2, 0) - strtofloatdef(s3, 0));
       31: vars[intisitvariable(p1)].vvalue :=  floattostr(strtofloatdef(s2, 0) * strtofloatdef(s3, 1));
       32: vars[intisitvariable(p1)].vvalue :=  floattostr(strtofloatdef(s2, 0) / strtofloatdef(s3, 1));
+      42: vars[intisitvariable(p1)].vvalue :=  floattostr(round2(strtofloatdef(s2, 0), strtointdef(s3, 0)));
     end;
   except
     writeln(ERR20);

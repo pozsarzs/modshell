@@ -173,6 +173,10 @@ is placed in \fI$TARGET\fP. (integer division)
 Multiply the two two values or variables (\fI[$]VALUE1\fP \fI[$]VALUE2\fP)
 and the result is placed in \fI$TARGET\fP.
 .TP
+\fBround\fP \fI$TARGET\fP \fI[$]VALUE\fP \fI[$]DEC_PLACES\fP
+Round value or variable (\fI[$]VALUE\fP) to \fI[$]DEC_PLACES\fP decimal places
+and the result is placed in \fI$TARGET\fP.
+.TP
 \fBsub\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
 Substract \fI[$]VALUE2\fP from \fI[$]VALUE1\fP and the result
 is placed in \fI$TARGET\fP.
@@ -374,6 +378,10 @@ Convert 45236 in binary to hex (result: B0B4).
 .TP
 \fBconv\fP hex dec $I
 Convert value of the $I in hexadecimal to decimal.
+.TP
+\fBround\fP $result 12.01023 2
+Round 12.01023 to decimal places, and the result (12.01)
+is placed in $result.
 .TP
 \fBsubs\fP $result 12 13
 Substract 13 from 12, and the result is placed in $result.

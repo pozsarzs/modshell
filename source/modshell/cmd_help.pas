@@ -49,7 +49,7 @@ begin
   begin
     writeln(MSG03); // How to use help with command list.
     writeln;
-    for b := 0 to 41 do
+    for b := 0 to 42 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
       for bb := 0 to 6 - length(COMMANDS[b]) + 2 do
@@ -97,12 +97,13 @@ begin
         39: buffer[b] := buffer[b] + DES39;
         40: buffer[b] := buffer[b] + DES40;
         41: buffer[b] := buffer[b] + DES41;
+        42: buffer[b] := buffer[b] + DES42;
       end;
     end;
 //    shorting;
-    buffer[42] := MSG24;
+    buffer[43] := MSG24;
     line := 0;
-    for b := 42 downto 0 do
+    for b := 43 downto 0 do
     begin
       writeln(buffer[b]);
       inc(line);
@@ -120,7 +121,7 @@ begin
     s1 := isitvariable(p1);
     if length(s1) = 0 then s1 := p1;
     valid := false;
-    for b := 0 to 41 do
+    for b := 0 to 42 do
       if s1 = COMMANDS[b] then
       begin
         valid := true;
@@ -174,6 +175,7 @@ begin
         39: writeln(USG39);
         40: writeln(USG40);
         41: writeln(USG41);
+        42: writeln(USG42);
       end;
     end;
   end;

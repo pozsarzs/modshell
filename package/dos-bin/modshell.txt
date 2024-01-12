@@ -170,55 +170,59 @@ BUILTIN COMMANDS
               Multiply the two two values or variables ([$]VALUE1 [$]VALUE2) and the re‐
               sult is placed in $TARGET.
 
+       round $TARGET [$]VALUE [$]DEC_PLACES
+              Round value or variable ([$]VALUE) to [$]DEC_PLACES decimal places and the
+              result is placed in $TARGET.
+
        sub $TARGET [$]VALUE1 [$]VALUE2
               Substract [$]VALUE2 from [$]VALUE1 and the result is placed in $TARGET.
 
    Configuration commands
        get dev?|pro?|con?|prj
-              Get  configuration  of  a  device  (dev?),  protocol  (pro?) or connection
+              Get configuration of  a  device  (dev?),  protocol  (pro?)  or  connection
               (con?), or get project name (prj). ? number must be 0-7.
 
        reset dev?|pro?|con?|prj
-              Reset configuration of a device  (dev?),  protocol  (pro?)  or  connection
+              Reset  configuration  of  a  device  (dev?), protocol (pro?) or connection
               (con?), or reset project name (prj). ? number must be 0-7.
 
        set dev? net [$]DEVICE [$]PORT
-              Set  device (dev?) to ethernet (net) device. Device number must be between
+              Set device (dev?) to ethernet (net) device. Device number must be  between
               0-7 and port number must be between 0-65535. The DEVICE name on DOS is al‐
               ways PACKET, on other systems is the name of the adapter (e.g. eth0, nfe0,
               etc.).
 
        set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT
-              Set device (dev?) to serial (ser) device. Device number  must  be  between
-              0-7.  The  DEVICE  name  is  the  name  of  the adapter (e.g. com1, ttyS0,
-              ttyUSB0, ttyAMA0 etc.). BAUDRATE must be: 1200; 2400; 4800;  9600;  19200;
-              38400;  57600  or  115200.  DATABIT  must  be 7 or 8, PARITY must be E/N/O
+              Set  device  (dev?)  to serial (ser) device. Device number must be between
+              0-7. The DEVICE name is  the  name  of  the  adapter  (e.g.  com1,  ttyS0,
+              ttyUSB0,  ttyAMA0  etc.). BAUDRATE must be: 1200; 2400; 4800; 9600; 19200;
+              38400; 57600 or 115200. DATABIT must be 7  or  8,  PARITY  must  be  E/N/O
               (even/none/odd). STOPBIT must be 1 or 2.
 
        set pro? ascii|rtu [$]UID
-              Set protocol (pro?) to Modbus/ASCII (ascii) or Modbus/RTU (rtu).  Unit  ID
+              Set  protocol (pro?) to Modbus/ASCII (ascii) or Modbus/RTU (rtu).  Unit ID
               (UID) must be between 1-247.
 
        set pro? tcp [$]IP_ADDRESS
-              Set  protocol (pro?) to Modbus/TCP (tcp). Address of remote device (IP_AD‐
+              Set protocol (pro?) to Modbus/TCP (tcp). Address of remote device  (IP_AD‐
               DRESS) must be in a.b.c.d format, with values between 1-255.
 
        set con? dev? pro?
-              Assigns a device (dev?) and a protocol (pro?) to a  connection  (con?).  ?
+              Assigns  a  device  (dev?) and a protocol (pro?) to a connection (con?). ?
               number must be 0-7.
 
        set prj [$]PROJECT_NAME
-              Set  the  project  name. The name cannot contain spaces or special charac‐
+              Set the project name. The name cannot contain spaces  or  special  charac‐
               ters.  The project directory will also be created with this name.
 
    Data handler commands
        dump [[dinp|coil|ireg|hreg] [$]ADDRESS]
-              Dump one page register content from ADDRESS in  binary/hexadecimal  format
+              Dump  one  page register content from ADDRESS in binary/hexadecimal format
               to a table.
 
        let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE
-              Set  value  of  a register. Register start address must be between 1-9999.
-              If register type is discrete input (dinp) and coil (coil), VALUE  must  be
+              Set value of a register. Register start address must  be  between  1-9999.
+              If  register  type is discrete input (dinp) and coil (coil), VALUE must be
               0/1, l/h or false/true. If it is input register (ireg) or holding register
               (hreg), VALUE must be 0-65535.
 
@@ -226,29 +230,29 @@ BUILTIN COMMANDS
               Set value of a variable $VARIABLE to value [$]VALUE.
 
        let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS
-              Set value of a variable $VARIABLE from register  content.  Register  start
-              address  and  must  be  between 1-9999, If register type is discrete input
-              (dinp) and coil (coil), value will be 0/1, if it is input register  (ireg)
+              Set  value  of  a variable $VARIABLE from register content. Register start
+              address and must be between 1-9999, If register  type  is  discrete  input
+              (dinp)  and coil (coil), value will be 0/1, if it is input register (ireg)
               or holding register (hreg), value of the variable will be 0-65535.
 
    Communication commands
        read con? dinp|coil|ireg|hreg [$]ADDRESS [ICOUNT]
-              Read  one  or  more remote registers. Number of connection (con?)  must be
+              Read one or more remote registers. Number of connection  (con?)   must  be
               between 0-7, register start ADDRESS and the COUNT must be between 1-9999.
 
        write con? coil|hreg [$]ADDRESS [[$]COUNT]
-              Write data to one or more remote registers. Number  of  connection  (con?)
-              must  be between 0-7, register start address and the count must be between
+              Write  data  to  one or more remote registers. Number of connection (con?)
+              must be between 0-7, register start address and the count must be  between
               1-9999.
 
        copy con? dinp|coil con? coil? [$]ADDRESS [[$]COUNT]
-              Copy logical data between connections (con?). Number of connection  (con?)
-              must  be between 0-7, register start ADDRESS and the COUNT must be between
+              Copy  logical data between connections (con?). Number of connection (con?)
+              must be between 0-7, register start ADDRESS and the COUNT must be  between
               1-9999.
 
        copy con? ireg|hreg con? hreg? [$]ADDRESS [[$]COUNT]
-              Copy numeral data between connections (con?). Number of connection  (con?)
-              must  be between 0-7, register start ADDRESS and the COUNT must be between
+              Copy  numeral data between connections (con?). Number of connection (con?)
+              must be between 0-7, register start ADDRESS and the COUNT must be  between
               1-9999.
 
        sercons [dev?]
@@ -256,7 +260,7 @@ BUILTIN COMMANDS
               tory named console.log. Number of device (dev?) must be between 0-7.
 
        serread [dev?] [$TARGET]
-              Read  string from serial device to variable $TARGET or write screen.  Num‐
+              Read string from serial device to variable $TARGET or write screen.   Num‐
               ber of device (dev?) must be between 0-7.
 
        serwrite [dev?] $MESSAGE
@@ -264,24 +268,24 @@ BUILTIN COMMANDS
               be between 0-7.
 
        serwrite [dev?] "MESSAGE"
-              Write  "MESSAGE" to serial device. Number of device (dev?) must be between
+              Write "MESSAGE" to serial device. Number of device (dev?) must be  between
               0-7.
 
    File operation command
-       The specified parameter does not contain a path, the file will be  saved  in  the
-       project  directory  in the user's home directory (on DOS, in project directory in
+       The  specified  parameter  does not contain a path, the file will be saved in the
+       project directory in the user's home directory (on DOS, in project  directory  in
        the program directory).
 
        exphis [$]PATH_AND_FILENAME
               Export command line history to a text file.
 
        expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
-              Export content of the one or more registers to a text file in CSV, INI  or
-              XML  format.  The  file format is specified by the destination file exten‐
+              Export  content of the one or more registers to a text file in CSV, INI or
+              XML format. The file format is specified by the  destination  file  exten‐
               sion.  If the file exists, it will overwrite or append the new data.
 
        impreg [$]PATH_AND_FILENAME
-              Import content of the one or more registers from a text file in  CSV,  INI
+              Import  content  of the one or more registers from a text file in CSV, INI
               or XML format. The file format is specified by the destination file exten‐
               sion.
 
@@ -343,18 +347,18 @@ EXAMPLES
 
    Logical commands
        and $result 1234 1345
-              Performs AND operation with 1234 and 1345, and the  result  is  placed  in
+              Performs  AND  operation  with  1234 and 1345, and the result is placed in
               $result.
 
        or $result 1234 $b
-              Performs  OR  operation with 1234 and $b, and the result is placed in $re‐
+              Performs OR operation with 1234 and $b, and the result is placed  in  $re‐
               sult.
 
        not $result $a
               Performs negation on 1234 and the result is placed in $result.
 
        shr $result $source $shift
-              Shifts bits of the $source to the left by position $shift and  the  result
+              Shifts  bits  of the $source to the left by position $shift and the result
               is placed in $result.
 
    Mathematical commands
@@ -366,6 +370,10 @@ EXAMPLES
 
        conv hex dec $I
               Convert value of the $I in hexadecimal to decimal.
+
+       round $result 12.01023 2
+              Round 12.01023 to decimal places, and the result (12.01) is placed in $re‐
+              sult.
 
        subs $result 12 13
               Substract 13 from 12, and the result is placed in $result.

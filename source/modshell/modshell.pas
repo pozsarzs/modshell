@@ -103,7 +103,7 @@ const
     ('-r','--run','run script')
   );
   // COMMANDS AND PARAMETERS
-  COMMANDS: array[0..41] of string = ('copy','exit','get','help','let',
+  COMMANDS: array[0..42] of string = ('copy','exit','get','help','let',
                                       'print','read','reset','set','date',
                                       'ver','write','cls','savecfg',
                                       'loadcfg','expreg','exphis','conv',
@@ -111,7 +111,7 @@ const
                                       'impreg','and','or','not','xor','shl',
                                       'shr','add','sub','mul','div','dump',
                                       'pause','sercons','serread','serwrite',
-                                      'echo', 'loadscr', 'run', 'list');
+                                      'echo', 'loadscr', 'run', 'list', 'round');
   PROMPT = 'MODSH|_>';
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
@@ -277,6 +277,7 @@ resourcestring
   DES39='       load Modshell script from file';
   DES40='       run loaded Modshell script';
   DES41='       list loaded Modshell script';
+  DES42='       round real number';
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #10 +
         'Notes:' + #10 +
@@ -367,6 +368,7 @@ resourcestring
   USG39='loadscr [$]PATH_AND_FILENAME';
   USG40='run [-s]';
   USG41='list';
+  USG42='round $TARGET [$]VALUE [$]DEC_PLACES';
 
 procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
@@ -525,7 +527,7 @@ begin
       o := false;
       if splitted[0][1] <> COMMENT then
       begin
-        for b := 0 to 41 do
+        for b := 0 to 42 do
           if splitted[0] = COMMANDS[b] then
           begin
             o := true;
@@ -608,6 +610,7 @@ begin
                // run [-s]
            41: cmd_list;
                // list
+           42: cmd_math(b, splitted[1], splitted[2], splitted[3]);
           else
           begin
             if (b > 22) and (b < 29) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);

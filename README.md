@@ -129,6 +129,7 @@ On exit, the command line history, echo mode and colors are preserved.
 |conv    |maths     |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |
 |div     |maths     |      |division                                                         |
 |mul     |maths     |      |multiplication                                                   |
+|round   |maths     |      |round real number                                                |
 |sub     |maths     |      |substraction                                                     |
 |dump    |register  |F6    |dump all registers in binary/hexadecimal format to a table       |
 |let     |register  |ALT-L |set value of a variable or register                              |

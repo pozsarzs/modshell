@@ -18,8 +18,10 @@ unit ucommon;
 interface
 uses
   crt,
+  math,
   sysutils;
 
+function round2(const number: extended; const places: longint): extended;
 function addzero(v: word): string;
 function addsomezero(n: byte; s: string): string;
 function hex1(n: byte; w: word): string;
@@ -38,6 +40,15 @@ procedure ewrite(fg: byte; hl: byte; t: string);
 procedure xywrite(x, y: byte; c: boolean; s: string);
 
 implementation
+
+// ROUND
+function round2(const number: extended; const places: longint): extended;
+var
+  t: extended;
+begin
+   t := power(10, places);
+   round2 := round(number * t) / t;
+end;
 
 // INSERT ZERO BEFORE [0-9]
 function addzero(v: word): string;

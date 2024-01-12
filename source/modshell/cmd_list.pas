@@ -33,7 +33,7 @@ begin
       if y >= (screenheight - 6) then
       begin
         write(MSG23); readkey;
-        writeln;
+        write(#13); clreol;
         y := 0;
       end;
     end;
