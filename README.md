@@ -80,6 +80,8 @@ The command line history can be exported to a text file and provides it with
 the appropriate 'shebang' for the installation method and operating system. You
 can easily create a script from this raw file.
 
+The script on the disc can be loaded into the already running program and started manually.
+
 Device, protocol and connection settings can be saved and loaded in their own
 format. During saving, three typed files are created, with the following
 extensions: DDT, PDT, CDT.
@@ -125,12 +127,12 @@ On exit, the command line history, echo mode and colors are preserved.
 |shl     |logic     |      |bit shift to left                                                |
 |shr     |logic     |      |bit shift to right                                               |
 |xor     |logic     |      |XOR logical operations                                           |
-|add     |maths     |      |addition                                                         |
-|conv    |maths     |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |
-|div     |maths     |      |division                                                         |
-|mul     |maths     |      |multiplication                                                   |
-|round   |maths     |      |round real number                                                |
-|sub     |maths     |      |substraction                                                     |
+|add     |arithmetic|      |addition                                                         |
+|conv    |arithmetic|ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |
+|div     |arithmetic|      |division                                                         |
+|mul     |arithmetic|      |multiplication                                                   |
+|round   |arithmetic|      |round real number                                                |
+|sub     |arithmetic|      |substraction                                                     |
 |dump    |register  |F6    |dump all registers in binary/hexadecimal format to a table       |
 |let     |register  |ALT-L |set value of a variable or register                              |
 |list    |script    |      |list loaded script                                               |
@@ -153,13 +155,42 @@ view the manual page from *nix shell (_man modshell_) or _modshell.txt_ on other
 If you find any bugs, please report them! I am also happy to accept pull requests from anyone.
 You can use the GitHub issue tracker to report bugs, ask questions, or suggest new features.
 
-####Planned feature  
+#### Planned feature
 
 **Commands**
 
-|command|category   |hotkey|description                                                   |
-|-------|-----------|------|--------------------------------------------------------------|
-|srvtcp |connection |      |start/stop transparent Modbus/TCP server                      |
-|srvrtu |connection |      |start/stop transparent Modbus/RTU slave                       |
-|if     |general    |      |selection statement                                           |
-|for    |general    |      |loop iteration                                                |
+|command|category  |hotkey|description                             |
+|-------|----------|------|----------------------------------------|
+|srvtcp |connection|      |start/stop transparent Modbus/TCP server|
+|srvrtu |connection|      |start/stop transparent Modbus/RTU slave |
+|if     |general   |      |selection statement                     |
+|for    |general   |      |loop iteration                          |
+|chr    |general   |      |convert byte to char                    |
+|ord    |general   |      |convert char to byte                    |
+|cos    |arithmetic|      |cosine function                         |
+|cotan  |arithmetic|      |cotangent function                      |
+|dec    |arithmetic|      |decrement integer                       |
+|exp    |arithmetic|      |natural exponential                     |
+|idiv   |arithmetic|      |integer division                        |
+|imod   |arithmetic|      |modulus division                        |
+|inc    |arithmetic|      |increment integer                       |
+|ln     |arithmetic|      |natural logarithm                       |
+|mulinv |arithmetic|      |multiplicative inverse                  |
+|odd    |arithmetic|      |odd or event                            |
+|rnd    |arithmetic|      |create random integer                   |
+|tan    |arithmetic|      |tangent function                        |
+|sin    |arithmetic|      |sine function                           |
+|sqr    |arithmetic|      |square root                             |
+|sqrt   |arithmetic|      |square root                             |
+|roll   |logic     |      |roll bit of integer to left             |
+|rolr   |logic     |      |roll bit of integer to right            |
+|upcase |string    |      |conversion to uppercase                 |
+|length |string    |      |length of string                        |
+|lowcase|string    |      |conversion to lowercase                 |
+|stritem|string    |      |specified element of the string         |
+
+**Constant**
+|command|value                              |
+|-------|-----------------------------------|
+|$pi    |value of Pi (3.1415926535897932385)|
+
