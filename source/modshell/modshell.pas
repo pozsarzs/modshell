@@ -27,6 +27,7 @@ uses
   dos,
   gettext,
   inifiles,
+  math,
   strings,
   sysutils,
   ucommon,
@@ -60,35 +61,16 @@ type
     vname: string[16];
     vvalue: string[255];
   end;
-var
-  {$IFNDEF GO32V2}
-    ser: tblockserial;
-  {$ENDIF}
-  // BUFFER
-  coil: array[1..9999] of boolean;
-  dinp: array[1..9999] of boolean;
-  ireg: array[1..9999] of word;
-  hreg: array[1..9999] of word;
-  // SETTINGS - DEVICE, PROJECT NAME, PROTOCOL, CONNECTION
-  dev: array[0..7] of tdevice;
-  {$IFDEF GO32V2}
-    proj: string[8] = 'default';
-  {$ELSE}
-    proj: string[16] = 'default';
-  {$ENDIF}
-  prot: array[0..7] of tprotocol;
-  conn: array[0..7] of tconnection;
-  // buffer for script
-  sbuffer: array[0..254] of string;
-  // VARIABLES
-  vars: array[0..63] of tvariable;
-  // OTHERS
-  appmode: byte;
-  b: byte;
-  lang: string;
-  // splitted command line
-  splitted: array[0..7] of string;
 const
+  // OTHERS
+  PROMPT = 'MODSH|_>';
+  PRGCOPYRIGHT = '(C) 2023 Pozsar Zsolt <http://www.pozsarzs.hu>';
+  PRGNAME = 'ModShell';
+  PRGVERSION = '0.1';
+  SCRBUFFSIZE = 256;
+  VARBUFFSIZE = 128;
+  COMMARRSIZE = 66;
+  // VALID BOOLEAN VALUES
   BOOLVALUES: array[0..1,0..2] of string =
   (
     ('0','L','FALSE'),
@@ -103,31 +85,54 @@ const
     ('-r','--run','run script')
   );
   // COMMANDS AND PARAMETERS
-  COMMANDS: array[0..42] of string = ('copy','exit','get','help','let',
-                                      'print','read','reset','set','date',
-                                      'ver','write','cls','savecfg',
-                                      'loadcfg','expreg','exphis','conv',
-                                      'savereg','loadreg','var','color',
-                                      'impreg','and','or','not','xor','shl',
-                                      'shr','add','sub','mul','div','dump',
-                                      'pause','sercons','serread','serwrite',
-                                      'echo', 'loadscr', 'run', 'list', 'round');
-  PROMPT = 'MODSH|_>';
+  COMMANDS: array[0..COMMARRSIZE - 1] of string =
+    ('copy','exit','get','help','let','print','read','reset','set','date',
+     'ver','write','cls','savecfg','loadcfg','expreg','exphis','conv',
+     'savereg','loadreg','var','color','impreg','and','or','not','xor',
+     'shl','shr','add','sub','mul','div','dump','pause','sercons','serread',
+     'serwrite','echo','loadscr','run','list','round','cos','cotan','dec',
+     'exp','idiv','imod','inc','ln','mulinv','odd','rnd','tan','sin','sqr',
+     'sqrt','roll','rolr','upcase','length','lowcase','stritem','chr','ord');
   DEV_TYPE: array[0..1] of string = ('net','ser');
-  DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200',
-                                      '38400','57600','115200');
+  DEV_SPEED: array[0..7] of string =
+    ('1200','2400','4800','9600','19200','38400','57600','115200');
   DEV_PARITY: array[0..2] of char = ('e','n','o');
-  DEV_TIMEOUT: integer = 500; // in ms
   FILE_TYPE: array[0..2] of string = ('csv','ini','xml');
   PROT_TYPE: array[0..2] of string = ('ascii','rtu','tcp');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');
   PREFIX: array[0..3] of string = ('dev','pro','con','prj');
   ECHO_ARG: array[0..3] of string = ('off','on','hex','swap');
-  // OTHERS
-  PRGCOPYRIGHT = '(C) 2023 Pozsar Zsolt <http://www.pozsarzs.hu>';
-  PRGNAME = 'ModShell';
-  PRGVERSION = '0.1';
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
+  // Modbus timeout in ms
+  DEV_TIMEOUT: integer = 500;
+var
+  {$IFNDEF GO32V2}
+    ser: tblockserial;
+  {$ENDIF}
+  // BUFFERS
+  // registers
+  coil: array[1..9999] of boolean;
+  dinp: array[1..9999] of boolean;
+  ireg: array[1..9999] of word;
+  hreg: array[1..9999] of word;
+  sbuffer: array[0..SCRBUFFSIZE - 1] of string;
+  // variables
+  vars: array[0..VARBUFFSIZE-1] of tvariable;
+  {$IFDEF GO32V2}
+    proj: string[8] = 'default';
+  {$ELSE}
+    proj: string[16] = 'default';
+  {$ENDIF}
+  // SETTINGS - DEVICE, PROJECT NAME, PROTOCOL, CONNECTION
+  dev: array[0..7] of tdevice;
+  prot: array[0..7] of tprotocol;
+  conn: array[0..7] of tconnection;
+  // OTHERS
+  appmode: byte;
+  b: byte;
+  lang: string;
+  // SPLITTED COMMAND LINE
+  splitted: array[0..7] of string;
 
 {$IFNDEF GO32V2}
   {$R *.res}
@@ -278,10 +283,32 @@ resourcestring
   DES40='       run loaded Modshell script';
   DES41='       list loaded Modshell script';
   DES42='       round real number';
+  DES43='       cosine function';
+  DES44='       cotangent function';
+  DES45='       decrement integer';
+  DES46='       natural exponential';
+  DES47='       integer division';
+  DES48='       modulus division';
+  DES49='       increment integer';
+  DES50='       natural logarithm';
+  DES51='       multiplicative inverse';
+  DES52='       odd or event';
+  DES53='       create random integer';
+  DES54='       tangent function';
+  DES55='       sine function';
+  DES56='       square root';
+  DES57='       square root';
+  DES58='       roll bit of integer to left';
+  DES59='       roll bit of integer to right';
+  DES60='       conversion to uppercase';
+  DES61='       length of string';
+  DES62='       conversion to lowercase';
+  DES63='       specified element of the string';
+  DES64='       convert byte to char';
+  DES65='       convert char to byte';
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #10 +
         'Notes:' + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.' + #10 +
         '  - The ''?'' value can be 0-7.';
   USG01='exit';
   USG02='get dev?|pro?|con?|prj' + #10 +
@@ -290,17 +317,11 @@ resourcestring
   USG03='help [[$]COMMAND]';
   USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + #10 +
         '  let $VARIABLE [$]VALUE' + #10 +
-        '  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS' + #10 +
-        'Notes:' + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.';
+        '  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS';
   USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]' + #10 +
         '  print $VARIABLE [-n]' + #10 +
-        '  print "single\ line\ message" [-n]' + #10 +
-        'Notes:' + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.';
-  USG06='read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]' + #10 +
-        'Notes:' + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.';
+        '  print "single\ line\ message" [-n]';
+  USG06='read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
   USG07='reset dev?|pro?|con?|prj' + #10 +
         'Notes:' + #10 +
         '  - The ''?'' value can be 0-7.';
@@ -311,28 +332,22 @@ resourcestring
         '  set con? dev? pro?' + #10 +
         '  set prj [$]PROJECT_NAME' + #10 +
         'Notes:' + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.' + #10 +
         '  - The ''?'' value can be 0-7.';
   USG09='date';
   USG10='ver';
   USG11='write con? coil|hreg [$]ADDRESS [[$]COUNT]' + #10 +
         'Notes:' + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.' + #10 +
         '  - The ''?'' value can be 0-7.';
   USG12='cls';
   USG13='savecfg [$]PATH_AND_FILENAME';
   USG14='loadcfg [$]PATH_AND_FILENAME';
   USG15='expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
   USG16='exphis [$]PATH_AND_FILENAME';
-  USG17='conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE' + #10 +
-        'Notes:' + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.';
+  USG17='conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE';
   USG18='savereg [$]PATH_AND_FILENAME';
   USG19='loadreg [$]PATH_AND_FILENAME';
   USG20='var' + #10 +
-        '  var NAME [[$]VALUE]' + #10 +
-        'Notes:' + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.';
+        '  var NAME [[$]VALUE]';
   USG21='color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT' + #10 +
         '  colors:' + #10 +
         '      0: black  4: red         8: darkgray    12: lightred' + #10 +
@@ -351,9 +366,7 @@ resourcestring
   USG31='mul $TARGET [$]VALUE1 [$]VALUE2';
   USG32='div $TARGET [$]VALUE1 [$]VALUE2';
   USG33='dump [[dinp|coil|ireg|hreg] [$]ADDRESS]';
-  USG34='pause [[$]TIME]' + #10 +
-        'Notes:' + #10 +
-        '  - The ''$'' sign indicates a variable not a direct value.';
+  USG34='pause [[$]TIME]';
   USG35='sercons [dev?]' + #10 +
         'Notes:' + #10 +
         '  - The ''?'' value can be 0-7.';
@@ -369,6 +382,29 @@ resourcestring
   USG40='run [-s]';
   USG41='list';
   USG42='round $TARGET [$]VALUE [$]DEC_PLACES';
+  USG43='cos $TARGET [$]VALUE';
+  USG44='cotan $TARGET [$]VALUE';
+  USG45='dec $TARGET [$]VALUE';
+  USG46='exp $TARGET [$]VALUE';
+  USG47='idiv $TARGET [$]VALUE1 [$]VALUE2';
+  USG48='imod $TARGET [$]VALUE1 [$]VALUE2';
+  USG49='inc $TARGET [$]VALUE';
+  USG50='ln $TARGET [$]VALUE';
+  USG51='mulinv $TARGET [$]VALUE';
+  USG52='odd $TARGET [$]VALUE';
+  USG53='rnd $TARGET [$]VALUE';
+  USG54='tan $TARGET [$]VALUE';
+  USG55='sin $TARGET [$]VALUE';
+  USG56='sqr $TARGET [$]VALUE';
+  USG57='sqrt $TARGET [$]VALUE';
+  USG58='roll $TARGET [$]VALUE1 [$]VALUE2';
+  USG59='rolr $TARGET [$]VALUE1 [$]VALUE2';
+  USG60='upcase $TARGET [$]VALUE';
+  USG61='length $TARGET [$]VALUE';
+  USG62='lowcase $TARGET [$]VALUE';
+  USG63='stritem $TARGET [$]VALUE1 [$]VALUE2';
+  USG64='chr $TARGET [$]VALUE';
+  USG65='ord $TARGET [$]VALUE';
 
 procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
@@ -383,7 +419,7 @@ begin
   if (s[1] = #36) then
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
-    for i := 0 to 63 do
+    for i := 0 to VARBUFFSIZE-1 do
       if vars[i].vname = lowercase(s)
       then result := i;
   end;
@@ -398,7 +434,7 @@ begin
   if (s[1] = #36) then
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
-    for i := 0 to 63 do
+    for i := 0 to VARBUFFSIZE-1 do
       if vars[i].vname = lowercase(s)
       then result := true;
   end;
@@ -413,7 +449,7 @@ begin
   if (s[1] = #36) then
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
-    for i := 0 to 63 do
+    for i := 0 to VARBUFFSIZE-1 do
       if vars[i].vname = lowercase(s)
       then result := stringreplace(vars[i].vvalue, #92+#32 , #32, [rfReplaceAll]);
   end;
@@ -474,6 +510,7 @@ end;
 {$I cmd_rst.pas}
 {$I cmd_run.pas}
 {$I cmd_scfg.pas}
+{$I cmd_str.pas}
 {$I cmd_secn.pas}
 {$I cmd_serd.pas}
 {$I cmd_sewr.pas}
@@ -527,7 +564,7 @@ begin
       o := false;
       if splitted[0][1] <> COMMENT then
       begin
-        for b := 0 to 42 do
+        for b := 0 to COMMARRSIZE - 1 do
           if splitted[0] = COMMANDS[b] then
           begin
             o := true;
@@ -610,11 +647,16 @@ begin
                // run [-s]
            41: cmd_list;
                // list
-           42: cmd_math(b, splitted[1], splitted[2], splitted[3]);
           else
           begin
-            if (b > 22) and (b < 29) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
-            if (b > 28) and (b < 33) then cmd_math(b, splitted[1], splitted[2], splitted[3]);
+            // logical functions
+            if (b >= 23) and (b <= 28) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
+            if (b >= 58) and (b <= 59) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
+            // arithmetical functions
+            if (b >= 29) and (b <= 32) then cmd_math(b, splitted[1], splitted[2], splitted[3]);
+            if (b >= 42) and (b <= 57) then cmd_math(b, splitted[1], splitted[2], splitted[3]);
+            // string handler functions
+            if (b >= 60) and (b <= 65) then cmd_string(b, splitted[1], splitted[2], splitted[3]);
           end;
         end;
       end;
@@ -755,7 +797,7 @@ var
 
 begin
   if not fileexists(f) then quit(2, false, ERR21 + f + '!');
-  for line := 0 to 254 do sbuffer[line] := '';
+  for line := 0 to SCRBUFFSIZE - 1 do sbuffer[line] := '';
   assignfile(sf, f);
   try
     reset(sf);
@@ -769,10 +811,10 @@ begin
           delete(s, 1, 1);
         if s[1] <> COMMENT then
         begin
-          if line < 255 then
+          if line <= SCRBUFFSIZE - 1 then
           begin
             sbuffer[line] := s;
-            inc(line);
+            if line < SCRBUFFSIZE - 1 then inc(line);
           end else quit(4, false, ERR23);
         end;
       end;
@@ -782,7 +824,7 @@ begin
     quit(3, false, ERR22 + f + '!');
   end;
   // PARSING SCRIPT
-  for line := 0 to 254 do
+  for line := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[line]) > 0 then  parsingcommands(sbuffer[line]);
 end;
 
@@ -833,6 +875,7 @@ begin
   // CHECK SIZE OF TERMINAL
   if not terminalsize
     then quit(1, false, 'ERROR: minimal terminal size is 80x25!');
+  randomize;  
   // DETECT LANGUAGE
   lang := getlang;
   // PARSE COMMAND LINE PARAMETERS

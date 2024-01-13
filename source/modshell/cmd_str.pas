@@ -13,20 +13,17 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0   p1      p2         p3
-  --------------------------------
-  and  $TARGET [$]VALUE1 [$]VALUE2
-  not  $TARGET [$]VALUE
-  or   $TARGET [$]VALUE1 [$]VALUE2
-  roll $TARGET [$]VALUE1 [$]VALUE2
-  rolr $TARGET [$]VALUE1 [$]VALUE2
-  shl  $TARGET [$]VALUE1 [$]VALUE2
-  shr  $TARGET [$]VALUE1 [$]VALUE2
-  xor  $TARGET [$]VALUE1 [$]VALUE2
+  p0      p1      p2        p3
+  -----------------------------------
+  upcase  $TARGET [$]VALUE
+  length  $TARGET [$]VALUE
+  lowcase $TARGET [$]VALUE
+  stritem $TARGET [$]VALUE1 [$]VALUE2
+  chr     $TARGET [$]VALUE
+  ord     $TARGET [$]VALUE
 }
 
-// LOGICAL OPERATIONS
-procedure cmd_logic(op: byte; p1, p2, p3: string);
+procedure cmd_string(op: byte; p1, p2, p3: string);
 var
   s2, s3: string; // parameters in other type
 begin
@@ -36,7 +33,7 @@ begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
-  if op <> 25 then
+  if op = 63 then
     if (length(p3) = 0) then
     begin
       writeln(ERR05); // Parameters required!
@@ -52,7 +49,7 @@ begin
   s2 := isitvariable(p2);
   if length(s2) = 0 then s2 := p2;
   // CHECK P3 PARAMETER
-  if op <> 25 then
+  if op = 63 then
   begin
     s3 := isitvariable(p3);
     if length(s3) = 0 then s3 := p3;
@@ -60,14 +57,12 @@ begin
   // PRIMARY MISSION
   try
     case op of
-      23: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) and strtointdef(s3, 0));
-      24: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) or strtointdef(s3, 0));
-      25: vars[intisitvariable(p1)].vvalue := inttostr(not strtointdef(s2, 0));
-      26: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) xor strtointdef(s3, 0));
-      27: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) shl strtointdef(s3, 0));
-      28: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) shr strtointdef(s3, 0));
-      60: vars[intisitvariable(p1)].vvalue := inttostr(rolword(strtointdef(s2, 0), strtointdef(s3, 0)));
-      61: vars[intisitvariable(p1)].vvalue := inttostr(rorword(strtointdef(s2, 0), strtointdef(s3, 0)));
+      60: vars[intisitvariable(p1)].vvalue := uppercase(s2);
+      61: vars[intisitvariable(p1)].vvalue := inttostr(length(s2));
+      62: vars[intisitvariable(p1)].vvalue := lowercase(s2);
+      63: vars[intisitvariable(p1)].vvalue := s2[strtointdef(s3, 0)];
+      64: vars[intisitvariable(p1)].vvalue := chr(strtointdef(s2, 0));
+      65: vars[intisitvariable(p1)].vvalue := inttostr(ord(s2[1]));
     end;
   except
     writeln(ERR20);

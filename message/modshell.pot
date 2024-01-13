@@ -417,11 +417,102 @@ msgstr ""
 msgid "       round real number"
 msgstr ""
 
+#: modshell:des43
+msgid "       cosine function"
+msgstr ""
+
+#: modshell:des44
+msgid "       cotangent function"
+msgstr ""
+
+#: modshell:des45
+msgid "       decrement integer"
+msgstr ""
+
+#: modshell:des46
+msgid "       natural exponential"
+msgstr ""
+
+#: modshell:des47
+msgid "       integer division"
+msgstr ""
+
+#: modshell:des48
+msgid "       modulus division"
+msgstr ""
+
+#: modshell:des49
+msgid "       increment integer"
+msgstr ""
+
+#: modshell:des50
+msgid "       natural logarithm"
+msgstr ""
+
+#: modshell:des51
+msgid "       multiplicative inverse"
+msgstr ""
+
+#: modshell:des52
+msgid "       odd or event"
+msgstr ""
+
+#: modshell:des53
+msgid "       create random integer"
+msgstr ""
+
+#: modshell:des54
+msgid "       tangent function"
+msgstr ""
+
+#: modshell:des55
+msgid "       sine function"
+msgstr ""
+
+#: modshell:des56
+msgid "       square root"
+msgstr ""
+
+#: modshell:des57
+msgid "       square root"
+msgstr ""
+
+#: modshell:des58
+msgid "       roll bit of integer to left"
+msgstr ""
+
+#: modshell:des59
+msgid "       roll bit of integer to right"
+msgstr ""
+
+#: modshell:des60
+msgid "       conversion to uppercase"
+msgstr ""
+
+#: modshell:des61
+msgid "       length of string"
+msgstr ""
+
+#: modshell:des62
+msgid "       conversion to lowercase"
+msgstr ""
+
+#: modshell:des63
+msgid "       specified element of the string"
+msgstr ""
+
+#: modshell:des64
+msgid "       convert byte to char"
+msgstr ""
+
+#: modshell:des65
+msgid "       convert char to byte"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
-"  - The '$' sign indicates a variable not a direct value.\n"
 "  - The '?' value can be 0-7."
 msgstr ""
 
@@ -444,25 +535,18 @@ msgstr ""
 msgid ""
 "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
 "  let $VARIABLE [$]VALUE\n"
-"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
+"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS"
 msgstr ""
 
 #: modshell:usg05
 msgid ""
 "print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]\n"
 "  print $VARIABLE [-n]\n"
-"  print \"single\\ line\\ message\" [-n]\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
+"  print \"single\\ line\\ message\" [-n]"
 msgstr ""
 
 #: modshell:usg06
-msgid ""
-"read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
+msgid "read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
 msgstr ""
 
 #: modshell:usg07
@@ -481,7 +565,6 @@ msgid ""
 "  set con? dev? pro?\n"
 "  set prj [$]PROJECT_NAME\n"
 "Notes:\n"
-"  - The '$' sign indicates a variable not a direct value.\n"
 "  - The '?' value can be 0-7."
 msgstr ""
 
@@ -497,7 +580,6 @@ msgstr ""
 msgid ""
 "write con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
-"  - The '$' sign indicates a variable not a direct value.\n"
 "  - The '?' value can be 0-7."
 msgstr ""
 
@@ -522,10 +604,7 @@ msgid "exphis [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg17
-msgid ""
-"conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
+msgid "conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
 msgstr ""
 
 #: modshell:usg18
@@ -539,9 +618,7 @@ msgstr ""
 #: modshell:usg20
 msgid ""
 "var\n"
-"  var NAME [[$]VALUE]\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
+"  var NAME [[$]VALUE]"
 msgstr ""
 
 #: modshell:usg21
@@ -603,10 +680,7 @@ msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
 msgstr ""
 
 #: modshell:usg34
-msgid ""
-"pause [[$]TIME]\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
+msgid "pause [[$]TIME]"
 msgstr ""
 
 #: modshell:usg35
@@ -649,5 +723,97 @@ msgstr ""
 
 #: modshell:usg42
 msgid "round $TARGET [$]VALUE [$]DEC_PLACES"
+msgstr ""
+
+#: modshell:usg43
+msgid "cos $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg44
+msgid "cotan $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg45
+msgid "dec $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg46
+msgid "exp $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg47
+msgid "idiv $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg48
+msgid "imod $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg49
+msgid "inc $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg50
+msgid "ln $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg51
+msgid "mulinv $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg52
+msgid "odd $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg53
+msgid "rnd $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg54
+msgid "tan $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg55
+msgid "sin $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg56
+msgid "sqr $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg57
+msgid "sqrt $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg58
+msgid "roll $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg59
+msgid "rolr $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg60
+msgid "upcase $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg61
+msgid "length $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg62
+msgid "lowcase $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg63
+msgid "stritem $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg64
+msgid "chr $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg65
+msgid "ord $TARGET [$]VALUE"
 msgstr ""
 

@@ -23,7 +23,7 @@ procedure cmd_help(p1: string);
 var
   b, bb: byte;
   valid: boolean;
-  buffer: array[0..51] of string;
+  buffer: array[0..COMMARRSIZE + 5] of string;
   line: byte;
   s1: string;                      // parameters in other type
 
@@ -33,8 +33,8 @@ var
    i, j: byte;
    s: string;
   begin
-    for i := 0 to 50 do
-     for j := i + 1 to 51 do
+    for i := 0 to COMMARRSIZE + 4 do
+     for j := i + 1 to COMMARRSIZE + 5 do
        if buffer[i] < buffer[j] then
        begin
          s := buffer[i];
@@ -44,12 +44,12 @@ var
   end;
 
 begin
-  for b := 0 to 51 do buffer[b] := '';
+  for b := 0 to COMMARRSIZE + 5 do buffer[b] := '';
   if length(p1) = 0 then
   begin
     writeln(MSG03); // How to use help with command list.
     writeln;
-    for b := 0 to 42 do
+    for b := 0 to COMMARRSIZE - 1 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
       for bb := 0 to 6 - length(COMMANDS[b]) + 2 do
@@ -98,12 +98,35 @@ begin
         40: buffer[b] := buffer[b] + DES40;
         41: buffer[b] := buffer[b] + DES41;
         42: buffer[b] := buffer[b] + DES42;
+        43: buffer[b] := buffer[b] + DES43;
+        44: buffer[b] := buffer[b] + DES44;
+        45: buffer[b] := buffer[b] + DES45;
+        46: buffer[b] := buffer[b] + DES46;
+        47: buffer[b] := buffer[b] + DES47;
+        48: buffer[b] := buffer[b] + DES48;
+        49: buffer[b] := buffer[b] + DES49;
+        50: buffer[b] := buffer[b] + DES50;
+        51: buffer[b] := buffer[b] + DES51;
+        52: buffer[b] := buffer[b] + DES52;
+        53: buffer[b] := buffer[b] + DES53;
+        54: buffer[b] := buffer[b] + DES54;
+        55: buffer[b] := buffer[b] + DES55;
+        56: buffer[b] := buffer[b] + DES56;
+        57: buffer[b] := buffer[b] + DES57;
+        58: buffer[b] := buffer[b] + DES58;
+        59: buffer[b] := buffer[b] + DES59;
+        60: buffer[b] := buffer[b] + DES60;
+        61: buffer[b] := buffer[b] + DES61;
+        62: buffer[b] := buffer[b] + DES62;
+        63: buffer[b] := buffer[b] + DES63;
+        64: buffer[b] := buffer[b] + DES64;
+        65: buffer[b] := buffer[b] + DES65;
       end;
     end;
-//    shorting;
-    buffer[43] := MSG24;
+    // shorting;
+    buffer[COMMARRSIZE] := MSG24;
     line := 0;
-    for b := 43 downto 0 do
+    for b := COMMARRSIZE downto 0 do
     begin
       writeln(buffer[b]);
       inc(line);
@@ -111,7 +134,6 @@ begin
       begin
         write(MSG23); readkey;
         write(#13); clreol;
-        // writeln;
         line := 0;
       end;
     end;
@@ -121,7 +143,7 @@ begin
     s1 := isitvariable(p1);
     if length(s1) = 0 then s1 := p1;
     valid := false;
-    for b := 0 to 42 do
+    for b := 0 to COMMARRSIZE - 1 do
       if s1 = COMMANDS[b] then
       begin
         valid := true;
@@ -176,6 +198,29 @@ begin
         40: writeln(USG40);
         41: writeln(USG41);
         42: writeln(USG42);
+        43: writeln(USG43);
+        44: writeln(USG44);
+        45: writeln(USG45);
+        46: writeln(USG46);
+        47: writeln(USG47);
+        48: writeln(USG48);
+        49: writeln(USG49);
+        50: writeln(USG50);
+        51: writeln(USG51);
+        52: writeln(USG52);
+        53: writeln(USG53);
+        54: writeln(USG54);
+        55: writeln(USG55);
+        56: writeln(USG56);
+        57: writeln(USG57);
+        58: writeln(USG58);
+        59: writeln(USG59);
+        60: writeln(USG60);
+        61: writeln(USG61);
+        62: writeln(USG62);
+        63: writeln(USG63);
+        64: writeln(USG64);
+        65: writeln(USG65);
       end;
     end;
   end;

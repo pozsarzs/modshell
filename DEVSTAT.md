@@ -141,6 +141,7 @@
 |source/modshell/cmd_set.pas          |READY      |         |
 |source/modshell/cmd_sewr.pas         |READY      |         |
 |source/modshell/cmd_sreg.pas         |READY      |         |
+|source/modshell/cmd_str.pas          |READY      |         |
 |source/modshell/cmd_var.pas          |READY      |         |
 |source/modshell/cmd_wrte.pas         |READY      |         |
 |source/modshell/ethernet.pas         |NOT STARTED|         |

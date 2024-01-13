@@ -60,9 +60,9 @@ It must be defined the I/O devices, then the protocols and the connections.
 There can be eight of each. The data traffic takes place between the preset
 connections. In all cases, the data is sent to or read from the internal buffer.
 The size of the buffer is suitable for storing 2*9999 logical and word values of
-the same size. Sixty-four variables can be created in the program, to which we
-can assign a value of any type (eg.: message, boolean or integer register
-value, etc.) Variables can be used to perform logical and basic mathematical
+the same size. One hundred and twenty-eight variables can be created in the program, to which we
+can assign a value of any type (eg.: string, boolean or integer register
+value, real number, etc.) Variables can be used to perform logical and arithmetical
 operations, and can be used to pass values to commands.
 
 **Projects**
@@ -94,6 +94,12 @@ During saving, one text file is created, with CSV extension.
 
 On exit, the command line history, echo mode and colors are preserved.
 
+**Serial connection**
+
+The program also provides the possibility to send and receive raw data
+via a serial port, and also includes a very simple serial console. The
+display of sent and received data can be turned off or raw text and hexadecimal viewing can be selected.
+
 **Already implemented commands:**
 
 |command |category  |hotkey|description                                                      |
@@ -124,15 +130,32 @@ On exit, the command line history, echo mode and colors are preserved.
 |and     |logic     |      |AND logical operations                                           |
 |or      |logic     |      |OR logical operations                                            |
 |not     |logic     |      |NOT logical operations                                           |
+|roll    |logic     |      |roll bit of integer to left                                      |
+|rolr    |logic     |      |roll bit of integer to right                                     |
 |shl     |logic     |      |bit shift to left                                                |
 |shr     |logic     |      |bit shift to right                                               |
 |xor     |logic     |      |XOR logical operations                                           |
 |add     |arithmetic|      |addition                                                         |
 |conv    |arithmetic|ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |
+|cos     |arithmetic|      |cosine function                                                  |
+|cotan   |arithmetic|      |cotangent function                                               |
+|dec     |arithmetic|      |decrement integer                                                |
+|exp     |arithmetic|      |natural exponential                                              |
 |div     |arithmetic|      |division                                                         |
+|idiv    |arithmetic|      |integer division                                                 |
+|imod    |arithmetic|      |modulus division                                                 |
+|inc     |arithmetic|      |increment integer                                                |
+|ln      |arithmetic|      |natural logarithm                                                |
 |mul     |arithmetic|      |multiplication                                                   |
+|mulinv  |arithmetic|      |multiplicative inverse                                           |
+|odd     |arithmetic|      |odd or event                                                     |
+|rnd     |arithmetic|      |create random integer                                            |
 |round   |arithmetic|      |round real number                                                |
+|sin     |arithmetic|      |sine function                                                    |
+|sqr     |arithmetic|      |square root                                                      |
+|sqrt    |arithmetic|      |square root                                                      |
 |sub     |arithmetic|      |substraction                                                     |
+|tan     |arithmetic|      |tangent function                                                 |
 |dump    |register  |F6    |dump all registers in binary/hexadecimal format to a table       |
 |let     |register  |ALT-L |set value of a variable or register                              |
 |list    |script    |      |list loaded script                                               |
@@ -141,6 +164,12 @@ On exit, the command line history, echo mode and colors are preserved.
 |get     |settings  |ALT-G |get setting of a device, protocol, connection or get project name|
 |reset   |settings  |ALT-T |reset device, protocol or connection or reset project name       |
 |set     |settings  |ALT-S |set device, protocol or connection or set project name           |
+|chr     |string    |      |convert byte to char                                             |
+|length  |string    |      |length of string                                                 |
+|lowcase |string    |      |conversion to lowercase                                          |
+|ord     |string    |      |convert char to byte                                             |
+|stritem |string    |      |specified element of the string                                  |
+|upcase  |string    |      |conversion to uppercase                                          |
 
 (Commands with function keys (F?) are executed immediately,
  modifier keys (ALT-?) only make typing easier.)
@@ -165,32 +194,14 @@ You can use the GitHub issue tracker to report bugs, ask questions, or suggest n
 |srvrtu |connection|      |start/stop transparent Modbus/RTU slave |
 |if     |general   |      |selection statement                     |
 |for    |general   |      |loop iteration                          |
-|chr    |general   |      |convert byte to char                    |
-|ord    |general   |      |convert char to byte                    |
-|cos    |arithmetic|      |cosine function                         |
-|cotan  |arithmetic|      |cotangent function                      |
-|dec    |arithmetic|      |decrement integer                       |
-|exp    |arithmetic|      |natural exponential                     |
-|idiv   |arithmetic|      |integer division                        |
-|imod   |arithmetic|      |modulus division                        |
-|inc    |arithmetic|      |increment integer                       |
-|ln     |arithmetic|      |natural logarithm                       |
-|mulinv |arithmetic|      |multiplicative inverse                  |
-|odd    |arithmetic|      |odd or event                            |
-|rnd    |arithmetic|      |create random integer                   |
-|tan    |arithmetic|      |tangent function                        |
-|sin    |arithmetic|      |sine function                           |
-|sqr    |arithmetic|      |square root                             |
-|sqrt   |arithmetic|      |square root                             |
-|roll   |logic     |      |roll bit of integer to left             |
-|rolr   |logic     |      |roll bit of integer to right            |
-|upcase |string    |      |conversion to uppercase                 |
-|length |string    |      |length of string                        |
-|lowcase|string    |      |conversion to lowercase                 |
-|stritem|string    |      |specified element of the string         |
 
 **Constant**
 |command|value                              |
 |-------|-----------------------------------|
 |$pi    |value of Pi (3.1415926535897932385)|
+
+
+
+
+
 

@@ -53,7 +53,8 @@ source/destination directory.
 .SS File operations
 The command line history can be exported to a text file and provides it with the
 appropriate 'shebang' for all operating system. You can easily create a script
-from this raw file.
+from this raw file. The script on the disc can be loaded into the already running
+program and started manually.
 .PP
 Device, protocol and connection settings can be saved and loaded in their own
 format. During saving, three typed files are created, with the following
@@ -69,18 +70,24 @@ The program has a simple serial console whose traffic is logged in the project
 directory as console.log.
 .PP
 On exit, the command line history, echo mode and colors are preserved.
+.SS Serial console
+The program also provides the possibility to send and receive raw data
+via a serial port, and also includes a very simple serial console. The
+display of sent and received data can be turned off or raw text and
+hexadecimal viewing can be selected.
 .SH BUILTIN COMMANDS
 Notes:
   - register: local buffer register;
   - remote register: register of the connected device;
   - The '$' sign indicates a variable not a direct value.
+
 .SS General commands
 .TP
 \fBcls\fP
-Clear screen.
+Clears screen.
 .TP
 \fBcolor\fP \fI[$]FOREGROUND\fP \fI[$]BACKGROUND\fP \fI[$]RXD_TEXT\fP \fI[$]TXD_TEXT\fP 
-Set foreground and background color in full screen mode.
+Sets foreground and background color in full screen mode.
 .EX
 
 \fIColors:\fP
@@ -91,43 +98,44 @@ Set foreground and background color in full screen mode.
 .EE
 .TP
 \fBdate\fP
-Show system date and time.
+Shows system date and time.
 .TP
 \fBecho\fP [\fIoff\fP|\fIon\fP|\fIhex\fP]
-Query local echo status or enable/disable it for serial connections.
+Queries local echo status or enable/disable it for serial connections.
 Hex means the hexadecimal representation of the bytes.
 .TP
 \fBexit\fP
-Exit from program.
+Exits from program.
 .TP
 \fBhelp\fP
-Show description or usage of the builtin commands.
+Shows description or usage of the builtin commands.
 .TP
 \fBpause\fP \fI[[$]TIME]\fP
-Wait for a keystroke or specified time.
+Waits for a keystroke or specified time.
 .TP
 \fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP] [\fI-n\fP]
-Print content of the one or more registers. Register start \fIADDRESS\fP and
+Prints content of the one or more registers. Register start \fIADDRESS\fP and
 the \fICOUNT\fP must be between 1-9999. The -n parameter does not raise a line
 and the cursor does not return to the beginning of the line.
 .TP
 \fBprint\fP \fI$VARIABLE\fP [\fI-n\fP]
-Print value of the \fI$VARIABLE\fP. The -n parameter does not raise a line
+Prints value of the \fI$VARIABLE\fP. The -n parameter does not raise a line
 and the cursor does not return to the beginning of the line.
 .TP
 \fBprint\fP "\fImessage\fP" [\fI-n\fP]
-Print a single line message. The -n parameter does not raise a line and the
+Prints a single line message. The -n parameter does not raise a line and the
 cursor does not return to the beginning of the line.
 .TP
 \fBvar\fP
-Print all defined variables with their values.
+Prints all defined variables with their values.
 .TP
 \fBvar\fP \fIVARIABLE\fP [\fI[$]VALUE\fP]
-Define new variable (\fVARIABLE\fP) and assign value (\fIVALUE\fP).
+Defines new variable (\fVARIABLE\fP) and assign value (\fIVALUE\fP).
 Use a backslash before a space.
 .TP
 \fBver\fP
-Show version and build information of this program.
+Shows version and build information of this program.
+
 .SS Logical commands
 .TP
 \fBand\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
@@ -140,15 +148,6 @@ Performs the OR operation between the two values or variables
 (\fI[$]VALUE1\fP \fI[$]VALUE2\fP) and the result is placed in
 \fI$TARGET\fP.
 .TP
-\fBnot\fP \fI$TARGET\fP \fI[$]VALUE\fP
-Performs the NOT operation on value or variable (\fI[$]VALUE\fP)
-and the result is placed in \fI$TARGET\fP.
-.TP
-\fBxor\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
-Performs the XOR operation between the two values or variables
-(\fI[$]VALUE1\fP \fI[$]VALUE2\fP) and the result is placed in
-\fI$TARGET\fP.
-.TP
 \fBshl\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
 Shifts bits of the \fI[$]VALUE1\fP to the left by position
 \fI[$]VALUE2\fP and the result is placed in \fI$TARGET\fP.
@@ -156,59 +155,138 @@ Shifts bits of the \fI[$]VALUE1\fP to the left by position
 \fBshr\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
 Shifts bits of the \fI[$]VALUE1\fP to the right by position
 \fI[$]VALUE2\fP and the result is placed in \fI$TARGET\fP.
+.TP
+\fBnot\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Performs the NOT operation on value or variable (\fI[$]VALUE\fP)
+and the result is placed in \fI$TARGET\fP.
+.TP
+\fBroll\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Rolls bits of the \fI[$]VALUE1\fP to the left by position
+\fI[$]VALUE2\fP and the result is placed in \fI$TARGET\fP.
+.TP
+\fBrolr\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Rolls bits of the \fI[$]VALUE1\fP to the right by position
+\fI[$]VALUE2\fP and the result is placed in \fI$TARGET\fP.
+.TP
+\fBxor\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Performs the XOR operation between the two values or variables
+(\fI[$]VALUE1\fP \fI[$]VALUE2\fP) and the result is placed in
+\fI$TARGET\fP.
+
 .SS Arithmetical commands
 \fBadd\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
 Adds the two values or variables (\fI[$]VALUE1\fP \fI[$]VALUE2\fP)
 and the result is placed in \fI$TARGET\fP.
 .TP
+\fBcos\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Calculates cosine of \fI[$]VALUE\fP and
+the result is placed in \fI$TARGET\fP.
+.TP
+\fBcotan\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Calculates cotangent of \fI[$]VALUE\fP
+and the result is placed in \fI$TARGET\fP.
+.TP
 \fBconv\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fI[$]VALUE\fP
-convert numbers between binary, decimal, hexadecimal and octal numeral system.
+Converts numbers between binary, decimal, hexadecimal and octal numeral system.
 \fIVALUE\fP must be between 0 and 65535
 .TP
+\fBdec\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Decrements \fI[$]VALUE\fP integer and the result
+is placed in \fI$TARGET\fP.
+.TP
 \fBdiv\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
-Divide \fI[$]VALUE1\fP by \fI[$]VALUE2\fP and the result
+Divides \fI[$]VALUE1\fP by \fI[$]VALUE2\fP and the result
+is placed in \fI$TARGET\fP.
+.TP
+\fBexp\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Calculates natural exponential of \fI[$]VALUE\fP
+and the result is placed in \fI$TARGET\fP.
+.TP
+\fBidiv\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Divides \fI[$]VALUE1\fP by \fI[$]VALUE2\fP and the result
 is placed in \fI$TARGET\fP. (integer division)
 .TP
+\fBimod\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Divides \fI[$]VALUE1\fP by \fI[$]VALUE2\fP and the result
+is placed in \fI$TARGET\fP. (modulus division)
+.TP
+\fBinc\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Increments \fI[$]VALUE\fP integer and the result
+is placed in \fI$TARGET\fP.
+.TP
 \fBmul\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
-Multiply the two two values or variables (\fI[$]VALUE1\fP \fI[$]VALUE2\fP)
+Multiplies the two two values or variables (\fI[$]VALUE1\fP \fI[$]VALUE2\fP)
 and the result is placed in \fI$TARGET\fP.
 .TP
 \fBround\fP \fI$TARGET\fP \fI[$]VALUE\fP \fI[$]DEC_PLACES\fP
-Round value or variable (\fI[$]VALUE\fP) to \fI[$]DEC_PLACES\fP decimal places
+Rounds value or variable (\fI[$]VALUE\fP) to \fI[$]DEC_PLACES\fP decimal places
 and the result is placed in \fI$TARGET\fP.
 .TP
 \fBsub\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
-Substract \fI[$]VALUE2\fP from \fI[$]VALUE1\fP and the result
+Substracts \fI[$]VALUE2\fP from \fI[$]VALUE1\fP and the result
 is placed in \fI$TARGET\fP.
+.TP
+\fBln\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Calculates natural logarithm of \fI[$]VALUE\fP
+and the result is placed in \fI$TARGET\fP.
+.TP
+\fBmulinv\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Calculates multiplicative inverse of \fI[$]VALUE\fP
+and the result is placed in \fI$TARGET\fP.
+.TP
+\fBodd\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Decides whether the integer \fI[$]VALUE\fP is even or odd.
+.TP
+\fBrnd\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Makes random integer number between 0 and
+\fI[$]VALUE\fP and the result
+is placed in \fI$TARGET\fP.
+.TP
+\fBtan\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Calculates tangent of \fI[$]VALUE\fP and
+the result is placed in \fI$TARGET\fP.
+.TP
+\fBsin\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Calculates sine of \fI[$]VALUE\fP and the
+result is placed in \fI$TARGET\fP.
+.TP
+\fBsqr\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Calculates square of \fI[$]VALUE\fP and
+the result is placed in \fI$TARGET\fP.
+.TP
+\fBsqrt\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Calculates square root of \fI[$]VALUE\fP and
+the result is placed in \fI$TARGET\fP.
+
 .SS Configuration commands
 .TP
 \fBget\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP
-Get configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
+Gets configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
 (\fIcon?\fP), or get project name (\fIprj\fP). ? number must be 0-7.
 .TP
 \fBreset\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP
-Reset configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
+Resets configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
 (\fIcon?\fP), or reset project name (\fIprj\fP). ? number must be 0-7.
 .TP
 \fBset\fP \fIdev?\fP \fInet\fP \fI[$]DEVICE\fP \fI[$]PORT\fP
-Set device (\fIdev?\fP) to ethernet (\fInet\fP) device. Device number must be
+Sets device (\fIdev?\fP) to ethernet (\fInet\fP) device. Device number must be
 between 0-7 and port number must be between 0-65535. The \fIDEVICE\fP name on
 DOS is always PACKET, on other systems is the name of the adapter (e.g. eth0,
 nfe0, etc.).
 .TP
 \fBset\fP \fIdev?\fP \fIser\fP \fI[$]DEVICE\fP \fI[$]BAUDRATE\fP \fI[$]DATABIT\fP \fI[$]PARITY\fP \fI[$]STOPBIT\fP
-Set device (\fIdev?\fP) to serial (\fIser\fP) device. Device number must be
+Sets device (\fIdev?\fP) to serial (\fIser\fP) device. Device number must be
 between 0-7. The \fIDEVICE\fP name is the name of the adapter (e.g. com1, ttyS0,
 ttyUSB0, ttyAMA0 etc.). \fIBAUDRATE\fP must be: 1200; 2400; 4800; 9600; 19200;
 38400; 57600 or 115200. \fIDATABIT\fP must be 7 or 8, \fIPARITY\fP must be E/N/O
 (even/none/odd). \fISTOPBIT\fP must be 1 or 2.
 .TP
 \fBset\fP \fIpro?\fP \fIascii\fP|\fIrtu\fP \fI[$]UID\fP
-Set protocol (\fIpro?\fP) to Modbus/ASCII (\fIascii\fP) or Modbus/RTU (\fIrtu\fP).
+Sets protocol (\fIpro?\fP) to Modbus/ASCII (\fIascii\fP) or Modbus/RTU (\fIrtu\fP).
 Unit ID (\fIUID\fP) must be between 1-247.
 .TP
 \fBset\fP \fIpro?\fP \fItcp\fP \fI[$]IP_ADDRESS\fP
-Set protocol (\fIpro?\fP) to Modbus/TCP (\fItcp\fP). Address of remote device
+Sets protocol (\fIpro?\fP) to Modbus/TCP (\fItcp\fP). Address of remote device
 (\fIIP_ADDRESS\fP) must be in a.b.c.d format, with values between 1-255.
 .TP
 \fBset\fP \fIcon?\fP \fIdev?\fP \fIpro?\fP
@@ -216,103 +294,127 @@ Assigns a device (\fIdev?\fP) and a protocol (\fIpro?\fP) to a connection
 (\fIcon?\fP). ? number must be 0-7.
 .TP
 \fBset\fP \fIprj\fP [$]PROJECT_NAME
-Set the project name. The name cannot contain spaces or special characters.
+Sets the project name. The name cannot contain spaces or special characters.
 The project directory will also be created with this name.
+
 .SS Data handler commands
 .TP
 \fBdump\fP [\fI[dinp|coil|ireg|hreg] [$]ADDRESS\fP]
-Dump one page register content from \fIADDRESS\fP in binary/hexadecimal format
+Dumps one page register content from \fIADDRESS\fP in binary/hexadecimal format
 to a table.
 .TP
 \fBlet\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP \fI[$]VALUE\fP
-Set value of a register. Register start address must be between 1-9999.
+Sets value of a register. Register start address must be between 1-9999.
 If register type is discrete input (\fIdinp\fP) and coil
 (\fIcoil\fP), \fIVALUE\fP must be 0/1, l/h or false/true. If it is input register
 (\fIireg\fP) or holding register (\fIhreg\fP), \fIVALUE\fP must be 0-65535.
 .TP
 \fBlet\fP \fI$VARIABLE\fP \fI[$]VALUE\fP
-Set value of a variable \fI$VARIABLE\fP to value \fI[$]VALUE\fP.
+Sets value of a variable \fI$VARIABLE\fP to value \fI[$]VALUE\fP.
 .TP
 \fBlet\fP \fI$VARIABLE\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP
-Set value of a variable \fI$VARIABLE\fP from register content. Register start address
+Sets value of a variable \fI$VARIABLE\fP from register content. Register start address
 and must be between 1-9999, If register type is discrete input (\fIdinp\fP) and coil
 (\fIcoil\fP), value will be 0/1, if it is input register
 (\fIireg\fP) or holding register (\fIhreg\fP), value of the variable will be 0-65535.
+
 .SS Communication commands
 .TP
-\fBread\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\f[$]ICOUNT\fP]
-Read one or more remote registers. Number of connection (\fIcon?\fP)
-must be between 0-7, register start \fIADDRESS\fP and the \fICOUNT\fP must be
-between 1-9999.
-.TP
-\fBwrite\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
-Write data to one or more remote registers. Number of connection
-(\fIcon?\fP) must be between 0-7, register start address and the count must be
-between 1-9999.
-.TP
 \fBcopy\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP \fIcon?\fP \fIcoil?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
-Copy logical data between connections (\fIcon?\fP). Number of connection
+Copies logical data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
 \fICOUNT\fP must be between 1-9999.
 .TP
 \fBcopy\fP \fIcon?\fP \fIireg\fP|\fIhreg\fP \fIcon?\fP \fIhreg?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
-Copy numeral data between connections (\fIcon?\fP). Number of connection
+Copies numeral data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
 \fICOUNT\fP must be between 1-9999.
 .TP
+\fBread\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\f[$]ICOUNT\fP]
+Reads one or more remote registers. Number of connection (\fIcon?\fP)
+must be between 0-7, register start \fIADDRESS\fP and the \fICOUNT\fP must be
+between 1-9999.
+.TP
 \fBsercons\fP \fI[dev?]\fP
-Open a simple serial console. Data traffic is logged to the project directory
+Opens a simple serial console. Data traffic is logged to the project directory
 named \fIconsole.log\fP. Number of device (\fIdev?\fP) must be between 0-7.
 .TP
 \fBserread\fP \fI[dev?]\fP \fI[$TARGET]\fP
-Read string from serial device to variable \fI$TARGET\fP or write screen.
+Reads string from serial device to variable \fI$TARGET\fP or write screen.
 Number of device (\fIdev?\fP) must be between 0-7.
 .TP
 \fBserwrite\fP \fI[dev?]\fP \fI$MESSAGE\fP
-Write string to serial device from \fI$MESSAGE\fP.
+Writes string to serial device from \fI$MESSAGE\fP.
 Number of device (\fIdev?\fP) must be between 0-7.
 .TP
 \fBserwrite\fP \fI[dev?]\fP \fI"MESSAGE"\fP
-Write "MESSAGE" to serial device. Number of device (\fIdev?\fP) must be between 0-7.
-.SS File operation command
+Writes "MESSAGE" to serial device. Number of device (\fIdev?\fP) must be between 0-7.
+.TP
+\fBwrite\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
+Writes data to one or more remote registers. Number of connection
+(\fIcon?\fP) must be between 0-7, register start address and the count must be
+between 1-9999.
+
+.SS File operation commands
 The specified parameter does not contain a path, the file will be saved in the
 project directory in the user's home directory (on DOS, in project directory
 in the program directory).
 .TP
 \fBexphis\fP \fI[$]PATH_AND_FILENAME\fP
-Export command line history to a text file.
+Exports command line history to a text file.
 .TP
 \fBexpreg\fP \fI[$]PATH_AND_FILENAME\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
-Export content of the one or more registers to a text file in CSV, INI
+Exports content of the one or more registers to a text file in CSV, INI
 or XML format. The file format is specified by the destination file extension.
 If the file exists, it will overwrite or append the new data.
 .TP
 \fBimpreg\fP \fI[$]PATH_AND_FILENAME\fP
-Import content of the one or more registers from a text file in CSV, INI
+Imports content of the one or more registers from a text file in CSV, INI
 or XML format. The file format is specified by the destination file extension.
 .TP
 \fBloadcfg\fP \fI[$]PATH_AND_FILENAME\fP
-Load settings of device, protocol and connection from own format files.
+Loads settings of device, protocol and connection from own format files.
 .TP
 \fBloadreg\fP \fI[$]PATH_AND_FILENAME\fP
-Load all registers from own format files.
+Loads all registers from own format files.
 .TP
 \fBsavecfg\fP \fI[$]PATH_AND_FILENAME\fP
-Save settings of device, protocol and connection to four typed files.
+Saves settings of device, protocol and connection to four typed files.
 .TP
 \fBsavereg\fP \fI[$]PATH_AND_FILENAME\fP
-Save all registers to four typed files.
-.SS Script operation command
+Saves all registers to four typed files.
+
+.SS Script operation commands
 .TP
 \fBlist\fP
-List loaded script.
+Lists loaded script.
 .TP
 \fBloadscr\fP \fI[$]PATH_AND_FILENAME\fP
-Load ModShell scriptfile.
+Loads ModShell scriptfile.
 .TP
 \fBrun\fP \fI[-s]\fP
-Run loaded script. \fI[-s]\fP parameter means
+Runs loaded script. \fI[-s]\fP parameter means
 step-by-step program execution.
+
+.SS String handler commands
+.TP
+\fBchr\fP \fI$TARGET\fP \fI[$]VALUE';
+Converts byte value (\fI[$]VALUE\fP) to char value and the result is placed in \fI$TARGET\fP.
+.TP
+\fBlength\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Puts length of the string (\fI[$]VALUE\fP) to \fI$TARGET\fP.
+.TP
+\fBlowcase\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Converts string (\fI[$]VALUE\fP) to lowercase and the result is placed in \fI$TARGET\fP.
+.TP
+\fBord\fP \fI$TARGET\fP \fI[$]VALUE';
+Converts char value (\fI[$]VALUE\fP) to byte value and the result is placed in \fI$TARGET\fP.
+.TP
+\fBstritem\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
+Puts specified (\fI[$]VALUE2\fP) element of the string (\fI[$]VALUE1\fP) to \fI$TARGET\fP.
+.TP
+\fBupcase\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Converts string (\fI[$]VALUE\fP) to uppercase and the result is placed in \fI$TARGET\fP.
 .SH EXAMPLES
 .SS General commands
 .TP
@@ -351,6 +453,7 @@ Define $a variable and assign 12 value to it.
 .TP
 \fBvar\fP B $a
 Define $b variable and assign value of the $a.
+
 .SS Logical commands
 .TP
 \fBand\fP $result 1234 1345
@@ -368,6 +471,7 @@ result is placed in $result.
 \fBshr\fP $result $source $shift
 Shifts bits of the $source to the left by position
 $shift and the result is placed in $result.
+
 .SS Arithmetical commands
 .TP
 \fBadd\fP $result 12 13
@@ -385,6 +489,7 @@ is placed in $result.
 .TP
 \fBsubs\fP $result 12 13
 Substract 13 from 12, and the result is placed in $result.
+
 .SS Configuration commands
 .TP
 \fBget\fP dev2
@@ -422,6 +527,7 @@ Assigns a device #0 and protocol #2 to connection #0.
 .TP
 \fBset\fP prj temp_meter
 Set the project name to 'temp_meter'.
+
 .SS Data handler commands
 .TP
 \fBdump\fP
@@ -459,19 +565,8 @@ Print value of the input register address 10 to 20.
 .TP
 \fBprint\fP ireg $a $b
 Print value of the input register address value of $a to value of $b.
+
 .SS Communication commands
-.TP
-\fBread\fP con0 hreg 100 15
-Read remote holding registers of the connection #0 from address 100 to 115.
-.TP
-\fBread\fP con0 hreg $a 15
-Read remote holding registers of the connection #0 from address value of the $a to $a+15.
-.TP
-\fBwrite\fP con2 coil 10
-Write data from to coil address 10 of the connection #2.
-.TP
-\fBwrite\fP con2 coil $c
-Write data from to coil address value of the $c of the connection #2.
 .TP
 \fBcopy\fP con0 ireg con2 hreg 210 10
 Copy input register content of the connection #0 to holding register content of the
@@ -480,6 +575,12 @@ connection #2 from address 210 to 220.
 \fBcopy\fP con0 ireg con2 hreg $a $b
 Copy input register content of the connection #0 to holding register content of the
 connection #2 from address value of the $a to $a+$b.
+.TP
+\fBread\fP con0 hreg 100 15
+Read remote holding registers of the connection #0 from address 100 to 115.
+.TP
+\fBread\fP con0 hreg $a 15
+Read remote holding registers of the connection #0 from address value of the $a to $a+15.
 .TP
 \fBsercons\fP
 Open serial console with requesting device number.
@@ -498,7 +599,14 @@ Write string to dev0 device.
 .TP
 \fBserwrite\fP dev0 "$message"
 Write string from $message variable to dev0 device.
-.SS File operation command
+.TP
+\fBwrite\fP con2 coil 10
+Write data from to coil address 10 of the connection #2.
+.TP
+\fBwrite\fP con2 coil $c
+Write data from to coil address value of the $c of the connection #2.
+
+.SS File operation commands
 .TP
 \fBexphis\fP script
 Export command line history to project directory.
@@ -522,13 +630,28 @@ Save settings of device, protocol and connection to project directory.
 .TP
 \fBsavereg\fP /home/username/Desktop/test1
 Save all registers to other directory.
-.SS Script operation command
+
+.SS Script operation commands
 .TP
 \fBloadscr\fP /home/username/Desktop/dt510
 Load dt510 scriptfile other directory.
 .TP
 \fBrun\fP -s
 Run loaded script step-by-step.
+
+.SS String handler commands
+.TP
+\fBchr\fP $ch $b
+Convert byte type value in $b to character and the result is placed in $ch.
+.TP
+\fBlength\fP $length "abcdef"
+Put length of the specified string to $length variable.
+.TP
+\fBstritem\fP $char $name 5
+Put 5th element of the $name string to $char variable.
+.TP
+\fBupcase\fP $target $title
+Convert string in title to uppercase and the result is placed in $target.
 .SH HOTKEYS
 Commands with function keys (\fBF?\fP) are executed immediately,
 modifier keys (\fBALT\fP-\fB?\fP) only make typing easier.

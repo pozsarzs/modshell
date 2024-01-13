@@ -25,7 +25,7 @@ var
 
 begin
   y := 0;
-  for line := 0 to 254 do
+  for line := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[line]) > 0 then
     begin
       writeln(sbuffer[line]);

@@ -33,7 +33,7 @@ begin
   if (length(p1) = 0) then
   begin
     line := 0;
-    for l := 0 to 63 do
+    for l := 0 to VARBUFFSIZE-1 do
       if length(vars[l].vname) > 0 then
       begin
         xywrite(2, wherey, false, '$' + vars[l].vname);
@@ -70,7 +70,7 @@ begin
   begin
     // COMPARING EXISTING NAMES WITH THE NEW ONE
     valid := true;
-    for l := 0 to 63 do
+    for l := 0 to VARBUFFSIZE-1 do
       if vars[l].vname = lowercase(p1) then valid := false;
     if not valid then
     begin
@@ -79,7 +79,7 @@ begin
     end;
     // CHECK EMPTY SPACE IN VARIABLE TABLE
     valid := false;
-    for l := 0 to 63 do
+    for l := 0 to VARBUFFSIZE-1 do
       if length(vars[l].vname) = 0 then
       begin
         valid := true;

@@ -54,7 +54,7 @@ begin
   end;
   fpn := fp + fn;
   // PRIMARY MISSION
-  for line := 0 to 254 do sbuffer[line] := '';
+  for line := 0 to SCRBUFFSIZE - 1 do sbuffer[line] := '';
   assignfile(sf, fpn);
   try
     reset(sf);
@@ -68,10 +68,10 @@ begin
           delete(s, 1, 1);
         if s[1] <> COMMENT then
         begin
-          if line < 255 then
+          if line <= SCRBUFFSIZE - 1 then
           begin
             sbuffer[line] := s;
-            inc(line);
+            if line < SCRBUFFSIZE - 1 then inc(line);
           end else
           begin
             writeln(ERR23);

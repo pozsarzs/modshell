@@ -28,7 +28,7 @@ begin
   if (length(p1) > 0) and (p1 = '-s')
     then stepbystep := true 
     else stepbystep := false;
-  for line := 0 to 254 do
+  for line := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[line]) > 0 then
     begin
       parsingcommands(sbuffer[line]);

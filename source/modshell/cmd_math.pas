@@ -13,13 +13,30 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0  p1      p2         p3
-  -------------------------------
-  add $TARGET [$]VALUE1 [$]VALUE2
-  sub $TARGET [$]VALUE1 [$]VALUE2
-  mul $TARGET [$]VALUE1 [$]VALUE2
-  div $TARGET [$]VALUE1 [$]VALUE2
-  round $TARGET [$]VALUE [$]DEC_PLACES
+  p0     p1      p2        p3
+  -------------------------------------
+  add    $TARGET [$]VALUE1 [$]VALUE2
+  chr    $TARGET [$]VALUE
+  cos    $TARGET [$]VALUE
+  cotan  $TARGET [$]VALUE
+  dec    $TARGET [$]VALUE
+  div    $TARGET [$]VALUE1 [$]VALUE2
+  exp    $TARGET [$]VALUE
+  idiv   $TARGET [$]VALUE1 [$]VALUE2
+  imod   $TARGET [$]VALUE1 [$]VALUE2
+  inc    $TARGET [$]VALUE
+  ln     $TARGET [$]VALUE
+  mul    $TARGET [$]VALUE1 [$]VALUE2
+  mulinv $TARGET [$]VALUE
+  odd    $TARGET [$]VALUE
+  ord    $TARGET [$]VALUE
+  rnd    $TARGET [$]VALUE
+  round  $TARGET [$]VALUE  [$]DEC_PLACES
+  sin    $TARGET [$]VALUE
+  sqr    $TARGET [$]VALUE
+  sqrt   $TARGET [$]VALUE
+  sub    $TARGET [$]VALUE1 [$]VALUE2
+  tan    $TARGET [$]VALUE
 }
 
 // MATHEMATICAL OPERATIONS
@@ -28,11 +45,17 @@ var
   s2, s3: string; // parameters in other type
 begin
   // CHECK LENGTH OF PARAMETERS
-  if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
+  if (length(p1) = 0) or (length(p2) = 0) then
   begin
     writeln(ERR05); // Parameters required!
     exit;
   end;
+  if ((op >= 29) and (op <= 32)) or (op = 42) or ((op >= 47) and (op <= 48)) then
+    if (length(p3) = 0) then
+    begin
+      writeln(ERR05); // Parameters required!
+      exit;
+    end;
   // CHECK P1 PARAMETER
   if not boolisitvariable(p1) then
   begin
@@ -43,16 +66,34 @@ begin
   s2 := isitvariable(p2);
   if length(s2) = 0 then s2 := p2;
   // CHECK P3 PARAMETER
-  s3 := isitvariable(p3);
-  if length(s3) = 0 then s3 := p3;
+  if ((op >= 29) and (op <= 32)) or (op = 42) or ((op >= 47) and (op <= 48)) then
+  begin
+    s3 := isitvariable(p3);
+    if length(s3) = 0 then s3 := p3;
+  end;
   // PRIMARY MISSION
   try
     case op of
       29: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) + strtofloatdef(s3, 0));
-      30: vars[intisitvariable(p1)].vvalue :=  floattostr(strtofloatdef(s2, 0) - strtofloatdef(s3, 0));
-      31: vars[intisitvariable(p1)].vvalue :=  floattostr(strtofloatdef(s2, 0) * strtofloatdef(s3, 1));
-      32: vars[intisitvariable(p1)].vvalue :=  floattostr(strtofloatdef(s2, 0) / strtofloatdef(s3, 1));
-      42: vars[intisitvariable(p1)].vvalue :=  floattostr(round2(strtofloatdef(s2, 0), strtointdef(s3, 0)));
+      30: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) - strtofloatdef(s3, 0));
+      31: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) * strtofloatdef(s3, 1));
+      32: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) / strtofloatdef(s3, 1));
+      42: vars[intisitvariable(p1)].vvalue := floattostr(round2(strtofloatdef(s2, 0), strtointdef(s3, 0)));
+      43: vars[intisitvariable(p1)].vvalue := floattostr(cos(strtofloatdef(s2, 0)));
+      44: vars[intisitvariable(p1)].vvalue := floattostr(cot(strtofloatdef(s2, 0)));
+      45: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) - 1);
+      46: vars[intisitvariable(p1)].vvalue := floattostr(exp(strtofloatdef(s2, 0)));
+      47: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) div strtointdef(s3, 1));
+      48: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) mod strtointdef(s3, 1));
+      49: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) + 1);
+      50: vars[intisitvariable(p1)].vvalue := floattostr(ln(strtofloatdef(s2, 0)));
+      51: if strtofloatdef(s2, 0) > 0 then vars[intisitvariable(p1)].vvalue := floattostr(1 / (strtofloatdef(s2, 0)));
+      52: if odd(strtointdef(s2, 0)) then vars[intisitvariable(p1)].vvalue := '1' else vars[intisitvariable(p1)].vvalue := '0';
+      53: vars[intisitvariable(p1)].vvalue := inttostr(random(strtointdef(s2, 1)));
+      54: vars[intisitvariable(p1)].vvalue := floattostr(tan(strtofloatdef(s2, 0)));
+      55: vars[intisitvariable(p1)].vvalue := floattostr(sin(strtofloatdef(s2, 0)));
+      56: vars[intisitvariable(p1)].vvalue := floattostr(sqr(strtofloatdef(s2, 0)));
+      57: vars[intisitvariable(p1)].vvalue := floattostr(sqrt(strtofloatdef(s2, 0)));
     end;
   except
     writeln(ERR20);
