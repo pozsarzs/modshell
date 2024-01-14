@@ -1,4 +1,4 @@
-> [!IMPORTANT]
+> [!WARNING]
 > The program is still under development, it is not yet suitable for its task.  
 > You can check the status of the program's completion in [DEVSTAT.md](DEVSTAT.md) file.
 
@@ -8,7 +8,6 @@ Homepage: <http://www.pozsarzs.hu>
 GitHub: <https://github.com/pozsarzs/modshell>  
 Online manual: <https://github.com/pozsarzs/modshell/wiki>  
 
-#### Software
 |features             |                            |
 |---------------------|----------------------------|
 |architecture         |amd64, armhf, i386, x86_64  |
@@ -18,7 +17,8 @@ Online manual: <https://github.com/pozsarzs/modshell/wiki>
 |licence              |EUPL v1.2                   |
 |local user interface |CLI and TUI                 |
 
-#### Screenshots
+#### 1. Screenshots
+
 Normal command line
 ![CLI](document/picture/modshell.png)
 Fullscreen command line
@@ -28,7 +28,8 @@ Fullscreen command line
 Run example script on bash with ModShell interpreter
 ![script running](document/picture/modshell-r.png)
 
-#### Used external libraries
+#### 2. Used external libraries
+
  - _Convert - Bin/Oct/Dec/Hex number converter_  
    Unit for Turbo Pascal v3.0  
    Public Domain, Copyright (C) 1993 Tom Wellige  
@@ -39,7 +40,7 @@ Run example script on bash with ModShell interpreter
    Unit for FreePascal  
    Creative Common Zero Universal v1.0, Copyright (C) 2024 Pozsar Zsolt  
 
-#### About
+#### 3. About
 
 This is a utility that can be used on several operating systems,
 which can communicate with connected equipment using
@@ -104,7 +105,7 @@ display of sent and received data can be turned off or raw text and hexadecimal 
 
 |command |category  |hotkey|description                                                      |
 |--------|----------|------|-----------------------------------------------------------------|
-|cls     |general   |F8    |clear screen                                                     |
+|cls     |general   |´F8´  |clear screen                                                     |
 |color   |general   |      |set colors                                                       |
 |date    |general   |      |show system date and time                                        |
 |echo    |general   |F9    |enable/hexadecimal/disable local echo for serial connections     |
@@ -184,7 +185,7 @@ view the manual page from *nix shell (_man modshell_) or _modshell.txt_ on other
 If you find any bugs, please report them! I am also happy to accept pull requests from anyone.
 You can use the GitHub issue tracker to report bugs, ask questions, or suggest new features.
 
-#### Planned feature
+#### 4. Planned feature
 
 **Commands**
 
