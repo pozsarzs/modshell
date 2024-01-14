@@ -470,7 +470,7 @@ msgid "       sine function"
 msgstr ""
 
 #: modshell:des56
-msgid "       square root"
+msgid "       square"
 msgstr ""
 
 #: modshell:des57

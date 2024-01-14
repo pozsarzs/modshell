@@ -64,7 +64,8 @@ All register values can be saved and loaded in their own format. During saving,
 two typed files are created, with the following extensions: BDT, WDT.
 .PP
 One or more same type registers can be exported to file. During saving, one text
-file is created, with CSV, INI or XML extension.
+file is created, with CSV, INI or XML extension. The program can only import from
+INI and XML format files.
 .PP
 The program has a simple serial console whose traffic is logged in the project
 directory as console.log.
@@ -369,7 +370,7 @@ or XML format. The file format is specified by the destination file extension.
 If the file exists, it will overwrite or append the new data.
 .TP
 \fBimpreg\fP \fI[$]PATH_AND_FILENAME\fP
-Imports content of the one or more registers from a text file in CSV, INI
+Imports content of the one or more registers from a text file in INI
 or XML format. The file format is specified by the destination file extension.
 .TP
 \fBloadcfg\fP \fI[$]PATH_AND_FILENAME\fP

@@ -435,16 +435,110 @@ msgstr "       bet”lt”tt ModShell szkript futatt sa"
 msgid "       list loaded Modshell script"
 msgstr "       bet”lt”tt ModShell szkript list z sa"
 
+#: modshell:des42
+msgid "       round real number"
+msgstr "       term‚szetes sz m kerek¡t‚se"
+
+#: modshell:des43
+msgid "       cosine function"
+msgstr "       koszinusz fggv‚ny"
+
+#: modshell:des44
+msgid "       cotangent function"
+msgstr "       kotangens fggv‚ny"
+
+#: modshell:des45
+msgid "       decrement integer"
+msgstr "       eg‚sz sz m cs”kkent‚se eggyel"
+
+#: modshell:des46
+msgid "       natural exponential"
+msgstr "       term‚szetes exponenci lis fggv‚ny"
+
+#: modshell:des47
+msgid "       integer division"
+msgstr "       eg‚sz oszt s"
+
+#: modshell:des48
+msgid "       modulus division"
+msgstr "       modulusz oszt s"
+
+#: modshell:des49
+msgid "       increment integer"
+msgstr "       eg‚sz sz m n”vel‚se eggyel"
+
+#: modshell:des50
+msgid "       natural logarithm"
+msgstr "       term‚szetes alap£ logaritmus"
+
+#: modshell:des51
+msgid "       multiplicative inverse"
+msgstr "       reciprok‚rt‚k"
+
+#: modshell:des52
+msgid "       odd or event"
+msgstr "       p ros vagy p ratlan"
+
+#: modshell:des53
+msgid "       create random integer"
+msgstr "       v‚letlen eg‚sz sz m k‚pz‚se"
+
+#: modshell:des54
+msgid "       tangent function"
+msgstr "       tangens fggv‚ny"
+
+#: modshell:des55
+msgid "       sine function"
+msgstr "       szinusz fggv‚ny"
+
+#: modshell:des56
+msgid "       square"
+msgstr "       n‚gyzetreemel‚s"
+
+#: modshell:des57
+msgid "       square root"
+msgstr "       n‚gyzetgy”kvon s"
+
+#: modshell:des58
+msgid "       roll bit of integer to left"
+msgstr "       bitg”rget‚s balra"
+
+#: modshell:des59
+msgid "       roll bit of integer to right"
+msgstr "       bitg”rget‚s jobbra"
+
+#: modshell:des60
+msgid "       conversion to uppercase"
+msgstr "        talak¡t s nagybetûss‚"
+
+#: modshell:des61
+msgid "       length of string"
+msgstr "       karakterl nc hossza"
+
+#: modshell:des62
+msgid "       conversion to lowercase"
+msgstr "        talak¡t s kisbetûss‚"
+
+#: modshell:des63
+msgid "       specified element of the string"
+msgstr "       a karakterl nc megadott eleme"
+
+#: modshell:des64
+msgid "       convert byte to char"
+msgstr "       b jt karakterr‚ alak¡t sa"
+
+#: modshell:des65
+msgid "       convert char to byte"
+msgstr "       karakter b jtt  alak¡t sa"
+
 #: modshell:usg00
 msgid ""
 "copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
-"  - The '$' sign indicates a variable not a direct value.\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"copy con? dinp|coil con? coil [$]CÖM [[$]MENNYISG]\n"
 "Megjegyz‚s:\n"
-"  - A '$' jel jelzi, hogy ez v ltoz¢ ‚s nem k”zvetlen ‚rt‚k.\n"
 "  - A '?' ‚rt‚ke 0-7 lehet."
 
 #: modshell:usg01
@@ -469,39 +563,25 @@ msgstr "help [[$]PARANCS]"
 msgid ""
 "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
 "  let $VARIABLE [$]VALUE\n"
-"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
+"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS"
 msgstr ""
-"let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
-"  let $VARIABLE [$]VALUE\n"
-"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS\n"
-"Megjegyz‚s:\n"
-"  - A '$' jel jelzi, hogy ez v ltoz¢ ‚s nem k”zvetlen ‚rt‚k."
+"let dinp|coil|ireg|hreg [$]CÖM [$]RTK\n"
+"  let $VµLTOZà [$]RTK\n"
+"  let $VµLTOZà dinp|coil|ireg|hreg [$]CÖM"
 
 #: modshell:usg05
 msgid ""
 "print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]\n"
 "  print $VARIABLE [-n]\n"
-"  print \"single\\ line\\ message\" [-n]\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
+"  print \"single\\ line\\ message\" [-n]"
 msgstr ""
-"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]\n"
-"  print $VARIABLE [-n]\n"
-"  print \"single\\ line\\ message\" [-n]\n"
-"Megjegyz‚s:\n"
-"  - A '$' jel jelzi, hogy ez v ltoz¢ ‚s nem k”zvetlen ‚rt‚k."
+"print dinp|coil|ireg|hreg [$]CÖM [[$]MENNYISG] [-n]\n"
+"  print $VµLTOZà [-n]\n"
+"  print \"single\\ line\\ message\" [-n]"
 
 #: modshell:usg06
-msgid ""
-"read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
-msgstr ""
-"read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]\n"
-"Megjegyz‚s:\n"
-"  - A '$' jel jelzi, hogy ez v ltoz¢ ‚s nem k”zvetlen ‚rt‚k."
+msgid "read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr "read con? dinp|coil|ireg|hreg [$]CÖM [[$]MENNYISG]"
 
 #: modshell:usg07
 msgid ""
@@ -522,17 +602,15 @@ msgid ""
 "  set con? dev? pro?\n"
 "  set prj [$]PROJECT_NAME\n"
 "Notes:\n"
-"  - The '$' sign indicates a variable not a direct value.\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"set dev? net [$]DEVICE [$]PORT\n"
-"  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
+"set dev? net [$]ESZK™Z [$]PORT\n"
+"  set dev? ser [$]ESZK™Z [$]BAUDRATE [$]ADATBIT [$]PARITµS [$]STOPBIT\n"
 "  set pro? ascii|rtu [$]UID\n"
-"  set pro? tcp [$]IP_ADDRESS\n"
+"  set pro? tcp [$]IP_CÖM\n"
 "  set con? dev? pro?\n"
-"  set prj [$]PROJECT_NAME\n"
+"  set prj [$]PROJEKNV\n"
 "Megjegyz‚s:\n"
-"  - A '$' jel jelzi, hogy ez v ltoz¢ ‚s nem k”zvetlen ‚rt‚k.\n"
 "  - A '?' ‚rt‚ke 0-7 lehet."
 
 #: modshell:usg09
@@ -547,12 +625,10 @@ msgstr "ver"
 msgid ""
 "write con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
-"  - The '$' sign indicates a variable not a direct value.\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"write con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"write con? coil|hreg [$]CÖM [[$]MENNYISG]\n"
 "Megjegyz‚s:\n"
-"  - A '$' jel jelzi, hogy ez v ltoz¢ ‚s nem k”zvetlen ‚rt‚k.\n"
 "  - A '?' ‚rt‚ke 0-7 lehet."
 
 #: modshell:usg12
@@ -577,14 +653,8 @@ msgid "exphis [$]PATH_AND_FILENAME"
 msgstr "exphis [$]ELRSI_éT_S_FµJLNV"
 
 #: modshell:usg17
-msgid ""
-"conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
-msgstr ""
-"conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE\n"
-"Megjegyz‚s:\n"
-"  - A '$' jel jelzi, hogy ez v ltoz¢ ‚s nem k”zvetlen ‚rt‚k."
+msgid "conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
+msgstr "conv bin|dec|hex|oct bin|dec|hex|oct [$]RTK"
 
 #: modshell:usg18
 msgid "savereg [$]PATH_AND_FILENAME"
@@ -597,14 +667,10 @@ msgstr "loadreg [$]ELRSI_éT_S_FµJLNV"
 #: modshell:usg20
 msgid ""
 "var\n"
-"  var NAME [[$]VALUE]\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
+"  var NAME [[$]VALUE]"
 msgstr ""
 "var\n"
-"  var NAME [[$]VALUE]\n"
-"Megjegyz‚s:\n"
-"  - A '$' jel jelzi, hogy ez v ltoz¢ ‚s nem k”zvetlen ‚rt‚k."
+"  var NAME [[$]RTK]"
 
 #: modshell:usg21
 msgid ""
@@ -672,14 +738,8 @@ msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
 msgstr "dump [[dinp|coil|ireg|hreg] [$]CÖM]"
 
 #: modshell:usg34
-msgid ""
-"pause [[$]TIME]\n"
-"Notes:\n"
-"  - The '$' sign indicates a variable not a direct value."
-msgstr ""
-"pause [[$]TIME]\n"
-"Megjegyz‚s:\n"
-"  - A '$' jel jelzi, hogy ez v ltoz¢ ‚s nem k”zvetlen ‚rt‚k."
+msgid "pause [[$]TIME]"
+msgstr "pause [[$]IDŠ]"
 
 #: modshell:usg35
 msgid ""
@@ -697,7 +757,7 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"serread dev? [$TARGET]\n"
+"serread dev? [$CL]\n"
 "Megjegyz‚s:\n"
 "  - A '?' ‚rt‚ke 0-7 lehet."
 
@@ -708,8 +768,8 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"serwrite dev? $MESSAGE\n"
-"  serwrite dev? \"MESSAGE\"\n"
+"serwrite dev? $šZENET\n"
+"  serwrite dev? \"MšZENET\"\n"
 "Megjegyz‚s:\n"
 "  - A '?' ‚rt‚ke 0-7 lehet."
 
@@ -728,6 +788,102 @@ msgstr "run [-s]"
 #: modshell:usg41
 msgid "list"
 msgstr "list"
+
+#: modshell:usg42
+msgid "round $TARGET [$]VALUE [$]DEC_PLACES"
+msgstr "round $CL [$]RTK [$]DEC_HELYEK"
+
+#: modshell:usg43
+msgid "cos $TARGET [$]VALUE"
+msgstr "cos $CL [$]RTK"
+
+#: modshell:usg44
+msgid "cotan $TARGET [$]VALUE"
+msgstr "cotan $CL [$]RTK"
+
+#: modshell:usg45
+msgid "dec $TARGET [$]VALUE"
+msgstr "dec $CL [$]RTK"
+
+#: modshell:usg46
+msgid "exp $TARGET [$]VALUE"
+msgstr "exp $CL [$]RTK"
+
+#: modshell:usg47
+msgid "idiv $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "idiv $CL [$]RTK1 [$]RTK2"
+
+#: modshell:usg48
+msgid "imod $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "imod $CL [$]RTK1 [$]RTK2"
+
+#: modshell:usg49
+msgid "inc $TARGET [$]VALUE"
+msgstr "inc $CL [$]RTK"
+
+#: modshell:usg50
+msgid "ln $TARGET [$]VALUE"
+msgstr "ln $CL [$]RTK"
+
+#: modshell:usg51
+msgid "mulinv $TARGET [$]VALUE"
+msgstr "mulinv $CL [$]RTK"
+
+#: modshell:usg52
+msgid "odd $TARGET [$]VALUE"
+msgstr "odd $CL [$]RTK"
+
+#: modshell:usg53
+msgid "rnd $TARGET [$]VALUE"
+msgstr "rnd $CL [$]RTK"
+
+#: modshell:usg54
+msgid "tan $TARGET [$]VALUE"
+msgstr "tan $CL [$]RTK"
+
+#: modshell:usg55
+msgid "sin $TARGET [$]VALUE"
+msgstr "sin $CL [$]RTK"
+
+#: modshell:usg56
+msgid "sqr $TARGET [$]VALUE"
+msgstr "sqr $CL [$]RTK"
+
+#: modshell:usg57
+msgid "sqrt $TARGET [$]VALUE"
+msgstr "sqrt $CL [$]RTK"
+
+#: modshell:usg58
+msgid "roll $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "roll $CL [$]RTK1 [$]RTK2"
+
+#: modshell:usg59
+msgid "rolr $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "rolr $CL [$]RTK1 [$]RTK2"
+
+#: modshell:usg60
+msgid "upcase $TARGET [$]VALUE"
+msgstr "upcase $CL [$]RTK"
+
+#: modshell:usg61
+msgid "length $TARGET [$]VALUE"
+msgstr "length $CL [$]RTK"
+
+#: modshell:usg62
+msgid "lowcase $TARGET [$]VALUE"
+msgstr "lowcase $CL [$]RTK"
+
+#: modshell:usg63
+msgid "stritem $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "stritem $CL [$]RTK1 [$]RTK2"
+
+#: modshell:usg64
+msgid "chr $TARGET [$]VALUE"
+msgstr "chr $CL [$]RTK"
+
+#: modshell:usg65
+msgid "ord $TARGET [$]VALUE"
+msgstr "ord $CL [$]RTK"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       el‹t‚r- ‚s a h tt‚rsz¡n be ll¡t sa (fullscreen)"

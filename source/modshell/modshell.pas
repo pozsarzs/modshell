@@ -296,7 +296,7 @@ resourcestring
   DES53='       create random integer';
   DES54='       tangent function';
   DES55='       sine function';
-  DES56='       square root';
+  DES56='       square';
   DES57='       square root';
   DES58='       roll bit of integer to left';
   DES59='       roll bit of integer to right';

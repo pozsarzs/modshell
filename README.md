@@ -24,17 +24,17 @@ Online manual: <https://github.com/pozsarzs/modshell/wiki>
 |running modes           |command line, full-screen or interpreter                              |
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                                 |
 |script size             |max. 256 line                                                         |
-|variables               |max. 128 pcs., stored as string                                       |
-|built-in commands       |66 pcs.                                                               |
+|variables               |max. 128 variables (stored as string)                                 |
+|built-in commands       |66 command s in 9 categories                                          |
 |load from file          |registers, script, settings                                           |
-|save to file            |history, console trafic, registers, settings                          |
-|auto save to file       |settings and console trafic                                           |
+|save to file            |command history, console trafic, registers, communication settings    |
+|auto save to file       |general settings and console traffic                                  |
 |export to file          |history (TXT), registers (CSV, INI, XML)                              |
 |import to file          |registers (INI, XML)                                                  |
-|configurable devices    |max. 8 pcs., serial and ethernet port                                 |
-|configurable protocols  |max. 8 pcs., ASCII, RTU or TCP                                        |
-|configurable connections|max. 8 pcs., by combining the previous two                            |
-|Raw communication       |raw r/w from/to serial port, mini serial console                      |
+|configurable devices    |max. 8 settings, serial and ethernet port                                 |
+|configurable protocols  |max. 8 settings, ASCII, RTU or TCP                                        |
+|configurable connections|max. 8 settings by combining the previous two                            |
+|raw communication       |raw r/w from/to serial port and mini serial console with char/hex echo|
 |Modbus communication    |read and write remote device and copy between devices                 |
 
 #### 1. Screenshots
@@ -110,8 +110,9 @@ extensions: DDT, PDT, CDT.
 All register values can be saved and loaded in their own format. During saving,
 two typed files are created, with the following extensions: BDT, IDT.
 
-One or more same type registers can be exported to file.
-During saving, one text file is created, with CSV, INI or XML extension.
+One or more same type registers can be exported to file. During saving, one text
+file is created, with CSV, INI or XML extension. The program can only import from
+INI and XML format files.
 
 On exit, the command line history, echo mode and colors are preserved.
 
@@ -143,7 +144,7 @@ display of sent and received data can be turned off or raw text and hexadecimal 
 |serwrite|communication|      |write a string from serial device                                |
 |exphis  |file         |      |export command line history to file (TXT)                        |
 |expreg  |file         |ALT-E |export one or more registers to file (CSV, INI, XML)             |
-|impreg  |file         |ALT-I |export one or more registers from file (CSV, INI, XML)           |
+|impreg  |file         |ALT-I |import one or more registers from file (INI, XML)                |
 |loadcfg |file         |F3    |load settings of device, protocol and connection (?DT)           |
 |loadreg |file         |F5    |load all buffer registers from typed file (?DT)                  |
 |savecfg |file         |F2    |save settings of device, protocol and connection (?DT)           |
