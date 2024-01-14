@@ -13,14 +13,29 @@ Homepage: <http://www.pozsarzs.hu>
 GitHub: <https://github.com/pozsarzs/modshell>  
 Online manual: <https://github.com/pozsarzs/modshell/wiki>  
 
-|features             |                            |
-|---------------------|----------------------------|
-|architecture         |amd64, armhf, i386, x86_64  |
-|operation system     |DOS, FreeBSD, Linux, Windows|
-|version              |v0.1                        |
-|language             |en, hu                      |
-|licence              |EUPL v1.2                   |
-|local user interface |CLI and TUI                 |
+|features                |                                                                      |
+|------------------------|----------------------------------------------------------------------|
+|architecture            |amd64, armhf, i386, x86_64                                            |
+|operation system        |DOS, FreeBSD, Linux, Windows                                          |
+|version                 |v0.1                                                                  |
+|language                |en, hu                                                                |
+|licence                 |EUPL v1.2                                                             |
+|local user interface    |CLI and TUI                                                           |
+|running modes           |command line, full-screen or interpreter                              |
+|local Modbus registers  |2x10000 boolean and 2x10000 word type                                 |
+|script size             |max. 256 line                                                         |
+|variables               |max. 128 pcs., stored as string                                       |
+|built-in commands       |66 pcs.                                                               |
+|load from file          |registers, script, settings                                           |
+|save to file            |history, console trafic, registers, settings                          |
+|auto save to file       |settings and console trafic                                           |
+|export to file          |history (TXT), registers (CSV, INI, XML)                              |
+|import to file          |registers (INI, XML)                                                  |
+|configurable devices    |max. 8 pcs., serial and ethernet port                                 |
+|configurable protocols  |max. 8 pcs., ASCII, RTU or TCP                                        |
+|configurable connections|max. 8 pcs., by combining the previous two                            |
+|Raw communication       |raw r/w from/to serial port, mini serial console                      |
+|Modbus communication    |read and write remote device and copy between devices                 |
 
 #### 1. Screenshots
 
@@ -96,7 +111,7 @@ All register values can be saved and loaded in their own format. During saving,
 two typed files are created, with the following extensions: BDT, IDT.
 
 One or more same type registers can be exported to file.
-During saving, one text file is created, with CSV extension.
+During saving, one text file is created, with CSV, INI or XML extension.
 
 On exit, the command line history, echo mode and colors are preserved.
 
