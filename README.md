@@ -2,7 +2,12 @@
 > The program is still under development, it is not yet suitable for its task.  
 > You can check the status of the program's completion in [DEVSTAT.md](DEVSTAT.md) file.
 
-## Modshell * Command-driven scriptable Modbus utility
+<img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon" src="desktop/modshell.png">   
+
+## Modshell
+
+**Command-driven scriptable Modbus utility**
+
 Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>  
 Homepage: <http://www.pozsarzs.hu>  
 GitHub: <https://github.com/pozsarzs/modshell>  
