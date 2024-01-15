@@ -245,6 +245,22 @@ msgstr ""
 msgid "Modbus telegram parsing error!"
 msgstr ""
 
+#: modshell:err29
+msgid "Modbus error: illegal function."
+msgstr ""
+
+#: modshell:err30
+msgid "Modbus error: illegal data address."
+msgstr ""
+
+#: modshell:err31
+msgid "Modbus error: illegal data value."
+msgstr ""
+
+#: modshell:err32
+msgid "Modbus error: slave device Failure."
+msgstr ""
+
 #: modshell:des00
 msgid "       copy one or more remote reg. between two connections"
 msgstr ""

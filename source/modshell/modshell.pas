@@ -239,6 +239,11 @@ resourcestring
   ERR26 = 'Cannot read data from serial port!';
   ERR27 = 'Cannot write data to serial port!';
   ERR28 = 'Modbus telegram parsing error!';
+  ERR29 = 'Modbus error: illegal function.';
+  ERR30 = 'Modbus error: illegal data address.';
+  ERR31 = 'Modbus error: illegal data value.';
+  ERR32 = 'Modbus error: slave device Failure.';
+  
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
   DES01='F10    exit';

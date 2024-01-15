@@ -26,6 +26,8 @@ var
   i1: integer;             // parameters other type
   s1: string;              // parameters in other type
   valid: boolean = false;
+  fpn, fp, fn {$IFDEF GO32V2}, fx{$ENDIF}: string;
+  lf: file of char;
 
 begin
   // CHECK LENGTH OF PARAMETER
@@ -60,6 +62,22 @@ begin
     writeln(MSG24);
     exit;
   end;
+  // SET LOG FILE
+  {$IFDEF GO32V2}
+    fp := getexedir + proj;
+    createdir(fp);
+  {$ELSE}
+    fp := getuserdir + PRGNAME;
+    createdir(fp);
+    fp := getuserdir + PRGNAME + SLASH + proj;
+    createdir(fp);
+  {$ENDIF}
+  fpn := fp + SLASH + 'console.log';
+  assignfile(lf, fpn);
+  try
+    rewrite(lf);
+  except
+  end;
   // PRIMARY MISSION
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
@@ -74,6 +92,10 @@ begin
             ser_sendstring(c);
             textcolor(uconfig.colors[3]);
             write(c);
+            try
+              write(lf, c);
+            except
+            end;
             if c = #13 then write(#10);
             textcolor(uconfig.colors[0]);
           end else writeln(ERR27);
@@ -83,6 +105,10 @@ begin
           b := ser_recvbyte;
           textcolor(uconfig.colors[2]);
           write(char(b));
+          try
+            write(lf, char(b));
+          except
+          end;
           if b = 13 then write(#10);
           textcolor(uconfig.colors[0]);
         end;
@@ -91,4 +117,8 @@ begin
       ser_close;
       writeln;
     end else writeln(ERR18, dev[i1].device);
+    try
+      closefile(lf);
+    except
+    end;
 end;

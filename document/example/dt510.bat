@@ -27,7 +27,7 @@ print $UID
 set dev0 ser com1 9600 7 e 1
 set pro0 ascii $UID
 set con0 dev0 pro0
-echo hex
+echo on
 
 # read remote data
 print "\ "
