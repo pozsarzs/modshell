@@ -16,10 +16,10 @@
 // READ REMOTE COIL (FC01)
 procedure mbasc_readcoil(protocol, device, address, count: integer);
 var
-  b: byte;
+  b, bb: byte;
   c: char;
   pdu, adu, tgm: string;
-  recvcount: byte;
+  recvbyte, recvcount: byte;
   wait: integer = 0;
 const
   FUNCTION_CODE = $01;
@@ -87,9 +87,10 @@ begin
                              recvcount := strtoint('$' + tgm[6] + tgm[7]); // bytes
                              b := 0;
                              repeat
-
-                               // ...
-
+                               recvbyte := strtoint('$' + tgm[8 + 2 * b] + tgm[9 + 2 * b]);
+                               for bb := 0 to 7 do
+                                 coil[address + bb + b * 8 ] := inttobool(recvbyte and powerof2(bb));
+                               b := b + 1;
                              until b = recvcount;
                            end;
             FUNCTERR_CODE: case strtoint('$' + tgm[6] + tgm[7]) of
@@ -109,10 +110,10 @@ end;
 // READ REMOTE DISCRETE INPUT (FC02)
 procedure mbasc_readdinp(protocol, device, address, count: integer);
 var
-  b: byte;
+  b, bb: byte;
   c: char;
   pdu, adu, tgm: string;
-  recvcount: byte;
+  recvbyte, recvcount: byte;
   wait: integer = 0;
 const
   FUNCTION_CODE = $02;
@@ -180,9 +181,10 @@ begin
                              recvcount := strtoint('$' + tgm[6] + tgm[7]); // bytes
                              b := 0;
                              repeat
-
-                               // ...
-
+                               recvbyte := strtoint('$' + tgm[8 + 2 * b] + tgm[9 + 2 * b]);
+                               for bb := 0 to 7 do
+                                 dinp[address + bb + b * 8 ] := inttobool(recvbyte and powerof2(bb));
+                               b := b + 1;
                              until b = recvcount;
                            end;
             FUNCTERR_CODE: case strtoint('$' + tgm[6] + tgm[7]) of
@@ -393,10 +395,28 @@ end;
 
 // WRITE REMOTE COIL
 procedure mbasc_writecoil(protocol, device, address, count: integer);
+var
+  b: byte;
+  c: char;
+  pdu, adu, tgm: string;
+  recvcount: byte;
+  wait: integer = 0;
+const
+  FUNCTION_CODE = $0F;
+  FUNCTERR_CODE = FUNCTION_CODE + $80;
 begin
 end;
 
 // WRITE REMOTE HOLDING REGISTER
 procedure mbasc_writehreg(protocol, device, address, count: integer);
+var
+  b: byte;
+  c: char;
+  pdu, adu, tgm: string;
+  recvcount: byte;
+  wait: integer = 0;
+const
+  FUNCTION_CODE = $10;
+  FUNCTERR_CODE = FUNCTION_CODE + $80;
 begin
 end;

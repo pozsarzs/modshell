@@ -21,6 +21,7 @@ uses
   math,
   sysutils;
 
+function powerof2(exponent: byte): byte;
 function round2(const number: extended; const places: longint): extended;
 function addzero(v: word): string;
 function addsomezero(n: byte; s: string): string;
@@ -40,6 +41,19 @@ procedure ewrite(fg: byte; hl: byte; t: string);
 procedure xywrite(x, y: byte; c: boolean; s: string);
 
 implementation
+
+// POWER OF TWO FROM ZERO TO SEVEN
+function powerof2(exponent: byte): byte;
+var
+  e: byte;
+begin
+  if exponent <= 7 then
+  begin
+    result := 1;
+    for e := 1 to exponent do
+      result := result * 2;
+  end;
+end;
 
 // ROUND
 function round2(const number: extended; const places: longint): extended;
