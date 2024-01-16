@@ -267,6 +267,22 @@ msgstr "Nem lehet írni a soros portot!"
 msgid "Modbus telegram parsing error!"
 msgstr "Modbus telegram értelmezési hiba!"
 
+#: modshell:err29
+msgid "Modbus error: illegal function."
+msgstr "Modbus hiba: szabálytalan funkció."
+
+#: modshell:err30
+msgid "Modbus error: illegal data address."
+msgstr "Modbus hiba: szabálytalan adatcím."
+
+#: modshell:err31
+msgid "Modbus error: illegal data value."
+msgstr "Modbus hiba: szabálytalan adatérték."
+
+#: modshell:err32
+msgid "Modbus error: slave device failure."
+msgstr "Modbus hiba: slave eszköz hiba."
+
 #: modshell:des00
 msgid "       copy one or more remote reg. between two connections"
 msgstr "       egy vagy több távoli regiszter másolása két kapcsolat között"

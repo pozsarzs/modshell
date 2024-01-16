@@ -1,6 +1,14 @@
 > [!WARNING]
 > The program is still under development, it is not yet suitable for its task.  
 > You can check the status of the program's completion in [DEVSTAT.md](DEVSTAT.md) file.
+> 
+> **v0.1-alpha1:**  
+> This test release is not yet suitable for work, although it is functional, but it can
+> only communicate via Modbus/ASCII.
+> 
+> The purpose of this release is to test the program's construction, operation, packaging,
+> and package installation in all supported environments. In addition, the documentation
+> and other files are checked for possible typos and errors.
 
 <img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon" src="desktop/modshell.png">   
 

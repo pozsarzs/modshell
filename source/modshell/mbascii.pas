@@ -26,7 +26,7 @@ const
   FUNCTERR_CODE = FUNCTION_CODE + $80;
 
 begin
-  // CREATE ASCII TELEGRAM
+  // CREATE ASCII TELEGRAM FOR REQUEST
   pdu := hex1(2, FUNCTION_CODE) +
          hex1(4, address) +
          hex1(4, count);
@@ -38,7 +38,7 @@ begin
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
     writeln(MSG31);
-    // SEND REQUEST
+    // TRANSMIT REQUEST
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
@@ -53,7 +53,7 @@ begin
       end;
       textcolor(uconfig.colors[0]);
     end else writeln(ERR27);
-    // RECEIVE ANSWER
+    // RECEIVE RESPONSE
     tgm := '';
     repeat
       if ser_canread then
@@ -77,7 +77,7 @@ begin
     if uconfig.echo > 0 then writeln;
     // DISCONNECT SERIAL PORT
     ser_close;
-    // PARSE ASCII TELEGRAM
+    // PARSE RESPONSE
     try
       if tgm[1] = #58 then
         if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
@@ -120,7 +120,7 @@ const
   FUNCTERR_CODE = FUNCTION_CODE + $80;
 
 begin
-  // CREATE ASCII TELEGRAM
+  // CREATE ASCII TELEGRAM FOR REQUEST
   pdu := hex1(2, FUNCTION_CODE) +
          hex1(4, address) +
          hex1(4, count);
@@ -132,7 +132,7 @@ begin
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
     writeln(MSG31);
-    // SEND REQUEST
+    // TRANSMIT REQUEST
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
@@ -147,7 +147,7 @@ begin
       end;
       textcolor(uconfig.colors[0]);
     end else writeln(ERR27);
-    // RECEIVE ANSWER
+    // RECEIVE RESPONSE
     tgm := '';
     repeat
       if ser_canread then
@@ -171,7 +171,7 @@ begin
     if uconfig.echo > 0 then writeln;
     // DISCONNECT SERIAL PORT
     ser_close;
-    // PARSE ASCII TELEGRAM
+    // PARSE RESPONSE
     try
       if tgm[1] = #58 then
         if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
@@ -214,7 +214,7 @@ const
   FUNCTERR_CODE = FUNCTION_CODE + $80;
 
 begin
-  // CREATE ASCII TELEGRAM
+  // CREATE ASCII TELEGRAM FOR REQUEST
   pdu := hex1(2, FUNCTION_CODE) +
          hex1(4, address) +
          hex1(4, count);
@@ -226,7 +226,7 @@ begin
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
     writeln(MSG31);
-    // SEND REQUEST
+    // TRANSMIT REQUEST
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
@@ -241,7 +241,7 @@ begin
       end;
       textcolor(uconfig.colors[0]);
     end else writeln(ERR27);
-    // RECEIVE ANSWER
+    // RECEIVE RESPONSE
     tgm := '';
     repeat
       if ser_canread then
@@ -265,7 +265,7 @@ begin
     if uconfig.echo > 0 then writeln;
     // DISCONNECT SERIAL PORT
     ser_close;
-    // PARSE ASCII TELEGRAM
+    // PARSE RESPONSE
     try
       if tgm[1] = #58 then
         if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
@@ -310,7 +310,7 @@ const
   FUNCTERR_CODE = FUNCTION_CODE + $80;
 
 begin
-  // CREATE ASCII TELEGRAM
+  // CREATE ASCII TELEGRAM FOR REQUEST
   pdu := hex1(2, FUNCTION_CODE) +
          hex1(4, address) +
          hex1(4, count);
@@ -322,7 +322,7 @@ begin
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
     writeln(MSG31);
-    // SEND REQUEST
+    // TRANSMIT REQUEST
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
@@ -337,7 +337,7 @@ begin
       end;
       textcolor(uconfig.colors[0]);
     end else writeln(ERR27);
-    // RECEIVE ANSWER
+    // RECEIVE RESPONSE
     tgm := '';
     repeat
       if ser_canread then
@@ -361,7 +361,7 @@ begin
     if uconfig.echo > 0 then writeln;
     // DISCONNECT SERIAL PORT
     ser_close;
-    // PARSE ASCII TELEGRAM
+    // PARSE RESPONSE
     try
       if tgm[1] = #58 then
         if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
@@ -396,8 +396,9 @@ end;
 // WRITE REMOTE COIL
 procedure mbasc_writecoil(protocol, device, address, count: integer);
 var
-  b: byte;
+  b, bb, x: byte;
   c: char;
+  i: integer;
   pdu, adu, tgm: string;
   recvcount: byte;
   wait: integer = 0;
@@ -405,6 +406,84 @@ const
   FUNCTION_CODE = $0F;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
 begin
+  // CREATE ASCII TELEGRAM FOR REQUEST
+  pdu := hex1(2, FUNCTION_CODE) +
+         hex1(4, address) +
+         hex1(4, count);
+  if (count mod 8) > 0
+  then pdu := pdu + hex1(2, (count div 8) + 1)
+  else pdu := pdu + hex1(2, count div 8);
+  for i := address to count - 1 do
+  begin
+    x := 0;
+    for bb := 0 to 7 do
+      if coil[i + bb] then x := x or powerof2(bb);
+    pdu := pdu + hex1(2, x);
+  end;
+  adu := hex1(2, prot[protocol].uid) +
+         pdu + 
+         hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
+  tgm := #58 + adu + #13 + #10;
+  // CONNECT TO SERIAL PORT
+  if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
+  begin
+    writeln(MSG31);
+    // TRANSMIT REQUEST
+    if ser_canwrite then
+    begin
+      ser_sendstring(tgm);
+      textcolor(uconfig.colors[3]);
+      case uconfig.echo of
+        1: write(tgm);
+        2: begin
+             for b := 1 to length(tgm) do
+               write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
+             writeln;
+           end;
+      end;
+      textcolor(uconfig.colors[0]);
+    end else writeln(ERR27);
+    // RECEIVE RESPONSE
+    tgm := '';
+    repeat
+      if ser_canread then
+      begin
+        wait := 0;
+        b := ser_recvbyte;
+        textcolor(uconfig.colors[2]);
+        case uconfig.echo of
+          1: if b <> 10 then write(char(b));
+          2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+        end;
+        textcolor(uconfig.colors[0]);
+        tgm := tgm + char(b);
+      end else
+      begin
+        delay(1);
+        if wait < 65535 then inc(wait);
+      end;
+      if keypressed then c := readkey;
+    until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
+    if uconfig.echo > 0 then writeln;
+    // DISCONNECT SERIAL PORT
+    ser_close;
+    // PARSE RESPONSE
+    try
+      if tgm[1] = #58 then
+        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
+        begin
+          if strtoint('$' + tgm[4] + tgm[5]) = FUNCTERR_CODE then
+            case strtoint('$' + tgm[6] + tgm[7]) of
+              1: writeln(ERR29);
+              2: writeln(ERR30);
+              3: writeln(ERR31);
+              4: writeln(ERR32);
+            end;
+        end else writeln(ERR28);
+    except
+      writeln(ERR28);
+    end;    
+  end else writeln(ERR18, dev[device].device);
 end;
 
 // WRITE REMOTE HOLDING REGISTER
@@ -412,11 +491,84 @@ procedure mbasc_writehreg(protocol, device, address, count: integer);
 var
   b: byte;
   c: char;
+  i: integer;
   pdu, adu, tgm: string;
   recvcount: byte;
   wait: integer = 0;
 const
   FUNCTION_CODE = $10;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
+
 begin
+  // CREATE ASCII TELEGRAM FOR REQUEST
+  pdu := hex1(2, FUNCTION_CODE) +
+         hex1(4, address) +
+         hex1(4, count) +
+         hex1(2, count * 2);
+  for i := address to count - 1 do
+    pdu := pdu + hex1(4, hreg[i]);
+  adu := hex1(2, prot[protocol].uid) +
+         pdu + 
+         hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
+  tgm := #58 + adu + #13 + #10;
+  // CONNECT TO SERIAL PORT
+  if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
+  begin
+    writeln(MSG31);
+    // TRANSMIT REQUEST
+    if ser_canwrite then
+    begin
+      ser_sendstring(tgm);
+      textcolor(uconfig.colors[3]);
+      case uconfig.echo of
+        1: write(tgm);
+        2: begin
+             for b := 1 to length(tgm) do
+               write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
+             writeln;
+           end;
+      end;
+      textcolor(uconfig.colors[0]);
+    end else writeln(ERR27);
+    // RECEIVE RESPONSE
+    tgm := '';
+    repeat
+      if ser_canread then
+      begin
+        wait := 0;
+        b := ser_recvbyte;
+        textcolor(uconfig.colors[2]);
+        case uconfig.echo of
+          1: if b <> 10 then write(char(b));
+          2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+        end;
+        textcolor(uconfig.colors[0]);
+        tgm := tgm + char(b);
+      end else
+      begin
+        delay(1);
+        if wait < 65535 then inc(wait);
+      end;
+      if keypressed then c := readkey;
+    until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
+    if uconfig.echo > 0 then writeln;
+    // DISCONNECT SERIAL PORT
+    ser_close;
+    // PARSE RESPONSE
+    try
+      if tgm[1] = #58 then
+        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
+        begin
+          if strtoint('$' + tgm[4] + tgm[5]) = FUNCTERR_CODE then
+            case strtoint('$' + tgm[6] + tgm[7]) of
+              1: writeln(ERR29);
+              2: writeln(ERR30);
+              3: writeln(ERR31);
+              4: writeln(ERR32);
+            end;
+        end else writeln(ERR28);
+    except
+      writeln(ERR28);
+    end;    
+  end else writeln(ERR18, dev[device].device);
 end;

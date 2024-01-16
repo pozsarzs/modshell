@@ -258,7 +258,7 @@ msgid "Modbus error: illegal data value."
 msgstr ""
 
 #: modshell:err32
-msgid "Modbus error: slave device Failure."
+msgid "Modbus error: slave device failure."
 msgstr ""
 
 #: modshell:des00

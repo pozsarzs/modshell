@@ -242,7 +242,7 @@ resourcestring
   ERR29 = 'Modbus error: illegal function.';
   ERR30 = 'Modbus error: illegal data address.';
   ERR31 = 'Modbus error: illegal data value.';
-  ERR32 = 'Modbus error: slave device Failure.';
+  ERR32 = 'Modbus error: slave device failure.';
   
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
