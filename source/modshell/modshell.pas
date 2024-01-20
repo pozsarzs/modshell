@@ -70,6 +70,11 @@ const
   SCRBUFFSIZE = 256;
   VARBUFFSIZE = 128;
   COMMARRSIZE = 66;
+  {$IFDEF UNIX}
+    EOL = #10;
+  {$ELSE}
+    EOL = #13 + #10;
+  {$ENDIF}
   // VALID BOOLEAN VALUES
   BOOLVALUES: array[0..1,0..2] of string =
   (
@@ -198,9 +203,9 @@ resourcestring
   MSG21 = 'Register content has loaded from ';
   MSG22 = 'Useable file types: ';
   MSG23 = 'Press a key to continue... ';
-  MSG24 = 'Note:' +  #10 +
-          '  - register: local buffer register' + #10 +
-          '  - remote register: register of the connected device' + #10;
+  MSG24 = 'Note:' +  EOL +
+          '  - register: local buffer register' + EOL +
+          '  - remote register: register of the connected device' + EOL;
   MSG25 = 'Select register type: ';
   MSG26 = 'Local register type (dinp/coil/ireg/hreg: 1/2/3/4): ';
   MSG27 = 'Start address (0-9990): ';
@@ -317,36 +322,36 @@ resourcestring
   DES64='       convert byte to char';
   DES65='       convert char to byte';
   // COMMAND USAGE
-  USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + #10 +
-        'Notes:' + #10 +
+  USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
+        'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG01='exit';
-  USG02='get dev?|pro?|con?|prj' + #10 +
-        'Notes:' + #10 +
+  USG02='get dev?|pro?|con?|prj' + EOL +
+        'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG03='help [[$]COMMAND]';
-  USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + #10 +
-        '  let $VARIABLE [$]VALUE' + #10 +
+  USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + EOL +
+        '  let $VARIABLE [$]VALUE' + EOL +
         '  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS';
-  USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]' + #10 +
-        '  print $VARIABLE [-n]' + #10 +
+  USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]' + EOL +
+        '  print $VARIABLE [-n]' + EOL +
         '  print "single\ line\ message" [-n]';
   USG06='read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
-  USG07='reset dev?|pro?|con?|prj' + #10 +
-        'Notes:' + #10 +
+  USG07='reset dev?|pro?|con?|prj' + EOL +
+        'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
-  USG08='set dev? net [$]DEVICE [$]PORT' + #10 +
-        '  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT' + #10 +
-        '  set pro? ascii|rtu [$]UID' + #10 +
-        '  set pro? tcp [$]IP_ADDRESS' + #10 +
-        '  set con? dev? pro?' + #10 +
-        '  set prj [$]PROJECT_NAME' + #10 +
-        'Notes:' + #10 +
+  USG08='set dev? net [$]DEVICE [$]PORT' + EOL +
+        '  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT' + EOL +
+        '  set pro? ascii|rtu [$]UID' + EOL +
+        '  set pro? tcp [$]IP_ADDRESS' + EOL +
+        '  set con? dev? pro?' + EOL +
+        '  set prj [$]PROJECT_NAME' + EOL +
+        'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG09='date';
   USG10='ver';
-  USG11='write con? coil|hreg [$]ADDRESS [[$]COUNT]' + #10 +
-        'Notes:' + #10 +
+  USG11='write con? coil|hreg [$]ADDRESS [[$]COUNT]' + EOL +
+        'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG12='cls';
   USG13='savecfg [$]PATH_AND_FILENAME';
@@ -356,13 +361,13 @@ resourcestring
   USG17='conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE';
   USG18='savereg [$]PATH_AND_FILENAME';
   USG19='loadreg [$]PATH_AND_FILENAME';
-  USG20='var' + #10 +
+  USG20='var' + EOL +
         '  var NAME [[$]VALUE]';
-  USG21='color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT' + #10 +
-        '  colors:' + #10 +
-        '      0: black  4: red         8: darkgray    12: lightred' + #10 +
-        '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + #10 +
-        '      2: green  6: brown      10: lightgreen  14: yellow' + #10 +
+  USG21='color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT' + EOL +
+        '  colors:' + EOL +
+        '      0: black  4: red         8: darkgray    12: lightred' + EOL +
+        '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + EOL +
+        '      2: green  6: brown      10: lightgreen  14: yellow' + EOL +
         '      3: cyan   7: lightgray  11: lightcyan   15: white';
   USG22='impreg [$]PATH_AND_FILENAME';
   USG23='and $TARGET [$]VALUE1 [$]VALUE2';
@@ -377,15 +382,15 @@ resourcestring
   USG32='div $TARGET [$]VALUE1 [$]VALUE2';
   USG33='dump [[dinp|coil|ireg|hreg] [$]ADDRESS]';
   USG34='pause [[$]TIME]';
-  USG35='sercons [dev?]' + #10 +
-        'Notes:' + #10 +
+  USG35='sercons [dev?]' + EOL +
+        'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
-  USG36='serread dev? [$TARGET]' + #10 +
-        'Notes:' + #10 +
+  USG36='serread dev? [$TARGET]' + EOL +
+        'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
-  USG37='serwrite dev? $MESSAGE' + #10 +
-        '  serwrite dev? "MESSAGE"' + #10 +
-        'Notes:' + #10 +
+  USG37='serwrite dev? $MESSAGE' + EOL +
+        '  serwrite dev? "MESSAGE"' + EOL +
+        'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG38='echo [off|on|hex]';
   USG39='loadscr [$]PATH_AND_FILENAME';
@@ -821,10 +826,10 @@ begin
           delete(s, 1, 1);
         if s[1] <> COMMENT then
         begin
-          if line <= SCRBUFFSIZE - 1 then
+          if line <= int(SCRBUFFSIZE - 1) then
           begin
             sbuffer[line] := s;
-            if line < SCRBUFFSIZE - 1 then inc(line);
+            if line < int(SCRBUFFSIZE - 1) then inc(line);
           end else quit(4, false, ERR23);
         end;
       end;
@@ -886,7 +891,7 @@ begin
   translatemessages(LANG,BASENAME,'.mo');
   // CHECK SIZE OF TERMINAL
   if not terminalsize then quit(1, false, ERR99);
-  randomize;  
+  randomize;
   // PARSE COMMAND LINE PARAMETERS
   appmode := 0;
   { appmode #0: simple command line

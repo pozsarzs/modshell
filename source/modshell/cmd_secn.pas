@@ -26,7 +26,7 @@ var
   i1: integer;             // parameters other type
   s1: string;              // parameters in other type
   valid: boolean = false;
-  fpn, fp, fn {$IFDEF GO32V2}, fx{$ENDIF}: string;
+  fpn, fp: string;
   lf: file of char;
 
 begin
@@ -96,7 +96,7 @@ begin
               write(lf, c);
             except
             end;
-            if c = #13 then write(#10);
+            if c = #13 then write(EOL);
             textcolor(uconfig.colors[0]);
           end else writeln(ERR27);
         end;
@@ -109,7 +109,7 @@ begin
             write(lf, char(b));
           except
           end;
-          if b = 13 then write(#10);
+          if b = 13 then write(EOL);
           textcolor(uconfig.colors[0]);
         end;
       until c = #27;

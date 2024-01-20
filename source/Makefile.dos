@@ -17,8 +17,7 @@ all:
 	@cd $(name)
 	@fpc $(fpflag) $(name).pas
 	@cd ..
-	@rstconv -c cp852 -f po -i $(outdir)\$(name).rsj  -o ..\message\$(name).pot
-	@move $(outdir)\$(name).exe ..\
+	@rstconv -c cp852 -f po -i $(outdir)\$(name).rsj  -o $(outdir)\$(name).pot
 
 clean:
 	@erase $(outdir)\*.*

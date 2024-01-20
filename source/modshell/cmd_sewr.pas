@@ -89,7 +89,7 @@ begin
              end;
         end;
         textcolor(uconfig.colors[0]);
-        if (uconfig.echo = 1) and (b = 13) then write(#10);
+        if (uconfig.echo = 1) and (b = 13) then write(EOL);
       end else writeln(ERR27);
       ser_close;
     end else writeln(ERR18, dev[i1].device);

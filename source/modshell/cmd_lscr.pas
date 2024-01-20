@@ -68,10 +68,10 @@ begin
           delete(s, 1, 1);
         if s[1] <> COMMENT then
         begin
-          if line <= SCRBUFFSIZE - 1 then
+          if line <= int(SCRBUFFSIZE - 1) then
           begin
             sbuffer[line] := s;
-            if line < SCRBUFFSIZE - 1 then inc(line);
+            if line < int(SCRBUFFSIZE - 1) then inc(line);
           end else
           begin
             writeln(ERR23);

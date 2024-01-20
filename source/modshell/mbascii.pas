@@ -400,7 +400,6 @@ var
   c: char;
   i: integer;
   pdu, adu, tgm: string;
-  recvcount: byte;
   wait: integer = 0;
 const
   FUNCTION_CODE = $0F;
@@ -493,7 +492,6 @@ var
   c: char;
   i: integer;
   pdu, adu, tgm: string;
-  recvcount: byte;
   wait: integer = 0;
 const
   FUNCTION_CODE = $10;

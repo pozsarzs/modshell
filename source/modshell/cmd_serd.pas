@@ -86,7 +86,7 @@ begin
           end;
           textcolor(uconfig.colors[0]);
           s := s + char(b);
-          if (uconfig.echo = 1) and (b = 13) then write(#10);
+          if (uconfig.echo = 1) and (b = 13) then write(EOL);
         end;
         if keypressed then c := readkey;
       until (c = #27)  or (length(s) = 255);

@@ -15,6 +15,7 @@
 
 function eth_read: string;
 begin
+  result := '';
   {$IFDEF GO32V2}
   {$ELSE}
   {$ENDIF}
@@ -22,6 +23,7 @@ end;
 
 function  eth_init: boolean;
 begin
+  result := true;
   {$IFDEF GO32V2}
   {$ELSE}
   {$ENDIF}
