@@ -125,6 +125,26 @@ msgstr ""
 msgid "Press <Esc> to break receiving."
 msgstr ""
 
+#: modshell:msg94
+msgid "Build date:  "
+msgstr ""
+
+#: modshell:msg95
+msgid "Builder:     "
+msgstr ""
+
+#: modshell:msg96
+msgid "FPC version: "
+msgstr ""
+
+#: modshell:msg97
+msgid "Target OS:   "
+msgstr ""
+
+#: modshell:msg98
+msgid "Target CPU:  "
+msgstr ""
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr ""
@@ -259,6 +279,10 @@ msgstr ""
 
 #: modshell:err32
 msgid "Modbus error: slave device failure."
+msgstr ""
+
+#: modshell:err99
+msgid "Minimal terminal size is 80x25!"
 msgstr ""
 
 #: modshell:des00

@@ -208,6 +208,11 @@ resourcestring
   MSG29 = 'Mini serial console (exit: <F10>)';
   MSG30 = 'Device number (0-7): ';
   MSG31 = 'Press <Esc> to break receiving.';
+  MSG94 = 'Build date:  ';
+  MSG95 = 'Builder:     ';
+  MSG96 = 'FPC version: ';
+  MSG97 = 'Target OS:   ';
+  MSG98 = 'Target CPU:  ';
   MSG99 = 'Sorry, this feature is not yet implemented.';
   // ERROR MESSAGES
   ERR00 = 'No such command!';
@@ -243,7 +248,7 @@ resourcestring
   ERR30 = 'Modbus error: illegal data address.';
   ERR31 = 'Modbus error: illegal data value.';
   ERR32 = 'Modbus error: slave device failure.';
-  
+  ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
   DES01='F10    exit';
@@ -864,25 +869,24 @@ begin
   writeln(PRGNAME + ' v' + PRGVERSION + ' * ' + MSG02);
   writeln(PRGCOPYRIGHT);
   writeln;
-  if length(username) > 0 then username := ' by ' +username;
-
-  writeln('This program was compiled at ', {$I %TIME%}, ' on ', {$I %DATE%}, username, '.');
-  writeln('FPC version: ', {$I %FPCVERSION%});
-  write('Target OS:   ', {$I %FPCTARGETOS%});
+  writeln(MSG94, {$I %DATE%}, ' ', {$I %TIME%});
+  if length(username) > 0 then writeln(MSG95, username);
+  writeln(MSG96, {$I %FPCVERSION%});
+  write(MSG97, {$I %FPCTARGETOS%});
   if lowercase({$I %FPCTARGETOS%}) = 'go32v2' then write(' (DOS)');
   writeln;
-  writeln('Target CPU:  ', {$I %FPCTARGETCPU%});
+  writeln(MSG98, {$I %FPCTARGETCPU%});
   if h then quit(0, false, '');;
 end;
 
 // -- MAIN PROGRAM -------------------------------------------------------------
 begin
-  // CHECK SIZE OF TERMINAL
-  if not terminalsize
-    then quit(1, false, 'ERROR: minimal terminal size is 80x25!');
-  randomize;  
   // DETECT LANGUAGE
   lang := getlang;
+  translatemessages(LANG,BASENAME,'.mo');
+  // CHECK SIZE OF TERMINAL
+  if not terminalsize then quit(1, false, ERR99);
+  randomize;  
   // PARSE COMMAND LINE PARAMETERS
   appmode := 0;
   { appmode #0: simple command line
@@ -904,7 +908,6 @@ begin
     end;
   end;
   loadconfiguration(BASENAME,'.ini');
-  translatemessages(LANG,BASENAME,'.mo');
   case appmode of
     0: simplecommandline;
     3: fullscreencommandline;
@@ -913,3 +916,4 @@ begin
   saveconfiguration(BASENAME,'.ini');
   quit(0, false, '');
 end.
+

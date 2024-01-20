@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Modshell v0.1\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Pozsar Zsolt <pozsarzs@gmail.com>\n"
+"Last-Translator: Pozs r Zsolt <pozsarzs@gmail.com>\n"
 "Language-Team: \n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -147,6 +147,26 @@ msgstr "Eszk”zsz m (0-7): "
 msgid "Press <Esc> to break receiving."
 msgstr "Nyomd meg az <Esc>-et a v‚tel megszak¡t s hoz."
 
+#: modshell:msg94
+msgid "Build date:  "
+msgstr "Ford¡t s ideje: "
+
+#: modshell:msg95
+msgid "Builder:     "
+msgstr "Ford¡t¢:        "
+
+#: modshell:msg96
+msgid "FPC version: "
+msgstr "FPC verzi¢:     "
+
+#: modshell:msg97
+msgid "Target OS:   "
+msgstr "C‚l OS:         "
+
+#: modshell:msg98
+msgid "Target CPU:  "
+msgstr "C‚l CPU:        "
+
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr "Sajn lom, hogy ez a szolg ltat s m‚g nem val¢sult meg."
@@ -282,6 +302,10 @@ msgstr "Modbus hiba: szab lytalan adat‚rt‚k."
 #: modshell:err32
 msgid "Modbus error: slave device failure."
 msgstr "Modbus hiba: slave eszk”z hiba."
+
+#: modshell:err99
+msgid "Minimal terminal size is 80x25!"
+msgstr "A legkisebb termin l m‚ret 80x25!"
 
 #: modshell:des00
 msgid "       copy one or more remote reg. between two connections"
