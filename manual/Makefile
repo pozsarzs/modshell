@@ -15,10 +15,15 @@ filemode=$(txtmode)
 man1files=`ls $(sourcedir)/*.1 | grep -v Makefile | grep -v '\.in'`
 
 all:
-	@if [ -f $(name).1 ]; \
+	@if [ $(man) != "no" ] && [ $(unix2dos) != "no" ]; \
 	then \
-	  man ./$(name).1 > ../package/dos-bin/$(name).txt; \
-	  unix2dos ../package/dos-bin/$(name).txt; \
+	  if [ -f $(name).1 ]; \
+	  then \
+	    $(man) ./$(name).1 > ../package/dos-bin/$(name).txt; \
+	    $(unix2dos) ../package/dos-bin/$(name).txt; \
+	  fi \
+	else \
+	  echo "To create manual page for DOS, install the necessary tools."; \
 	fi
 
 clean:

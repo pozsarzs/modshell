@@ -612,18 +612,23 @@ PACKAGE_STRING=''
 PACKAGE_BUGREPORT=''
 PACKAGE_URL=''
 
-ac_unique_file="source/modshell/modshell.pas"
+ac_unique_file="source/modshell/"
 ac_default_prefix="/usr/local"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
-fpflag
+fpcargs
 vardir
 bprefix
 version
 os
 copyright
 architecture
-hfpc
+iconv
+msgfmt
+unix2dos
+man
+rstconv
+fpc
 make
 install
 rmdir
@@ -2147,20 +2152,20 @@ fi
 
 
 
-for ac_prog in gmake make
-do
-  # Extract the first word of "$ac_prog", so it can be a program name with args.
-set dummy $ac_prog; ac_word=$2
+# Extract the first word of "make", so it can be a program name with args.
+set dummy make; ac_word=$2
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
 printf %s "checking for $ac_word... " >&6; }
-if test ${ac_cv_prog_make+y}
+if test ${ac_cv_path_make+y}
 then :
   printf %s "(cached) " >&6
 else $as_nop
-  if test -n "$make"; then
-  ac_cv_prog_make="$make" # Let the user override the test.
-else
-as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+  case $make in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_make="$make" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
 for as_dir in $PATH
 do
   IFS=$as_save_IFS
@@ -2171,7 +2176,7 @@ do
   esac
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
-    ac_cv_prog_make="$ac_prog"
+    ac_cv_path_make="$as_dir$ac_word$ac_exec_ext"
     printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
     break 2
   fi
@@ -2179,9 +2184,11 @@ done
   done
 IFS=$as_save_IFS
 
+  test -z "$ac_cv_path_make" && ac_cv_path_make="no"
+  ;;
+esac
 fi
-fi
-make=$ac_cv_prog_make
+make=$ac_cv_path_make
 if test -n "$make"; then
   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $make" >&5
 printf "%s\n" "$make" >&6; }
@@ -2191,24 +2198,22 @@ printf "%s\n" "no" >&6; }
 fi
 
 
-  test -n "$make" && break
-done
+test "$make" == "no" && as_fn_error $? "GNU make utility not found!" "$LINENO" 5
 
-test "$make" == "" && as_fn_error $? "Make not found!" "$LINENO" 5
-for ac_prog in fpc
-do
-  # Extract the first word of "$ac_prog", so it can be a program name with args.
-set dummy $ac_prog; ac_word=$2
+# Extract the first word of "fpc", so it can be a program name with args.
+set dummy fpc; ac_word=$2
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
 printf %s "checking for $ac_word... " >&6; }
-if test ${ac_cv_prog_hfpc+y}
+if test ${ac_cv_path_fpc+y}
 then :
   printf %s "(cached) " >&6
 else $as_nop
-  if test -n "$hfpc"; then
-  ac_cv_prog_hfpc="$hfpc" # Let the user override the test.
-else
-as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+  case $fpc in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_fpc="$fpc" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
 for as_dir in $PATH
 do
   IFS=$as_save_IFS
@@ -2219,7 +2224,7 @@ do
   esac
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
-    ac_cv_prog_hfpc="$ac_prog"
+    ac_cv_path_fpc="$as_dir$ac_word$ac_exec_ext"
     printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
     break 2
   fi
@@ -2227,23 +2232,265 @@ done
   done
 IFS=$as_save_IFS
 
+  test -z "$ac_cv_path_fpc" && ac_cv_path_fpc="no"
+  ;;
+esac
 fi
-fi
-hfpc=$ac_cv_prog_hfpc
-if test -n "$hfpc"; then
-  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $hfpc" >&5
-printf "%s\n" "$hfpc" >&6; }
+fpc=$ac_cv_path_fpc
+if test -n "$fpc"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $fpc" >&5
+printf "%s\n" "$fpc" >&6; }
 else
   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
 printf "%s\n" "no" >&6; }
 fi
 
 
-  test -n "$hfpc" && break
-done
-test -n "$hfpc" || hfpc="no"
+test "$fpc" == "no" && as_fn_error $? "Free Pascal compiler not found!" "$LINENO" 5
 
-test x"$hfpc" == xno && as_fn_error $? "FreePascal compiler not found!" "$LINENO" 5
+# Extract the first word of "rstconv", so it can be a program name with args.
+set dummy rstconv; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_path_rstconv+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  case $rstconv in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_rstconv="$rstconv" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_path_rstconv="$as_dir$ac_word$ac_exec_ext"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_rstconv" && ac_cv_path_rstconv="no"
+  ;;
+esac
+fi
+rstconv=$ac_cv_path_rstconv
+if test -n "$rstconv"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $rstconv" >&5
+printf "%s\n" "$rstconv" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+test "$rstconv" == "no" && as_fn_error $? "Free Pascal resource string converter tool not found!" "$LINENO" 5
+
+# Extract the first word of "man", so it can be a program name with args.
+set dummy man; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_path_man+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  case $man in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_man="$man" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_path_man="$as_dir$ac_word$ac_exec_ext"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_man" && ac_cv_path_man="no"
+  ;;
+esac
+fi
+man=$ac_cv_path_man
+if test -n "$man"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $man" >&5
+printf "%s\n" "$man" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+test "$man" == "no" && { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: Manual pager not found!" >&5
+printf "%s\n" "$as_me: WARNING: Manual pager not found!" >&2;}
+
+# Extract the first word of "unix2dos", so it can be a program name with args.
+set dummy unix2dos; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_path_unix2dos+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  case $unix2dos in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_unix2dos="$unix2dos" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_path_unix2dos="$as_dir$ac_word$ac_exec_ext"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_unix2dos" && ac_cv_path_unix2dos="no"
+  ;;
+esac
+fi
+unix2dos=$ac_cv_path_unix2dos
+if test -n "$unix2dos"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $unix2dos" >&5
+printf "%s\n" "$unix2dos" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+test "$unix2dos" == "no" && { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: Dos2unix text file format converter not found!" >&5
+printf "%s\n" "$as_me: WARNING: Dos2unix text file format converter not found!" >&2;}
+
+# Extract the first word of "msgfmt", so it can be a program name with args.
+set dummy msgfmt; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_path_msgfmt+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  case $msgfmt in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_msgfmt="$msgfmt" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_path_msgfmt="$as_dir$ac_word$ac_exec_ext"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_msgfmt" && ac_cv_path_msgfmt="no"
+  ;;
+esac
+fi
+msgfmt=$ac_cv_path_msgfmt
+if test -n "$msgfmt"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $msgfmt" >&5
+printf "%s\n" "$msgfmt" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+test "$msgfmt" == "no" && { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: Msgfmt tool (GNU gettext utilities) not found!" >&5
+printf "%s\n" "$as_me: WARNING: Msgfmt tool (GNU gettext utilities) not found!" >&2;}
+
+# Extract the first word of "iconv", so it can be a program name with args.
+set dummy iconv; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_path_iconv+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  case $iconv in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_iconv="$iconv" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_path_iconv="$as_dir$ac_word$ac_exec_ext"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_iconv" && ac_cv_path_iconv="no"
+  ;;
+esac
+fi
+iconv=$ac_cv_path_iconv
+if test -n "$iconv"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $iconv" >&5
+printf "%s\n" "$iconv" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+test "$iconv" == "no" && { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: Iconv text encoding converter tool not found!" >&5
+printf "%s\n" "$as_me: WARNING: Iconv text encoding converter tool not found!" >&2;}
 
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for document/VERSION" >&5
 printf %s "checking for document/VERSION... " >&6; }
@@ -2269,6 +2516,7 @@ else $as_nop
 fi
 
 version=`cat document/VERSION`
+
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for document/copyright" >&5
 printf %s "checking for document/copyright... " >&6; }
 if test ${ac_cv_file_document_copyright+y}
@@ -2313,6 +2561,11 @@ test "$os" = "linux" && mandir="$datarootdir/man"
 bprefix="$prefix"
 test "$stagedir" != "" && prefix="$stagedir"
 test "$stagedir" != "" && mandir="$prefix/man"
+
+
+
+
+
 
 
 

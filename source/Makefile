@@ -21,14 +21,14 @@ all:
 	  if [ -d $$x ]; \
 	  then \
 	    cd $$x; \
-	    fpc $(fpflag) $$x.pas; \
+	    $(fpc) $(fpcargs) $$x.pas; \
 	    cd ..; \
 	    echo ""; \
 	  fi; \
 	done
 	@if [ -f $(sourcedir)/$(name).rsj ]; \
 	  then \
-	    rstconv -f po -p utf-8 -i $(sourcedir)/$(name).rsj  -o ../message/$(name).pot; \
+	    $(rstconv) -f po -p utf-8 -i $(sourcedir)/$(name).rsj  -o ../message/$(name).pot; \
 	fi
 
 clean:

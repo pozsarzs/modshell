@@ -26,9 +26,9 @@ a. Visit homepage (see later) to download installer packages:
                     armhf   modshell-0.1-linux-armhf.zip
   Debian GNU/Linux  i386    modshell_0.1-1_i386.deb
                     x86_64  modshell_0.1-1_amd64.deb
+  Raspberry Pi OS   armhf   modshell_0.1-1_armhf.deb
   OpenSuSE          i386    modshell-0.1-1.i586.rpm
                     amd64   modshell-0.1-1.amd64.rpm
-  Raspberry Pi OS   armhf   modshell_0.1-1_armhf.deb
   Slackware         i386    modshell-0.1-i586-1.txz
                     amd64   modshell-0.1-amd64-1.txz 
 

@@ -18,7 +18,7 @@ included in the PATH.
 ~~~~~~~~~~~~~
 
   Build:      > cd source
-              > make -f Makefile.win??
+              > make -f Makefile.w??
 
 3. On DOS
 ~~~~~~~~~

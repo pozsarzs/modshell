@@ -9,4 +9,5 @@ GenericName[hu]=Parancsvezérelt szkriptelhető Modbus segédprogram
 Type=Application
 Categories=Network;Utility;
 StartupNotify=true
+Terminal=true
 

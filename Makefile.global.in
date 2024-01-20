@@ -25,19 +25,26 @@ vardir		= @vardir@
 binmode		= 0755
 txtmode		= 0644
 
+fpc		= @fpc@
+iconv		= @iconv@
 install		= @install@
 ln		= @ln@ -s -f
+man		= @man@
 make		= @make@
-rm		= @rm@ -f
+msgfmt		= @msgfmt@
 rmdir		= @rmdir@
+rm		= @rm@ -f
+rstconv		= @rstconv@
+unix2dos	= @unix2dos@
 
-fpflag		= -T@os@ \
+fpcargs		= -T@os@ \
                   -MObjFPC \
                   -Scgi \
                   -O1 \
                   -ve \
                   -Fu../convert/ \
+                  -Fu../protcom/ \
                   -Fu../synapse/ \
                   -Fu. \
                   -Fu../lib/@architecture@-@os@/ \
-                  -FE../lib/@architecture@-@os@/ \
+                  -FE../lib/@architecture@-@os@/

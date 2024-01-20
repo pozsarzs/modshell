@@ -134,37 +134,6 @@ display of sent and received data can be turned off or raw text and hexadecimal 
 
 |command |category     |hotkey|description                                                      |
 |--------|-------------|------|-----------------------------------------------------------------|
-|cls     |general      |´F8´  |clear screen                                                     |
-|color   |general      |      |set colors                                                       |
-|date    |general      |      |show system date and time                                        |
-|echo    |general      |F9    |enable/hexadecimal/disable local echo for serial connections     |
-|exit    |general      |F10   |exit                                                             |
-|help    |general      |F1    |show description or usage of the commands                        |
-|pause   |general      |      |print a message and wait for a keystroke or specified time       |
-|print   |general      |ALT-P |print message, value of the variable and register                |
-|var     |general      |      |show all variable with theirs value or define a new one          |
-|ver     |general      |      |show version and build information of this program               |
-|copy    |communication|      |copy one or more remote registers between two connections        |
-|read    |communication|ALT-R |read one or more remote registers                                |
-|write   |communication|ALT-W |write data to one or more remote registers                       |
-|sercons |communication|F7    |serial console                                                   |
-|serread |communication|      |read a string from serial device                                 |
-|serwrite|communication|      |write a string from serial device                                |
-|exphis  |file         |      |export command line history to file (TXT)                        |
-|expreg  |file         |ALT-E |export one or more registers to file (CSV, INI, XML)             |
-|impreg  |file         |ALT-I |import one or more registers from file (INI, XML)                |
-|loadcfg |file         |F3    |load settings of device, protocol and connection (?DT)           |
-|loadreg |file         |F5    |load all buffer registers from typed file (?DT)                  |
-|savecfg |file         |F2    |save settings of device, protocol and connection (?DT)           |
-|savereg |file         |F4    |save all registers to typed file (?DT)                           |
-|and     |logic        |      |AND logical operations                                           |
-|or      |logic        |      |OR logical operations                                            |
-|not     |logic        |      |NOT logical operations                                           |
-|roll    |logic        |      |roll bit of integer to left                                      |
-|rolr    |logic        |      |roll bit of integer to right                                     |
-|shl     |logic        |      |bit shift to left                                                |
-|shr     |logic        |      |bit shift to right                                               |
-|xor     |logic        |      |XOR logical operations                                           |
 |add     |arithmetic   |      |addition                                                         |
 |conv    |arithmetic   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |
 |cos     |arithmetic   |      |cosine function                                                  |
@@ -186,14 +155,45 @@ display of sent and received data can be turned off or raw text and hexadecimal 
 |sqrt    |arithmetic   |      |square root                                                      |
 |sub     |arithmetic   |      |substraction                                                     |
 |tan     |arithmetic   |      |tangent function                                                 |
+|copy    |communication|      |copy one or more remote registers between two connections        |
+|read    |communication|ALT-R |read one or more remote registers                                |
+|write   |communication|ALT-W |write data to one or more remote registers                       |
+|sercons |communication|F7    |serial console                                                   |
+|serread |communication|      |read a string from serial device                                 |
+|serwrite|communication|      |write a string from serial device                                |
+|get     |configuration|ALT-G |get setting of a device, protocol, connection or get project name|
+|reset   |configuration|ALT-T |reset device, protocol or connection or reset project name       |
+|set     |configuration|ALT-S |set device, protocol or connection or set project name           |
+|exphis  |file         |      |export command line history to file (TXT)                        |
+|expreg  |file         |ALT-E |export one or more registers to file (CSV, INI, XML)             |
+|impreg  |file         |ALT-I |import one or more registers from file (INI, XML)                |
+|loadcfg |file         |F3    |load settings of device, protocol and connection (?DT)           |
+|loadreg |file         |F5    |load all buffer registers from typed file (?DT)                  |
+|savecfg |file         |F2    |save settings of device, protocol and connection (?DT)           |
+|savereg |file         |F4    |save all registers to typed file (?DT)                           |
+|cls     |general      |F8    |clear screen                                                     |
+|color   |general      |      |set colors                                                       |
+|date    |general      |      |show system date and time                                        |
+|echo    |general      |F9    |enable/hexadecimal/disable local echo for serial connections     |
+|exit    |general      |F10   |exit                                                             |
+|help    |general      |F1    |show description or usage of the commands                        |
+|pause   |general      |      |print a message and wait for a keystroke or specified time       |
+|print   |general      |ALT-P |print message, value of the variable and register                |
+|var     |general      |      |show all variable with theirs value or define a new one          |
+|ver     |general      |      |show version and build information of this program               |
+|and     |logic        |      |AND logical operations                                           |
+|or      |logic        |      |OR logical operations                                            |
+|not     |logic        |      |NOT logical operations                                           |
+|roll    |logic        |      |roll bit of integer to left                                      |
+|rolr    |logic        |      |roll bit of integer to right                                     |
+|shl     |logic        |      |bit shift to left                                                |
+|shr     |logic        |      |bit shift to right                                               |
+|xor     |logic        |      |XOR logical operations                                           |
 |dump    |register     |F6    |dump all registers in binary/hexadecimal format to a table       |
 |let     |register     |ALT-L |set value of a variable or register                              |
 |list    |script       |      |list loaded script                                               |
 |loadscr |script       |      |load scriptfile                                                  |
 |run     |script       |      |run loaded script                                                |
-|get     |configuration|ALT-G |get setting of a device, protocol, connection or get project name|
-|reset   |configuration|ALT-T |reset device, protocol or connection or reset project name       |
-|set     |configuration|ALT-S |set device, protocol or connection or set project name           |
 |chr     |string       |      |convert byte to char                                             |
 |length  |string       |      |length of string                                                 |
 |lowcase |string       |      |conversion to lowercase                                          |
@@ -218,21 +218,19 @@ You can use the GitHub issue tracker to report bugs, ask questions, or suggest n
 
 **Commands**
 
-|command|category  |hotkey|description                             |
-|-------|----------|------|----------------------------------------|
-|srvtcp |connection|      |start/stop transparent Modbus/TCP server|
-|srvrtu |connection|      |start/stop transparent Modbus/RTU slave |
-|if     |general   |      |selection statement                     |
-|for    |general   |      |loop iteration                          |
+|command|category  |hotkey|description                                             |
+|-------|----------|------|--------------------------------------------------------|
+|pow    |arithmetic|      |exponentiation                                          |
+|srvtcp |connection|      |start/stop transparent Modbus/TCP server                |
+|srvrtu |connection|      |start/stop transparent Modbus/RTU slave                 |
+|const  |general   |      |show all constant with theirs value or define a new one |
+|if     |general   |      |selection statement                                     |
+|for    |general   |      |loop iteration                                          |
+|bit    |logical   |      |value of the specified bit                              |
 
 **Constant**
 
 |command|value                              |
 |-------|-----------------------------------|
 |$pi    |value of Pi (3.1415926535897932385)|
-
-
-
-
-
-
+|$euler |value of e  (2.7182818284590452354)|

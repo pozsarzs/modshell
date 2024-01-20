@@ -6,7 +6,7 @@ dnl # | Makefile for Unix-like systems                                         |
 dnl # +------------------------------------------------------------------------+
 
 AC_INIT
-AC_CONFIG_SRCDIR([source/modshell/modshell.pas])
+AC_CONFIG_SRCDIR([source/modshell/])
 AC_CONFIG_AUX_DIR(config)
 AC_CANONICAL_TARGET
 
@@ -15,13 +15,30 @@ AC_PATH_PROG(rm, rm, no)
 AC_PATH_PROG(rmdir, rmdir, no)
 AC_PATH_PROG(install, install, no)
 
-AC_CHECK_PROGS(make, gmake make)
-test "$make" == "" && AC_MSG_ERROR(Make not found!)
-AC_CHECK_PROGS(hfpc,fpc,no)
-test x"$hfpc" == xno && AC_MSG_ERROR(FreePascal compiler not found!)
+AC_PATH_PROG(make, make, no)
+test "$make" == "no" && AC_MSG_ERROR(GNU make utility not found!)
+
+AC_PATH_PROG(fpc, fpc, no)
+test "$fpc" == "no" && AC_MSG_ERROR(Free Pascal compiler not found!)
+
+AC_PATH_PROG(rstconv, rstconv, no)
+test "$rstconv" == "no" && AC_MSG_ERROR(Free Pascal resource string converter tool not found!)
+
+AC_PATH_PROG(man, man, no)
+test "$man" == "no" && AC_MSG_WARN(Manual pager not found!)
+
+AC_PATH_PROG(unix2dos, unix2dos, no)
+test "$unix2dos" == "no" && AC_MSG_WARN(Dos2unix text file format converter not found!)
+
+AC_PATH_PROG(msgfmt, msgfmt, no)
+test "$msgfmt" == "no" && AC_MSG_WARN(Msgfmt tool (GNU gettext utilities) not found!)
+
+AC_PATH_PROG(iconv, iconv, no)
+test "$iconv" == "no" && AC_MSG_WARN(Iconv text encoding converter tool not found!)
 
 AC_CHECK_FILE(document/VERSION,,AC_MSG_ERROR(VERSION file not found!))
 version=`cat document/VERSION`
+
 AC_CHECK_FILE(document/copyright,,AC_MSG_ERROR(copyright file not found!))
 copyright=`cat document/copyright`
 
@@ -45,7 +62,6 @@ bprefix="$prefix"
 test "$stagedir" != "" && prefix="$stagedir"
 test "$stagedir" != "" && mandir="$prefix/man"
 
-
 AC_SUBST(architecture)
 AC_SUBST(copyright)
 AC_SUBST(os)
@@ -60,12 +76,18 @@ AC_SUBST(mandir)
 AC_SUBST(sysconfdir)
 AC_SUBST(vardir)
 
-AC_SUBST(fpflag)
+AC_SUBST(fpcargs)
 
+AC_SUBST(fpc)
+AC_SUBST(iconv)
 AC_SUBST(install)
 AC_SUBST(ln)
+AC_SUBST(man)
 AC_SUBST(make)
+AC_SUBST(msgfmt)
 AC_SUBST(rm)
+AC_SUBST(rstconv)
+AC_SUBST(unix2dos)
 
 AC_CONFIG_FILES([Makefile.global])
 AC_OUTPUT

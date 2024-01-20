@@ -1,5 +1,5 @@
-modshell (0.1) unstable; urgency=low
+modshell (0.1-alpha1) unstable; urgency=low
 
   * Initial Release.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>  DDD, dd MMM yyyy hh:mm:ss
+ -- Pozsár Zsolt <pozsarzs@gmail.com>  Fri, 16 Jan 2024 21:12:00

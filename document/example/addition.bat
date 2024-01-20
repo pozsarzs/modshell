@@ -4,7 +4,7 @@
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
 # | addition.bat                                                               |
-# | Example script * How to use of variables?                                  |
+# | Example script * How to use variables?                                     |
 # +----------------------------------------------------------------------------+
 
 print "Example\ script\ -\ How\ to\ use\ variables?"
