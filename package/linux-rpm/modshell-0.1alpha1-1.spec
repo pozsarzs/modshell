@@ -6,7 +6,7 @@ Release: 1
 Summary: Command-driven scriptable Modbus utility
 Url: http://www.pozsarzs.hu
 Vendor: Pozsar Zsolt
-Version: 0.1
+Version: 0.1alpha1
 
 %description
 This is a utility that can be used on several
@@ -26,6 +26,12 @@ settings).
 /usr/share/doc/modshell/VERSION
 /usr/share/doc/modshell/changelog
 /usr/share/doc/modshell/copyright
+/usr/share/doc/modshell/example/addition
+/usr/share/doc/modshell/example/copyset1
+/usr/share/doc/modshell/example/copyset2
+/usr/share/doc/modshell/example/dt510
 /usr/share/locale/hu/LC_MESSAGES/modshell.mo
 /usr/share/man/man1/modshell.1.gz
 /usr/share/pixmaps/modshell.xpm
+
+
