@@ -38,7 +38,6 @@ a. Visit homepage (see later) to download installer packages:
                     amd64   modshell-0.1-freebsd-amd64.zip
                     i386    modshell-0.1.txz
                     amd64   modshell-0.1.txz       
-                    (all)   modshell-0.1-FreeBSD-Port.shar
 
   Windows           i586    modshell-0.1-win32.zip
                     amd64   modshell-0.1-win64.zip

@@ -34,7 +34,7 @@ install:
 	  if [ -f $$x/$(name).mo ]; \
 	  then \
 	    $(install) -d $(targetdir)/$$x; \
-	    $(install) -m $(filemode) $(sourcedir)/$$x/$(name).mo $(targetdir)/$$x; \
+	    $(install) -m $(filemode) $(sourcedir)/$$x/$(name).mo $(targetdir)/$$x/LC_MESSAGES/; \
 	    echo -n "#"; \
 	  fi; \
 	done
@@ -45,12 +45,12 @@ uninstall:
 	@for x in $(languages); do \
 	  if [ -f $$x/$(name).mo ]; \
 	  then \
-	    $(rm) $(targetdir)/$$x/$(name).mo; \
+	    $(rm) $(targetdir)/$$x/LC_MESSAGES/$(name).mo; \
 	    echo -n "#"; \
 	  fi; \
 	  if [ $(removetargetdir) -eq 1 ]; \
 	  then \
-	    if [ -d $(targetdir)/$$x ]; then $(rmdir) $(targetdir)/$$x; fi; \
+	    if [ -d $(targetdir)/$$x/LC_MESSAGES ]; then $(rmdir) $(targetdir)/$$x/LC_MESSAGES; fi; \
 	  fi; \
 	done
 	@echo "]"

@@ -7,5 +7,9 @@ share/doc/modshell/README
 share/doc/modshell/VERSION
 share/doc/modshell/changelog
 share/doc/modshell/copyright
+share/doc/modshell/example/addition
+share/doc/modshell/example/copyset1
+share/doc/modshell/example/copyset2
+share/doc/modshell/example/dt510
 share/locale/hu/LC_MESSAGES/modshell.mo
 share/pixmaps/modshell.xpm

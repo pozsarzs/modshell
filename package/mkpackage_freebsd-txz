@@ -2,3 +2,8 @@
 #
 # create txz package on FreeBSD
 #
+
+make makeseum
+make stage
+make stage-qa
+make package
