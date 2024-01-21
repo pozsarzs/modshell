@@ -19,13 +19,13 @@ a. Visit homepage (see later) to download installer packages:
                     i386    modsh01.zip
 
   Linux             i386    modshell-0.1-linux-i386.bin          (SFX)
-                    x86_64  modshell-0.1-linux-amd64.bin         (SFX)
+                    amd64   modshell-0.1-linux-amd64.bin         (SFX)
                     armhf   modshell-0.1-linux-armhf.bin         (SFX)
                     i386    modshell-0.1-linux-i386.zip
                     amd64   modshell-0.1-linux-amd64.zip
                     armhf   modshell-0.1-linux-armhf.zip
   Debian GNU/Linux  i386    modshell_0.1-1_i386.deb
-                    x86_64  modshell_0.1-1_amd64.deb
+                    amd64   modshell_0.1-1_amd64.deb
   Raspberry Pi OS   armhf   modshell_0.1-1_armhf.deb
   OpenSuSE          i386    modshell-0.1-1.i586.rpm
                     amd64   modshell-0.1-1.amd64.rpm
@@ -33,7 +33,7 @@ a. Visit homepage (see later) to download installer packages:
                     amd64   modshell-0.1-amd64-1.txz 
 
   FreeBSD           i386    modshell-0.1-freebsd-i386.bin        (SFX)
-                    x86_64  modshell-0.1-freebsd-amd64.bin       (SFX)
+                    amd64   modshell-0.1-freebsd-amd64.bin       (SFX)
                     i386    modshell-0.1-freebsd-i386.zip
                     amd64   modshell-0.1-freebsd-amd64.zip
                     i386    modshell-0.1.txz
@@ -41,11 +41,11 @@ a. Visit homepage (see later) to download installer packages:
                     (all)   modshell-0.1-FreeBSD-Port.shar
 
   Windows           i586    modshell-0.1-win32.zip
-                    x86_64  modshell-0.1-win64.zip
+                    amd64   modshell-0.1-win64.zip
                     i586    modshell-0.1-win32.exe
-                    x86_64  modshell-0.1-win64.exe
+                    amd64   modshell-0.1-win64.exe
                     i586    modshell-0.1-win32.msi
-                    x86_64  modshell-0.1-win64.msi
+                    amd64   modshell-0.1-win64.msi
   
   Source code       (all)   modshell-0.1.tar.gz
 
