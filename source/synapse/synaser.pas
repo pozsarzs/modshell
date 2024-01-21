@@ -200,7 +200,11 @@ const
   {$IFDEF DARWIN}
   MaxRates = 18;  //MAC
   {$ELSE}
-   MaxRates = 30; //UNIX
+    {$IFDEF BSD}
+      MaxRates = 19; //BSD
+    {$ELSE}
+      MaxRates = 30; //OTHER UNIX
+    {$ENDIF}
   {$ENDIF}
 {$ELSE}
   MaxRates = 19;  //WIN
@@ -229,17 +233,19 @@ const
 {$IFNDEF DARWIN}
     ,(460800, B460800)
   {$IFDEF UNIX}
-    ,(500000, B500000),
-    (576000, B576000),
-    (921600, B921600),
-    (1000000, B1000000),
-    (1152000, B1152000),
-    (1500000, B1500000),
-    (2000000, B2000000),
-    (2500000, B2500000),
-    (3000000, B3000000),
-    (3500000, B3500000),
-    (4000000, B4000000)
+    {$IFNDEF BSD}
+      ,(500000, B500000),
+      (576000, B576000),
+      (921600, B921600),
+      (1000000, B1000000),
+      (1152000, B1152000),
+      (1500000, B1500000),
+      (2000000, B2000000),
+      (2500000, B2500000),
+      (3000000, B3000000),
+      (3500000, B3500000),
+      (4000000, B4000000)
+    {$ENDIF}
   {$ENDIF}
 {$ENDIF}
     );
@@ -1938,7 +1944,9 @@ begin
     {$IFDEF DARWIN}
     SerialCheck(fpioctl(FHandle, TCIOflush, TCIOFLUSH));
     {$ELSE}
-    SerialCheck(fpioctl(FHandle, TCFLSH, Pointer(PtrInt(TCIOFLUSH))));
+      {$IFNDEF BSD}
+        SerialCheck(fpioctl(FHandle, TCFLSH, Pointer(PtrInt(TCIOFLUSH))));
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
   FBuffer := '';

@@ -15,16 +15,6 @@ filemode=$(txtmode)
 man1files=`ls $(sourcedir)/*.1 | grep -v Makefile | grep -v '\.in'`
 
 all:
-	@if [ $(man) != "no" ] && [ $(unix2dos) != "no" ]; \
-	then \
-	  if [ -f $(name).1 ]; \
-	  then \
-	    $(man) ./$(name).1 > ../package/dos-bin/$(name).txt; \
-	    $(unix2dos) ../package/dos-bin/$(name).txt; \
-	  fi \
-	else \
-	  echo "To create manual page for DOS, install the necessary tools."; \
-	fi
 
 clean:
 
@@ -54,3 +44,15 @@ uninstall:
 	  if [ -d $(targetdir)/man1 ]; then $(rmdir) $(targetdir)/man1; fi; \
 	fi;
 	@echo "]"
+
+dos:
+	@if [ $(man) != "no" ] && [ $(unix2dos) != "no" ]; \
+	then \
+	  if [ -f $(name).1 ]; \
+	  then \
+	    $(man) ./$(name).1 > ../package/dos-bin/$(name).txt; \
+	    $(unix2dos) ../package/dos-bin/$(name).txt; \
+	  fi \
+	else \
+	  echo "To create manual page for DOS, install the necessary tools."; \
+	fi

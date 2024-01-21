@@ -45,3 +45,5 @@ uninstall:
 	  if [ -d $(targetdir) ]; then $(rmdir) $(targetdir); fi; \
 	fi;
 	@echo "]"
+
+dos:
