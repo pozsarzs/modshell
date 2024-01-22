@@ -65,7 +65,8 @@ begin
   if length(s2) = 0 then
   begin
     // CHECK P2 PARAMETER
-    s2 := isitvariable(p2);
+    if boolisitconstant(p2) then s2 := isitconstant(p2);
+    if boolisitvariable(p2) then s2 := isitvariable(p2);
     if length(s2) = 0 then
     begin
       writeln(ERR19);

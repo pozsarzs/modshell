@@ -218,7 +218,7 @@ msgid "Cannot define more variable!"
 msgstr ""
 
 #: modshell:err17
-msgid "There is already a variable with that name"
+msgid "There is already a variable or a constant with that name."
 msgstr ""
 
 #: modshell:err18
@@ -279,6 +279,14 @@ msgstr ""
 
 #: modshell:err32
 msgid "Modbus error: slave device failure."
+msgstr ""
+
+#: modshell:err33
+msgid "Illegal character in the constant name!"
+msgstr ""
+
+#: modshell:err34
+msgid "Cannot define more constant!"
 msgstr ""
 
 #: modshell:err99
@@ -547,6 +555,42 @@ msgstr ""
 
 #: modshell:des65
 msgid "       convert char to byte"
+msgstr ""
+
+#: modshell:des66
+msgid "       list all constant with value or define a new one"
+msgstr ""
+
+#: modshell:des67
+msgid "       value of the specified bit"
+msgstr ""
+
+#: modshell:des68
+msgid "       exponentiation"
+msgstr ""
+
+#: modshell:des69
+msgid "       jump to specified label"
+msgstr ""
+
+#: modshell:des70
+msgid "       selection statement"
+msgstr ""
+
+#: modshell:des71
+msgid "       loop iteration"
+msgstr ""
+
+#: modshell:des72
+msgid "       define label (for goto command)"
+msgstr ""
+
+#: modshell:des73
+msgid "       start internal Modbus slave/server"
+msgstr ""
+
+#: modshell:des74
+msgid "       start internal Modbus gateway"
 msgstr ""
 
 #: modshell:usg00
@@ -855,5 +899,49 @@ msgstr ""
 
 #: modshell:usg65
 msgid "ord $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg66
+msgid ""
+"const\n"
+"  const NAME [$]VALUE"
+msgstr ""
+
+#: modshell:usg67
+msgid "bit $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg68
+msgid "pow $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg69
+msgid "goto LABEL"
+msgstr ""
+
+#: modshell:usg70
+msgid "if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND"
+msgstr ""
+
+#: modshell:usg71
+msgid "for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND"
+msgstr ""
+
+#: modshell:usg72
+msgid "label NAME"
+msgstr ""
+
+#: modshell:usg73
+msgid ""
+"mbsrv con?\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg74
+msgid ""
+"mbgw con? con?\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
 msgstr ""
 

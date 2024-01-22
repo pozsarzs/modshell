@@ -49,7 +49,7 @@ LicenseLangString MUILicense ${LANG_HUNGARIAN} "modshell\LICENCE"
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "modshell-0.1-win32.exe"
+OutFile "modshell-0.1alpha1-win32.exe"
 InstallDir "$PROGRAMFILES\ModShell"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
@@ -68,6 +68,11 @@ Section "Main files" SEC01
   File "modshell\document\install"
   File "modshell\document\readme"
   File "modshell\document\version"
+  SetOutPath "$INSTDIR\document\example"
+  File "modshell\document\example\addition.bat"
+  File "modshell\document\example\copyset1.bat"
+  File "modshell\document\example\copyset2.bat"
+  File "modshell\document\example\dt510.bat"
   SetOutPath "$INSTDIR"
   File "modshell\modshell.exe"
   File "modshell\licence"
@@ -105,8 +110,8 @@ SectionEnd
 ; Section descriptions
   LangString DESC_Section1 ${LANG_ENGLISH} "Required files"
   LangString DESC_Section2 ${LANG_ENGLISH} "Hungarian translate"
-  LangString DESC_Section1 ${LANG_HUNGARIAN} "Kötelezõ állományok"
-  LangString DESC_Section2 ${LANG_HUNGARIAN} "Magyar fordítás"
+  LangString DESC_Section1 ${LANG_HUNGARIAN} "Kï¿½telezï¿½ ï¿½llomï¿½nyok"
+  LangString DESC_Section2 ${LANG_HUNGARIAN} "Magyar fordï¿½tï¿½s"
   !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${SEC01} $(DESC_Section1)
   !insertmacro MUI_DESCRIPTION_TEXT ${SEC02} $(DESC_Section2)
@@ -125,20 +130,23 @@ Section Uninstall
   Delete "$INSTDIR\message\modshell.pot"
   Delete "$INSTDIR\message\hu\modshell.po"
   Delete "$INSTDIR\message\hu\modshell.mo"
+  Delete "$INSTDIR\document\addition.bat"
+  Delete "$INSTDIR\document\copyset1.bat"
+  Delete "$INSTDIR\document\copyset2.bat"
+  Delete "$INSTDIR\document\dt510.bat"
   Delete "$INSTDIR\document\authors"
   Delete "$INSTDIR\document\changelog"
   Delete "$INSTDIR\document\copyright"
   Delete "$INSTDIR\document\install"
   Delete "$INSTDIR\document\readme"
   Delete "$INSTDIR\document\version"
-
   Delete "$SMPROGRAMS\ModShell\Uninstall.lnk"
   Delete "$DESKTOP\ModShell.lnk"
   Delete "$SMPROGRAMS\ModShell\ModShell.lnk"
-
   RMDir "$SMPROGRAMS\ModShell"
   RMDir "$INSTDIR\message\hu"
   RMDir "$INSTDIR\message"
+  RMDir "$INSTDIR\document\example"
   RMDir "$INSTDIR\document"
   RMDir "$INSTDIR"
 

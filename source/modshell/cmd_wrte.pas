@@ -70,7 +70,8 @@ begin
     exit;
   end;
   // CHECK P3 PARAMETER
-  s3 := isitvariable(p3);
+  if boolisitconstant(p3) then s3 := isitconstant(p3);
+  if boolisitvariable(p3) then s3 := isitvariable(p3);
   if length(s3) = 0 then s3 := p3;
   i3 := strtointdef(s3, -1);
   if (i3 < 1 ) or (i3 > 9999) then
@@ -79,7 +80,8 @@ begin
     exit;
   end;
   // CHECK P4 PARAMETER
-  s4 := isitvariable(p4);
+  if boolisitconstant(p4) then s4 := isitconstant(p4);
+  if boolisitvariable(p4) then s4 := isitvariable(p4);
   if length(s4) = 0 then s4 := p4;
   if length(s4) > 0 then
   begin

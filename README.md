@@ -32,18 +32,20 @@ Online manual: <https://github.com/pozsarzs/modshell/wiki>
 |running modes           |command line, full-screen or interpreter                              |
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                                 |
 |script size             |max. 256 line                                                         |
-|variables               |max. 128 variables (stored as string)                                 |
-|built-in commands       |66 command s in 9 categories                                          |
+|variables               |max. 128 variables or constants (stored as string)                    |
+|built-in commands       |75 command s in 9 categories                                          |
 |load from file          |registers, script, settings                                           |
 |save to file            |command history, console trafic, registers, communication settings    |
 |auto save to file       |general settings and console traffic                                  |
 |export to file          |history (TXT), registers (CSV, INI, XML)                              |
 |import to file          |registers (INI, XML)                                                  |
-|configurable devices    |max. 8 settings, serial and ethernet port                                 |
-|configurable protocols  |max. 8 settings, ASCII, RTU or TCP                                        |
-|configurable connections|max. 8 settings by combining the previous two                            |
-|raw communication       |raw r/w from/to serial port and mini serial console with char/hex echo|
+|configurable devices    |max. 8 settings, serial and ethernet port                             |
+|configurable protocols  |max. 8 settings, ASCII, RTU or TCP                                    |
+|configurable connections|max. 8 settings by combining the previous two                         |
+|raw serial communication|read/write serial port and mini serial console with char/hex echo     |
 |Modbus communication    |read and write remote device and copy between devices                 |
+|                        |internal server for remote access to own registers                    |
+|                        |gateway to access devices using other ports or protocols              |
 
 #### 1. Screenshots
 
@@ -89,10 +91,10 @@ It must be defined the I/O devices, then the protocols and the connections.
 There can be eight of each. The data traffic takes place between the preset
 connections. In all cases, the data is sent to or read from the internal buffer.
 The size of the buffer is suitable for storing 2*9999 logical and word values of
-the same size. One hundred and twenty-eight variables can be created in the program, to which we
-can assign a value of any type (eg.: string, boolean or integer register
-value, real number, etc.) Variables can be used to perform logical and arithmetical
-operations, and can be used to pass values to commands.
+the same size. One hundred and twenty-eight variables or constant can be created
+in the program, to which we can assign a value of any type (eg.: string, boolean
+or integer register value, real number, etc.) Variables can be used to perform
+logical and arithmetical operations, and can be used to pass values to commands.
 
 **Projects**
 
@@ -128,81 +130,98 @@ On exit, the command line history, echo mode and colors are preserved.
 
 The program also provides the possibility to send and receive raw data
 via a serial port, and also includes a very simple serial console. The
-display of sent and received data can be turned off or raw text and hexadecimal viewing can be selected.
+display of sent and received data can be turned off or raw text and
+hexadecimal viewing can be selected.
 
 **Already implemented commands:**
 
-|command |category     |hotkey|description                                                      |
-|--------|-------------|------|-----------------------------------------------------------------|
-|add     |arithmetic   |      |addition                                                         |
-|conv    |arithmetic   |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |
-|cos     |arithmetic   |      |cosine function                                                  |
-|cotan   |arithmetic   |      |cotangent function                                               |
-|dec     |arithmetic   |      |decrement integer                                                |
-|exp     |arithmetic   |      |natural exponential                                              |
-|div     |arithmetic   |      |division                                                         |
-|idiv    |arithmetic   |      |integer division                                                 |
-|imod    |arithmetic   |      |modulus division                                                 |
-|inc     |arithmetic   |      |increment integer                                                |
-|ln      |arithmetic   |      |natural logarithm                                                |
-|mul     |arithmetic   |      |multiplication                                                   |
-|mulinv  |arithmetic   |      |multiplicative inverse                                           |
-|odd     |arithmetic   |      |odd or event                                                     |
-|rnd     |arithmetic   |      |create random integer                                            |
-|round   |arithmetic   |      |round real number                                                |
-|sin     |arithmetic   |      |sine function                                                    |
-|sqr     |arithmetic   |      |square root                                                      |
-|sqrt    |arithmetic   |      |square root                                                      |
-|sub     |arithmetic   |      |substraction                                                     |
-|tan     |arithmetic   |      |tangent function                                                 |
-|copy    |communication|      |copy one or more remote registers between two connections        |
-|read    |communication|ALT-R |read one or more remote registers                                |
-|write   |communication|ALT-W |write data to one or more remote registers                       |
-|sercons |communication|F7    |serial console                                                   |
-|serread |communication|      |read a string from serial device                                 |
-|serwrite|communication|      |write a string from serial device                                |
-|get     |configuration|ALT-G |get setting of a device, protocol, connection or get project name|
-|reset   |configuration|ALT-T |reset device, protocol or connection or reset project name       |
-|set     |configuration|ALT-S |set device, protocol or connection or set project name           |
-|exphis  |file         |      |export command line history to file (TXT)                        |
-|expreg  |file         |ALT-E |export one or more registers to file (CSV, INI, XML)             |
-|impreg  |file         |ALT-I |import one or more registers from file (INI, XML)                |
-|loadcfg |file         |F3    |load settings of device, protocol and connection (?DT)           |
-|loadreg |file         |F5    |load all buffer registers from typed file (?DT)                  |
-|savecfg |file         |F2    |save settings of device, protocol and connection (?DT)           |
-|savereg |file         |F4    |save all registers to typed file (?DT)                           |
-|cls     |general      |F8    |clear screen                                                     |
-|color   |general      |      |set colors                                                       |
-|date    |general      |      |show system date and time                                        |
-|echo    |general      |F9    |enable/hexadecimal/disable local echo for serial connections     |
-|exit    |general      |F10   |exit                                                             |
-|help    |general      |F1    |show description or usage of the commands                        |
-|pause   |general      |      |print a message and wait for a keystroke or specified time       |
-|print   |general      |ALT-P |print message, value of the variable and register                |
-|var     |general      |      |show all variable with theirs value or define a new one          |
-|ver     |general      |      |show version and build information of this program               |
-|and     |logic        |      |AND logical operations                                           |
-|or      |logic        |      |OR logical operations                                            |
-|not     |logic        |      |NOT logical operations                                           |
-|roll    |logic        |      |roll bit of integer to left                                      |
-|rolr    |logic        |      |roll bit of integer to right                                     |
-|shl     |logic        |      |bit shift to left                                                |
-|shr     |logic        |      |bit shift to right                                               |
-|xor     |logic        |      |XOR logical operations                                           |
-|dump    |register     |F6    |dump all registers in binary/hexadecimal format to a table       |
-|let     |register     |ALT-L |set value of a variable or register                              |
-|list    |script       |      |list loaded script                                               |
-|loadscr |script       |      |load scriptfile                                                  |
-|run     |script       |      |run loaded script                                                |
-|chr     |string       |      |convert byte to char                                             |
-|length  |string       |      |length of string                                                 |
-|lowcase |string       |      |conversion to lowercase                                          |
-|ord     |string       |      |convert char to byte                                             |
-|stritem |string       |      |specified element of the string                                  |
-|upcase  |string       |      |conversion to uppercase                                          |
+|command |category      |hotkey|description                                                      |
+|--------|--------------|------|-----------------------------------------------------------------|
+|add     |arithmetic    |      |addition                                                         |
+|conv    |arithmetic    |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |
+|cos     |arithmetic    |      |cosine function                                                  |
+|cotan   |arithmetic    |      |cotangent function                                               |
+|dec     |arithmetic    |      |decrement integer                                                |
+|exp     |arithmetic    |      |natural exponential                                              |
+|div     |arithmetic    |      |division                                                         |
+|idiv    |arithmetic    |      |integer division                                                 |
+|imod    |arithmetic    |      |modulus division                                                 |
+|inc     |arithmetic    |      |increment integer                                                |
+|ln      |arithmetic    |      |natural logarithm                                                |
+|mul     |arithmetic    |      |multiplication                                                   |
+|mulinv  |arithmetic    |      |multiplicative inverse                                           |
+|odd     |arithmetic    |      |odd or event                                                     |
+|pow     |arithmetic    |      |exponentiation                                                   |
+|rnd     |arithmetic    |      |create random integer                                            |
+|round   |arithmetic    |      |round real number                                                |
+|sin     |arithmetic    |      |sine function                                                    |
+|sqr     |arithmetic    |      |square root                                                      |
+|sqrt    |arithmetic    |      |square root                                                      |
+|sub     |arithmetic    |      |substraction                                                     |
+|tan     |arithmetic    |      |tangent function                                                 |
+|copy    |communication |      |copy one or more remote registers between two connections        |
+|mbgw    |communication |      |start internal Modbus gateway                                    |
+|mbsrv   |communication |      |start internal Modbus slave/server                               |
+|read    |communication |ALT-R |read one or more remote registers                                |
+|sercons |communication |F7    |serial console                                                   |
+|serread |communication |      |read a string from serial device                                 |
+|serwrite|communication |      |write a string from serial device                                |
+|write   |communication |ALT-W |write data to one or more remote registers                       |
+|get     |configuration |ALT-G |get setting of a device, protocol, connection or get project name|
+|reset   |configuration |ALT-T |reset device, protocol or connection or reset project name       |
+|set     |configuration |ALT-S |set device, protocol or connection or set project name           |
+|exphis  |file          |      |export command line history to file (TXT)                        |
+|expreg  |file          |ALT-E |export one or more registers to file (CSV, INI, XML)             |
+|impreg  |file          |ALT-I |import one or more registers from file (INI, XML)                |
+|loadcfg |file          |F3    |load settings of device, protocol and connection (?DT)           |
+|loadreg |file          |F5    |load all buffer registers from typed file (?DT)                  |
+|savecfg |file          |F2    |save settings of device, protocol and connection (?DT)           |
+|savereg |file          |F4    |save all registers to typed file (?DT)                           |
+|cls     |general       |F8    |clear screen                                                     |
+|color   |general       |      |set colors                                                       |
+|const   |general       |      |show all constant with theirs value or define a new one          |
+|date    |general       |      |show system date and time                                        |
+|echo    |general       |F9    |enable/hexadecimal/disable local echo for serial connections     |
+|exit    |general       |F10   |exit                                                             |
+|goto    |general       |      |jump to specified label                                          |
+|for     |general       |      |loop iteration                                                   |
+|help    |general       |F1    |show description or usage of the commands                        |
+|if      |general       |      |selection statement                                              |
+|label   |general       |      |define label (for goto command)                                  |
+|pause   |general       |      |print a message and wait for a keystroke or specified time       |
+|print   |general       |ALT-P |print message, value of the variable and register                |
+|var     |general       |      |show all variable with theirs value or define a new one          |
+|ver     |general       |      |show version and build information of this program               |
+|and     |logic         |      |AND logical operations                                           |
+|bit     |logical       |      |value of the specified bit                                       |
+|not     |logic         |      |NOT logical operations                                           |
+|or      |logic         |      |OR logical operations                                            |
+|roll    |logic         |      |roll bit of integer to left                                      |
+|rolr    |logic         |      |roll bit of integer to right                                     |
+|shl     |logic         |      |bit shift to left                                                |
+|shr     |logic         |      |bit shift to right                                               |
+|xor     |logic         |      |XOR logical operations                                           |
+|dump    |register      |F6    |dump all registers in binary/hexadecimal format to a table       |
+|let     |register      |ALT-L |set value of a variable or register                              |
+|list    |script        |      |list loaded script                                               |
+|loadscr |script        |      |load scriptfile                                                  |
+|run     |script        |      |run loaded script                                                |
+|chr     |string        |      |convert byte to char                                             |
+|length  |string        |      |length of string                                                 |
+|lowcase |string        |      |conversion to lowercase                                          |
+|ord     |string        |      |convert char to byte                                             |
+|stritem |string        |      |specified element of the string                                  |
+|upcase  |string        |      |conversion to uppercase                                          |
 
 (Commands with function keys (F?) are executed immediately,
  modifier keys (ALT-?) only make typing easier.)
+
+**Predefined constants**
+
+|name  |value                              |
+|------|-----------------------------------|
+|$PI   |value of Pi (3.1415926535897932385)|
+|$EULER|value of e  (2.7182818284590452354)|
 
 **Documentation and Help**
 
@@ -213,24 +232,3 @@ view the manual page from *nix shell (_man modshell_) or _modshell.txt_ on other
 
 If you find any bugs, please report them! I am also happy to accept pull requests from anyone.
 You can use the GitHub issue tracker to report bugs, ask questions, or suggest new features.
-
-#### 4. Planned feature
-
-**Commands**
-
-|command|category  |hotkey|description                                             |
-|-------|----------|------|--------------------------------------------------------|
-|pow    |arithmetic|      |exponentiation                                          |
-|srvtcp |connection|      |start/stop transparent Modbus/TCP server                |
-|srvrtu |connection|      |start/stop transparent Modbus/RTU slave                 |
-|const  |general   |      |show all constant with theirs value or define a new one |
-|if     |general   |      |selection statement                                     |
-|for    |general   |      |loop iteration                                          |
-|bit    |logical   |      |value of the specified bit                              |
-
-**Constant**
-
-|command|value                              |
-|-------|-----------------------------------|
-|$pi    |value of Pi (3.1415926535897932385)|
-|$euler |value of e  (2.7182818284590452354)|

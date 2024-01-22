@@ -34,7 +34,8 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  s1 := isitvariable(p1);
+  if boolisitconstant(p1) then s1 := isitconstant(p1);
+  if boolisitvariable(p1) then s1 := isitvariable(p1);
   if length(s1) = 0 then s1 := p1;
   i1 := strtointdef(s1, -1);
   if (i1 < 0) or (i1 > 15) then
@@ -43,8 +44,8 @@ begin
     exit;
   end;
   // CHECK P2 PARAMETER
-  s2 := isitvariable(p2);
-  if length(s2) = 0 then s2 := p2;
+  if boolisitconstant(p2) then s2 := isitconstant(p2);
+  if boolisitvariable(p2) then s2 := isitvariable(p2);
   i2 := strtointdef(s2, -1);
   if (i2 < 0) or (i2 > 15) then
   begin
@@ -52,7 +53,8 @@ begin
     exit;
   end;
   // CHECK P3 PARAMETER
-  s3 := isitvariable(p3);
+  if boolisitconstant(p3) then s3 := isitconstant(p3);
+  if boolisitvariable(p3) then s3 := isitvariable(p3);
   if length(s3) = 0 then s3 := p3;
   i3 := strtointdef(s3, -1);
   if (i3 < 0) or (i3 > 15) then
@@ -61,7 +63,8 @@ begin
     exit;
   end;
   // CHECK P4 PARAMETER
-  s4 := isitvariable(p4);
+  if boolisitconstant(p4) then s4 := isitconstant(p4);
+  if boolisitvariable(p4) then s4 := isitvariable(p4);
   if length(s4) = 0 then s4 := p4;
   i4 := strtointdef(s4, -1);
   if (i4 < 0) or (i4 > 15) then

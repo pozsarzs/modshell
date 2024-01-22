@@ -95,7 +95,8 @@ begin
       write('4th ' + MSG05 + ' ' + REG_TYPE[3]); // What is the 4th parameter?
   end;
   // CHECK P5 PARAMETER
-  s5 := isitvariable(p5);
+  if boolisitconstant(p5) then s5 := isitconstant(p5);
+  if boolisitvariable(p5) then s5 := isitvariable(p5);
   if length(s5) = 0 then s5 := p5;
   i5 := strtointdef(s5, -1);
   if (i5 < 1) or (i5 > 9999) then
@@ -106,7 +107,8 @@ begin
   // CHECK P6 PARAMETER
   if length(p6) > 0 then
   begin
-    s6 := isitvariable(p6);
+  if boolisitconstant(p6) then s6 := isitconstant(p6);
+  if boolisitvariable(p6) then s6 := isitvariable(p6);
     if length(s6) = 0 then s6 := p6;
     i6 := strtointdef(s6, -1);
     if (i6 < 1 ) or (i6 > 125) then

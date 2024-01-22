@@ -62,7 +62,8 @@ var
     begin
       // DEVICE TYPE: NET
       // CHECK P4 PARAMETER
-      s4 := isitvariable(p4);
+      if boolisitconstant(p4) then s4 := isitconstant(p4);
+      if boolisitvariable(p4) then s4 := isitvariable(p4);
       if length(s4) = 0 then s4 := p4;
       if (strtointdef(s4, -1) < 0 ) or (strtointdef(s4, -1) > 65535) then
       begin
@@ -87,7 +88,8 @@ var
         exit;
       end;
       // CHECK P4 PARAMETER
-      s4 := isitvariable(p4);
+      if boolisitconstant(p4) then s4 := isitconstant(p4);
+      if boolisitvariable(p4) then s4 := isitvariable(p4);
       if length(s4) = 0 then s4 := p4;
       for i4 := 0 to 7 do
         if DEV_SPEED[i4] = p4 then
@@ -103,7 +105,8 @@ var
         exit;
       end;
       // CHECK P5 PARAMETER
-      s5 := isitvariable(p5);
+      if boolisitconstant(p5) then s5 := isitconstant(p5);
+      if boolisitvariable(p5) then s5 := isitvariable(p5);
       if length(s5) = 0 then s5 := p5;
       if (strtointdef(s5, -1) < 7 ) or (strtointdef(s5, -1) > 8) then
       begin
@@ -111,7 +114,8 @@ var
         exit;
       end;
       // CHECK P6 PARAMETER
-      s6 := isitvariable(p6);
+      if boolisitconstant(p6) then s6 := isitconstant(p6);
+      if boolisitvariable(p6) then s6 := isitvariable(p6);
       if length(s6) = 0 then s6 := p6;
       for i6 := 0 to 2 do
         if DEV_PARITY[i6] = s6 then
@@ -127,7 +131,8 @@ var
         exit;
       end;
       // CHECK P7 PARAMETER
-      s7 := isitvariable(p7);
+      if boolisitconstant(p7) then s7 := isitconstant(p7);
+      if boolisitvariable(p7) then s7 := isitvariable(p7);
       if length(s7) = 0 then s7 := p7;
       if (strtointdef(s7, -1) < 1 ) or (strtointdef(s7, -1) > 2) then
       begin
@@ -180,7 +185,8 @@ var
     // CHECK P3 PARAMETER
     if prt < 2 then
     begin
-      s3 := isitvariable(p3);
+      if boolisitconstant(p3) then s3 := isitconstant(p3);
+      if boolisitvariable(p3) then s3 := isitvariable(p3);
       if length(s3) = 0 then s3 := p3;
       if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 247) then
       begin
@@ -271,7 +277,8 @@ var
     valid : boolean = true;  
   begin
     // SEARCH ILLEGAL CHARACTERS
-    s2 := isitvariable(p2);
+    if boolisitconstant(p2) then s2 := isitconstant(p2);
+    if boolisitvariable(p2) then s2 := isitvariable(p2);
     if length(s2) = 0 then s2 := p2;
     s := s2;
     for b := 1 to length(s) do

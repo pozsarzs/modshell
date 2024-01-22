@@ -121,9 +121,18 @@ begin
         63: buffer[b] := buffer[b] + DES63;
         64: buffer[b] := buffer[b] + DES64;
         65: buffer[b] := buffer[b] + DES65;
+        66: buffer[b] := buffer[b] + DES66;
+        67: buffer[b] := buffer[b] + DES67;
+        68: buffer[b] := buffer[b] + DES68;
+        69: buffer[b] := buffer[b] + DES69;
+        70: buffer[b] := buffer[b] + DES70;
+        71: buffer[b] := buffer[b] + DES71;
+        72: buffer[b] := buffer[b] + DES72;
+        73: buffer[b] := buffer[b] + DES73;
+        74: buffer[b] := buffer[b] + DES74;
       end;
     end;
-    // shorting;
+    shorting;
     buffer[COMMARRSIZE] := MSG24;
     line := 0;
     for b := COMMARRSIZE downto 0 do
@@ -221,6 +230,15 @@ begin
         63: writeln(USG63);
         64: writeln(USG64);
         65: writeln(USG65);
+        66: writeln(USG66);
+        67: writeln(USG67);
+        68: writeln(USG68);
+        69: writeln(USG69);
+        70: writeln(USG70);
+        71: writeln(USG71);
+        72: writeln(USG72);
+        73: writeln(USG73);
+        74: writeln(USG74);
       end;
     end;
   end;

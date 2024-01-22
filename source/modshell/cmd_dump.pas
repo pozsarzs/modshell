@@ -71,7 +71,8 @@ begin
       exit;
     end;
     // CHECK P2 PARAMETER
-    s2 := isitvariable(p2);
+    if boolisitconstant(p2) then s2 := isitconstant(p2);
+    if boolisitvariable(p2) then s2 := isitvariable(p2);
     if length(s2) = 0 then s2 := p2;
     i2 := strtointdef(s2, -1);
     if (i2 < 1) or (i2 > 9990) then

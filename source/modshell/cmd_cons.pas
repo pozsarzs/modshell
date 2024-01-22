@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
-{ | cmd_var.pas                                                              | }
-{ | command 'var'                                                            | }
+{ | cmd_cons.pas                                                             | }
+{ | command 'const'                                                          | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -13,15 +13,31 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0  p1   p2
-  -------------------
-  var
-  var NAME [[$]VALUE]
+  p0    p1   p2
+  --------------------
+  const
+  const NAME [$]VALUE
 }
 
+// SET PREDEFINED CONSTANTS
+procedure setdefaultconstants;
+begin
+  with vars[0] do
+  begin
+    vname := 'pi';
+    vvalue := floattostr(pi);
+    vreadonly := true;
+  end;
+  with vars[1] do
+  begin
+    vname := 'euler';
+    vvalue := floattostr(exp(1));
+    vreadonly := true;
+  end;
+end;
 
-// IF S IS A VARIABLE, IT RETURNS theirs number
-function intisitvariable(s: string): integer;
+// IF S IS A CONSTANT, IT RETURNS theirs number
+function intisitconstant(s: string): integer;
 var
   i: integer;
 begin
@@ -30,13 +46,13 @@ begin
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
     for i := 0 to VARBUFFSIZE-1 do
-      if (vars[i].vname = lowercase(s)) and not vars[i].vreadonly
+      if (vars[i].vname = lowercase(s)) and vars[i].vreadonly
       then result := i;
   end;
 end;
 
-// IF S IS A VARIABLE, IT RETURNS TRUE
-function boolisitvariable(s: string): boolean;
+// IF S IS A CONSTANT, IT RETURNS TRUE
+function boolisitconstant(s: string): boolean;
 var
   i: integer;
 begin
@@ -45,13 +61,13 @@ begin
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
     for i := 0 to VARBUFFSIZE-1 do
-      if (vars[i].vname = lowercase(s)) and not vars[i].vreadonly
+      if (vars[i].vname = lowercase(s)) and vars[i].vreadonly
       then result := true;
   end;
 end;
 
-// IF S IS A VARIABLE, IT RETURNS ITS VALUE
-function isitvariable(s: string): string;
+// IF S IS A CONSTANT, IT RETURNS ITS VALUE
+function isitconstant(s: string): string;
 var
   i: integer;
 begin
@@ -60,13 +76,13 @@ begin
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
     for i := 0 to VARBUFFSIZE-1 do
-      if (vars[i].vname = lowercase(s)) and not vars[i].vreadonly
+      if (vars[i].vname = lowercase(s)) and vars[i].vreadonly
       then result := stringreplace(vars[i].vvalue, #92 + #32 , #32, [rfReplaceAll]);
   end;
 end;
 
-// COMMAND 'VAR'
-procedure cmd_var(p1, p2: string);
+// COMMAND 'CONS'
+procedure cmd_const(p1, p2: string);
 var
   b, bb: byte;
   l: byte;
@@ -75,14 +91,14 @@ var
   valid: boolean = true;
 
 begin
-  // CHECK LENGTH OF PARAMETER
+  // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     line := 0;
     for l := 0 to VARBUFFSIZE-1 do
-      if (length(vars[l].vname) > 0) and not vars[l].vreadonly then
+      if (length(vars[l].vname) > 0) and vars[l].vreadonly  then
       begin
-        xywrite(2, wherey, false, '$' + vars[l].vname);
+        xywrite(2, wherey, false, '$' + uppercase(vars[l].vname));
         xywrite(20, wherey, false, vars[l].vvalue);
         writeln;
         inc(line);
@@ -94,6 +110,11 @@ begin
           line := 0;
         end;
       end;        
+    exit;
+  end;
+  if (length(p1) > 0) and (length(p2) = 0) then
+  begin
+    writeln(ERR05);
     exit;
   end;
   // SEARCH ILLEGAL CHARACTERS IN P1
@@ -113,7 +134,7 @@ begin
     for bb := 123 to 255 do
       if s1[b] = chr(bb) then valid := false;
   end;
-  if not valid then writeln(ERR15) else
+  if not valid then writeln(ERR33) else
   begin
     // COMPARING EXISTING NAMES WITH THE NEW ONE
     valid := true;
@@ -134,14 +155,14 @@ begin
       end;
     if not valid then
     begin
-      writeln(ERR16);
+      writeln(ERR34);
       exit;
     end;
     // CHECK P2 PARAMETER
     if (length(p2) > 0) then
     begin
-      if boolisitvariable(p2) then s2 := isitvariable(p2);
       if boolisitconstant(p2) then s2 := isitconstant(p2);
+      if boolisitvariable(p2) then s2 := isitvariable(p2);
       if length(s2) = 0 then s2 := p2;
     end;
     // CHANGE '\ ' TO SPACE IN P2
@@ -149,6 +170,6 @@ begin
     // PRIMARY MISSION
     vars[l].vname := lowercase(s1);
     vars[l].vvalue := s2;
-    vars[l].vreadonly := false;
+    vars[l].vreadonly := true;
   end;
 end;

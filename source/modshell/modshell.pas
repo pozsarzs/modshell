@@ -37,29 +37,30 @@ uses
   xmlwrite;
 type
   tdevice = record
-    valid: boolean;    // false|true: invalid|valid
-    devtype: byte;     // 0..1 -> DEV_TYPE
-    device: string[15];    // /dev/ttySx, /dev/ttyUSBx, /dev/ttyAMAx, COMx, etc.
-    port: word;        // 0-65535
-    speed: byte;       // 0..7 -> DEV_SPEED
-    databit: byte;     // 7|8
-    parity: byte;      // 0..2 -> DEV_PARITY
-    stopbit: byte;     // 1|2
+    valid: boolean;      // false|true: invalid|valid
+    devtype: byte;       // 0..1 -> DEV_TYPE
+    device: string[15];  // /dev/ttySx, /dev/ttyUSBx, /dev/ttyAMAx, COMx, etc.
+    port: word;          // 0-65535
+    speed: byte;         // 0..7 -> DEV_SPEED
+    databit: byte;       // 7|8
+    parity: byte;        // 0..2 -> DEV_PARITY
+    stopbit: byte;       // 1|2
   end;
   tprotocol = record
-    valid: boolean;    // false|true: invalid|valid
-    prottype: byte;    // 0..2 -> PROT_TYPE
+    valid: boolean;        // false|true: invalid|valid
+    prottype: byte;        // 0..2 -> PROT_TYPE
     ipaddress: string[15]; // a.b.c.d
-    uid: integer;      // 1..247
+    uid: integer;          // 1..247
   end;
   tconnection = record
-    valid: boolean;    // false|true: invalid|valid
-    dev: byte;         // 0..7
-    prot: byte;        // 0..7
+    valid: boolean;  // false|true: invalid|valid
+    dev: byte;       // 0..7
+    prot: byte;      // 0..7
   end;
   tvariable = record
-    vname: string[16];
-    vvalue: string[255];
+    vname: string[16];    // name
+    vvalue: string[255];  // value
+    vreadonly: boolean;   // variable or value 
   end;
 const
   // OTHERS
@@ -69,7 +70,7 @@ const
   PRGVERSION = '0.1';
   SCRBUFFSIZE = 256;
   VARBUFFSIZE = 128;
-  COMMARRSIZE = 66;
+  COMMARRSIZE = 75;
   {$IFDEF UNIX}
     EOL = #10;
   {$ELSE}
@@ -97,7 +98,8 @@ const
      'shl','shr','add','sub','mul','div','dump','pause','sercons','serread',
      'serwrite','echo','loadscr','run','list','round','cos','cotan','dec',
      'exp','idiv','imod','inc','ln','mulinv','odd','rnd','tan','sin','sqr',
-     'sqrt','roll','rolr','upcase','length','lowcase','stritem','chr','ord');
+     'sqrt','roll','rolr','upcase','length','lowcase','stritem','chr','ord',
+     'const','bit','pow','goto','if','for','label','mbsrv','mbgw');
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string =
     ('1200','2400','4800','9600','19200','38400','57600','115200');
@@ -121,7 +123,7 @@ var
   ireg: array[1..9999] of word;
   hreg: array[1..9999] of word;
   sbuffer: array[0..SCRBUFFSIZE - 1] of string;
-  // variables
+  // variables and constats
   vars: array[0..VARBUFFSIZE-1] of tvariable;
   {$IFDEF GO32V2}
     proj: string[8] = 'default';
@@ -237,7 +239,7 @@ resourcestring
   ERR14 = 'Illegal character in the project name!';
   ERR15 = 'Illegal character in the variable name!';
   ERR16 = 'Cannot define more variable!';
-  ERR17 = 'There is already a variable with that name';
+  ERR17 = 'There is already a variable or a constant with that name.';
   ERR18 = 'Cannot initialize serial port: ';
   ERR19 = 'No such variable: ';
   ERR20 = 'Calculating error!';
@@ -253,6 +255,8 @@ resourcestring
   ERR30 = 'Modbus error: illegal data address.';
   ERR31 = 'Modbus error: illegal data value.';
   ERR32 = 'Modbus error: slave device failure.';
+  ERR33 = 'Illegal character in the constant name!';
+  ERR34 = 'Cannot define more constant!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
@@ -321,6 +325,15 @@ resourcestring
   DES63='       specified element of the string';
   DES64='       convert byte to char';
   DES65='       convert char to byte';
+  DES66='       list all constant with value or define a new one';
+  DES67='       value of the specified bit';
+  DES68='       exponentiation';
+  DES69='       jump to specified label';
+  DES70='       selection statement';
+  DES71='       loop iteration';
+  DES72='       define label (for goto command)';
+  DES73='       start internal Modbus slave/server';
+  DES74='       start internal Modbus gateway';
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -420,55 +433,30 @@ resourcestring
   USG63='stritem $TARGET [$]VALUE1 [$]VALUE2';
   USG64='chr $TARGET [$]VALUE';
   USG65='ord $TARGET [$]VALUE';
+  USG66='const' + EOL +
+        '  const NAME [$]VALUE';
+  USG67='bit $TARGET [$]VALUE';
+  USG68='pow $TARGET [$]VALUE';
+  USG69='goto LABEL';
+  USG70='if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND';
+  USG71='for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND';
+  USG72='label NAME';
+  USG73='mbsrv con?' + EOL +
+        'Notes:' + EOL +
+        '  - The ''?'' value can be 0-7.';
+  USG74='mbgw con? con?' + EOL +
+        'Notes:' + EOL +
+        '  - The ''?'' value can be 0-7.';
 
+function intisitconstant(s: string): integer; forward;
+function boolisitconstant(s: string): boolean; forward;
+function isitconstant(s: string): string; forward;
+function intisitvariable(s: string): integer; forward;
+function boolisitvariable(s: string): boolean; forward;
+function isitvariable(s: string): string; forward;
 procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
-
-// IF S IS A VARIABLE, IT RETURNS theirs number
-function intisitvariable(s: string): integer;
-var
-  i: integer;
-begin
-  result := 0;
-  if (s[1] = #36) then
-  begin
-    s := stringreplace(s, #36 , '', [rfReplaceAll]);
-    for i := 0 to VARBUFFSIZE-1 do
-      if vars[i].vname = lowercase(s)
-      then result := i;
-  end;
-end;
-
-// IF S IS A VARIABLE, IT RETURNS TRUE
-function boolisitvariable(s: string): boolean;
-var
-  i: integer;
-begin
-  result := false;
-  if (s[1] = #36) then
-  begin
-    s := stringreplace(s, #36 , '', [rfReplaceAll]);
-    for i := 0 to VARBUFFSIZE-1 do
-      if vars[i].vname = lowercase(s)
-      then result := true;
-  end;
-end;
-
-// IF S IS A VARIABLE, IT RETURNS ITS VALUE
-function isitvariable(s: string): string;
-var
-  i: integer;
-begin
-  result := '';
-  if (s[1] = #36) then
-  begin
-    s := stringreplace(s, #36 , '', [rfReplaceAll]);
-    for i := 0 to VARBUFFSIZE-1 do
-      if vars[i].vname = lowercase(s)
-      then result := stringreplace(vars[i].vvalue, #92+#32 , #32, [rfReplaceAll]);
-  end;
-end;
 
 // IF S IS A MESSAGE, IT RETURNS ITS VALUE
 function isitmessage(s: string): string;
@@ -502,6 +490,7 @@ end;
 {$I mbtcp.pas}
 {$I modbus.pas}
 {$I cmd_colr.pas}
+{$I cmd_cons.pas}
 {$I cmd_conv.pas}
 {$I cmd_copy.pas}
 {$I cmd_date.pas}
@@ -660,16 +649,19 @@ begin
                // loadscr PATH_AND_FILENAME
            40: cmd_run(splitted[1]);
                // run [-s]
-           41: cmd_list;
-               // list
+           66: cmd_const(splitted[1], splitted[2]);
+               // const
+               // const NAME [VALUE]
           else
           begin
             // logical functions
             if (b >= 23) and (b <= 28) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
             if (b >= 58) and (b <= 59) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
+            if b = 67 then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
             // arithmetical functions
             if (b >= 29) and (b <= 32) then cmd_math(b, splitted[1], splitted[2], splitted[3]);
             if (b >= 42) and (b <= 57) then cmd_math(b, splitted[1], splitted[2], splitted[3]);
+            if b >= 68 then cmd_math(b, splitted[1], splitted[2], splitted[3]);
             // string handler functions
             if (b >= 60) and (b <= 65) then cmd_string(b, splitted[1], splitted[2], splitted[3]);
           end;
@@ -913,6 +905,7 @@ begin
     end;
   end;
   loadconfiguration(BASENAME,'.ini');
+  setdefaultconstants;
   case appmode of
     0: simplecommandline;
     3: fullscreencommandline;

@@ -52,7 +52,8 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER: IS IT A VARIABLE?
-  s1 := isitvariable(p1);
+  if boolisitconstant(p1) then s1 := isitconstant(p1);
+  if boolisitvariable(p1) then s1 := isitvariable(p1);
   if length(s1) > 0 then 
   begin
     write(s1);
@@ -74,7 +75,8 @@ begin
     exit;
   end;
   // CHECK P2 PARAMETER
-  s2 := isitvariable(p2);
+  if boolisitconstant(p2) then s2 := isitconstant(p2);
+  if boolisitvariable(p2) then s2 := isitvariable(p2);
   if length(s2) = 0 then s2 := p2;
   i2 := strtointdef(s2, -1); // start address
   if (i2 < 1 ) or (i2 > 9999) then
@@ -85,7 +87,8 @@ begin
   // CHECK P3 PARAMETER
   if length(p3) = 0 then i3 := 1 else
   begin
-    s3 := isitvariable(p3);
+  if boolisitconstant(p3) then s3 := isitconstant(p3);
+  if boolisitvariable(p3) then s3 := isitvariable(p3);
     if length(s3) = 0 then s3 := p3;
     i3 := strtointdef(s3, 1); // count
   end;

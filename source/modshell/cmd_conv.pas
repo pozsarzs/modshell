@@ -62,7 +62,8 @@ begin
     exit;
   end;
   // CHECK P3 PARAMETER
-  s3 := isitvariable(p3);
+  if boolisitconstant(p3) then s3 := isitconstant(p3);
+  if boolisitvariable(p3) then s3 := isitvariable(p3);
   if length(s3) = 0 then s3 := p3;
   case ns1 of
     0: begin

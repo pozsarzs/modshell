@@ -16,5 +16,3 @@ fi
 
 find "${NAME}_${VERSION}-${RELEASE}_${ARCH}" -exec touch {} +
 fakeroot dpkg-deb --build "${NAME}_${VERSION}-${RELEASE}_${ARCH}" && lintian "${NAME}_${VERSION}-${RELEASE}_${ARCH}.deb"
-
-#modshell_0.1-alpha1-1_amd64
