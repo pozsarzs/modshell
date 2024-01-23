@@ -138,6 +138,7 @@ hexadecimal viewing can be selected.
 |command |category      |hotkey|description                                                      |
 |--------|--------------|------|-----------------------------------------------------------------|
 |add     |arithmetic    |      |addition                                                         |
+|avg     |arithmetic    |      |average calculation                                              |
 |conv    |arithmetic    |ALT-C |convert numbers between BIN, DEC, HEX and OCT format             |
 |cos     |arithmetic    |      |cosine function                                                  |
 |cotan   |arithmetic    |      |cotangent function                                               |
@@ -147,11 +148,14 @@ hexadecimal viewing can be selected.
 |idiv    |arithmetic    |      |integer division                                                 |
 |imod    |arithmetic    |      |modulus division                                                 |
 |inc     |arithmetic    |      |increment integer                                                |
+|inrange |arithmetic    |      |check the value is in the range                                  |
 |ln      |arithmetic    |      |natural logarithm                                                |
 |mul     |arithmetic    |      |multiplication                                                   |
 |mulinv  |arithmetic    |      |multiplicative inverse                                           |
 |odd     |arithmetic    |      |odd or event                                                     |
 |pow     |arithmetic    |      |exponentiation                                                   |
+|pow2    |arithmetic    |      |exponentiation of two                                            |
+|prop    |arithmetic    |      |propotional value calculation (with zero and span)               |
 |rnd     |arithmetic    |      |create random integer                                            |
 |round   |arithmetic    |      |round real number                                                |
 |sin     |arithmetic    |      |sine function                                                    |
@@ -177,6 +181,8 @@ hexadecimal viewing can be selected.
 |loadreg |file          |F5    |load all buffer registers from typed file (?DT)                  |
 |savecfg |file          |F2    |save settings of device, protocol and connection (?DT)           |
 |savereg |file          |F4    |save all registers to typed file (?DT)                           |
+|ascii   |general       |      |show ASCII table                                                 |
+|beep    |general       |      |make a beep with internal speaker                                |
 |cls     |general       |F8    |clear screen                                                     |
 |color   |general       |      |set colors                                                       |
 |const   |general       |      |show all constant with theirs value or define a new one          |
@@ -188,7 +194,8 @@ hexadecimal viewing can be selected.
 |help    |general       |F1    |show description or usage of the commands                        |
 |if      |general       |      |selection statement                                              |
 |label   |general       |      |define label (for goto command)                                  |
-|pause   |general       |      |print a message and wait for a keystroke or specified time       |
+|mkcrc   |general       |      |make CRC value                                                   |
+|mklrc   |general       |      |make LRC value                                                   |
 |print   |general       |ALT-P |print message, value of the variable and register                |
 |var     |general       |      |show all variable with theirs value or define a new one          |
 |ver     |general       |      |show version and build information of this program               |

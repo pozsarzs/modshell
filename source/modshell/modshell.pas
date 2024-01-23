@@ -70,7 +70,7 @@ const
   PRGVERSION = '0.1';
   SCRBUFFSIZE = 256;
   VARBUFFSIZE = 128;
-  COMMARRSIZE = 75;
+  COMMARRSIZE = 83;
   {$IFDEF UNIX}
     EOL = #10;
   {$ELSE}
@@ -99,7 +99,8 @@ const
      'serwrite','echo','loadscr','run','list','round','cos','cotan','dec',
      'exp','idiv','imod','inc','ln','mulinv','odd','rnd','tan','sin','sqr',
      'sqrt','roll','rolr','upcase','length','lowcase','stritem','chr','ord',
-     'const','bit','pow','goto','if','for','label','mbsrv','mbgw');
+     'const','bit','pow','goto','if','for','label','mbsrv','mbgw','inrange',
+     'mklrc','mkcrc','pow2','ascii','beep','avg','prop');
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string =
     ('1200','2400','4800','9600','19200','38400','57600','115200');
