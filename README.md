@@ -214,6 +214,7 @@ hexadecimal viewing can be selected.
 |loadscr |script        |      |load scriptfile                                                  |
 |run     |script        |      |run loaded script                                                |
 |chr     |string        |      |convert byte to char                                             |
+|concat  |string        |      |concatenate strings                                              |
 |length  |string        |      |length of string                                                 |
 |lowcase |string        |      |conversion to lowercase                                          |
 |ord     |string        |      |convert char to byte                                             |

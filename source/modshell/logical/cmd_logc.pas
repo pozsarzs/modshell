@@ -16,6 +16,7 @@
   p0   p1      p2         p3
   --------------------------------
   and  $TARGET [$]VALUE1 [$]VALUE2
+  bit  $TARGET [$]VALUE1 [$]VALUE2
   not  $TARGET [$]VALUE
   or   $TARGET [$]VALUE1 [$]VALUE2
   roll $TARGET [$]VALUE1 [$]VALUE2
@@ -24,6 +25,25 @@
   shr  $TARGET [$]VALUE1 [$]VALUE2
   xor  $TARGET [$]VALUE1 [$]VALUE2
 }
+
+// return with value of the specified bit (LSB)
+function bit(w: integer; n: integer): byte;
+var
+  s: string;
+begin
+  if (w < 0) or (w > 65535) then
+  begin
+    writeln('2nd ' + MSG05 + ' 0-65535'); // What is the 2nd parameter?
+    exit;
+  end;
+  if (n < 0) or (n > 15) then
+  begin
+    writeln('3rd ' + MSG05 + ' 0-15'); // What is the 3rd parameter?
+    exit;
+  end;
+  s := addsomezero(16, deztobin(inttostr(w)));
+  result := strtoint(s[length(s)-n]);
+end;
 
 // LOGICAL OPERATIONS
 procedure cmd_logic(op: byte; p1, p2, p3: string);
@@ -70,6 +90,7 @@ begin
       28: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) shr strtointdef(s3, 0));
       60: vars[intisitvariable(p1)].vvalue := inttostr(rolword(strtointdef(s2, 0), strtointdef(s3, 0)));
       61: vars[intisitvariable(p1)].vvalue := inttostr(rorword(strtointdef(s2, 0), strtointdef(s3, 0)));
+      67: vars[intisitvariable(p1)].vvalue := inttostr(bit(strtointdef(s2, 0), strtointdef(s3, 0)));
     end;
   except
     writeln(ERR20);
