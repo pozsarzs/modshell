@@ -70,7 +70,7 @@ const
   PRGVERSION = '0.1';
   SCRBUFFSIZE = 256;
   VARBUFFSIZE = 128;
-  COMMARRSIZE = 84;
+  COMMARRSIZE = 89;
   {$IFDEF UNIX}
     EOL = #10;
   {$ELSE}
@@ -100,7 +100,7 @@ const
      'ln',    'mulinv','odd',    'rnd',    'tan',    'sin',    'sqr',    'sqrt',    'roll',   'rolr',
      'upcase','length','lowcase','stritem','chr',    'ord',    'const',  'bit',     'pow',    'goto',
      'if',    'for',   'label',  'mbsrv',  'mbgw',   'inrange','mklrc',  'mkcrc',   'pow2',   'ascii',
-     'beep',  'avg',   'prop',   'concat');
+     'beep',  'avg',   'prop',   'concat', 'strdel', 'strfind','strins', 'strrepl', 'varmon');
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string =
     ('1200','2400','4800','9600','19200','38400','57600','115200');
@@ -481,6 +481,10 @@ begin
           begin command := COMMANDS[38] + #32 + ECHO_ARG[3]; c:=#13; end;  // F9
         if c = #68 then
           begin command := COMMANDS[1]; c:=#13; end;                       // F10
+        if c = #133 then
+          begin command := COMMANDS[41]; c:=#13; end;                      // F11
+        if c = #134 then
+          begin command := COMMANDS[40]; c:=#13; end;                      // F12
         if c = #72 then
         begin
           if uconfig.histitem > 0 then dec(uconfig.histitem);

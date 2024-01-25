@@ -32,7 +32,7 @@ Online manual: <https://github.com/pozsarzs/modshell/wiki>
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                                 |
 |script size             |max. 256 line                                                         |
 |variables               |max. 128 variables or constants (stored as string)                    |
-|built-in commands       |75 command s in 9 categories                                          |
+|built-in commands       |89 command s in 9 categories                                          |
 |load from file          |registers, script, settings                                           |
 |save to file            |command history, console trafic, registers, communication settings    |
 |auto save to file       |general settings and console traffic                                  |

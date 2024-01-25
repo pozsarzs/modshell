@@ -454,11 +454,11 @@ msgid "       load Modshell script from file"
 msgstr ""
 
 #: modshell:des40
-msgid "       run loaded Modshell script"
+msgid "F12    run loaded Modshell script"
 msgstr ""
 
 #: modshell:des41
-msgid "       list loaded Modshell script"
+msgid "F11    list loaded Modshell script"
 msgstr ""
 
 #: modshell:des42
@@ -627,6 +627,26 @@ msgstr ""
 
 #: modshell:des83
 msgid "       concatenate strings"
+msgstr ""
+
+#: modshell:des84
+msgid "       delete specified element(s) of the string"
+msgstr ""
+
+#: modshell:des85
+msgid "       find specified element(s) in the string"
+msgstr ""
+
+#: modshell:des86
+msgid "       insert element(s) into string"
+msgstr ""
+
+#: modshell:des87
+msgid "       replace element(s) in the string"
+msgstr ""
+
+#: modshell:des88
+msgid "ALT-M  monitoring the value of variables"
 msgstr ""
 
 #: modshell:usg00
@@ -1015,5 +1035,25 @@ msgstr ""
 
 #: modshell:usg83
 msgid "concat $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: modshell:usg84
+msgid "strdel $TARGET [$]PLACE [$]COUNT"
+msgstr ""
+
+#: modshell:usg85
+msgid "strfind $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg86
+msgid "strins $TARGET [$]PLACE [$]VALUE"
+msgstr ""
+
+#: modshell:usg87
+msgid "strrepl $TARGET [$]OLD [$]NEW"
+msgstr ""
+
+#: modshell:usg88
+msgid "varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
 msgstr ""
 

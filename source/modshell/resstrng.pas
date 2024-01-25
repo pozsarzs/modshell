@@ -132,8 +132,8 @@ resourcestring
   DES37='       write string to serial device';
   DES38='F9     query local echo status or enable/disable it';
   DES39='       load Modshell script from file';
-  DES40='       run loaded Modshell script';
-  DES41='       list loaded Modshell script';
+  DES40='F12    run loaded Modshell script';
+  DES41='F11    list loaded Modshell script';
   DES42='       round real number';
   DES43='       cosine function';
   DES44='       cotangent function';
@@ -176,6 +176,11 @@ resourcestring
   DES81='       calculate average';
   DES82='       propotional value calculation (with zero and span)';
   DES83='       concatenate strings';
+  DES84='       delete specified element(s) of the string';
+  DES85='       find specified element(s) in the string';
+  DES86='       insert element(s) into string';
+  DES87='       replace element(s) in the string';
+  DES88='ALT-M  monitoring the value of variables';
 
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
@@ -299,3 +304,8 @@ resourcestring
   USG81='avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]';
   USG82='prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE';
   USG83='concat $TARGET [$]VALUE1 [$]VALUE2';
+  USG84='strdel $TARGET [$]PLACE [$]COUNT';
+  USG85='strfind $TARGET [$]VALUE';
+  USG86='strins $TARGET [$]PLACE [$]VALUE';
+  USG87='strrepl $TARGET [$]OLD [$]NEW';
+  USG88='varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]';
