@@ -1,6 +1,5 @@
 > [!WARNING]
 > The program is still under development, it is not yet suitable for its task.  
-> You can check the status of the program's completion in [DEVSTAT.md](DEVSTAT.md) file.
 > 
 > **v0.1-alpha1:**  
 > This test release is not yet suitable for work, although it is functional, but it can
