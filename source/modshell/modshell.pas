@@ -224,6 +224,7 @@ end;
 {$I mbrtu.pas}
 {$I mbtcp.pas}
 {$I modbus.pas}
+{$I cmd_asci.pas}
 {$I cmd_colr.pas}
 {$I cmd_cons.pas}
 {$I cmd_conv.pas}
@@ -387,6 +388,8 @@ begin
            66: cmd_const(splitted[1], splitted[2]);
                // const
                // const NAME [VALUE]
+           79: cmd_ascii(splitted[1]);
+               // ascii
           else
           begin
             // logical functions
@@ -394,9 +397,11 @@ begin
             if (b >= 58) and (b <= 59) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
             if b = 67 then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
             // arithmetical functions
-            if (b >= 29) and (b <= 32) then cmd_math(b, splitted[1], splitted[2], splitted[3]);
-            if (b >= 42) and (b <= 57) then cmd_math(b, splitted[1], splitted[2], splitted[3]);
-            if b >= 68 then cmd_math(b, splitted[1], splitted[2], splitted[3]);
+            if (b >= 29) and (b <= 32) then cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
+            if (b >= 42) and (b <= 57) then cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
+            if b >= 68 then cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
+            if b >= 78 then cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
+            if (b >= 81) and (b <= 82) then cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
             // string handler functions
             if (b >= 60) and (b <= 65) then cmd_string(b, splitted[1], splitted[2], splitted[3]);
           end;

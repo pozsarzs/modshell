@@ -4,7 +4,7 @@
 #
 
 NAME="modshell"
-VERSION="0.1alpha1"
+VERSION="0.1alpha2"
 
 if [ `whoami` != 'root' ]
 then echo 'ERROR: You are not root!'; exit

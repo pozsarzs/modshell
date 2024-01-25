@@ -4,8 +4,8 @@
 #
 
 NAME="modshell"
-LABEL="ModShell v0.1-alpha1"
-VERSION="0.1alpha1"
+LABEL="ModShell v0.1-alpha2"
+VERSION="0.1alpha2"
 OS="linux"
 
 if [ `whoami` != 'root' ]

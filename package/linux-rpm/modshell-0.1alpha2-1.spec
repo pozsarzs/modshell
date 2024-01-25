@@ -6,7 +6,7 @@ Release: 1
 Summary: Command-driven scriptable Modbus utility
 Url: http://www.pozsarzs.hu
 Vendor: Pozsar Zsolt
-Version: 0.1alpha1
+Version: 0.1alpha2
 
 %description
 This is a utility that can be used on several

@@ -1,5 +1,5 @@
 Package: modshell
-Version: 0.1alpha1
+Version: 0.1alpha2
 Section: comm
 Priority: standard
 Depends: libc6

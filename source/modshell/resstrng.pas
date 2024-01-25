@@ -290,13 +290,12 @@ resourcestring
   USG74='mbgw con? con?' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
-
-  DES75='inrange $TARGET [$]MINIMUM [$]MAXIMUM [$]VALUE';
-  DES76='mklrc $TARGET [$]STRING';
-  DES77='mkcrc $TARGET [$]STRING';
+  USG75='inrange $TARGET [$]MINIMUM [$]MAXIMUM [$]VALUE';
+  USG76='mklrc $TARGET [$]STRING';
+  USG77='mkcrc $TARGET [$]STRING';
   USG78='pow2 $TARGET [$]EXPONENT';
-  DES79='ascii';
-  DES80='beep';
-  DES81='avg [$]VALUE1 [$]VALUE2 [[$]VALUE3] [[$]VALUE4]';
-  DES82='prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE';
-  DES83='concat $TARGET [$]VALUE1 [$]VALUE2';
+  USG79='ascii [dec|hex]';
+  USG80='beep';
+  USG81='avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]';
+  USG82='prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE';
+  USG83='concat $TARGET [$]VALUE1 [$]VALUE2';

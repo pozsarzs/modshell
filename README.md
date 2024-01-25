@@ -198,6 +198,7 @@ hexadecimal viewing can be selected.
 |mklrc   |general       |      |make LRC value                                                   |
 |print   |general       |ALT-P |print message, value of the variable and register                |
 |var     |general       |      |show all variable with theirs value or define a new one          |
+|varmon  |general       |ALT-M |monitoring the value of variables                                |
 |ver     |general       |      |show version and build information of this program               |
 |and     |logic         |      |AND logical operations                                           |
 |bit     |logical       |      |value of the specified bit                                       |
@@ -210,15 +211,19 @@ hexadecimal viewing can be selected.
 |xor     |logic         |      |XOR logical operations                                           |
 |dump    |register      |F6    |dump all registers in binary/hexadecimal format to a table       |
 |let     |register      |ALT-L |set value of a variable or register                              |
-|list    |script        |      |list loaded script                                               |
+|list    |script        |F11   |list loaded script                                               |
 |loadscr |script        |      |load scriptfile                                                  |
-|run     |script        |      |run loaded script                                                |
+|run     |script        |F12   |run loaded script                                                |
 |chr     |string        |      |convert byte to char                                             |
 |concat  |string        |      |concatenate strings                                              |
 |length  |string        |      |length of string                                                 |
 |lowcase |string        |      |conversion to lowercase                                          |
 |ord     |string        |      |convert char to byte                                             |
+|strdel  |string        |      |delete specified element(s) of the string                        |
+|strfind |string        |      |find specified element(s) in the string                          |
+|strins  |string        |      |insert element(s) into string                                    |
 |stritem |string        |      |specified element of the string                                  |
+|strrepl |string        |      |replace element(s) in the string                                 |
 |upcase  |string        |      |conversion to uppercase                                          |
 
 (Commands with function keys (F?) are executed immediately,

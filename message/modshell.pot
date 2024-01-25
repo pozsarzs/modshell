@@ -593,6 +593,42 @@ msgstr ""
 msgid "       start internal Modbus gateway"
 msgstr ""
 
+#: modshell:des75
+msgid "       check the value is in the range"
+msgstr ""
+
+#: modshell:des76
+msgid "       make LRC"
+msgstr ""
+
+#: modshell:des77
+msgid "       make CRC"
+msgstr ""
+
+#: modshell:des78
+msgid "       exponentiation of two"
+msgstr ""
+
+#: modshell:des79
+msgid "       show ASCII table"
+msgstr ""
+
+#: modshell:des80
+msgid "       make a beep sound with internal speaker"
+msgstr ""
+
+#: modshell:des81
+msgid "       calculate average"
+msgstr ""
+
+#: modshell:des82
+msgid "       propotional value calculation (with zero and span)"
+msgstr ""
+
+#: modshell:des83
+msgid "       concatenate strings"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
@@ -908,11 +944,11 @@ msgid ""
 msgstr ""
 
 #: modshell:usg67
-msgid "bit $TARGET [$]VALUE"
+msgid "bit $TARGET [$]VALUE1 [$]VALUE2"
 msgstr ""
 
 #: modshell:usg68
-msgid "pow $TARGET [$]VALUE"
+msgid "pow $TARGET [$]BASE [$]EXPONENT"
 msgstr ""
 
 #: modshell:usg69
@@ -943,5 +979,41 @@ msgid ""
 "mbgw con? con?\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg75
+msgid "inrange $TARGET [$]MINIMUM [$]MAXIMUM [$]VALUE"
+msgstr ""
+
+#: modshell:usg76
+msgid "mklrc $TARGET [$]STRING"
+msgstr ""
+
+#: modshell:usg77
+msgid "mkcrc $TARGET [$]STRING"
+msgstr ""
+
+#: modshell:usg78
+msgid "pow2 $TARGET [$]EXPONENT"
+msgstr ""
+
+#: modshell:usg79
+msgid "ascii [dec|hex]"
+msgstr ""
+
+#: modshell:usg80
+msgid "beep"
+msgstr ""
+
+#: modshell:usg81
+msgid "avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]"
+msgstr ""
+
+#: modshell:usg82
+msgid "prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE"
+msgstr ""
+
+#: modshell:usg83
+msgid "concat $TARGET [$]VALUE1 [$]VALUE2"
 msgstr ""
 

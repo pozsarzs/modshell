@@ -16,6 +16,7 @@
   p0     p1      p2        p3
   -------------------------------------
   add    $TARGET [$]VALUE1 [$]VALUE2
+  avg    $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3] [[$]VALUE4] [[$]VALUE5] [[$]VALUE6]
   chr    $TARGET [$]VALUE
   cos    $TARGET [$]VALUE
   cotan  $TARGET [$]VALUE
@@ -28,19 +29,24 @@
   ln     $TARGET [$]VALUE
   mul    $TARGET [$]VALUE1 [$]VALUE2
   mulinv $TARGET [$]VALUE
+  pow    $TARGET [$]EXPONENT
+  pow2   $TARGET [$]EXPONENT
+  prop   $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE
   odd    $TARGET [$]VALUE
   ord    $TARGET [$]VALUE
   rnd    $TARGET [$]VALUE
-  round  $TARGET [$]VALUE  [$]DEC_PLACES
+  round  $TARGET [$]VALUE [$]DEC_PLACES
   sin    $TARGET [$]VALUE
   sqr    $TARGET [$]VALUE
   sqrt   $TARGET [$]VALUE
   sub    $TARGET [$]VALUE1 [$]VALUE2
   tan    $TARGET [$]VALUE
+
+  
 }
 
 // MATHEMATICAL OPERATIONS
-procedure cmd_math(op: byte; p1, p2, p3: string);
+procedure cmd_math(op: byte; p1, p2, p3, p4, p5, p6: string);
 var
   s2, s3: string; // parameters in other type
 begin
@@ -96,6 +102,10 @@ begin
       55: vars[intisitvariable(p1)].vvalue := floattostr(sin(strtofloatdef(s2, 0)));
       56: vars[intisitvariable(p1)].vvalue := floattostr(sqr(strtofloatdef(s2, 0)));
       57: vars[intisitvariable(p1)].vvalue := floattostr(sqrt(strtofloatdef(s2, 0)));
+      68: vars[intisitvariable(p1)].vvalue := floattostr(power(strtofloatdef(s2, 0), strtofloatdef(s3, 0)));
+      78: vars[intisitvariable(p1)].vvalue := floattostr(powerof2(strtointdef(s2, 0)));
+      //81: vars[intisitvariable(p1)].vvalue := floattostr(sqrt(strtofloatdef(s2, 0)));
+      //82: vars[intisitvariable(p1)].vvalue := floattostr(sqrt(strtofloatdef(s2, 0)));
     end;
   except
     writeln(ERR20);
