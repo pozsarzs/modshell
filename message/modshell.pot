@@ -570,19 +570,19 @@ msgid "       exponentiation"
 msgstr ""
 
 #: modshell:des69
-msgid "       jump to specified label"
+msgid "       jump to specified label (only in script)"
 msgstr ""
 
 #: modshell:des70
-msgid "       selection statement"
+msgid "       selection statement (only in script)"
 msgstr ""
 
 #: modshell:des71
-msgid "       loop iteration"
+msgid "       loop iteration (only in script)"
 msgstr ""
 
 #: modshell:des72
-msgid "       define label (for goto command)"
+msgid "       define label (only in script)"
 msgstr ""
 
 #: modshell:des73
@@ -1002,7 +1002,7 @@ msgid ""
 msgstr ""
 
 #: modshell:usg75
-msgid "inrange $TARGET [$]MINIMUM [$]MAXIMUM [$]VALUE"
+msgid "inrange $TARGET [$]MIN [$]MAX [$]VALUE"
 msgstr ""
 
 #: modshell:usg76

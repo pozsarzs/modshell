@@ -161,10 +161,10 @@ resourcestring
   DES66='       list all constant with value or define a new one';
   DES67='       value of the specified bit';
   DES68='       exponentiation';
-  DES69='       jump to specified label';
-  DES70='       selection statement';
-  DES71='       loop iteration';
-  DES72='       define label (for goto command)';
+  DES69='       jump to specified label (only in script)';
+  DES70='       selection statement (only in script)';
+  DES71='       loop iteration (only in script)';
+  DES72='       define label (only in script)';
   DES73='       start internal Modbus slave/server';
   DES74='       start internal Modbus gateway';
   DES75='       check the value is in the range';
@@ -295,7 +295,7 @@ resourcestring
   USG74='mbgw con? con?' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
-  USG75='inrange $TARGET [$]MINIMUM [$]MAXIMUM [$]VALUE';
+  USG75='inrange $TARGET [$]MIN [$]MAX [$]VALUE';
   USG76='mklrc $TARGET [$]STRING';
   USG77='mkcrc $TARGET [$]STRING';
   USG78='pow2 $TARGET [$]EXPONENT';
