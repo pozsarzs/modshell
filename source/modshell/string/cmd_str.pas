@@ -33,7 +33,7 @@
 procedure cmd_string(op: byte; p1, p2, p3: string);
 var
   s2, s3: string; // parameters in other type
-  s: string;
+
 begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) then

@@ -21,4 +21,5 @@
 // COMMAND 'LABEL'
 procedure cmd_label(p1: string);
 begin
+  if appmode <> 4 then writeln(MSG33);
 end;

@@ -151,11 +151,11 @@ BUILTIN COMMANDS
               Decides whether the integer [$]VALUE is even or odd.
 
        pow $TARGET [$]BASE [$]EXPONENT
-              Calculates [$]EXPONENTexponentiation of the  [$]BASE  and  the  result  is
+              Calculates [$]EXPONENT exponentiation of the [$]BASE  and  the  result  is
               placed in $TARGET.
 
        pow2 $TARGET [$]EXPONENT
-              Calculates  [$]EXPONENTexponentiation  of  two and the result is placed in
+              Calculates  [$]EXPONENT  exponentiation of two and the result is placed in
               $TARGET.
 
        prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE
@@ -314,8 +314,8 @@ BUILTIN COMMANDS
               3: cyan   7: lightgray  11: lightcyan   15: white
 
        const CONSTANT [[$]VALUE]
-              Defines new constant (and assign value (VALUE).  Use a backslash before  a
-              space.
+              Defines new constant (CONSTANT) and assign value (VALUE).  Use a backslash
+              before a space.
 
        date   Shows system date and time.
 

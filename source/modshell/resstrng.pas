@@ -49,6 +49,7 @@ resourcestring
   MSG30 = 'Device number (0-7): ';
   MSG31 = 'Press <Esc> to break receiving.';
   MSG32 = 'Variable monitor mode: ';
+  MSG33 = 'This command can only be used in a script!';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -91,6 +92,7 @@ resourcestring
   ERR32 = 'Modbus error: slave device failure.';
   ERR33 = 'Illegal character in the constant name!';
   ERR34 = 'Cannot define more constant!';
+  ERR35 = 'No such label: ';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';

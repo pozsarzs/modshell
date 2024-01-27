@@ -151,6 +151,10 @@ msgstr "Nyomd meg az <Esc>-et a vétel megszakításához."
 msgid "Variable monitor mode: "
 msgstr "Változó monitor mód: "
 
+#: modshell:msg33
+msgid "This command can only be used in a script!"
+msgstr "Ez a parancs csak szkriptben használható!"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -314,6 +318,10 @@ msgstr "Nem engedélyezett karakter az állandó nevében!"
 #: modshell:err34
 msgid "Cannot define more constant!"
 msgstr "Nem lehet létrehozni több állandót!"
+
+#: modshell:err35
+msgid "No such label: "
+msgstr "Nincs ilyen címke: "
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"

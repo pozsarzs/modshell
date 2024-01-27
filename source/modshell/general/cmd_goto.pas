@@ -20,5 +20,29 @@
 
 // COMMAND 'GOTO'
 procedure cmd_goto(p1: string);
+var
+  line: byte;
+  valid: boolean = false;
+  s1: string;              // parameter in other type
+
 begin
+  // CHECK LENGTH OF PARAMETERS
+  if (length(p1) = 0) then
+  begin
+    writeln(ERR05); // parameter required
+    exit;
+  end;
+  scriptlabel := 0;
+  if appmode <> 4 then writeln(MSG33) else
+  begin
+    for line := 0 to SCRBUFFSIZE - 1 do
+      if length(sbuffer[line]) > 0 then
+        if COMMANDS[72] + p1 = stringreplace(sbuffer[line], #32, '', [rfReplaceAll]) then
+        begin
+          scriptlabel := line;
+          valid := true;
+          break;
+        end;
+  if not valid then writeln(ERR35 + p1);
+  end;
 end;

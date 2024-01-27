@@ -129,6 +129,10 @@ msgstr ""
 msgid "Variable monitor mode: "
 msgstr ""
 
+#: modshell:msg33
+msgid "This command can only be used in a script!"
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""
@@ -291,6 +295,10 @@ msgstr ""
 
 #: modshell:err34
 msgid "Cannot define more constant!"
+msgstr ""
+
+#: modshell:err35
+msgid "No such label: "
 msgstr ""
 
 #: modshell:err99

@@ -140,6 +140,8 @@ var
   appmode: byte;
   b: byte;
   lang: string;
+  scriptline: byte;
+  scriptlabel: byte;
   varmon: boolean = false;
   // SPLITTED COMMAND LINE
   splitted: array[0..7] of string;
@@ -578,17 +580,16 @@ end;
 // SCRIPT INTERPRETER
 procedure interpreter(f: string);
 var
-  line: byte;
   s: string;
   sf: textfile;
 
 begin
   if not fileexists(f) then quit(2, false, ERR21 + f + '!');
-  for line := 0 to SCRBUFFSIZE - 1 do sbuffer[line] := '';
+  for scriptline := 0 to SCRBUFFSIZE - 1 do sbuffer[scriptline] := '';
   assignfile(sf, f);
   try
     reset(sf);
-    line := 0;
+    scriptline := 0;
     repeat
       readln(sf,s);
       if length(s) > 0 then
@@ -598,10 +599,10 @@ begin
           delete(s, 1, 1);
         if s[1] <> COMMENT then
         begin
-          if line <= int(SCRBUFFSIZE - 1) then
+          if scriptline <= int(SCRBUFFSIZE - 1) then
           begin
-            sbuffer[line] := s;
-            if line < int(SCRBUFFSIZE - 1) then inc(line);
+            sbuffer[scriptline] := s;
+            if scriptline < int(SCRBUFFSIZE - 1) then inc(scriptline);
           end else quit(4, false, ERR23);
         end;
       end;
@@ -611,8 +612,16 @@ begin
     quit(3, false, ERR22 + f + '!');
   end;
   // PARSING SCRIPT
-  for line := 0 to SCRBUFFSIZE - 1 do
-    if length(sbuffer[line]) > 0 then  parsingcommands(sbuffer[line]);
+  scriptline := 0;
+  repeat
+    if length(sbuffer[scriptline]) > 0 then parsingcommands(sbuffer[scriptline]);
+    // execute goto command
+    if scriptlabel = 0 then inc(scriptline) else
+    begin
+      scriptline := scriptlabel;
+      scriptlabel := 0;
+    end;
+  until scriptline = SCRBUFFSIZE - 1;
 end;
 
 // - COMMAND LINE PARAMETERS --------------------------------------------------

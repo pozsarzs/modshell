@@ -151,6 +151,10 @@ msgstr "Nyomd meg az <Esc>-et a v‚tel megszak¡t s hoz."
 msgid "Variable monitor mode: "
 msgstr "V ltoz¢ monitor m¢d: "
 
+#: modshell:msg33
+msgid "This command can only be used in a script!"
+msgstr "Ez a parancs csak szkriptben haszn lhat¢!"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Ford¡t s ideje: "
@@ -314,6 +318,10 @@ msgstr "Nem enged‚lyezett karakter az  lland¢ nev‚ben!"
 #: modshell:err34
 msgid "Cannot define more constant!"
 msgstr "Nem lehet l‚trehozni t”bb  lland¢t!"
+
+#: modshell:err35
+msgid "No such label: "
+msgstr "Nincs ilyen c¡mke: "
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
