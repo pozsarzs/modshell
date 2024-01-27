@@ -125,6 +125,10 @@ msgstr ""
 msgid "Press <Esc> to break receiving."
 msgstr ""
 
+#: modshell:msg32
+msgid "Variable monitor mode: "
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""
@@ -574,11 +578,11 @@ msgid "       jump to specified label (only in script)"
 msgstr ""
 
 #: modshell:des70
-msgid "       selection statement (only in script)"
+msgid "       selection statement"
 msgstr ""
 
 #: modshell:des71
-msgid "       loop iteration (only in script)"
+msgid "       loop iteration"
 msgstr ""
 
 #: modshell:des72
@@ -763,7 +767,7 @@ msgstr ""
 
 #: modshell:usg21
 msgid ""
-"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT\n"
+"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VARMON\n"
 "  colors:\n"
 "      0: black  4: red         8: darkgray    12: lightred\n"
 "      1: blue   5: magenta:    9: lightblue   13: lightmagenta\n"
@@ -1054,6 +1058,8 @@ msgid "strrepl $TARGET [$]OLD [$]NEW"
 msgstr ""
 
 #: modshell:usg88
-msgid "varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+msgid ""
+"varmon [on|off]\n"
+"  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
 msgstr ""
 

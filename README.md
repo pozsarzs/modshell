@@ -2,12 +2,13 @@
 > The program is still under development, it is not yet suitable for its task.  
 > 
 > **v0.1-alpha1:**  
-> This test release is not yet suitable for work, although it is functional, but it can
-> only communicate via Modbus/ASCII.
+> This test release is not yet suitable for work, although it is functional, but
+> it can only communicate via Modbus/ASCII.
 > 
-> The purpose of this release is to test the program's construction, operation, packaging,
-> and package installation in all supported environments. In addition, the documentation
-> and other files are checked for possible typos and errors.
+> The purpose of this release is to test the program's construction, operation,
+> packaging, and package installation in all supported environments. In
+> addition, the documentation and other files are checked for possible typos and
+> errors.
 
 <img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon" src="desktop/modshell.png">   
 
@@ -20,31 +21,31 @@ Homepage: <http://www.pozsarzs.hu>
 GitHub: <https://github.com/pozsarzs/modshell>  
 Online manual: <https://github.com/pozsarzs/modshell/wiki>  
 
-|features                |                                                                      |
-|------------------------|----------------------------------------------------------------------|
-|architecture            |amd64, armhf, i386, x86_64                                            |
-|operation system        |DOS, FreeBSD, Linux, Windows                                          |
-|version                 |v0.1                                                                  |
-|language                |en, hu                                                                |
-|licence                 |EUPL v1.2                                                             |
-|local user interface    |CLI and TUI                                                           |
-|running modes           |command line, full-screen or interpreter                              |
-|local Modbus registers  |2x10000 boolean and 2x10000 word type                                 |
-|script size             |max. 256 line                                                         |
-|variables               |max. 128 variables or constants (stored as string)                    |
-|built-in commands       |89 commands in 9 categories                                           |
-|load from file          |registers, script, settings                                           |
-|save to file            |command history, console trafic, registers, communication settings    |
-|auto save to file       |general settings and console traffic                                  |
-|export to file          |history (TXT), registers (CSV, INI, XML)                              |
-|import to file          |registers (INI, XML)                                                  |
-|configurable devices    |max. 8 settings, serial and ethernet port                             |
-|configurable protocols  |max. 8 settings, ASCII, RTU or TCP                                    |
-|configurable connections|max. 8 settings by combining the previous two                         |
-|raw serial communication|read/write serial port and mini serial console with char/hex echo     |
-|Modbus communication    |read and write remote device and copy between devices                 |
-|                        |internal server for remote access to own registers                    |
-|                        |gateway to access devices using other ports or protocols              |
+|features                |                                                                  |
+|------------------------|------------------------------------------------------------------|
+|architecture            |amd64, armhf, i386, x86_64                                        |
+|operation system        |DOS, FreeBSD, Linux, Windows                                      |
+|version                 |v0.1                                                              |
+|language                |en, hu                                                            |
+|licence                 |EUPL v1.2                                                         |
+|local user interface    |CLI and TUI                                                       |
+|running modes           |command line, full-screen or interpreter                          |
+|local Modbus registers  |2x10000 boolean and 2x10000 word type                             |
+|script size             |max. 256 line                                                     |
+|variables               |max. 128 variables or constants (stored as string)                |
+|built-in commands       |89 commands in 9 categories                                       |
+|load from file          |registers, script, settings                                       |
+|save to file            |command history, console trafic, registers, communication settings|
+|auto save to file       |general settings and console traffic                              |
+|export to file          |history (TXT), registers (CSV, INI, XML)                          |
+|import to file          |registers (INI, XML)                                              |
+|configurable devices    |max. 8 settings, serial and ethernet port                         |
+|configurable protocols  |max. 8 settings, ASCII, RTU or TCP                                |
+|configurable connections|max. 8 settings by combining the previous two                     |
+|raw serial communication|read/write serial port and mini serial console with char/hex echo |
+|Modbus communication    |read and write remote device and copy between devices             |
+|                        |internal server for remote access to own registers                |
+|                        |gateway to access devices using other ports or protocols          |
 
 #### 1. Screenshots
 
@@ -71,18 +72,19 @@ Run example script on bash with ModShell interpreter
 
 #### 3. About
 
-This is a utility that can be used on several operating systems,
-which can communicate with connected equipment using
-[Modbus](https://modbus.org/)/ASCII, Modbus/RTU and Modbus/TCP protocols.
-The program can - even automatically - read, write or copy data from
-one device to another (e.g. transferring settings). When copying, the
-source and destination register areas can be different.
+This is a utility that can be used on several operating systems, which can
+communicate with connected equipment using [Modbus](https://modbus.org/)/ASCII,
+Modbus/RTU and Modbus/TCP protocols. The program can - even automatically -
+read, write or copy data from one device to another (e.g. transferring
+settings). When copying, the source and destination register areas can be
+different.
 
-The program has a *traditional (CLI)* or *full-screen (TUI) command-line* interface
-and is also *suitable for running pre-created scripts* independently (as a command
-interpreter). The program provides help on the commands that can be used, and
-offers possible values when the parameters are entered incorrectly. The issued
-commands are placed in history, which can be browsed with the up/down arrow keys.
+The program has a *traditional (CLI)* or *full-screen (TUI) command-line*
+interface and is also *suitable for running pre-created scripts* independently
+(as a command interpreter). The program provides help on the commands that can
+be used, and offers possible values when the parameters are entered incorrectly.
+The issued commands are placed in history, which can be browsed with the up/down
+arrow keys.
 
 **Operating principle**
 
@@ -110,7 +112,8 @@ The command line history can be exported to a text file and provides it with
 the appropriate 'shebang' for the installation method and operating system. You
 can easily create a script from this raw file.
 
-The script on the disc can be loaded into the already running program and started manually.
+The script on the disc can be loaded into the already running program and
+started manually.
 
 Device, protocol and connection settings can be saved and loaded in their own
 format. During saving, three typed files are created, with the following
@@ -120,17 +123,17 @@ All register values can be saved and loaded in their own format. During saving,
 two typed files are created, with the following extensions: BDT, IDT.
 
 One or more same type registers can be exported to file. During saving, one text
-file is created, with CSV, INI or XML extension. The program can only import from
-INI and XML format files.
+file is created, with CSV, INI or XML extension. The program can only import
+from INI and XML format files.
 
 On exit, the command line history, echo mode and colors are preserved.
 
 **Serial connection**
 
-The program also provides the possibility to send and receive raw data
-via a serial port, and also includes a very simple serial console. The
-display of sent and received data can be turned off or raw text and
-hexadecimal viewing can be selected.
+The program also provides the possibility to send and receive raw data via a
+serial port, and also includes a very simple serial console. The display of sent
+and received data can be turned off or raw text and hexadecimal viewing can be
+selected.
 
 **Already implemented commands:**
 
@@ -142,8 +145,8 @@ hexadecimal viewing can be selected.
 |cos     |arithmetic    |      |cosine function                                                  |
 |cotan   |arithmetic    |      |cotangent function                                               |
 |dec     |arithmetic    |      |decrement integer                                                |
-|exp     |arithmetic    |      |natural exponential                                              |
 |div     |arithmetic    |      |division                                                         |
+|exp     |arithmetic    |      |natural exponential                                              |
 |idiv    |arithmetic    |      |integer division                                                 |
 |imod    |arithmetic    |      |modulus division                                                 |
 |inc     |arithmetic    |      |increment integer                                                |
@@ -193,12 +196,13 @@ hexadecimal viewing can be selected.
 |help    |general       |F1    |show description or usage of the commands                        |
 |if      |general       |      |selection statement                                              |
 |label   |general       |      |define label (for goto command)                                  |
+|pause   |general       |      |waits for a keystroke or specified time                          |
 |print   |general       |ALT-P |print message, value of the variable and register                |
 |var     |general       |      |show all variable with theirs value or define a new one          |
 |varmon  |general       |ALT-M |monitoring the value of variables                                |
 |ver     |general       |      |show version and build information of this program               |
 |and     |logic         |      |AND logical operations                                           |
-|bit     |logical       |      |value of the specified bit                                       |
+|bit     |logic         |      |value of the specified bit                                       |
 |not     |logic         |      |NOT logical operations                                           |
 |or      |logic         |      |OR logical operations                                            |
 |roll    |logic         |      |roll bit of integer to left                                      |
@@ -219,14 +223,14 @@ hexadecimal viewing can be selected.
 |mklrc   |string        |      |make LRC value                                                   |
 |ord     |string        |      |convert char to byte                                             |
 |strdel  |string        |      |delete specified element(s) of the string                        |
-|strfind |string        |      |find specified element(s) in the string                          |
-|strins  |string        |      |insert element(s) into string                                    |
+|strfind |string        |      |find specified element in the string                             |
+|strins  |string        |      |insert element into string                                       |
 |stritem |string        |      |specified element of the string                                  |
-|strrepl |string        |      |replace element(s) in the string                                 |
+|strrepl |string        |      |replace element in the string                                    |
 |upcase  |string        |      |conversion to uppercase                                          |
 
-(Commands with function keys (F?) are executed immediately,
- modifier keys (ALT-?) only make typing easier.)
+(Commands with function keys (F?) are executed immediately, modifier keys
+(ALT-?) only make typing easier.)
 
 **Predefined constants**
 
@@ -237,10 +241,13 @@ hexadecimal viewing can be selected.
 
 **Documentation and Help**
 
-Modshell has a minimal built-in help which you can access by typing help. Additionally, you can
-view the manual page from *nix shell (_man modshell_) or _modshell.txt_ on other systems.
+Modshell has a minimal built-in help which you can access by typing help.
+Additionally, you can view the manual page from *nix shell (_man modshell_) or
+_modshell.txt_ on other systems.
 
 **Contributing**
 
-If you find any bugs, please report them! I am also happy to accept pull requests from anyone.
-You can use the GitHub issue tracker to report bugs, ask questions, or suggest new features.
+If you find any bugs, please report them! I am also happy to accept pull
+requests from anyone.You can use the GitHub issue tracker to report bugs, ask
+questions, or suggest new features.
+

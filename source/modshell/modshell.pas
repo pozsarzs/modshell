@@ -60,7 +60,8 @@ type
   tvariable = record
     vname: string[16];    // name
     vvalue: string[255];  // value
-    vreadonly: boolean;   // variable or value 
+    vreadonly: boolean;   // variable or constant
+    vmonitored: boolean;   // it is monitored?
   end;
 const
   // OTHERS
@@ -139,6 +140,7 @@ var
   appmode: byte;
   b: byte;
   lang: string;
+  varmon: boolean = false;
   // SPLITTED COMMAND LINE
   splitted: array[0..7] of string;
 
@@ -235,9 +237,13 @@ end;
 {$I cmd_echo.pas}
 {$I cmd_exph.pas}
 {$I cmd_expr.pas}
+{$I cmd_for.pas}
 {$I cmd_get.pas}
+{$I cmd_goto.pas}
 {$I cmd_help.pas}
+{$I cmd_if.pas}
 {$I cmd_impr.pas}
+{$I cmd_labl.pas}
 {$I cmd_lcfg.pas}
 {$I cmd_let.pas}
 {$I cmd_list.pas}
@@ -261,6 +267,7 @@ end;
 {$I cmd_sreg.pas}
 {$I cmd_set.pas}
 {$I cmd_var.pas}
+{$I cmd_vrmn.pas}
 {$I cmd_wrte.pas}
 
 // PARSING COMMANDS
@@ -392,6 +399,14 @@ begin
            66: cmd_const(splitted[1], splitted[2]);
                // const
                // const NAME [VALUE]
+           69: cmd_goto(splitted[1]);
+               // goto LABEL
+           70: cmd_if(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5]);
+               // if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND
+           71: cmd_for(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
+               // for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND  
+           72: cmd_label(splitted[1]);
+               // label NAME
            73: cmd_mbsrv(splitted[1]);
                // mbsrv con?
            74: cmd_mbgw(splitted[1], splitted[2]);
@@ -404,6 +419,9 @@ begin
                //avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]
            82: cmd_prop(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
                //prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE
+           88: cmd_varmon(splitted[1], splitted[2]);
+               // varmon on|off
+               // varmon $VARIABLE1 on|off
           else
           begin
             // logical functions
@@ -432,11 +450,11 @@ var
   command: string;
   c: char;
 
-// INSERT PROJECT NAME INTO PROMPT
-function fullprompt: string;
-begin
-  result := stringreplace(PROMPT, '_' , proj, [rfReplaceAll]);
-end;
+  // INSERT PROJECT NAME INTO PROMPT
+  function fullprompt: string;
+  begin
+    result := stringreplace(PROMPT, '_' , proj, [rfReplaceAll]);
+  end;
 
 begin
   if appmode = 0 then writeln(PRGNAME + ' v' + PRGVERSION);
@@ -465,6 +483,8 @@ begin
           begin command := COMMANDS[2]; c := #32; end;                     // ~G
         if c = #38 then
           begin command := COMMANDS[4]; c := #32; end;                     // ~L
+        if c = #50 then
+          begin command := COMMANDS[88]; c := #32; end;                    // ~M
         if c = #25 then
           begin command := COMMANDS[5]; c := #32; end;                     // ~P
         if c = #19 then
@@ -535,6 +555,7 @@ begin
     end;
     writeln;
     parsingcommands(command);
+    varmon_viewer;
   until command = COMMANDS[1]; // exit
 end;
 
@@ -674,3 +695,4 @@ begin
   quit(0, false, '');
 end.
 
+define label (only in script)

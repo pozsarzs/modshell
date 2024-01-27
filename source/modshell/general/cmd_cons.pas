@@ -171,5 +171,6 @@ begin
     vars[l].vname := lowercase(s1);
     vars[l].vvalue := s2;
     vars[l].vreadonly := true;
+    vars[l].vmonitored := false;
   end;
 end;

@@ -48,6 +48,7 @@ resourcestring
   MSG29 = 'Mini serial console (exit: <F10>)';
   MSG30 = 'Device number (0-7): ';
   MSG31 = 'Press <Esc> to break receiving.';
+  MSG32 = 'Variable monitor mode: ';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -162,8 +163,8 @@ resourcestring
   DES67='       value of the specified bit';
   DES68='       exponentiation';
   DES69='       jump to specified label (only in script)';
-  DES70='       selection statement (only in script)';
-  DES71='       loop iteration (only in script)';
+  DES70='       selection statement';
+  DES71='       loop iteration';
   DES72='       define label (only in script)';
   DES73='       start internal Modbus slave/server';
   DES74='       start internal Modbus gateway';
@@ -224,7 +225,7 @@ resourcestring
   USG19='loadreg [$]PATH_AND_FILENAME';
   USG20='var' + EOL +
         '  var NAME [[$]VALUE]';
-  USG21='color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT' + EOL +
+  USG21='color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VARMON' + EOL +
         '  colors:' + EOL +
         '      0: black  4: red         8: darkgray    12: lightred' + EOL +
         '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + EOL +
@@ -308,4 +309,5 @@ resourcestring
   USG85='strfind $TARGET [$]VALUE';
   USG86='strins $TARGET [$]PLACE [$]VALUE';
   USG87='strrepl $TARGET [$]OLD [$]NEW';
-  USG88='varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]';
+  USG88='varmon [on|off]' + EOL +
+        '  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]';

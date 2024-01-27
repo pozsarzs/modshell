@@ -25,7 +25,7 @@ var
   confdir: string;
   ini: TINIFile;
   // settings from/to ini file
-  colors: array[0..3] of integer;
+  colors: array[0..4] of integer;
   histbuff: array[0..255] of string;
   histitem: byte;
   histlast: byte;
@@ -78,6 +78,7 @@ begin
     ini.writeinteger(SECTION[0], 'background', colors[1]);
     ini.writeinteger(SECTION[0], 'receivedtext', colors[2]);
     ini.writeinteger(SECTION[0], 'transmittedtext', colors[3]);
+    ini.writeinteger(SECTION[0], 'variable_monitor', colors[4]);
     ini.writeinteger(SECTION[1], 'echo', echo);
     ini.writeinteger(SECTION[2], 'histitem', histitem);
     ini.writeinteger(SECTION[2], 'histlast', histlast);
@@ -103,6 +104,7 @@ begin
     colors[1] := ini.readinteger(SECTION[0], 'background', 0);
     colors[2] := ini.readinteger(SECTION[0], 'receivedtext', 10);
     colors[3] := ini.readinteger(SECTION[0], 'transmittedtext', 12);
+    colors[4] := ini.readinteger(SECTION[0], 'variable_monitor', 14);
     echo := ini.readinteger(SECTION[1], 'echo', 0);
     histitem := ini.readinteger(SECTION[2], 'histitem', 0);
     histlast := ini.readinteger(SECTION[2], 'histlast', 0);

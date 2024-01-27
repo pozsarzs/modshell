@@ -17,10 +17,10 @@
   -----------------------------------
   chr     $TARGET [$]VALUE
   concat  $TARGET [$]VALUE1 [$]VALUE2
-  crc     $TARGET [$]VALUE
   length  $TARGET [$]VALUE
   lowcase $TARGET [$]VALUE
-  lrc     $TARGET [$]VALUE
+  mklrc   $TARGET [$]STRING
+  mkcrc   $TARGET [$]STRING
   ord     $TARGET [$]VALUE
   strdel  $TARGET [$]PLACE  [$]COUNT
   strfind $TARGET [$]VALUE
