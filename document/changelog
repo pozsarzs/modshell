@@ -7,6 +7,6 @@ modshell (0.1-alpha1) unstable; urgency=low
 modshell (0.1-alpha2) unstable; urgency=low
 
   * Next developer test release.
-  * ...
+  * Bug fixes, eighty-nine built-in commands, handling of constants.
 
  -- Pozsár Zsolt <pozsarzs@gmail.com>  dow, dd Feb 2024 hh:mm:ss

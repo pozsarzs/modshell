@@ -499,6 +499,127 @@ Replace specified element (\fI[$]OLD\fP) to \fI[$]NEW\fP in the \fI$TARGET\fP va
 \fBupcase\fP \fI$TARGET\fP \fI[$]VALUE\fP
 Converts string (\fI[$]VALUE\fP) to uppercase and the result is placed in \fI$TARGET\fP.
 .SH EXAMPLES
+.SS Arithmetical commands
+.TP
+\fBadd\fP $result 12 13
+Adds 12 and 13, and the result is placed in $result.
+.TP
+\fBconv\fP bin hex 1011000010110100
+Convert 45236 in binary to hex (result: B0B4).
+.TP
+\fBconv\fP hex dec $I
+Convert value of the $I in hexadecimal to decimal.
+.TP
+\fBround\fP $result 12.01023 2
+Round 12.01023 to decimal places, and the result (12.01)
+is placed in $result.
+.TP
+\fBsubs\fP $result 12 13
+Substract 13 from 12, and the result is placed in $result.
+
+.SS Communication commands
+.TP
+\fBcopy\fP con0 ireg con2 hreg 210 10
+Copy input register content of the connection #0 to holding register content of the
+connection #2 from address 210 to 220.
+.TP
+\fBcopy\fP con0 ireg con2 hreg $a $b
+Copy input register content of the connection #0 to holding register content of the
+connection #2 from address value of the $a to $a+$b.
+.TP
+\fBread\fP con0 hreg 100 15
+Read remote holding registers of the connection #0 from address 100 to 115.
+.TP
+\fBread\fP con0 hreg $a 15
+Read remote holding registers of the connection #0 from address value of the $a to $a+15.
+.TP
+\fBsercons\fP
+Open serial console with requesting device number.
+.TP
+\fBsercons\fP dev0
+Open serial console with dev0 device.
+.TP
+\fBserread\fP dev0
+Read string from dev0 device and write to screen.
+.TP
+\fBserread\fP dev0 $target
+Read string from dev0 device and write to $target variable.
+.TP
+\fBserwrite\fP dev0 "The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog."
+Write string to dev0 device.
+.TP
+\fBserwrite\fP dev0 "$message"
+Write string from $message variable to dev0 device.
+.TP
+\fBwrite\fP con2 coil 10
+Write data from to coil address 10 of the connection #2.
+.TP
+\fBwrite\fP con2 coil $c
+Write data from to coil address value of the $c of the connection #2.
+
+.SS Configuration commands
+.TP
+\fBget\fP dev2
+Get configuration of a device #2.
+.TP
+\fBreset\fP prj
+Reset project name (project name will be 'default').
+.TP
+\fBset\fP dev0 net /dev/enp0s7 502
+Set device #0 to '/dev/enp0s7' ethernet device with 502 port.
+.TP
+\fBset\fP dev0 net /dev/enp0s7 $P
+Set device #0 to '/dev/enp0s7' ethernet device with value of the $P port.
+.TP
+\fBset\fP dev1 ser ttyS0 9600 8 N 1
+Set device #1 to /dev/ttyS0 serial device, with 9600 baud, 8 databits,
+without parity check and 1 stopbit.
+.TP
+\fBset\fP dev1 ser COM1 9600 8 N 1
+Set device #1 to COM1 serial device, with 9600 baud, 8 databits,
+without parity check and 1 stopbit.
+.TP
+\fBset\fP dev1 ser $p $s $d $p $t
+Set device #1 to $p serial device, with $s baud, $d databits, $p
+parity check and $t stopbit.
+.TP
+\fBset\fP pro0 ascii 100
+Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).
+.TP
+\fBset\fP pro2 tcp 192.168.100.2
+Set protocol #2 to Modbus/TCP with IP address of server.
+.TP
+\fBset\fP con0 dev0 pro2
+Assigns a device #0 and protocol #2 to connection #0.
+.TP
+\fBset\fP prj temp_meter
+Set the project name to 'temp_meter'.
+
+.SS File operation commands
+.TP
+\fBexphis\fP script
+Export command line history to project directory.
+.TP
+\fBexpreg\fP discrete_inputs.csv dinp 100 15
+Export values of discrete input register from address 100 to 115
+to CSV file.
+.TP
+\fBimpreg\fP discrete_inputs.xml
+Import values from a XML file. The target and range are determined by the
+contents of the file.
+.TP
+\fBloadcfg\fP test1
+Load settings of device, protocol and connection from project directory.
+.TP
+\fBloadreg\fP /home/username/Desktop/test1
+Load all registers from other directory.
+.TP
+\fBsavecfg\fP test1
+Save settings of device, protocol and connection to project directory.
+.TP
+\fBsavereg\fP /home/username/Desktop/test1
+Save all registers to other directory.
+
 .SS General commands
 .TP
 \fBecho\fP
@@ -555,63 +676,7 @@ result is placed in $result.
 Shifts bits of the $source to the left by position
 $shift and the result is placed in $result.
 
-.SS Arithmetical commands
-.TP
-\fBadd\fP $result 12 13
-Adds 12 and 13, and the result is placed in $result.
-.TP
-\fBconv\fP bin hex 1011000010110100
-Convert 45236 in binary to hex (result: B0B4).
-.TP
-\fBconv\fP hex dec $I
-Convert value of the $I in hexadecimal to decimal.
-.TP
-\fBround\fP $result 12.01023 2
-Round 12.01023 to decimal places, and the result (12.01)
-is placed in $result.
-.TP
-\fBsubs\fP $result 12 13
-Substract 13 from 12, and the result is placed in $result.
-
-.SS Configuration commands
-.TP
-\fBget\fP dev2
-Get configuration of a device #2.
-.TP
-\fBreset\fP prj
-Reset project name (project name will be 'default').
-.TP
-\fBset\fP dev0 net /dev/enp0s7 502
-Set device #0 to '/dev/enp0s7' ethernet device with 502 port.
-.TP
-\fBset\fP dev0 net /dev/enp0s7 $P
-Set device #0 to '/dev/enp0s7' ethernet device with value of the $P port.
-.TP
-\fBset\fP dev1 ser ttyS0 9600 8 N 1
-Set device #1 to /dev/ttyS0 serial device, with 9600 baud, 8 databits,
-without parity check and 1 stopbit.
-.TP
-\fBset\fP dev1 ser COM1 9600 8 N 1
-Set device #1 to COM1 serial device, with 9600 baud, 8 databits,
-without parity check and 1 stopbit.
-.TP
-\fBset\fP dev1 ser $p $s $d $p $t
-Set device #1 to $p serial device, with $s baud, $d databits, $p
-parity check and $t stopbit.
-.TP
-\fBset\fP pro0 ascii 100
-Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).
-.TP
-\fBset\fP pro2 tcp 192.168.100.2
-Set protocol #2 to Modbus/TCP with IP address of server.
-.TP
-\fBset\fP con0 dev0 pro2
-Assigns a device #0 and protocol #2 to connection #0.
-.TP
-\fBset\fP prj temp_meter
-Set the project name to 'temp_meter'.
-
-.SS Data handler commands
+.SS Register handler commands
 .TP
 \fBdump\fP
 Start dump with requesting register type and start address.
@@ -648,71 +713,6 @@ Print value of the input register address 10 to 20.
 .TP
 \fBprint\fP ireg $a $b
 Print value of the input register address value of $a to value of $b.
-
-.SS Communication commands
-.TP
-\fBcopy\fP con0 ireg con2 hreg 210 10
-Copy input register content of the connection #0 to holding register content of the
-connection #2 from address 210 to 220.
-.TP
-\fBcopy\fP con0 ireg con2 hreg $a $b
-Copy input register content of the connection #0 to holding register content of the
-connection #2 from address value of the $a to $a+$b.
-.TP
-\fBread\fP con0 hreg 100 15
-Read remote holding registers of the connection #0 from address 100 to 115.
-.TP
-\fBread\fP con0 hreg $a 15
-Read remote holding registers of the connection #0 from address value of the $a to $a+15.
-.TP
-\fBsercons\fP
-Open serial console with requesting device number.
-.TP
-\fBsercons\fP dev0
-Open serial console with dev0 device.
-.TP
-\fBserread\fP dev0
-Read string from dev0 device and write to screen.
-.TP
-\fBserread\fP dev0 $target
-Read string from dev0 device and write to $target variable.
-.TP
-\fBserwrite\fP dev0 "The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog."
-Write string to dev0 device.
-.TP
-\fBserwrite\fP dev0 "$message"
-Write string from $message variable to dev0 device.
-.TP
-\fBwrite\fP con2 coil 10
-Write data from to coil address 10 of the connection #2.
-.TP
-\fBwrite\fP con2 coil $c
-Write data from to coil address value of the $c of the connection #2.
-
-.SS File operation commands
-.TP
-\fBexphis\fP script
-Export command line history to project directory.
-.TP
-\fBexpreg\fP discrete_inputs.csv dinp 100 15
-Export values of discrete input register from address 100 to 115
-to CSV file.
-.TP
-\fBimpreg\fP discrete_inputs.xml
-Import values from a XML file. The target and range are determined by the
-contents of the file.
-.TP
-\fBloadcfg\fP test1
-Load settings of device, protocol and connection from project directory.
-.TP
-\fBloadreg\fP /home/username/Desktop/test1
-Load all registers from other directory.
-.TP
-\fBsavecfg\fP test1
-Save settings of device, protocol and connection to project directory.
-.TP
-\fBsavereg\fP /home/username/Desktop/test1
-Save all registers to other directory.
 
 .SS Script operation commands
 .TP

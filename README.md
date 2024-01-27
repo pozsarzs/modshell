@@ -248,6 +248,6 @@ _modshell.txt_ on other systems.
 **Contributing**
 
 If you find any bugs, please report them! I am also happy to accept pull
-requests from anyone.You can use the GitHub issue tracker to report bugs, ask
+requests from anyone. You can use the GitHub issue tracker to report bugs, ask
 questions, or suggest new features.
 

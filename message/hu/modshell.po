@@ -147,6 +147,10 @@ msgstr "Eszközszám (0-7): "
 msgid "Press <Esc> to break receiving."
 msgstr "Nyomd meg az <Esc>-et a vétel megszakításához."
 
+#: modshell:msg32
+msgid "Variable monitor mode: "
+msgstr "Változó monitor mód: "
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -240,8 +244,8 @@ msgid "Cannot define more variable!"
 msgstr "Nem lehet létrehozni a változót!"
 
 #: modshell:err17
-msgid "There is already a variable with that name"
-msgstr "Van már egy változó ezzel a névvel"
+msgid "There is already a variable or a constant with that name."
+msgstr "Van már egy változó vagy állandó ezzel a névvel."
 
 #: modshell:err18
 msgid "Cannot initialize serial port: "
@@ -302,6 +306,14 @@ msgstr "Modbus hiba: szabálytalan adatérték."
 #: modshell:err32
 msgid "Modbus error: slave device failure."
 msgstr "Modbus hiba: slave eszköz hiba."
+
+#: modshell:err33
+msgid "Illegal character in the constant name!"
+msgstr "Nem engedélyezett karakter az állandó nevében!"
+
+#: modshell:err34
+msgid "Cannot define more constant!"
+msgstr "Nem lehet létrehozni több állandót!"
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
@@ -468,12 +480,12 @@ msgid "       load Modshell script from file"
 msgstr "       Modshell szkript betöltése fájlból"
 
 #: modshell:des40
-msgid "       run loaded Modshell script"
-msgstr "       betöltött ModShell szkript futattása"
+msgid "F12    run loaded Modshell script"
+msgstr "F12    betöltött ModShell szkript futattása"
 
 #: modshell:des41
-msgid "       list loaded Modshell script"
-msgstr "       betöltött ModShell szkript listázása"
+msgid "F11    list loaded Modshell script"
+msgstr "F11    betöltött ModShell szkript listázása"
 
 #: modshell:des42
 msgid "       round real number"
@@ -570,6 +582,98 @@ msgstr "       bájt karakterré alakítása"
 #: modshell:des65
 msgid "       convert char to byte"
 msgstr "       karakter bájttá alakítása"
+
+#: modshell:des66
+msgid "       list all constant with value or define a new one"
+msgstr "       az összes állandó kiírása vagy új létrehozása"
+
+#: modshell:des67
+msgid "       value of the specified bit"
+msgstr "       megadott bit értéke"
+
+#: modshell:des68
+msgid "       exponentiation"
+msgstr "       hatványozás"
+
+#: modshell:des69
+msgid "       jump to specified label (only in script)"
+msgstr "       ugrás a megadott címkére (csak szkripteknél)"
+
+#: modshell:des70
+msgid "       selection statement"
+msgstr "       elágazás"
+
+#: modshell:des71
+msgid "       loop iteration"
+msgstr "       számláló hurok"
+
+#: modshell:des72
+msgid "       define label (only in script)"
+msgstr "       címke létrehozása (csak szkripteknél)"
+
+#: modshell:des73
+msgid "       start internal Modbus slave/server"
+msgstr "       start belső Modbus szolga/szerver"
+
+#: modshell:des74
+msgid "       start internal Modbus gateway"
+msgstr "       start belső Modbus átjáró"
+
+#: modshell:des75
+msgid "       check the value is in the range"
+msgstr "       értéktartományba tartozás ellenőrzése"
+
+#: modshell:des76
+msgid "       make LRC"
+msgstr "       LRC képzése"
+
+#: modshell:des77
+msgid "       make CRC"
+msgstr "       CRC képzése"
+
+#: modshell:des78
+msgid "       exponentiation of two"
+msgstr "       a kettő hatványai"
+
+#: modshell:des79
+msgid "       show ASCII table"
+msgstr "       ASCII tábla mutatás"
+
+#: modshell:des80
+msgid "       make a beep sound with internal speaker"
+msgstr "       hangjelzés a belső hangszóróval"
+
+#: modshell:des81
+msgid "       calculate average"
+msgstr "       átlagszámítás"
+
+#: modshell:des82
+msgid "       propotional value calculation (with zero and span)"
+msgstr "       arányos érték számítás (kezdeti és végértékkel)"
+
+#: modshell:des83
+msgid "       concatenate strings"
+msgstr "       karakterláncok összefűzése"
+
+#: modshell:des84
+msgid "       delete specified element(s) of the string"
+msgstr "       a karakterlánc megadott elemének törlése"
+
+#: modshell:des85
+msgid "       find specified element(s) in the string"
+msgstr "       keresés a karakterláncban"
+
+#: modshell:des86
+msgid "       insert element(s) into string"
+msgstr "       beszúrás a karakterláncba"
+
+#: modshell:des87
+msgid "       replace element(s) in the string"
+msgstr "       a karakterlánc megadott elemének cseréje"
+
+#: modshell:des88
+msgid "ALT-M  monitoring the value of variables"
+msgstr "ALT-M  változóértékek megfigyelése"
 
 #: modshell:usg00
 msgid ""
@@ -714,14 +818,14 @@ msgstr ""
 
 #: modshell:usg21
 msgid ""
-"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT\n"
+"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VARMON\n"
 "  colors:\n"
 "      0: black  4: red         8: darkgray    12: lightred\n"
 "      1: blue   5: magenta:    9: lightblue   13: lightmagenta\n"
 "      2: green  6: brown      10: lightgreen  14: yellow\n"
 "      3: cyan   7: lightgray  11: lightcyan   15: white"
 msgstr ""
-"color [$]ELŐTÉRSZÍN [$]HÁTTÉRSZÍN [$]VÉTELSZÍN [$]ADÁSSZÍN\n"
+"color [$]ELŐTÉRSZÍN [$]HÁTTÉRSZÍN [$]VÉTELSZÍN [$]ADÁSSZÍN [$]VÁLTMON\n"
 "\n"
 "  Színek: \\ 015\n"
 "      0: fekete  4: vörös           8: sötétszürke  12: világosvörös\n"
@@ -924,6 +1028,118 @@ msgstr "chr $CÉL [$]ÉRTÉK"
 #: modshell:usg65
 msgid "ord $TARGET [$]VALUE"
 msgstr "ord $CÉL [$]ÉRTÉK"
+
+#: modshell:usg66
+msgid ""
+"const\n"
+"  const NAME [$]VALUE"
+msgstr ""
+"const\n"
+"  const NAME [[$]ÉRTÉK]"
+
+#: modshell:usg67
+msgid "bit $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "bit $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: modshell:usg68
+msgid "pow $TARGET [$]BASE [$]EXPONENT"
+msgstr "pow $CÉL [$]ALAP [$]KITEVŐ"
+
+#: modshell:usg69
+msgid "goto LABEL"
+msgstr "goto CÍMKE"
+
+#: modshell:usg70
+msgid "if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND"
+msgstr "if [$]ÉRTÉK1 RELÁCIÓJEL [$]ÉRTÉK2 then PARANCS"
+
+#: modshell:usg71
+msgid "for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND"
+msgstr "for $VÁLTOZÓ [$]ÉRTÉK to [$]ÉRTÉK do PARANCS"
+
+#: modshell:usg72
+msgid "label NAME"
+msgstr "label NÉV"
+
+#: modshell:usg73
+msgid ""
+"mbsrv con?\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"mbsrv con?\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: modshell:usg74
+msgid ""
+"mbgw con? con?\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"mbgw con? con?\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: modshell:usg75
+msgid "inrange $TARGET [$]MIN [$]MAX [$]VALUE"
+msgstr "inrange $CÉL [$]MIN [$]MAX [$]ÉRTÉK"
+
+#: modshell:usg76
+msgid "mklrc $TARGET [$]STRING"
+msgstr "mklrc $CÉL [$]KARAKTERLÁNC"
+
+#: modshell:usg77
+msgid "mkcrc $TARGET [$]STRING"
+msgstr "mkcrc $CÉL [$]KARAKTERLÁNC"
+
+#: modshell:usg78
+msgid "pow2 $TARGET [$]EXPONENT"
+msgstr "pow2 $CÉL [$]KITEVŐ"
+
+#: modshell:usg79
+msgid "ascii [dec|hex]"
+msgstr "ascii [dec|hex]"
+
+#: modshell:usg80
+msgid "beep"
+msgstr "beep"
+
+#: modshell:usg81
+msgid "avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]"
+msgstr "avg $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2 [[$]ÉRTÉK3...6]"
+
+#: modshell:usg82
+msgid "prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE"
+msgstr "prop $CÉL [$]MIN [$]MAX [$]KEZDET [$]VÉG [$]ÉRTÉK"
+
+#: modshell:usg83
+msgid "concat $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "concat $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: modshell:usg84
+msgid "strdel $TARGET [$]PLACE [$]COUNT"
+msgstr "strdel $CÉL [$]HELY [$]MENNYISÉG"
+
+#: modshell:usg85
+msgid "strfind $TARGET [$]VALUE"
+msgstr "strfind $CÉL [$]ÉRTÉK"
+
+#: modshell:usg86
+msgid "strins $TARGET [$]PLACE [$]VALUE"
+msgstr "strins $CÉL [$]HELY [$]ÉRTÉK"
+
+#: modshell:usg87
+msgid "strrepl $TARGET [$]OLD [$]NEW"
+msgstr "strrepl $CÉL [$]RÉGI [$]ÚJ"
+
+#: modshell:usg88
+msgid ""
+"varmon [on|off]\n"
+"  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+msgstr ""
+"varmon [on|off]\n"
+"  varmon $VÁLTOZÓ1 [$VÁLTOZÓ2] [$VÁLTOZÓ3] [$VÁLTOZÓ4]"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       előtér- és a háttérszín beállítása (fullscreen)"

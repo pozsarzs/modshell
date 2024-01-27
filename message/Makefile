@@ -21,7 +21,7 @@ define conv_encode
   cat $(1)-cp$(2)/out.po | sed s/"charset=UTF-8"/"charset=cp$(2)"/ > $(1)-cp$(2)/$(name).po; \
   $(rm) $(1)-cp$(2)/out.po; \
   $(unix2dos) $(1)-cp$(2)/$(name).po; \
-  #$(msgfmt) $(1)-cp$(2)/$(name).po -o $(1)-cp$(2)/$(name).mo
+  $(msgfmt) $(1)-cp$(2)/$(name).po -o $(1)-cp$(2)/$(name).mo
 endef
 
 all:
