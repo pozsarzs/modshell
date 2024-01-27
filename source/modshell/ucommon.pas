@@ -28,7 +28,9 @@ function addsomezero(n: byte; s: string): string;
 function hex1(n: byte; w: word): string;
 function hex2(s: string): string;
 function lrc(s: string): word;
-function chkecklrc(s: string; l: word): boolean;
+function checklrc(s: string; l: word): boolean;
+function crc(s: string): word;
+function checkcrc(s: string; l: word): boolean;
 function booltoint(b: boolean): integer;
 function inttobool(i: integer): boolean;
 function checkipaddress(address: string): boolean;
@@ -119,6 +121,20 @@ begin
   hex2 := res;
 end;
 
+// CREATE CYCLIC REDUNDANCY CHECK (CRC) VALUE
+function crc(s: string): word;
+begin
+  result := 0;
+end;
+
+// CHECK CRC OF A STRING
+function checkcrc(s: string; l: word): boolean;
+begin
+  if l = lrc(s)
+    then result := true
+    else result := false;
+end;
+
 // CREATE LONGITUDINAL REDUNDANCY CHECK (LRC) VALUE
 function lrc(s: string): word;
 var
@@ -130,11 +146,11 @@ begin
   for b := 1 to length(s) do
     res := res + ord(s[b]) and $FF;
   res := (((res xor $FF) + 1) and $FF);
-  lrc := res;
+  result := res;
 end;
 
 // CHECK LRC OF A STRING
-function chkecklrc(s: string; l: word): boolean;
+function checklrc(s: string; l: word): boolean;
 begin
   if l = lrc(s)
     then result := true

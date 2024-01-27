@@ -40,7 +40,7 @@ begin
   // CHECK P1 PARAMETER
   if PREFIX[2] <> s1 then
   begin
-    write('1st ' + MSG05); // What is the 1nd parameter?
+    write('1st ' + MSG05); // What is the 1st parameter?
     writeln(' ' + PREFIX[2]+'[0-7]');
     exit;
   end;

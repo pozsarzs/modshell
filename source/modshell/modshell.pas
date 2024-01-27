@@ -245,6 +245,8 @@ end;
 {$I cmd_lreg.pas}
 {$I cmd_lscr.pas}
 {$I cmd_math.pas}
+{$I cmd_gw.pas}
+{$I cmd_srv.pas}
 {$I cmd_paus.pas}
 {$I cmd_prop.pas}
 {$I cmd_prnt.pas}
@@ -390,6 +392,10 @@ begin
            66: cmd_const(splitted[1], splitted[2]);
                // const
                // const NAME [VALUE]
+           73: cmd_mbsrv(splitted[1]);
+               // mbsrv con?
+           74: cmd_mbgw(splitted[1], splitted[2]);
+               // mbgw con? con?
            79: cmd_ascii(splitted[1]);
                // ascii
            80: sysutils.beep;
@@ -411,6 +417,7 @@ begin
             if b = 78 then cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
             // string handler functions
             if (b >= 60) and (b <= 65) then cmd_string(b, splitted[1], splitted[2], splitted[3]);
+            if (b >= 76) and (b <= 77) then cmd_string(b, splitted[1], splitted[2], splitted[3]);
           end;
         end;
       end;

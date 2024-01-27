@@ -15,12 +15,14 @@
 {
   p0      p1      p2        p3
   -----------------------------------
-  upcase  $TARGET [$]VALUE
+  chr     $TARGET [$]VALUE
+  crc     $TARGET [$]VALUE
   length  $TARGET [$]VALUE
   lowcase $TARGET [$]VALUE
-  stritem $TARGET [$]VALUE1 [$]VALUE2
-  chr     $TARGET [$]VALUE
+  lrc     $TARGET [$]VALUE
   ord     $TARGET [$]VALUE
+  stritem $TARGET [$]VALUE1 [$]VALUE2
+  upcase  $TARGET [$]VALUE
 }
 
 procedure cmd_string(op: byte; p1, p2, p3: string);
@@ -65,6 +67,8 @@ begin
       63: vars[intisitvariable(p1)].vvalue := s2[strtointdef(s3, 0)];
       64: vars[intisitvariable(p1)].vvalue := chr(strtointdef(s2, 0));
       65: vars[intisitvariable(p1)].vvalue := inttostr(ord(s2[1]));
+      76: vars[intisitvariable(p1)].vvalue := inttostr(lrc(s2));
+      77: vars[intisitvariable(p1)].vvalue := inttostr(crc(s2));
     end;
   except
     writeln(ERR20);

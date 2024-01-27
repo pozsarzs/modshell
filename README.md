@@ -193,8 +193,6 @@ hexadecimal viewing can be selected.
 |help    |general       |F1    |show description or usage of the commands                        |
 |if      |general       |      |selection statement                                              |
 |label   |general       |      |define label (for goto command)                                  |
-|mkcrc   |general       |      |make CRC value                                                   |
-|mklrc   |general       |      |make LRC value                                                   |
 |print   |general       |ALT-P |print message, value of the variable and register                |
 |var     |general       |      |show all variable with theirs value or define a new one          |
 |varmon  |general       |ALT-M |monitoring the value of variables                                |
@@ -217,6 +215,8 @@ hexadecimal viewing can be selected.
 |concat  |string        |      |concatenate strings                                              |
 |length  |string        |      |length of string                                                 |
 |lowcase |string        |      |conversion to lowercase                                          |
+|mkcrc   |string        |      |make CRC value                                                   |
+|mklrc   |string        |      |make LRC value                                                   |
 |ord     |string        |      |convert char to byte                                             |
 |strdel  |string        |      |delete specified element(s) of the string                        |
 |strfind |string        |      |find specified element(s) in the string                          |
