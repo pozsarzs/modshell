@@ -318,10 +318,10 @@ begin
         begin
           case b of
             0: cmd_copy(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
-               // copy conn? dinp|coil conn? coil ADDRESS COUNT
-               // copy conn? ireg|hreg conn? hreg ADDRESS COUNT
+               // copy con? dinp|coil con? coil ADDRESS COUNT
+               // copy con? ireg|hreg con? hreg ADDRESS COUNT
             2: cmd_get(splitted[1]);
-               // get dev?|prot?|conn?|prj
+               // get dev?|pro?|con?|prj
             3: cmd_help(splitted[1]);
                // help [COMMAND]
             4: cmd_let(splitted[1], splitted[2], splitted[3]);
@@ -333,22 +333,22 @@ begin
                // print $VARIABLE [-n]
                // print "Hello\ world!" [-n]
             6: cmd_read(splitted[1], splitted[2], splitted[3], splitted[4]);
-               // read conn? dinp|coil|ireg|hreg ADDRESS [COUNT]
+               // read con? dinp|coil|ireg|hreg ADDRESS [COUNT]
             7: cmd_reset(splitted[1]);
-               // reset dev?|prot?|conn?|prj
+               // reset dev?|pro?|con?|prj
             8: cmd_set(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6], splitted[7]);
                // set dev? ser DEVICE BAUDRATE DATABIT PARITY STOPBIT
                // set dev? net DEVICE PORT
-               // set prot? ascii|rtu UID
-               // set prot? tcp IP_ADDRESS
-               // set conn? dev? prot?
+               // set pro? ascii|rtu UID
+               // set pro? tcp IP_ADDRESS
+               // set con? dev? pro?
                // set prj PROJECT_NAME
             9: cmd_date;
                // date
            10: version(false);
                // ver
            11: cmd_write(splitted[1], splitted[2], splitted[3], splitted[4]);
-               // write conn? coil|hreg ADDRESS [COUNT]
+               // write con? coil|hreg ADDRESS [COUNT]
            12: clrscr;
                // cls
            13: cmd_savecfg(splitted[1]);
@@ -418,6 +418,7 @@ begin
             // string handler functions
             if (b >= 60) and (b <= 65) then cmd_string(b, splitted[1], splitted[2], splitted[3]);
             if (b >= 76) and (b <= 77) then cmd_string(b, splitted[1], splitted[2], splitted[3]);
+            if (b >= 83) and (b <= 87) then cmd_string(b, splitted[1], splitted[2], splitted[3]);
           end;
         end;
       end;

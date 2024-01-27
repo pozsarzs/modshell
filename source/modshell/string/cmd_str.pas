@@ -16,18 +16,24 @@
   p0      p1      p2        p3
   -----------------------------------
   chr     $TARGET [$]VALUE
+  concat  $TARGET [$]VALUE1 [$]VALUE2
   crc     $TARGET [$]VALUE
   length  $TARGET [$]VALUE
   lowcase $TARGET [$]VALUE
   lrc     $TARGET [$]VALUE
   ord     $TARGET [$]VALUE
+  strdel  $TARGET [$]PLACE  [$]COUNT
+  strfind $TARGET [$]VALUE
+  strins  $TARGET [$]PLACE  [$]VALUE
   stritem $TARGET [$]VALUE1 [$]VALUE2
+  strrepl $TARGET [$]OLD    [$]NEW
   upcase  $TARGET [$]VALUE
 }
 
 procedure cmd_string(op: byte; p1, p2, p3: string);
 var
   s2, s3: string; // parameters in other type
+  s: string;
 begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) then
@@ -69,6 +75,11 @@ begin
       65: vars[intisitvariable(p1)].vvalue := inttostr(ord(s2[1]));
       76: vars[intisitvariable(p1)].vvalue := inttostr(lrc(s2));
       77: vars[intisitvariable(p1)].vvalue := inttostr(crc(s2));
+      83: vars[intisitvariable(p1)].vvalue := concat(s2, s3);
+      84: delete(vars[intisitvariable(p1)].vvalue, strtointdef(s2, 0), strtointdef(s3, 0));
+      85: vars[intisitvariable(p1)].vvalue := inttostr(pos(s2, vars[intisitvariable(p1)].vvalue));
+      86: insert(s3, vars[intisitvariable(p1)].vvalue, strtointdef(s2, 0));
+      87: vars[intisitvariable(p1)].vvalue := stringreplace(vars[intisitvariable(p1)].vvalue, s2, s3, [rfReplaceAll]);
     end;
   except
     writeln(ERR20);
