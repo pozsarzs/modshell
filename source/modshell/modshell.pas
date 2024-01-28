@@ -405,7 +405,7 @@ begin
                // goto LABEL
            70: cmd_if(splitted[1], splitted[2], splitted[3], splitted[4], command);
                // if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND
-           71: cmd_for(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
+           71: cmd_for(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], command);
                // for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND  
            72: cmd_label(splitted[1]);
                // label NAME

@@ -83,6 +83,6 @@ begin
     4: if i1 > i3  then valid := true else valid := false;
     5: if i1 <> i3 then valid := true else valid := false;
   end;
-  p5 := stringreplace(p5,'if ' + p1 + ' ' + p2 + ' ' + p3 + ' ' + p4 + ' ', '', [rfReplaceAll]);
+  p5 := stringreplace(p5, 'if ' + p1 + ' ' + p2 + ' ' + p3 + ' ' + p4 + ' ', '', [rfReplaceAll]);
   if valid then parsingcommands(p5);
 end;

@@ -20,5 +20,62 @@
 
 // COMMAND 'FOR'
 procedure cmd_for(p1, p2, p3, p4, p5, p6: string);
+var
+  i, i1, i2, i4: integer;  // parameters in other type
+  s1, s2, s3, s4: string;  // parameters in other type
+  valid: boolean = false;
+
 begin
+  // CHECK LENGTH OF PARAMETERS
+  if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
+     (length(p4) = 0) or (length(p5) = 0) or (length(p6) = 0) then
+  begin
+    writeln(ERR05); // parameter required
+    exit;
+  end;
+  // CHECK P1 PARAMETER
+  if not boolisitvariable(p1) then
+  begin
+    writeln(ERR19 + p1); // No such variable
+    exit;
+  end;
+  // CHECK P2 PARAMETER
+  if boolisitconstant(p2) then s2 := isitconstant(p2);
+  if boolisitvariable(p2) then s2 := isitvariable(p2);
+  if length(s2) = 0 then s2 := p2;
+  i2 := strtointdef(s2, -1);
+  if (i2 < 0) or (i2 > 65535) then
+  begin
+    writeln('2nd ' + MSG05 + ' 0-65535'); // What is the 2nd parameter?
+    exit;
+  end;
+  // CHECK P3 PARAMETER
+  if lowercase(p3) <> 'to' then
+  begin
+    writeln('3rd ' + MSG05+'  to'); // What is the 3rd parameter?
+    exit;
+  end;
+  // CHECK P4 PARAMETER
+  if boolisitconstant(p4) then s4 := isitconstant(p4);
+  if boolisitvariable(p4) then s4 := isitvariable(p4);
+  if length(s4) = 0 then s4 := p4;
+  i4 := strtointdef(s4, -1);
+  if (i4 < 0) or (i4 > 65535) then
+  begin
+    writeln('4th ' + MSG05 + ' 0-65535'); // What is the 4th parameter?
+    exit;
+  end;
+  // CHECK P5 PARAMETER
+  if lowercase(p5) <> 'do' then
+  begin
+    writeln('5th ' + MSG05+'  do'); // What is the 5th parameter?
+    exit;
+  end;
+  // PRIMARY MISSION
+  p6 := stringreplace(p6, 'for ' + p1 + ' ' + p2 + ' ' + p3 + ' ' + p4 + ' ' + p5 + ' ', '', [rfReplaceAll]);
+  for i := i2 to i4 do
+  begin
+    vars[intisitvariable(p1)].vvalue := inttostr(i);
+    parsingcommands(p6);
+  end;
 end;
