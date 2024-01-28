@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'LOADSCR'
-procedure cmd_loadscr(p1: string);
+function cmd_loadscr(p1: string): byte;
 var
   line: byte;
   fpn, fp, fn: string;
@@ -28,10 +28,12 @@ var
   s1: string;               // parameters in other type
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -76,6 +78,7 @@ begin
           end else
           begin
             writeln(ERR23);
+            result := 1;
             exit;
           end;
         end;
@@ -83,6 +86,7 @@ begin
     until eof(sf);
     closefile(sf);
   except
+    result := 1;
     writeln(ERR22 + fpn);
   end;
 end;

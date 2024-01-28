@@ -86,6 +86,8 @@ OPERATION
        selected.
 
 PREDEFINED CONSTANTS
+       $?     Exit value of the commands.
+
        $PI    Value of Pi (3.1415926535897932385).
 
        $EULER Value of e  (2.7182818284590452354).
@@ -95,6 +97,7 @@ BUILTIN COMMANDS
          - register: local buffer register;
          - remote register: register of the connected device;
          - The '$' sign indicates a variable not a direct value.
+         - The exit value of the commands is in the '$?' constant.
 
    Arithmetical commands
        add $TARGET [$]VALUE1 [$]VALUE2

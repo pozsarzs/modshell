@@ -20,7 +20,7 @@
 }
 
 // COMMAND 'SERWRITE'
-procedure cmd_serwrite(p1, p2: string);
+function cmd_serwrite(p1, p2: string): byte;
 var
   b: byte;
   i1: integer;             // parameters other type
@@ -28,10 +28,12 @@ var
   valid: boolean = false;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -48,16 +50,19 @@ begin
   begin
     write('1st ' + MSG05); // What is the 1st parameter?
     writeln(' ' + PREFIX[0] + '[0-7]');
+    result := 1;
     exit;
   end;
   if not dev[i1].valid then
   begin
     writeln(PREFIX[0], i1, MSG06);
+    result := 1;
     exit;
   end;
   if not (dev[i1].devtype = 1) then
   begin
     writeln(MSG24);
+    result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER: IS IT A MESSAGE?
@@ -70,6 +75,7 @@ begin
     if length(s2) = 0 then
     begin
       writeln(ERR19);
+      result := 1;
       exit;
     end;
   end;
@@ -91,7 +97,15 @@ begin
         end;
         textcolor(uconfig.colors[0]);
         if (uconfig.echo = 1) and (b = 13) then write(EOL);
-      end else writeln(ERR27);
+      end else
+      begin
+        writeln(ERR27);
+        result := 1;
+      end;
       ser_close;
-    end else writeln(ERR18, dev[i1].device);
+    end else
+    begin
+      writeln(ERR18, dev[i1].device);
+      result := 1;
+    end;
 end;

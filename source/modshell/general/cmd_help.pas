@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'HELP'
-procedure cmd_help(p1: string);
+function cmd_help(p1: string): byte;
 var
   b, bb: byte;
   valid: boolean;
@@ -44,6 +44,7 @@ var
   end;
 
 begin
+  result := 0;
   for b := 0 to COMMARRSIZE + 5 do buffer[b] := '';
   if length(p1) = 0 then
   begin
@@ -172,7 +173,11 @@ begin
         valid := true;
         break;
       end;
-    if not valid then writeln(ERR00) else // No such command!
+    if not valid then
+    begin
+      writeln(ERR00);  // No such command!
+      result := 1;
+    end else
     begin
       // PRIMARY MISSION
       writeln(MSG04);

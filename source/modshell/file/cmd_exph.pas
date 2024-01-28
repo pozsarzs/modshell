@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'EXPHIS'
-procedure cmd_exphis(p1: string);
+function cmd_exphis(p1: string): byte;
 var
   b: byte;
   c: char;
@@ -28,10 +28,12 @@ var
   tf: text;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -86,6 +88,7 @@ begin
     closefile(tf);
   except
     writeln(ERR07 + fpn + '!');
+    result := 1;
     exit;
   end;
   writeln(MSG15 + fpn + '.');

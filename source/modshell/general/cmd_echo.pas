@@ -19,11 +19,12 @@
 }
 
 // COMMAND 'ECHO'
-procedure cmd_echo(p1: string);
+function cmd_echo(p1: string): byte;
 var
   ea: byte;
   valid: boolean;
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
@@ -43,6 +44,7 @@ begin
     write('1st ' + MSG05); // What is the 1st parameter?
     for ea := 0 to 3 do write(' ' + ECHO_ARG[ea]);
      writeln;
+     result := 1;
      exit;
   end;
   // PRIMARY MISSION

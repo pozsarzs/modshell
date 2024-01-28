@@ -18,23 +18,27 @@
   avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]
 }
 
-procedure cmd_avg(p1, p2, p3, p4, p5, p6: string);
+function cmd_avg(p1, p2, p3, p4, p5, p6: string): byte;
 var
   b: byte;
   f: float = 0;
   s: array[2..6] of string; // parameters in other type
   count: byte = 2; // number of the input values
+
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
   if not boolisitvariable(p1) then
   begin
     writeln(ERR19 + p1); // No such variable
+    result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER

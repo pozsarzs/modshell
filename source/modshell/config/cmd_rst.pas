@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'RESET'
-procedure cmd_reset(p1: string);
+function cmd_reset(p1: string): byte;
 var
   i: integer;
   pr: byte;
@@ -37,10 +37,12 @@ var
   end;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameter required!
+    result := 1;
     exit;
   end;
   // check p1 parameter
@@ -79,5 +81,9 @@ begin
         1: writeln(ERR02); // Protocol number must be 0-7!
         2: writeln(ERR03); // Connection number must be 0-7!
       end;
-  end else showvalid1stparameters;
+  end else
+  begin
+    showvalid1stparameters;
+    result := 1;
+  end;
 end;

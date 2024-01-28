@@ -30,27 +30,31 @@
   upcase  $TARGET [$]VALUE
 }
 
-procedure cmd_string(op: byte; p1, p2, p3: string);
+function cmd_string(op: byte; p1, p2, p3: string): byte;
 var
   s2, s3: string; // parameters in other type
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   if op = 63 then
     if (length(p3) = 0) then
     begin
       writeln(ERR05); // Parameters required!
+      result := 1;
       exit;
     end;
   // CHECK P1 PARAMETER
   if not boolisitvariable(p1) then
   begin
     writeln(ERR19 + p1); // No such variable
+    result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER
@@ -60,8 +64,8 @@ begin
   // CHECK P3 PARAMETER
   if op = 63 then
   begin
-  if boolisitconstant(p3) then s3 := isitconstant(p3);
-  if boolisitvariable(p3) then s3 := isitvariable(p3);
+    if boolisitconstant(p3) then s3 := isitconstant(p3);
+    if boolisitvariable(p3) then s3 := isitvariable(p3);
     if length(s3) = 0 then s3 := p3;
   end;
   // PRIMARY MISSION
@@ -82,6 +86,7 @@ begin
       87: vars[intisitvariable(p1)].vvalue := stringreplace(vars[intisitvariable(p1)].vvalue, s2, s3, [rfReplaceAll]);
     end;
   except
+    result := 1;
     writeln(ERR20);
   end;
 end;

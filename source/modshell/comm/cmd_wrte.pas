@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'WRITE'
-procedure cmd_write(p1, p2, p3, p4: string);
+function cmd_write(p1, p2, p3, p4: string): byte;
 var
   i1, i3, i4: integer;     // parameters other type
   rt: byte = 1;            // register type
@@ -27,10 +27,12 @@ var
   valid: boolean = false;
 
 begin
+  result := 0;
   // CHECK ALL PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   s1 := p1;
@@ -40,11 +42,13 @@ begin
   begin
     write('1st ' + MSG05); // What is the 1nd parameter?
     writeln(' ' + PREFIX[2]+'[0-7]');
+    result := 1;
     exit;
   end;
   if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
   begin
     writeln(ERR01); // Device number must be 0-7!
+    result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER
@@ -67,6 +71,7 @@ begin
       rt := rt + 2;
     end;
     writeln;
+    result := 1;
     exit;
   end;
   // CHECK P3 PARAMETER
@@ -77,6 +82,7 @@ begin
   if (i3 < 1 ) or (i3 > 9999) then
   begin
     writeln('3rd ' + MSG05 + ' 1-9999'); // What is the 3rd parameter?
+    result := 1;
     exit;
   end;
   // CHECK P4 PARAMETER
@@ -89,6 +95,7 @@ begin
     if (i4 < 1 ) or (i4 > 125) then
     begin
       writeln('4th ' + MSG05 + ' 1-125'); // What is the 3rd parameter?
+      result := 1;
       exit;
     end;
   end else i4 := 1;

@@ -78,6 +78,9 @@ display of sent and received data can be turned off or raw text and
 hexadecimal viewing can be selected.
 .SH PREDEFINED CONSTANTS
 .TP
+\fB$?\fP
+Exit value of the commands.
+.TP
 \fB$PI\fP
 Value of Pi (3.1415926535897932385).
 .TP
@@ -88,6 +91,7 @@ Notes:
   - register: local buffer register;
   - remote register: register of the connected device;
   - The '$' sign indicates a variable not a direct value.
+  - The exit value of the commands is in the '$?' constant.
 
 .SS Arithmetical commands
 .TP

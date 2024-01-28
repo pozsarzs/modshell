@@ -236,6 +236,7 @@ selected.
 
 |name  |value                              |
 |------|-----------------------------------|
+|$?    |exit value of the commands         |
 |$PI   |value of Pi (3.1415926535897932385)|
 |$EULER|value of e  (2.7182818284590452354)|
 

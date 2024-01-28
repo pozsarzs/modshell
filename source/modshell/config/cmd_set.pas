@@ -24,12 +24,13 @@
 }
 
 // COMMAND 'SET'
-procedure cmd_set(p1, p2, p3, p4, p5, p6, p7: string);
+function cmd_set(p1, p2, p3, p4, p5, p6, p7: string):byte;
 var
   i1: integer;             // parameters in other type
   pr: byte;
   s1: string;              // parameters in other type
   valid: boolean = false;
+  error: byte = 0;
 
   // COMMAND 'SET DEV'
   procedure cmd_set_dev(n, p2, p3, p4, p5, p6, p7: string);
@@ -42,6 +43,7 @@ var
     if (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0) then
     begin
       writeln(ERR05); // Parameter required!
+      error := 1;
       exit;
     end;
     // CHECK P2 PARAMETER
@@ -56,6 +58,7 @@ var
       write('2st ' + MSG05); // What is the 2nd parameter?
       for i := 0 to 1 do write(' ' + DEV_TYPE[i]);
       writeln;
+      error := 1;
       exit;
     end;
     if dvt = 0 then
@@ -68,6 +71,7 @@ var
       if (strtointdef(s4, -1) < 0 ) or (strtointdef(s4, -1) > 65535) then
       begin
         writeln('4th ' + MSG05 + ' 0-65535'); // What is the 4th parameter?
+        error := 1;
         exit;
       end;
       // PRIMARY MISSION
@@ -85,6 +89,7 @@ var
       if (length(p5) = 0) or (length(p6) = 0) or (length(p7) = 0) then
       begin
         writeln(ERR05); // Parameter required!
+        error := 1;
         exit;
       end;
       // CHECK P4 PARAMETER
@@ -102,6 +107,7 @@ var
         write('4th ' + MSG05); // What is the 4th parameter?
         for i := 0 to 7 do write(' ' + DEV_SPEED[i]);
         writeln;
+        error := 1;
         exit;
       end;
       // CHECK P5 PARAMETER
@@ -111,6 +117,7 @@ var
       if (strtointdef(s5, -1) < 7 ) or (strtointdef(s5, -1) > 8) then
       begin
         writeln('5th ' + MSG05 + ' 7-8'); // What is the 5th parameter?
+        error := 1;
         exit;
       end;
       // CHECK P6 PARAMETER
@@ -128,6 +135,7 @@ var
         write('6th ' + MSG05); // What is the 6th parameter?
         for i := 0 to 2 do write(' ' + DEV_PARITY[i]);
         writeln;
+        error := 1;
         exit;
       end;
       // CHECK P7 PARAMETER
@@ -137,6 +145,7 @@ var
       if (strtointdef(s7, -1) < 1 ) or (strtointdef(s7, -1) > 2) then
       begin
         writeln('7th ' + MSG05 + ' 1-2'); // What is the 7th parameter?
+        error := 1;
         exit;
       end;
       // PRIMARY MISSION
@@ -166,6 +175,7 @@ var
     if (length(p2) = 0) or (length(p3) = 0) then
     begin
       writeln(ERR05); // Parameter required!
+      error := 1;
       exit;
     end;
     // CHECK P2 PARAMETER
@@ -180,6 +190,7 @@ var
       write('2st ' + MSG05); // What is the 2nd parameter?
       for i := 0 to 2 do write(' ' + PROT_TYPE[i]);
       writeln;
+      error := 1;
       exit;
     end;
     // CHECK P3 PARAMETER
@@ -191,12 +202,14 @@ var
       if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 247) then
       begin
         writeln(ERR06); // UID must be 1-247!
+        error := 1;
         exit;
       end;
     end else
       if not checkipaddress(s3) then
       begin
         writeln(ERR04); // Invalid IP address!
+        error := 1;
         exit;
       end;
     // PRIMARY MISSION
@@ -223,6 +236,7 @@ var
     if (length(p2) = 0) or (length(p3) = 0) then
     begin
       writeln(ERR05);  // Parameters required!
+      error := 1;
       exit;
     end;
     s2 := p2;
@@ -234,11 +248,13 @@ var
     begin
       write('2nd ' + MSG05); // What is the 2nd parameter?
       writeln(' ' + PREFIX[0]+'[0-7]');
+      error := 1;
       exit;
     end;
     if length(p2) >= 4 then i2 := strtointdef(p2[4],-1) else
     begin
       writeln(ERR01); // Device number must be 0-7!
+      error := 1;
       exit;
     end;
     if not validity(0, i2) then exit;
@@ -247,14 +263,20 @@ var
     begin
       write('3rd ' + MSG05); // What is the 3rd parameter?
       writeln(' ' + PREFIX[1]+'[0-7]');
+      error := 1;
       exit;
     end;
     if length(p3) >= 4 then i3 := strtointdef(p3[4],-1) else
     begin
       writeln(ERR02); // Protocol number must be 0-7!
+      error := 1;
       exit;
     end;
-    if not validity(1, i3) then exit;
+    if not validity(1, i3) then
+    begin
+      error := 1;
+      exit;
+    end;
     // PRIMARY MISSION
     with conn[strtoint(n)] do
     begin
@@ -296,7 +318,11 @@ var
       for bb := 123 to 255 do
         if s[b] = chr(bb) then valid := false;
     end;
-    if not valid then writeln(ERR14) else proj := s;
+    if not valid then
+    begin
+      writeln(ERR14);
+      error := 1;
+    end else proj := s;
   end;
 
   //SHOW VALID 1ST PARAMETERS
@@ -311,16 +337,19 @@ var
   end;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameter required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
   if p1 = PREFIX[3] then
   begin
     cmd_set_prj(p2);
+    result := 1;
     exit;
   end;
   s1 := p1;
@@ -334,6 +363,7 @@ begin
   if not valid then
   begin
     showvalid1stparameters;
+    result := 1;
     exit;
   end;
   if length(p1) >= 4 then
@@ -348,10 +378,18 @@ begin
         2: cmd_set_con(inttostr(i1), p2, p3);
       end
     else
+    begin
       case pr of
         0: writeln(ERR01); // Device number must be 0-7!
         1: writeln(ERR02); // Protocol number must be 0-7!
         2: writeln(ERR03); // Connection number must be 0-7!
       end;
-  end else showvalid1stparameters;
+      result := 1;
+    end;
+  end else
+  begin
+    showvalid1stparameters;
+    result := 1;
+  end;
+  if error > 0 then result := error;
 end;

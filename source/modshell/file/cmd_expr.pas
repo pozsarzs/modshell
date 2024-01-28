@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'EXPREG'
-procedure cmd_expreg(p1, p2, p3, p4: string);
+function cmd_expreg(p1, p2, p3, p4: string): byte;
 var
   // appendfile: boolean = false;
   c: char;
@@ -38,10 +38,12 @@ const
   PREFIX: string = 'addr';
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -87,6 +89,7 @@ begin
     write(MSG22); // What is the file extension?
     for ft := 0 to 3 do write(' ' + FILE_TYPE[ft]);
     writeln;
+    result := 1;
     exit;
   end;
   valid := false;
@@ -102,6 +105,7 @@ begin
     write('2nd ' + MSG05); // What is the 2nd parameter?
     for rt := 0 to 3 do write(' ' + REG_TYPE[rt]);
     writeln;
+    result := 1;
     exit;
   end;
   // CHECK P3 PARAMETER
@@ -112,6 +116,7 @@ begin
   if (i3 < 1) or (i3 > 9999) then
   begin
     writeln('3rd ' + MSG05 + ' 1-9999'); // What is the 3rd parameter?
+    result := 1;
     exit;
   end;
   // CHECK P4 PARAMETER
@@ -124,6 +129,7 @@ begin
     if (i4 < 1 ) or (i4 > 9999) then
     begin
       writeln('4th ' + MSG05 + ' 1-9999'); // What is the 4rd parameter?
+      result := 1;
       exit;
     end;
   end else i4 := 1;
@@ -146,6 +152,7 @@ begin
            closefile(tf);  
          except
            writeln(ERR10 + fpn + '!');
+           result := 1;
            exit;
          end;
        end;
@@ -165,6 +172,7 @@ begin
            end;
          except
            writeln(ERR10 + fpn + '!');
+           result := 1;
          end;
          ini.free;
        end;
@@ -220,6 +228,7 @@ begin
            writexmlfile(xml, fpn);
          except
            writeln(ERR10 + fpn + '!');
+           result := 1;
          end;
          xml.free;
        end;

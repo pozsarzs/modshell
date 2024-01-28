@@ -20,7 +20,7 @@
 }
 
 // COMMAND 'COPY'
-procedure cmd_copy(p1, p2, p3, p4, p5, p6: string);
+function cmd_copy(p1, p2, p3, p4, p5, p6: string): byte;
 var
   i1, i3, i5, i6: integer;  // parameters in other type
   rt: byte;                 // register type
@@ -28,11 +28,13 @@ var
   valid: boolean = false;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
      (length(p4) = 0) or (length(p5) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   s1 := p1;
@@ -47,6 +49,7 @@ begin
   if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
   begin
     writeln(ERR01); // Device number must be 0-7!
+    result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER
@@ -61,6 +64,7 @@ begin
     write('2nd ' + MSG05); // What is the 2nd parameter?
     for rt := 0 to 3 do write(' ' + REG_TYPE[rt]);
     writeln;
+    result := 1;
     exit;
   end;
   s3 := p3;
@@ -70,11 +74,13 @@ begin
   begin
     write('1st ' + MSG05); // What is the 3rd parameter?
     writeln(' ' + PREFIX[2]+'[0-7]');
+    result := 1;
     exit;
   end;
   if length(p3) >= 4 then i3 := strtointdef(p3[4],-1) else
   begin
     writeln(ERR01); // Device number must be 0-7!
+    result := 1;
     exit;
   end;
   valid := false;
@@ -88,11 +94,13 @@ begin
   end;
   if not valid then
   begin
+    result := 1;
     if rt <= 1
     then
       write('4th ' + MSG05 + ' ' + REG_TYPE[1]) // What is the 4th parameter?
     else
       write('4th ' + MSG05 + ' ' + REG_TYPE[3]); // What is the 4th parameter?
+    exit;
   end;
   // CHECK P5 PARAMETER
   if boolisitconstant(p5) then s5 := isitconstant(p5);
@@ -102,6 +110,7 @@ begin
   if (i5 < 1) or (i5 > 9999) then
   begin
     writeln('5th ' + MSG05 + ' 1-9999'); // What is the 5th parameter?
+    result := 1;
     exit;
   end;
   // CHECK P6 PARAMETER
@@ -114,6 +123,7 @@ begin
     if (i6 < 1 ) or (i6 > 125) then
     begin
       writeln('6th ' + MSG05 + ' 1-125'); // What is the 6th parameter?
+      result := 1;
       exit;
     end;
   end else i6 := 1;

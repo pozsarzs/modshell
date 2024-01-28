@@ -21,7 +21,7 @@
 }
 
 // COMMAND 'PRINT'
-procedure cmd_print(p1, p2, p3, p4: string);
+function cmd_print(p1, p2, p3, p4: string): byte;
 const
   N: string[2] = '-n';
 var
@@ -32,6 +32,7 @@ var
   crlf: boolean = true;    // carriage return and line feed
   
 begin
+  result := 0;
   // SEARCH -N IN ALL PARAMETERS
   if ((length(p1) > 0) and (p1 = N)) or
      ((length(p2) > 0) and (p2 = N)) or
@@ -41,6 +42,7 @@ begin
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER: IS IT A MESSAGE?
@@ -58,6 +60,7 @@ begin
   begin
     write(s1);
     if crlf then writeln;
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -72,6 +75,7 @@ begin
     write('1st ' + MSG05); // What is the 1st parameter?
     for i := 0 to 3 do write(' ' + REG_TYPE[i]);
     writeln;
+    result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER
@@ -82,6 +86,7 @@ begin
   if (i2 < 1 ) or (i2 > 9999) then
   begin
     writeln('2nd ' + MSG05 + ' 1-9999'); // What is the 2nd parameter?
+    result := 1;
     exit;
   end;
   // CHECK P3 PARAMETER
@@ -95,6 +100,7 @@ begin
   if (i3 < 1 ) or (i3 > 9999) then
   begin
     writeln('3rd ' + MSG05 + ' 1-9999'); // What is the 3rd parameter?
+    result := 1;
     exit;
   end;
   // RANGE CHECK

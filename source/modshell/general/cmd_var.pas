@@ -19,7 +19,6 @@
   var NAME [[$]VALUE]
 }
 
-
 // IF S IS A VARIABLE, IT RETURNS theirs number
 function intisitvariable(s: string): integer;
 var
@@ -66,7 +65,7 @@ begin
 end;
 
 // COMMAND 'VAR'
-procedure cmd_var(p1, p2: string);
+function cmd_var(p1, p2: string): byte;
 var
   b, bb: byte;
   l: byte;
@@ -75,6 +74,7 @@ var
   valid: boolean = true;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
@@ -122,6 +122,7 @@ begin
     if not valid then
     begin
       writeln(ERR17);
+      result := 1;
       exit;
     end;
     // CHECK EMPTY SPACE IN VARIABLE TABLE
@@ -135,7 +136,8 @@ begin
     if not valid then
     begin
       writeln(ERR16);
-      exit;
+      result := 1;
+    exit;
     end;
     // CHECK P2 PARAMETER
     if (length(p2) > 0) then

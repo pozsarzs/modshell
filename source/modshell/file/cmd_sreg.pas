@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'SAVECFG'
-procedure cmd_savereg(p1: string);
+function cmd_savereg(p1: string): byte;
 var
   c: char;
   i: integer;
@@ -29,10 +29,12 @@ var
   s1: string;               // parameters in other type
  
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -77,6 +79,7 @@ begin
     closefile(ftb);
   except
     writeln(ERR12 + fpn + '!');
+    result := 1;
     exit;
   end;
   writeln(MSG20 + fpn + '.');
@@ -90,6 +93,7 @@ begin
     closefile(ftw);
   except
     writeln(ERR12 + fpn + '!');
+    result := 1;
     exit;
   end;
   writeln(MSG20 + fpn + '.');

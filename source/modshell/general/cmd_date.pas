@@ -14,11 +14,12 @@
 }
 
 // COMMAND 'DATE'
-procedure cmd_date;
+function cmd_date: byte;
 var
   y, mh, d, w, h, m, s, cs: word;
 
 begin
+  result := 0;
   getdate(y, mh, d, w);
   gettime(h, m, s, cs);
   writeln(inttostr(y) + '.' + inttostr(mh) + '.' + inttostr(d)+ '. ' +

@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'SAVECFG'
-procedure cmd_savecfg(p1: string);
+function cmd_savecfg(p1: string): byte;
 var
   b, bb: byte;
   c: char;
@@ -30,10 +30,12 @@ var
   s1: string;                // parameters in other type
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -80,6 +82,7 @@ begin
              closefile(ftd);
            except
              writeln(ERR08 + fpn + '!');
+             result := 1;
              exit;
            end;
            writeln(MSG16 + fpn + '.');
@@ -93,6 +96,7 @@ begin
              closefile(ftp);
            except
              writeln(ERR08 + fpn + '!');
+             result := 1;
              exit;
            end;
            writeln(MSG16 + fpn + '.');
@@ -106,6 +110,7 @@ begin
              closefile(ftc);
            except
              writeln(ERR08 + fpn + '!');
+             result := 1;
              exit;
            end;
            writeln(MSG16 + fpn + '.');

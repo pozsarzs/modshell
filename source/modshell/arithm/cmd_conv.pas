@@ -19,17 +19,20 @@
 }
 
 // COMMAND 'CONV'
-procedure cmd_conv(p1, p2, p3: string);
+function cmd_conv(p1, p2, p3: string): byte;
 var
   ns1, ns2: byte;          // numerical system
   s: string;
   s3: string;              // parameter in other type
   valid: boolean = false;
+
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -44,6 +47,7 @@ begin
     write('1st ' + MSG05); // What is the 1st parameter?
     for ns1 := 0 to 3 do write(' ' + NUM_SYS[ns1]);
     writeln;
+    result := 1;
     exit;
   end;
   valid := false;
@@ -59,6 +63,7 @@ begin
     write('2nd ' + MSG05); // What is the 2nd parameter?
     for ns2 := 0 to 3 do write(' ' + NUM_SYS[ns2]);
     writeln;
+    result := 1;
     exit;
   end;
   // CHECK P3 PARAMETER
@@ -71,12 +76,14 @@ begin
          if DezToBin(s) <> s3 then
          begin
            writeln('3rd ' + MSG05 + ' 0-1111111111111111'); // What is the 3rd parameter?
+           result := 1;
            exit;
          end;
        end;
     1: if (strtointdef(s3, -1) < 0 ) or (strtointdef(p3, -1) > 65535) then
        begin
          writeln('3rd ' + MSG05 + ' 0-65535'); // What is the 3rd parameter?
+         result := 1;
          exit;
        end;
     2: begin
@@ -84,6 +91,7 @@ begin
          if DezToHex(s) <> uppercase(s3) then
          begin
            writeln('3rd ' + MSG05 + ' 0-FFFF'); // What is the 3rd parameter?
+           result := 1;
            exit;
          end;
        end;
@@ -92,6 +100,7 @@ begin
          if DezToOkt(s) <> s3 then
          begin
            writeln('3rd ' + MSG05 + ' 0-177777'); // What is the 3rd parameter?
+           result := 1;
            exit;
          end;
        end;

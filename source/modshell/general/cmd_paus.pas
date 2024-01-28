@@ -20,10 +20,11 @@
 }
 
 // COMMAND 'PAUSE'
-procedure cmd_pause(p1: string);
+function cmd_pause(p1: string): byte;
 var
   s1: string;  // parameter in other type
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then readkey else
   begin
@@ -32,8 +33,10 @@ begin
   if boolisitvariable(p1) then s1 := isitvariable(p1);
     if length(s1) = 0 then s1 := p1;
     // PRIMARY MISSION
-    if strtointdef(s1, -1) > -1
-      then delay(strtoint(s1) * 1000)
-      else writeln('1st ' + MSG05 + ' 1-65535'); // What is the 1st parameter?
+    if strtointdef(s1, -1) > -1 then delay(strtoint(s1) * 1000) else
+    begin
+      writeln('1st ' + MSG05 + ' 1-65535'); // What is the 1st parameter?
+      result := 1;
+    end;
   end;
 end;

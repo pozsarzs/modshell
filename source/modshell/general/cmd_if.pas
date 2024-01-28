@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'IF'
-procedure cmd_if(p1, p2, p3, p4, p5: string);
+function cmd_if(p1, p2, p3, p4, p5: string): byte;
 const
   RS: array[0..5] of string = ('<','<=','=','=>','>','<>');
 var
@@ -28,11 +28,13 @@ var
   valid: boolean = false;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
      (length(p4) = 0) or (length(p5) = 0) then
   begin
     writeln(ERR05); // parameter required
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -42,6 +44,7 @@ begin
   if (i1 < 0) or (i1 > 65535) then
   begin
     writeln('1st ' + MSG05 + ' 0-65535'); // What is the 1st parameter?
+    result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER
@@ -56,6 +59,7 @@ begin
     write('2nd ' + MSG05); // What is the 2nd parameter?
     for i2 := 0 to 5 do write(' ' + RS[i2]);
     writeln;
+    result := 1;
     exit;
   end;
   // CHECK P3 PARAMETER
@@ -66,12 +70,14 @@ begin
   if (i3 < 0) or (i3 > 65535) then
   begin
     writeln('3rd ' + MSG05 + ' 0-65535'); // What is the 3rd parameter?
+    result := 1;
     exit;
   end;
   // CHECK P4 PARAMETER
   if lowercase(p4) <> 'then' then
   begin
     writeln('4th ' + MSG05+'  then'); // What is the 4th parameter?
+    result := 1;
     exit;
   end;
   // PRIMARY MISSION

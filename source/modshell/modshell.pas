@@ -139,6 +139,7 @@ var
   // OTHERS
   appmode: byte;
   b: byte;
+  exitcode: byte;
   lang: string;
   scriptline: byte;
   scriptlabel: byte;
@@ -326,121 +327,122 @@ begin
         if not o then writeln(ERR00) else
         begin
           case b of
-            0: cmd_copy(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
+            0: exitcode := cmd_copy(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
                // copy con? dinp|coil con? coil ADDRESS COUNT
                // copy con? ireg|hreg con? hreg ADDRESS COUNT
-            2: cmd_get(splitted[1]);
+            2: exitcode := cmd_get(splitted[1]);
                // get dev?|pro?|con?|prj
-            3: cmd_help(splitted[1]);
+            3: exitcode := cmd_help(splitted[1]);
                // help [COMMAND]
-            4: cmd_let(splitted[1], splitted[2], splitted[3]);
+            4: exitcode := cmd_let(splitted[1], splitted[2], splitted[3]);
                // let dinp|coil|ireg|hreg ADDRESS VALUE
                // let $VARIABLE VALUE
                // let $VARIABLE dinp|coil|ireg|hreg ADDRESS
-            5: cmd_print(splitted[1], splitted[2], splitted[3], splitted[4]);
+            5: exitcode := cmd_print(splitted[1], splitted[2], splitted[3], splitted[4]);
                // print dinp|coil|ireg|hreg ADDRESS [COUNT] [-n]
                // print $VARIABLE [-n]
                // print "Hello\ world!" [-n]
-            6: cmd_read(splitted[1], splitted[2], splitted[3], splitted[4]);
+            6: exitcode := cmd_read(splitted[1], splitted[2], splitted[3], splitted[4]);
                // read con? dinp|coil|ireg|hreg ADDRESS [COUNT]
-            7: cmd_reset(splitted[1]);
+            7: exitcode := cmd_reset(splitted[1]);
                // reset dev?|pro?|con?|prj
-            8: cmd_set(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6], splitted[7]);
+            8: exitcode := cmd_set(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6], splitted[7]);
                // set dev? ser DEVICE BAUDRATE DATABIT PARITY STOPBIT
                // set dev? net DEVICE PORT
                // set pro? ascii|rtu UID
                // set pro? tcp IP_ADDRESS
                // set con? dev? pro?
                // set prj PROJECT_NAME
-            9: cmd_date;
+            9: exitcode := cmd_date;
                // date
-           10: version(false);
+           10: begin version(false); exitcode := 0; end;
                // ver
-           11: cmd_write(splitted[1], splitted[2], splitted[3], splitted[4]);
+           11: exitcode := cmd_write(splitted[1], splitted[2], splitted[3], splitted[4]);
                // write con? coil|hreg ADDRESS [COUNT]
-           12: clrscr;
+           12: begin clrscr; exitcode := 0; end;
                // cls
-           13: cmd_savecfg(splitted[1]);
+           13: exitcode := cmd_savecfg(splitted[1]);
                // savecfg PATH_AND_FILENAME
-           14: cmd_loadcfg(splitted[1]);
+           14: exitcode := cmd_loadcfg(splitted[1]);
                // loadcfg PATH_AND_FILENAME
-           15: cmd_expreg(splitted[1], splitted[2], splitted[3], splitted[4]);
+           15: exitcode := cmd_expreg(splitted[1], splitted[2], splitted[3], splitted[4]);
                // expreg FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]
-           16: cmd_exphis(splitted[1]);
+           16: exitcode := cmd_exphis(splitted[1]);
                // exphis FILENAME
-           17: cmd_conv(splitted[1], splitted[2], splitted[3]);
+           17: exitcode := cmd_conv(splitted[1], splitted[2], splitted[3]);
                // conv bin|dec|hex|oct bin|dec|hex|oct VALUE
-           18: cmd_savereg(splitted[1]);
+           18: exitcode := cmd_savereg(splitted[1]);
                // savereg PATH_AND_FILENAME
-           19: cmd_loadreg(splitted[1]);
+           19: exitcode := cmd_loadreg(splitted[1]);
                // loadreg PATH_AND_FILENAME
-           20: cmd_var(splitted[1], splitted[2]);
+           20: exitcode := cmd_var(splitted[1], splitted[2]);
                // var
                // var NAME [VALUE]
-           21: cmd_color(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5]);
+           21: exitcode := cmd_color(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5]);
                // color FOREGROUND BACKGROUND
-           22: cmd_impreg(splitted[1]);
+           22: exitcode := cmd_impreg(splitted[1]);
                // impreg FILENAME
-           33: cmd_dump(splitted[1], splitted[2]);
+           33: exitcode := cmd_dump(splitted[1], splitted[2]);
                // dump [dinp|coil|ireg|hreg]
-           34: cmd_pause(splitted[1]);
+           34: exitcode := cmd_pause(splitted[1]);
                // pause [[$]TIME]
-           35: cmd_sercons(splitted[1]);
+           35: exitcode := cmd_sercons(splitted[1]);
                // sercons [dev?]
-           36: cmd_serread(splitted[1], splitted[2]);
+           36: exitcode := cmd_serread(splitted[1], splitted[2]);
                // serread dev? [$TARGET]
-           37: cmd_serwrite(splitted[1], splitted[2]);
+           37: exitcode := cmd_serwrite(splitted[1], splitted[2]);
                // serwrite dev? "MESSAGE"
                // serwrite dev? $MESSAGE
-           38: cmd_echo(splitted[1]);
+           38: exitcode := cmd_echo(splitted[1]);
                // echo [off|on|hex|swap]
-           39: cmd_loadscr(splitted[1]);
+           39: exitcode := cmd_loadscr(splitted[1]);
                // loadscr PATH_AND_FILENAME
-           40: cmd_run(splitted[1]);
+           40: exitcode := cmd_run(splitted[1]);
                // run [-s]
-           66: cmd_const(splitted[1], splitted[2]);
+           66: exitcode := cmd_const(splitted[1], splitted[2]);
                // const
                // const NAME [VALUE]
-           69: cmd_goto(splitted[1]);
+           69: exitcode := cmd_goto(splitted[1]);
                // goto LABEL
-           70: cmd_if(splitted[1], splitted[2], splitted[3], splitted[4], command);
+           70: exitcode := cmd_if(splitted[1], splitted[2], splitted[3], splitted[4], command);
                // if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND
-           71: cmd_for(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], command);
+           71: exitcode := cmd_for(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], command);
                // for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND  
-           72: cmd_label(splitted[1]);
+           72: exitcode := cmd_label(splitted[1]);
                // label NAME
-           73: cmd_mbsrv(splitted[1]);
+           73: exitcode := cmd_mbsrv(splitted[1]);
                // mbsrv con?
-           74: cmd_mbgw(splitted[1], splitted[2]);
+           74: exitcode := cmd_mbgw(splitted[1], splitted[2]);
                // mbgw con? con?
-           79: cmd_ascii(splitted[1]);
+           79: exitcode := cmd_ascii(splitted[1]);
                // ascii
-           80: sysutils.beep;
+           80: begin sysutils.beep; exitcode := 0; end;
                // beep
-           81: cmd_avg(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
+           81: exitcode := cmd_avg(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
                //avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]
-           82: cmd_prop(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
+           82: exitcode := cmd_prop(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
                //prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE
-           88: cmd_varmon(splitted[1], splitted[2]);
+           88: exitcode := cmd_varmon(splitted[1], splitted[2]);
                // varmon on|off
                // varmon $VARIABLE1 on|off
           else
           begin
             // logical functions
-            if (b >= 23) and (b <= 28) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
-            if (b >= 58) and (b <= 59) then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
+            if (b >= 23) and (b <= 28) then exitcode := cmd_logic(b, splitted[1], splitted[2], splitted[3]);
+            if (b >= 58) and (b <= 59) then exitcode := cmd_logic(b, splitted[1], splitted[2], splitted[3]);
             if b = 67 then cmd_logic(b, splitted[1], splitted[2], splitted[3]);
             // arithmetical functions
-            if (b >= 29) and (b <= 32) then cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
-            if (b >= 42) and (b <= 57) then cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
-            if b = 68 then cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
-            if b = 78 then cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
+            if (b >= 29) and (b <= 32) then exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
+            if (b >= 42) and (b <= 57) then exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
+            if b = 68 then exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
+            if b = 78 then exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
             // string handler functions
-            if (b >= 60) and (b <= 65) then cmd_string(b, splitted[1], splitted[2], splitted[3]);
-            if (b >= 76) and (b <= 77) then cmd_string(b, splitted[1], splitted[2], splitted[3]);
-            if (b >= 83) and (b <= 87) then cmd_string(b, splitted[1], splitted[2], splitted[3]);
+            if (b >= 60) and (b <= 65) then exitcode := cmd_string(b, splitted[1], splitted[2], splitted[3]);
+            if (b >= 76) and (b <= 77) then exitcode := cmd_string(b, splitted[1], splitted[2], splitted[3]);
+            if (b >= 83) and (b <= 87) then exitcode := cmd_string(b, splitted[1], splitted[2], splitted[3]);
           end;
         end;
+        vars[0].vvalue := inttostr(exitcode);
       end;
     end;
   end;

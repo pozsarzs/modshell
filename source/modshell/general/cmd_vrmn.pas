@@ -43,15 +43,18 @@ begin
 end;
 
 // COMMAND 'VARMON'
-procedure cmd_varmon(p1, p2: string);
+function cmd_varmon(p1, p2: string): byte;
 var
   b: byte;
   valid: boolean;
+
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end else
     if length(p2) = 0 then
@@ -69,6 +72,7 @@ begin
         write('1st ' + MSG05); // What is the 1st parameter?
         for b := 0 to 1 do write(' ' + ECHO_ARG[b]);
         writeln;
+        result := 1;
         exit;
       end;
       // PRIMARY MISSION
@@ -81,6 +85,7 @@ begin
       if not boolisitvariable(p1) then
       begin
         writeln(ERR19 + p1); // No such variable
+        result := 1;
         exit;
       end;
       // CHECK P2 PARAMETER
@@ -96,6 +101,7 @@ begin
         write('2nd ' + MSG05); // What is the 2nd parameter?
         for b := 0 to 1 do write(' ' + ECHO_ARG[b]);
         writeln;
+        result := 1;
         exit;
       end;
       // PRIMARY MISSION

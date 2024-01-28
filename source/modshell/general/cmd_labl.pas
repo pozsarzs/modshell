@@ -19,7 +19,12 @@
 }
 
 // COMMAND 'LABEL'
-procedure cmd_label(p1: string);
+function cmd_label(p1: string): byte;
 begin
-  if appmode <> 4 then writeln(MSG33);
+  result := 0;
+  if appmode <> 4 then
+  begin
+    writeln(MSG33);
+    result := 1;
+  end;
 end;

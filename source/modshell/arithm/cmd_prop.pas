@@ -18,22 +18,26 @@
   prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE
 }
 
-procedure cmd_prop(p1, p2, p3, p4, p5, p6: string);
+function cmd_prop(p1, p2, p3, p4, p5, p6: string): byte;
 var
   f2, f3, f4, f5, f6: float; // parameters in other type
   s2, s3, s4, s5, s6: string; // parameters in other type
+
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
      (length(p4) = 0) or (length(p5) = 0) or (length(p6) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
   if not boolisitvariable(p1) then
   begin
     writeln(ERR19 + p1); // No such variable
+    result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER
@@ -66,5 +70,6 @@ begin
     vars[intisitvariable(p1)].vvalue := floattostr((((f5 - f4) / (f3 - f2)) * (f6 - f2)) + f4);
   except
     writeln(ERR20);
+    result := 1;
   end;
 end;

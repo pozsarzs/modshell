@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'IMPREG'
-procedure cmd_impreg(p1: string);
+function cmd_impreg(p1: string): byte;
 var
   i, j: integer;
   ini: TINIFile;
@@ -33,10 +33,12 @@ var
   xml: txmldocument;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -72,6 +74,7 @@ begin
     write(MSG22); // What is the file extension?
     for ft := 1 to 3 do write(' ' + FILE_TYPE[ft]);
     writeln;
+    result := 1;
     exit;
   end;
   valid := false;
@@ -93,6 +96,7 @@ begin
              end; 
          except
            writeln(ERR11 + fpn + '!');
+           result := 1;
          end;
          ini.free;
        end;
@@ -127,6 +131,7 @@ begin
                end;
              except
                writeln(err10 + fpn + '!');
+               result := 1;
                exit;
              end;
            childnode := childnode.nextsibling;

@@ -19,15 +19,18 @@
 }
 
 // COMMAND 'MBSRW'
-procedure cmd_mbsrv(p1: string);
+function cmd_mbsrv(p1: string): byte;
 var
   i1: integer;  // parameter in other type
   s1: string;   // parameter in other type
+
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   s1 := p1;
@@ -37,11 +40,13 @@ begin
   begin
     write('1st ' + MSG05); // What is the 1st parameter?
     writeln(' ' + PREFIX[2]+'[0-7]');
+    result := 1;
     exit;
   end;
   if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
   begin
     writeln(ERR01); // Device number must be 0-7!
+    result := 1;
     exit;
   end;
   // PRIMARY MISSION

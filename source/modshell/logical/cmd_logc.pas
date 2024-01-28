@@ -46,26 +46,30 @@ begin
 end;
 
 // LOGICAL OPERATIONS
-procedure cmd_logic(op: byte; p1, p2, p3: string);
+function cmd_logic(op: byte; p1, p2, p3: string): byte;
 var
   s2, s3: string; // parameters in other type
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   if op <> 25 then
     if (length(p3) = 0) then
     begin
       writeln(ERR05); // Parameters required!
+      result := 1;
       exit;
     end;
   // CHECK P1 PARAMETER
   if not boolisitvariable(p1) then
   begin
     writeln(ERR19 + p1); // No such variable
+    result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER
@@ -94,5 +98,6 @@ begin
     end;
   except
     writeln(ERR20);
+    result := 1;
   end;
 end;

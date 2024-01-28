@@ -19,11 +19,12 @@
 }
 
 // COMMAND 'RUN'
-procedure cmd_run(p1: string);
+function cmd_run(p1: string): byte;
 var
   line: byte;
   stepbystep: boolean;
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) > 0) and (p1 = '-s')
     then stepbystep := true 

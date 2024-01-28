@@ -20,7 +20,7 @@
 }
 
 // COMMAND 'ASCII'
-procedure cmd_ascii(p1: string);
+function cmd_ascii(p1: string): byte;
 var
   b, bb: byte;
   col, row: byte;
@@ -32,6 +32,7 @@ const
   SPC4 = '    ';
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) > 0) then
   begin
@@ -48,6 +49,7 @@ begin
       write('1st ' + MSG05); // What is the 1st parameter?
       for ns := 1 to 2 do write(' ' + NUM_SYS[ns]);
        writeln;
+       result := 1;
        exit;
      end;
   end;

@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'DUMP'
-procedure cmd_dump(p1, p2: string);
+function cmd_dump(p1, p2: string): byte;
 var
   b, line, column: byte;
   c: char;
@@ -29,6 +29,7 @@ var
   valid: boolean = false;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
@@ -68,6 +69,7 @@ begin
       write('1st ' + MSG05); // What is the 2nd parameter?
       for rt := 0 to 3 do write(' ' + REG_TYPE[rt]);
       writeln;
+      result := 1;
       exit;
     end;
     // CHECK P2 PARAMETER
@@ -78,6 +80,7 @@ begin
     if (i2 < 1) or (i2 > 9990) then
     begin
       writeln('2nd ' + MSG05 + ' 1-9990'); // What is the 3rd parameter?
+      result := 1;
       exit;
     end;
   end;
@@ -97,7 +100,11 @@ begin
           2: xywrite((5 * (column + 1)) + 2, wherey, false, addsomezero(4, deztohex(inttostr(ireg[(i2 + column) + line * 10]))));
           3: xywrite((5 * (column + 1)) + 2, wherey, false, addsomezero(4, deztohex(inttostr(hreg[(i2 + column) + line * 10]))));
         end;
-      end else exit;
+      end else
+      begin
+        result := 1;
+        exit;
+      end;
     writeln;
   end;
 end;

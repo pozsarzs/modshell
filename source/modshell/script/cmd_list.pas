@@ -19,11 +19,12 @@
 }
 
 // COMMAND 'LIST'
-procedure cmd_list;
+function cmd_list: byte;
 var
   y, line: byte;
 
 begin
+  result := 0;
   y := 0;
   for line := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[line]) > 0 then

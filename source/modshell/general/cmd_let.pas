@@ -21,7 +21,7 @@
 }
 
 // COMMAND 'LET'
-procedure cmd_let(p1, p2, p3: string);
+function cmd_let(p1, p2, p3: string): byte;
 var
   rt: byte;                // register type
   x, y: byte;
@@ -29,10 +29,12 @@ var
   valid: boolean = false;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -72,6 +74,7 @@ begin
         write('1st ' + MSG05); // What is the 1st parameter?
         for x := 0 to 3 do write(' ' + REG_TYPE[x]);
         writeln;
+        result := 1;
         exit;
       end;
       // CHECK P2 PARAMETER
@@ -84,6 +87,7 @@ begin
       if (strtointdef(s3, -1) < 1 ) or (strtointdef(s3, -1) > 9999) then
       begin
         writeln('2nd ' + MSG05 + ' 1-9999'); // What is the 2nd parameter?
+        result := 1;
         exit;
       end;
       // PRIMARY MISSION
@@ -109,6 +113,7 @@ begin
     write('1st ' + MSG05); // What is the 1st parameter?
     for x := 0 to 3 do write(' ' + REG_TYPE[x]);
     writeln;
+    result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER
@@ -117,6 +122,7 @@ begin
   if (strtointdef(s2, -1) < 1 ) or (strtointdef(s2, -1) > 9999) then
   begin
     writeln('2nd ' + MSG05 + ' 1-9999'); // What is the 2nd parameter?
+    result := 1;
     exit;
   end;
   // CHECK P3 PARAMETER
@@ -126,6 +132,7 @@ begin
     if (strtointdef(s3, -1) < 0 ) or (strtointdef(s3, -1) > 65535) then
     begin
       writeln('3rd ' + MSG05 + ' 0-65535'); // What is the 3rd parameter?
+      result := 1;
       exit;
     end;
   valid := false;
@@ -145,6 +152,7 @@ begin
         for y := 0 to 2 do
           write(' ' + BOOLVALUES[x, y]);
       writeln;
+      result := 1;
       exit;
     end;
   end;

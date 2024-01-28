@@ -24,15 +24,24 @@ procedure setdefaultconstants;
 begin
   with vars[0] do
   begin
+    vname := '?';
+    vvalue := '0';
+    vreadonly := true;
+    vmonitored := false;
+  end;
+  with vars[1] do
+  begin
     vname := 'pi';
     vvalue := floattostr(pi);
     vreadonly := true;
+    vmonitored := false;
   end;
-  with vars[1] do
+  with vars[2] do
   begin
     vname := 'euler';
     vvalue := floattostr(exp(1));
     vreadonly := true;
+    vmonitored := false;
   end;
 end;
 
@@ -82,7 +91,7 @@ begin
 end;
 
 // COMMAND 'CONS'
-procedure cmd_const(p1, p2: string);
+function cmd_const(p1, p2: string): byte;
 var
   b, bb: byte;
   l: byte;
@@ -91,6 +100,7 @@ var
   valid: boolean = true;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
@@ -115,6 +125,7 @@ begin
   if (length(p1) > 0) and (length(p2) = 0) then
   begin
     writeln(ERR05);
+    result := 1;
     exit;
   end;
   // SEARCH ILLEGAL CHARACTERS IN P1
@@ -143,6 +154,7 @@ begin
     if not valid then
     begin
       writeln(ERR17);
+      result := 1;
       exit;
     end;
     // CHECK EMPTY SPACE IN VARIABLE TABLE
@@ -156,6 +168,7 @@ begin
     if not valid then
     begin
       writeln(ERR34);
+      result := 1;
       exit;
     end;
     // CHECK P2 PARAMETER

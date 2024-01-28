@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'SERCONS'
-procedure cmd_sercons(p1: string);
+function cmd_sercons(p1: string): byte;
 var
   b: byte;
   c: char;
@@ -30,10 +30,12 @@ var
   lf: file of char;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -50,6 +52,7 @@ begin
   begin
     write('1st ' + MSG05); // What is the 1st parameter?
     writeln(' ' + PREFIX[0] + '[0-7]');
+    result := 1;
     exit;
   end;
   if not dev[i1].valid then
@@ -60,6 +63,7 @@ begin
   if not (dev[i1].devtype = 1) then
   begin
     writeln(MSG24);
+    result := 1;
     exit;
   end;
   // SET LOG FILE
@@ -116,7 +120,11 @@ begin
       writeln;
       ser_close;
       writeln;
-    end else writeln(ERR18, dev[i1].device);
+    end else
+    begin
+      writeln(ERR18, dev[i1].device);
+      result := 1;
+    end;
     try
       closefile(lf);
     except

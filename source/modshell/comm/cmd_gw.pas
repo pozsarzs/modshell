@@ -19,15 +19,18 @@
 }
 
 // COMMAND 'MBGW'
-procedure cmd_mbgw(p1, p2: string);
+function cmd_mbgw(p1, p2: string): byte;
 var
   i1, i2: integer;  // parameters in other type
   s1, s2: string;   // parameters in other type
+
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
     writeln(ERR05); // Parameters required!
+    result := 1;
     exit;
   end;
   s1 := p1;
@@ -37,11 +40,13 @@ begin
   begin
     write('1st ' + MSG05); // What is the 1st parameter?
     writeln(' ' + PREFIX[2]+'[0-7]');
+    result := 1;
     exit;
   end;
   if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
   begin
     writeln(ERR01); // Device number must be 0-7!
+    result := 1;
     exit;
   end;
   s2 := p2;
@@ -51,11 +56,13 @@ begin
   begin
     write('2nd ' + MSG05); // What is the 2nd parameter?
     writeln(' ' + PREFIX[2]+'[0-7]');
+    result := 1;
     exit;
   end;
   if length(p2) >= 4 then i2 := strtointdef(p2[4],-1) else
   begin
     writeln(ERR01); // Device number must be 0-7!
+    result := 1;
     exit;
   end;
   // PRIMARY MISSION

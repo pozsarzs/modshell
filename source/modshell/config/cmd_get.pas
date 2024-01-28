@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'GET'
-procedure cmd_get(p1: string);
+function cmd_get(p1: string): byte;
 var
   pr: byte;
   i: integer;
@@ -88,16 +88,19 @@ var
   end;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // Parameter required!
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETERS
   if p1 = PREFIX[3] then
   begin
     writeln(proj);
+    result := 1;
     exit;
   end;
   s1 := p1;
@@ -111,6 +114,7 @@ begin
   if not valid then
   begin
     showvalid1stparameters;
+    result := 1;
     exit;
   end;
   // PRIMARY MISSION
@@ -126,5 +130,9 @@ begin
         1: writeln(ERR02); // Protocol number must be 0-7!
         2: writeln(ERR03); // Connection number must be 0-7!
       end;
-  end else showvalid1stparameters;
+  end else
+  begin
+    showvalid1stparameters;
+    result := 1;
+  end;
 end;

@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'LOADCFG'
-procedure cmd_loadcfg(p1: string);
+function cmd_loadcfg(p1: string): byte;
 var
   b, bb: byte;
   fpn, fp, fn, fx: string;
@@ -29,6 +29,7 @@ var
   s1: string;                // parameters in other type
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
@@ -70,6 +71,7 @@ begin
              closefile(ftd);
            except
              writeln(ERR09 + fpn + '!');
+             result := 1;
              exit;
            end;
            writeln(MSG17 + fpn + '.');
@@ -83,6 +85,7 @@ begin
              closefile(ftp);
            except
              writeln(ERR09 + fpn + '!');
+             result := 1;
              exit;
            end;
            writeln(MSG17 + fpn + '.');
@@ -96,6 +99,7 @@ begin
              closefile(ftc);
            except
              writeln(ERR09 + fpn + '!');
+             result := 1;
              exit;
            end;
            writeln(MSG17 + fpn + '.');

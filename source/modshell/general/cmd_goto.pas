@@ -19,16 +19,18 @@
 }
 
 // COMMAND 'GOTO'
-procedure cmd_goto(p1: string);
+function cmd_goto(p1: string): byte;
 var
   line: byte;
   valid: boolean = false;
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
     writeln(ERR05); // parameter required
+    result := 1;
     exit;
   end;
   scriptlabel := 0;
@@ -42,6 +44,10 @@ begin
           valid := true;
           break;
         end;
-  if not valid then writeln(ERR35 + p1);
+    if not valid then
+    begin
+      writeln(ERR35 + p1);
+      result := 1;
+    end;
   end;
 end;

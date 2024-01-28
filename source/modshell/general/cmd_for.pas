@@ -19,24 +19,26 @@
 }
 
 // COMMAND 'FOR'
-procedure cmd_for(p1, p2, p3, p4, p5, p6: string);
+function cmd_for(p1, p2, p3, p4, p5, p6: string): byte;
 var
-  i, i1, i2, i4: integer;  // parameters in other type
-  s1, s2, s3, s4: string;  // parameters in other type
-  valid: boolean = false;
+  i, i2, i4: integer;  // parameters in other type
+  s2, s4: string;  // parameters in other type
 
 begin
+  result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
      (length(p4) = 0) or (length(p5) = 0) or (length(p6) = 0) then
   begin
     writeln(ERR05); // parameter required
+    result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
   if not boolisitvariable(p1) then
   begin
     writeln(ERR19 + p1); // No such variable
+    result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER
@@ -47,12 +49,14 @@ begin
   if (i2 < 0) or (i2 > 65535) then
   begin
     writeln('2nd ' + MSG05 + ' 0-65535'); // What is the 2nd parameter?
+    result := 1;
     exit;
   end;
   // CHECK P3 PARAMETER
   if lowercase(p3) <> 'to' then
   begin
     writeln('3rd ' + MSG05+'  to'); // What is the 3rd parameter?
+    result := 1;
     exit;
   end;
   // CHECK P4 PARAMETER
@@ -63,12 +67,14 @@ begin
   if (i4 < 0) or (i4 > 65535) then
   begin
     writeln('4th ' + MSG05 + ' 0-65535'); // What is the 4th parameter?
+    result := 1;
     exit;
   end;
   // CHECK P5 PARAMETER
   if lowercase(p5) <> 'do' then
   begin
     writeln('5th ' + MSG05+'  do'); // What is the 5th parameter?
+    result := 1;
     exit;
   end;
   // PRIMARY MISSION
