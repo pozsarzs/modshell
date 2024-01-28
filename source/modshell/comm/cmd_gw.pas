@@ -44,6 +44,8 @@ begin
     writeln(ERR01); // Device number must be 0-7!
     exit;
   end;
+  s2 := p2;
+  delete(s2, length(s2), 1);
   // CHECK P2 PARAMETER
   if PREFIX[2] <> s2 then
   begin

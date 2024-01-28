@@ -301,7 +301,7 @@ begin
       for b := 1 to length(command) do
         if command[b] <> '@' then s := s + command[b];
       command := s;
-      // SPLIT COMMAND TO EIGHT SLICES
+      // SPLIT COMMAND TO 8 SLICES
       for b := 0 to 7 do
         splitted[b] := '';
       for a := 1 to length(command) do
@@ -377,7 +377,7 @@ begin
            20: cmd_var(splitted[1], splitted[2]);
                // var
                // var NAME [VALUE]
-           21: cmd_color(splitted[1], splitted[2], splitted[3], splitted[4]);
+           21: cmd_color(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5]);
                // color FOREGROUND BACKGROUND
            22: cmd_impreg(splitted[1]);
                // impreg FILENAME
@@ -403,7 +403,7 @@ begin
                // const NAME [VALUE]
            69: cmd_goto(splitted[1]);
                // goto LABEL
-           70: cmd_if(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5]);
+           70: cmd_if(splitted[1], splitted[2], splitted[3], splitted[4], command);
                // if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND
            71: cmd_for(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
                // for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND  

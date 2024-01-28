@@ -23,7 +23,6 @@ procedure cmd_goto(p1: string);
 var
   line: byte;
   valid: boolean = false;
-  s1: string;              // parameter in other type
 
 begin
   // CHECK LENGTH OF PARAMETERS

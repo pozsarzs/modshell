@@ -13,22 +13,21 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0    p1            p2            p3              p4
-  --------------------------------------------------------------------
-  color [$]FOREGROUND [$]BACKGROUND [$]RECEIVEDTEXT [$]TRANSMITTEDTEXT
+  p0    p1            p2            p3              p4                 p5
+  ------------------------------------------------------------------------------
+  color [$]FOREGROUND [$]BACKGROUND [$]RECEIVEDTEXT [$]TRANSMITTEDTEXT [$]VARMON
 }
 
 // COMMAND 'COLOR'
-procedure cmd_color(p1, p2, p3, p4: string);
+procedure cmd_color(p1, p2, p3, p4, p5: string);
 var
-  i1, i2, i3, i4: integer; // parameters in other type
-  s1, s2, s3, s4: string;  // parameters in other type
+  i1, i2, i3, i4, i5: integer; // parameters in other type
+  s1, s2, s3, s4, s5: string;  // parameters in other type
 
 begin
   // CHECK LENGTH OF PARAMETER
-  if (length(p1) = 0) or (length(p2) = 0) or
-     (length(p3) = 0) or (length(p4) = 0)
- then
+  if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
+     (length(p4) = 0) or (length(p5) = 0) then
   begin
     writeln(ERR05); // Parameters required!
     exit;
@@ -72,9 +71,20 @@ begin
     writeln('4th ' + MSG05 + ' 0-15'); // What is the 4th parameter?
     exit;
   end;
+  // CHECK P5 PARAMETER
+  if boolisitconstant(p5) then s5 := isitconstant(p5);
+  if boolisitvariable(p5) then s5 := isitvariable(p5);
+  if length(s5) = 0 then s5 := p5;
+  i5 := strtointdef(s5, -1);
+  if (i5 < 0) or (i5 > 15) then
+  begin
+    writeln('5th ' + MSG05 + ' 0-15'); // What is the 5th parameter?
+    exit;
+  end;
   // PRIMARY MISSION
   uconfig.colors[0] := i1;
   uconfig.colors[1] := i2;
   uconfig.colors[2] := i3;
   uconfig.colors[3] := i4;
+  uconfig.colors[4] := i5;
 end;
