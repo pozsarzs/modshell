@@ -78,7 +78,7 @@ begin
       64: vars[intisitvariable(p1)].vvalue := chr(strtointdef(s2, 0));
       65: vars[intisitvariable(p1)].vvalue := inttostr(ord(s2[1]));
       76: vars[intisitvariable(p1)].vvalue := inttostr(lrc(s2));
-      77: vars[intisitvariable(p1)].vvalue := inttostr(crc(s2));
+      77: vars[intisitvariable(p1)].vvalue := inttostr(crc16(s2));
       83: vars[intisitvariable(p1)].vvalue := concat(s2, s3);
       84: delete(vars[intisitvariable(p1)].vvalue, strtointdef(s2, 0), strtointdef(s3, 0));
       85: vars[intisitvariable(p1)].vvalue := inttostr(pos(s2, vars[intisitvariable(p1)].vvalue));
