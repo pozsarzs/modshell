@@ -77,7 +77,7 @@ begin
         result := 1;
         exit;
       end;
-      // CHECK P2 PARAMETER
+      // CHECK P3 PARAMETER
       if boolisitconstant(p3) then s3 := isitconstant(p3);
       if boolisitvariable(p3) then s3 := isitvariable(p3);
       if length(s3) = 0 then s3 := p3;
@@ -117,7 +117,8 @@ begin
     exit;
   end;
   // CHECK P2 PARAMETER
-  s2 := isitvariable(p2);
+  if boolisitconstant(p2) then s2 := isitconstant(p2);
+  if boolisitvariable(p2) then s2 := isitvariable(p2);
   if length(s2) = 0 then s2 := p2;
   if (strtointdef(s2, -1) < 1 ) or (strtointdef(s2, -1) > 9999) then
   begin
@@ -126,7 +127,8 @@ begin
     exit;
   end;
   // CHECK P3 PARAMETER
-  s3 := isitvariable(p3);
+  if boolisitconstant(p3) then s3 := isitconstant(p3);
+  if boolisitvariable(p3) then s3 := isitvariable(p3);
   if length(s3) = 0 then s3 := p3;
   if rt > 1 then
     if (strtointdef(s3, -1) < 0 ) or (strtointdef(s3, -1) > 65535) then

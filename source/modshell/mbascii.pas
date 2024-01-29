@@ -33,7 +33,7 @@ begin
   adu := hex1(2, prot[protocol].uid) +
          pdu + 
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
-  tgm := #58 + adu + #13 + #10;
+  tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
@@ -127,7 +127,7 @@ begin
   adu := hex1(2, prot[protocol].uid) +
          pdu + 
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
-  tgm := #58 + adu + #13 + #10;
+  tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
@@ -221,7 +221,7 @@ begin
   adu := hex1(2, prot[protocol].uid) +
          pdu + 
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
-  tgm := #58 + adu + #13 + #10;
+  tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
@@ -317,7 +317,7 @@ begin
   adu := hex1(2, prot[protocol].uid) +
          pdu + 
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
-  tgm := #58 + adu + #13 + #10;
+  tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
@@ -412,7 +412,7 @@ begin
   if (count mod 8) > 0
   then pdu := pdu + hex1(2, (count div 8) + 1)
   else pdu := pdu + hex1(2, count div 8);
-  for i := address to count - 1 do
+  for i := address to address + count - 1 do
   begin
     x := 0;
     for bb := 0 to 7 do
@@ -422,7 +422,7 @@ begin
   adu := hex1(2, prot[protocol].uid) +
          pdu + 
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
-  tgm := #58 + adu + #13 + #10;
+  tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
@@ -503,12 +503,12 @@ begin
          hex1(4, address) +
          hex1(4, count) +
          hex1(2, count * 2);
-  for i := address to count - 1 do
+  for i := address to address + count - 1 do
     pdu := pdu + hex1(4, hreg[i]);
   adu := hex1(2, prot[protocol].uid) +
          pdu + 
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
-  tgm := #58 + adu + #13 + #10;
+  tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin

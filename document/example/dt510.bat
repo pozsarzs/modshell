@@ -3,7 +3,7 @@
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
-# | dt510                                                                      |
+# | getdt510.bat                                                               |
 # | Example script * Read Datcon DT510 power meter                             |
 # +----------------------------------------------------------------------------+
 

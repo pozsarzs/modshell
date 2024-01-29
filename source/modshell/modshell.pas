@@ -623,7 +623,7 @@ begin
       scriptline := scriptlabel;
       scriptlabel := 0;
     end;
-  until scriptline = SCRBUFFSIZE - 1;
+  until (scriptline = SCRBUFFSIZE - 1) or (sbuffer[scriptline] = COMMANDS[1]);
 end;
 
 // - COMMAND LINE PARAMETERS --------------------------------------------------
