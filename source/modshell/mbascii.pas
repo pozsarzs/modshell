@@ -14,7 +14,7 @@
 }
 
 // READ REMOTE COIL (FC01)
-procedure mbasc_readcoil(protocol, device, address, count: integer);
+procedure mbasc_readcoil(protocol, device, address, count: word);
 var
   b, bb: byte;
   c: char;
@@ -108,7 +108,7 @@ begin
 end;
 
 // READ REMOTE DISCRETE INPUT (FC02)
-procedure mbasc_readdinp(protocol, device, address, count: integer);
+procedure mbasc_readdinp(protocol, device, address, count: word);
 var
   b, bb: byte;
   c: char;
@@ -202,7 +202,7 @@ begin
 end;
 
 // READ REMOTE HOLDING REGISTER (FC03)
-procedure mbasc_readhreg(protocol, device, address, count: integer);
+procedure mbasc_readhreg(protocol, device, address, count: word);
 var
   b: byte;
   c: char;
@@ -298,7 +298,7 @@ begin
 end;
 
 // READ REMOTE INPUT REGISTER (FC04)
-procedure mbasc_readireg(protocol, device, address, count: integer);
+procedure mbasc_readireg(protocol, device, address, count: word);
 var
   b: byte;
   c: char;
@@ -394,7 +394,7 @@ begin
 end;
 
 // WRITE REMOTE COIL
-procedure mbasc_writecoil(protocol, device, address, count: integer);
+procedure mbasc_writecoil(protocol, device, address, count: word);
 var
   b, bb, x: byte;
   c: char;
@@ -486,7 +486,7 @@ begin
 end;
 
 // WRITE REMOTE HOLDING REGISTER
-procedure mbasc_writehreg(protocol, device, address, count: integer);
+procedure mbasc_writehreg(protocol, device, address, count: word);
 var
   b: byte;
   c: char;
