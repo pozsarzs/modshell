@@ -99,30 +99,25 @@ begin
     ser_close;
     // PARSE RESPONSE
     try
-      if tgm[1] = #58 then
-        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
-        begin
-          case strtoint('$' + tgm[4] + tgm[5]) of
-            FUNCTION_CODE: begin
-                             recvcount := strtoint('$' + tgm[6] + tgm[7]) div 2; // words
-                             b := 0;
-                             repeat
-                               hreg[address + b] := 
-                                 strtoint('$' + tgm[8 + 4 * b] +
-                                                tgm[9 + 4 * b] +
-                                                tgm[10 + 4 * b] +
-                                                tgm[11 + 4 * b]);
-                               b := b + 1;
-                             until b = recvcount;
-                           end;
-            FUNCTERR_CODE: case strtoint('$' + tgm[6] + tgm[7]) of
-                             1: writeln(ERR29);
-                             2: writeln(ERR30);
-                             3: writeln(ERR31);
-                             4: writeln(ERR32);
-                           end;
-          end;
-        end else writeln(ERR28);
+      if ord(tgm[1]) = prot[protocol].uid then
+      begin
+        case ord(tgm[2]) of
+          FUNCTION_CODE: begin
+                           recvcount := ord(tgm[3]) div 2; // words
+                           b := 0;
+                           repeat
+                             hreg[address + b] := ord(tgm[4 + 2 * b ]) * 256 + ord(tgm[5 + 2 * b]);
+                             b := b + 1;
+                           until b = recvcount;
+                         end;
+          FUNCTERR_CODE: case ord(tgm[3]) of
+                           1: writeln(ERR29);
+                           2: writeln(ERR30);
+                           3: writeln(ERR31);
+                           4: writeln(ERR32);
+                         end;
+        end;
+      end else writeln(ERR28);
     except
       writeln(ERR28);
     end;  
