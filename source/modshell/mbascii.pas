@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-// READ REMOTE COIL (FC01)
+// READ REMOTE COIL (FC 0x01)
 procedure mbasc_readcoil(protocol, device, address, count: word);
 var
   b, bb: byte;
@@ -107,7 +107,7 @@ begin
   end else writeln(ERR18, dev[device].device);
 end;
 
-// READ REMOTE DISCRETE INPUT (FC02)
+// READ REMOTE DISCRETE INPUT (FC 0x02)
 procedure mbasc_readdinp(protocol, device, address, count: word);
 var
   b, bb: byte;
@@ -201,7 +201,7 @@ begin
   end else writeln(ERR18, dev[device].device);
 end;
 
-// READ REMOTE HOLDING REGISTER (FC03)
+// READ REMOTE HOLDING REGISTER (FC 0x03)
 procedure mbasc_readhreg(protocol, device, address, count: word);
 var
   b: byte;
@@ -297,7 +297,7 @@ begin
   end else writeln(ERR18, dev[device].device);
 end;
 
-// READ REMOTE INPUT REGISTER (FC04)
+// READ REMOTE INPUT REGISTER (FC 0x04)
 procedure mbasc_readireg(protocol, device, address, count: word);
 var
   b: byte;
@@ -393,7 +393,7 @@ begin
   end else writeln(ERR18, dev[device].device);
 end;
 
-// WRITE REMOTE COIL
+// WRITE REMOTE COIL (FC 0x0F)
 procedure mbasc_writecoil(protocol, device, address, count: word);
 var
   b, bb, x: byte;
@@ -485,7 +485,7 @@ begin
   end else writeln(ERR18, dev[device].device);
 end;
 
-// WRITE REMOTE HOLDING REGISTER
+// WRITE REMOTE HOLDING REGISTER (FC 0x10)
 procedure mbasc_writehreg(protocol, device, address, count: word);
 var
   b: byte;

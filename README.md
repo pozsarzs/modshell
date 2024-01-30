@@ -1,6 +1,13 @@
 > [!WARNING]
 > The program is still under development, it is not yet suitable for its task.  
 > 
+> The next release will be **0.1-alpha2** with the following changes:
+> - Bug fixes,
+> - Modbus/ASCII and Modbus/RTU communication,
+> - handling of constants,
+> - two predefined constants and
+> - 23 new command (total: 89).
+>
 > **v0.1-alpha1:**  
 > This test release is not yet suitable for work, although it is functional, but
 > it can only communicate via Modbus/ASCII.

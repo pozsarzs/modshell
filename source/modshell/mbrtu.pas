@@ -13,22 +13,17 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-// READ REMOTE DISCRETE INPUT
-procedure mbrtu_readdinp(protocol, device, address, count: word);
-begin
-end;
-
-// READ REMOTE COIL
+// READ REMOTE COIL (FC 0x01)
 procedure mbrtu_readcoil(protocol, device, address, count: word);
 begin
 end;
 
-// READ REMOTE INPUT REGISTER
-procedure mbrtu_readireg(protocol, device, address, count: word);
+// READ REMOTE DISCRETE INPUT (FC 0x02)
+procedure mbrtu_readdinp(protocol, device, address, count: word);
 begin
 end;
 
-// READ REMOTE HOLDING REGISTER (FC03)
+// READ REMOTE HOLDING REGISTER (FC 0x03)
 procedure mbrtu_readhreg(protocol, device, address, count: word);
 var
   b: byte;
@@ -124,12 +119,108 @@ begin
   end else writeln(ERR18, dev[device].device);
 end;
 
-// WRITE REMOTE COIL
+// READ REMOTE INPUT REGISTER (FC 0x04)
+procedure mbrtu_readireg(protocol, device, address, count: word);
+var
+  b: byte;
+  c: char;
+  pdu, adu, tgm: string;
+  recvcount: byte;
+  wait: integer = 0;
+  crc: word;
+const
+  FUNCTION_CODE = $02;
+  FUNCTERR_CODE = FUNCTION_CODE + $80;
+
+begin
+  // CREATE ASCII TELEGRAM FOR REQUEST
+  pdu := char(FUNCTION_CODE) +
+         char(hi(address)) +
+         char(lo(address)) +
+         char(hi(count)) +
+         char(lo(count));
+  crc := crc16(char(prot[protocol].uid) + pdu);
+  adu := char(prot[protocol].uid) +
+         pdu + 
+         char(lo(crc)) +
+         char(hi(crc));
+  tgm := adu;
+  // CONNECT TO SERIAL PORT
+  if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
+  begin
+    writeln(MSG31);
+    // TRANSMIT REQUEST
+    if ser_canwrite then
+    begin
+      ser_sendstring(tgm);
+      textcolor(uconfig.colors[3]);
+      case uconfig.echo of
+        1: write(tgm);
+        2: begin
+             for b := 1 to length(tgm) do
+               write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
+             writeln;
+           end;
+      end;
+      textcolor(uconfig.colors[0]);
+    end else writeln(ERR27);
+    // RECEIVE RESPONSE
+    tgm := '';
+    repeat
+      if ser_canread then
+      begin
+        wait := 0;
+        b := ser_recvbyte;
+        textcolor(uconfig.colors[2]);
+        case uconfig.echo of
+          1: if b <> 10 then write(char(b));
+          2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+        end;
+        textcolor(uconfig.colors[0]);
+        tgm := tgm + char(b);
+      end else
+      begin
+        delay(1);
+        if wait < 65535 then inc(wait);
+      end;
+      if keypressed then c := readkey;
+    until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
+    if uconfig.echo > 0 then writeln;
+    // DISCONNECT SERIAL PORT
+    ser_close;
+    // PARSE RESPONSE
+    try
+      if ord(tgm[1]) = prot[protocol].uid then
+      begin
+        case ord(tgm[2]) of
+          FUNCTION_CODE: begin
+                           recvcount := ord(tgm[3]) div 2; // words
+                           b := 0;
+                           repeat
+                             ireg[address + b] := ord(tgm[4 + 2 * b ]) * 256 + ord(tgm[5 + 2 * b]);
+                             b := b + 1;
+                           until b = recvcount;
+                         end;
+          FUNCTERR_CODE: case ord(tgm[3]) of
+                           1: writeln(ERR29);
+                           2: writeln(ERR30);
+                           3: writeln(ERR31);
+                           4: writeln(ERR32);
+                         end;
+        end;
+      end else writeln(ERR28);
+    except
+      writeln(ERR28);
+    end;  
+  end else writeln(ERR18, dev[device].device);
+end;
+
+// WRITE REMOTE COIL (FC 0x0F)
 procedure mbrtu_writecoil(protocol, device, address, count: word);
 begin
 end;
 
-// WRITE REMOTE HOLDING REGISTER
+// WRITE REMOTE HOLDING REGISTER (FC 0x10)
 procedure mbrtu_writehreg(protocol, device, address, count: word);
 begin
 end;
