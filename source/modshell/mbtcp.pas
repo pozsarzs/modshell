@@ -13,33 +13,32 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-
-// READ REMOTE DISCRETE INPUT
-procedure mbtcp_readdinp(protocol, device, address, count: integer);
+// READ REMOTE COIL (FC 0x01)
+procedure mbtcp_readcoil(protocol, device, address, count: word);
 begin
 end;
 
-// READ REMOTE COIL
-procedure mbtcp_readcoil(protocol, device, address, count: integer);
+// READ REMOTE DISCRETE INPUT (FC 0x02)
+procedure mbtcp_readdinp(protocol, device, address, count: word);
 begin
 end;
 
-// READ REMOTE INPUT REGISTER
-procedure mbtcp_readireg(protocol, device, address, count: integer);
+// READ REMOTE HOLDING REGISTER (FC 0x03)
+procedure mbtcp_readhreg(protocol, device, address, count: word);
 begin
 end;
 
-// READ REMOTE HOLDING REGISTER
-procedure mbtcp_readhreg(protocol, device, address, count: integer);
+// READ REMOTE INPUT REGISTER (FC 0x04)
+procedure mbtcp_readireg(protocol, device, address, count: word);
 begin
 end;
 
-// WRITE REMOTE COIL
-procedure mbtcp_writecoil(protocol, device, address, count: integer);
+// WRITE REMOTE COIL (FC 0x0F)
+procedure mbtcp_writecoil(protocol, device, address, count: word);
 begin
 end;
 
-// WRITE REMOTE HOLDING REGISTER
-procedure mbtcp_writehreg(protocol, device, address, count: integer);
+// WRITE REMOTE HOLDING REGISTER (FC 0x10)
+procedure mbtcp_writehreg(protocol, device, address, count: word);
 begin
 end;

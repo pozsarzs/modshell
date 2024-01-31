@@ -4,7 +4,7 @@
 { | mbascii.pas                                                              | }
 { | Modbus/ASCII protocol procedures and functions                           | }
 { +--------------------------------------------------------------------------+ }
-{ 
+{
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -404,6 +404,7 @@ var
 const
   FUNCTION_CODE = $0F;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
+
 begin
   // CREATE ASCII TELEGRAM FOR REQUEST
   pdu := hex1(2, FUNCTION_CODE) +
