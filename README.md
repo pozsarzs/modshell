@@ -7,6 +7,7 @@
 > - handling of constants,
 > - two predefined constants and
 > - 23 new command (total: 89).
+> - Script syntax highlighting file for Micro.
 >
 > **v0.1-alpha1:**  
 > This test release is not yet suitable for work, although it is functional, but
