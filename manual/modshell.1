@@ -281,6 +281,16 @@ The specified parameter does not contain a path, the file will be saved in the
 project directory in the user's home directory (on DOS, in project directory
 in the program directory).
 .TP
+\fBapplog\fP \fI[$]LOGFILE\fP \fI$TEXT\fP \fI[$]LEVEL\fP \fI[[$]VALUE1]\fP ... \fI[[$]VALUE4]\fP
+Appends a record to \fI$LOGFILE\fP. The record contains timestamp, message level and the
+text. The level can be 0-4: NOTE, MESSAGE, WARNING, ERROR, DEBUG. The text contains
+the level can contain $$1-$4 variables, these can be specified on the command line.
+.TP
+\fBapplog\fP \fI[$]LOGFILE\fP "TEXT\ $$1\ TEXT"\fP \fI[$]LEVEL\fP \fI[[$]VALUE1]\fP
+Appends a record to \fI$LOGFILE\fP. The record contains timestamp, message level and the
+text. The level can be 0-4: NOTE, MESSAGE, WARNING, ERROR, DEBUG. The text contains
+the level can contain $$1-$4 variables, these can be specified on the command line.
+.TP
 \fBexphis\fP \fI[$]PATH_AND_FILENAME\fP
 Exports command line history to a text file.
 .TP
@@ -600,6 +610,10 @@ Assigns a device #0 and protocol #2 to connection #0.
 Set the project name to 'temp_meter'.
 
 .SS File operation commands
+.TP
+\fBapplog\fP $LOGFILE "Measured\ values\ is\ $$1\ V\ and\ $$2\ A." 1 $vl2 $il2
+Adds \fI2024.2.1. 17:20:36 MESSAGE Measured values is 243 V and 66 A.\fP line
+to logfile.
 .TP
 \fBexphis\fP script
 Export command line history to project directory.

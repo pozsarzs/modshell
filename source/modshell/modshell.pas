@@ -71,7 +71,7 @@ const
   PRGVERSION = '0.1';
   SCRBUFFSIZE = 256;
   VARBUFFSIZE = 128;
-  COMMARRSIZE = 89;
+  COMMARRSIZE = 91;
   {$IFDEF UNIX}
     EOL = #10;
   {$ELSE}
@@ -101,7 +101,8 @@ const
      'ln',    'mulinv','odd',    'rnd',    'tan',    'sin',    'sqr',    'sqrt',    'roll',   'rolr',
      'upcase','length','lowcase','stritem','chr',    'ord',    'const',  'bit',     'pow',    'goto',
      'if',    'for',   'label',  'mbsrv',  'mbgw',   'inrange','mklrc',  'mkcrc',   'pow2',   'ascii',
-     'beep',  'avg',   'prop',   'concat', 'strdel', 'strfind','strins', 'strrepl', 'varmon');
+     'beep',  'avg',   'prop',   'concat', 'strdel', 'strfind','strins', 'strrepl', 'varmon', 'applog',
+     'cron');
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string =
     ('1200','2400','4800','9600','19200','38400','57600','115200');
@@ -229,11 +230,13 @@ end;
 {$I mbrtu.pas}
 {$I mbtcp.pas}
 {$I modbus.pas}
+{$I cmd_aplg.pas}
 {$I cmd_asci.pas}
 {$I cmd_avg.pas}
 {$I cmd_colr.pas}
 {$I cmd_cons.pas}
 {$I cmd_conv.pas}
+{$I cmd_cron.pas}
 {$I cmd_copy.pas}
 {$I cmd_date.pas}
 {$I cmd_dump.pas}
@@ -425,6 +428,13 @@ begin
            88: exitcode := cmd_varmon(splitted[1], splitted[2]);
                // varmon on|off
                // varmon $VARIABLE1 on|off
+           89: exitcode := cmd_applog(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6], splitted[7]);
+               // applog [$]LOGFILE [$]TEXT         [$]LEVEL [[$]VALUE1] [[$]VALUE2] [[$]VALUE3] [[$]VALUE4]
+               // applog [$]LOGFILE "TEXT $$0 TEXT" [$]LEVEL [[$]VALUE1] [[$]VALUE2] [[$]VALUE3] [[$]VALUE4]
+           90: exitcode := cmd_cron(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5]);
+               // cron
+               // cron minute hour day month week
+               // cron [-e|-d|-r]
           else
           begin
             // logical functions

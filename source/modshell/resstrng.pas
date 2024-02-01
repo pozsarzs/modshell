@@ -93,6 +93,7 @@ resourcestring
   ERR33 = 'Illegal character in the constant name!';
   ERR34 = 'Cannot define more constant!';
   ERR35 = 'No such label: ';
+  ERR36 = 'Cannot write log record to ';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
@@ -184,6 +185,8 @@ resourcestring
   DES86='       insert element(s) into string';
   DES87='       replace element(s) in the string';
   DES88='ALT-M  monitoring the value of variables';
+  DES89='       append a record to log file';
+  DES90='       loaded script scheduled execution';
 
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
@@ -313,3 +316,12 @@ resourcestring
   USG87='strrepl $TARGET [$]OLD [$]NEW';
   USG88='varmon [on|off]' + EOL +
         '  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]';
+  USG89='applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]' + EOL +
+        '  applog [$]LOGFILE "TEXT\ $$1\ TEXT" [$]LEVEL [$]VALUE1' + EOL +
+        'Notes:' + EOL +
+        '  - The ''$$1'' value can be $$1-$$4.' + EOL +
+        '  - The ''LEVEL'' value can be 0-4:' + EOL +
+        '    NOTE, MESSAGE, WARNING, ERROR, DEBUG.';
+  USG90='cron' + EOL +
+        '  cron minute hour day month week' + EOL +
+        '  cron [-e|-d|-r]';

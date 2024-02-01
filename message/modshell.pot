@@ -301,6 +301,10 @@ msgstr ""
 msgid "No such label: "
 msgstr ""
 
+#: modshell:err36
+msgid "Cannot write log record to "
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -659,6 +663,14 @@ msgstr ""
 
 #: modshell:des88
 msgid "ALT-M  monitoring the value of variables"
+msgstr ""
+
+#: modshell:des89
+msgid "       append a record to log file"
+msgstr ""
+
+#: modshell:des90
+msgid "       loaded script scheduled execution"
 msgstr ""
 
 #: modshell:usg00
@@ -1069,5 +1081,22 @@ msgstr ""
 msgid ""
 "varmon [on|off]\n"
 "  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+msgstr ""
+
+#: modshell:usg89
+msgid ""
+"applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]\n"
+"  applog [$]LOGFILE \"TEXT $$1 TEXT\" [$]LEVEL [$]VALUE1\n"
+"Notes:\n"
+"  - The '$$1' value can be $$1-$$4.\n"
+"  - The 'LEVEL' value can be 0-4:\n"
+"    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
+msgstr ""
+
+#: modshell:usg90
+msgid ""
+"cron\n"
+"  cron minute hour day month week\n"
+"  cron [-e|-d|-r]"
 msgstr ""
 

@@ -6,7 +6,7 @@
 > - Modbus/ASCII and Modbus/RTU communication,
 > - handling of constants,
 > - two predefined constants and
-> - 23 new command (total: 89).
+> - 25 new command (total: 91).
 > - Script syntax highlighting file for Micro.
 >
 > **v0.1-alpha1:**  
@@ -41,7 +41,7 @@ Online manual: <https://github.com/pozsarzs/modshell/wiki>
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                             |
 |script size             |max. 256 line                                                     |
 |variables               |max. 128 variables or constants (stored as string)                |
-|built-in commands       |89 commands in 9 categories                                       |
+|built-in commands       |91 commands in 9 categories                                       |
 |load from file          |registers, script, settings                                       |
 |save to file            |command history, console trafic, registers, communication settings|
 |auto save to file       |general settings and console traffic                              |
@@ -184,6 +184,7 @@ selected.
 |get     |configuration |ALT-G |get setting of a device, protocol, connection or get project name|
 |reset   |configuration |ALT-T |reset device, protocol or connection or reset project name       |
 |set     |configuration |ALT-S |set device, protocol or connection or set project name           |
+|applog  |file          |      |append a record to log file (LOG)                                |
 |exphis  |file          |      |export command line history to file (TXT)                        |
 |expreg  |file          |ALT-E |export one or more registers to file (CSV, INI, XML)             |
 |impreg  |file          |ALT-I |import one or more registers from file (INI, XML)                |
@@ -196,6 +197,7 @@ selected.
 |cls     |general       |F8    |clear screen                                                     |
 |color   |general       |      |set colors                                                       |
 |const   |general       |      |show all constant with theirs value or define a new one          |
+|cron    |general       |      |loaded script scheduled execution                                |
 |date    |general       |      |show system date and time                                        |
 |echo    |general       |F9    |enable/hexadecimal/disable local echo for serial connections     |
 |exit    |general       |F10   |exit                                                             |

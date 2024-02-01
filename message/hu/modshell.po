@@ -323,6 +323,10 @@ msgstr "Nem lehet létrehozni több állandót!"
 msgid "No such label: "
 msgstr "Nincs ilyen címke: "
 
+#: modshell:err36
+msgid "Cannot write log record to "
+msgstr "Nem lehet írni a naplófájlt: "
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -682,6 +686,14 @@ msgstr "       a karakterlánc megadott elemének cseréje"
 #: modshell:des88
 msgid "ALT-M  monitoring the value of variables"
 msgstr "ALT-M  változóértékek megfigyelése"
+
+#: modshell:des89
+msgid "       append a record to log file"
+msgstr "       egy bejegyzés hozzáfűzése a naplófájlhoz"
+
+#: modshell:des90
+msgid "       loaded script scheduled execution"
+msgstr "       a betöltött szkript ütemezett futattása"
 
 #: modshell:usg00
 msgid ""
@@ -1148,6 +1160,32 @@ msgid ""
 msgstr ""
 "varmon [on|off]\n"
 "  varmon $VÁLTOZÓ1 [$VÁLTOZÓ2] [$VÁLTOZÓ3] [$VÁLTOZÓ4]"
+
+#: modshell:usg89
+msgid ""
+"applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]\n"
+"  applog [$]LOGFILE \"TEXT $$1 TEXT\" [$]LEVEL [$]VALUE1\n"
+"Notes:\n"
+"  - The '$$1' value can be $$1-$$4.\n"
+"  - The 'LEVEL' value can be 0-4:\n"
+"    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
+msgstr ""
+"applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]\n"
+"  applog [$]LOGFILE \"TEXT $$1 TEXT\" [$]LEVEL [$]VALUE1\n"
+"Notes:\n"
+"  - The '$$1' értéke $$1-$$4 lehet.\n"
+"  - The 'LEVEL' értéke 0-4 lehet:\n"
+"    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
+
+#: modshell:usg90
+msgid ""
+"cron\n"
+"  cron minute hour day month week\n"
+"  cron [-e|-d|-r]"
+msgstr ""
+"cron\n"
+"  cron perc óra nap hónap hét_napja\n"
+"  cron [-e|-d|-r]"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       előtér- és a háttérszín beállítása (fullscreen)"
