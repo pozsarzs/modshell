@@ -13,15 +13,20 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0   p1     p2   p3  p4    p5
-  -------------------------------
+  p0   p1         p2     p3   p4
+  -------------------------------------
   cron
-  cron minute hour day month week
+  cron rec_num    minute hour dayofweek
   cron [-e|-d|-r]
 }
 
+// SCRIPT RUN SCHEDULER
+procedure scheduler;
+begin
+end;
+
 // COMMAND 'CRON'
-function cmd_cron(p1, p2, p3, p4, p5: string): byte;
+function cmd_cron(p1, p2, p3, p4: string): byte;
 begin
   result := 0;
 end;

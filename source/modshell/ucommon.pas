@@ -18,6 +18,7 @@ unit ucommon;
 interface
 uses
   crt,
+  dos,
   math,
   sysutils;
 const
@@ -55,25 +56,26 @@ const
     $4400, $84C1, $8581, $4540, $8701, $47C0, $4680, $8641,
     $8201, $42C0, $4380, $8341, $4100, $81C1, $8081, $4040);
 
-function powerof2(exponent: byte): byte;
-function round2(const number: extended; const places: longint): extended;
 function addzero(v: word): string;
 function addsomezero(n: byte; s: string): string;
-function hex1(n: byte; w: word): string;
-function hex2(s: string): string;
-function lrc(s: string): word;
+function booltoint(b: boolean): integer;
+function checkcrc16(s: string; l: word): boolean;
+function checkipaddress(address: string): boolean;
 function checklrc(s: string; l: word): boolean;
 function crc16(s: string): word;
-function checkcrc16(s: string; l: word): boolean;
-function booltoint(b: boolean): integer;
-function inttobool(i: integer): boolean;
-function checkipaddress(address: string): boolean;
-function getlang: string;
 function getexedir: string;
+function getlang: string;
 function getuserdir: string;
+function hex1(n: byte; w: word): string;
+function hex2(s: string): string;
+function inttobool(i: integer): boolean;
+function lrc(s: string): word;
+function powerof2(exponent: byte): byte;
+function round2(const number: extended; const places: longint): extended;
 function terminalsize: boolean;
-procedure quit(halt_code: byte; clear: boolean; message: string);
 procedure ewrite(fg: byte; hl: byte; t: string);
+procedure quit(halt_code: byte; clear: boolean; message: string);
+procedure showtime(fg, bg: byte);
 procedure xywrite(x, y: byte; c: boolean; s: string);
 
 implementation
@@ -336,5 +338,38 @@ begin
   write(s);
 end;
 
-end.
+// SHOW SYSTEM TIME ON THE RIGHT TOP CORNER OF THE SCREEN
+procedure showtime(fg, bg: byte);
+var
+  h1, m1, s1, ss1: word;
+  h2, m2, s2: word;
+  s: string;
+  x, y: byte;
 
+  function addzero(w: word): string;
+  begin
+    str(w:0, s);
+    if length(s) = 1 then s := '0' + s;
+    addzero := s;
+  end;
+
+begin
+  h2 := 0; m2 := 0; s2 := 0;
+  gettime(h1, m1, s1, ss1);
+  if (h1 <> h2) or (m1 <> m2) or (s1 <> s2) then
+  begin
+    x := wherex; y := wherey;
+    window(1, 1, screenwidth, 2);
+    textcolor(bg); textbackground(fg); 
+    gotoxy(screenwidth - 8, 1);
+    write(addzero(h1) + ':' + addzero(m1) + ':' + addzero(s1));
+    h2 := h1;
+    m2 := m1;
+    s2 := s1;
+    textcolor(fg); textbackground(bg); 
+    window(1, 2, screenwidth, screenheight - 1);
+    gotoxy(x, y);
+  end;
+end;
+
+end.

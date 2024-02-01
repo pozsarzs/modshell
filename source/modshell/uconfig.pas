@@ -40,8 +40,8 @@ const
   {$DEFINE SLASH := #92}
 {$ENDIF}
 
-function saveconfiguration(basename, extension: string): boolean;
 function loadconfiguration(basename, extension: string): boolean;
+function saveconfiguration(basename, extension: string): boolean;
 
 implementation
 

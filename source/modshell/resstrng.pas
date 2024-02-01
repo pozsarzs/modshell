@@ -323,5 +323,5 @@ resourcestring
         '  - The ''LEVEL'' value can be 0-4:' + EOL +
         '    NOTE, MESSAGE, WARNING, ERROR, DEBUG.';
   USG90='cron' + EOL +
-        '  cron minute hour day month week' + EOL +
-        '  cron [-e|-d|-r]';
+        '  cron rec_num minute hour dayofweek' + EOL +
+        '  cron rec_num [-e|-d|-r]';

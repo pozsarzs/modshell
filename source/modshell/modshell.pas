@@ -37,14 +37,14 @@ uses
   xmlwrite;
 type
   tdevice = record
-    valid: boolean;      // false|true: invalid|valid
-    devtype: byte;       // 0..1 -> DEV_TYPE
-    device: string[15];  // /dev/ttySx, /dev/ttyUSBx, /dev/ttyAMAx, COMx, etc.
-    port: word;          // 0-65535
-    speed: byte;         // 0..7 -> DEV_SPEED
-    databit: byte;       // 7|8
-    parity: byte;        // 0..2 -> DEV_PARITY
-    stopbit: byte;       // 1|2
+    valid: boolean;        // false|true: invalid|valid
+    devtype: byte;         // 0..1 -> DEV_TYPE
+    device: string[15];    // /dev/ttySx, /dev/ttyUSBx, /dev/ttyAMAx, COMx, etc.
+    port: word;            // 0-65535
+    speed: byte;           // 0..7 -> DEV_SPEED
+    databit: byte;         // 7|8
+    parity: byte;          // 0..2 -> DEV_PARITY
+    stopbit: byte;         // 1|2
   end;
   tprotocol = record
     valid: boolean;        // false|true: invalid|valid
@@ -53,15 +53,22 @@ type
     uid: integer;          // 1..247
   end;
   tconnection = record
-    valid: boolean;  // false|true: invalid|valid
-    dev: byte;       // 0..7
-    prot: byte;      // 0..7
+    valid: boolean;        // false|true: invalid|valid
+    dev: byte;             // 0..7
+    prot: byte;            // 0..7
   end;
   tvariable = record
-    vname: string[16];    // name
-    vvalue: string[255];  // value
-    vreadonly: boolean;   // variable or constant
+    vname: string[16];     // name
+    vvalue: string[255];   // value
+    vreadonly: boolean;    // variable or constant
     vmonitored: boolean;   // it is monitored?
+  end;
+  type
+    tcron = record
+     cenable: boolean;     // enable/disable this record
+     cdayofweek: byte;     // day(s) of week
+     chour: byte;          // hour(s)
+     cminute: byte;        // minutes(s)
   end;
 const
   // OTHERS
@@ -147,6 +154,8 @@ var
   varmon: boolean = false;
   // SPLITTED COMMAND LINE
   splitted: array[0..7] of string;
+  // CRON
+  crontable: array[0..7] of tcron;
 
 {$IFNDEF GO32V2}
   {$R *.res}
@@ -431,9 +440,9 @@ begin
            89: exitcode := cmd_applog(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6], splitted[7]);
                // applog [$]LOGFILE [$]TEXT         [$]LEVEL [[$]VALUE1] [[$]VALUE2] [[$]VALUE3] [[$]VALUE4]
                // applog [$]LOGFILE "TEXT $$0 TEXT" [$]LEVEL [[$]VALUE1] [[$]VALUE2] [[$]VALUE3] [[$]VALUE4]
-           90: exitcode := cmd_cron(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5]);
+           90: exitcode := cmd_cron(splitted[1], splitted[2], splitted[3], splitted[4]);
                // cron
-               // cron minute hour day month week
+               // cron rec_num minute hour dayofweek
                // cron [-e|-d|-r]
           else
           begin
@@ -480,6 +489,11 @@ begin
     end;
     write(fullprompt);
     command := '';
+    repeat
+      if appmode = 3 then showtime(colors[0], colors[1]);
+      scheduler;
+      delay(100);
+    until keypressed;
     repeat
       c := readkey;
       // DETECT HOTKEYS
@@ -579,7 +593,7 @@ begin
   window(1, 1, screenwidth, screenheight);
   textbackground(lightgray); textcolor(black); clrscr;
   xywrite(1, 1, true, ' '+PRGNAME + ' v' + PRGVERSION);
-  xywrite(screenwidth - length(MSG02), 1, false, MSG02);
+  xywrite((screenwidth div 2) - (length(MSG02) div 2), 1, false, MSG02);
   gotoxy(2,screenheight); ewrite(black, red, MSG01);
   window(1, 2, screenwidth, screenheight - 1);
   textbackground(uconfig.colors[1]); textcolor(uconfig.colors[0]); clrscr;

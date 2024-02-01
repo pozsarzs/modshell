@@ -332,10 +332,17 @@ BUILTIN COMMANDS
               Defines new constant (CONSTANT) and assign value (VALUE).  Use a backslash
               before a space.
 
+       cron rec_num minute hour dayofweek
+              Adds new record to crontable. rec_num may be 1-8.
+
+       croncron rec_num [-e|-d|-r]
+              Shows,  enable, disable or removes record of the crontable. rec_num may be
+              1-8.
+
        date   Shows system date and time.
 
        echo [off|on|hex]
-              Queries  local  echo  status  or enable/disable it for serial connections.
+              Queries local echo status or enable/disable  it  for  serial  connections.
               Hex means the hexadecimal representation of the bytes.
 
        exit   Exits from program.
@@ -344,7 +351,7 @@ BUILTIN COMMANDS
               Jumps to specified label (only in script).
 
        for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND
-              Loop iteration (only in script). Increments $VARIABLE  from  [$]VALUE1  to
+              Loop  iteration  (only  in script). Increments $VARIABLE from [$]VALUE1 to
               [$]VALUE2 and does COMMAND.
 
        help [[$]COMMAND]
@@ -360,22 +367,22 @@ BUILTIN COMMANDS
               Waits for a keystroke or specified time.
 
        print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]
-              Prints  content  of  the one or more registers. Register start ADDRESS and
-              the COUNT must be between 1-9999. The -n parameter does not raise  a  line
+              Prints content of the one or more registers. Register  start  ADDRESS  and
+              the  COUNT  must be between 1-9999. The -n parameter does not raise a line
               and the cursor does not return to the beginning of the line.
 
        print $VARIABLE [-n]
-              Prints  value of the $VARIABLE. The -n parameter does not raise a line and
+              Prints value of the $VARIABLE. The -n parameter does not raise a line  and
               the cursor does not return to the beginning of the line.
 
        print "message" [-n]
-              Prints a single line message. The -n parameter does not raise a  line  and
+              Prints  a  single line message. The -n parameter does not raise a line and
               the cursor does not return to the beginning of the line.
 
        var    Prints all defined variables with their values.
 
        var VARIABLE [[$]VALUE]
-              Defines  new variable (ARIABLE) and assign value (VALUE).  Use a backslash
+              Defines new variable (ARIABLE) and assign value (VALUE).  Use a  backslash
               before a space.
 
        varmon off|on
@@ -388,22 +395,22 @@ BUILTIN COMMANDS
 
    Logical commands
        and $TARGET [$]VALUE1 [$]VALUE2
-              Performs the AND operation between the two values or variables  ([$]VALUE1
+              Performs  the AND operation between the two values or variables ([$]VALUE1
               [$]VALUE2) and the result is placed in $TARGET.
 
        bit $TARGET [$]VALUE1 [$]VALUE2
               Returns with the specified bit [$]VALUE2 of the [$]VALUE1.
 
        not $TARGET [$]VALUE
-              Performs  the NOT operation on value or variable ([$]VALUE) and the result
+              Performs the NOT operation on value or variable ([$]VALUE) and the  result
               is placed in $TARGET.
 
        or $TARGET [$]VALUE1 [$]VALUE2
-              Performs the OR operation between the two values or  variables  ([$]VALUE1
+              Performs  the  OR operation between the two values or variables ([$]VALUE1
               [$]VALUE2) and the result is placed in $TARGET.
 
        roll $TARGET [$]VALUE1 [$]VALUE2
-              Rolls  bits of the [$]VALUE1 to the left by position [$]VALUE2 and the re‐
+              Rolls bits of the [$]VALUE1 to the left by position [$]VALUE2 and the  re‐
               sult is placed in $TARGET.
 
        rolr $TARGET [$]VALUE1 [$]VALUE2
@@ -415,21 +422,21 @@ BUILTIN COMMANDS
               sult is placed in $TARGET.
 
        shr $TARGET [$]VALUE1 [$]VALUE2
-              Shifts bits of the [$]VALUE1 to the right by position  [$]VALUE2  and  the
+              Shifts  bits  of  the [$]VALUE1 to the right by position [$]VALUE2 and the
               result is placed in $TARGET.
 
        xor $TARGET [$]VALUE1 [$]VALUE2
-              Performs  the XOR operation between the two values or variables ([$]VALUE1
+              Performs the XOR operation between the two values or variables  ([$]VALUE1
               [$]VALUE2) and the result is placed in $TARGET.
 
    Register handler commands
        dump [[dinp|coil|ireg|hreg] [$]ADDRESS]
-              Dumps one page register content from ADDRESS in binary/hexadecimal  format
+              Dumps  one page register content from ADDRESS in binary/hexadecimal format
               to a table.
 
        let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE
-              Sets  value  of a register. Register start address must be between 1-9999.
-              If register type is discrete input (dinp) and coil (coil), VALUE  must  be
+              Sets value of a register. Register start address must be  between  1-9999.
+              If  register  type is discrete input (dinp) and coil (coil), VALUE must be
               0/1, l/h or false/true. If it is input register (ireg) or holding register
               (hreg), VALUE must be 0-65535.
 
@@ -437,9 +444,9 @@ BUILTIN COMMANDS
               Sets value of a variable $VARIABLE to value [$]VALUE.
 
        let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS
-              Sets value of a variable $VARIABLE from register content.  Register  start
-              address  and  must  be  between 1-9999, If register type is discrete input
-              (dinp) and coil (coil), value will be 0/1, if it is input register  (ireg)
+              Sets  value  of a variable $VARIABLE from register content. Register start
+              address and must be between 1-9999, If register  type  is  discrete  input
+              (dinp)  and coil (coil), value will be 0/1, if it is input register (ireg)
               or holding register (hreg), value of the variable will be 0-65535.
 
    Script operation commands
@@ -453,7 +460,7 @@ BUILTIN COMMANDS
 
    String handler commands
        chr $TARGET [$]VALUE';
-              Converts  byte  value ([$]VALUE) to char value and the result is placed in
+              Converts byte value ([$]VALUE) to char value and the result is  placed  in
               $TARGET.
 
        concat $TARGET [$]VALUE1 [$]VALUE2
@@ -463,7 +470,7 @@ BUILTIN COMMANDS
               Puts length of the string ([$]VALUE) to $TARGET.
 
        lowcase $TARGET [$]VALUE
-              Converts string ([$]VALUE) to lowercase and the result is placed in  $TAR‐
+              Converts  string ([$]VALUE) to lowercase and the result is placed in $TAR‐
               GET.
 
        mklrc $TARGET [$]STRING
@@ -473,7 +480,7 @@ BUILTIN COMMANDS
               Make CRC of the [$]STRING
 
        ord $TARGET [$]VALUE';
-              Converts  char  value ([$]VALUE) to byte value and the result is placed in
+              Converts char value ([$]VALUE) to byte value and the result is  placed  in
               $TARGET.
 
        strdel $TARGET [$]PLACE [$]COUNT
@@ -492,7 +499,7 @@ BUILTIN COMMANDS
               Replace specified element ([$]OLD) to [$]NEW in the $TARGET variable.
 
        upcase $TARGET [$]VALUE
-              Converts string ([$]VALUE) to uppercase and the result is placed in  $TAR‐
+              Converts  string ([$]VALUE) to uppercase and the result is placed in $TAR‐
               GET.
 
 EXAMPLES
@@ -515,19 +522,19 @@ EXAMPLES
 
    Communication commands
        copy con0 ireg con2 hreg 210 10
-              Copy input register content of the connection #0 to holding register  con‐
+              Copy  input register content of the connection #0 to holding register con‐
               tent of the connection #2 from address 210 to 220.
 
        copy con0 ireg con2 hreg $a $b
-              Copy  input register content of the connection #0 to holding register con‐
+              Copy input register content of the connection #0 to holding register  con‐
               tent of the connection #2 from address value of the $a to $a+$b.
 
        read con0 hreg 100 15
-              Read remote holding registers of the connection #0  from  address  100  to
+              Read  remote  holding  registers  of the connection #0 from address 100 to
               115.
 
        read con0 hreg $a 15
-              Read  remote  holding registers of the connection #0 from address value of
+              Read remote holding registers of the connection #0 from address  value  of
               the $a to $a+15.
 
        sercons
@@ -568,15 +575,15 @@ EXAMPLES
               Set device #0 to '/dev/enp0s7' ethernet device with value of the $P port.
 
        set dev1 ser ttyS0 9600 8 N 1
-              Set device #1 to /dev/ttyS0 serial device, with  9600  baud,  8  databits,
+              Set  device  #1  to  /dev/ttyS0 serial device, with 9600 baud, 8 databits,
               without parity check and 1 stopbit.
 
        set dev1 ser COM1 9600 8 N 1
-              Set  device  #1 to COM1 serial device, with 9600 baud, 8 databits, without
+              Set device #1 to COM1 serial device, with 9600 baud, 8  databits,  without
               parity check and 1 stopbit.
 
        set dev1 ser $p $s $d $p $t
-              Set device #1 to $p serial device, with $s baud, $d  databits,  $p  parity
+              Set  device  #1  to $p serial device, with $s baud, $d databits, $p parity
               check and $t stopbit.
 
        set pro0 ascii 100
@@ -600,11 +607,11 @@ EXAMPLES
               Export command line history to project directory.
 
        expreg discrete_inputs.csv dinp 100 15
-              Export values of discrete input register from address 100 to  115  to  CSV
+              Export  values  of  discrete input register from address 100 to 115 to CSV
               file.
 
        impreg discrete_inputs.xml
-              Import  values from a XML file. The target and range are determined by the
+              Import values from a XML file. The target and range are determined by  the
               contents of the file.
 
        loadcfg test1
@@ -620,6 +627,11 @@ EXAMPLES
               Save all registers to other directory.
 
    General commands
+       cron 2 15 * * *
+              Run the loaded script at the 15th minute of every hour on every day of the
+              week.
+               .TP croncron 2 -d Disable 2nd record of the crontable.
+
        echo   Query local echo status.
 
        echo on
