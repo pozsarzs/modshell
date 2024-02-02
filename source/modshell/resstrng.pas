@@ -50,6 +50,11 @@ resourcestring
   MSG31 = 'Press <Esc> to break receiving.';
   MSG32 = 'Variable monitor mode: ';
   MSG33 = 'This command can only be used in a script!';
+  MSG34 = 'line';
+  MSG35 = 'hour';
+  MSG36 = 'minute';
+  MSG37 = 'status';
+  MSG38 = 'No script loaded.';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -323,5 +328,5 @@ resourcestring
         '  - The ''LEVEL'' value can be 0-4:' + EOL +
         '    NOTE, MESSAGE, WARNING, ERROR, DEBUG.';
   USG90='cron' + EOL +
-        '  cron rec_num minute hour dayofweek' + EOL +
-        '  cron rec_num [-e|-d|-r]';
+        '  cron rec_num hour minute' + EOL +
+        '  cron [-r rec_num]';

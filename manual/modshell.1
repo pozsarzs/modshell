@@ -341,11 +341,11 @@ Sets foreground and background color in full screen mode.
 Defines new constant (\fICONSTANT\fP) and assign value (\fIVALUE\fP).
 Use a backslash before a space.
 .TP
-\fBcron\fP \fIrec_num\fP \fIminute\fP \fIhour\fP \fIdayofweek\fP
-Adds new record to crontable. \fIrec_num\fP may be 1-8.
+\fBcron\fP \fIrec_num\fP \fIminute\fP \fIhour\fP
+Adds new record to crontable. \fIrec_num\fP may be 1-4.
 .TP
-\fBcron\fP \fIrec_num\fP \fI[-e|-d|-r]\fP
-Shows, enable, disable or removes record of the crontable. \fIrec_num\fP may be 1-8.
+\fBcron\fP [\fI-r rec_num\fP]
+Shows all or removes specified record from the crontable. \fIrec_num\fP may be 1-4.
 .TP
 \fBdate\fP
 Shows system date and time.
@@ -646,11 +646,11 @@ Save all registers to other directory.
 
 .SS General commands
 .TP
-\fBcron\fP 2 15 * * *
-Run the loaded script at the 15th minute of every hour on every day of the week.
+\fBcron\fP 2 15 *
+Run the loaded script at the 15th minute of every hour.
  .TP
-\fBcron\fP 2 -d
-Disable 2nd record of the crontable.
+\fBcron\fP -r 2
+Removes 2nd record from the crontable.
 .TP
 \fBecho\fP
 Query local echo status.

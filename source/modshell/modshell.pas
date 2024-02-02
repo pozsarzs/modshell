@@ -66,7 +66,6 @@ type
   type
     tcron = record
      cenable: boolean;     // enable/disable this record
-     cdayofweek: byte;     // day(s) of week
      chour: byte;          // hour(s)
      cminute: byte;        // minutes(s)
   end;
@@ -151,11 +150,12 @@ var
   lang: string;
   scriptline: byte;
   scriptlabel: byte;
+  scriptisloaded: boolean = false;
   varmon: boolean = false;
   // SPLITTED COMMAND LINE
   splitted: array[0..7] of string;
   // CRON
-  crontable: array[0..7] of tcron;
+  crontable: array[1..4] of tcron;
 
 {$IFNDEF GO32V2}
   {$R *.res}
@@ -198,11 +198,12 @@ var
 
 {$I resstrng.pas}
 
-function intisitconstant(s: string): integer; forward;
+function cmd_run(p1: string): byte; forward;
 function boolisitconstant(s: string): boolean; forward;
-function isitconstant(s: string): string; forward;
-function intisitvariable(s: string): integer; forward;
 function boolisitvariable(s: string): boolean; forward;
+function intisitconstant(s: string): integer; forward;
+function intisitvariable(s: string): integer; forward;
+function isitconstant(s: string): string; forward;
 function isitvariable(s: string): string; forward;
 procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
@@ -411,6 +412,8 @@ begin
                // loadscr PATH_AND_FILENAME
            40: exitcode := cmd_run(splitted[1]);
                // run [-s]
+           41: exitcode := cmd_list;
+               // list
            66: exitcode := cmd_const(splitted[1], splitted[2]);
                // const
                // const NAME [VALUE]
@@ -440,10 +443,10 @@ begin
            89: exitcode := cmd_applog(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6], splitted[7]);
                // applog [$]LOGFILE [$]TEXT         [$]LEVEL [[$]VALUE1] [[$]VALUE2] [[$]VALUE3] [[$]VALUE4]
                // applog [$]LOGFILE "TEXT $$0 TEXT" [$]LEVEL [[$]VALUE1] [[$]VALUE2] [[$]VALUE3] [[$]VALUE4]
-           90: exitcode := cmd_cron(splitted[1], splitted[2], splitted[3], splitted[4]);
+           90: exitcode := cmd_cron(splitted[1], splitted[2], splitted[3]);
                // cron
-               // cron rec_num minute hour dayofweek
-               // cron [-e|-d|-r]
+               // cron rec_num minute hour
+               // cron [-r rec_num]
           else
           begin
             // logical functions

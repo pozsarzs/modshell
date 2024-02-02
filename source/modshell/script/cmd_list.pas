@@ -25,6 +25,12 @@ var
 
 begin
   result := 0;
+  if not scriptisloaded then
+  begin
+    writeln(MSG38);  // No script loaded.
+    result := 1;
+    exit;
+  end;
   y := 0;
   for line := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[line]) > 0 then

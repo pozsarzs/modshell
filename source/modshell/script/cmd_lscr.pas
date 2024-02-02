@@ -25,7 +25,7 @@ var
   fpn, fp, fn: string;
   s: string;
   sf: textfile;
-  s1: string;               // parameters in other type
+  s1: string;           // parameters in other type
 
 begin
   result := 0;
@@ -85,6 +85,7 @@ begin
       end;
     until eof(sf);
     closefile(sf);
+    scriptisloaded := true;
   except
     result := 1;
     writeln(ERR22 + fpn);

@@ -25,6 +25,12 @@ var
   stepbystep: boolean;
 begin
   result := 0;
+  if not scriptisloaded then
+  begin
+    writeln(MSG38);  // No script loaded.
+    result := 1;
+    exit;
+  end;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) > 0) and (p1 = '-s')
     then stepbystep := true 

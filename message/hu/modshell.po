@@ -155,6 +155,26 @@ msgstr "Változó monitor mód: "
 msgid "This command can only be used in a script!"
 msgstr "Ez a parancs csak szkriptben használható!"
 
+#: modshell:msg34
+msgid "line"
+msgstr "sor"
+
+#: modshell:msg35
+msgid "hour"
+msgstr "óra"
+
+#: modshell:msg36
+msgid "minute"
+msgstr "perc"
+
+#: modshell:msg37
+msgid "status"
+msgstr "állapot"
+
+#: modshell:msg38
+msgid "No script loaded."
+msgstr "Nincs betöltött szkript."
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -1178,14 +1198,19 @@ msgstr ""
 "    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
 
 #: modshell:usg90
+#, fuzzy
+#| msgid ""
+#| "cron\n"
+#| "  cron rec_num minute hour\n"
+#| "  cron [-r rec_num]"
 msgid ""
 "cron\n"
-"  cron rec_num minute hour dayofweek\n"
-"  cron rec_num [-e|-d|-r]"
+"  cron rec_num hour minute\n"
+"  cron [-r rec_num]"
 msgstr ""
 "cron\n"
-"  cron bejegyzés perc óra nap hónap hét_napja\n"
-"  cron bejegyzés [-e|-d|-r]"
+"  cron bejegyzés óra perc\n"
+"  cron [-r bejegyzés]"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       előtér- és a háttérszín beállítása (fullscreen)"
