@@ -23,24 +23,17 @@
 procedure scheduler;
 var
   b: byte;
-  i, h, m: word;
+  i, h, m, s: word;
 
 begin
-  gettime(h, m, i, i);
+  gettime(h, m, s, i);
   for b := 1 to 4 do
     with crontable[b] do
-    begin
-      if chour = h then
-      begin
-        if cminute = m then
-        begin
-          if cenable then
-            if scriptisloaded then cmd_run('');
-          cenable := false;
-        end;
-        if cminute = m + 1 then cenable := true;
-      end;
-  end;
+      if cenable then
+        if (chour = h) or (chour = 255) then
+          if (cminute = m) or (cminute = 255) then
+            if s = 0 then
+              if scriptisloaded then cmd_run('');
 end;
 
 // COMMAND 'CRON'
@@ -125,20 +118,26 @@ begin
         exit;
       end;
       // CHECK P2 PARAMETER
-      i2 := strtointdef(p2, -1);
-      if (i2 < 0) or (i2 > 23) then
+      if p2 = '*' then i2 := 255 else
       begin
-        writeln('2nd ' + MSG05 + ' 0-23'); // What is the 2nd parameter?
-        result := 1;
-        exit;
+        i2 := strtointdef(p2, -1);
+        if (i2 < 0) or (i2 > 23) then
+        begin
+          writeln('2nd ' + MSG05 + ' 0-23'); // What is the 2nd parameter?
+          result := 1;
+          exit;
+        end;
       end;
       // CHECK P3 PARAMETER
-      i3 := strtointdef(p3, -1);
-      if (i3 < 0) or (i3 > 59) then
+      if p3 = '*' then i3 := 255 else
       begin
-        writeln('3rd ' + MSG05 + ' 0-59'); // What is the 3rd parameter?
-        result := 1;
-        exit;
+        i3 := strtointdef(p3, -1);
+        if (i3 < 0) or (i3 > 59) then
+        begin
+          writeln('3rd ' + MSG05 + ' 0-59'); // What is the 3rd parameter?
+          result := 1;
+          exit;
+        end;
       end;
       // PRIMARY MISSION
       with crontable[i1] do
