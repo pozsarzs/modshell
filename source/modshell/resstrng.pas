@@ -55,6 +55,9 @@ resourcestring
   MSG36 = 'minute';
   MSG37 = 'status';
   MSG38 = 'No script loaded.';
+  MSG39 = 'Scroll: [Home][PgUp][Up] - [Down][PgDn][End]';
+  MSG40 = 'Move:   [Ctrl-Home][Ctrl-Left][Left] - [Right][Ctrl-Right][Ctrl-End]';
+  MSG41 = 'Edit:   [Ins][Del][Esc]';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';

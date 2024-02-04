@@ -75,9 +75,10 @@ const
   PRGCOPYRIGHT = '(C) 2023 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
-  SCRBUFFSIZE = 1024;
-  VARBUFFSIZE = 128;
   COMMARRSIZE = 94;
+  SCRBUFFSIZE = 1024;
+  SHOWTIMEDELAY = 25;
+  VARBUFFSIZE = 128;
   {$IFDEF UNIX}
     EOL = #10;
   {$ELSE}
@@ -150,6 +151,7 @@ var
   lang: string;
   scriptline: integer;
   scriptlabel: integer;
+  scriptlastline: integer;
   scriptisloaded: boolean = false;
   varmon: boolean = false;
   // SPLITTED COMMAND LINE
@@ -504,13 +506,21 @@ begin
     repeat
       if appmode = 3 then showtime(colors[0], colors[1]);
       scheduler;
-      delay(100);
+      delay(SHOWTIMEDELAY);
     until keypressed;
     repeat
+      repeat
+        if appmode = 3 then showtime(colors[0], colors[1]);
+        delay(SHOWTIMEDELAY);
+      until keypressed;
       c := readkey;
       // DETECT HOTKEYS
       if c = #0 then
       begin
+        repeat
+          if appmode = 3 then showtime(colors[0], colors[1]);
+          delay(SHOWTIMEDELAY);
+      until keypressed;
         c := readkey;
         // ONLY INSERT
         if c = #34 then

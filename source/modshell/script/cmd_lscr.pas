@@ -83,6 +83,7 @@ begin
     until eof(sf);
     closefile(sf);
     scriptisloaded := true;
+    scriptlastline := line;
   except
     result := 1;
     writeln(ERR22 + fpn);

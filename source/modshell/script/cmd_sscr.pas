@@ -24,7 +24,6 @@ var
   c: char;
   line: integer;
   fpn, fp, fn: string;
-  s: string;
   sf: textfile;
   s1: string;           // parameters in other type
 

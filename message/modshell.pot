@@ -153,6 +153,18 @@ msgstr ""
 msgid "No script loaded."
 msgstr ""
 
+#: modshell:msg39
+msgid "Scroll: [Home][PgUp][Up] - [Down][PgDn][End]"
+msgstr ""
+
+#: modshell:msg40
+msgid "Move:   [Ctrl-Home][Ctrl-Left][Left] - [Right][Ctrl-Right][Ctrl-End]"
+msgstr ""
+
+#: modshell:msg41
+msgid "Edit:   [Ins][Del][Esc]"
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""

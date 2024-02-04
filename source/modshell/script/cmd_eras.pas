@@ -23,6 +23,7 @@ function cmd_erase: byte;
 var
   line: integer;
 begin
+  result := 0;
   // PRIMARY MISSION
   for line := 0 to SCRBUFFSIZE - 1 do sbuffer[line] := '';
   scriptisloaded := false;
