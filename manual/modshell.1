@@ -53,8 +53,7 @@ source/destination directory.
 .SS File operations
 The command line history can be exported to a text file and provides it with the
 appropriate 'shebang' for all operating system. You can easily create a script
-from this raw file. The script on the disc can be loaded into the already running
-program and started manually.
+from this raw file.
 .PP
 Device, protocol and connection settings can be saved and loaded in their own
 format. During saving, three typed files are created, with the following
@@ -71,6 +70,10 @@ The program has a simple serial console whose traffic is logged in the project
 directory as console.log.
 .PP
 On exit, the command line history, echo mode and colors are preserved.
+.SS Script operations
+The script on the disc can be loaded into the already running program and started
+manually. The loaded script can be edited with a line editor, saved to disk or
+deleted from the buffer.
 .SS Serial console
 The program also provides the possibility to send and receive raw data
 via a serial port, and also includes a very simple serial console. The
@@ -468,15 +471,24 @@ and must be between 1-9999, If register type is discrete input (\fIdinp\fP) and 
 
 .SS Script operation commands
 .TP
+\fBedit\fP [\fILINE_NUMBER\fP]
+Edits loaded script with line editor.
+.TP
+\fBerase\fP
+Erases script from buffer.
+.TP
 \fBlist\fP
 Lists loaded script.
 .TP
 \fBloadscr\fP \fI[$]PATH_AND_FILENAME\fP
-Loads ModShell scriptfile.
+Loads ModShell scriptfile from disc.
 .TP
 \fBrun\fP \fI[-s]\fP
 Runs loaded script. \fI[-s]\fP parameter means
 step-by-step program execution.
+.TP
+\fBsavescr\fP \fI[$]PATH_AND_FILENAME\fP
+Saves loaded script to disc.
 
 .SS String handler commands
 .TP
@@ -799,10 +811,16 @@ echo swap command
 \fBF10\fP
 exit command
 .TP
-\fBF11\fP
+\fBSHIFT\fP-\fBF3\fP
 list loaded script
 .TP
-\fBF12\fP
+\fBSHIFT\fP-\fBF4\fP
+edit loaded script (with line editor)
+.TP
+\fBSHIFT\fP-\fBF8\fP
+erase script from buffer
+.TP
+\fBSHIFT\fP-\fBF9\fP
 run loaded script
 .TP
 \fBALT\fP-\fBC\fP

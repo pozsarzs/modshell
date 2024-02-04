@@ -21,7 +21,7 @@
 // COMMAND 'RUN'
 function cmd_run(p1: string): byte;
 var
-  line: byte;
+  line: integer;
   stepbystep: boolean;
 begin
   result := 0;
@@ -38,7 +38,7 @@ begin
   for line := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[line]) > 0 then
     begin
-      parsingcommands(sbuffer[line]);
+      if sbuffer[line][1] <> COMMENT then parsingcommands(sbuffer[line]);
       if stepbystep then readkey;
     end;
 end;

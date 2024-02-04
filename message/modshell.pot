@@ -325,6 +325,10 @@ msgstr ""
 msgid "Cannot write log record to "
 msgstr ""
 
+#: modshell:err37
+msgid "Cannot save script to "
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -691,6 +695,18 @@ msgstr ""
 
 #: modshell:des90
 msgid "       loaded script scheduled execution"
+msgstr ""
+
+#: modshell:des91
+msgid "       edit loaded script with line editor"
+msgstr ""
+
+#: modshell:des92
+msgid "       erase script from buffer"
+msgstr ""
+
+#: modshell:des93
+msgid "       save loaded script to disc"
 msgstr ""
 
 #: modshell:usg00
@@ -1118,5 +1134,17 @@ msgid ""
 "cron\n"
 "  cron rec_num hour minute\n"
 "  cron [-r rec_num]"
+msgstr ""
+
+#: modshell:usg91
+msgid "edit [LINE_NUMBER]"
+msgstr ""
+
+#: modshell:usg92
+msgid "erase"
+msgstr ""
+
+#: modshell:usg93
+msgid "savescr [$]PATH_AND_FILENAME"
 msgstr ""
 

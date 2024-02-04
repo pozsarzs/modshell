@@ -21,7 +21,7 @@
 // COMMAND 'GOTO'
 function cmd_goto(p1: string): byte;
 var
-  line: byte;
+  line: integer;
   valid: boolean = false;
 
 begin

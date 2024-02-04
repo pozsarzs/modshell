@@ -75,9 +75,9 @@ const
   PRGCOPYRIGHT = '(C) 2023 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
-  SCRBUFFSIZE = 256;
+  SCRBUFFSIZE = 1024;
   VARBUFFSIZE = 128;
-  COMMARRSIZE = 91;
+  COMMARRSIZE = 94;
   {$IFDEF UNIX}
     EOL = #10;
   {$ELSE}
@@ -108,7 +108,7 @@ const
      'upcase','length','lowcase','stritem','chr',    'ord',    'const',  'bit',     'pow',    'goto',
      'if',    'for',   'label',  'mbsrv',  'mbgw',   'inrange','mklrc',  'mkcrc',   'pow2',   'ascii',
      'beep',  'avg',   'prop',   'concat', 'strdel', 'strfind','strins', 'strrepl', 'varmon', 'applog',
-     'cron');
+     'cron',  'edit',  'erase',  'savescr');
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string =
     ('1200','2400','4800','9600','19200','38400','57600','115200');
@@ -144,12 +144,12 @@ var
   prot: array[0..7] of tprotocol;
   conn: array[0..7] of tconnection;
   // OTHERS
-  appmode: byte;
   b: byte;
+  appmode: byte;
   exitcode: byte;
   lang: string;
-  scriptline: byte;
-  scriptlabel: byte;
+  scriptline: integer;
+  scriptlabel: integer;
   scriptisloaded: boolean = false;
   varmon: boolean = false;
   // SPLITTED COMMAND LINE
@@ -251,6 +251,8 @@ end;
 {$I cmd_date.pas}
 {$I cmd_dump.pas}
 {$I cmd_echo.pas}
+{$I cmd_edit.pas}
+{$I cmd_eras.pas}
 {$I cmd_exph.pas}
 {$I cmd_expr.pas}
 {$I cmd_for.pas}
@@ -281,6 +283,7 @@ end;
 {$I cmd_serd.pas}
 {$I cmd_sewr.pas}
 {$I cmd_sreg.pas}
+{$I cmd_sscr.pas}
 {$I cmd_set.pas}
 {$I cmd_var.pas}
 {$I cmd_vrmn.pas}
@@ -409,7 +412,7 @@ begin
            38: exitcode := cmd_echo(splitted[1]);
                // echo [off|on|hex|swap]
            39: exitcode := cmd_loadscr(splitted[1]);
-               // loadscr PATH_AND_FILENAME
+               // loadscr [$]PATH_AND_FILENAME
            40: exitcode := cmd_run(splitted[1]);
                // run [-s]
            41: exitcode := cmd_list;
@@ -447,6 +450,12 @@ begin
                // cron
                // cron rec_num minute hour
                // cron [-r rec_num]
+           91: exitcode := cmd_edit(splitted[1]);
+               // edit [LINE_NUMBER]
+           92: exitcode := cmd_erase;
+               // erase
+           93: exitcode := cmd_savescr(splitted[1]);
+               // savescr [$]PATH_AND_FILENAME
           else
           begin
             // logical functions
@@ -505,27 +514,27 @@ begin
         c := readkey;
         // ONLY INSERT
         if c = #34 then
-          begin command := COMMANDS[17]; c := #32; end;                    // ~C
+          begin command := COMMANDS[17]; c := #32; end;                    // ALT-C
         if c = #34 then
-          begin command := COMMANDS[15]; c := #32; end;                    // ~E
+          begin command := COMMANDS[15]; c := #32; end;                    // ALT-E
         if c = #34 then
-          begin command := COMMANDS[22]; c := #32; end;                    // ~I
+          begin command := COMMANDS[22]; c := #32; end;                    // ALT-I
         if c = #34 then
-          begin command := COMMANDS[2]; c := #32; end;                     // ~G
+          begin command := COMMANDS[2]; c := #32; end;                     // ALT-G
         if c = #38 then
-          begin command := COMMANDS[4]; c := #32; end;                     // ~L
+          begin command := COMMANDS[4]; c := #32; end;                     // ALT-L
         if c = #50 then
-          begin command := COMMANDS[88]; c := #32; end;                    // ~M
+          begin command := COMMANDS[88]; c := #32; end;                    // ALT-M
         if c = #25 then
-          begin command := COMMANDS[5]; c := #32; end;                     // ~P
+          begin command := COMMANDS[5]; c := #32; end;                     // ALT-P
         if c = #19 then
-          begin command := COMMANDS[6]; c := #32; end;                     // ~R
+          begin command := COMMANDS[6]; c := #32; end;                     // ALT-R
         if c = #20 then
-          begin command := COMMANDS[7]; c := #32; end;                     // ~T
+          begin command := COMMANDS[7]; c := #32; end;                     // ALT-T
         if c = #31 then
-          begin command := COMMANDS[8]; c := #32; end;                     // ~S
+          begin command := COMMANDS[8]; c := #32; end;                     // ALT-S
         if c = #17 then
-          begin command := COMMANDS[11]; c := #32; end;                    // ~W
+          begin command := COMMANDS[11]; c := #32; end;                    // ALT-W
         // INSERT AND RUN
         if c = #59 then
           begin command := COMMANDS[3]; c:=#13; end;                       // F1
@@ -551,25 +560,25 @@ begin
           begin command := COMMANDS[41]; c:=#13; end;                      // F11
         if c = #134 then
           begin command := COMMANDS[40]; c:=#13; end;                      // F12
-        if c = #72 then
+        if c = #72 then                                                    // UP
         begin
           if uconfig.histitem > 0 then dec(uconfig.histitem);
           command := uconfig.histbuff[uconfig.histitem];
         end;
-        if c = #80 then
+        if c = #80 then                                                    // DOWN
         begin
           if uconfig.histitem < 255 then inc(uconfig.histitem);
           command := uconfig.histbuff[uconfig.histitem];
         end;
       end;
-      if c = #8 then delete(command, length(command), 1);
-      if c = #9 then c := #32;
-      if c = #27 then command := '';
+      if c = #8 then delete(command, length(command), 1);                  // BACKSPACE
+      if c = #9 then c := #32;                                             // TAB
+      if c = #27 then command := '';                                       // ESC
       if (c <> #8) and (c <> #13) and (c <> #27) and
          (c <> #72) and (c <> #75) and (c <> #77) and (c <> #80)
       then command := command + c;
       xywrite(1, wherey, true, fullprompt + command);
-    until (c = #13);
+    until (c = #13);                                                       // ENTER
     if length(command) > 0 then
     begin
       if uconfig.histlast < 255 then

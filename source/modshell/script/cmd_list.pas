@@ -21,7 +21,7 @@
 // COMMAND 'LIST'
 function cmd_list: byte;
 var
-  y, line: byte;
+  y, line: integer;
 
 begin
   result := 0;
@@ -35,7 +35,10 @@ begin
   for line := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[line]) > 0 then
     begin
-      writeln(sbuffer[line]);
+      textcolor(colors[1]); textbackground(colors[0]);
+      write(addsomezero(4, inttostr(line + 1)));
+      textcolor(colors[0]); textbackground(colors[1]);
+      writeln(' ' + sbuffer[line]);
       inc(y);
       if y >= (screenheight - 6) then
       begin

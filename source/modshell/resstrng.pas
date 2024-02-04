@@ -99,6 +99,7 @@ resourcestring
   ERR34 = 'Cannot define more constant!';
   ERR35 = 'No such label: ';
   ERR36 = 'Cannot write log record to ';
+  ERR37 = 'Cannot save script to ';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
@@ -192,7 +193,9 @@ resourcestring
   DES88='ALT-M  monitoring the value of variables';
   DES89='       append a record to log file';
   DES90='       loaded script scheduled execution';
-
+  DES91='       edit loaded script with line editor';
+  DES92='       erase script from buffer';
+  DES93='       save loaded script to disc';
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -330,3 +333,6 @@ resourcestring
   USG90='cron' + EOL +
         '  cron rec_num hour minute' + EOL +
         '  cron [-r rec_num]';
+  USG91='edit [LINE_NUMBER]';
+  USG92='erase';
+  USG93='savescr [$]PATH_AND_FILENAME';

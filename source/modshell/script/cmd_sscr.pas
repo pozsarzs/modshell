@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
-{ | cmd_lscr.pas                                                             | }
-{ | command 'loadscr'                                                        | }
+{ | cmd_sscr.pas                                                             | }
+{ | command 'savescr'                                                        | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -15,12 +15,13 @@
 {
   p0      p1
   ----------------------------
-  loadscr [$]PATH_AND_FILENAME
+  savescr [$]PATH_AND_FILENAME
 }
 
-// COMMAND 'LOADSCR'
-function cmd_loadscr(p1: string): byte;
+// COMMAND 'SAVESCR'
+function cmd_savescr(p1: string): byte;
 var
+  c: char;
   line: integer;
   fpn, fp, fn: string;
   s: string;
@@ -56,35 +57,24 @@ begin
     fp := fp + SLASH;
   end;
   fpn := fp + fn;
+  // CHECK EXIST
+  if fileexists(fpn) then
+  begin
+    writeln(MSG14);
+    repeat
+      c:= lowercase(readkey);
+      if c = 'n' then exit;
+    until c = 'y';
+  end;
   // PRIMARY MISSION
-  for line := 0 to SCRBUFFSIZE - 1 do sbuffer[line] := '';
   assignfile(sf, fpn);
   try
-    reset(sf);
-    line := 0;
-    repeat
-      readln(sf,s);
-      if length(s) > 0 then
-      begin
-        // REMOVE SPACE AND TAB FROM START OF LINE
-        while (s[1] = #32) or (s[1] = #9) do
-          delete(s, 1, 1);
-          if line <= int(SCRBUFFSIZE - 1) then
-          begin
-            sbuffer[line] := s;
-            if line < int(SCRBUFFSIZE - 1) then inc(line);
-          end else
-          begin
-            writeln(ERR23);
-            result := 1;
-            exit;
-          end;
-      end;
-    until eof(sf);
+    rewrite(sf);
+    for line := 0 to SCRBUFFSIZE - 1 do
+      if length(sbuffer[line]) > 0 then writeln(sf, sbuffer[line]);
     closefile(sf);
-    scriptisloaded := true;
   except
     result := 1;
-    writeln(ERR22 + fpn);
+    writeln(ERR37 + fpn);
   end;
 end;

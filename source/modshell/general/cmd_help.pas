@@ -147,6 +147,9 @@ begin
         88: buffer[b] := buffer[b] + DES88;
         89: buffer[b] := buffer[b] + DES89;
         90: buffer[b] := buffer[b] + DES90;
+        91: buffer[b] := buffer[b] + DES91;
+        92: buffer[b] := buffer[b] + DES92;
+        93: buffer[b] := buffer[b] + DES93;
       end;
     end;
     shorting;
@@ -276,6 +279,9 @@ begin
         88: writeln(USG88);
         89: writeln(USG89);
         90: writeln(USG90);
+        91: writeln(USG91);
+        92: writeln(USG92);
+        93: writeln(USG93);
       end;
     end;
   end;
