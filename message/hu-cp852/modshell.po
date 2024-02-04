@@ -175,6 +175,19 @@ msgstr "†llapot"
 msgid "No script loaded."
 msgstr "Nincs betîltîtt szkript."
 
+#: modshell:msg39
+msgid "Scroll: [Home][PgUp][Up] - [Down][PgDn][End]"
+msgstr "GîrgetÇs:    [Home][PgUp][Up] - [Down][PgDn][End]"
+
+#: modshell:msg40
+msgid "Move:   [Ctrl-Home][Ctrl-Left][Left] - [Right][Ctrl-Right][Ctrl-End]"
+msgstr ""
+"Mozg†s:      [Ctrl-Home][Ctrl-Left][Left] - [Right][Ctrl-Right][Ctrl-End]"
+
+#: modshell:msg41
+msgid "Edit:   [Ins][Del][Esc]"
+msgstr "SzerkesztÇs: [Ins][Del][Esc]"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Ford°t†s ideje: "
@@ -346,6 +359,10 @@ msgstr "Nincs ilyen c°mke: "
 #: modshell:err36
 msgid "Cannot write log record to "
 msgstr "Nem lehet °rni a napl¢f†jlt: "
+
+#: modshell:err37
+msgid "Cannot save script to "
+msgstr "Nem lehet menteni a szkriptet ebbe: "
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
@@ -714,6 +731,18 @@ msgstr "       egy bejegyzÇs hozz†f˚zÇse a napl¢f†jlhoz"
 #: modshell:des90
 msgid "       loaded script scheduled execution"
 msgstr "       a betîltîtt szkript Åtemezett futatt†sa"
+
+#: modshell:des91
+msgid "       edit loaded script with line editor"
+msgstr "       a betîltîtt szkript szerkesztÇse sorszerkesztãvel"
+
+#: modshell:des92
+msgid "       erase script from buffer"
+msgstr "       a szkript tîrlÇse a pufferb¢l"
+
+#: modshell:des93
+msgid "       save loaded script to disc"
+msgstr "       a betîltîtt szkript mentÇse lemezre"
 
 #: modshell:usg00
 msgid ""
@@ -1198,11 +1227,6 @@ msgstr ""
 "    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
 
 #: modshell:usg90
-#, fuzzy
-#| msgid ""
-#| "cron\n"
-#| "  cron rec_num minute hour\n"
-#| "  cron [-r rec_num]"
 msgid ""
 "cron\n"
 "  cron rec_num hour minute\n"
@@ -1211,6 +1235,18 @@ msgstr ""
 "cron\n"
 "  cron bejegyzÇs ¢ra perc\n"
 "  cron [-r bejegyzÇs]"
+
+#: modshell:usg91
+msgid "edit [LINE_NUMBER]"
+msgstr "edit [SORSZµM]"
+
+#: modshell:usg92
+msgid "erase"
+msgstr "erase"
+
+#: modshell:usg93
+msgid "savescr [$]PATH_AND_FILENAME"
+msgstr "savescr [$]ELêRêSI_ÈT_êS_FµJLNêV"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       elãtÇr- Çs a h†ttÇrsz°n be†ll°t†sa (fullscreen)"

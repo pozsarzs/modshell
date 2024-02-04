@@ -175,6 +175,19 @@ msgstr "állapot"
 msgid "No script loaded."
 msgstr "Nincs betöltött szkript."
 
+#: modshell:msg39
+msgid "Scroll: [Home][PgUp][Up] - [Down][PgDn][End]"
+msgstr "Görgetés:    [Home][PgUp][Up] - [Down][PgDn][End]"
+
+#: modshell:msg40
+msgid "Move:   [Ctrl-Home][Ctrl-Left][Left] - [Right][Ctrl-Right][Ctrl-End]"
+msgstr ""
+"Mozgás:      [Ctrl-Home][Ctrl-Left][Left] - [Right][Ctrl-Right][Ctrl-End]"
+
+#: modshell:msg41
+msgid "Edit:   [Ins][Del][Esc]"
+msgstr "Szerkesztés: [Ins][Del][Esc]"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -346,6 +359,10 @@ msgstr "Nincs ilyen címke: "
 #: modshell:err36
 msgid "Cannot write log record to "
 msgstr "Nem lehet írni a naplófájlt: "
+
+#: modshell:err37
+msgid "Cannot save script to "
+msgstr "Nem lehet menteni a szkriptet ebbe: "
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
@@ -714,6 +731,18 @@ msgstr "       egy bejegyzés hozzáfűzése a naplófájlhoz"
 #: modshell:des90
 msgid "       loaded script scheduled execution"
 msgstr "       a betöltött szkript ütemezett futattása"
+
+#: modshell:des91
+msgid "       edit loaded script with line editor"
+msgstr "       a betöltött szkript szerkesztése sorszerkesztővel"
+
+#: modshell:des92
+msgid "       erase script from buffer"
+msgstr "       a szkript törlése a pufferból"
+
+#: modshell:des93
+msgid "       save loaded script to disc"
+msgstr "       a betöltött szkript mentése lemezre"
 
 #: modshell:usg00
 msgid ""
@@ -1198,11 +1227,6 @@ msgstr ""
 "    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
 
 #: modshell:usg90
-#, fuzzy
-#| msgid ""
-#| "cron\n"
-#| "  cron rec_num minute hour\n"
-#| "  cron [-r rec_num]"
 msgid ""
 "cron\n"
 "  cron rec_num hour minute\n"
@@ -1211,6 +1235,18 @@ msgstr ""
 "cron\n"
 "  cron bejegyzés óra perc\n"
 "  cron [-r bejegyzés]"
+
+#: modshell:usg91
+msgid "edit [LINE_NUMBER]"
+msgstr "edit [SORSZÁM]"
+
+#: modshell:usg92
+msgid "erase"
+msgstr "erase"
+
+#: modshell:usg93
+msgid "savescr [$]PATH_AND_FILENAME"
+msgstr "savescr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       előtér- és a háttérszín beállítása (fullscreen)"

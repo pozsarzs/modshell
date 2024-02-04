@@ -6,7 +6,7 @@
 > - Modbus/ASCII and Modbus/RTU communication,
 > - handling of constants,
 > - two predefined constants and
-> - 25 new command (total: 91).
+> - 28 new command (total: 94).
 > - Script syntax highlighting file for Micro.
 >
 > **v0.1-alpha1:**  
