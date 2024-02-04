@@ -43,7 +43,7 @@ Online manual: <https://github.com/pozsarzs/modshell/wiki>
 |variables               |max. 128 variables or constants (stored as string)                |
 |built-in commands       |91 commands in 9 categories                                       |
 |load from file          |registers, script, settings                                       |
-|save to file            |command history, console trafic, registers, communication settings|
+|save to file            |command history, console trafic, registers, communication settings, user log with timestamp|
 |auto save to file       |general settings and console traffic                              |
 |export to file          |history (TXT), registers (CSV, INI, XML)                          |
 |import to file          |registers (INI, XML)                                              |
@@ -133,6 +133,8 @@ two typed files are created, with the following extensions: BDT, IDT.
 One or more same type registers can be exported to file. During saving, one text
 file is created, with CSV, INI or XML extension. The program can only import
 from INI and XML format files.
+
+We can also create time-stamped log entries with the program.
 
 On exit, the command line history, echo mode and colors are preserved.
 
