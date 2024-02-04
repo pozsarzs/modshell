@@ -39,7 +39,6 @@ Online manual: <https://github.com/pozsarzs/modshell/wiki>
 |local user interface    |CLI and TUI                                                       |
 |running modes           |command line, full-screen or interpreter                          |
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                             |
-|script size             |max. 256 line                                                     |
 |variables               |max. 128 variables or constants (stored as string)                |
 |built-in commands       |91 commands in 9 categories                                       |
 |load from file          |registers, script, settings                                       |
@@ -54,6 +53,9 @@ Online manual: <https://github.com/pozsarzs/modshell/wiki>
 |Modbus communication    |read and write remote device and copy between devices             |
 |                        |internal server for remote access to own registers                |
 |                        |gateway to access devices using other ports or protocols          |
+|script size             |max. 256 line                                                     |
+|example scripts         |7 scripts (shellscript and batch file versions)                   | 
+|script syntax plugins   |for Micro editor                                                  |
 
 #### 1. Screenshots
 
