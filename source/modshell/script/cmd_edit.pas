@@ -21,12 +21,20 @@
 // COMMAND 'EDIT'
 function cmd_edit(p1: string): byte;
 var
-  c: char;
   i1: integer;       // parameter in other format
   s1: string;        // parameter in other format
-  cursorposx: byte = 6;
+  b, bb: byte;
+  c: char;
+  x1: byte = 10;
+  x2: byte;
+  x: byte;
+  en: byte;
+  tp: byte = 1;
+  shift: byte = 0;
+  txt: string;
 
 begin
+  x2 := screenwidth - 1;
   result := 0;
   if not scriptisloaded then
   begin
@@ -43,28 +51,59 @@ begin
     result := 1;
     exit;
   end;
+  // PRIMARY MISSION
   writeln(MSG39);
   writeln(MSG40);
   writeln(MSG41);
   writeln;
+  x := x1;
   repeat
-    gotoxy(1, wherey); clreol;
+    txt := sbuffer[i1];
+    en := length(txt);
+    // write line number
+    gotoxy(1, wherey); //clreol;
     textcolor(colors[1]); textbackground(colors[0]);
     write(addsomezero(4, inttostr(i1)));
+    // write character number in the line
+    gotoxy(6, wherey);
+    textcolor(colors[1]); textbackground(colors[0]);
+    write(addsomezero(3, inttostr(tp)));
+    // write text
     textcolor(colors[0]); textbackground(colors[1]);
-    write(' ' + sbuffer[i1 - 1]);
-    gotoxy(cursorposx, wherey);
+    // scrolling text in line
+    if tp = x - x1 + 1 then
+    begin
+      gotoxy(x1, wherey); clreol;
+      for b:= 1 to x2 - x1 + 1 do
+        if b <= length(txt) then write(txt[b]);
+    end;
+    if ( x - x1 + 1 = x2 - x1 + 1) and (tp > x - x1 + 1) then
+    begin
+      gotoxy(x1, wherey); clreol;
+      for b:= 1 + shift to x2 - x1 + 1 + shift do
+        if b <= length(txt) then write(txt[b]);
+    end;
+    if ( x - x1 + 1 = 1 ) and (tp > x - x1 + 1) then
+    begin
+      gotoxy(x1, wherey); clreol;
+      for b:= 1 + shift to x2 - x1 + 1 + shift do
+        if b <= length(txt) then write(txt[b]);
+    end;
     repeat
       if appmode = 3 then showtime(colors[0], colors[1]);
+      gotoxy(x, wherey);
       delay(SHOWTIMEDELAY)
     until keypressed;
     c := readkey;
+(*
     if (c <> #0) and (c <> #27) then
     begin
       sbuffer[i1 - 1][cursorposx - 5] := c;
       if cursorposx < 80 then inc(cursorposx);
     end;
+*) 
     if c = #0 then c := readkey;
+    gotoxy(x, wherey);
     case c of
       // scroll lines
       #71: i1 := 1;                                          // Home
@@ -76,21 +115,83 @@ begin
            then i1 := i1 + 10 else i1 := scriptlastline;
       #79: i1 := scriptlastline;                             // End
       // move in the line
-      #119: cursorposx := 6;                                 // Ctrl-Home
-      #115: if (cursorposx - 10) >= 6
-            then dec(cursorposx) else cursorposx := 6;       // Ctrl-Left
-      #75:  if cursorposx > 6 then dec(cursorposx);          // Left
-      #77:  if cursorposx < 80 then inc(cursorposx);         // Right
-      #116: if (cursorposx + 10) <= 80
-            then dec(cursorposx) else cursorposx := 80;      // Ctrl-Right
-      #117: cursorposx := 6;                                 // Ctrl-End
+      #119: begin                                            // Ctrl-Home
+              tp := 1;
+              x := x1;
+            end;
+      #115: for bb:= 1 to 10 do                              // Ctrl-Left
+            begin
+             if x = x1 then
+               if tp > 1 then
+               begin
+                 dec(shift);
+                 tp := x - x1 + 1 + shift;
+               end;
+             if x > x1 then
+             begin
+               dec(x);
+               tp := x - x1 + 1 + shift;
+             end;
+           end;
+      #75: begin                                             // Left 
+             if x = x1 then
+               if tp > 1 then
+               begin
+                 dec(shift);
+                 tp := x - x1 + 1 + shift;
+               end;
+             if x > x1 then
+             begin
+               dec(x);
+               tp := x - x1 + 1 + shift;
+             end;
+           end;
+      #77: begin                                             // Right 
+             if x = x2 then
+               if tp < en then
+               begin
+                 inc(shift);
+                 tp := x - x1 + 1 + shift;
+               end;
+             if x < x2 then
+             begin
+               inc(x);
+               tp := x - x1 + 1 + shift;
+             end;
+           end;
+      #116: for bb:= 1 to 10 do                              // Ctrl-Right
+            begin
+              if x = x2 then
+                if tp < en then
+                begin
+                  inc(shift);
+                  tp := x - x1 + 1 + shift;
+                end;
+              if x < x2 then
+              begin
+                inc(x);
+                tp := x - x1 + 1 + shift;
+              end;
+            end;
+      #117: for tp := tp to en do                            // Ctrl-End 
+             begin
+               if x = x2 then
+                 if tp < en then inc(shift);
+               if x < x2 then inc(x);
+             end;
+(*
       // insert or delete a character
       #82:  begin                                            // Ins
               insert(' ', sbuffer[i1 - 1], cursorposx - 5);
               if cursorposx < 80 then inc(cursorposx);
             end;
       #83:  delete(sbuffer[i1 - 1], cursorposx - 5, 1);      // Del
+
+
+*)
+
+
     end;
-  until c = #27;                                             // Esc
+  until c = #27;
   writeln;
 end;
