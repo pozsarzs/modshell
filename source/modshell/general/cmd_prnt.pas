@@ -25,11 +25,11 @@ function cmd_print(p1, p2, p3, p4: string): byte;
 const
   N: string[2] = '-n';
 var
-  i, i2, i3: integer;      // parameters in other type
-  rt: byte;                // register type
-  s1, s2, s3: string;      // parameters in other type
+  i, i2, i3: integer; // parameters in other type
+  rt: byte; // register type
+  s1, s2, s3: string; // parameters in other type
   valid: boolean = false;
-  crlf: boolean = true;    // carriage return and line feed
+  crlf: boolean = true; // carriage return and line feed
   
 begin
   result := 0;
@@ -72,7 +72,7 @@ begin
     end;
   if not valid then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
+    write(NUM1 + MSG05); // What is the 1st parameter?
     for i := 0 to 3 do write(' ' + REG_TYPE[i]);
     writeln;
     result := 1;
@@ -85,7 +85,7 @@ begin
   i2 := strtointdef(s2, -1); // start address
   if (i2 < 1 ) or (i2 > 9999) then
   begin
-    writeln('2nd ' + MSG05 + ' 1-9999'); // What is the 2nd parameter?
+    writeln(NUM2 + MSG05 + ' 1-9999'); // What is the 2nd parameter?
     result := 1;
     exit;
   end;
@@ -99,7 +99,7 @@ begin
   end;
   if (i3 < 1 ) or (i3 > 9999) then
   begin
-    writeln('3rd ' + MSG05 + ' 1-9999'); // What is the 3rd parameter?
+    writeln(NUM3 + MSG05 + ' 1-9999'); // What is the 3rd parameter?
     result := 1;
     exit;
   end;

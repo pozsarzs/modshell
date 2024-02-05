@@ -21,9 +21,9 @@
 // COMMAND 'CONV'
 function cmd_conv(p1, p2, p3: string): byte;
 var
-  ns1, ns2: byte;          // numerical system
+  ns1, ns2: byte; // numerical system
   s: string;
-  s3: string;              // parameter in other type
+  s3: string; // parameter in other type
   valid: boolean = false;
 
 begin
@@ -44,7 +44,7 @@ begin
     end;
   if not valid then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
+    write(NUM1 + MSG05); // What is the 1st parameter?
     for ns1 := 0 to 3 do write(' ' + NUM_SYS[ns1]);
     writeln;
     result := 1;
@@ -60,7 +60,7 @@ begin
     end;
   if not valid then
   begin
-    write('2nd ' + MSG05); // What is the 2nd parameter?
+    write(NUM2 + MSG05); // What is the 2nd parameter?
     for ns2 := 0 to 3 do write(' ' + NUM_SYS[ns2]);
     writeln;
     result := 1;
@@ -75,14 +75,14 @@ begin
          s := BinToDez(s3);
          if DezToBin(s) <> s3 then
          begin
-           writeln('3rd ' + MSG05 + ' 0-1111111111111111'); // What is the 3rd parameter?
+           writeln(NUM3 + MSG05 + ' 0-1111111111111111'); // What is the 3rd parameter?
            result := 1;
            exit;
          end;
        end;
     1: if (strtointdef(s3, -1) < 0 ) or (strtointdef(p3, -1) > 65535) then
        begin
-         writeln('3rd ' + MSG05 + ' 0-65535'); // What is the 3rd parameter?
+         writeln(NUM3 + MSG05 + ' 0-65535'); // What is the 3rd parameter?
          result := 1;
          exit;
        end;
@@ -90,7 +90,7 @@ begin
          s := HexToDez(s3);
          if DezToHex(s) <> uppercase(s3) then
          begin
-           writeln('3rd ' + MSG05 + ' 0-FFFF'); // What is the 3rd parameter?
+           writeln(NUM3 + MSG05 + ' 0-FFFF'); // What is the 3rd parameter?
            result := 1;
            exit;
          end;
@@ -99,7 +99,7 @@ begin
          s := OktToDez(s3);
          if DezToOkt(s) <> s3 then
          begin
-           writeln('3rd ' + MSG05 + ' 0-177777'); // What is the 3rd parameter?
+           writeln(NUM3 + MSG05 + ' 0-177777'); // What is the 3rd parameter?
            result := 1;
            exit;
          end;

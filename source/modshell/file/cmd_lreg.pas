@@ -25,7 +25,7 @@ var
   fpn, fp, fn, fx: string;
   ftb: file of boolean;
   ftw: file of word;
-  s1: string;               // parameters in other type
+  s1: string; // parameters in other type
 
 begin
   result := 0;

@@ -13,6 +13,34 @@ msgstr ""
 "X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
+#: modshell:num1
+msgid "1st "
+msgstr "Els‹ "
+
+#: modshell:num2
+msgid "2nd "
+msgstr "M sodik "
+
+#: modshell:num3
+msgid "3rd "
+msgstr "Harmadik "
+
+#: modshell:num4
+msgid "4th "
+msgstr "Negyedik "
+
+#: modshell:num5
+msgid "5th "
+msgstr "™t”dik "
+
+#: modshell:num6
+msgid "6th "
+msgstr "Hatodik "
+
+#: modshell:num7
+msgid "7th "
+msgstr "Hetedik "
+
 #: modshell:msg01
 msgid ""
 "<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> "
@@ -176,13 +204,12 @@ msgid "No script loaded."
 msgstr "Nincs bet”lt”tt szkript."
 
 #: modshell:msg39
-msgid "Scroll: [Home][PgUp][Up] - [Down][PgDn][End]"
-msgstr "G”rget‚s:    [Home][PgUp][Up] - [Down][PgDn][End]"
+msgid "Scroll: [Home][PgUp][Up]-[Down][PgDn][End]"
+msgstr "G”rget‚s:    [Home][PgUp][Up]-[Down][PgDn][End]"
 
 #: modshell:msg40
-msgid "Move:   [Ctrl-Home][Ctrl-Left][Left] - [Right][Ctrl-Right][Ctrl-End]"
-msgstr ""
-"Mozg s:      [Ctrl-Home][Ctrl-Left][Left] - [Right][Ctrl-Right][Ctrl-End]"
+msgid "Move:   [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
+msgstr "Mozg s:      [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
 
 #: modshell:msg41
 msgid "Edit:   [Ins][Del][Esc]"

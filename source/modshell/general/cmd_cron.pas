@@ -73,7 +73,7 @@ begin
     if (length(p2) = 0) and (length(p3) = 0) then
       if p1 <> R then
       begin
-        writeln('1st ' + MSG05 + ' ' + R); // What is the 2nd parameter?
+        writeln(NUM1 + MSG05 + ' ' + R); // What is the 2nd parameter?
         result := 1;
         exit;
       end else
@@ -87,7 +87,7 @@ begin
       // CHECK P1 PARAMETER
       if p1 <> R then
       begin
-        writeln('1st ' + MSG05 + ' ' + R); // What is the 1st parameter?
+        writeln(NUM1 + MSG05 + ' ' + R); // What is the 1st parameter?
         result := 1;
         exit;
       end;
@@ -95,7 +95,7 @@ begin
       i2 := strtointdef(p2, -1);
       if (i2 < 1) or (i2 > 4) then
       begin
-        writeln('2nd ' + MSG05 + ' 1-4'); // What is the 2nd parameter?
+        writeln(NUM2 + MSG05 + ' 1-4'); // What is the 2nd parameter?
         result := 1;
         exit;
       end;
@@ -113,7 +113,7 @@ begin
       i1 := strtointdef(p1, -1);
       if (i1 < 1) or (i1 > 4) then
       begin
-        writeln('1st ' + MSG05 + ' 1-4'); // What is the 2nd parameter?
+        writeln(NUM1 + MSG05 + ' 1-4'); // What is the 2nd parameter?
         result := 1;
         exit;
       end;
@@ -123,7 +123,7 @@ begin
         i2 := strtointdef(p2, -1);
         if (i2 < 0) or (i2 > 23) then
         begin
-          writeln('2nd ' + MSG05 + ' 0-23'); // What is the 2nd parameter?
+          writeln(NUM2 + MSG05 + ' 0-23'); // What is the 2nd parameter?
           result := 1;
           exit;
         end;
@@ -134,7 +134,7 @@ begin
         i3 := strtointdef(p3, -1);
         if (i3 < 0) or (i3 > 59) then
         begin
-          writeln('3rd ' + MSG05 + ' 0-59'); // What is the 3rd parameter?
+          writeln(NUM3 + MSG05 + ' 0-59'); // What is the 3rd parameter?
           result := 1;
           exit;
         end;

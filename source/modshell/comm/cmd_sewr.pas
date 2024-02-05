@@ -23,8 +23,8 @@
 function cmd_serwrite(p1, p2: string): byte;
 var
   b: byte;
-  i1: integer;             // parameters other type
-  s1, s2: string;          // parameters in other type
+  i1: integer; // parameters other type
+  s1, s2: string; // parameters in other type
   valid: boolean = false;
 
 begin
@@ -48,7 +48,7 @@ begin
     end;
   if not valid then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
+    write(NUM1 + MSG05); // What is the 1st parameter?
     writeln(' ' + PREFIX[0] + '[0-7]');
     result := 1;
     exit;

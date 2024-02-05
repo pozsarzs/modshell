@@ -1,3 +1,31 @@
+#: modshell:num1
+msgid "1st "
+msgstr ""
+
+#: modshell:num2
+msgid "2nd "
+msgstr ""
+
+#: modshell:num3
+msgid "3rd "
+msgstr ""
+
+#: modshell:num4
+msgid "4th "
+msgstr ""
+
+#: modshell:num5
+msgid "5th "
+msgstr ""
+
+#: modshell:num6
+msgid "6th "
+msgstr ""
+
+#: modshell:num7
+msgid "7th "
+msgstr ""
+
 #: modshell:msg01
 msgid "<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> clear <F10> exit"
 msgstr ""
@@ -154,11 +182,11 @@ msgid "No script loaded."
 msgstr ""
 
 #: modshell:msg39
-msgid "Scroll: [Home][PgUp][Up] - [Down][PgDn][End]"
+msgid "Scroll: [Home][PgUp][Up]-[Down][PgDn][End]"
 msgstr ""
 
 #: modshell:msg40
-msgid "Move:   [Ctrl-Home][Ctrl-Left][Left] - [Right][Ctrl-Right][Ctrl-End]"
+msgid "Move:   [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
 msgstr ""
 
 #: modshell:msg41

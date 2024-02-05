@@ -21,9 +21,9 @@
 //COMMAND 'READ'
 function cmd_read(p1, p2, p3, p4: string): byte;
 var
-  i1, i3, i4: integer;     // parameters other type
-  rt: byte;                // register type
-  s1, s3, s4: string;      // parameters in other type
+  i1, i3, i4: integer; // parameters other type
+  rt: byte; // register type
+  s1, s3, s4: string; // parameters in other type
   valid: boolean = false;
 
 begin
@@ -40,8 +40,8 @@ begin
   // CHECK P1 PARAMETER
   if PREFIX[2] <> s1 then
   begin
-    write('1st ' + MSG05); // What is the 1nd parameter?
-    writeln(' ' + PREFIX[2]+'[0-7]');
+    write(NUM1 + MSG05); // What is the 1nd parameter?
+    writeln(' ' + PREFIX[2] + '[0-7]');
     result := 1;
     exit;
   end;
@@ -60,7 +60,7 @@ begin
     end;
   if not valid then
   begin
-    write('2nd ' + MSG05); // What is the 2nd parameter?
+    write(NUM2 + MSG05); // What is the 2nd parameter?
     for rt := 0 to 3 do write(' ' + REG_TYPE[rt]);
     writeln;
     result := 1;
@@ -73,7 +73,7 @@ begin
   i3 := strtointdef(s3, -1);
   if (i3 < 1) or (i3 > 9999) then
   begin
-    writeln('3rd ' + MSG05 + ' 1-9999'); // What is the 3rd parameter?
+    writeln(NUM3 + MSG05 + ' 1-9999'); // What is the 3rd parameter?
     result := 1;
     exit;
   end;
@@ -86,7 +86,7 @@ begin
     i4 := strtointdef(s4, -1);
     if (i4 < 1 ) or (i4 > 125) then
     begin
-      writeln('4th ' + MSG05 + ' 1-125'); // What is the 3rd parameter?
+      writeln(NUM4 + MSG05 + ' 1-125'); // What is the 3rd parameter?
       result := 1;
       exit;
     end;

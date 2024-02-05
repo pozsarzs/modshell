@@ -22,9 +22,9 @@
 // COMMAND 'COPY'
 function cmd_copy(p1, p2, p3, p4, p5, p6: string): byte;
 var
-  i1, i3, i5, i6: integer;  // parameters in other type
-  rt: byte;                 // register type
-  s1, s3, s5, s6: string;   // parameters in other type
+  i1, i3, i5, i6: integer; // parameters in other type
+  rt: byte; // register type
+  s1, s3, s5, s6: string; // parameters in other type
   valid: boolean = false;
 
 begin
@@ -42,8 +42,8 @@ begin
   // CHECK P1 PARAMETER
   if PREFIX[2] <> s1 then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
-    writeln(' ' + PREFIX[2]+'[0-7]');
+    write(NUM1 + MSG05); // What is the 1st parameter?
+    writeln(' ' + PREFIX[2] + '[0-7]');
     exit;
   end;
   if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
@@ -61,7 +61,7 @@ begin
     end;
   if not valid then
   begin
-    write('2nd ' + MSG05); // What is the 2nd parameter?
+    write(NUM2 + MSG05); // What is the 2nd parameter?
     for rt := 0 to 3 do write(' ' + REG_TYPE[rt]);
     writeln;
     result := 1;
@@ -72,8 +72,8 @@ begin
   // CHECK P3 PARAMETER
   if PREFIX[2] <> s1 then
   begin
-    write('1st ' + MSG05); // What is the 3rd parameter?
-    writeln(' ' + PREFIX[2]+'[0-7]');
+    write(NUM2 + MSG05); // What is the 3rd parameter?
+    writeln(' ' + PREFIX[2] + '[0-7]');
     result := 1;
     exit;
   end;
@@ -97,9 +97,9 @@ begin
     result := 1;
     if rt <= 1
     then
-      write('4th ' + MSG05 + ' ' + REG_TYPE[1]) // What is the 4th parameter?
+      write(NUM4 + MSG05 + ' ' + REG_TYPE[1]) // What is the 4th parameter?
     else
-      write('4th ' + MSG05 + ' ' + REG_TYPE[3]); // What is the 4th parameter?
+      write(NUM4 + MSG05 + ' ' + REG_TYPE[3]); // What is the 4th parameter?
     exit;
   end;
   // CHECK P5 PARAMETER
@@ -109,7 +109,7 @@ begin
   i5 := strtointdef(s5, -1);
   if (i5 < 1) or (i5 > 9999) then
   begin
-    writeln('5th ' + MSG05 + ' 1-9999'); // What is the 5th parameter?
+    writeln(NUM5 + MSG05 + ' 1-9999'); // What is the 5th parameter?
     result := 1;
     exit;
   end;
@@ -122,7 +122,7 @@ begin
     i6 := strtointdef(s6, -1);
     if (i6 < 1 ) or (i6 > 125) then
     begin
-      writeln('6th ' + MSG05 + ' 1-125'); // What is the 6th parameter?
+      writeln(NUM6 + MSG05 + ' 1-125'); // What is the 6th parameter?
       result := 1;
       exit;
     end;

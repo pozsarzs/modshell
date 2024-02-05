@@ -25,7 +25,7 @@ var
   line: integer;
   fpn, fp, fn: string;
   sf: textfile;
-  s1: string;           // parameters in other type
+  s1: string; // parameters in other type
 
 begin
   result := 0;

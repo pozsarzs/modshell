@@ -41,7 +41,7 @@ begin
     end;
   if not valid then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
+    write(NUM1 + MSG05); // What is the 1st parameter?
     for ea := 0 to 3 do write(' ' + ECHO_ARG[ea]);
      writeln;
      result := 1;

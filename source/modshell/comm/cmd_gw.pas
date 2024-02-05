@@ -21,8 +21,8 @@
 // COMMAND 'MBGW'
 function cmd_mbgw(p1, p2: string): byte;
 var
-  i1, i2: integer;  // parameters in other type
-  s1, s2: string;   // parameters in other type
+  i1, i2: integer; // parameters in other type
+  s1, s2: string; // parameters in other type
 
 begin
   result := 0;
@@ -38,8 +38,8 @@ begin
   // CHECK P1 PARAMETER
   if PREFIX[2] <> s1 then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
-    writeln(' ' + PREFIX[2]+'[0-7]');
+    write(NUM1 + MSG05); // What is the 1st parameter?
+    writeln(' ' + PREFIX[2] + '[0-7]');
     result := 1;
     exit;
   end;
@@ -54,8 +54,8 @@ begin
   // CHECK P2 PARAMETER
   if PREFIX[2] <> s2 then
   begin
-    write('2nd ' + MSG05); // What is the 2nd parameter?
-    writeln(' ' + PREFIX[2]+'[0-7]');
+    write(NUM2 + MSG05); // What is the 2nd parameter?
+    writeln(' ' + PREFIX[2] + '[0-7]');
     result := 1;
     exit;
   end;

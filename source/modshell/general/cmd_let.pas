@@ -23,9 +23,9 @@
 // COMMAND 'LET'
 function cmd_let(p1, p2, p3: string): byte;
 var
-  rt: byte;                // register type
+  rt: byte; // register type
   x, y: byte;
-  s2, s3: string;          // parameters in other type
+  s2, s3: string; // parameters in other type
   valid: boolean = false;
 
 begin
@@ -71,7 +71,7 @@ begin
         end;
       if not valid then
       begin
-        write('1st ' + MSG05); // What is the 1st parameter?
+        write(NUM1 + MSG05); // What is the 1st parameter?
         for x := 0 to 3 do write(' ' + REG_TYPE[x]);
         writeln;
         result := 1;
@@ -86,7 +86,7 @@ begin
       // RANGE CHECK
       if (strtointdef(s3, -1) < 1 ) or (strtointdef(s3, -1) > 9999) then
       begin
-        writeln('2nd ' + MSG05 + ' 1-9999'); // What is the 2nd parameter?
+        writeln(NUM2 + MSG05 + ' 1-9999'); // What is the 2nd parameter?
         result := 1;
         exit;
       end;
@@ -110,7 +110,7 @@ begin
     end;
   if not valid then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
+    write(NUM1 + MSG05); // What is the 1st parameter?
     for x := 0 to 3 do write(' ' + REG_TYPE[x]);
     writeln;
     result := 1;
@@ -122,7 +122,7 @@ begin
   if length(s2) = 0 then s2 := p2;
   if (strtointdef(s2, -1) < 1 ) or (strtointdef(s2, -1) > 9999) then
   begin
-    writeln('2nd ' + MSG05 + ' 1-9999'); // What is the 2nd parameter?
+    writeln(NUM2 + MSG05 + ' 1-9999'); // What is the 2nd parameter?
     result := 1;
     exit;
   end;
@@ -133,7 +133,7 @@ begin
   if rt > 1 then
     if (strtointdef(s3, -1) < 0 ) or (strtointdef(s3, -1) > 65535) then
     begin
-      writeln('3rd ' + MSG05 + ' 0-65535'); // What is the 3rd parameter?
+      writeln(NUM3 + MSG05 + ' 0-65535'); // What is the 3rd parameter?
       result := 1;
       exit;
     end;
@@ -149,7 +149,7 @@ begin
         end;
     if not valid then
     begin
-      write('3rd ' + MSG05); // What is the 3rd parameter?
+      write(NUM3 + MSG05); // What is the 3rd parameter?
       for x := 0 to 1 do
         for y := 0 to 2 do
           write(' ' + BOOLVALUES[x, y]);

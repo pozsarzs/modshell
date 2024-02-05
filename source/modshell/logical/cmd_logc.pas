@@ -33,12 +33,12 @@ var
 begin
   if (w < 0) or (w > 65535) then
   begin
-    writeln('2nd ' + MSG05 + ' 0-65535'); // What is the 2nd parameter?
+    writeln(NUM2 + MSG05 + ' 0-65535'); // What is the 2nd parameter?
     exit;
   end;
   if (n < 0) or (n > 15) then
   begin
-    writeln('3rd ' + MSG05 + ' 0-15'); // What is the 3rd parameter?
+    writeln(NUM3 + MSG05 + ' 0-15'); // What is the 3rd parameter?
     exit;
   end;
   s := addsomezero(16, deztobin(inttostr(w)));

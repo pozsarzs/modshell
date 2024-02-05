@@ -24,13 +24,13 @@ var
   // appendfile: boolean = false;
   c: char;
   i: integer;
-  i3, i4: integer;                          // parameters in other type
+  i3, i4: integer; // parameters in other type
   ini: tinifile;
   fpn, fp, fn, fx: string;
   ft: byte;
   rootnode, parentnode, itemnode: tdomnode; 
-  rt: byte;                                 // register type
-  s1, s3, s4: string;                       // parameters in other type
+  rt: byte; // register type
+  s1, s3, s4: string; // parameters in other type
   tf: textfile;
   valid: boolean = false;
   xml: txmldocument;
@@ -102,7 +102,7 @@ begin
     end;
   if not valid then
   begin
-    write('2nd ' + MSG05); // What is the 2nd parameter?
+    write(NUM2 + MSG05); // What is the 2nd parameter?
     for rt := 0 to 3 do write(' ' + REG_TYPE[rt]);
     writeln;
     result := 1;
@@ -115,7 +115,7 @@ begin
   i3 := strtointdef(s3, -1);
   if (i3 < 1) or (i3 > 9999) then
   begin
-    writeln('3rd ' + MSG05 + ' 1-9999'); // What is the 3rd parameter?
+    writeln(NUM3 + MSG05 + ' 1-9999'); // What is the 3rd parameter?
     result := 1;
     exit;
   end;
@@ -128,7 +128,7 @@ begin
     i4 := strtointdef(s4, -1);
     if (i4 < 1 ) or (i4 > 9999) then
     begin
-      writeln('4th ' + MSG05 + ' 1-9999'); // What is the 4rd parameter?
+      writeln(NUM4 + MSG05 + ' 1-9999'); // What is the 4rd parameter?
       result := 1;
       exit;
     end;

@@ -21,8 +21,8 @@
 // COMMAND 'FOR'
 function cmd_for(p1, p2, p3, p4, p5, p6: string): byte;
 var
-  i, i2, i4: integer;  // parameters in other type
-  s2, s4: string;  // parameters in other type
+  i, i2, i4: integer; // parameters in other type
+  s2, s4: string; // parameters in other type
 
 begin
   result := 0;
@@ -48,14 +48,14 @@ begin
   i2 := strtointdef(s2, -1);
   if (i2 < 0) or (i2 > 65535) then
   begin
-    writeln('2nd ' + MSG05 + ' 0-65535'); // What is the 2nd parameter?
+    writeln(NUM2 + MSG05 + ' 0-65535'); // What is the 2nd parameter?
     result := 1;
     exit;
   end;
   // CHECK P3 PARAMETER
   if lowercase(p3) <> 'to' then
   begin
-    writeln('3rd ' + MSG05+'  to'); // What is the 3rd parameter?
+    writeln(NUM3 + MSG05+'  to'); // What is the 3rd parameter?
     result := 1;
     exit;
   end;
@@ -66,14 +66,14 @@ begin
   i4 := strtointdef(s4, -1);
   if (i4 < 0) or (i4 > 65535) then
   begin
-    writeln('4th ' + MSG05 + ' 0-65535'); // What is the 4th parameter?
+    writeln(NUM4 + MSG05 + ' 0-65535'); // What is the 4th parameter?
     result := 1;
     exit;
   end;
   // CHECK P5 PARAMETER
   if lowercase(p5) <> 'do' then
   begin
-    writeln('5th ' + MSG05+'  do'); // What is the 5th parameter?
+    writeln(NUM5 + MSG05+'  do'); // What is the 5th parameter?
     result := 1;
     exit;
   end;

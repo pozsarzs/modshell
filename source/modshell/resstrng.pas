@@ -14,6 +14,14 @@
 }
 
 resourcestring
+  // NUMBERS
+  NUM1 = '1st ';
+  NUM2 = '2nd ';
+  NUM3 = '3rd ';
+  NUM4 = '4th ';
+  NUM5 = '5th ';
+  NUM6 = '6th ';
+  NUM7 = '7th ';
   // GENERAL MESSAGES
   MSG01 = '<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> clear <F10> exit';
   MSG02 = 'Command-driven scriptable Modbus utility';
@@ -55,8 +63,8 @@ resourcestring
   MSG36 = 'minute';
   MSG37 = 'status';
   MSG38 = 'No script loaded.';
-  MSG39 = 'Scroll: [Home][PgUp][Up] - [Down][PgDn][End]';
-  MSG40 = 'Move:   [Ctrl-Home][Ctrl-Left][Left] - [Right][Ctrl-Right][Ctrl-End]';
+  MSG39 = 'Scroll: [Home][PgUp][Up]-[Down][PgDn][End]';
+  MSG40 = 'Move:   [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]';
   MSG41 = 'Edit:   [Ins][Del][Esc]';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';

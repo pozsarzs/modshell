@@ -21,17 +21,17 @@
 // COMMAND 'EDIT'
 function cmd_edit(p1: string): byte;
 var
-  i1: integer;       // parameter in other format
-  s1: string;        // parameter in other format
+  i1: integer; // parameter in other format
+  s1: string; // parameter in other format
   b, bb: byte;
   c: char;
+  en: byte;
+  shift: byte = 0;
+  tp: byte = 1;
+  txt: string;
+  x: byte;
   x1: byte = 10;
   x2: byte;
-  x: byte;
-  en: byte;
-  tp: byte = 1;
-  shift: byte = 0;
-  txt: string;
 
 begin
   x2 := screenwidth - 1;
@@ -47,7 +47,7 @@ begin
   i1 := strtointdef(s1, -1);
   if (i1 < 1) or (i1 > SCRBUFFSIZE) then
   begin
-    writeln('1st ' + MSG05 + ' 1-' + inttostr(SCRBUFFSIZE)); // What is the 1st parameter?
+    writeln(NUM1 + MSG05 + ' 1-' + inttostr(SCRBUFFSIZE)); // What is the 1st parameter?
     result := 1;
     exit;
   end;
@@ -58,7 +58,7 @@ begin
   writeln;
   x := x1;
   repeat
-    txt := sbuffer[i1];
+    txt := sbuffer[i1 - 1];
     en := length(txt);
     // write line number
     gotoxy(1, wherey); //clreol;
@@ -95,15 +95,23 @@ begin
       delay(SHOWTIMEDELAY)
     until keypressed;
     c := readkey;
-(*
+    // overwrite character
     if (c <> #0) and (c <> #27) then
     begin
-      sbuffer[i1 - 1][cursorposx - 5] := c;
-      if cursorposx < 80 then inc(cursorposx);
+      sbuffer[i1 - 1][tp] := c;
+      c := #77;
     end;
-*) 
+    // keys with double scan-code
     if c = #0 then c := readkey;
     gotoxy(x, wherey);
+    // insert or delete
+    case c of
+      #82: begin                                             // Ins
+             insert(' ', sbuffer[i1 - 1], tp);
+             c := #77;
+           end;
+      #83: delete(sbuffer[i1 - 1], tp, 1);                   // Del
+    end;
     case c of
       // scroll lines
       #71: i1 := 1;                                          // Home
@@ -179,19 +187,13 @@ begin
                  if tp < en then inc(shift);
                if x < x2 then inc(x);
              end;
-(*
-      // insert or delete a character
-      #82:  begin                                            // Ins
-              insert(' ', sbuffer[i1 - 1], cursorposx - 5);
-              if cursorposx < 80 then inc(cursorposx);
-            end;
-      #83:  delete(sbuffer[i1 - 1], cursorposx - 5, 1);      // Del
-
-
-*)
-
-
     end;
   until c = #27;
   writeln;
 end;
+
+
+
+
+
+

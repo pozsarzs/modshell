@@ -31,7 +31,7 @@ var
   var
     b: byte;
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
+    write(NUM1 + MSG05); // What is the 1st parameter?
     for b := 0 to 2 do write(' ' + PREFIX[b] + '[0-7]');
     writeln(' ' + PREFIX[3]);
   end;

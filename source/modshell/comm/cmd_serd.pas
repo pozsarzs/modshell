@@ -23,9 +23,9 @@ function cmd_serread(p1, p2: string): byte;
 var
   b: byte;
   c: char;
-  i1: integer;             // parameters other type
+  i1: integer; // parameters other type
   s: string = '';
-  s1: string;              // parameters in other type
+  s1: string; // parameters in other type
   valid: boolean = false;
 
 begin
@@ -49,7 +49,7 @@ begin
     end;
   if not valid then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
+    write(NUM1 + MSG05); // What is the 1st parameter?
     writeln(' ' + PREFIX[0] + '[0-7]');
     result := 1;
     exit;

@@ -26,9 +26,9 @@
 // COMMAND 'SET'
 function cmd_set(p1, p2, p3, p4, p5, p6, p7: string):byte;
 var
-  i1: integer;             // parameters in other type
+  i1: integer; // parameters in other type
   pr: byte;
-  s1: string;              // parameters in other type
+  s1: string; // parameters in other type
   valid: boolean = false;
   error: byte = 0;
 
@@ -36,8 +36,8 @@ var
   procedure cmd_set_dev(n, p2, p3, p4, p5, p6, p7: string);
   var
     dvt, i: integer;
-    i4, i6: integer;         // parameters in other type
-    s4, s5, s6, s7: string;  // parameters in other type
+    i4, i6: integer; // parameters in other type
+    s4, s5, s6, s7: string; // parameters in other type
   begin
     // 1ST CHECK LENGTH OF PARAMETERS
     if (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0) then
@@ -55,7 +55,7 @@ var
       end;
     if not valid then
     begin
-      write('2st ' + MSG05); // What is the 2nd parameter?
+      write(NUM2 + MSG05); // What is the 2nd parameter?
       for i := 0 to 1 do write(' ' + DEV_TYPE[i]);
       writeln;
       error := 1;
@@ -70,7 +70,7 @@ var
       if length(s4) = 0 then s4 := p4;
       if (strtointdef(s4, -1) < 0 ) or (strtointdef(s4, -1) > 65535) then
       begin
-        writeln('4th ' + MSG05 + ' 0-65535'); // What is the 4th parameter?
+        writeln(NUM4 + MSG05 + ' 0-65535'); // What is the 4th parameter?
         error := 1;
         exit;
       end;
@@ -104,7 +104,7 @@ var
         end;
       if not valid then
       begin
-        write('4th ' + MSG05); // What is the 4th parameter?
+        write(NUM4 + MSG05); // What is the 4th parameter?
         for i := 0 to 7 do write(' ' + DEV_SPEED[i]);
         writeln;
         error := 1;
@@ -116,7 +116,7 @@ var
       if length(s5) = 0 then s5 := p5;
       if (strtointdef(s5, -1) < 7 ) or (strtointdef(s5, -1) > 8) then
       begin
-        writeln('5th ' + MSG05 + ' 7-8'); // What is the 5th parameter?
+        writeln(NUM5 + MSG05 + ' 7-8'); // What is the 5th parameter?
         error := 1;
         exit;
       end;
@@ -132,7 +132,7 @@ var
         end;
       if not valid then
       begin
-        write('6th ' + MSG05); // What is the 6th parameter?
+        write(NUM6 + MSG05); // What is the 6th parameter?
         for i := 0 to 2 do write(' ' + DEV_PARITY[i]);
         writeln;
         error := 1;
@@ -144,7 +144,7 @@ var
       if length(s7) = 0 then s7 := p7;
       if (strtointdef(s7, -1) < 1 ) or (strtointdef(s7, -1) > 2) then
       begin
-        writeln('7th ' + MSG05 + ' 1-2'); // What is the 7th parameter?
+        writeln(NUM7 + MSG05 + ' 1-2'); // What is the 7th parameter?
         error := 1;
         exit;
       end;
@@ -187,7 +187,7 @@ var
       end;
     if not valid then
     begin
-      write('2st ' + MSG05); // What is the 2nd parameter?
+      write(NUM2 + MSG05); // What is the 2nd parameter?
       for i := 0 to 2 do write(' ' + PROT_TYPE[i]);
       writeln;
       error := 1;
@@ -246,8 +246,8 @@ var
     // CHECK P2 PARAMETER
     if PREFIX[0] <> s2 then
     begin
-      write('2nd ' + MSG05); // What is the 2nd parameter?
-      writeln(' ' + PREFIX[0]+'[0-7]');
+      write(NUM2 + MSG05); // What is the 2nd parameter?
+      writeln(' ' + PREFIX[0] + '[0-7]');
       error := 1;
       exit;
     end;
@@ -261,8 +261,8 @@ var
    // CHECK P3 PARAMETER
    if PREFIX[1] <> s3 then
     begin
-      write('3rd ' + MSG05); // What is the 3rd parameter?
-      writeln(' ' + PREFIX[1]+'[0-7]');
+      write(NUM3 + MSG05); // What is the 3rd parameter?
+      writeln(' ' + PREFIX[1] + '[0-7]');
       error := 1;
       exit;
     end;
@@ -331,8 +331,8 @@ var
     b: byte;
 
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
-    for b := 0 to 3 do write(' ' + PREFIX[b]+'[0-7]');
+    write(NUM1 + MSG05); // What is the 1st parameter?
+    for b := 0 to 3 do write(' ' + PREFIX[b] + '[0-7]');
     writeln(' ' + PREFIX[3]);
   end;
 

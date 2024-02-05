@@ -23,8 +23,8 @@ function cmd_if(p1, p2, p3, p4, p5: string): byte;
 const
   RS: array[0..5] of string = ('<','<=','=','=>','>','<>');
 var
-  i1, i2, i3: integer;     // parameters in other type
-  s1, s3: string;          // parameters in other type
+  i1, i2, i3: integer; // parameters in other type
+  s1, s3: string; // parameters in other type
   valid: boolean = false;
 
 begin
@@ -43,7 +43,7 @@ begin
   i1 := strtointdef(s1, -1);
   if (i1 < 0) or (i1 > 65535) then
   begin
-    writeln('1st ' + MSG05 + ' 0-65535'); // What is the 1st parameter?
+    writeln(NUM1 + MSG05 + ' 0-65535'); // What is the 1st parameter?
     result := 1;
     exit;
   end;
@@ -56,7 +56,7 @@ begin
     end;
   if not valid then
   begin
-    write('2nd ' + MSG05); // What is the 2nd parameter?
+    write(NUM2 + MSG05); // What is the 2nd parameter?
     for i2 := 0 to 5 do write(' ' + RS[i2]);
     writeln;
     result := 1;
@@ -69,14 +69,14 @@ begin
   i3 := strtointdef(s3, -1);
   if (i3 < 0) or (i3 > 65535) then
   begin
-    writeln('3rd ' + MSG05 + ' 0-65535'); // What is the 3rd parameter?
+    writeln(NUM3 + MSG05 + ' 0-65535'); // What is the 3rd parameter?
     result := 1;
     exit;
   end;
   // CHECK P4 PARAMETER
   if lowercase(p4) <> 'then' then
   begin
-    writeln('4th ' + MSG05+'  then'); // What is the 4th parameter?
+    writeln(NUM4 + MSG05+'  then'); // What is the 4th parameter?
     result := 1;
     exit;
   end;

@@ -22,7 +22,7 @@
 // COMMAND 'PAUSE'
 function cmd_pause(p1: string): byte;
 var
-  s1: string;  // parameter in other type
+  s1: string; // parameter in other type
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -35,7 +35,7 @@ begin
     // PRIMARY MISSION
     if strtointdef(s1, -1) > -1 then delay(strtoint(s1) * 1000) else
     begin
-      writeln('1st ' + MSG05 + ' 1-65535'); // What is the 1st parameter?
+      writeln(NUM1 + MSG05 + ' 1-65535'); // What is the 1st parameter?
       result := 1;
     end;
   end;

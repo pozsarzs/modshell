@@ -26,9 +26,9 @@ var
   fpn, fp, fn, fx: string;
   ft: byte;
   childnode: tdomnode; 
-  rt: byte;               // register type
+  rt: byte; // register type
   s: string;
-  s1: string;             // parameters in other type
+  s1: string; // parameters in other type
   valid: boolean = false;
   xml: txmldocument;
 

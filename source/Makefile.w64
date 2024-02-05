@@ -16,9 +16,9 @@ all:
 	@if not exist $(outdir)\nul mkdir $(outdir)
 	@cd $(name)
 	@fpc $(fpflag) $(name).pas
-	@cd ..
 	@rstconv -f po -i $(outdir)\$(name).rst  -o ..\message\$(name).pot
 	@move $(outdir)\$(name).exe ..\
+	@cd ..
 
 clean:
 	@erase $(outdir)\*.*

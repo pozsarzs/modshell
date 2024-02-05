@@ -69,7 +69,7 @@ begin
         end;
       if not valid then
       begin
-        write('1st ' + MSG05); // What is the 1st parameter?
+        write(NUM1 + MSG05); // What is the 1st parameter?
         for b := 0 to 1 do write(' ' + ECHO_ARG[b]);
         writeln;
         result := 1;
@@ -98,7 +98,7 @@ begin
         end;
       if not valid then
       begin
-        write('2nd ' + MSG05); // What is the 2nd parameter?
+        write(NUM2 + MSG05); // What is the 2nd parameter?
         for b := 0 to 1 do write(' ' + ECHO_ARG[b]);
         writeln;
         result := 1;

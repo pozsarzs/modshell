@@ -26,7 +26,7 @@ var
   ftd: file of tdevice;
   ftp: file of tprotocol;
   ftc: file of tconnection;
-  s1: string;                // parameters in other type
+  s1: string; // parameters in other type
 
 begin
   result := 0;

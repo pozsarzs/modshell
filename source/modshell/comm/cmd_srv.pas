@@ -21,8 +21,8 @@
 // COMMAND 'MBSRW'
 function cmd_mbsrv(p1: string): byte;
 var
-  i1: integer;  // parameter in other type
-  s1: string;   // parameter in other type
+  i1: integer; // parameter in other type
+  s1: string; // parameter in other type
 
 begin
   result := 0;
@@ -38,8 +38,8 @@ begin
   // CHECK P1 PARAMETER
   if PREFIX[2] <> s1 then
   begin
-    write('1st ' + MSG05); // What is the 1st parameter?
-    writeln(' ' + PREFIX[2]+'[0-7]');
+    write(NUM1 + MSG05); // What is the 1st parameter?
+    writeln(' ' + PREFIX[2] + '[0-7]');
     result := 1;
     exit;
   end;

@@ -25,7 +25,7 @@ var
   valid: boolean;
   buffer: array[0..COMMARRSIZE + 5] of string;
   line: byte;
-  s1: string;                      // parameters in other type
+  s1: string; // parameters in other type
 
   // SHORTING CONTENT OF BUFFER
   procedure shorting;

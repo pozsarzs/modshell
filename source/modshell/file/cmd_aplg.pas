@@ -29,7 +29,7 @@ const
                                 'DEBUG  ');
 var
   b: byte;
-  i3: integer;              // parameter in other type
+  i3: integer; // parameter in other type
   fpn, fp, fn, fx: string;
   s: array[1..7] of string; // parameters in other type
   tf: text;
@@ -74,7 +74,7 @@ begin
   i3 := strtointdef(s[3], -1);
   if (i3 < 0) or (i3 > 7) then
   begin
-    writeln('1st ' + MSG05 + ' 0-7'); // What is the 1st parameter?
+    writeln(NUM1 + MSG05 + ' 0-7'); // What is the 1st parameter?
     result := 1;
     exit;
   end;

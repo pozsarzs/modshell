@@ -23,9 +23,9 @@ function cmd_dump(p1, p2: string): byte;
 var
   b, line, column: byte;
   c: char;
-  i2: integer = 0;        // parameter in other type
-  s2: string = '';        // parameter in other type
-  rt: byte;               // register type
+  i2: integer = 0; // parameter in other type
+  s2: string = ''; // parameter in other type
+  rt: byte; // register type
   valid: boolean = false;
 
 begin
@@ -66,7 +66,7 @@ begin
       end;
     if not valid then
     begin
-      write('1st ' + MSG05); // What is the 2nd parameter?
+      write(NUM1 + MSG05); // What is the 2nd parameter?
       for rt := 0 to 3 do write(' ' + REG_TYPE[rt]);
       writeln;
       result := 1;
@@ -79,18 +79,26 @@ begin
     i2 := strtointdef(s2, -1);
     if (i2 < 1) or (i2 > 9990) then
     begin
-      writeln('2nd ' + MSG05 + ' 1-9990'); // What is the 3rd parameter?
+      writeln(NUM2 + MSG05 + ' 1-9990'); // What is the 3rd parameter?
       result := 1;
       exit;
     end;
   end;
   // PRIMARY MISSION
   i2 := (i2 div 10) * 10;
-  for b := 0 to 9 do xywrite((5 * (b + 1)) + 2, wherey, false, inttostr(b)); // header
+  // header
+  textcolor(colors[1]); textbackground(colors[0]);
+  gotoxy(7, wherey);
+  for b := 0 to 48 do write(' ');
+  gotoxy(1, wherey);
+  for b := 0 to 9 do xywrite((5 * (b + 1)) + 2, wherey, false, inttostr(b)); 
+  textcolor(colors[0]); textbackground(colors[1]);
   writeln;
   for line := 0 to screenheight - 5 do
   begin
+    textcolor(colors[1]); textbackground(colors[0]);
     write(addsomezero(4, inttostr(i2 + (line * 10)))); // address
+    textcolor(colors[0]); textbackground(colors[1]);
     for column := 0 to 9 do  // content
       if ((i2 + column) + line * 10) < 10000 then
       begin

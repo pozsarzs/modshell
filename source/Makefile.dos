@@ -16,8 +16,8 @@ all:
 	@if not exist $(outdir)\nul mkdir $(outdir)
 	@cd $(name)
 	@fpc $(fpflag) $(name).pas
-	@cd ..
 	@rstconv -c cp852 -f po -i $(outdir)\$(name).rsj  -o $(outdir)\$(name).pot
+	@cd ..
 
 clean:
 	@erase $(outdir)\*.*
