@@ -94,7 +94,7 @@ begin
   for b := 0 to 9 do xywrite((5 * (b + 1)) + 2, wherey, false, inttostr(b)); 
   textcolor(colors[0]); textbackground(colors[1]);
   writeln;
-  for line := 0 to screenheight - 5 do
+  for line := 0 to termheight - 5 do
   begin
     textcolor(colors[1]); textbackground(colors[0]);
     write(addsomezero(4, inttostr(i2 + (line * 10)))); // address

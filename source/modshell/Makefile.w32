@@ -2,22 +2,21 @@
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
 # | Makefile                                                                   |
-# | Makefile for DOS                                                           |
+# | Makefile for 32 bit Windows                                                |
 # +----------------------------------------------------------------------------+
 
 name = modshell
 architecture = i386
-os = go32v2
-outdir = lib\$(architecture)-dos
-fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Fi.\* -Fu. -Fu..\convert -Fu..\protcom -Fu..\$(outdir) -FE..\$(outdir)
+os = win32
+outdir = ..\lib\$(architecture)-$(os)
+fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Fi.\* -Fu. -Fu..\convert -Fu..\synapse -Fu$(outdir) -FE$(outdir)
 
 all:
-	@if not exist lib\nul mkdir lib
-	@if not exist $(outdir)\nul mkdir $(outdir)
-	@cd $(name)
+	@if not exist ..\lib\nul md ..\lib
+	@if not exist $(outdir)\nul md $(outdir)
 	@fpc $(fpflag) $(name).pas
-	@rstconv -c cp852 -f po -i $(outdir)\$(name).rsj  -o $(outdir)\$(name).pot
-	@cd ..
+	@rstconv -f po -i $(outdir)\$(name).rsj  -o ..\..\message\$(name).pot
+	@copy $(outdir)\$(name).exe ..\..
 
 clean:
 	@erase $(outdir)\*.*

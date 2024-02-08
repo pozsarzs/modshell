@@ -16,11 +16,8 @@
 {$MODE OBJFPC}{$H+}{$MACRO ON}
 program modshell;
 uses
-  {$IFDEF GO32V2}
-    protcom,
-  {$ELSE}
-    synaser,
-  {$ENDIF}
+  {$IFDEF GO32V2} protcom, {$ELSE} synaser, {$ENDIF}
+  {$IFDEF WINDOWS} windows, {$ENDIF}
   convert,
   crt,
   dom,
@@ -71,6 +68,8 @@ type
   end;
 const
   // OTHERS
+  MINTERMX = 80;
+  MINTERMY = 25;
   PROMPT = 'MODSH|_>';
   PRGCOPYRIGHT = '(C) 2023 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'ModShell';
@@ -612,16 +611,16 @@ end;
 // FULL SCREEN COMMAND LINE
 procedure fullscreencommandline;
 begin
-  window(1, 1, screenwidth, screenheight);
+  window(1, 1, termwidth, termheight);
   textbackground(lightgray); textcolor(black); clrscr;
   xywrite(1, 1, true, ' '+PRGNAME + ' v' + PRGVERSION);
-  xywrite((screenwidth div 2) - (length(MSG02) div 2), 1, false, MSG02);
-  gotoxy(2,screenheight); ewrite(black, red, MSG01);
-  window(1, 2, screenwidth, screenheight - 1);
+  xywrite((termwidth div 2) - (length(MSG02) div 2), 1, false, MSG02);
+  gotoxy(2,termheight); ewrite(black, red, MSG01);
+  window(1, 2, termwidth, termheight - 1);
   textbackground(uconfig.colors[1]); textcolor(uconfig.colors[0]); clrscr;
-  window(1, 2, screenwidth, screenheight - 1);
+  window(1, 2, termwidth, termheight - 1);
   simplecommandline;
-  window(1, 1, screenwidth, screenheight);
+  window(1, 1, termwidth, termheight);
   textbackground(black); textcolor(lightgray); clrscr;
 end;
 
@@ -719,7 +718,7 @@ begin
   lang := getlang;
   translatemessages(LANG,BASENAME,'.mo');
   // CHECK SIZE OF TERMINAL
-  if not terminalsize then quit(1, false, ERR99);
+  if not terminalsize(MINTERMX, MINTERMY) then quit(1, false, ERR99);
   randomize;
   // PARSE COMMAND LINE PARAMETERS
   appmode := 0;

@@ -102,3 +102,36 @@ begin
     2: mbtcp_writehreg(conn[connection].prot, conn[connection].dev, address, count);
   end;
 end;
+
+// RUN GATEWAY
+procedure mb_gateway(connection1, connection2: integer);
+begin
+  // CHECK VALIDITY
+  if not validity(2, connection1) then exit;
+  if not validity(1, conn[connection1].prot) then exit;
+  if not validity(0, conn[connection1].dev) then exit;
+  if not validity(2, connection2) then exit;
+  if not validity(1, conn[connection2].prot) then exit;
+  if not validity(0, conn[connection2].dev) then exit;
+  // CALL NEXT PROCEDURE
+  case prot[conn[connection1].prot].prottype of
+    0: mbasc_gateway(conn[connection1].prot, conn[connection1].dev, conn[connection1].prot, conn[connection1].dev);
+    1: mbrtu_gateway(conn[connection1].prot, conn[connection1].dev, conn[connection1].prot, conn[connection1].dev);
+    2: mbtcp_gateway(conn[connection1].prot, conn[connection1].dev, conn[connection1].prot, conn[connection1].dev);
+  end;
+end;
+
+// RUN SERVER/SLAVE
+procedure mb_server(connection: integer);
+begin
+  // CHECK VALIDITY
+  if not validity(2, connection) then exit;
+  if not validity(1, conn[connection].prot) then exit;
+  if not validity(0, conn[connection].dev) then exit;
+  // CALL NEXT PROCEDURE
+  case prot[conn[connection].prot].prottype of
+    0: mbasc_slave(conn[connection].prot, conn[connection].dev);
+    1: mbrtu_slave(conn[connection].prot, conn[connection].dev);
+    2: mbtcp_server(conn[connection].prot, conn[connection].dev);
+  end;
+end;

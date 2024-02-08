@@ -50,5 +50,5 @@ begin
     exit;
   end;
   // PRIMARY MISSION
-
+  mb_server(i1);
 end;

@@ -159,7 +159,7 @@ begin
     begin
       writeln(buffer[b]);
       inc(line);
-      if line >= (screenheight - 6) then
+      if line >= (termheight - 6) then
       begin
         write(MSG23); readkey;
         write(#13); clreol;

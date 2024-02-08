@@ -34,7 +34,7 @@ var
   x2: byte;
 
 begin
-  x2 := screenwidth - 1;
+  x2 := termwidth - 1;
   result := 0;
   if not scriptisloaded then
   begin

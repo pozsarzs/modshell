@@ -17,6 +17,7 @@
 unit ucommon;
 interface
 uses
+  {$IFDEF WINDOWS} windows, {$ENDIF}
   crt,
   dos,
   math,
@@ -55,6 +56,15 @@ const
     $4E00, $8EC1, $8F81, $4F40, $8D01, $4DC0, $4C80, $8C41,
     $4400, $84C1, $8581, $4540, $8701, $47C0, $4680, $8641,
     $8201, $42C0, $4380, $8341, $4100, $81C1, $8081, $4040);
+{$IFDEF WINDOWS}
+  CSIDL_PROFILE = 40;
+  SHGFP_TYPE_CURRENT = 0;
+{$ENDIF}
+var
+{$IFDEF WINDOWS}
+  buffer: array[0..MAX_PATH] of char;
+{$ENDIF}
+  termmaxx, termmaxy: byte;
 
 function addzero(v: word): string;
 function addsomezero(n: byte; s: string): string;
@@ -72,13 +82,28 @@ function inttobool(i: integer): boolean;
 function lrc(s: string): word;
 function powerof2(exponent: byte): byte;
 function round2(const number: extended; const places: longint): extended;
-function terminalsize: boolean;
+function termheight: byte;
+function termwidth: byte;
+function terminalsize(minx, miny: byte): boolean;
 procedure ewrite(fg: byte; hl: byte; t: string);
 procedure quit(halt_code: byte; clear: boolean; message: string);
 procedure showtime(fg, bg: byte);
 procedure xywrite(x, y: byte; c: boolean; s: string);
 
 implementation
+
+{$IFDEF WINDOWS}
+function SHGetFolderPath(hwndOwner: HWND; nFolder: Integer; hToken: THandle;
+         dwFlags: DWORD; pszPath: LPTSTR): HRESULT; stdcall;
+         external 'Shell32.dll' name 'SHGetFolderPathA';
+
+function getuserprofile: string;
+begin
+  fillchar(buffer, sizeof(buffer), 0);
+  ShGetFolderPath(0, CSIDL_PROFILE, 0, SHGFP_TYPE_CURRENT, buffer);
+  Result := string(PChar(@buffer));
+end;
+{$ENDIF}
 
 // POWER OF TWO FROM ZERO TO SEVEN
 function powerof2(exponent: byte): byte;
@@ -296,12 +321,26 @@ begin
   {$ENDIF}
 end;
 
-// CHECK TERMINAL SIZE
-function terminalsize: boolean;
+// VERTICAL TERMINAL SIZE AT START
+function termheight: byte;
 begin
-  if (screenwidth>=80) and (screenheight>=25)
-    then terminalsize:=true
-    else terminalsize:=false;
+  result := termmaxy;
+end;
+
+// HORIZONTAL TERMINAL SIZE AT START
+function termwidth: byte;
+begin
+  result := termmaxx;
+end;
+
+// CHECK TERMINAL SIZE
+function terminalsize(minx, miny: byte): boolean;
+begin
+  termmaxx := windmaxx - windminx + 1;
+  termmaxy := windmaxy - windminy + 1;
+  if (termmaxx >= minx) and (termmaxy >= miny)
+    then terminalsize := true
+    else terminalsize := false;
 end;
 
 // EXIT
@@ -338,7 +377,7 @@ begin
   write(s);
 end;
 
-// SHOW SYSTEM TIME ON THE RIGHT TOP CORNER OF THE SCREEN
+// SHOW SYSTEM TIME ON THE RIGHT TOP CORNER OF THE term
 procedure showtime(fg, bg: byte);
 var
   h1, m1, s1, ss1: word;
@@ -359,15 +398,15 @@ begin
   if (h1 <> h2) or (m1 <> m2) or (s1 <> s2) then
   begin
     x := wherex; y := wherey;
-    window(1, 1, screenwidth, 2);
+    window(1, 1, termwidth, 2);
     textcolor(bg); textbackground(fg); 
-    gotoxy(screenwidth - 8, 1);
+    gotoxy(termwidth - 8, 1);
     write(addzero(h1) + ':' + addzero(m1) + ':' + addzero(s1));
     h2 := h1;
     m2 := m1;
     s2 := s1;
     textcolor(fg); textbackground(bg); 
-    window(1, 2, screenwidth, screenheight - 1);
+    window(1, 2, termwidth, termheight - 1);
     gotoxy(x, y);
   end;
 end;

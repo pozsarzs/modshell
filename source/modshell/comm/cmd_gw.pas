@@ -66,5 +66,5 @@ begin
     exit;
   end;
   // PRIMARY MISSION
-
+  mb_gateway(i1, i2);
 end;

@@ -112,7 +112,7 @@ begin
         xywrite(20, wherey, false, vars[l].vvalue);
         writeln;
         inc(line);
-        if line >= (screenheight - 4) then
+        if line >= (termheight - 4) then
         begin
           write(MSG23); readkey;
           write(#13); clreol;

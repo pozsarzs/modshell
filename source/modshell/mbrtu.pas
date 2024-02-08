@@ -587,3 +587,13 @@ begin
     end;    
   end else writeln(ERR18, dev[device].device);
 end;
+
+// RUN GATEWAY
+procedure mbrtu_gateway(protocol1, device1, protocol2, device2: word);
+begin
+end;
+
+// RUN SLAVE
+procedure mbrtu_slave(protocol, device: word);
+begin
+end;

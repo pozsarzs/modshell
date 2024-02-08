@@ -1,7 +1,5 @@
 @echo off
-rem
 rem create zip and exe (SFX zip) package on DOS
-rem
 
 set NAME=mdsh
 set VERSION=01a2

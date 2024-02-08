@@ -40,7 +40,7 @@ begin
       textcolor(colors[0]); textbackground(colors[1]);
       writeln(' ' + sbuffer[line]);
       inc(y);
-      if y >= (screenheight - 6) then
+      if y >= (termheight - 6) then
       begin
         write(MSG23); readkey;
         write(#13); clreol;

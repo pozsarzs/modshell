@@ -157,7 +157,7 @@ begin
          end;
        end;
     1: begin
-         deletefile(fpn);
+         sysutils.deletefile(fpn);
          ini := tinifile.create(fpn);
          try
            case rt of
