@@ -1,4 +1,4 @@
-ModShell(1)                      General Commands Manual                     ModShell(1)
+ModShell(1)                 General Commands Manual                ModShell(1)
 
 NAME
        modshell - Command-driven scriptable Modbus utility
@@ -10,10 +10,10 @@ COPYRIGHT
        ModShell is Copyright (C) 2023 by Pozsar Zsolt.
 
 DESCRIPTION
-       This is a utility that can be used on several operating systems, which can commu‐
-       nicate with connected equipment using  Modbus/ASCII,  Modbus/RTU  and  Modbus/TCP
-       protocols.  The program is designed for DOS, Windows and Unix-like operating sys‐
-       tems.
+       This  is a utility that can be used on several operating systems, which
+       can communicate with connected equipment using Modbus/ASCII, Modbus/RTU
+       and  Modbus/TCP protocols. The program is designed for DOS, Windows and
+       Unix-like operating systems.
 
 OPTIONS
        -f --fullscreen
@@ -29,65 +29,69 @@ OPTIONS
               Write version and build information.
 
 OPERATION
-       The program can - even automatically - read, write or copy data from  one  device
-       to another (e.g. transferring settings). When copying, the source and destination
-       register areas can be different.
+       The program can - even automatically - read, write or  copy  data  from
+       one  device  to another (e.g. transferring settings). When copying, the
+       source and destination register areas can be different.
 
-       The program has a traditional (CLI) or full-screen (TUI)  command-line  interface
-       and  is also suitable for running pre-created scripts independently (as a command
-       interpreter). The program provides help on the commands that can be used, and of‐
-       fers possible values when the parameters are entered incorrectly. The issued com‐
-       mands are placed in history, which can be browsed with the up/down arrow keys.
+       The program has a traditional (CLI) or full-screen  (TUI)  command-line
+       interface and is also suitable for running pre-created scripts indepen‐
+       dently (as a command interpreter). The program  provides  help  on  the
+       commands  that can be used, and offers possible values when the parame‐
+       ters are entered incorrectly. The issued commands are  placed  in  his‐
+       tory, which can be browsed with the up/down arrow keys.
 
    Operating principle
-       It must be defined the I/O devices,  then  the  protocols  and  the  connections.
-       There  can be eight of each. The data traffic takes place between the preset con‐
-       nections. In all cases, the data is sent to or read  from  the  internal  buffer.
-       The  size of the buffer is suitable for storing 2*9999 logical and word values of
-       the same size. One hundred and twenty-eight variables or constants can be created
-       in the program, to which we can assign a value of any type (eg.: message, boolean
-       or integer register value, etc.) Variables can be used to perform logical and ba‐
-       sic mathematical operations, and can be used to pass values to commands.
+       It  must be defined the I/O devices, then the protocols and the connec‐
+       tions.  There can be eight of each. The data traffic  takes  place  be‐
+       tween the preset connections. In all cases, the data is sent to or read
+       from the internal buffer.  The size of the buffer is suitable for stor‐
+       ing  2*9999  logical  and word values of the same size. One hundred and
+       twenty-eight variables or constants can be created in the  program,  to
+       which we can assign a value of any type (eg.: message, boolean or inte‐
+       ger register value, etc.) Variables can be used to perform logical  and
+       basic  mathematical  operations, and can be used to pass values to com‐
+       mands.
 
    Projects
-       In  the  program,  you  can create projects for easier management of settings and
-       data. The name of the current project is shown in the prompt. The project  direc‐
-       tory  will be created in the program directory on DOS, and in the ModShell direc‐
-       tory in the user's home directory on all other systems. If only filename is spec‐
-       ified  during  file  operations  (without  path),  this  directory  will  be  the
-       source/destination directory.
+       In the program, you can create projects for easier management  of  set‐
+       tings and data. The name of the current project is shown in the prompt.
+       The project directory will be created in the program directory on  DOS,
+       and in the ModShell directory in the user's home directory on all other
+       systems. If only filename is specified during file operations  (without
+       path), this directory will be the source/destination directory.
 
    File operations
-       The command line history can be exported to a text file and provides it with  the
-       appropriate  'shebang'  for  all operating system. You can easily create a script
-       from this raw file.
+       The command line history can be exported to a text file and provides it
+       with the appropriate 'shebang' for all operating system. You can easily
+       create a script from this raw file.
 
-       Device, protocol and connection settings can be saved and  loaded  in  their  own
-       format.  During  saving, three typed files are created, with the following exten‐
-       sions: DDT, PDT, CDT.
+       Device,  protocol  and  connection  settings can be saved and loaded in
+       their own format. During saving, three typed files  are  created,  with
+       the following extensions: DDT, PDT, CDT.
 
-       All register values can be saved and loaded in their own format.  During  saving,
-       two typed files are created, with the following extensions: BDT, WDT.
+       All register values can be saved and loaded in their own format. During
+       saving, two typed files are created,  with  the  following  extensions:
+       BDT, WDT.
 
-       One  or more same type registers can be exported to file. During saving, one text
-       file is created, with CSV, INI or XML extension. The program can only import from
-       INI and XML format files.
+       One or more same type registers can be exported to file. During saving,
+       one text file is created, with CSV, INI or XML extension.  The  program
+       can only import from INI and XML format files.
 
-       The  program  has  a simple serial console whose traffic is logged in the project
-       directory as console.log.
+       The  program has a simple serial console whose traffic is logged in the
+       project directory as console.log.
 
        On exit, the command line history, echo mode and colors are preserved.
 
    Script operations
-       The script on the disc can be loaded into the already running program and started
-       manually.  The  loaded  script can be edited with a line editor, saved to disk or
-       deleted from the buffer.
+       The script on the disc can be loaded into the already  running  program
+       and  started manually. The loaded script can be edited with a line edi‐
+       tor, saved to disk or deleted from the buffer.
 
    Serial console
-       The program also provides the possibility to send and receive raw data via a  se‐
-       rial  port,  and  also includes a very simple serial console. The display of sent
-       and received data can be turned off or raw text and hexadecimal  viewing  can  be
-       selected.
+       The program also provides the possibility to send and receive raw  data
+       via  a serial port, and also includes a very simple serial console. The
+       display of sent and received data can be turned off  or  raw  text  and
+       hexadecimal viewing can be selected.
 
 PREDEFINED CONSTANTS
        $?     Exit value of the commands.
@@ -105,219 +109,238 @@ BUILTIN COMMANDS
 
    Arithmetical commands
        add $TARGET [$]VALUE1 [$]VALUE2
-              Adds  the  two values or variables ([$]VALUE1 [$]VALUE2) and the result is
-              placed in $TARGET.
+              Adds  the  two values or variables ([$]VALUE1 [$]VALUE2) and the
+              result is placed in $TARGET.
 
        avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]
-              Calculates average of 2-5 numbers and the result is placed in $TARGET.
+              Calculates average of 2-5 numbers and the result  is  placed  in
+              $TARGET.
 
        conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
-              Converts numbers between binary, decimal, hexadecimal  and  octal  numeral
-              system.  VALUE must be between 0 and 65535
+              Converts  numbers between binary, decimal, hexadecimal and octal
+              numeral system.  VALUE must be between 0 and 65535
 
        cos $TARGET [$]VALUE
-              Calculates cosine of [$]VALUE and the result is placed in $TARGET.
+              Calculates cosine of [$]VALUE and the result is placed in  $TAR‐
+              GET.
 
        cotan $TARGET [$]VALUE
-              Calculates cotangent of [$]VALUE and the result is placed in $TARGET.
+              Calculates  cotangent  of  [$]VALUE  and the result is placed in
+              $TARGET.
 
        dec $TARGET [$]VALUE
               Decrements [$]VALUE integer and the result is placed in $TARGET.
 
        div $TARGET [$]VALUE1 [$]VALUE2
-              Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET.
+              Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TAR‐
+              GET.
 
        exp $TARGET [$]VALUE
-              Calculates  natural  exponential  of  [$]VALUE and the result is placed in
-              $TARGET.
+              Calculates  natural  exponential  of  [$]VALUE and the result is
+              placed in $TARGET.
 
        idiv $TARGET [$]VALUE1 [$]VALUE2
-              Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET. (inte‐
-              ger division)
+              Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TAR‐
+              GET. (integer division)
 
        imod $TARGET [$]VALUE1 [$]VALUE2
-              Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET. (modu‐
-              lus division)
+              Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TAR‐
+              GET. (modulus division)
 
        inc $TARGET [$]VALUE
               Increments [$]VALUE integer and the result is placed in $TARGET.
 
        ln $TARGET [$]VALUE
-              Calculates natural logarithm of [$]VALUE and the result is placed in $TAR‐
-              GET.
+              Calculates natural logarithm  of  [$]VALUE  and  the  result  is
+              placed in $TARGET.
 
        mul $TARGET [$]VALUE1 [$]VALUE2
-              Multiplies  the  two two values or variables ([$]VALUE1 [$]VALUE2) and the
-              result is placed in $TARGET.
+              Multiplies the two two values or variables ([$]VALUE1 [$]VALUE2)
+              and the result is placed in $TARGET.
 
        mulinv $TARGET [$]VALUE
-              Calculates multiplicative inverse of [$]VALUE and the result is placed  in
-              $TARGET.
+              Calculates multiplicative inverse of [$]VALUE and the result  is
+              placed in $TARGET.
 
        odd $TARGET [$]VALUE
               Decides whether the integer [$]VALUE is even or odd.
 
        pow $TARGET [$]BASE [$]EXPONENT
-              Calculates  [$]EXPONENT  exponentiation  of  the [$]BASE and the result is
-              placed in $TARGET.
+              Calculates [$]EXPONENT exponentiation of the [$]BASE and the re‐
+              sult is placed in $TARGET.
 
        pow2 $TARGET [$]EXPONENT
-              Calculates [$]EXPONENT exponentiation of two and the result is  placed  in
-              $TARGET.
-
-       prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE
-              Propotional  value calculation (for example: 4-20 mA current loop and mea‐
-              sured value).
-
-       rnd $TARGET [$]VALUE
-              Makes random integer number between 0  and  [$]VALUE  and  the  result  is
+              Calculates [$]EXPONENT exponentiation of two and the  result  is
               placed in $TARGET.
 
+       prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE
+              Propotional value calculation (for example: 4-20 mA current loop
+              and measured value).
+
+       rnd $TARGET [$]VALUE
+              Makes random integer number between 0 and [$]VALUE and  the  re‐
+              sult is placed in $TARGET.
+
        round $TARGET [$]VALUE [$]DEC_PLACES
-              Rounds  value  or  variable ([$]VALUE) to [$]DEC_PLACES decimal places and
-              the result is placed in $TARGET.
+              Rounds  value  or  variable  ([$]VALUE) to [$]DEC_PLACES decimal
+              places and the result is placed in $TARGET.
 
        sin $TARGET [$]VALUE
               Calculates sine of [$]VALUE and the result is placed in $TARGET.
 
        sqr $TARGET [$]VALUE
-              Calculates square of [$]VALUE and the result is placed in $TARGET.
+              Calculates square of [$]VALUE and the result is placed in  $TAR‐
+              GET.
 
        sqrt $TARGET [$]VALUE
-              Calculates square root of [$]VALUE and the result is placed in $TARGET.
+              Calculates  square  root of [$]VALUE and the result is placed in
+              $TARGET.
 
        sub $TARGET [$]VALUE1 [$]VALUE2
-              Substracts [$]VALUE2 from [$]VALUE1 and the result is placed in $TARGET.
+              Substracts [$]VALUE2 from [$]VALUE1 and the result is placed  in
+              $TARGET.
 
        tan $TARGET [$]VALUE
-              Calculates tangent of [$]VALUE and the result is placed in $TARGET.
+              Calculates tangent of [$]VALUE and the result is placed in $TAR‐
+              GET.
 
    Communication commands
        copy con? dinp|coil con? coil? [$]ADDRESS [[$]COUNT]
-              Copies logical data  between  connections  (con?).  Number  of  connection
-              (con?)  must  be between 0-7, register start ADDRESS and the COUNT must be
-              between 1-9999.
+              Copies logical data between connections (con?). Number  of  con‐
+              nection  (con?)  must be between 0-7, register start ADDRESS and
+              the COUNT must be between 1-9999.
 
        copy con? ireg|hreg con? hreg? [$]ADDRESS [[$]COUNT]
-              Copies numeral data  between  connections  (con?).  Number  of  connection
-              (con?)  must  be between 0-7, register start ADDRESS and the COUNT must be
-              between 1-9999.
+              Copies numeral data between connections (con?). Number  of  con‐
+              nection  (con?)  must be between 0-7, register start ADDRESS and
+              the COUNT must be between 1-9999.
 
        mbgw con? con?
-              Start internal Modbus slave/server for remote access own registers.
+              Start internal Modbus slave/server for remote access own  regis‐
+              ters.
 
        mbsrv con?
-              Start internal Modbus gateway for access other remote  device's  registers
-              with different communication and/or protocol.
+              Start  internal  Modbus gateway for access other remote device's
+              registers with different communication and/or protocol.
 
        read con? dinp|coil|ireg|hreg [$]ADDRESS [ICOUNT]
-              Reads  one  or more remote registers. Number of connection (con?)  must be
-              between 0-7, register start ADDRESS and the COUNT must be between 1-9999.
+              Reads one or more remote registers. Number of connection  (con?)
+              must  be  between 0-7, register start ADDRESS and the COUNT must
+              be between 1-9999.
 
        sercons [dev?]
-              Opens a simple serial console. Data traffic is logged to the  project  di‐
-              rectory named console.log. Number of device (dev?) must be between 0-7.
-
-       serread [dev?] [$TARGET]
-              Reads string from serial device to variable $TARGET or write screen.  Num‐
-              ber of device (dev?) must be between 0-7.
-
-       serwrite [dev?] $MESSAGE
-              Writes string to serial device from $MESSAGE.   Number  of  device  (dev?)
+              Opens a simple serial console. Data traffic  is  logged  to  the
+              project  directory  named  console.log.  Number of device (dev?)
               must be between 0-7.
 
+       serread [dev?] [$TARGET]
+              Reads string from serial device to  variable  $TARGET  or  write
+              screen.  Number of device (dev?) must be between 0-7.
+
+       serwrite [dev?] $MESSAGE
+              Writes  string to serial device from $MESSAGE.  Number of device
+              (dev?) must be between 0-7.
+
        serwrite [dev?] "MESSAGE"
-              Writes "MESSAGE" to serial device. Number of device (dev?) must be between
-              0-7.
+              Writes "MESSAGE" to serial device. Number of device (dev?)  must
+              be between 0-7.
 
        write con? coil|hreg [$]ADDRESS [[$]COUNT]
-              Writes data to one or more remote registers. Number of  connection  (con?)
-              must  be between 0-7, register start address and the count must be between
-              1-9999.
+              Writes  data  to one or more remote registers. Number of connec‐
+              tion (con?) must be between 0-7, register start address and  the
+              count must be between 1-9999.
 
    Configuration commands
        get dev?|pro?|con?|prj
-              Gets configuration of a  device  (dev?),  protocol  (pro?)  or  connection
-              (con?), or get project name (prj). ? number must be 0-7.
+              Gets  configuration  of a device (dev?), protocol (pro?) or con‐
+              nection (con?), or get project name (prj). ? number must be 0-7.
 
        reset dev?|pro?|con?|prj
-              Resets  configuration  of  a  device (dev?), protocol (pro?) or connection
-              (con?), or reset project name (prj). ? number must be 0-7.
+              Resets configuration of a device (dev?), protocol (pro?) or con‐
+              nection  (con?),  or  reset project name (prj). ? number must be
+              0-7.
 
        set dev? net [$]DEVICE [$]PORT
-              Sets device (dev?) to ethernet (net) device. Device number must be between
-              0-7 and port number must be between 0-65535. The DEVICE name on DOS is al‐
-              ways PACKET, on other systems is the name of the adapter (e.g. eth0, nfe0,
-              etc.).
+              Sets device (dev?) to ethernet (net) device. Device number  must
+              be  between 0-7 and port number must be between 0-65535. The DE‐
+              VICE name on DOS is always PACKET, on other systems is the  name
+              of the adapter (e.g. eth0, nfe0, etc.).
 
        set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT
-              Sets  device  (dev?) to serial (ser) device. Device number must be between
-              0-7. The DEVICE name is  the  name  of  the  adapter  (e.g.  com1,  ttyS0,
-              ttyUSB0,  ttyAMA0  etc.). BAUDRATE must be: 1200; 2400; 4800; 9600; 19200;
-              38400; 57600 or 115200. DATABIT must be 7  or  8,  PARITY  must  be  E/N/O
-              (even/none/odd). STOPBIT must be 1 or 2.
+              Sets device (dev?) to serial (ser) device. Device number must be
+              between 0-7. The DEVICE name is the name of  the  adapter  (e.g.
+              com1,  ttyS0,  ttyUSB0,  ttyAMA0  etc.). BAUDRATE must be: 1200;
+              2400; 4800; 9600; 19200; 38400; 57600 or 115200. DATABIT must be
+              7  or 8, PARITY must be E/N/O (even/none/odd). STOPBIT must be 1
+              or 2.
 
        set pro? ascii|rtu [$]UID
-              Sets protocol (pro?) to Modbus/ASCII (ascii) or Modbus/RTU (rtu).  Unit ID
-              (UID) must be between 1-247.
+              Sets protocol  (pro?)  to  Modbus/ASCII  (ascii)  or  Modbus/RTU
+              (rtu).  Unit ID (UID) must be between 1-247.
 
        set pro? tcp [$]IP_ADDRESS
-              Sets protocol (pro?) to Modbus/TCP (tcp). Address of remote device (IP_AD‐
-              DRESS) must be in a.b.c.d format, with values between 1-255.
+              Sets  protocol (pro?) to Modbus/TCP (tcp). Address of remote de‐
+              vice (IP_ADDRESS) must be in a.b.c.d format, with values between
+              1-255.
 
        set con? dev? pro?
-              Assigns  a  device  (dev?) and a protocol (pro?) to a connection (con?). ?
-              number must be 0-7.
+              Assigns  a  device  (dev?) and a protocol (pro?) to a connection
+              (con?). ? number must be 0-7.
 
        set prj [$]PROJECT_NAME
-              Sets the project name. The name cannot contain spaces or  special  charac‐
-              ters.  The project directory will also be created with this name.
+              Sets the project name. The name cannot contain spaces or special
+              characters.   The  project  directory  will also be created with
+              this name.
 
    File operation commands
-       The  specified  parameter  does not contain a path, the file will be saved in the
-       project directory in the user's home directory (on DOS, in project  directory  in
-       the program directory).
+       The specified parameter does not contain a path, the file will be saved
+       in  the  project  directory  in  the  user's home directory (on DOS, in
+       project directory in the program directory).
 
        applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]
-              Appends a record to $LOGFILE. The record contains timestamp, message level
-              and the text. The level can be 0-4: NOTE, MESSAGE, WARNING, ERROR,  DEBUG.
-              The  text  contains  the  level can contain $$1-$4 variables, these can be
-              specified on the command line.
+              Appends a record to $LOGFILE.  The  record  contains  timestamp,
+              message level and the text. The level can be 0-4: NOTE, MESSAGE,
+              WARNING, ERROR, DEBUG. The text contains the level  can  contain
+              $$1-$4 variables, these can be specified on the command line.
 
        applog [$]LOGFILE "TEXT $$1 TEXT" [$]LEVEL [[$]VALUE1]
-              Appends a record to $LOGFILE. The record contains timestamp, message level
-              and  the text. The level can be 0-4: NOTE, MESSAGE, WARNING, ERROR, DEBUG.
-              The text contains the level can contain $$1-$4  variables,  these  can  be
-              specified on the command line.
+              Appends  a  record  to  $LOGFILE. The record contains timestamp,
+              message level and the text. The level can be 0-4: NOTE, MESSAGE,
+              WARNING,  ERROR,  DEBUG. The text contains the level can contain
+              $$1-$4 variables, these can be specified on the command line.
 
        exphis [$]PATH_AND_FILENAME
               Exports command line history to a text file.
 
        expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
-              Exports content of the one or more registers to a text file in CSV, INI or
-              XML format. The file format is specified by the  destination  file  exten‐
-              sion.  If the file exists, it will overwrite or append the new data.
+              Exports content of the one or more registers to a text  file  in
+              CSV, INI or XML format. The file format is specified by the des‐
+              tination file extension.  If the file exists, it will  overwrite
+              or append the new data.
 
        impreg [$]PATH_AND_FILENAME
-              Imports  content  of  the one or more registers from a text file in INI or
-              XML format. The file format is specified by the  destination  file  exten‐
-              sion.
+              Imports content of the one or more registers from a text file in
+              INI or XML format. The file format is specified by the  destina‐
+              tion file extension.
 
        loadcfg [$]PATH_AND_FILENAME
-              Loads settings of device, protocol and connection from own format files.
+              Loads  settings of device, protocol and connection from own for‐
+              mat files.
 
        loadreg [$]PATH_AND_FILENAME
               Loads all registers from own format files.
 
        savecfg [$]PATH_AND_FILENAME
-              Saves settings of device, protocol and connection to four typed files.
+              Saves settings of device, protocol and connection to four  typed
+              files.
 
        savereg [$]PATH_AND_FILENAME
               Saves all registers to four typed files.
 
    General commands
        ascii [dec|hex]
-              Shows ASCII table (0-127 characters) with decimal or hexadecimal numbers.
+              Shows ASCII table (0-127 characters) with decimal or hexadecimal
+              numbers.
 
        beep   Make a beep.
 
@@ -333,21 +356,22 @@ BUILTIN COMMANDS
               3: cyan   7: lightgray  11: lightcyan   15: white
 
        const CONSTANT [[$]VALUE]
-              Defines new constant (CONSTANT) and assign value (VALUE).  Use a backslash
-              before a space.
+              Defines new constant (CONSTANT) and assign value (VALUE).  Use a
+              backslash before a space.
 
        cron rec_num minute hour
               Adds new record to crontable. rec_num may be 1-4.
 
        cron [-r rec_num]
-              Shows all or removes specified record from the crontable. rec_num  may  be
-              1-4.
+              Shows  all  or  removes  specified  record  from  the crontable.
+              rec_num may be 1-4.
 
        date   Shows system date and time.
 
        echo [off|on|hex]
-              Queries  local  echo  status  or enable/disable it for serial connections.
-              Hex means the hexadecimal representation of the bytes.
+              Queries local echo status or enable/disable it for  serial  con‐
+              nections.   Hex  means  the  hexadecimal  representation  of the
+              bytes.
 
        exit   Exits from program.
 
@@ -355,14 +379,15 @@ BUILTIN COMMANDS
               Jumps to specified label (only in script).
 
        for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND
-              Loop iteration (only in script). Increments $VARIABLE  from  [$]VALUE1  to
-              [$]VALUE2 and does COMMAND.
+              Loop iteration  (only  in  script).  Increments  $VARIABLE  from
+              [$]VALUE1 to [$]VALUE2 and does COMMAND.
 
        help [[$]COMMAND]
               Shows description or usage of the builtin commands.
 
        if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND
-              Selection statement (only in script). RELATIONAL_SIGN: < <= = >= >.
+              Selection statement (only in script). RELATIONAL_SIGN: < <= = >=
+              >.
 
        label LABEL
               Define label (only in script).
@@ -371,23 +396,26 @@ BUILTIN COMMANDS
               Waits for a keystroke or specified time.
 
        print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]
-              Prints  content  of  the one or more registers. Register start ADDRESS and
-              the COUNT must be between 1-9999. The -n parameter does not raise  a  line
-              and the cursor does not return to the beginning of the line.
+              Prints content of the one or more registers. Register start  AD‐
+              DRESS  and  the  COUNT  must be between 1-9999. The -n parameter
+              does not raise a line and the cursor does not return to the  be‐
+              ginning of the line.
 
        print $VARIABLE [-n]
-              Prints  value of the $VARIABLE. The -n parameter does not raise a line and
-              the cursor does not return to the beginning of the line.
+              Prints value of the $VARIABLE. The -n parameter does not raise a
+              line and the cursor does not return  to  the  beginning  of  the
+              line.
 
        print "message" [-n]
-              Prints a single line message. The -n parameter does not raise a  line  and
-              the cursor does not return to the beginning of the line.
+              Prints  a single line message. The -n parameter does not raise a
+              line and the cursor does not return  to  the  beginning  of  the
+              line.
 
        var    Prints all defined variables with their values.
 
        var VARIABLE [[$]VALUE]
-              Defines  new variable (ARIABLE) and assign value (VALUE).  Use a backslash
-              before a space.
+              Defines  new variable (ARIABLE) and assign value (VALUE).  Use a
+              backslash before a space.
 
        varmon off|on
               Enable/disable variable monitor.
@@ -399,59 +427,61 @@ BUILTIN COMMANDS
 
    Logical commands
        and $TARGET [$]VALUE1 [$]VALUE2
-              Performs the AND operation between the two values or variables  ([$]VALUE1
-              [$]VALUE2) and the result is placed in $TARGET.
+              Performs the AND operation between the two values  or  variables
+              ([$]VALUE1 [$]VALUE2) and the result is placed in $TARGET.
 
        bit $TARGET [$]VALUE1 [$]VALUE2
               Returns with the specified bit [$]VALUE2 of the [$]VALUE1.
 
        not $TARGET [$]VALUE
-              Performs  the NOT operation on value or variable ([$]VALUE) and the result
-              is placed in $TARGET.
+              Performs  the  NOT operation on value or variable ([$]VALUE) and
+              the result is placed in $TARGET.
 
        or $TARGET [$]VALUE1 [$]VALUE2
-              Performs the OR operation between the two values or  variables  ([$]VALUE1
-              [$]VALUE2) and the result is placed in $TARGET.
+              Performs the OR operation between the two  values  or  variables
+              ([$]VALUE1 [$]VALUE2) and the result is placed in $TARGET.
 
        roll $TARGET [$]VALUE1 [$]VALUE2
-              Rolls  bits of the [$]VALUE1 to the left by position [$]VALUE2 and the re‐
-              sult is placed in $TARGET.
+              Rolls  bits  of  the [$]VALUE1 to the left by position [$]VALUE2
+              and the result is placed in $TARGET.
 
        rolr $TARGET [$]VALUE1 [$]VALUE2
-              Rolls bits of the [$]VALUE1 to the right by position [$]VALUE2 and the re‐
-              sult is placed in $TARGET.
+              Rolls bits of the [$]VALUE1 to the right by  position  [$]VALUE2
+              and the result is placed in $TARGET.
 
        shl $TARGET [$]VALUE1 [$]VALUE2
-              Shifts bits of the [$]VALUE1 to the left by position [$]VALUE2 and the re‐
-              sult is placed in $TARGET.
+              Shifts  bits  of the [$]VALUE1 to the left by position [$]VALUE2
+              and the result is placed in $TARGET.
 
        shr $TARGET [$]VALUE1 [$]VALUE2
-              Shifts bits of the [$]VALUE1 to the right by position  [$]VALUE2  and  the
-              result is placed in $TARGET.
+              Shifts bits of the [$]VALUE1 to the right by position  [$]VALUE2
+              and the result is placed in $TARGET.
 
        xor $TARGET [$]VALUE1 [$]VALUE2
-              Performs  the XOR operation between the two values or variables ([$]VALUE1
-              [$]VALUE2) and the result is placed in $TARGET.
+              Performs  the  XOR operation between the two values or variables
+              ([$]VALUE1 [$]VALUE2) and the result is placed in $TARGET.
 
    Register handler commands
        dump [[dinp|coil|ireg|hreg] [$]ADDRESS]
-              Dumps one page register content from ADDRESS in binary/hexadecimal  format
-              to a table.
+              Dumps one page register content from ADDRESS in binary/hexadeci‐
+              mal format to a table.
 
        let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE
-              Sets  value  of a register. Register start address must be between 1-9999.
-              If register type is discrete input (dinp) and coil (coil), VALUE  must  be
-              0/1, l/h or false/true. If it is input register (ireg) or holding register
-              (hreg), VALUE must be 0-65535.
+              Sets value of a register. Register start address must be between
+              1-9999.  If register type is  discrete  input  (dinp)  and  coil
+              (coil),  VALUE  must  be  0/1, l/h or false/true. If it is input
+              register (ireg)  or  holding  register  (hreg),  VALUE  must  be
+              0-65535.
 
        let $VARIABLE [$]VALUE
               Sets value of a variable $VARIABLE to value [$]VALUE.
 
        let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS
-              Sets value of a variable $VARIABLE from register content.  Register  start
-              address  and  must  be  between 1-9999, If register type is discrete input
-              (dinp) and coil (coil), value will be 0/1, if it is input register  (ireg)
-              or holding register (hreg), value of the variable will be 0-65535.
+              Sets value of a variable $VARIABLE from register content. Regis‐
+              ter start address and must be between 1-9999, If  register  type
+              is  discrete input (dinp) and coil (coil), value will be 0/1, if
+              it is input register (ireg) or holding register (hreg), value of
+              the variable will be 0-65535.
 
    Script operation commands
        edit [LINE_NUMBER]
@@ -465,15 +495,16 @@ BUILTIN COMMANDS
               Loads ModShell scriptfile from disc.
 
        run [-s]
-              Runs loaded script. [-s] parameter means step-by-step program execution.
+              Runs  loaded  script.  [-s] parameter means step-by-step program
+              execution.
 
        savescr [$]PATH_AND_FILENAME
               Saves loaded script to disc.
 
    String handler commands
        chr $TARGET [$]VALUE';
-              Converts  byte  value ([$]VALUE) to char value and the result is placed in
-              $TARGET.
+              Converts byte value ([$]VALUE) to char value and the  result  is
+              placed in $TARGET.
 
        concat $TARGET [$]VALUE1 [$]VALUE2
               Concatenates two string and the result is placed in $TARGET.
@@ -482,8 +513,8 @@ BUILTIN COMMANDS
               Puts length of the string ([$]VALUE) to $TARGET.
 
        lowcase $TARGET [$]VALUE
-              Converts string ([$]VALUE) to lowercase and the result is placed in  $TAR‐
-              GET.
+              Converts string ([$]VALUE) to lowercase and the result is placed
+              in $TARGET.
 
        mklrc $TARGET [$]STRING
               Make LRC of the [$]STRING
@@ -492,11 +523,12 @@ BUILTIN COMMANDS
               Make CRC of the [$]STRING
 
        ord $TARGET [$]VALUE';
-              Converts  char  value ([$]VALUE) to byte value and the result is placed in
-              $TARGET.
+              Converts char value ([$]VALUE) to byte value and the  result  is
+              placed in $TARGET.
 
        strdel $TARGET [$]PLACE [$]COUNT
-              Delete specified element(s) ([$]PLACE [$]COUNT) of the $TARGET variable.
+              Delete  specified  element(s) ([$]PLACE [$]COUNT) of the $TARGET
+              variable.
 
        strfind $TARGET [$]VALUE
               Delete specified element ([$]VALUE) in the $TARGET variable.
@@ -505,14 +537,16 @@ BUILTIN COMMANDS
               Insert specified element ([$]VALUE) into the $TARGET variable.
 
        stritem $TARGET [$]VALUE1 [$]VALUE2
-              Puts specified ([$]VALUE2) element of the string ([$]VALUE1) to $TARGET.
+              Puts specified ([$]VALUE2) element of the string ([$]VALUE1)  to
+              $TARGET.
 
        strrepl $TARGET [$]OLD [$]NEW
-              Replace specified element ([$]OLD) to [$]NEW in the $TARGET variable.
+              Replace  specified  element  ([$]OLD)  to  [$]NEW in the $TARGET
+              variable.
 
        upcase $TARGET [$]VALUE
-              Converts string ([$]VALUE) to uppercase and the result is placed in  $TAR‐
-              GET.
+              Converts string ([$]VALUE) to uppercase and the result is placed
+              in $TARGET.
 
 EXAMPLES
    Arithmetical commands
@@ -526,28 +560,29 @@ EXAMPLES
               Convert value of the $I in hexadecimal to decimal.
 
        round $result 12.01023 2
-              Round 12.01023 to decimal places, and the result (12.01) is placed in $re‐
-              sult.
+              Round  12.01023  to  decimal  places,  and the result (12.01) is
+              placed in $result.
 
        subs $result 12 13
               Substract 13 from 12, and the result is placed in $result.
 
    Communication commands
        copy con0 ireg con2 hreg 210 10
-              Copy input register content of the connection #0 to holding register  con‐
-              tent of the connection #2 from address 210 to 220.
+              Copy input register content of the connection #0 to holding reg‐
+              ister content of the connection #2 from address 210 to 220.
 
        copy con0 ireg con2 hreg $a $b
-              Copy  input register content of the connection #0 to holding register con‐
-              tent of the connection #2 from address value of the $a to $a+$b.
+              Copy input register content of the connection #0 to holding reg‐
+              ister content of the connection #2 from address value of the  $a
+              to $a+$b.
 
        read con0 hreg 100 15
-              Read remote holding registers of the connection #0  from  address  100  to
-              115.
+              Read  remote holding registers of the connection #0 from address
+              100 to 115.
 
        read con0 hreg $a 15
-              Read  remote  holding registers of the connection #0 from address value of
-              the $a to $a+15.
+              Read remote holding registers of the connection #0 from  address
+              value of the $a to $a+15.
 
        sercons
               Open serial console with requesting device number.
@@ -571,7 +606,8 @@ EXAMPLES
               Write data from to coil address 10 of the connection #2.
 
        write con2 coil $c
-              Write data from to coil address value of the $c of the connection #2.
+              Write  data  from to coil address value of the $c of the connec‐
+              tion #2.
 
    Configuration commands
        get dev2
@@ -584,19 +620,20 @@ EXAMPLES
               Set device #0 to '/dev/enp0s7' ethernet device with 502 port.
 
        set dev0 net /dev/enp0s7 $P
-              Set device #0 to '/dev/enp0s7' ethernet device with value of the $P port.
+              Set device #0 to '/dev/enp0s7' ethernet device with value of the
+              $P port.
 
        set dev1 ser ttyS0 9600 8 N 1
-              Set device #1 to /dev/ttyS0 serial device, with  9600  baud,  8  databits,
-              without parity check and 1 stopbit.
+              Set  device  #1  to  /dev/ttyS0 serial device, with 9600 baud, 8
+              databits, without parity check and 1 stopbit.
 
        set dev1 ser COM1 9600 8 N 1
-              Set  device  #1 to COM1 serial device, with 9600 baud, 8 databits, without
-              parity check and 1 stopbit.
+              Set device #1 to COM1 serial device, with 9600 baud, 8 databits,
+              without parity check and 1 stopbit.
 
        set dev1 ser $p $s $d $p $t
-              Set device #1 to $p serial device, with $s baud, $d  databits,  $p  parity
-              check and $t stopbit.
+              Set device #1 to $p serial device, with $s baud, $d databits, $p
+              parity check and $t stopbit.
 
        set pro0 ascii 100
               Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).
@@ -612,28 +649,30 @@ EXAMPLES
 
    File operation commands
        applog $LOGFILE "Measured values is $$1 V and $$2 A." 1 $vl2 $il2
-              Adds 2024.2.1. 17:20:36 MESSAGE Measured values is 243 V and 66 A. line to
-              logfile.
+              Adds 2024.2.1. 17:20:36 MESSAGE Measured values is 243 V and  66
+              A. line to logfile.
 
        exphis script
               Export command line history to project directory.
 
        expreg discrete_inputs.csv dinp 100 15
-              Export values of discrete input register from address 100 to  115  to  CSV
-              file.
+              Export values of discrete input register from address 100 to 115
+              to CSV file.
 
        impreg discrete_inputs.xml
-              Import  values from a XML file. The target and range are determined by the
-              contents of the file.
+              Import values from a XML file. The target and range  are  deter‐
+              mined by the contents of the file.
 
        loadcfg test1
-              Load settings of device, protocol and connection from project directory.
+              Load  settings  of  device, protocol and connection from project
+              directory.
 
        loadreg /home/username/Desktop/test1
               Load all registers from other directory.
 
        savecfg test1
-              Save settings of device, protocol and connection to project directory.
+              Save settings of device, protocol and connection to project  di‐
+              rectory.
 
        savereg /home/username/Desktop/test1
               Save all registers to other directory.
@@ -678,19 +717,19 @@ EXAMPLES
 
    Logical commands
        and $result 1234 1345
-              Performs AND operation with 1234 and 1345, and the  result  is  placed  in
-              $result.
+              Performs  AND  operation  with  1234 and 1345, and the result is
+              placed in $result.
 
        or $result 1234 $b
-              Performs  OR  operation with 1234 and $b, and the result is placed in $re‐
-              sult.
+              Performs OR operation with 1234 and $b, and the result is placed
+              in $result.
 
        not $result $a
               Performs negation on 1234 and the result is placed in $result.
 
        shr $result $source $shift
-              Shifts bits of the $source to the left by position $shift and  the  result
-              is placed in $result.
+              Shifts  bits  of  the $source to the left by position $shift and
+              the result is placed in $result.
 
    Register handler commands
        dump   Start dump with requesting register type and start address.
@@ -711,8 +750,8 @@ EXAMPLES
               Set value of the input register address 10 to 65535.
 
        let ireg $a $b
-              Set  value of the input register (address value of the $a) to value of the
-              $b.
+              Set value of the input register (address value  of  the  $a)  to
+              value of the $b.
 
        let $a ireg 100
               Set $a to input register address 100.
@@ -727,7 +766,8 @@ EXAMPLES
               Print value of the input register address 10 to 20.
 
        print ireg $a $b
-              Print value of the input register address value of $a to value of $b.
+              Print  value  of the input register address value of $a to value
+              of $b.
 
    Script operation commands
        loadscr /home/username/Desktop/dt510
@@ -737,8 +777,8 @@ EXAMPLES
 
    String handler commands
        chr $ch $b
-              Convert byte type value in $b to character and the  result  is  placed  in
-              $ch.
+              Convert byte type value in $b to character  and  the  result  is
+              placed in $ch.
 
        length $length "abcdef"
               Put length of the specified string to $length variable.
@@ -747,11 +787,12 @@ EXAMPLES
               Put 5th element of the $name string to $char variable.
 
        upcase $target $title
-              Convert string in title to uppercase and the result is placed in $target.
+              Convert string in title to uppercase and the result is placed in
+              $target.
 
 HOTKEYS
-       Commands  with function keys (F?) are executed immediately, modifier keys (ALT-?)
-       only make typing easier.
+       Commands with function keys (F?)  are  executed  immediately,  modifier
+       keys (ALT-?) only make typing easier.
 
        F1     help command
 
@@ -808,28 +849,31 @@ HOTKEYS
        ALT-W  write command
 
 ENVIRONMENTAL VARIABLES
-       LANG   This is the system language on DOS and Unix-like operating systems.
+       LANG   This  is the system language on DOS and Unix-like operating sys‐
+              tems.
 
        PKTDRVINT
-              To access the network on DOS, the packet driver of the network card is re‐
-              quired.  It uses an x86 interrupt number (INT) between 0x60 and 0x80. This
-              variable tells the program this value. If there is no or it is empty, then
-              the default 0x60 will be used.
+              To access the network on DOS, the packet driver of  the  network
+              card  is required. It uses an x86 interrupt number (INT) between
+              0x60 and 0x80. This variable tells the program  this  value.  If
+              there is no or it is empty, then the default 0x60 will be used.
 
 FILES
        modshell.ini
-              General  configuration  file  in  user's directory on Windows or Unix-like
-              system or in the settings folder of the program on DOS.
+              General  configuration  file  in  user's directory on Windows or
+              Unix-like system or in the settings folder  of  the  program  on
+              DOS.
 
        console.log
               Serial console traffic.
 
        scriptfiles[.bat]
-              The script file is used for batch execution of ModShell commands. The com‐
-              mands must be entered in the same form as if we were working in the built-
-              in command line. If the first valuable character (not a space or tab) of a
-              line  is  a hash, then that line is not interpreted. You can find examples
-              in the documents library.
+              The  script  file  is  used for batch execution of ModShell com‐
+              mands. The commands must be entered in the same form  as  if  we
+              were working in the built-in command line. If the first valuable
+              character (not a space or tab) of a line is a  hash,  then  that
+              line  is not interpreted. You can find examples in the documents
+              library.
 
               A simple example on Unix-like OS:
 
@@ -864,7 +908,8 @@ FILES
 
               :eof
 
-       *.DDT  Saved device setting in typed file with seven TDevice type values.
+       *.DDT  Saved device setting in typed file with seven TDevice type  val‐
+              ues.
               type TDevice = record
                      valid: boolean;     // settings validity: false|true
                      devtype: byte;      // type of device: 0..1 -> see DEV_TYPE
@@ -876,7 +921,8 @@ FILES
                      stopbit: byte;      // serial stopbit: 1|2
                    end;
 
-       *.PDT  Saved protocol setting in typed file with seven TProtocol type values.
+       *.PDT  Saved  protocol  setting in typed file with seven TProtocol type
+              values.
               type TProtocol = record
                      valid: boolean;        // settings validity: false|true
                      prottype: byte;        // type of protocol: 0..2 -> see PROT_TYPE
@@ -891,13 +937,14 @@ FILES
                      prot: byte;            // assigned protocol: 0..7
                    end;
 
-       *.BDT  Saved boolean type register values in typed file with 2x9999 boolean  val‐
-              ues.
+       *.BDT  Saved boolean type register values in  typed  file  with  2x9999
+              boolean values.
 
-       *.WDT  Saved word type register values in typed file with 2x9999 word values.
+       *.WDT  Saved  word  type register values in typed file with 2x9999 word
+              values.
 
-       *.CSV  Exported  boolean or word type register values in CSV text file. Cannot be
-              imported.  Internal structure:
+       *.CSV  Exported boolean or word type register values in CSV text  file.
+              Cannot be imported.  Internal structure:
                 dinp,1,0
                     ...
                 dinp,9999,1
@@ -974,9 +1021,9 @@ HOMEPAGE
        ⟨https://github.com/pozsarzs/modshell⟩
 
 SEE ALSO
-       Files in document or /usr/share/doc/modshell/ folder (or equivalent on your  sys‐
-       tem).
+       Files  in document or /usr/share/doc/modshell/ folder (or equivalent on
+       your system).
 AUTHOR
        Pozsar Zsolt ⟨pozsarzs@gmail.com⟩
 
-                                    2023 December 20                         ModShell(1)
+                               2023 December 20                    ModShell(1)

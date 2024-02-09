@@ -67,7 +67,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);
@@ -165,7 +165,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);
@@ -263,7 +263,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);
@@ -359,7 +359,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);
@@ -465,7 +465,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);
@@ -555,7 +555,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);
@@ -595,5 +595,48 @@ end;
 
 // RUN SLAVE
 procedure mbrtu_slave(protocol, device: word);
+var
+  b: byte;
+  c: char;
+  ready: boolean = false;
+  tgm: string;
+  valid: boolean = true;
 begin
+  // CONNECT TO SERIAL PORT
+  if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
+  begin
+    repeat
+      if keypressed then
+      begin
+        c := readkey;
+        if c = #27 then valid := false;
+      end else delay(10);
+    until ser_canread or (c = #27);
+    if valid then
+    begin
+      // RECEIVE REQUEST
+      tgm := '';
+      repeat
+        if ser_canread then
+        begin
+          b := ser_recvbyte;
+          textcolor(uconfig.colors[2]);
+          case uconfig.echo of
+            1: write(char(b));
+            2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+          end;
+          textcolor(uconfig.colors[0]);
+          tgm := tgm + char(b);
+        end else ready := true;
+        if keypressed then c := readkey;
+      until (c = #27) or (length(tgm) = 255) or ready;
+      if uconfig.echo > 0 then writeln;
+      // PARSE REQUEST
+
+      // SEND ANSWER
+
+    end;
+    // DISCONNECT SERIAL PORT
+    ser_close;
+  end else writeln(ERR18, dev[device].device);
 end;

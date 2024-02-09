@@ -62,7 +62,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);
@@ -156,7 +156,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);
@@ -250,7 +250,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);
@@ -346,7 +346,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);
@@ -452,7 +452,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);
@@ -538,7 +538,7 @@ begin
         b := ser_recvbyte;
         textcolor(uconfig.colors[2]);
         case uconfig.echo of
-          1: if b <> 10 then write(char(b));
+          1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
         textcolor(uconfig.colors[0]);

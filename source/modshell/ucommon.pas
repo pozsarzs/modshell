@@ -336,8 +336,13 @@ end;
 // CHECK TERMINAL SIZE
 function terminalsize(minx, miny: byte): boolean;
 begin
-  termmaxx := windmaxx - windminx + 1;
-  termmaxy := windmaxy - windminy + 1;
+  {$IFDEF WINDOWS}
+    termmaxx := windmaxx - windminx + 1;
+    termmaxy := windmaxy - windminy + 1;
+  {$ELSE}
+    termmaxx := screenwidth;
+    termmaxy := screenheight;
+  {$ENDIF}
   if (termmaxx >= minx) and (termmaxy >= miny)
     then terminalsize := true
     else terminalsize := false;
