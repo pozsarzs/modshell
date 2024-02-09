@@ -55,10 +55,11 @@ uninstall:
 	done
 	@echo "]"
 
-dos:
+convert:
 	@if [ $(iconv) != "no" ] && [ $(msgfmt) != "no" ] && [ $(unix2dos) != "no" ]; \
 	then \
 	  $(call conv_encode,hu,852); \
+	  $(call conv_encode,hu,1250); \
 	else \
-	  echo "To create message file for DOS, install the necessary tools."; \
+	  echo "To create message file for DOS and Windows, install the necessary tools."; \
 	fi

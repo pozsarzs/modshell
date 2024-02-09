@@ -1,122 +1,141 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Modshell v0.1\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pozsár Zsolt <pozsarzs@gmail.com>\n"
+"Language-Team: \n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=cp1250\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
 #: modshell:num1
 msgid "1st "
-msgstr ""
+msgstr "Elsõ "
 
 #: modshell:num2
 msgid "2nd "
-msgstr ""
+msgstr "Második "
 
 #: modshell:num3
 msgid "3rd "
-msgstr ""
+msgstr "Harmadik "
 
 #: modshell:num4
 msgid "4th "
-msgstr ""
+msgstr "Negyedik "
 
 #: modshell:num5
 msgid "5th "
-msgstr ""
+msgstr "Ötödik "
 
 #: modshell:num6
 msgid "6th "
-msgstr ""
+msgstr "Hatodik "
 
 #: modshell:num7
 msgid "7th "
-msgstr ""
+msgstr "Hetedik "
 
 #: modshell:msg01
-msgid "<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> clear <F10> exit"
+msgid ""
+"<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> "
+"clear <F10> exit"
 msgstr ""
+"<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> "
+"clear <F10> exit"
 
 #: modshell:msg02
 msgid "Command-driven scriptable Modbus utility"
-msgstr ""
+msgstr "Parancsvezérelt szkriptelhetõ Modbus segédprogram"
 
 #: modshell:msg03
 msgid "Use 'help COMMAND' to show usage."
-msgstr ""
+msgstr "Használja a 'help PARANCS'-ot a használata megjelenítéséhez."
 
 #: modshell:msg04
 msgid "Usage this command:"
-msgstr ""
+msgstr "A parancs használata:"
 
 #: modshell:msg05
 msgid "parameter:"
-msgstr ""
+msgstr "paraméter:"
 
 #: modshell:msg06
 msgid " is not set."
-msgstr ""
+msgstr " nincs beállítva."
 
 #: modshell:msg07
 msgid " device:     "
-msgstr ""
+msgstr " eszköz:     "
 
 #: modshell:msg08
 msgid " port:       "
-msgstr ""
+msgstr " port:       "
 
 #: modshell:msg09
 msgid " baudrate:   "
-msgstr ""
+msgstr " sebesség:   "
 
 #: modshell:msg10
 msgid " settings:   "
-msgstr ""
+msgstr " beállítások:   "
 
 #: modshell:msg11
 msgid " protocol:   "
-msgstr ""
+msgstr " protokoll:   "
 
 #: modshell:msg12
 msgid " IP address: "
-msgstr ""
+msgstr " IP-cím: "
 
 #: modshell:msg13
 msgid " device UID: "
-msgstr ""
+msgstr " eszköz UID: "
 
 #: modshell:msg14
 msgid "File exist, overwrite? (y/n)"
-msgstr ""
+msgstr "Létezik a fájl, felülírjam? (y/n)"
 
 #: modshell:msg15
 msgid "Command line history has exported to "
-msgstr ""
+msgstr "A parancssori elõzmények exportáltak ebbe: "
 
 #: modshell:msg16
 msgid "Settings has saved to "
-msgstr ""
+msgstr "A beállítások el lettek mentve ebbe: "
 
 #: modshell:msg17
 msgid "Settings has loaded from "
-msgstr ""
+msgstr "A beállítások be lettek töltve ebbõl: "
 
 #: modshell:msg18
 msgid "Register content has exported to "
-msgstr ""
+msgstr "A regisztertartalom exportálva ebbe: "
 
 #: modshell:msg19
 msgid "Register content has imported from "
-msgstr ""
+msgstr "A regisztertartalom importált ebbõl: "
 
 #: modshell:msg20
 msgid "Register content has saved to "
-msgstr ""
+msgstr "A regisztertartalom elmentve ebbe: "
 
 #: modshell:msg21
 msgid "Register content has loaded from "
-msgstr ""
+msgstr "A regisztertartalom betöltve ebbõl: "
 
 #: modshell:msg22
 msgid "Useable file types: "
-msgstr ""
+msgstr "Használható fájltípusok: "
 
 #: modshell:msg23
 msgid "Press a key to continue... "
-msgstr ""
+msgstr "Nyomjon meg egy billentyût a folytatáshoz... "
 
 #: modshell:msg24
 msgid ""
@@ -124,630 +143,633 @@ msgid ""
 "  - register: local buffer register\n"
 "  - remote register: register of the connected device\n"
 msgstr ""
+"Megjegyzés:\n"
+"  - regiszter: helyi puffer regiszter\n"
+"  - távoli regiszter: a csatlakoztatott eszköz regisztere\n"
 
 #: modshell:msg25
 msgid "Select register type: "
-msgstr ""
+msgstr "Válasszon regisztertípust: "
 
 #: modshell:msg26
 msgid "Local register type (dinp/coil/ireg/hreg: 1/2/3/4): "
-msgstr ""
+msgstr "Helyi regiszter típus (dinp/coil/ireg/hreg: 1/2/3/4): "
 
 #: modshell:msg27
 msgid "Start address (0-9990): "
-msgstr ""
+msgstr "Kezdõcím (0-9990): "
 
 #: modshell:msg28
 msgid "Echo mode: "
-msgstr ""
+msgstr "Visszhang mód: "
 
 #: modshell:msg29
 msgid "Mini serial console (exit: <F10>)"
-msgstr ""
+msgstr "Mini soros konzol (kilépés: <F10>)"
 
 #: modshell:msg30
 msgid "Device number (0-7): "
-msgstr ""
+msgstr "Eszközszám (0-7): "
 
 #: modshell:msg31
 msgid "Press <Esc> to break receiving."
-msgstr ""
+msgstr "Nyomd meg az <Esc>-et a vétel megszakításához."
 
 #: modshell:msg32
 msgid "Variable monitor mode: "
-msgstr ""
+msgstr "Változó monitor mód: "
 
 #: modshell:msg33
 msgid "This command can only be used in a script!"
-msgstr ""
+msgstr "Ez a parancs csak szkriptben használható!"
 
 #: modshell:msg34
 msgid "line"
-msgstr ""
+msgstr "sor"
 
 #: modshell:msg35
 msgid "hour"
-msgstr ""
+msgstr "óra"
 
 #: modshell:msg36
 msgid "minute"
-msgstr ""
+msgstr "perc"
 
 #: modshell:msg37
 msgid "status"
-msgstr ""
+msgstr "állapot"
 
 #: modshell:msg38
 msgid "No script loaded."
-msgstr ""
+msgstr "Nincs betöltött szkript."
 
 #: modshell:msg39
 msgid "Scroll: [Home][PgUp][Up]-[Down][PgDn][End]"
-msgstr ""
+msgstr "Görgetés:    [Home][PgUp][Up]-[Down][PgDn][End]"
 
 #: modshell:msg40
 msgid "Move:   [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
-msgstr ""
+msgstr "Mozgás:      [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
 
 #: modshell:msg41
 msgid "Edit:   [Ins][Del][Esc]"
-msgstr ""
+msgstr "Szerkesztés: [Ins][Del][Esc]"
 
 #: modshell:msg94
 msgid "Build date:  "
-msgstr ""
+msgstr "Fordítás ideje: "
 
 #: modshell:msg95
 msgid "Builder:     "
-msgstr ""
+msgstr "Fordító:        "
 
 #: modshell:msg96
 msgid "FPC version: "
-msgstr ""
+msgstr "FPC verzió:     "
 
 #: modshell:msg97
 msgid "Target OS:   "
-msgstr ""
+msgstr "Cél OS:         "
 
 #: modshell:msg98
 msgid "Target CPU:  "
-msgstr ""
+msgstr "Cél CPU:        "
 
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
-msgstr ""
+msgstr "Sajnálom, hogy ez a szolgáltatás még nem valósult meg."
 
 #: modshell:err00
 msgid "No such command!"
-msgstr ""
+msgstr "Nincs ilyen parancs!"
 
 #: modshell:err01
 msgid "Device number must be 0-7!"
-msgstr ""
+msgstr "Az eszköz számának 0-7-nek kell lennie!"
 
 #: modshell:err02
 msgid "Protocol number must be 0-7!"
-msgstr ""
+msgstr "A protokoll számának 0-7-nek kell lennie!"
 
 #: modshell:err03
 msgid "Connection number must be 0-7!"
-msgstr ""
+msgstr "A kapcsolat számának 0-7-nek kell lennie!"
 
 #: modshell:err04
 msgid "IP address is not valid!"
-msgstr ""
+msgstr "Az IP -cím nem érvényes!"
 
 #: modshell:err05
 msgid "Parameter(s) required!"
-msgstr ""
+msgstr "Paraméterek szükséges(ek)!"
 
 #: modshell:err06
 msgid "UID must be 1-247!"
-msgstr ""
+msgstr "Az UID-nek 1-247-nek kell lennie!"
 
 #: modshell:err07
 msgid "Cannot export command line history to "
-msgstr ""
+msgstr "Nem lehet exportálni a parancssori elõzményeket ebbe: "
 
 #: modshell:err08
 msgid "Cannot save settings to "
-msgstr ""
+msgstr "Nem lehet menteni a beállításokat ebbe: "
 
 #: modshell:err09
 msgid "Cannot load settings from "
-msgstr ""
+msgstr "Nem lehet betölteni a beállításokat ebbõl: "
 
 #: modshell:err10
 msgid "Cannot export register content to "
-msgstr ""
+msgstr "Nem lehet exportálni a regisztertartalmat ebbe: "
 
 #: modshell:err11
 msgid "Cannot import register content from "
-msgstr ""
+msgstr "Nem lehet importálni a regisztertartalmat ebbõl: "
 
 #: modshell:err12
 msgid "Cannot save register content to "
-msgstr ""
+msgstr "Nem mentheti a regisztertartalmat ebbe: "
 
 #: modshell:err13
 msgid "Cannot load register content from "
-msgstr ""
+msgstr "Nem lehet betölteni a regisztertartalmat ebbõl: "
 
 #: modshell:err14
 msgid "Illegal character in the project name!"
-msgstr ""
+msgstr "Nem engedélyezett karakter a projekt nevében!"
 
 #: modshell:err15
 msgid "Illegal character in the variable name!"
-msgstr ""
+msgstr "Nem engedélyezett karakter a változó nevében!"
 
 #: modshell:err16
 msgid "Cannot define more variable!"
-msgstr ""
+msgstr "Nem lehet létrehozni a változót!"
 
 #: modshell:err17
 msgid "There is already a variable or a constant with that name."
-msgstr ""
+msgstr "Van már egy változó vagy állandó ezzel a névvel."
 
 #: modshell:err18
 msgid "Cannot initialize serial port: "
-msgstr ""
+msgstr "Nem lehet inicializálni a soros portot! "
 
 #: modshell:err19
 msgid "No such variable: "
-msgstr ""
+msgstr "Nincs ilyen változó: "
 
 #: modshell:err20
 msgid "Calculating error!"
-msgstr ""
+msgstr "Számítási hiba!"
 
 #: modshell:err21
 msgid "No such script file: "
-msgstr ""
+msgstr "Nincs ilyen szkriptfájl: "
 
 #: modshell:err22
 msgid "Cannot load script from "
-msgstr ""
+msgstr "Nem lehet betölteni a szkriptet ebbõl: "
 
 #: modshell:err23
 msgid "Script buffer is full!"
-msgstr ""
+msgstr "A szkript puffer megtelt!"
 
 #: modshell:err24
 msgid "Specified device is not a serial port!"
-msgstr ""
+msgstr "A megadott eszköz nem soros port!"
 
 #: modshell:err25
 msgid "Specified device is not a ethernet port!"
-msgstr ""
+msgstr "A megadott eszköz nem ethernet port!"
 
 #: modshell:err26
 msgid "Cannot read data from serial port!"
-msgstr ""
+msgstr "Nem lehet olvasni a soros portról!"
 
 #: modshell:err27
 msgid "Cannot write data to serial port!"
-msgstr ""
+msgstr "Nem lehet írni a soros portot!"
 
 #: modshell:err28
 msgid "Modbus telegram parsing error!"
-msgstr ""
+msgstr "Modbus telegram értelmezési hiba!"
 
 #: modshell:err29
 msgid "Modbus error: illegal function."
-msgstr ""
+msgstr "Modbus hiba: szabálytalan funkció."
 
 #: modshell:err30
 msgid "Modbus error: illegal data address."
-msgstr ""
+msgstr "Modbus hiba: szabálytalan adatcím."
 
 #: modshell:err31
 msgid "Modbus error: illegal data value."
-msgstr ""
+msgstr "Modbus hiba: szabálytalan adatérték."
 
 #: modshell:err32
 msgid "Modbus error: slave device failure."
-msgstr ""
+msgstr "Modbus hiba: slave eszköz hiba."
 
 #: modshell:err33
 msgid "Illegal character in the constant name!"
-msgstr ""
+msgstr "Nem engedélyezett karakter az állandó nevében!"
 
 #: modshell:err34
 msgid "Cannot define more constant!"
-msgstr ""
+msgstr "Nem lehet létrehozni több állandót!"
 
 #: modshell:err35
 msgid "No such label: "
-msgstr ""
+msgstr "Nincs ilyen címke: "
 
 #: modshell:err36
 msgid "Cannot write log record to "
-msgstr ""
+msgstr "Nem lehet írni a naplófájlt: "
 
 #: modshell:err37
 msgid "Cannot save script to "
-msgstr ""
+msgstr "Nem lehet menteni a szkriptet ebbe: "
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
-msgstr ""
+msgstr "A legkisebb terminál méret 80x25!"
 
 #: modshell:des00
 msgid "       copy one or more remote reg. between two connections"
-msgstr ""
+msgstr "       egy vagy több távoli regiszter másolása két kapcsolat között"
 
 #: modshell:des01
 msgid "F10    exit"
-msgstr ""
+msgstr "F10    kilépés"
 
 #: modshell:des02
 msgid "ALT-G  show device, protocol, connection or project name"
-msgstr ""
+msgstr "ALT-G  eszköz, protokoll, kapcsolat vagy projektnév kiírása"
 
 #: modshell:des03
 msgid "F1     show description or usage of the commands"
-msgstr ""
+msgstr "F1     parancs leírás vagy használat megjelenítése"
 
 #: modshell:des04
 msgid "ALT-L  set value of a variable or a register"
-msgstr ""
+msgstr "ALT-L  regisztertartalom beállítása"
 
 #: modshell:des05
 msgid "ALT-P  print message, value of the variable and register"
-msgstr ""
+msgstr "ALT-P  üzenet, a változó vagy regisztertartalom kiírása"
 
 #: modshell:des06
 msgid "ALT-R  read one or more remote registers to buffer"
-msgstr ""
+msgstr "ALT-R  adat olvasása távoli regiszterbõl a pufferbe"
 
 #: modshell:des07
 msgid "ALT-T  reset device, protocol, connection or project name"
-msgstr ""
+msgstr "ALT-T  eszköz, protokoll, kapcsolat vagy projektnév törlése"
 
 #: modshell:des08
 msgid "ALT-S  set device, protocol, connection or project name"
-msgstr ""
+msgstr "ALT-S  eszköz, protokoll, kapcsolat vagy projektnév beállítása"
 
 #: modshell:des09
 msgid "       show system date and time"
-msgstr ""
+msgstr "       dátum és idõ megjelenítése"
 
 #: modshell:des10
 msgid "       show version and build information of this program"
-msgstr ""
+msgstr "       változat és fordítási információk a programról"
 
 #: modshell:des11
 msgid "ALT-W  write data from buffer to one or more remote registers"
-msgstr ""
+msgstr "ALT-W  adat írása egy vagy több pufferbõl a távoli regiszterbe"
 
 #: modshell:des12
 msgid "F8     clear screen"
-msgstr ""
+msgstr "F8     képernyõtörlés"
 
 #: modshell:des13
 msgid "F2     save settings of device, protocol and connection"
-msgstr ""
+msgstr "F2     eszköz-, protokoll- és kapcsolatbeállítások mentése"
 
 #: modshell:des14
 msgid "F3     load settings of device, protocol and connection"
-msgstr ""
+msgstr "F3     eszköz-, protokoll- és kapcsolatbeállítások betöltése"
 
 #: modshell:des15
 msgid "ALT-E  export value of the one or more registers"
-msgstr ""
+msgstr "ALT-E  egy vagy több regisztertartalom exportálása"
 
 #: modshell:des16
 msgid "       export command line history to make a script easily"
-msgstr ""
+msgstr "       parancssori elõzmények exportálása"
 
 #: modshell:des17
 msgid "ALT-C  convert value between different numeral systems"
-msgstr ""
+msgstr "ALT-C  konvertálás a különbözõ számrendszerek között"
 
 #: modshell:des18
 msgid "F4     save all registers"
-msgstr ""
+msgstr "F4     összes regisztertartalom mentése"
 
 #: modshell:des19
 msgid "F5     load all registers"
-msgstr ""
+msgstr "F5     összes regisztertartalom betöltése"
 
 #: modshell:des20
 msgid "       list all variable with value or define a new one"
-msgstr ""
+msgstr "       az összes változó kiírása vagy új létrehozása"
 
 #: modshell:des21
 msgid "       set colors"
-msgstr ""
+msgstr "       színek beállítása"
 
 #: modshell:des22
 msgid "ALT-I  import value of the one or more registers"
-msgstr ""
+msgstr "ALT-I  egy vagy több regisztertartalom importálása"
 
 #: modshell:des23
 msgid "       AND logical operations"
-msgstr ""
+msgstr "       ÉS logikai mûvelet"
 
 #: modshell:des24
 msgid "       OR logical operations"
-msgstr ""
+msgstr "       VAGY logikai mûvelet"
 
 #: modshell:des25
 msgid "       NOT logical operations"
-msgstr ""
+msgstr "       NOT logikai mûvelet"
 
 #: modshell:des26
 msgid "       XOR logical operations"
-msgstr ""
+msgstr "       XOR logikai mûvelet"
 
 #: modshell:des27
 msgid "       bit shift to left"
-msgstr ""
+msgstr "       biteltolás balra"
 
 #: modshell:des28
 msgid "       bit shift to right"
-msgstr ""
+msgstr "       biteltolás jobbra"
 
 #: modshell:des29
 msgid "       addition mathematical operation"
-msgstr ""
+msgstr "       összeadás matematikai mûvelet"
 
 #: modshell:des30
 msgid "       substraction mathematical operation"
-msgstr ""
+msgstr "       kivonás matematikai mûvelet"
 
 #: modshell:des31
 msgid "       multiplication mathematical operation"
-msgstr ""
+msgstr "       szorzás matematikai mûvelet"
 
 #: modshell:des32
 msgid "       division mathematical operation"
-msgstr ""
+msgstr "       osztás matematikai mûvelet"
 
 #: modshell:des33
 msgid "F6     dump all registers in binary/hexadecimal format to a table"
-msgstr ""
+msgstr "F6     táblázatos regiszterkiírás bin. vagy hexadec. formában"
 
 #: modshell:des34
 msgid "       wait for a keystroke or specified time"
-msgstr ""
+msgstr "       várakozás billentyûleütésre vagy idõ leteltére"
 
 #: modshell:des35
 msgid "F7     open a simple serial console"
-msgstr ""
+msgstr "F7     egyszerû soros konzol"
 
 #: modshell:des36
 msgid "       read string from serial device"
-msgstr ""
+msgstr "       string olvasása soros portról"
 
 #: modshell:des37
 msgid "       write string to serial device"
-msgstr ""
+msgstr "       string írása soros portra"
 
 #: modshell:des38
 msgid "F9     query local echo status or enable/disable it"
-msgstr ""
+msgstr "F9     visszahang állapot lekérése/beállítása"
 
 #: modshell:des39
 msgid "       load Modshell script from file"
-msgstr ""
+msgstr "       Modshell szkript betöltése fájlból"
 
 #: modshell:des40
 msgid "F12    run loaded Modshell script"
-msgstr ""
+msgstr "F12    betöltött ModShell szkript futattása"
 
 #: modshell:des41
 msgid "F11    list loaded Modshell script"
-msgstr ""
+msgstr "F11    betöltött ModShell szkript listázása"
 
 #: modshell:des42
 msgid "       round real number"
-msgstr ""
+msgstr "       természetes szám kerekítése"
 
 #: modshell:des43
 msgid "       cosine function"
-msgstr ""
+msgstr "       koszinusz függvény"
 
 #: modshell:des44
 msgid "       cotangent function"
-msgstr ""
+msgstr "       kotangens függvény"
 
 #: modshell:des45
 msgid "       decrement integer"
-msgstr ""
+msgstr "       egész szám csökkentése eggyel"
 
 #: modshell:des46
 msgid "       natural exponential"
-msgstr ""
+msgstr "       természetes exponenciális függvény"
 
 #: modshell:des47
 msgid "       integer division"
-msgstr ""
+msgstr "       egész osztás"
 
 #: modshell:des48
 msgid "       modulus division"
-msgstr ""
+msgstr "       modulusz osztás"
 
 #: modshell:des49
 msgid "       increment integer"
-msgstr ""
+msgstr "       egész szám növelése eggyel"
 
 #: modshell:des50
 msgid "       natural logarithm"
-msgstr ""
+msgstr "       természetes alapú logaritmus"
 
 #: modshell:des51
 msgid "       multiplicative inverse"
-msgstr ""
+msgstr "       reciprokérték"
 
 #: modshell:des52
 msgid "       odd or event"
-msgstr ""
+msgstr "       páros vagy páratlan"
 
 #: modshell:des53
 msgid "       create random integer"
-msgstr ""
+msgstr "       véletlen egész szám képzése"
 
 #: modshell:des54
 msgid "       tangent function"
-msgstr ""
+msgstr "       tangens függvény"
 
 #: modshell:des55
 msgid "       sine function"
-msgstr ""
+msgstr "       szinusz függvény"
 
 #: modshell:des56
 msgid "       square"
-msgstr ""
+msgstr "       négyzetreemelés"
 
 #: modshell:des57
 msgid "       square root"
-msgstr ""
+msgstr "       négyzetgyökvonás"
 
 #: modshell:des58
 msgid "       roll bit of integer to left"
-msgstr ""
+msgstr "       bitgörgetés balra"
 
 #: modshell:des59
 msgid "       roll bit of integer to right"
-msgstr ""
+msgstr "       bitgörgetés jobbra"
 
 #: modshell:des60
 msgid "       conversion to uppercase"
-msgstr ""
+msgstr "       átalakítás nagybetûssé"
 
 #: modshell:des61
 msgid "       length of string"
-msgstr ""
+msgstr "       karakterlánc hossza"
 
 #: modshell:des62
 msgid "       conversion to lowercase"
-msgstr ""
+msgstr "       átalakítás kisbetûssé"
 
 #: modshell:des63
 msgid "       specified element of the string"
-msgstr ""
+msgstr "       a karakterlánc megadott eleme"
 
 #: modshell:des64
 msgid "       convert byte to char"
-msgstr ""
+msgstr "       bájt karakterré alakítása"
 
 #: modshell:des65
 msgid "       convert char to byte"
-msgstr ""
+msgstr "       karakter bájttá alakítása"
 
 #: modshell:des66
 msgid "       list all constant with value or define a new one"
-msgstr ""
+msgstr "       az összes állandó kiírása vagy új létrehozása"
 
 #: modshell:des67
 msgid "       value of the specified bit"
-msgstr ""
+msgstr "       megadott bit értéke"
 
 #: modshell:des68
 msgid "       exponentiation"
-msgstr ""
+msgstr "       hatványozás"
 
 #: modshell:des69
 msgid "       jump to specified label (only in script)"
-msgstr ""
+msgstr "       ugrás a megadott címkére (csak szkripteknél)"
 
 #: modshell:des70
 msgid "       selection statement"
-msgstr ""
+msgstr "       elágazás"
 
 #: modshell:des71
 msgid "       loop iteration"
-msgstr ""
+msgstr "       számláló hurok"
 
 #: modshell:des72
 msgid "       define label (only in script)"
-msgstr ""
+msgstr "       címke létrehozása (csak szkripteknél)"
 
 #: modshell:des73
 msgid "       start internal Modbus slave/server"
-msgstr ""
+msgstr "       start belsõ Modbus szolga/szerver"
 
 #: modshell:des74
 msgid "       start internal Modbus gateway"
-msgstr ""
+msgstr "       start belsõ Modbus átjáró"
 
 #: modshell:des75
 msgid "       check the value is in the range"
-msgstr ""
+msgstr "       értéktartományba tartozás ellenõrzése"
 
 #: modshell:des76
 msgid "       make LRC"
-msgstr ""
+msgstr "       LRC képzése"
 
 #: modshell:des77
 msgid "       make CRC"
-msgstr ""
+msgstr "       CRC képzése"
 
 #: modshell:des78
 msgid "       exponentiation of two"
-msgstr ""
+msgstr "       a kettõ hatványai"
 
 #: modshell:des79
 msgid "       show ASCII table"
-msgstr ""
+msgstr "       ASCII tábla mutatás"
 
 #: modshell:des80
 msgid "       make a beep sound with internal speaker"
-msgstr ""
+msgstr "       hangjelzés a belsõ hangszóróval"
 
 #: modshell:des81
 msgid "       calculate average"
-msgstr ""
+msgstr "       átlagszámítás"
 
 #: modshell:des82
 msgid "       propotional value calculation (with zero and span)"
-msgstr ""
+msgstr "       arányos érték számítás (kezdeti és végértékkel)"
 
 #: modshell:des83
 msgid "       concatenate strings"
-msgstr ""
+msgstr "       karakterláncok összefûzése"
 
 #: modshell:des84
 msgid "       delete specified element(s) of the string"
-msgstr ""
+msgstr "       a karakterlánc megadott elemének törlése"
 
 #: modshell:des85
 msgid "       find specified element(s) in the string"
-msgstr ""
+msgstr "       keresés a karakterláncban"
 
 #: modshell:des86
 msgid "       insert element(s) into string"
-msgstr ""
+msgstr "       beszúrás a karakterláncba"
 
 #: modshell:des87
 msgid "       replace element(s) in the string"
-msgstr ""
+msgstr "       a karakterlánc megadott elemének cseréje"
 
 #: modshell:des88
 msgid "ALT-M  monitoring the value of variables"
-msgstr ""
+msgstr "ALT-M  változóértékek megfigyelése"
 
 #: modshell:des89
 msgid "       append a record to log file"
-msgstr ""
+msgstr "       egy bejegyzés hozzáfûzése a naplófájlhoz"
 
 #: modshell:des90
 msgid "       loaded script scheduled execution"
-msgstr ""
+msgstr "       a betöltött szkript ütemezett futattása"
 
 #: modshell:des91
 msgid "       edit loaded script with line editor"
-msgstr ""
+msgstr "       a betöltött szkript szerkesztése sorszerkesztõvel"
 
 #: modshell:des92
 msgid "       erase script from buffer"
-msgstr ""
+msgstr "       a szkript törlése a pufferból"
 
 #: modshell:des93
 msgid "       save loaded script to disc"
-msgstr ""
+msgstr "       a betöltött szkript mentése lemezre"
 
 #: modshell:usg00
 msgid ""
@@ -755,10 +777,13 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
+"copy con? dinp|coil con? coil [$]CÍM [[$]MENNYISÉG]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg01
 msgid "exit"
-msgstr ""
+msgstr "exit"
 
 #: modshell:usg02
 msgid ""
@@ -766,10 +791,13 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
+"get dev?|pro?|con?|prj\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg03
 msgid "help [[$]COMMAND]"
-msgstr ""
+msgstr "help [[$]PARANCS]"
 
 #: modshell:usg04
 msgid ""
@@ -777,6 +805,9 @@ msgid ""
 "  let $VARIABLE [$]VALUE\n"
 "  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS"
 msgstr ""
+"let dinp|coil|ireg|hreg [$]CÍM [$]ÉRTÉK\n"
+"  let $VÁLTOZÓ [$]ÉRTÉK\n"
+"  let $VÁLTOZÓ dinp|coil|ireg|hreg [$]CÍM"
 
 #: modshell:usg05
 msgid ""
@@ -784,10 +815,13 @@ msgid ""
 "  print $VARIABLE [-n]\n"
 "  print \"single\\ line\\ message\" [-n]"
 msgstr ""
+"print dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG] [-n]\n"
+"  print $VÁLTOZÓ [-n]\n"
+"  print \"single\\ line\\ message\" [-n]"
 
 #: modshell:usg06
 msgid "read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
-msgstr ""
+msgstr "read con? dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
 
 #: modshell:usg07
 msgid ""
@@ -795,6 +829,9 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
+"reset dev?|pro?|con?|prj\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg08
 msgid ""
@@ -807,14 +844,22 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
+"set dev? net [$]ESZKÖZ [$]PORT\n"
+"  set dev? ser [$]ESZKÖZ [$]BAUDRATE [$]ADATBIT [$]PARITÁS [$]STOPBIT\n"
+"  set pro? ascii|rtu [$]UID\n"
+"  set pro? tcp [$]IP_CÍM\n"
+"  set con? dev? pro?\n"
+"  set prj [$]PROJEKNÉV\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg09
 msgid "date"
-msgstr ""
+msgstr "date"
 
 #: modshell:usg10
 msgid "ver"
-msgstr ""
+msgstr "ver"
 
 #: modshell:usg11
 msgid ""
@@ -822,44 +867,50 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
+"write con? coil|hreg [$]CÍM [[$]MENNYISÉG]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg12
 msgid "cls"
-msgstr ""
+msgstr "cls"
 
 #: modshell:usg13
 msgid "savecfg [$]PATH_AND_FILENAME"
-msgstr ""
+msgstr "savecfg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg14
 msgid "loadcfg [$]PATH_AND_FILENAME"
-msgstr ""
+msgstr "loadcfg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg15
 msgid "expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
 msgstr ""
+"expreg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
 
 #: modshell:usg16
 msgid "exphis [$]PATH_AND_FILENAME"
-msgstr ""
+msgstr "exphis [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg17
 msgid "conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
-msgstr ""
+msgstr "conv bin|dec|hex|oct bin|dec|hex|oct [$]ÉRTÉK"
 
 #: modshell:usg18
 msgid "savereg [$]PATH_AND_FILENAME"
-msgstr ""
+msgstr "savereg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg19
 msgid "loadreg [$]PATH_AND_FILENAME"
-msgstr ""
+msgstr "loadreg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg20
 msgid ""
 "var\n"
 "  var NAME [[$]VALUE]"
 msgstr ""
+"var\n"
+"  var NAME [[$]ÉRTÉK]"
 
 #: modshell:usg21
 msgid ""
@@ -870,58 +921,65 @@ msgid ""
 "      2: green  6: brown      10: lightgreen  14: yellow\n"
 "      3: cyan   7: lightgray  11: lightcyan   15: white"
 msgstr ""
+"color [$]ELÕTÉRSZÍN [$]HÁTTÉRSZÍN [$]VÉTELSZÍN [$]ADÁSSZÍN [$]VÁLTMON\n"
+"\n"
+"  Színek: \\ 015\n"
+"      0: fekete  4: vörös           8: sötétszürke  12: világosvörös\n"
+"      1: kék     5: magenta:        9: világoskék   13: világosmagenta\n"
+"      2: zöld    6: barna          10: világoszöld  14: sárga\n"
+"      3: cián    7: világosszürke  11: világoscián  15: fehér"
 
 #: modshell:usg22
 msgid "impreg [$]PATH_AND_FILENAME"
-msgstr ""
+msgstr "impreg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg23
 msgid "and $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "and $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg24
 msgid "or $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "or $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg25
 msgid "not $TARGET [$]VALUE"
-msgstr ""
+msgstr "not $CÉL [$]ÉRTÉK"
 
 #: modshell:usg26
 msgid "xor $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "xor $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg27
 msgid "shl $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "shl $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg28
 msgid "shr $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "shr $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg29
 msgid "add $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "add $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg30
 msgid "sub $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "sub $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg31
 msgid "mul $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "mul $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg32
 msgid "div $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "div $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg33
 msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
-msgstr ""
+msgstr "dump [[dinp|coil|ireg|hreg] [$]CÍM]"
 
 #: modshell:usg34
 msgid "pause [[$]TIME]"
-msgstr ""
+msgstr "pause [[$]IDÕ]"
 
 #: modshell:usg35
 msgid ""
@@ -929,6 +987,9 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
+"sercons [dev?]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg36
 msgid ""
@@ -936,6 +997,9 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
+"serread dev? [$CÉL]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg37
 msgid ""
@@ -944,148 +1008,154 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
+"serwrite dev? $ÜZENET\n"
+"  serwrite dev? \"MÜZENET\"\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg38
 msgid "echo [off|on|hex]"
-msgstr ""
+msgstr "echo [off|on|hex]"
 
 #: modshell:usg39
 msgid "loadscr [$]PATH_AND_FILENAME"
-msgstr ""
+msgstr "loadscr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg40
 msgid "run [-s]"
-msgstr ""
+msgstr "run [-s]"
 
 #: modshell:usg41
 msgid "list"
-msgstr ""
+msgstr "list"
 
 #: modshell:usg42
 msgid "round $TARGET [$]VALUE [$]DEC_PLACES"
-msgstr ""
+msgstr "round $CÉL [$]ÉRTÉK [$]DEC_HELYEK"
 
 #: modshell:usg43
 msgid "cos $TARGET [$]VALUE"
-msgstr ""
+msgstr "cos $CÉL [$]ÉRTÉK"
 
 #: modshell:usg44
 msgid "cotan $TARGET [$]VALUE"
-msgstr ""
+msgstr "cotan $CÉL [$]ÉRTÉK"
 
 #: modshell:usg45
 msgid "dec $TARGET [$]VALUE"
-msgstr ""
+msgstr "dec $CÉL [$]ÉRTÉK"
 
 #: modshell:usg46
 msgid "exp $TARGET [$]VALUE"
-msgstr ""
+msgstr "exp $CÉL [$]ÉRTÉK"
 
 #: modshell:usg47
 msgid "idiv $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "idiv $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg48
 msgid "imod $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "imod $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg49
 msgid "inc $TARGET [$]VALUE"
-msgstr ""
+msgstr "inc $CÉL [$]ÉRTÉK"
 
 #: modshell:usg50
 msgid "ln $TARGET [$]VALUE"
-msgstr ""
+msgstr "ln $CÉL [$]ÉRTÉK"
 
 #: modshell:usg51
 msgid "mulinv $TARGET [$]VALUE"
-msgstr ""
+msgstr "mulinv $CÉL [$]ÉRTÉK"
 
 #: modshell:usg52
 msgid "odd $TARGET [$]VALUE"
-msgstr ""
+msgstr "odd $CÉL [$]ÉRTÉK"
 
 #: modshell:usg53
 msgid "rnd $TARGET [$]VALUE"
-msgstr ""
+msgstr "rnd $CÉL [$]ÉRTÉK"
 
 #: modshell:usg54
 msgid "tan $TARGET [$]VALUE"
-msgstr ""
+msgstr "tan $CÉL [$]ÉRTÉK"
 
 #: modshell:usg55
 msgid "sin $TARGET [$]VALUE"
-msgstr ""
+msgstr "sin $CÉL [$]ÉRTÉK"
 
 #: modshell:usg56
 msgid "sqr $TARGET [$]VALUE"
-msgstr ""
+msgstr "sqr $CÉL [$]ÉRTÉK"
 
 #: modshell:usg57
 msgid "sqrt $TARGET [$]VALUE"
-msgstr ""
+msgstr "sqrt $CÉL [$]ÉRTÉK"
 
 #: modshell:usg58
 msgid "roll $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "roll $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg59
 msgid "rolr $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "rolr $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg60
 msgid "upcase $TARGET [$]VALUE"
-msgstr ""
+msgstr "upcase $CÉL [$]ÉRTÉK"
 
 #: modshell:usg61
 msgid "length $TARGET [$]VALUE"
-msgstr ""
+msgstr "length $CÉL [$]ÉRTÉK"
 
 #: modshell:usg62
 msgid "lowcase $TARGET [$]VALUE"
-msgstr ""
+msgstr "lowcase $CÉL [$]ÉRTÉK"
 
 #: modshell:usg63
 msgid "stritem $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "stritem $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg64
 msgid "chr $TARGET [$]VALUE"
-msgstr ""
+msgstr "chr $CÉL [$]ÉRTÉK"
 
 #: modshell:usg65
 msgid "ord $TARGET [$]VALUE"
-msgstr ""
+msgstr "ord $CÉL [$]ÉRTÉK"
 
 #: modshell:usg66
 msgid ""
 "const\n"
 "  const NAME [$]VALUE"
 msgstr ""
+"const\n"
+"  const NAME [[$]ÉRTÉK]"
 
 #: modshell:usg67
 msgid "bit $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "bit $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg68
 msgid "pow $TARGET [$]BASE [$]EXPONENT"
-msgstr ""
+msgstr "pow $CÉL [$]ALAP [$]KITEVÕ"
 
 #: modshell:usg69
 msgid "goto LABEL"
-msgstr ""
+msgstr "goto CÍMKE"
 
 #: modshell:usg70
 msgid "if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND"
-msgstr ""
+msgstr "if [$]ÉRTÉK1 RELÁCIÓJEL [$]ÉRTÉK2 then PARANCS"
 
 #: modshell:usg71
 msgid "for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND"
-msgstr ""
+msgstr "for $VÁLTOZÓ [$]ÉRTÉK to [$]ÉRTÉK do PARANCS"
 
 #: modshell:usg72
 msgid "label NAME"
-msgstr ""
+msgstr "label NÉV"
 
 #: modshell:usg73
 msgid ""
@@ -1093,6 +1163,9 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
+"mbsrv con?\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg74
 msgid ""
@@ -1100,64 +1173,69 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
+"mbgw con? con?\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg75
 msgid "inrange $TARGET [$]MIN [$]MAX [$]VALUE"
-msgstr ""
+msgstr "inrange $CÉL [$]MIN [$]MAX [$]ÉRTÉK"
 
 #: modshell:usg76
 msgid "mklrc $TARGET [$]STRING"
-msgstr ""
+msgstr "mklrc $CÉL [$]KARAKTERLÁNC"
 
 #: modshell:usg77
 msgid "mkcrc $TARGET [$]STRING"
-msgstr ""
+msgstr "mkcrc $CÉL [$]KARAKTERLÁNC"
 
 #: modshell:usg78
 msgid "pow2 $TARGET [$]EXPONENT"
-msgstr ""
+msgstr "pow2 $CÉL [$]KITEVÕ"
 
 #: modshell:usg79
 msgid "ascii [dec|hex]"
-msgstr ""
+msgstr "ascii [dec|hex]"
 
 #: modshell:usg80
 msgid "beep"
-msgstr ""
+msgstr "beep"
 
 #: modshell:usg81
 msgid "avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]"
-msgstr ""
+msgstr "avg $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2 [[$]ÉRTÉK3...6]"
 
 #: modshell:usg82
 msgid "prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE"
-msgstr ""
+msgstr "prop $CÉL [$]MIN [$]MAX [$]KEZDET [$]VÉG [$]ÉRTÉK"
 
 #: modshell:usg83
 msgid "concat $TARGET [$]VALUE1 [$]VALUE2"
-msgstr ""
+msgstr "concat $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: modshell:usg84
 msgid "strdel $TARGET [$]PLACE [$]COUNT"
-msgstr ""
+msgstr "strdel $CÉL [$]HELY [$]MENNYISÉG"
 
 #: modshell:usg85
 msgid "strfind $TARGET [$]VALUE"
-msgstr ""
+msgstr "strfind $CÉL [$]ÉRTÉK"
 
 #: modshell:usg86
 msgid "strins $TARGET [$]PLACE [$]VALUE"
-msgstr ""
+msgstr "strins $CÉL [$]HELY [$]ÉRTÉK"
 
 #: modshell:usg87
 msgid "strrepl $TARGET [$]OLD [$]NEW"
-msgstr ""
+msgstr "strrepl $CÉL [$]RÉGI [$]ÚJ"
 
 #: modshell:usg88
 msgid ""
 "varmon [on|off]\n"
 "  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
 msgstr ""
+"varmon [on|off]\n"
+"  varmon $VÁLTOZÓ1 [$VÁLTOZÓ2] [$VÁLTOZÓ3] [$VÁLTOZÓ4]"
 
 #: modshell:usg89
 msgid ""
@@ -1168,6 +1246,12 @@ msgid ""
 "  - The 'LEVEL' value can be 0-4:\n"
 "    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
 msgstr ""
+"applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]\n"
+"  applog [$]LOGFILE \"TEXT\\ $$1\\ TEXT\" [$]LEVEL [$]VALUE1\n"
+"Megjegyzés:\n"
+"  - A '$$1' értéke $$1-$$4 lehet.\n"
+"  - A 'LEVEL' értéke 0-4 lehet:\n"
+"    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
 
 #: modshell:usg90
 msgid ""
@@ -1175,16 +1259,65 @@ msgid ""
 "  cron rec_num hour minute\n"
 "  cron [-r rec_num]"
 msgstr ""
+"cron\n"
+"  cron bejegyzés óra perc\n"
+"  cron [-r bejegyzés]"
 
 #: modshell:usg91
 msgid "edit [LINE_NUMBER]"
-msgstr ""
+msgstr "edit [SORSZÁM]"
 
 #: modshell:usg92
 msgid "erase"
-msgstr ""
+msgstr "erase"
 
 #: modshell:usg93
 msgid "savescr [$]PATH_AND_FILENAME"
-msgstr ""
+msgstr "savescr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
+#~ msgid "       set foreground and background color in full screen mode"
+#~ msgstr "       elõtér- és a háttérszín beállítása (fullscreen)"
+
+#~ msgid "       define new variable and assign value"
+#~ msgstr "       új változó definiálás és értékadás"
+
+#~ msgid ""
+#~ "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
+#~ "Notes:\n"
+#~ "  - The '$' sign indicates a variable not a direct value."
+#~ msgstr ""
+#~ "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
+#~ "Megjegyzés:\n"
+#~ "  - A '$' jel jelzi, hogy ez változó és nem közvetlen érték."
+
+#~ msgid ""
+#~ "copy con? dinp|coil con? coil ADDRESS [COUNT]\n"
+#~ "  copy con? ireg|hreg con? hreg ADDRESS [COUNT]\n"
+#~ "  ?: [0-7]"
+#~ msgstr ""
+#~ "copy con? dinp|coil con? coil CÍM [MENNYISÉG]\n"
+#~ "  copy con? ireg|hreg con? hreg CÍM [MENNYISÉG]\n"
+#~ "  ?: [0-7]"
+
+#~ msgid "let dinp|coil|ireg|hreg ADDRESS|$VARIABLE VALUE|$VARIABLE"
+#~ msgstr "let dinp|coil|ireg|hreg CÍM|$VÁLTOZÓ ÉRTÉK|$VÁLTOZÓ"
+
+#~ msgid ""
+#~ "read con? dinp|coil|ireg|hreg ADDRESS [COUNT]\n"
+#~ "  ?: [0-7]"
+#~ msgstr ""
+#~ "read con? dinp|coil|ireg|hreg CÍM [MENNYISÉG]\n"
+#~ "  ?: [0-7]"
+
+#~ msgid ""
+#~ "write con? coil|hreg ADDRESS [COUNT]\n"
+#~ "  ?: [0-7]"
+#~ msgstr ""
+#~ "write con? coil|hreg CÍM [MENNYISÉG]\n"
+#~ "  ?: [0-7]"
+
+#~ msgid "conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE"
+#~ msgstr "conv bin|dec|hex|oct bin|dec|hex|oct ÉRTÉK|$VÁLTOZÓ"
+
+#~ msgid "var NAME [VALUE|$VARIABLE]"
+#~ msgstr "var NÉV [ÉRTÉK|$VÁLTOZÓ]"

@@ -61,4 +61,4 @@ uninstall:
 	fi
 	@echo "]"
 
-dos:
+convert:

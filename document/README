@@ -17,6 +17,7 @@ a. Visit homepage (see later) to download installer packages:
   --------------------------------------------------------------------
   DOS               i386    modsh01.exe                          (SFX)
                     i386    modsh01.zip
+  FreeDOS           i386    modsh01.zip
 
   Linux             i386    modshell-0.1-linux-i386.bin          (SFX)
                     amd64   modshell-0.1-linux-amd64.bin         (SFX)

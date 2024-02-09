@@ -7,10 +7,10 @@
 
 include ../../Makefile.global
 
-title="examples      "
+title="other files   "
 removetargetdir=1
 sourcedir="."
-targetdir=$(datarootdir)/doc/$(name)/example
+targetdir=$(datarootdir)/doc/$(name)/others
 filemode=$(txtmode)
 files=`ls $(sourcedir) | grep -v Makefile`
 

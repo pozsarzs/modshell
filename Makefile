@@ -40,9 +40,9 @@ uninstall:
 	done
 	@echo "Done."
 
-dos:
-	@echo "Make files for DOS"
+convert:
+	@echo "Convert files for DOS and Windows"
 	@for dir in $(dirs); do \
-	  if [ -e Makefile ]; then $(make) -s -C $$dir dos; fi; \
+	  if [ -e Makefile ]; then $(make) -s -C $$dir convert; fi; \
 	done
 	@echo "Done."

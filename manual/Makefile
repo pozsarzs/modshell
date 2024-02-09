@@ -45,7 +45,7 @@ uninstall:
 	fi;
 	@echo "]"
 
-dos:
+convert:
 	@if [ $(man) != "no" ] && [ $(unix2dos) != "no" ]; \
 	then \
 	  if [ -f $(name).1 ]; \

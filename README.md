@@ -178,7 +178,7 @@ selected.
 |rnd     |arithmetic    |        |create random integer                                            |
 |round   |arithmetic    |        |round real number                                                |
 |sin     |arithmetic    |        |sine function                                                    |
-|sqr     |arithmetic    |        |square root                                                      |
+|sqr     |arithmetic    |        |square                                                           |
 |sqrt    |arithmetic    |        |square root                                                      |
 |sub     |arithmetic    |        |substraction                                                     |
 |tan     |arithmetic    |        |tangent function                                                 |
@@ -235,8 +235,8 @@ selected.
 |erase   |script        |        |erase script from buffer                                         |
 |list    |script        |F11     |list loaded script                                               |
 |loadscr |script        |        |load ModShell scriptfile from disc                               |
-|savescr |script        |        |save loaded script to disc                                       |
 |run     |script        |F12     |run loaded script                                                |
+|savescr |script        |        |save loaded script to disc                                       |
 |chr     |string        |        |convert byte to char                                             |
 |concat  |string        |        |concatenate strings                                              |
 |length  |string        |        |length of string                                                 |
