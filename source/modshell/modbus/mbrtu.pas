@@ -638,23 +638,6 @@ begin
         if keypressed then c := readkey;
       until (c = #27) or (length(tgm) = 255) or ready;
       if uconfig.echo > 0 then writeln;
-    end;
-    ser_close;
-  end else writeln(ERR18, dev[device1].device);
-  // GATEWAY
-  if enablegw then
-  begin
-    // CONNECT TO SERIAL PORT
-    if ser_open(dev[device2].device, dev[device2].speed, dev[device2].databit, dev[device2].parity, dev[device2].stopbit) then
-    begin
-      // ...
-    end else writeln(ERR18, dev[device2].device);
-  end;
-  // CONNECT TO SERIAL PORT
-  if ser_open(dev[device1].device, dev[device1].speed, dev[device1].databit, dev[device1].parity, dev[device1].stopbit) then
-  begin
-    if valid then
-    begin
       // PARSE REQUEST
       if length(tgm) = 8 then
       begin
@@ -671,6 +654,24 @@ begin
         if (address < 1) or (address > 9999) then error := $02;
         if (count < 1) or (count > 125) then error := $03;
       end else error := $04;
+    end;
+    ser_close;
+  end else writeln(ERR18, dev[device1].device);
+  // GATEWAY
+  if enablegw then
+  begin
+    if function_code = FUNCTION_CODES_ALL[0] then mbrtu_readcoil(protocol2, device2, address, count);
+    if function_code = FUNCTION_CODES_ALL[1] then mbrtu_readdinp(protocol2, device2, address, count);
+    if function_code = FUNCTION_CODES_ALL[2] then mbrtu_readhreg(protocol2, device2, address, count);
+    if function_code = FUNCTION_CODES_ALL[3] then mbrtu_readireg(protocol2, device2, address, count);
+    if function_code = FUNCTION_CODES_ALL[4] then mbrtu_writecoil(protocol2, device2, address, count);
+    if function_code = FUNCTION_CODES_ALL[5] then mbrtu_writehreg(protocol2, device2, address, count);
+  end;
+  // CONNECT TO SERIAL PORT
+  if ser_open(dev[device1].device, dev[device1].speed, dev[device1].databit, dev[device1].parity, dev[device1].stopbit) then
+  begin
+    if valid then
+    begin
       // CREATE TELEGRAM FOR REQUEST
       if uid = prot[protocol1].uid then
       begin
