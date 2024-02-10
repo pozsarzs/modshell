@@ -35,7 +35,7 @@ begin
          char(lo(count));
   crc := crc16(char(prot[protocol].uid) + pdu);
   adu := char(prot[protocol].uid) +
-         pdu + 
+         pdu +
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
@@ -107,7 +107,7 @@ begin
       end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;  
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
@@ -133,7 +133,7 @@ begin
          char(lo(count));
   crc := crc16(char(prot[protocol].uid) + pdu);
   adu := char(prot[protocol].uid) +
-         pdu + 
+         pdu +
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
@@ -205,7 +205,7 @@ begin
       end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;  
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
@@ -231,7 +231,7 @@ begin
          char(lo(count));
   crc := crc16(char(prot[protocol].uid) + pdu);
   adu := char(prot[protocol].uid) +
-         pdu + 
+         pdu +
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
@@ -301,7 +301,7 @@ begin
       end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;  
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
@@ -327,7 +327,7 @@ begin
          char(lo(count));
   crc := crc16(char(prot[protocol].uid) + pdu);
   adu := char(prot[protocol].uid) +
-         pdu + 
+         pdu +
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
@@ -397,7 +397,7 @@ begin
       end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;  
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
@@ -433,7 +433,7 @@ begin
   end;
   crc := crc16(char(prot[protocol].uid) + pdu);
   adu := char(prot[protocol].uid) +
-         pdu + 
+         pdu +
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
@@ -494,7 +494,7 @@ begin
       end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;    
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
@@ -523,7 +523,7 @@ begin
     pdu := pdu + char(hi(hreg[i])) + char(lo(hreg[i]));
   crc := crc16(char(prot[protocol].uid) + pdu);
   adu := char(prot[protocol].uid) +
-         pdu + 
+         pdu +
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
@@ -584,7 +584,7 @@ begin
       end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;    
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
@@ -596,15 +596,27 @@ end;
 // RUN SLAVE
 procedure mbrtu_slave(protocol, device: word);
 var
+  address: integer;
+  adu, pdu, tgm: string;
   b: byte;
   c: char;
+  count: integer;
+  crc: word;
+  error: byte = 0;
+  function_code: byte;
+  i: integer;
   ready: boolean = false;
-  tgm: string;
+  uid: byte;
   valid: boolean = true;
+const
+  FUNCTION_CODES_ALL: array[0..5] of byte = ($01, $02, $03, $04, $0F, $10);
+  FUNCTERR_CODE_OFFSET = $80;
+
 begin
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
+    // WAIT FOR REQUEST
     repeat
       if keypressed then
       begin
@@ -632,9 +644,73 @@ begin
       until (c = #27) or (length(tgm) = 255) or ready;
       if uconfig.echo > 0 then writeln;
       // PARSE REQUEST
-
-      // SEND ANSWER
-
+      if length(tgm) = 8 then
+      begin
+        uid := ord(tgm[1]);
+        function_code := ord(tgm[2]);
+        address := ord(tgm[3]) * 256 + ord(tgm[4]) ;
+        count := ord(tgm[5]) * 256 + ord(tgm[6]) ;
+        // check data
+        if (uid < 1) or (uid > 247) then error := 4;
+        valid := false;
+        for b:= 0 to 5 do
+          if function_code = FUNCTION_CODES_ALL[b] then valid := true;
+        if not valid then error := $01;
+        if (address < 1) or (address > 9999) then error := $02;
+        if (count < 1) or (count > 125) then error := $03;
+      end else error := $04;
+      // CREATE TELEGRAM FOR REQUEST
+      if uid = prot[protocol].uid then
+      begin
+        if error > 0 then pdu := char(FUNCTERR_CODE_OFFSET + error) else
+        begin
+          // read coil
+          if function_code = FUNCTION_CODES_ALL[0] then begin end;
+          // read discrete input
+          if function_code = FUNCTION_CODES_ALL[1] then begin end;
+          // read holding register
+          if function_code = FUNCTION_CODES_ALL[2] then
+          begin
+            pdu := char(function_code);
+            pdu := pdu + char(count * 2);
+            for i := address to address + (count - 1) do
+              pdu := pdu + char(hi(hreg[i])) + char(lo(hreg[i]));
+          end;
+          // read input register
+          if function_code = FUNCTION_CODES_ALL[3] then
+          begin
+            pdu := char(function_code);
+            pdu := pdu + char(count * 2);
+            for i := address to address + (count - 1) do
+              pdu := pdu + char(hi(ireg[i])) + char(lo(ireg[i]));
+          end;
+          // write coil
+          if function_code = FUNCTION_CODES_ALL[4] then begin end;
+          // write holding register
+          if function_code = FUNCTION_CODES_ALL[5] then begin end;
+        end;
+        crc := crc16(char(uid) + pdu);
+        adu := char(uid) +
+               pdu +
+               char(lo(crc)) +
+               char(high(crc));
+        tgm := adu;
+        // SEND ANSWER
+        if ser_canwrite then
+        begin
+          ser_sendstring(tgm);
+          textcolor(uconfig.colors[3]);
+          case uconfig.echo of
+            1: write(tgm);
+            2: begin
+                 for b := 1 to length(tgm) do
+                   write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
+                 writeln;
+               end;
+          end;
+          textcolor(uconfig.colors[0]);
+        end else writeln(ERR27);
+      end;
     end;
     // DISCONNECT SERIAL PORT
     ser_close;

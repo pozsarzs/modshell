@@ -19,6 +19,7 @@
 unit protcom;
 interface
 uses
+  crt,
   go32,
   sysutils;
 const
@@ -123,6 +124,7 @@ procedure sendbyte(data: byte);
 begin
   repeat until canwrite;
   outportb(ba + THR, data);            // data to Transmit Holding Register
+  delay(5);
 end;
 
 // SEND A STRING
