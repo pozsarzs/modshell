@@ -570,15 +570,17 @@ begin
         if c = #134 then
           begin command := COMMANDS[40]; c:=#13; end;                      // F12
         if c = #72 then                                                    // UP
-        begin
-          if uconfig.histitem > 0 then dec(uconfig.histitem);
-          command := uconfig.histbuff[uconfig.histitem];
-        end;
+          if uconfig.histitem > 0 then
+          begin
+            command := uconfig.histbuff[uconfig.histitem];
+            dec(uconfig.histitem);
+          end;
         if c = #80 then                                                    // DOWN
-        begin
-          if uconfig.histitem < 255 then inc(uconfig.histitem);
-          command := uconfig.histbuff[uconfig.histitem];
-        end;
+          if (uconfig.histitem < 255) and (length(uconfig.histbuff[uconfig.histitem + 1]) > 0) then
+          begin
+            inc(uconfig.histitem);
+            command := uconfig.histbuff[uconfig.histitem];
+          end;
       end;
       if c = #8 then delete(command, length(command), 1);                  // BACKSPACE
       if c = #9 then c := #32;                                             // TAB

@@ -1,0 +1,40 @@
+78c78
+<     i, Num: integer;
+---
+>     i, Num: word;
+139c139
+<     i: integer;
+---
+>     i: word;
+157c157
+<     i: integer;
+---
+>     i: word;
+175d174
+<     i: integer;
+215,216c214,215
+< var s, sn, vk, nk: string;
+<     i, x: integer;
+---
+> var s, vk, nk: string;
+>     i, x: word;
+223c222
+<   sn:='';
+---
+>   s:='';
+263d261
+<     i: integer;
+304c302
+<     i: integer;
+---
+>     i: word;
+343,344c341,342
+< var s, sn, vk, nk, nn: string;
+<     i, v: integer;
+---
+> var s, sn, vk, nk: string;
+>     i, v: word;
+403c401
+<     i: integer;
+---
+>     i: word;

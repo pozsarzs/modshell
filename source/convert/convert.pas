@@ -12,25 +12,25 @@
 
 unit CONVERT;
 
-{ Diese Unit enth�lt einfache functionen zur Umwandlung von Zahlen         }
-{ aus einem der vier Zahlensysteme BIN�R, OKTAL, DEZIMAL und HEXA-         }
+{ Diese Unit enthält einfache functionen zur Umwandlung von Zahlen         }
+{ aus einem der vier Zahlensysteme BINÄR, OKTAL, DEZIMAL und HEXA-         }
 { DEZIMAL in ein anderes der Zahlensysteme. Alle Zahlen werden grund-      }
-{ s�tzlich als STRINGS behandelt. Um den Programmieraufwand zur ver-       }
-{ einfachen, werden alle Systeme aus dem Bin�rsystem heraus berechnet.     }
-{ Es stehen also Funktionen zur Umwandlung in das Bin�rsystem und aus      }
-{ dem Bin�rsystem zur Verf�gung. Ebenso gibt es Funktionen zur be-         }
+{ sätzlich als STRINGS behandelt. Um den Programmieraufwand zur ver-       }
+{ einfachen, werden alle Systeme aus dem Binärsystem heraus berechnet.     }
+{ Es stehen also Funktionen zur Umwandlung in das Binärsystem und aus      }
+{ dem Binärsystem zur Verfügung. Ebenso gibt es Funktionen zur be-         }
 { beliebigen Konvertierung zwischen den Zahlensystemen, die dann aber      }
 { den eben beschriebenen Weg gehen.                                        }
-{ Alle Funktionen ber�cksichtigen mindestens 30 Nachkommastellen.          }
+{ Alle Funktionen berücksichtigen mindestens 30 Nachkommastellen.          }
 
 { Diese Unit dient als Demo, und es steht dem Anwender frei, sie nach      }
-{ eingenen Bed�rfnissen umzu�ndern und zu erweitern. Anregegungen und      }
-{ Verbesserungsvorschl�ge d�rfen gerne an den Autor weitergeleitet         }
+{ eingenen Bedürfnissen umzuändern und zu erweitern. Anregegungen und      }
+{ Verbesserungsvorschläge dürfen gerne an den Autor weitergeleitet         }
 { werden.                                                                  }
 
-{ Wichtiger Hinweis: die einzelnen Funktionen besitzen KEINE G�ltig-       }
-{ keits�berpr�fung der Zahlen. Fehler, aufgrund falscher Parameter-        }
-{ �bergabe, werden also nicht aufgefangen.                                 }
+{ Wichtiger Hinweis: die einzelnen Funktionen besitzen KEINE Gültig-       }
+{ keitsüberprüfung der Zahlen. Fehler, aufgrund falscher Parameter-        }
+{ übergabe, werden also nicht aufgefangen.                                 }
 
 
 interface
@@ -38,28 +38,28 @@ interface
 { Umwandlungsfunktionen }
 
 function  BinToDez(bin: string): string;
-          { Wandelt Bin�r- in Dezimalzahl um.       }
+          { Wandelt Binär- in Dezimalzahl um.       }
 function  BinToOkt(bin: string): string;
-          { Wandelt Bin�r- in Oktalzahl um.         }
+          { Wandelt Binär- in Oktalzahl um.         }
 function  BinToHex(bin: string): string;
-          { Wandelt Bin�r- in Hexadezimalzahl um.   }
+          { Wandelt Binär- in Hexadezimalzahl um.   }
 
 function  OktToBin(okt: string): string;
-          { Wandelt Oktal- in Bin�rzahl um.         }
+          { Wandelt Oktal- in Binärzahl um.         }
 function  OktToDez(okt: string): string;
           { Wandelt Oktal- in Dezimalzahl um.       }
 function  OktToHex(okt: string): string;
           { Wandelt Oktal- in Hexadezimalzahl um.   }
 
 function  DezToBin(dez: string): string;
-          { Wandelt Dezimal- in Bin�rzahl um.       }
+          { Wandelt Dezimal- in Binärzahl um.       }
 function  DezToOkt(dez: string): string;
           { Wandelt Dezimal- in Oktalzahl um.       }
 function  DezToHex(dez: string): string;
           { Wandelt Dezimal- in Hexadezimalzahl um. }
 
 function  HexToBin(hex: string): string;
-          { Wandelt Hexadezimal- in Bin�rzhl um.    }
+          { Wandelt Hexadezimal- in Binärzhl um.    }
 function  HexToOkt(hex: string): string;
           { Wandelt Hexadezimal- in Oktalzahl um.   }
 function  HexToDez(hex: string): string;
@@ -72,22 +72,22 @@ implementation
 
 
 function  CalcBin(d: string): string;
-          { Wandelt eine max. 4 stellige Bin�rzahl d in eine Hexadezimal-  }
-          { zahl um. Das Ergebins wird als STRING zur�ck gegeben.          }
+          { Wandelt eine max. 4 stellige Binärzahl d in eine Hexadezimal-  }
+          { zahl um. Das Ergebins wird als STRING zurück gegeben.          }
 var s: string;
     i, Num: word;
 begin
     Num:= 0;
     i:= length(d);
     if i<=4 then
-    begin                               { Berechnung des Wertes in word }
+    begin                               { Berechnung des Wertes in INTEGER }
       if i>=1 then if copy(d,i,1)='1' then Num:=Num+1;
       if i>=2 then if copy(d,i-1,1)='1' then Num:=Num+2;
       if i>=3 then if copy(d,i-2,1)='1' then Num:=Num+4;
       if i=4 then if copy(d,i-3,1)='1' then Num:=Num+8;
     end;
     if Num<=9 then str(Num,s) else
-       case Num of              { Umwandlung der Werte gr��er 9 in Zeichen }
+       case Num of              { Umwandlung der Werte größer 9 in Zeichen }
          10: s:='A';
          11: s:='B';
          12: s:='C';
@@ -100,9 +100,9 @@ end;
 
 
 function  CalcNumToBin(d: string; oktal: boolean): string;
-          { Wandelt eine 1 stellige Zahl d in eine Bin�rzahl um. Ist oktal }
-          { = TRUE werden drei digits zur�ck gebenen (z.B. 101). Ist oktal }
-          { = FALSE werden vier digits zur�ck gegeben (z.B. 1011). Das     }
+          { Wandelt eine 1 stellige Zahl d in eine Binärzahl um. Ist oktal }
+          { = TRUE werden drei digits zurück gebenen (z.B. 101). Ist oktal }
+          { = FALSE werden vier digits zurück gegeben (z.B. 1011). Das     }
           { Ergenis ist vom Typ STRING.                                    }
 begin
   if d='0' then if oktal then CalcNumToBin:='000'
@@ -134,7 +134,7 @@ end;
 
 function  GetNachkomma(n: string): string;
           { Gibt von einer beliebigen Zeichenkette n alle Zeichen vor dem  }
-          { ersten Komma zur�ck. Das Ergebnis ist vom Typ STRING.          }
+          { ersten Komma zurück. Das Ergebnis ist vom Typ STRING.          }
 var s: string;
     i: word;
 begin
@@ -152,7 +152,7 @@ end;
 
 function  GetVorKomma(n:string): string;
           { Gibt von einer beliebigen Zeichenkette n alle Zeichen nach dem }
-          { ersten Komma zur�ck. Das Ergebnis ist vom Typ STRING.          }
+          { ersten Komma zurück. Das Ergebnis ist vom Typ STRING.          }
 var s: string;
     i: word;
 begin
@@ -248,7 +248,7 @@ begin
     end;
   num:= num1 + num2;
   str(num:60:30,s);
-  while copy(s, 1, 1)=' ' do                         { Leerzeichen l�schen }
+  while copy(s, 1, 1)=' ' do                         { Leerzeichen löschen }
     s:= copy(s, 2, length(s));
   while copy(s, length(s), 1)='0' do
     s:= copy(s, 1, length(s)-1);
@@ -312,7 +312,7 @@ begin
     s:=s+'.';
     for i:= 1 to length(nk) do
       sn:= sn + CalcNumToBin(copy(nk, i, 1), true);
-                            { Stelle i in dreistellige Bin�rzahl umwandeln }
+                            { Stelle i in dreistellige Binärzahl umwandeln }
   end;
   while copy(s, 1, 1)='0' do s:= copy(s, 2, length(s)-1);
   if s='' then s:='0';
@@ -324,16 +324,16 @@ end;
 function OktToDez(okt: string): string;
 var bin: string;
 begin
-  bin:= OktToBin(okt);         { Umwandeln der Oktalzahl in eine Bin�rzahl }
-  OktToDez:= BinToDez(bin);  { Umwandeln der Bin�rzahl in eine Dezimalzahl }
+  bin:= OktToBin(okt);         { Umwandeln der Oktalzahl in eine Binärzahl }
+  OktToDez:= BinToDez(bin);  { Umwandeln der Binärzahl in eine Dezimalzahl }
 end;
 
 
 function OktToHex(okt: string): string;
 var bin: string;
 begin
-  bin:= OktToBin(okt);         { Umwandeln der Oktalzahl in eine Bin�rzahl }
-  OktToHex:= BinToHex(bin);     { Umwandeln der Bin�rzahl in eine Hexazahl }
+  bin:= OktToBin(okt);         { Umwandeln der Oktalzahl in eine Binärzahl }
+  OktToHex:= BinToHex(bin);     { Umwandeln der Binärzahl in eine Hexazahl }
 end;
 
 
@@ -368,7 +368,7 @@ begin
       i:= i + 1;
       n:= n * 2;
       if n > 1 then
-                { multipliziere mal 2, wenn gr��er 0 dann + '1' sonst +'0' }
+                { multipliziere mal 2, wenn größer 0 dann + '1' sonst +'0' }
       begin
         sn:= sn + '1';
         n:= n - 1;
@@ -383,16 +383,16 @@ end;
 function DezToOkt(dez: string): string;
 var bin: string;
 begin
-  bin:= DezToBin(dez);       { Umwandeln der Dezimalzahl in eine Bin�rzahl }
-  DezToOkt:= BinToOkt(bin);    { Umwandeln der Bin�rzahl in eine Oktalzahl }
+  bin:= DezToBin(dez);       { Umwandeln der Dezimalzahl in eine Binärzahl }
+  DezToOkt:= BinToOkt(bin);    { Umwandeln der Binärzahl in eine Oktalzahl }
 end;
 
 
 function DezToHex(dez: string): string;
 var bin: string;
 begin
-  bin:= DezToBin(dez);         { Umwandeln der Dezimzahl in eine Bin�rzahl }
-  DezToHex:= BinToHex(bin);      { Umwandeln der Bin�rzahl in eine Hexzahl }
+  bin:= DezToBin(dez);         { Umwandeln der Dezimzahl in eine Binärzahl }
+  DezToHex:= BinToHex(bin);      { Umwandeln der Binärzahl in eine Hexzahl }
 end;
 
 
@@ -406,13 +406,13 @@ begin
   sn:='';
   for i:= 1 to length(vk) do
     s:= s + CalcNumToBin(copy(vk, i, 1), false);
-                       { Stelle i in eine vierstellige Bin�rzahl umwandeln }
+                       { Stelle i in eine vierstellige Binärzahl umwandeln }
   if nk<>'0' then
   begin
     s:=s+'.';
     for i:= 1 to length(nk) do
       sn:= sn + CalcNumToBin(copy(nk, i, 1), false);
-                       { Stelle i in eine vierstellige Bin�rzahl umwandeln }
+                       { Stelle i in eine vierstellige Binärzahl umwandeln }
   end;
   while copy(s, 1, 1)='0' do s:= copy(s, 2, length(s)-1);
   if s='' then s:='0';
@@ -424,16 +424,16 @@ end;
 function HexToOkt(hex: string): string;
 var bin: string;
 begin
-  bin:= HexToBin(hex);           { Umwandeln der Hexzahl in eine Bin�rzahl }
-  HexToOkt:= BinToOkt(bin);    { Umwandeln der Bin�rzahl in eine Oktalzahl }
+  bin:= HexToBin(hex);           { Umwandeln der Hexzahl in eine Binärzahl }
+  HexToOkt:= BinToOkt(bin);    { Umwandeln der Binärzahl in eine Oktalzahl }
 end;
 
 
 function HexToDez(hex: string): string;
 var bin: string;
 begin
-  bin:= HexToBin(hex);           { Umwandeln der Hexzahl in eine Bin�rzahl }
-  HexToDez:= BinToDez(bin);   { Umwandeln der Bin�rzahl in eie Dezimalzahl }
+  bin:= HexToBin(hex);           { Umwandeln der Hexzahl in eine Binärzahl }
+  HexToDez:= BinToDez(bin);   { Umwandeln der Binärzahl in eie Dezimalzahl }
 end;
 
 end.

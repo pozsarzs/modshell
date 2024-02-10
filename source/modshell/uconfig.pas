@@ -27,8 +27,8 @@ var
   // settings from/to ini file
   colors: array[0..4] of integer;
   histbuff: array[0..255] of string;
-  histitem: byte;
-  histlast: byte;
+  histitem: integer;
+  histlast: integer;
   echo: byte;
 const
   SECTION: array[0..2] of string = ('cmdline-colors',
