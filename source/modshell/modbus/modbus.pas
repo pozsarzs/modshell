@@ -115,9 +115,9 @@ begin
   if not validity(0, conn[connection2].dev) then exit;
   // CALL NEXT PROCEDURE
   case prot[conn[connection1].prot].prottype of
-    0: mbasc_gateway(conn[connection1].prot, conn[connection1].dev, conn[connection1].prot, conn[connection1].dev);
-    1: mbrtu_gateway(conn[connection1].prot, conn[connection1].dev, conn[connection1].prot, conn[connection1].dev);
-    2: mbtcp_gateway(conn[connection1].prot, conn[connection1].dev, conn[connection1].prot, conn[connection1].dev);
+    0: mbasc_slave(true, conn[connection1].prot, conn[connection1].dev, conn[connection2].prot, conn[connection2].dev);
+    1: mbrtu_slave(true, conn[connection1].prot, conn[connection1].dev, conn[connection2].prot, conn[connection2].dev);
+    2: mbtcp_server(true, conn[connection1].prot, conn[connection1].dev, conn[connection2].prot, conn[connection2].dev);
   end;
 end;
 
@@ -130,8 +130,8 @@ begin
   if not validity(0, conn[connection].dev) then exit;
   // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
-    0: mbasc_slave(conn[connection].prot, conn[connection].dev);
-    1: mbrtu_slave(conn[connection].prot, conn[connection].dev);
-    2: mbtcp_server(conn[connection].prot, conn[connection].dev);
+    0: mbasc_slave(false, conn[connection].prot, conn[connection].dev, 0, 0);
+    1: mbrtu_slave(false, conn[connection].prot, conn[connection].dev, 0, 0);
+    2: mbtcp_server(false, conn[connection].prot, conn[connection].dev, 0, 0);
   end;
 end;

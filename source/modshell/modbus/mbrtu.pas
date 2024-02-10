@@ -588,17 +588,12 @@ begin
   end else writeln(ERR18, dev[device].device);
 end;
 
-// RUN GATEWAY
-procedure mbrtu_gateway(protocol1, device1, protocol2, device2: word);
-begin
-end;
-
-// RUN SLAVE
-procedure mbrtu_slave(protocol, device: word);
+// RUN GATEWAY OR SLAVE
+procedure mbrtu_slave(enablegw: boolean; protocol1, device1, protocol2, device2: word);
 var
   address: integer;
   adu, pdu, tgm: string;
-  b: byte;
+  b, bb, x: byte;
   c: char;
   count: integer;
   crc: word;
@@ -614,7 +609,7 @@ const
 
 begin
   // CONNECT TO SERIAL PORT
-  if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
+  if ser_open(dev[device1].device, dev[device1].speed, dev[device1].databit, dev[device1].parity, dev[device1].stopbit) then
   begin
     // WAIT FOR REQUEST
     repeat
@@ -643,6 +638,23 @@ begin
         if keypressed then c := readkey;
       until (c = #27) or (length(tgm) = 255) or ready;
       if uconfig.echo > 0 then writeln;
+    end;
+    ser_close;
+  end else writeln(ERR18, dev[device1].device);
+  // GATEWAY
+  if enablegw then
+  begin
+    // CONNECT TO SERIAL PORT
+    if ser_open(dev[device2].device, dev[device2].speed, dev[device2].databit, dev[device2].parity, dev[device2].stopbit) then
+    begin
+      // ...
+    end else writeln(ERR18, dev[device2].device);
+  end;
+  // CONNECT TO SERIAL PORT
+  if ser_open(dev[device1].device, dev[device1].speed, dev[device1].databit, dev[device1].parity, dev[device1].stopbit) then
+  begin
+    if valid then
+    begin
       // PARSE REQUEST
       if length(tgm) = 8 then
       begin
@@ -660,40 +672,67 @@ begin
         if (count < 1) or (count > 125) then error := $03;
       end else error := $04;
       // CREATE TELEGRAM FOR REQUEST
-      if uid = prot[protocol].uid then
+      if uid = prot[protocol1].uid then
       begin
         if error > 0 then pdu := char(FUNCTERR_CODE_OFFSET + error) else
         begin
+          pdu := char(function_code);       
           // read coil
-          if function_code = FUNCTION_CODES_ALL[0] then begin end;
+          if function_code = FUNCTION_CODES_ALL[0] then
+          begin
+            if (count mod 8) > 0
+              then pdu := pdu + char((count div 8) + 1)
+              else pdu := pdu + char(count div 8);
+            for i := address to address + count - 1 do
+            begin
+              x := 0;
+              for bb := 0 to 7 do
+                if coil[i + bb] then x := x or powerof2(bb);
+              pdu := pdu + char(x);
+            end;
+          end;
           // read discrete input
-          if function_code = FUNCTION_CODES_ALL[1] then begin end;
+          if function_code = FUNCTION_CODES_ALL[1] then
+          begin
+            if (count mod 8) > 0
+              then pdu := pdu + char((count div 8) + 1)
+              else pdu := pdu + char(count div 8);
+            for i := address to address + count - 1 do
+            begin
+              x := 0;
+              for bb := 0 to 7 do
+                if dinp[i + bb] then x := x or powerof2(bb);
+              pdu := pdu + char(x);
+            end;
+          end;
           // read holding register
           if function_code = FUNCTION_CODES_ALL[2] then
           begin
-            pdu := char(function_code);
             pdu := pdu + char(count * 2);
-            for i := address to address + (count - 1) do
+            for i := address to address + count - 1 do
               pdu := pdu + char(hi(hreg[i])) + char(lo(hreg[i]));
           end;
           // read input register
           if function_code = FUNCTION_CODES_ALL[3] then
           begin
-            pdu := char(function_code);
             pdu := pdu + char(count * 2);
-            for i := address to address + (count - 1) do
+            for i := address to address + count - 1 do
               pdu := pdu + char(hi(ireg[i])) + char(lo(ireg[i]));
           end;
           // write coil
-          if function_code = FUNCTION_CODES_ALL[4] then begin end;
+          if function_code = FUNCTION_CODES_ALL[4] then
+          begin
+          end;
           // write holding register
-          if function_code = FUNCTION_CODES_ALL[5] then begin end;
+          if function_code = FUNCTION_CODES_ALL[5] then
+          begin
+          end;
         end;
         crc := crc16(char(uid) + pdu);
         adu := char(uid) +
                pdu +
                char(lo(crc)) +
-               char(high(crc));
+               char(hi(crc));
         tgm := adu;
         // SEND ANSWER
         if ser_canwrite then
@@ -714,5 +753,5 @@ begin
     end;
     // DISCONNECT SERIAL PORT
     ser_close;
-  end else writeln(ERR18, dev[device].device);
+  end else writeln(ERR18, dev[device1].device);
 end;

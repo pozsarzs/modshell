@@ -43,6 +43,7 @@ fpcargs		= -T@os@ \
                   -O1 \
                   -ve \
                   -Fi./* \
+                  -Fi./commands/* \
                   -Fu../convert/ \
                   -Fu../protcom/ \
                   -Fu../synapse/ \

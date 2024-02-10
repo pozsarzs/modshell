@@ -43,12 +43,7 @@ procedure mbtcp_writehreg(protocol, device, address, count: word);
 begin
 end;
 
-// RUN GATEWAY
-procedure mbtcp_gateway(protocol1, device1, protocol2, device2: word);
-begin
-end;
-
-// RUN SERVER
-procedure mbtcp_server(protocol, device: word);
+// RUN GATEWAY OR SLAVE
+procedure mbtcp_server(enablegw: boolean; protocol1, device1, protocol2, device2: word);
 begin
 end;

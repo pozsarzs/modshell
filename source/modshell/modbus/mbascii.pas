@@ -572,12 +572,7 @@ begin
   end else writeln(ERR18, dev[device].device);
 end;
 
-// RUN GATEWAY
-procedure mbasc_gateway(protocol1, device1, protocol2, device2: word);
-begin
-end;
-
-// RUN SLAVE
-procedure mbasc_slave(protocol, device: word);
+// RUN GATEWAY OR SLAVE
+procedure mbasc_slave(enablegw: boolean; protocol1, device1, protocol2, device2: word);
 begin
 end;
