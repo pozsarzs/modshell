@@ -3,7 +3,6 @@ Modshell - Command-driven scriptable Modbus utility
 
 1. About software
 -----------------
-
 This is a utility that can be used on several operating systems, which
 can communicate with connected equipment using Modbus/ASCII, -/RTU and
 -/TCP protocols. The program can - even automatically - read, write or

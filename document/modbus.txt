@@ -7,14 +7,12 @@ Abbreviations
   CRC: Cyclic Redundancy Check (CRC-16-ANSI also known as CRC-16-IBM)
   FC:  Function Code
   PDU: Protocol Data Unit
-  LRC:Longitudinal redundancy check
+  LRC: Longitudinal redundancy check
   TGM: telegram
   UID: Unit Identifiers 
 
-
 Structure
 ---------
-
 ASCII:
   PDU = FC + data
   ADU = UID + PDU + LRC(UID + PDU)
@@ -25,74 +23,105 @@ RTU:
   ADU = UID + PDU + CRC(UID + PDU)
   TGM = ADU
 
-
 Functions
 ---------
-
 UID: 8
 ADDRESS: 255
 COUNT: 1
 
 Read coils (FC = 0x01):
 
-REQUEST      -UID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
-ASCII:   3A  30  38  30  31  30  30  2E  2E  30  30  30  31  XX  XX  OD  OA
-RTU:             08      01      00      FF      00      01  XX  XX
+REQUEST|     -UID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
+-------|-------------------------------------------------------------------
+ASCII  | 3A  30  38  30  31  30  30  2E  2E  30  30  30  31  XX      0D  0A
+ASCII  |  :   0   8   0   1   0   0   F   F   0   0   0   1   X   X  LF  CR
+RTU    |         08      01      00      FF      00      01  XX  XX
 
-ANSWER       -UID--  --FC--  BYTES-  ----DATA------  -?RC--
-ASCII:   3A  30  38  30  31  30  32  30  30  30  30  XX  XX  OD  OA
-RTU:             08      01      02              00  XX  XX
-
+ANSWER|     -UID--  --FC--  BYTES-  ----DATA------  -?RC--
+------|-----------------------------------------------------------
+ASCII | 3A  30  38  30  31  30  32  30  30  30  30  XX  XX  0D  0A
+ASCII |  :   0   8   0   1   0   2   0   0   0   0   X   X  LF  CR
+RTU   |         08      01      02              00  XX  XX
 
 Read discrete inputs (FC = 0x02):
 
-REQUEST      -UID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
-ASCII:   3A  30  38  30  32  30  30  2E  2E  30  30  30  31  XX  XX  OD  OA
-RTU:             08      02      00      FF      00      01  XX  XX
+REQUEST|     -UID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
+-------|-------------------------------------------------------------------
+ASCII  | 3A  30  38  30  32  30  30  2E  2E  30  30  30  31  XX  XX  0D  0A
+ASCII  |  :   0   8   0   2   0   0   F   F   0   0   0   1   X   X  LF  CR
+RTU    |         08      02      00      FF      00      01  XX  XX
 
-ANSWER       -UID--  --FC--  BYTES-  ----DATA------  -?RC--
-ASCII:   3A  30  38  30  32  30  32  30  30  30  30  XX      OD  OA
-RTU:             08      02      02              00  XX  XX
-
+ANSWER |     -UID--  --FC--  BYTES-  ----DATA------  -?RC--
+-------|-----------------------------------------------------------
+ASCII  | 3A  30  38  30  32  30  32  30  30  30  30  XX  XX  0D  0A
+ASCII  |  :   0   8   0   2   0   2   0   0   0   0   X   X  LF  CR
+RTU    |         08      02      02              00  XX  XX
 
 Read holding registers (FC = 0x03):
 
-REQUEST      -UID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
-ASCII:   3A  30  38  30  33  30  30  2E  2E  30  30  30  31  XX      OD  OA
-RTU:             08      03      00      FF      00      01  XX  XX
+REQUEST|     -UID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
+-------|-------------------------------------------------------------------
+ASCII  | 3A  30  38  30  33  30  30  2E  2E  30  30  30  31  XX  XX  0D  0A
+ASCII  |  :   0   8   0   3   0   0   F   F   0   0   0   1   X   X  LF  CR
+RTU    |         08      03      00      FF      00      01  XX  XX
 
-ANSWER       -UID--  --FC--  BYTES-  ----DATA------  -?RC--
-ASCII:   3A  30  38  30  33  30  32  30  30  30  30  XX      OD  OA
-RTU:             08      03      02              00  XX  XX
+ANSWER |     -UID--  --FC--  BYTES-  ----DATA------  -?RC--
+-------|-----------------------------------------------------------
+ASCII  | 3A  30  38  30  33  30  32  30  30  30  30  XX  XX  0D  0A
+ASCII  |  :   0   8   0   3   0   2   0   0   0   0   X   X  LF  CR
+RTU    |         08      03      02      00      00  XX  XX
 
+Read input registers (FC = 0x04):
 
-Read input registers (FC = 0x03):
+REQUEST|     -UID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
+-------|-------------------------------------------------------------------
+ASCII  | 3A  30  38  30  34  30  30  2E  2E  30  30  30  31  XX  XX  0D  0A
+ASCII  |  :   0   8   0   4   0   0   F   F   0   0   0   1   X   X  LF  CR
+RTU    |         08      04      00      FF      00      01  XX  XX
 
-REQUEST      -UID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
-ASCII:   3A  30  38  30  34  30  30  2E  2E  30  30  30  31  XX      OD  OA
-RTU:             08      04      00      FF      00      01  XX  XX
-
-ANSWER       -UID--  --FC--  BYTES-  ----DATA------  -?RC--
-ASCII:   3A  30  38  30  34  30  32  30  30  30  30  XX      OD  OA
-RTU:             08      04      02              00  XX  XX
-
+ANSWER |     -UID--  --FC--  BYTES-  ----DATA------  -?RC--
+-------|-----------------------------------------------------------
+ASCII  | 3A  30  38  30  34  30  32  30  30  30  30  XX  XX  0D  0A
+ASCII  |  :   0   8   0   4   0   2   0   0   0   0   X   X  LF  CR
+RTU    |         08      04      02      00      00  XX  XX
 
 Write multiple coils (FC = 0x0F):
 
-REQUEST      -UID--  --FC--  ---ADDRESS----  ----COUNT-----  BYTES-  -----DATA-----  -?RC--
-ASCII:   3A  30  38  30  2E  30  30  2E  2E  30  30  31  00  30  32  00  00  00  00  XX      OD  OA
-RTU:             08      0F      00      FF      00      10      02                  XX  XX
+REQUEST|     -UID--  --FC--  ---ADDRESS----  ----COUNT-----  BYTES-  -----DATA-----  -?RC--
+-------|-------------------------------------------------------------------------------------------
+ASCII  | 3A  30  38  30  2E  30  30  2E  2E  30  30  31  00  30  32  00  00  00  00  XX  XX  0D  0A
+ASCII  |  :   0   8   0   F   0   0   F   F   0   0   1   0   0   2   0   0   0   0   X   X  LF  CR
+RTU    |         08      0F      00      FF      00      10      02      00      00  XX  XX
 
-ANSWER       -UID--  --FC--  ---ADDRESS----  ----COUNT-----   -?RC--
-ASCII:   3A  30  38  30  2E  30  30  2E  2E  30  30  31  00   XX  XX  OD  OA
-RTU:             08      0F      00      FF      00      10   XX  XX
+ANSWER |     -UID--  --FC--  ---ADDRESS----  ----COUNT-----   -?RC--
+-------|--------------------------------------------------------------------
+ASCII  | 3A  30  38  30  2E  30  30  2E  2E  30  30  31  00   XX  XX  0D  0A
+ASCII  |  :   0   8   0   F   0   0   F   F   0   0   1   0    X   X  LF  CR
+RTU    |         08      0F      00      FF      00      10   XX  XX
 
 Write multiple holding registers (FC = 0x10):
 
-REQUEST      -UID--  --FC--  ---ADDRESS----  ----COUNT-----  BYTES-  -----DATA-----  -?RC--
-ASCII:   3A  30  38  31  30  30  30  2E  2E  30  30  30  31  30  32  00  00  00  00  XX      OD  OA
-RTU:             08      10      00      FF      00      01      02                  XX  XX
+REQUEST|     -UID--  --FC--  ---ADDRESS----  ----COUNT-----  BYTES-  -----DATA-----  -?RC--
+-------|-------------------------------------------------------------------------------------------
+ASCII  | 3A  30  38  31  30  30  30  2E  2E  30  30  30  31  30  32  00  00  00  00  XX  XX  0D  0A
+ASCII  |  :   0   8   1   0   0   0   F   F   0   0   0   1   0   2  00  00  00  00   X   X  LF  CR
+RTU    |         08      10      00      FF      00      01      02      00      00  XX  XX
 
-ANSWER       -UID--  --FC--  ---ADDRESS----  ----COUNT-----   -?RC--
-ASCII:   3A  30  38  31  30  30  30  2E  2E  30  30  30  31   XX  XX  OD  OA
-RTU:             08      10      00      FF      00      01   XX  XX
+ANSWER |     -UID--  --FC--  ---ADDRESS----  ----COUNT-----   -?RC--
+-------|--------------------------------------------------------------------
+ASCII  | 3A  30  38  31  30  30  30  2E  2E  30  30  30  31   XX  XX  0D  0A
+ASCII  |  :   0   8   1   0   0   0   F   F   0   0   0   1    X   X  LF  CR
+RTU    |         08      10      00      FF      00      01   XX  XX
+
+Error codes in the response
+---------------------------
+If FC+0x80 is present in place of FC, the following error codes may appear
+in place of the number of bytes:
+
+  0x01: Illegal function.
+  0x02: Illegal data address.
+  0x03: Illegal data value.
+  0x04: Slave device failure.
+
+---------------------------------------------------------------------------------------------------
+  ModShell * Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>
