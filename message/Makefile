@@ -33,7 +33,7 @@ install:
 	@for x in $(languages); do \
 	  if [ -f $$x/$(name).mo ]; \
 	  then \
-	    $(install) -d $(targetdir)/$$x; \
+	    $(install) -d $(targetdir)/$$x/LC_MESSAGES/; \
 	    $(install) -m $(filemode) $(sourcedir)/$$x/$(name).mo $(targetdir)/$$x/LC_MESSAGES/; \
 	    echo -n "#"; \
 	  fi; \
