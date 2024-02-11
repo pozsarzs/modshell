@@ -74,10 +74,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -173,10 +170,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -272,10 +266,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -369,10 +360,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -476,10 +464,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -567,10 +552,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -658,6 +640,7 @@ begin
         // check data
         if (address < 1) or (address > 9999) then error := $02;
         if (count < 1) or (count > 125) then error := $03;
+        if (function_code = FUNCTION_CODES_ALL[4]) and (length(tgm) < 10) then error := $04;
         if (function_code = FUNCTION_CODES_ALL[5]) and (length(tgm) < 11) then error := $04;
         if (uid < 1) or (uid > 247) then error := 4;
         valid := false;

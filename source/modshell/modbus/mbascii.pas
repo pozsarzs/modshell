@@ -56,6 +56,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -68,10 +69,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -150,6 +148,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -162,10 +161,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -244,6 +240,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -256,10 +253,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -340,6 +334,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -352,10 +347,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -446,6 +438,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -458,10 +451,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -532,6 +522,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -544,10 +535,7 @@ begin
         textcolor(uconfig.colors[0]);
         tgm := tgm + char(b);
       end else
-      begin
-        delay(1);
         if wait < 65535 then inc(wait);
-      end;
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
     if uconfig.echo > 0 then writeln;
@@ -574,6 +562,192 @@ end;
 
 // RUN GATEWAY OR SLAVE
 function mbasc_slave(enablegw: boolean; protocol1, device1, protocol2, device2: word): boolean;
+var
+  address: integer;
+  adu, pdu, tgm: string;
+  b, bb, x: byte;
+  c: char;
+  count: integer;
+  error: byte = 0;
+  function_code: byte;
+  i: integer;
+  loop: boolean = true;
+  ready: boolean = false;
+  recvbyte: byte;
+  sot: char;
+  uid: byte;
+  valid: boolean = true;
+const
+  FUNCTION_CODES_ALL: array[0..5] of byte = ($01, $02, $03, $04, $0F, $10);
+  FUNCTERR_CODE_OFFSET = $80;
+
 begin
-  result := false;
+  // CONNECT TO SERIAL PORT
+  if ser_open(dev[device1].device, dev[device1].speed, dev[device1].databit, dev[device1].parity, dev[device1].stopbit) then
+  begin
+    // WAIT FOR REQUEST
+    repeat
+      if keypressed then
+      begin
+        c := readkey;
+        if c = #27 then loop := false;
+      end else delay(10);
+    until ser_canread or (c = #27);
+    if loop then
+    begin
+      // RECEIVE REQUEST
+      tgm := '';
+      repeat
+        delay(10);
+        if ser_canread then
+        begin
+          b := ser_recvbyte;
+          textcolor(uconfig.colors[2]);
+          case uconfig.echo of
+            1: write(char(b));
+            2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+          end;
+          textcolor(uconfig.colors[0]);
+          tgm := tgm + char(b);
+        end else ready := true;
+        if keypressed then c := readkey;
+        if c = #27 then loop := false;
+      until (c = #27) or (length(tgm) = 255) or ready;
+      if uconfig.echo > 0 then writeln;
+      // PARSE REQUEST
+      if length(tgm) >= 17 then
+      begin
+        sot := tgm[1];
+        uid := strtoint('$' + tgm[2] + tgm[3]);
+        function_code := strtoint('$' + tgm[4] + tgm[5]);
+        address := strtoint('$' + tgm[6] + tgm[7] + tgm[8] + tgm[9]);
+        count := strtoint('$' + tgm[10] + tgm[11] + tgm[12] + tgm[13]);
+        // check data
+        if sot <> #58 then error := $04;
+        if (address < 1) or (address > 9999) then error := $02;
+        if (count < 1) or (count > 125) then error := $03;
+        if (function_code = FUNCTION_CODES_ALL[4]) and (length(tgm) < 21) then error := $04;
+        if (function_code = FUNCTION_CODES_ALL[5]) and (length(tgm) < 23) then error := $04;
+        if (uid < 1) or (uid > 247) then error := 4;
+        valid := false;
+        for b:= 0 to 5 do
+          if function_code = FUNCTION_CODES_ALL[b] then valid := true;
+        if not valid then error := $01;
+      end else error := $04;
+    end;
+    ser_close;
+  end else writeln(ERR18, dev[device1].device);
+  // GATEWAY
+  if loop and enablegw then
+  begin
+    if function_code = FUNCTION_CODES_ALL[0] then mbasc_readcoil(protocol2, device2, address, count);
+    if function_code = FUNCTION_CODES_ALL[1] then mbasc_readdinp(protocol2, device2, address, count);
+    if function_code = FUNCTION_CODES_ALL[2] then mbasc_readhreg(protocol2, device2, address, count);
+    if function_code = FUNCTION_CODES_ALL[3] then mbasc_readireg(protocol2, device2, address, count);
+    if function_code = FUNCTION_CODES_ALL[4] then mbasc_writecoil(protocol2, device2, address, count);
+    if function_code = FUNCTION_CODES_ALL[5] then mbasc_writehreg(protocol2, device2, address, count);
+  end;
+  // CONNECT TO SERIAL PORT
+  if ser_open(dev[device1].device, dev[device1].speed, dev[device1].databit, dev[device1].parity, dev[device1].stopbit) then
+  begin
+    if loop then
+    begin
+      // CREATE TELEGRAM FOR RESPONSE
+      if uid = prot[protocol1].uid then
+      begin
+        if error > 0 then pdu := hex1(2, FUNCTERR_CODE_OFFSET + error) else
+        begin
+          pdu := hex1(2, FUNCTION_CODE);
+          // read coil
+          if function_code = FUNCTION_CODES_ALL[0] then
+          begin
+            if (count mod 8) > 0
+            then pdu := pdu + hex1(2, (count div 8) + 1)
+            else pdu := pdu + hex1(2, count div 8);
+            for i := address to address + count - 1 do
+            begin
+              x := 0;
+              for bb := 0 to 7 do
+                if coil[i + bb] then x := x or powerof2(bb);
+              pdu := pdu + hex1(2, x);
+            end;
+          end;
+          // read discrete input
+          if function_code = FUNCTION_CODES_ALL[1] then
+          begin
+            if (count mod 8) > 0
+            then pdu := pdu + hex1(2, (count div 8) + 1)
+            else pdu := pdu + hex1(2, count div 8);
+            for i := address to address + count - 1 do
+            begin
+              x := 0;
+              for bb := 0 to 7 do
+                if dinp[i + bb] then x := x or powerof2(bb);
+              pdu := pdu + hex1(2, x);
+            end;
+          end;
+          // read holding register
+          if function_code = FUNCTION_CODES_ALL[2] then
+          begin
+            pdu := pdu + hex1(2, count * 2);
+            for i := address to address + count - 1 do
+              pdu := pdu + hex1(4, hreg[i]);
+          end;
+          // read input register
+          if function_code = FUNCTION_CODES_ALL[3] then
+          begin
+            pdu := pdu + hex1(2, count * 2);
+            for i := address to address + count - 1 do
+              pdu := pdu + hex1(4, ireg[i]);
+          end;
+          // write coil
+          if function_code = FUNCTION_CODES_ALL[4] then
+          begin
+            b := 0;
+            repeat
+              recvbyte := strtoint('$' + tgm[8 + 2 * b] + tgm[9 + 2 * b]);
+              for bb := 0 to 7 do
+                coil[address + bb + b * 8 ] := inttobool(recvbyte and powerof2(bb));
+              b := b + 1;
+            until b = count;
+          end;
+          // write holding register
+          if function_code = FUNCTION_CODES_ALL[5] then
+          begin
+            b := 0;
+            repeat
+              hreg[address + b] :=
+                strtoint('$' + tgm[8 + 4 * b] +
+                tgm[9 + 4 * b] +
+                tgm[10 + 4 * b] +
+                tgm[11 + 4 * b]);
+              b := b + 1;
+            until b = (count div 2);
+          end;
+        end;
+        adu := hex1(2, uid) +
+               pdu +
+               hex1(2, lrc(hex1(2, uid) + pdu));
+        tgm := uppercase(#58 + adu + #13 + #10);
+        // SEND ANSWER
+        if ser_canwrite then
+        begin
+          ser_sendstring(tgm);
+          textcolor(uconfig.colors[3]);
+          case uconfig.echo of
+            1: write(tgm);
+            2: begin
+                 for b := 1 to length(tgm) do
+                   write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
+                 writeln;
+               end;
+          end;
+          textcolor(uconfig.colors[0]);
+        end else writeln(ERR27);
+      end;
+    end;
+    // DISCONNECT SERIAL PORT
+    ser_close;
+  end else writeln(ERR18, dev[device1].device);
+  result := loop;
 end;

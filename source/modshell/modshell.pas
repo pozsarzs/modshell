@@ -119,8 +119,8 @@ const
   PREFIX: array[0..3] of string = ('dev','pro','con','prj');
   ECHO_ARG: array[0..3] of string = ('off','on','hex','swap');
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
-  // Modbus timeout in ms
-  DEV_TIMEOUT: integer = 500;
+  // Modbus timeout
+  DEV_TIMEOUT: integer = 100; // x 10 ms
 var
   {$IFNDEF GO32V2}
     ser: tblockserial;
