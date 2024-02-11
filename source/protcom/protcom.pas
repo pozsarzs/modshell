@@ -61,16 +61,16 @@ var
   nrb: longint; // next byte to read in the receive buffer
   recvbuffer: array[0..RECVBUFFERSIZE - 1] of byte; // receive buffer
 
-function getportaddr: word;
 function canread: boolean;
 function canwrite: boolean;
+function connect(comport: string): boolean;
+function getportaddr: word;
 function recvbyte: byte;
 function recvstring: string;
+procedure config(baud, bits, par, stop: integer);
+procedure disconnect;
 procedure sendbyte(data: byte);
 procedure sendstring(data: string);
-function connect(comport: string): boolean;
-procedure disconnect;
-procedure config(baud, bits, par, stop: integer);
 
 implementation
 
@@ -124,7 +124,7 @@ procedure sendbyte(data: byte);
 begin
   repeat until canwrite;
   outportb(ba + THR, data);            // data to Transmit Holding Register
-  delay(5);
+  delay(10);
 end;
 
 // SEND A STRING

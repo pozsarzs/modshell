@@ -31,7 +31,7 @@ begin
          hex1(4, address) +
          hex1(4, count);
   adu := hex1(2, prot[protocol].uid) +
-         pdu + 
+         pdu +
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
@@ -103,7 +103,7 @@ begin
         end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;    
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
@@ -125,7 +125,7 @@ begin
          hex1(4, address) +
          hex1(4, count);
   adu := hex1(2, prot[protocol].uid) +
-         pdu + 
+         pdu +
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
@@ -197,7 +197,7 @@ begin
         end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;    
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
@@ -219,7 +219,7 @@ begin
          hex1(4, address) +
          hex1(4, count);
   adu := hex1(2, prot[protocol].uid) +
-         pdu + 
+         pdu +
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
@@ -275,7 +275,7 @@ begin
                              recvcount := strtoint('$' + tgm[6] + tgm[7]) div 2; // words
                              b := 0;
                              repeat
-                               hreg[address + b] := 
+                               hreg[address + b] :=
                                  strtoint('$' + tgm[8 + 4 * b] +
                                                 tgm[9 + 4 * b] +
                                                 tgm[10 + 4 * b] +
@@ -293,7 +293,7 @@ begin
         end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;    
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
@@ -315,7 +315,7 @@ begin
          hex1(4, address) +
          hex1(4, count);
   adu := hex1(2, prot[protocol].uid) +
-         pdu + 
+         pdu +
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
@@ -371,7 +371,7 @@ begin
                              recvcount := strtoint('$' + tgm[6] + tgm[7]) div 2; // words
                              b := 0;
                              repeat
-                               ireg[address + b] := 
+                               ireg[address + b] :=
                                  strtoint('$' + tgm[8 + 4 * b] +
                                                 tgm[9 + 4 * b] +
                                                 tgm[10 + 4 * b] +
@@ -389,7 +389,7 @@ begin
         end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;    
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
@@ -421,7 +421,7 @@ begin
     pdu := pdu + hex1(2, x);
   end;
   adu := hex1(2, prot[protocol].uid) +
-         pdu + 
+         pdu +
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
@@ -482,7 +482,7 @@ begin
         end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;    
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
@@ -507,7 +507,7 @@ begin
   for i := address to address + count - 1 do
     pdu := pdu + hex1(4, hreg[i]);
   adu := hex1(2, prot[protocol].uid) +
-         pdu + 
+         pdu +
          hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // CONNECT TO SERIAL PORT
@@ -568,11 +568,12 @@ begin
         end else writeln(ERR28);
     except
       writeln(ERR28);
-    end;    
+    end;
   end else writeln(ERR18, dev[device].device);
 end;
 
 // RUN GATEWAY OR SLAVE
-procedure mbasc_slave(enablegw: boolean; protocol1, device1, protocol2, device2: word);
+function mbasc_slave(enablegw: boolean; protocol1, device1, protocol2, device2: word): boolean;
 begin
+  result := false;
 end;

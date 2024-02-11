@@ -10,7 +10,8 @@ modshell (0.1-alpha2) unstable; urgency=low
   * Bug fixes,
   * Modbus/ASCII and Modbus/RTU communication,
   * handling of constants,
-  * two predefined constants and
-  * 23 new command.
+  * three predefined constants and
+  * 28 new command (total: 94).
+  * Script syntax highlighting file for Micro.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>  dow, dd Feb 2024 hh:mm:ss
+ -- Pozsár Zsolt <pozsarzs@gmail.com>  Mon, 12 Feb 2024 00:00:00

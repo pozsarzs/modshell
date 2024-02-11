@@ -104,34 +104,38 @@ begin
 end;
 
 // RUN GATEWAY
-procedure mb_gateway(connection1, connection2: integer);
+function mb_gateway(connection1, connection2: integer): boolean;
 begin
+  result := true;
   // CHECK VALIDITY
-  if not validity(2, connection1) then exit;
-  if not validity(1, conn[connection1].prot) then exit;
-  if not validity(0, conn[connection1].dev) then exit;
-  if not validity(2, connection2) then exit;
-  if not validity(1, conn[connection2].prot) then exit;
-  if not validity(0, conn[connection2].dev) then exit;
+  if not validity(2, connection1) then result := false;
+  if not validity(1, conn[connection1].prot) then result := false;
+  if not validity(0, conn[connection1].dev) then result := false;
+  if not validity(2, connection2) then result := false;
+  if not validity(1, conn[connection2].prot) then result := false;
+  if not validity(0, conn[connection2].dev) then result := false;
   // CALL NEXT PROCEDURE
+  if not result then exit;
   case prot[conn[connection1].prot].prottype of
-    0: mbasc_slave(true, conn[connection1].prot, conn[connection1].dev, conn[connection2].prot, conn[connection2].dev);
-    1: mbrtu_slave(true, conn[connection1].prot, conn[connection1].dev, conn[connection2].prot, conn[connection2].dev);
-    2: mbtcp_server(true, conn[connection1].prot, conn[connection1].dev, conn[connection2].prot, conn[connection2].dev);
+    0: result := mbasc_slave(true, conn[connection1].prot, conn[connection1].dev, conn[connection2].prot, conn[connection2].dev);
+    1: result := mbrtu_slave(true, conn[connection1].prot, conn[connection1].dev, conn[connection2].prot, conn[connection2].dev);
+    2: result := mbtcp_server(true, conn[connection1].prot, conn[connection1].dev, conn[connection2].prot, conn[connection2].dev);
   end;
 end;
 
 // RUN SERVER/SLAVE
-procedure mb_server(connection: integer);
+function mb_server(connection: integer): boolean;
 begin
+  result := true;
   // CHECK VALIDITY
-  if not validity(2, connection) then exit;
-  if not validity(1, conn[connection].prot) then exit;
-  if not validity(0, conn[connection].dev) then exit;
+  if not validity(2, connection) then result := false;
+  if not validity(1, conn[connection].prot) then result := false;
+  if not validity(0, conn[connection].dev) then result := false;
+  if not result then exit;
   // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
-    0: mbasc_slave(false, conn[connection].prot, conn[connection].dev, 0, 0);
-    1: mbrtu_slave(false, conn[connection].prot, conn[connection].dev, 0, 0);
-    2: mbtcp_server(false, conn[connection].prot, conn[connection].dev, 0, 0);
+    0: result := mbasc_slave(false, conn[connection].prot, conn[connection].dev, 0, 0);
+    1: result := mbrtu_slave(false, conn[connection].prot, conn[connection].dev, 0, 0);
+    2: result := mbtcp_server(false, conn[connection].prot, conn[connection].dev, 0, 0);
   end;
 end;

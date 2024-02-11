@@ -22,6 +22,7 @@
 function cmd_mbsrv(p1: string): byte;
 var
   i1: integer; // parameter in other type
+  loop: boolean;
   s1: string; // parameter in other type
 
 begin
@@ -50,5 +51,7 @@ begin
     exit;
   end;
   // PRIMARY MISSION
-  mb_server(i1);
+  repeat
+    loop := mb_server(i1);
+  until loop = false;
 end;

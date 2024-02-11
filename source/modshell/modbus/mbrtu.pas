@@ -61,6 +61,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -159,6 +160,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -257,6 +259,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -353,6 +356,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -459,6 +463,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -549,6 +554,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
+      delay(10);
       if ser_canread then
       begin
         wait := 0;
@@ -589,7 +595,7 @@ begin
 end;
 
 // RUN GATEWAY OR SLAVE
-procedure mbrtu_slave(enablegw: boolean; protocol1, device1, protocol2, device2: word);
+function mbrtu_slave(enablegw: boolean; protocol1, device1, protocol2, device2: word): boolean;
 var
   address: integer;
   adu, pdu, tgm: string;
@@ -600,7 +606,9 @@ var
   error: byte = 0;
   function_code: byte;
   i: integer;
+  loop: boolean = true;
   ready: boolean = false;
+  recvbyte: byte;
   uid: byte;
   valid: boolean = true;
 const
@@ -616,14 +624,15 @@ begin
       if keypressed then
       begin
         c := readkey;
-        if c = #27 then valid := false;
+        if c = #27 then loop := false;
       end else delay(10);
     until ser_canread or (c = #27);
-    if valid then
+    if loop then
     begin
       // RECEIVE REQUEST
       tgm := '';
       repeat
+        delay(10);
         if ser_canread then
         begin
           b := ser_recvbyte;
@@ -636,29 +645,31 @@ begin
           tgm := tgm + char(b);
         end else ready := true;
         if keypressed then c := readkey;
+        if c = #27 then loop := false;
       until (c = #27) or (length(tgm) = 255) or ready;
       if uconfig.echo > 0 then writeln;
       // PARSE REQUEST
-      if length(tgm) = 8 then
+      if length(tgm) >= 8 then
       begin
         uid := ord(tgm[1]);
         function_code := ord(tgm[2]);
         address := ord(tgm[3]) * 256 + ord(tgm[4]) ;
         count := ord(tgm[5]) * 256 + ord(tgm[6]) ;
         // check data
+        if (address < 1) or (address > 9999) then error := $02;
+        if (count < 1) or (count > 125) then error := $03;
+        if (function_code = FUNCTION_CODES_ALL[5]) and (length(tgm) < 11) then error := $04;
         if (uid < 1) or (uid > 247) then error := 4;
         valid := false;
         for b:= 0 to 5 do
           if function_code = FUNCTION_CODES_ALL[b] then valid := true;
         if not valid then error := $01;
-        if (address < 1) or (address > 9999) then error := $02;
-        if (count < 1) or (count > 125) then error := $03;
       end else error := $04;
     end;
     ser_close;
   end else writeln(ERR18, dev[device1].device);
   // GATEWAY
-  if enablegw then
+  if loop and enablegw then
   begin
     if function_code = FUNCTION_CODES_ALL[0] then mbrtu_readcoil(protocol2, device2, address, count);
     if function_code = FUNCTION_CODES_ALL[1] then mbrtu_readdinp(protocol2, device2, address, count);
@@ -670,14 +681,14 @@ begin
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device1].device, dev[device1].speed, dev[device1].databit, dev[device1].parity, dev[device1].stopbit) then
   begin
-    if valid then
+    if loop then
     begin
-      // CREATE TELEGRAM FOR REQUEST
+      // CREATE TELEGRAM FOR RESPONSE
       if uid = prot[protocol1].uid then
       begin
         if error > 0 then pdu := char(FUNCTERR_CODE_OFFSET + error) else
         begin
-          pdu := char(function_code);       
+          pdu := char(function_code);
           // read coil
           if function_code = FUNCTION_CODES_ALL[0] then
           begin
@@ -723,10 +734,22 @@ begin
           // write coil
           if function_code = FUNCTION_CODES_ALL[4] then
           begin
+            b := 0;
+            repeat
+              recvbyte := ord(tgm[8 + b]);
+              for bb := 0 to 7 do
+              coil[address + bb + b * 8 ] := inttobool(recvbyte and powerof2(bb));
+              b := b + 1;
+            until b = count;
           end;
           // write holding register
           if function_code = FUNCTION_CODES_ALL[5] then
           begin
+            b := 0;
+            repeat
+              hreg[address + b] := ord(tgm[8 + 2 * b ]) * 256 + ord(tgm[9 + 2 * b]);
+              b := b + 1;
+            until b = count;
           end;
         end;
         crc := crc16(char(uid) + pdu);
@@ -755,4 +778,5 @@ begin
     // DISCONNECT SERIAL PORT
     ser_close;
   end else writeln(ERR18, dev[device1].device);
+  result := loop;
 end;

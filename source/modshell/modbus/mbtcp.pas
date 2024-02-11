@@ -44,6 +44,7 @@ begin
 end;
 
 // RUN GATEWAY OR SLAVE
-procedure mbtcp_server(enablegw: boolean; protocol1, device1, protocol2, device2: word);
+function mbtcp_server(enablegw: boolean; protocol1, device1, protocol2, device2: word): boolean;
 begin
+  result := false;
 end;

@@ -22,6 +22,7 @@
 function cmd_mbgw(p1, p2: string): byte;
 var
   i1, i2: integer; // parameters in other type
+  loop: boolean;
   s1, s2: string; // parameters in other type
 
 begin
@@ -66,5 +67,7 @@ begin
     exit;
   end;
   // PRIMARY MISSION
-  mb_gateway(i1, i2);
+  repeat
+    loop := mb_gateway(i1, i2);
+  until loop = false;
 end;
