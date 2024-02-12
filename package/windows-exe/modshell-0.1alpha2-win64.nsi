@@ -29,7 +29,6 @@
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 !define MUI_FINISHPAGE_RUN "$INSTDIR\modshell.exe"
-!define MUI_FINISHPAGE_SHOWREADME "$INSTDIR\document\README"
 !insertmacro MUI_PAGE_FINISH
 
 ; Uninstaller pages
@@ -49,14 +48,14 @@ LicenseLangString MUILicense ${LANG_HUNGARIAN} "modshell\LICENCE"
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "modshell-0.1alpha1-win32.exe"
-InstallDir "$PROGRAMFILES\ModShell"
+OutFile "modshell-0.1alpha2-win64.exe"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
 
 Function .onInit
   !insertmacro MUI_LANGDLL_DISPLAY
+  StrCpy $InstDir "$PROGRAMFILES64\ModShell"
 FunctionEnd
 
 Section "Main files" SEC01
@@ -66,6 +65,7 @@ Section "Main files" SEC01
   File "modshell\document\changelog"
   File "modshell\document\copyright"
   File "modshell\document\install"
+  File "modshell\document\modbus.txt"
   File "modshell\document\readme"
   File "modshell\document\version"
   SetOutPath "$INSTDIR\document\example"
@@ -73,6 +73,10 @@ Section "Main files" SEC01
   File "modshell\document\example\copyset1.bat"
   File "modshell\document\example\copyset2.bat"
   File "modshell\document\example\dt510.bat"
+  File "modshell\document\example\for-if.bat"
+  File "modshell\document\example\getdt510.bat"
+  File "modshell\document\example\getpm9c.bat"
+  File "modshell\document\example\setdt510.bat"
   SetOutPath "$INSTDIR"
   File "modshell\modshell.exe"
   File "modshell\licence"
@@ -130,15 +134,20 @@ Section Uninstall
   Delete "$INSTDIR\message\modshell.pot"
   Delete "$INSTDIR\message\hu\modshell.po"
   Delete "$INSTDIR\message\hu\modshell.mo"
-  Delete "$INSTDIR\document\addition.bat"
-  Delete "$INSTDIR\document\copyset1.bat"
-  Delete "$INSTDIR\document\copyset2.bat"
-  Delete "$INSTDIR\document\dt510.bat"
+  Delete "$INSTDIR\document\example\addition.bat"
+  Delete "$INSTDIR\document\example\copyset1.bat"
+  Delete "$INSTDIR\document\example\copyset2.bat"
+  Delete "$INSTDIR\document\example\dt510.bat"
+  Delete "$INSTDIR\document\example\for-if.bat"
+  Delete "$INSTDIR\document\example\getdt510.bat"
+  Delete "$INSTDIR\document\example\getpm9c.bat"
+  Delete "$INSTDIR\document\example\setdt510.bat"
   Delete "$INSTDIR\document\authors"
   Delete "$INSTDIR\document\changelog"
   Delete "$INSTDIR\document\copyright"
   Delete "$INSTDIR\document\install"
   Delete "$INSTDIR\document\readme"
+  Delete "$INSTDIR\document\modbus.txt"
   Delete "$INSTDIR\document\version"
   Delete "$SMPROGRAMS\ModShell\Uninstall.lnk"
   Delete "$DESKTOP\ModShell.lnk"

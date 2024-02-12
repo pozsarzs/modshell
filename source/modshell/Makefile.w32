@@ -9,7 +9,7 @@ name = modshell
 architecture = i386
 os = win32
 outdir = ..\lib\$(architecture)-$(os)
-fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Fi* -Ficommands\* -Fu. -Fu..\convert -Fu..\synapse -Fu$(outdir) -FE$(outdir)
+fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Fi* -Fu. -Fu..\convert -Fu..\synapse -Fu$(outdir) -FE$(outdir)
 
 all:
 	@if not exist ..\lib\nul md ..\lib
