@@ -15,7 +15,7 @@ AC_PATH_PROG(rm, rm, no)
 AC_PATH_PROG(rmdir, rmdir, no)
 AC_PATH_PROG(install, install, no)
 
-AC_PATH_PROG(make, gmake, no)
+AC_PATH_PROG(make, make, no)
 test "$make" == "no" && AC_MSG_ERROR(GNU make utility not found!)
 
 AC_PATH_PROG(fpc, fpc, no)

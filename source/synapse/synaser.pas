@@ -203,7 +203,11 @@ const
     {$IFDEF BSD}
       MaxRates = 19; //BSD
     {$ELSE}
-      MaxRates = 30; //OTHER UNIX
+      {$IFDEF CPUARM}
+        MaxRates = 19; // Maybe Raspberry Pi OS?
+      {$ELSE}
+        MaxRates = 30; //OTHER UNIX
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
 {$ELSE}
