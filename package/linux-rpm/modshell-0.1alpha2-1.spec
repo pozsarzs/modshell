@@ -26,10 +26,14 @@ settings).
 /usr/share/doc/modshell/VERSION
 /usr/share/doc/modshell/changelog
 /usr/share/doc/modshell/copyright
+/usr/share/doc/modshell/modbus.txt
 /usr/share/doc/modshell/example/addition
 /usr/share/doc/modshell/example/copyset1
 /usr/share/doc/modshell/example/copyset2
-/usr/share/doc/modshell/example/dt510
+/usr/share/doc/modshell/example/for-if
+/usr/share/doc/modshell/example/getdt510
+/usr/share/doc/modshell/example/getpm9c
+/usr/share/doc/modshell/example/setdt510
 /usr/share/locale/hu/LC_MESSAGES/modshell.mo
 /usr/share/man/man1/modshell.1.gz
 /usr/share/pixmaps/modshell.xpm

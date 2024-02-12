@@ -4,7 +4,7 @@ Section: comm
 Priority: standard
 Depends: libc6
 Architecture: amd64
-Installed-Size: 1.5 MB
+Installed-Size: 1.6 MB
 Maintainer: Pozsar Zsolt <pozsarzs@gmail.com>
 Homepage: http://www.pozsarzs.hu
 Description: Command-driven scriptable Modbus utility
