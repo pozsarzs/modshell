@@ -14,3 +14,4 @@ fi
 find BUILDROOT -exec touch {} +
 chown -R root:root BUILDROOT
 rpmbuild -ba --noclean "SPECS/$NAME-$VERSION-$RELEASE.spec"
+setarch i386 rpmbuild -ba --noclean "SPECS/$NAME-$VERSION-$RELEASE.spec"
