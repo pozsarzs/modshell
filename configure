@@ -629,6 +629,7 @@ unix2dos
 man
 rstconv
 fpc
+gmake
 make
 install
 rmdir
@@ -2198,7 +2199,56 @@ printf "%s\n" "no" >&6; }
 fi
 
 
-test "$make" == "no" && as_fn_error $? "GNU make utility not found!" "$LINENO" 5
+test "$make" == "no" && as_fn_error $? "Make utility not found!" "$LINENO" 5
+
+# Extract the first word of "gmake", so it can be a program name with args.
+set dummy gmake; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_path_gmake+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  case $gmake in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_gmake="$gmake" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_path_gmake="$as_dir$ac_word$ac_exec_ext"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_gmake" && ac_cv_path_gmake="no"
+  ;;
+esac
+fi
+gmake=$ac_cv_path_gmake
+if test -n "$gmake"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $gmake" >&5
+printf "%s\n" "$gmake" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+test "$gmake" == "no" && { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: GNU make utility not found!" >&5
+printf "%s\n" "$as_me: WARNING: GNU make utility not found!" >&2;}
 
 # Extract the first word of "fpc", so it can be a program name with args.
 set dummy fpc; ac_word=$2
@@ -2544,6 +2594,11 @@ copyright=`cat document/copyright`
 
 os=`fpc -iSO`
 architecture=`fpc -iSP`
+
+if test $gmake != "no"
+then
+  make=$gmake
+fi
 
 
 test x"$prefix" == xNONE && prefix="$ac_default_prefix"

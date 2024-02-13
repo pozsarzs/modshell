@@ -16,7 +16,10 @@ AC_PATH_PROG(rmdir, rmdir, no)
 AC_PATH_PROG(install, install, no)
 
 AC_PATH_PROG(make, make, no)
-test "$make" == "no" && AC_MSG_ERROR(GNU make utility not found!)
+test "$make" == "no" && AC_MSG_ERROR(Make utility not found!)
+
+AC_PATH_PROG(gmake, gmake, no)
+test "$gmake" == "no" && AC_MSG_WARN(GNU make utility not found!)
 
 AC_PATH_PROG(fpc, fpc, no)
 test "$fpc" == "no" && AC_MSG_ERROR(Free Pascal compiler not found!)
@@ -44,6 +47,11 @@ copyright=`cat document/copyright`
 
 os=`fpc -iSO`
 architecture=`fpc -iSP`
+
+if test $gmake != "no"
+then
+  make=$gmake
+fi
 
 AC_PREFIX_DEFAULT("/usr/local")
 test x"$prefix" == xNONE && prefix="$ac_default_prefix"

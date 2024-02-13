@@ -7,9 +7,13 @@ share/doc/modshell/README
 share/doc/modshell/VERSION
 share/doc/modshell/changelog
 share/doc/modshell/copyright
+share/doc/modshell/modbus.txt
 share/doc/modshell/example/addition
 share/doc/modshell/example/copyset1
 share/doc/modshell/example/copyset2
-share/doc/modshell/example/dt510
+share/doc/modshell/example/for-if
+share/doc/modshell/example/getdt510
+share/doc/modshell/example/getpm9c
+share/doc/modshell/example/setdt510
 share/locale/hu/LC_MESSAGES/modshell.mo
 share/pixmaps/modshell.xpm
