@@ -277,6 +277,9 @@ questions, or suggest new features.
 
 **Precompiled binaries and installer packages for several OS and architecture**
 
+> [!NOTE]
+> The download is done via http. Some browsers are not happy with this and may block it.
+
 | name                                                                                                            | version    |OS               |arch.  | type  | note|
 |-----------------------------------------------------------------------------------------------------------------|------------|-----------------|-------|-------|-----|
 | [source package](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha2.tar.gz)                   | v0.1-alpha2|                 |       | tar.gz|     |
