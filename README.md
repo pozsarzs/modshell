@@ -275,3 +275,36 @@ If you find any bugs, please report them! I am also happy to accept pull
 requests from anyone. You can use the GitHub issue tracker to report bugs, ask
 questions, or suggest new features.
 
+**Precompiled binaries and installer packages for several OS and architecture**
+
+| name                                                                                                            | version    |OS               |arch.  | type  | note|
+|-----------------------------------------------------------------------------------------------------------------|------------|-----------------|-------|-------|-----|
+| [source package](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha2.tar.gz)                   | v0.1-alpha2|                 |       | tar.gz|     |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/dos/mdsh01a2.exe)                            | v0.1-alpha2| DOS             | i386  | exe   | SFX |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/dos/mdsh01a2.zip)                            | v0.1-alpha2| DOS             | i386  | zip   |     |
+| [binary package with source code](http://www.pozsarzs.hu/packages/software/modshell/freedos/mdsh01a2.zip)       | v0.1-alpha2| FreeDOS         | i386  | zip   |     |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/linux/modshell-0.1alpha2-linux-i386.bin)     | v0.1-alpha2| Linux           | i386  | bin   | SFX |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/linux/modshell-0.1alpha2-linux-amd64.bin)    | v0.1-alpha2| Linux           | amd64 | bin   | SFX |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/linux/modshell-0.1alpha2-linux-armhf.bin)    | v0.1-alpha2| Linux           | armhf | bin   | SFX |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/linux/modshell-0.1alpha2-linux-i386.zip)     | v0.1-alpha2| Linux           | i386  | zip   |     |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/linux/modshell-0.1alpha2-linux-amd64.zip)    | v0.1-alpha2| Linux           | amd64 | zip   |     |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/linux/modshell-0.1alpha2-linux-armhf.zip)    | v0.1-alpha2| Linux           | armhf | zip   |     |
+| [installer package](../deb/i386/modshell_0.1alpha2-1_i386.deb)                                                  | v0.1-alpha2| Debian GNU/Linux| i386  | deb   |     |
+| [installer package](../deb/amd64/modshell_0.1alpha2-1_amd64.deb)                                                | v0.1-alpha2| Debian GNU/Linux| amd64 | deb   |     |
+| [installer package](../deb/armhf/modshell_0.1alpha2-1_armhf.deb)                                                | v0.1-alpha2| Raspberry Pi OS | armhf | deb   |     |
+| [installer package](http://www.pozsarzs.hu/packages/software/modshell/linux/modshell-0.1alpha2-1.i386.rpm)      | v0.1-alpha2| OpenSuSE        | i386  | rpm   |     |
+| [installer package](http://www.pozsarzs.hu/packages/software/modshell/linux/modshell-0.1alpha2-1.x86_64.rpm)    | v0.1-alpha2| OpenSuSE        | amd64 | rpm   |     |
+| [installer package](http://www.pozsarzs.hu/packages/software/modshell/linux/modshell-0.1alpha2-i386-1.txz)      | v0.1-alpha2| Slackware       | i386  | txz   |     |
+| [installer package](http://www.pozsarzs.hu/packages/software/modshell/linux/modshell-0.1alpha2-amd64-1.txz)     | v0.1-alpha2| Slackware       | amd64 | txz   |     |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/freebsd/modshell-0.1alpha2-freebsd-i386.bin) | v0.1-alpha2| FreeBSD         | i386  | bin   | SFX |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/freebsd/modshell-0.1alpha2-freebsd-amd64.bin)| v0.1-alpha2| FreeBSD         | amd64 | bin   | SFX |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/freebsd/modshell-0.1alpha2-freebsd-i386.zip) | v0.1-alpha2| FreeBSD         | i386  | zip   |     |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/freebsd/modshell-0.1alpha2-freebsd-amd64.zip)| v0.1-alpha2| FreeBSD         | amd64 | zip   |     |
+| [installer package](http://www.pozsarzs.hu/packages/software/modshell/freebsd/i386/modshell-0.1alpha2.pkg)      | v0.1-alpha2| FreeBSD         | i386  | pkg   |     |
+| [installer package](http://www.pozsarzs.hu/packages/software/modshell/freebsd/amd64/modshell-0.1alpha2.pkg)     | v0.1-alpha2| FreeBSD         | amd64 | pkg   |     |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/windows/modshell-0.1alpha2-win32.zip)        | v0.1-alpha2| Windows         | i386  | zip   |     |
+| [binary package](http://www.pozsarzs.hu/packages/software/modshell/windows/modshell-0.1alpha2-win64.zip)        | v0.1-alpha2| Windows         | x86_64| zip   |     |
+| [installer package](http://www.pozsarzs.hu/packages/software/modshell/windows/modshell-0.1alpha2-win32.exe)     | v0.1-alpha2| Windows         | i386  | exe   |     |
+| [installer package](http://www.pozsarzs.hu/packages/software/modshell/windows/modshell-0.1alpha2-win64.exe)     | v0.1-alpha2| Windows         | x86_64| exe   |     |
+| [installer package](http://www.pozsarzs.hu/packages/software/modshell/windows/modshell-0.1alpha2-win32.msi)     | v0.1-alpha2| Windows         | i386  | msi   |     |
+| [installer package](http://www.pozsarzs.hu.hu/packages/software/modshell/windows/modshell-0.1alpha2-win64.msi)  | v0.1-alpha2| Windows         | x86_64| msi   |     |
