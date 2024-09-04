@@ -29,6 +29,7 @@ Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>
 Homepage: <http://www.pozsarzs.hu>  
 GitHub: <https://github.com/pozsarzs/modshell>  
 Online manual: <https://github.com/pozsarzs/modshell/wiki>  
+Project webpage: <https://pozsarzs.github.io/modshell>  
 
 |features                |                                                                                           |
 |------------------------|-------------------------------------------------------------------------------------------|
@@ -282,6 +283,7 @@ questions, or suggest new features.
 
 | name                                                                                                            | version    |OS               |arch.  | type  | note|
 |-----------------------------------------------------------------------------------------------------------------|------------|-----------------|-------|-------|-----|
+| [source package](https://github.com/pozsarzs/modshell/archive/refs/heads/main.zip)                              | latest     |                 |       | zip   |from Github |
 | [source package](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha2.tar.gz)                   | v0.1-alpha2|                 |       | tar.gz|     |
 | [binary package](http://www.pozsarzs.hu/packages/software/modshell/dos/mdsh01a2.exe)                            | v0.1-alpha2| DOS             | i386  | exe   | SFX |
 | [binary package](http://www.pozsarzs.hu/packages/software/modshell/dos/mdsh01a2.zip)                            | v0.1-alpha2| DOS             | i386  | zip   |     |
