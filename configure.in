@@ -1,6 +1,6 @@
 dnl # +------------------------------------------------------------------------+
 dnl # | ModShell 0.1 * Command-driven scriptable Modbus utility                |
-dnl # | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                   |
+dnl # | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>              |
 dnl # | Makefile                                                               |
 dnl # | Makefile for Unix-like systems                                         |
 dnl # +------------------------------------------------------------------------+

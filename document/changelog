@@ -15,3 +15,12 @@ modshell (0.1-alpha2) unstable; urgency=low
   * Script syntax highlighting file for Micro.
 
  -- Pozsár Zsolt <pozsarzs@gmail.com>  Mon, 12 Feb 2024 00:00:00
+
+modshell (0.1-alpha3) unstable; urgency=low
+
+  * New source code directory structure,
+  * bug fixes,
+  * GUI (FreeBSD, Linux and Windows) and
+  * Script syntax highlighting file for Midnight Commander.
+
+ -- Pozsár Zsolt <pozsarzs@gmail.com>  ddd, dd mmm 2024 hh:mm:ss

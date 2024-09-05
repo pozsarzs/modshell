@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "ModShell"
-!define PRODUCT_VERSION "0.1alpha2"
+!define PRODUCT_VERSION "0.1alpha3"
 !define PRODUCT_PUBLISHER "Pozsar Zsolt"
 !define PRODUCT_WEB_SITE "http://www.pozsarzs.hu"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\modshell.exe"
@@ -48,14 +48,14 @@ LicenseLangString MUILicense ${LANG_HUNGARIAN} "modshell\LICENCE"
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "modshell-0.1alpha2-win32.exe"
+OutFile "modshell-0.1alpha2-win64.exe"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
 
 Function .onInit
   !insertmacro MUI_LANGDLL_DISPLAY
-  StrCpy $InstDir "$PROGRAMFILES32\ModShell"
+  StrCpy $InstDir "$PROGRAMFILES64\ModShell"
 FunctionEnd
 
 Section "Main files" SEC01

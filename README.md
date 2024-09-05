@@ -1,8 +1,15 @@
 > [!WARNING]
 > The program is still under development, it is not yet suitable for its task.  
+>
+> **v0.1-alpha3:**  
+> The next release will be with the following changes:
+> - New source code directory structure,
+> - bug fixes,
+> - GUI (FreeBSD, Linux and Windows) and
+> - Script syntax highlighting file for Midnight Commander.
 > 
 > **v0.1-alpha2:**  
-> The next release with the following changes:
+> The 2nd release with the following changes:
 > - Bug fixes,
 > - Modbus/ASCII and Modbus/RTU communication,
 > - handling of constants,
@@ -25,39 +32,39 @@
 
 **Command-driven scriptable Modbus utility**
 
-Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>  
+Copyright (C) 2023-2024 Pozsár Zsolt <pozsarzs@gmail.com>  
 Homepage: <http://www.pozsarzs.hu>  
 GitHub: <https://github.com/pozsarzs/modshell>  
 Online manual: <https://github.com/pozsarzs/modshell/wiki>  
 Project webpage: <https://pozsarzs.github.io/modshell>  
 
-|features                |                                                                                           |
-|------------------------|-------------------------------------------------------------------------------------------|
-|architecture            |amd64, armhf, i386, x86_64                                                                 |
-|operation system        |DOS, FreeBSD, Linux, Windows                                                               |
-|version                 |v0.1                                                                                       |
-|language                |en, hu                                                                                     |
-|licence                 |EUPL v1.2                                                                                  |
-|local user interface    |CLI and TUI                                                                                |
-|running modes           |command line, full-screen or interpreter                                                   |
-|local Modbus registers  |2x10000 boolean and 2x10000 word type                                                      |
-|variables               |max. 128 variables or constants (stored as string)                                         |
-|built-in commands       |94 commands in 9 categories                                                                |
-|load from file          |registers, script, settings                                                                |
-|save to file            |command history, console trafic, registers, communication settings, user log with timestamp|
-|auto save to file       |general settings and console traffic                                                       |
-|export to file          |history (TXT), registers (CSV, INI, XML)                                                   |
-|import to file          |registers (INI, XML)                                                                       |
-|configurable devices    |max. 8 settings, serial and ethernet port                                                  |
-|configurable protocols  |max. 8 settings, ASCII, RTU or TCP                                                         |
-|configurable connections|max. 8 settings by combining the previous two                                              |
-|raw serial communication|read/write serial port and mini serial console with char/hex echo                          |
-|Modbus communication    |read and write remote device and copy between devices                                      |
-|                        |internal server for remote access to own registers                                         |
-|                        |gateway to access devices using other ports or protocols                                   |
-|script size             |max. 1024 line                                                                             |
-|example scripts         |7 scripts (shellscript and batch file versions)                                            | 
-|script syntax plugins   |for Micro editor                                                                           |
+|features                |                                                                                            |
+|------------------------|--------------------------------------------------------------------------------------------|
+|architecture            |amd64, armhf, i386, x86_64                                                                  |
+|operation system        |DOS, FreeBSD, Linux, Windows                                                                |
+|version                 |v0.1                                                                                        |
+|language                |en, hu                                                                                      |
+|licence                 |EUPL v1.2                                                                                   |
+|user interface          |CLI, TUI and GUI                                                                            |
+|running modes           |command line, full-screen or interpreter                                                    |
+|local Modbus registers  |2x10000 boolean and 2x10000 word type                                                       |
+|variables               |max. 128 variables or constants (stored as string)                                          |
+|built-in commands       |94 commands in 9 categories                                                                 |
+|load from file          |registers, script, settings                                                                 |
+|save to file            |command history, console traffic, registers, communication settings, user log with timestamp|
+|auto save to file       |general settings and console traffic                                                        |
+|export to file          |history (TXT), registers (CSV, INI, XML)                                                    |
+|import to file          |registers (INI, XML)                                                                        |
+|configurable devices    |max. 8 settings, serial and ethernet port                                                   |
+|configurable protocols  |max. 8 settings, ASCII, RTU or TCP                                                          |
+|configurable connections|max. 8 settings by combining the previous two                                               |
+|raw serial communication|read/write serial port and mini serial console with char/hex echo                           |
+|Modbus communication    |read and write remote device and copy between devices                                       |
+|                        |internal server for remote access to own registers                                          |
+|                        |gateway to access devices using other ports or protocols                                    |
+|script size             |max. 1024 line                                                                              |
+|example scripts         |7 scripts (shellscript and batch file versions)                                             | 
+|script syntax plugins   |for Micro editor                                                                            |
 
 #### 1. Screenshots
 

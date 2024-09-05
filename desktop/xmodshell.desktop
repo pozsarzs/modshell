@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=XModShell
+Name[hu]=XModShell
+Exec=xmodshell
+Icon=modshell
+GenericName=Command-driven scriptable Modbus utility with GUI
+GenericName[hu]=Parancsvezérelt szkriptelhető Modbus segédprogram GUI-val
+Type=Application
+Categories=Network;Utility;
+StartupNotify=true
+Terminal=false

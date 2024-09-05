@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                     | }
+{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | mbrtu.pas                                                                | }
 { | Modbus/RTU protocol procedures and functions                             | }
 { +--------------------------------------------------------------------------+ }

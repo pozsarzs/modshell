@@ -7,7 +7,7 @@ SYNOPSIS
        modshell [options]
 
 COPYRIGHT
-       ModShell is Copyright (C) 2023 by Pozsar Zsolt.
+       ModShell is Copyright (C) 2023-2024 by Pozsar Zsolt.
 
 DESCRIPTION
        This  is a utility that can be used on several operating systems, which
