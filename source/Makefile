@@ -9,11 +9,12 @@ include ../Makefile.global
 
 title="binary files  "
 removetargetdir=0
-sourcedir=lib/$(architecture)-$(os)
+sourcedir=_lib/$(architecture)-$(os)
 targetdir=$(bindir)
 filemode=$(binmode)
 
 projectdirs="modshell"
+#projectdirs="modshell xmodshell"
 
 all:
 	@mkdir -p $(sourcedir)/
@@ -21,7 +22,8 @@ all:
 	  if [ -d $$x ]; \
 	  then \
 	    cd $$x; \
-	    $(fpc) $(fpcargs) $$x.pas; \
+	    if [ -f $$x.pas ]; then $(fpc) $(fpcargs) $$x.pas; fi; \
+	    if [ -f $$x.lpr ]; then $(fpc) $(fpcargs) $$x.lpr; fi; \
 	    cd ..; \
 	    echo ""; \
 	  fi; \
@@ -35,7 +37,7 @@ clean:
 	@for x in $(projectdirs); do \
 	  $(rm) $$x/config.pas; \
 	done
-	@$(rm) lib/$(architecture)-$(os)/*
+	@$(rm) $(sourcedir)/*
 
 install:
 	@echo -n "- Installing "$(title)"["

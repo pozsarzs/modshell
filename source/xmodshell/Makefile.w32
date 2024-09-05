@@ -5,7 +5,7 @@
 # | Makefile for 32 bit Windows                                                |
 # +----------------------------------------------------------------------------+
 
-name = modshell
+name = xmodshell
 architecture = i386
 os = win32
 outdir = ..\_lib\$(architecture)-dos

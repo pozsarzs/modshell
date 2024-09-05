@@ -24,6 +24,9 @@ test "$gmake" == "no" && AC_MSG_WARN(GNU make utility not found!)
 AC_PATH_PROG(fpc, fpc, no)
 test "$fpc" == "no" && AC_MSG_ERROR(Free Pascal compiler not found!)
 
+lcldir=`find /usr/lib/lazarus -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
+AC_CHECK_FILE($lcldir/lclbase.lpk,,AC_MSG_ERROR(LCL unit files not found!))
+
 AC_PATH_PROG(rstconv, rstconv, no)
 test "$rstconv" == "no" && AC_MSG_ERROR(Free Pascal resource string converter tool not found!)
 
@@ -83,6 +86,7 @@ AC_SUBST(libdir)
 AC_SUBST(mandir)
 AC_SUBST(sysconfdir)
 AC_SUBST(vardir)
+AC_SUBST(lcldir)
 
 AC_SUBST(fpcargs)
 

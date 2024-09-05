@@ -617,6 +617,7 @@ ac_default_prefix="/usr/local"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
 fpcargs
+lcldir
 vardir
 bprefix
 version
@@ -2298,6 +2299,33 @@ fi
 
 test "$fpc" == "no" && as_fn_error $? "Free Pascal compiler not found!" "$LINENO" 5
 
+lcldir=`find /usr/lib/lazarus -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
+as_ac_File=`printf "%s\n" "ac_cv_file_$lcldir/lclbase.lpk" | $as_tr_sh`
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $lcldir/lclbase.lpk" >&5
+printf %s "checking for $lcldir/lclbase.lpk... " >&6; }
+if eval test \${$as_ac_File+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  test "$cross_compiling" = yes &&
+  as_fn_error $? "cannot check for file existence when cross compiling" "$LINENO" 5
+if test -r "$lcldir/lclbase.lpk"; then
+  eval "$as_ac_File=yes"
+else
+  eval "$as_ac_File=no"
+fi
+fi
+eval ac_res=\$$as_ac_File
+	       { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_res" >&5
+printf "%s\n" "$ac_res" >&6; }
+if eval test \"x\$"$as_ac_File"\" = x"yes"
+then :
+
+else $as_nop
+  as_fn_error $? "LCL unit files not found!" "$LINENO" 5
+fi
+
+
 # Extract the first word of "rstconv", so it can be a program name with args.
 set dummy rstconv; ac_word=$2
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
@@ -2616,6 +2644,7 @@ test "$os" = "linux" && mandir="$datarootdir/man"
 bprefix="$prefix"
 test "$stagedir" != "" && prefix="$stagedir"
 test "$stagedir" != "" && mandir="$prefix/man"
+
 
 
 

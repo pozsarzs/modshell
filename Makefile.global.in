@@ -42,10 +42,18 @@ fpcargs		= -T@os@ \
                   -Scgi \
                   -O1 \
                   -ve \
-                  -Fi* \
+                  -Fi../_inc/ \
+                  -Fi../_inc/* \
+                  -Fu@lcldir@/../components/lazutils/lib/@architecture@-@os@/ \
+                  -Fu@lcldir@/../packager/units/@architecture@-@os@/ \
+                  -Fu@lcldir@/units/@architecture@-@os@/ \
+                  -Fu@lcldir@/units/@architecture@-@os@/gtk2/ \
+                  -Fu../_ppu/ \
                   -Fu../convert/ \
                   -Fu../protcom/ \
                   -Fu../synapse/ \
                   -Fu. \
-                  -Fu../lib/@architecture@-@os@/ \
-                  -FE../lib/@architecture@-@os@/
+                  -Fu../_lib/@architecture@-@os@/ \
+                  -FE../_lib/@architecture@-@os@/ \
+                  -dLCL \
+                  -dLCLgtk2
