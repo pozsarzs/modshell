@@ -55,30 +55,8 @@ procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
-// IF IT IS A MESSAGE, IT RETURNS ITS VALUE
-function isitmessage(s: string): string;
-begin
-  result := '';
-  if (s[1] = #34) and (s[length(s)] = #34) then
-  begin
-    s := stringreplace(s, #34 , '', [rfReplaceAll]);
-    s := stringreplace(s, #92 + #32 , #32, [rfReplaceAll]);
-    result := s;
-  end;
-end;
-
-// CHECK VALIDITY OF DEV?/PRO?/CON?'
-function validity(sets, number: byte): boolean;
-begin
-  case sets of
-    0: result := dev[number].valid;
-    1: result := prot[number].valid;
-    2: result := conn[number].valid;
-  else
-    result := false;
-  end;
-  if not result then writeln(PREFIX[sets], number, MSG06);
-end;
+{$I isitmsg.pas}
+{$I validity.pas}
 
 {$I ethernet.pas}
 {$I serport.pas}
@@ -355,23 +333,7 @@ begin
   quit(0, false, '');
 end;
 
-// SHOW VERSION AND BUILD INFORMATION
-procedure version(h: boolean);
-var
-  username: string = {$I %USER%};
-begin
-  writeln(PRGNAME + ' v' + PRGVERSION + ' * ' + MSG02);
-  writeln(PRGCOPYRIGHT);
-  writeln;
-  writeln(MSG94, {$I %DATE%}, ' ', {$I %TIME%});
-  if length(username) > 0 then writeln(MSG95, username);
-  writeln(MSG96, {$I %FPCVERSION%});
-  write(MSG97, {$I %FPCTARGETOS%});
-  if lowercase({$I %FPCTARGETOS%}) = 'go32v2' then write(' (DOS)');
-  writeln;
-  writeln(MSG98, {$I %FPCTARGETCPU%});
-  if h then quit(0, false, '');;
-end;
+{$I version.pas}
 
 // -- MAIN PROGRAM -------------------------------------------------------------
 begin

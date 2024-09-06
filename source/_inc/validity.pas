@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | cmd_eras.pas                                                             | }
-{ | command 'erase'                                                          | }
+{ | validity.pas                                                             | }
+{ | a function                                                               | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -12,19 +12,16 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
-  p0
-  -----
-  erase
-}
 
-// COMMAND 'ERASE'
-function cmd_erase: byte;
-var
-  line: integer;
+// CHECK VALIDITY OF DEV?/PRO?/CON?'
+function validity(sets, number: byte): boolean;
 begin
-  result := 0;
-  // PRIMARY MISSION
-  for line := 0 to SCRBUFFSIZE - 1 do sbuffer[line] := '';
-  scriptisloaded := false;
+  case sets of
+    0: result := dev[number].valid;
+    1: result := prot[number].valid;
+    2: result := conn[number].valid;
+  else
+    result := false;
+  end;
+  if not result then writeln(PREFIX[sets], number, MSG06);
 end;

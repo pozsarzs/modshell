@@ -42,10 +42,11 @@ object Form1: TForm1
     BorderSpacing.Right = 2
     BorderSpacing.Bottom = 2
     Color = clBlack
-    Lines.Strings = (
-      'Memo1'
-    )
+    Font.Color = clWhite
+    Font.Name = 'Monospace'
+    ParentFont = False
     ReadOnly = True
+    ScrollBars = ssAutoBoth
     TabOrder = 2
     WordWrap = False
   end

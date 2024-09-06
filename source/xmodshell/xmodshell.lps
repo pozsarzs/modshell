@@ -7,9 +7,9 @@
       <Unit>
         <Filename Value="xmodshell.lpr"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="21"/>
-        <CursorPos X="15" Y="42"/>
-        <UsageCount Value="33"/>
+        <TopLine Value="12"/>
+        <CursorPos Y="15"/>
+        <UsageCount Value="36"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -18,10 +18,10 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="181"/>
-        <CursorPos X="4" Y="192"/>
-        <UsageCount Value="33"/>
+        <CursorPos Y="552"/>
+        <UsageCount Value="36"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -48,12 +48,10 @@
       </Unit>
       <Unit>
         <Filename Value="../_inc/parsing.pas"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="72"/>
         <CursorPos X="3" Y="83"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/modbus/mbascii.pas"/>
@@ -76,44 +74,24 @@
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/cmd_avg.pas"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="6" Y="24"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/cmd_expr.pas"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="8" Y="28"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../_inc/version.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="29"/>
+        <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="330" Column="20" TopLine="319"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="332" TopLine="313"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="331" TopLine="312"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="332" TopLine="313"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="362" Column="10" TopLine="360"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="379" Column="8" TopLine="366"/>
-      </Position>
+    <JumpHistory HistoryIndex="23">
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="253" Column="10" TopLine="251"/>
@@ -208,7 +186,7 @@
       </Position>
       <Position>
         <Filename Value="frmmain.pas"/>
-        <Caret Line="192" Column="4" TopLine="181"/>
+        <Caret Line="192" Column="18" TopLine="181"/>
       </Position>
     </JumpHistory>
     <RunParams>

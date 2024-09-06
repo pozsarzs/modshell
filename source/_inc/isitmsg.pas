@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | cmd_eras.pas                                                             | }
-{ | command 'erase'                                                          | }
+{ | isitmsg.pas                                                              | }
+{ | a function                                                               | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -12,19 +12,15 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
-  p0
-  -----
-  erase
-}
 
-// COMMAND 'ERASE'
-function cmd_erase: byte;
-var
-  line: integer;
+// IF IT IS A MESSAGE, IT RETURNS ITS VALUE
+function isitmessage(s: string): string;
 begin
-  result := 0;
-  // PRIMARY MISSION
-  for line := 0 to SCRBUFFSIZE - 1 do sbuffer[line] := '';
-  scriptisloaded := false;
+  result := '';
+  if (s[1] = #34) and (s[length(s)] = #34) then
+  begin
+    s := stringreplace(s, #34 , '', [rfReplaceAll]);
+    s := stringreplace(s, #92 + #32 , #32, [rfReplaceAll]);
+    result := s;
+  end;
 end;

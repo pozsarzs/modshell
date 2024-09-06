@@ -14,7 +14,7 @@
 }
 
 program xmodshell;
-{$mode objfpc}{$H+}
+{$MODE OBJFPC}{$h+}
 uses
   {$IFDEF UNIX}
   cthreads,

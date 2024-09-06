@@ -1,3 +1,18 @@
+{ +--------------------------------------------------------------------------+ }
+{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
+{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | parsingcommands.pas                                                      | }
+{ | a procedure                                                              | }
+{ +--------------------------------------------------------------------------+ }
+{
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the European Union Public License 1.2 version.
+
+  This program is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.
+}
+
 // PARSING COMMANDS
 procedure parsingcommands(command: string);
 var
@@ -80,7 +95,7 @@ begin
                // set prj PROJECT_NAME
             9: exitcode := cmd_date;
                // date
-//           10: begin version(false); exitcode := 0; end;
+           10: begin version(false); exitcode := 0; end;
                // ver
            11: exitcode := cmd_write(splitted[1], splitted[2], splitted[3], splitted[4]);
                // write con? coil|hreg ADDRESS [COUNT]

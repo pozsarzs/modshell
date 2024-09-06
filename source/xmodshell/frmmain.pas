@@ -14,7 +14,7 @@
 }
 
 unit frmmain;
-{$mode objfpc}{$H+}{$macro on}
+{$MODE OBJFPC}{$H+}{$MACRO ON}
 interface
 uses
   Classes,
@@ -170,6 +170,8 @@ type
 var
   Form1: TForm1;
 
+{$DEFINE X}
+
 {$I type.pas}
 {$I const.pas}
 {$I var.pas}
@@ -189,32 +191,10 @@ function isitconstant(s: string): string; forward;
 function isitvariable(s: string): string; forward;
 // procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
-// procedure version(h: boolean); forward;
+procedure version(h: boolean); forward;
 
-// IF IT IS A MESSAGE, IT RETURNS ITS VALUE
-function isitmessage(s: string): string;
-begin
-  result := '';
-  if (s[1] = #34) and (s[length(s)] = #34) then
-  begin
-    s := stringreplace(s, #34 , '', [rfReplaceAll]);
-    s := stringreplace(s, #92 + #32 , #32, [rfReplaceAll]);
-    result := s;
-  end;
-end;
-
-// CHECK VALIDITY OF DEV?/PRO?/CON?'
-function validity(sets, number: byte): boolean;
-begin
-  case sets of
-    0: result := dev[number].valid;
-    1: result := prot[number].valid;
-    2: result := conn[number].valid;
-  else
-    result := false;
-  end;
-  if not result then writeln(PREFIX[sets], number, MSG06);
-end;
+{$I isitmsg.pas}
+{$I validity.pas}
 
 {$I ethernet.pas}
 {$I serport.pas}
@@ -274,6 +254,7 @@ end;
 {$I cmd_wrte.pas}
 
 {$I parsing.pas}
+{$I version.pas}
 
 { TForm1 }
 
