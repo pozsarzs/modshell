@@ -17,8 +17,31 @@ unit frmmain;
 {$mode objfpc}{$H+}{$macro on}
 interface
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, ComCtrls,
-  StdCtrls, ExtCtrls, synaser;
+  Classes,
+  SysUtils,
+  Forms,
+  Controls,
+  Graphics,
+  Dialogs,
+  Menus,
+  ComCtrls,
+  StdCtrls,
+  ExtCtrls,
+  synaser,
+  {$IFDEF WINDOWS} windows, {$ENDIF}
+  convert,
+  crt,
+  dom,
+  dos,
+  gettext,
+  inifiles,
+  math,
+  strings,
+  ucommon,
+  uconfig,
+  utranslt,
+  xmlread,
+  xmlwrite;
 type
   { TForm1 }
   TForm1 = class(TForm)
@@ -157,6 +180,101 @@ implementation
 
 {$R *.lfm}
 
+function cmd_run(p1: string): byte; forward;
+function boolisitconstant(s: string): boolean; forward;
+function boolisitvariable(s: string): boolean; forward;
+function intisitconstant(s: string): integer; forward;
+function intisitvariable(s: string): integer; forward;
+function isitconstant(s: string): string; forward;
+function isitvariable(s: string): string; forward;
+// procedure interpreter(f: string); forward;
+procedure parsingcommands(command: string); forward;
+// procedure version(h: boolean); forward;
+
+// IF IT IS A MESSAGE, IT RETURNS ITS VALUE
+function isitmessage(s: string): string;
+begin
+  result := '';
+  if (s[1] = #34) and (s[length(s)] = #34) then
+  begin
+    s := stringreplace(s, #34 , '', [rfReplaceAll]);
+    s := stringreplace(s, #92 + #32 , #32, [rfReplaceAll]);
+    result := s;
+  end;
+end;
+
+// CHECK VALIDITY OF DEV?/PRO?/CON?'
+function validity(sets, number: byte): boolean;
+begin
+  case sets of
+    0: result := dev[number].valid;
+    1: result := prot[number].valid;
+    2: result := conn[number].valid;
+  else
+    result := false;
+  end;
+  if not result then writeln(PREFIX[sets], number, MSG06);
+end;
+
+{$I ethernet.pas}
+{$I serport.pas}
+
+{$I mbascii.pas}
+{$I mbrtu.pas}
+{$I mbtcp.pas}
+{$I modbus.pas}
+
+{$I cmd_aplg.pas}
+{$I cmd_asci.pas}
+{$I cmd_avg.pas}
+{$I cmd_colr.pas}
+{$I cmd_cons.pas}
+{$I cmd_conv.pas}
+{$I cmd_cron.pas}
+{$I cmd_copy.pas}
+{$I cmd_date.pas}
+{$I cmd_dump.pas}
+{$I cmd_echo.pas}
+{$I cmd_edit.pas}
+{$I cmd_eras.pas}
+{$I cmd_exph.pas}
+{$I cmd_expr.pas}
+{$I cmd_for.pas}
+{$I cmd_get.pas}
+{$I cmd_goto.pas}
+{$I cmd_help.pas}
+{$I cmd_if.pas}
+{$I cmd_impr.pas}
+{$I cmd_labl.pas}
+{$I cmd_lcfg.pas}
+{$I cmd_let.pas}
+{$I cmd_list.pas}
+{$I cmd_logc.pas}
+{$I cmd_lreg.pas}
+{$I cmd_lscr.pas}
+{$I cmd_math.pas}
+{$I cmd_gw.pas}
+{$I cmd_srv.pas}
+{$I cmd_paus.pas}
+{$I cmd_prop.pas}
+{$I cmd_prnt.pas}
+{$I cmd_read.pas}
+{$I cmd_rst.pas}
+{$I cmd_run.pas}
+{$I cmd_scfg.pas}
+{$I cmd_str.pas}
+{$I cmd_secn.pas}
+{$I cmd_serd.pas}
+{$I cmd_sewr.pas}
+{$I cmd_sreg.pas}
+{$I cmd_sscr.pas}
+{$I cmd_set.pas}
+{$I cmd_var.pas}
+{$I cmd_vrmn.pas}
+{$I cmd_wrte.pas}
+
+{$I parsing.pas}
+
 { TForm1 }
 
 // -- MAIN MENU/File -----------------------------------------------------------
@@ -164,7 +282,7 @@ implementation
 // RUN command 'exit'
 procedure TForm1.MenuItem20Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[1]);
 end;
 
 // -- MAIN MENU/Project --------------------------------------------------------
@@ -207,10 +325,12 @@ end;
 
 // RUN COMMAND 'get dev? ...'
 procedure TForm1.MenuItem47Click(Sender: TObject);
+var
+  b: byte;
 begin
-
+  for b := 0 to 7 do
+    parsingcommands(COMMANDS[2] + 'dev' + inttostr(b));
 end;
-
 // RUN COMMAND 'set pro? ...' WITH DIALOG
 procedure TForm1.MenuItem40Click(Sender: TObject);
 begin
@@ -225,8 +345,11 @@ end;
 
 // RUN COMMAND 'get pro? ...'
 procedure TForm1.MenuItem48Click(Sender: TObject);
+var
+  b: byte;
 begin
-
+  for b := 0 to 7 do
+    parsingcommands(COMMANDS[2] + 'pro' + inttostr(b));
 end;
 
 // RUN COMMAND 'set con? ...' WITH DIALOG
@@ -243,8 +366,11 @@ end;
 
 // RUN COMMAND 'get con? ...'
 procedure TForm1.MenuItem49Click(Sender: TObject);
+var
+  b: byte;
 begin
-
+  for b := 0 to 7 do
+    parsingcommands(COMMANDS[2] + 'con' + inttostr(b));
 end;
 
 // RUN COMMAND 'color ...' WITH InputBox
@@ -302,25 +428,25 @@ end;
 // RUN COMMAND 'list'
 procedure TForm1.MenuItem18Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[41]);
 end;
 
 // RUN COMMAND 'edit'
 procedure TForm1.MenuItem30Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[91]);
 end;
 
 // RUN COMMAND 'erase'
 procedure TForm1.MenuItem29Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[92]);
 end;
 
 // RUN COMMAND 'run'
 procedure TForm1.MenuItem12Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[40]);
 end;
 
 // -- MAIN MENU/Operation ------------------------------------------------------
@@ -328,13 +454,13 @@ end;
 // RUN COMMAND 'cls'
 procedure TForm1.MenuItem22Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[12]);
 end;
 
 // RUN COMMAND 'echo'
 procedure TForm1.MenuItem28Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[38]);
 end;
 
 // RUN COMMAND 'serread' with DIALOG
@@ -376,13 +502,13 @@ end;
 // RUN COMMAND 'const'
 procedure TForm1.MenuItem24Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[66]);
 end;
 
 // RUN COMMAND 'var'
 procedure TForm1.MenuItem25Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[20]);
 end;
 
 // -- MAIN MENU/Utilities ------------------------------------------------------
@@ -390,13 +516,13 @@ end;
 // RUN COMMAND 'ascii'
 procedure TForm1.MenuItem21Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[79]);
 end;
 
 // RUN COMMAND 'date'
 procedure TForm1.MenuItem27Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[9]);
 end;
 
 // RUN COMMAND 'conv' with DIALOG
@@ -422,7 +548,7 @@ end;
 // RUN COMMAND 'help'
 procedure TForm1.MenuItem6Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[3]);
 end;
 
 // OPEN ONLINE WIKI
@@ -434,7 +560,7 @@ end;
 // RUN COMMAND 'ver'
 procedure TForm1.MenuItem7Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[10]);
 end;
 
 // -- END OF THE MAIN MENU -----------------------------------------------------
