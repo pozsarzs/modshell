@@ -13,10 +13,6 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{$IFNDEF GO32V2}
-  {$R *.res}
-{$ENDIF}
-
 {$DEFINE BASENAME := lowercase(PRGNAME)}
 {$DEFINE COMMENT := #35}
 

@@ -37,6 +37,11 @@ uses
 {$I const.pas}
 {$I var.pas}
 {$I define.pas}
+
+{$IFNDEF GO32V2}
+  {$R *.res}
+{$ENDIF}
+
 {$I resstrng.pas}
 
 function cmd_run(p1: string): byte; forward;

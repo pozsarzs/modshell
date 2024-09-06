@@ -8,6 +8,7 @@ object Form1: TForm1
   ClientHeight = 457
   ClientWidth = 701
   Menu = MainMenu1
+  OnCreate = FormCreate
   LCLVersion = '2.2.6.0'
   object StatusBar1: TStatusBar
     Left = 0
@@ -64,6 +65,7 @@ object Form1: TForm1
     Text = 'Edit1'
   end
   object MainMenu1: TMainMenu
+    Images = ImageList1
     Left = 102
     Top = 48
     object MenuItem1: TMenuItem
@@ -71,6 +73,7 @@ object Form1: TForm1
       object MenuItem20: TMenuItem
         Caption = '&Exit'
         ShortCut = 121
+        OnClick = MenuItem20Click
       end
     end
     object MenuItem5: TMenuItem
@@ -160,10 +163,12 @@ object Form1: TForm1
       object MenuItem13: TMenuItem
         Caption = '&Load registers..'
         ShortCut = 116
+        OnClick = MenuItem13Click
       end
       object MenuItem14: TMenuItem
         Caption = '&Save registers..'
         ShortCut = 115
+        OnClick = MenuItem14Click
       end
       object Separator7: TMenuItem
         Caption = '-'
@@ -171,10 +176,12 @@ object Form1: TForm1
       object MenuItem32: TMenuItem
         Caption = 'I&mport registers..'
         ShortCut = 32841
+        OnClick = MenuItem32Click
       end
       object MenuItem31: TMenuItem
         Caption = 'E&xport registers..'
         ShortCut = 32837
+        OnClick = MenuItem31Click
       end
       object Separator8: TMenuItem
         Caption = '-'
@@ -182,15 +189,18 @@ object Form1: TForm1
       object MenuItem15: TMenuItem
         Caption = '&Dump registers..'
         ShortCut = 117
+        OnClick = MenuItem15Click
       end
     end
     object MenuItem2: TMenuItem
       Caption = '&Script'
       object MenuItem10: TMenuItem
         Caption = '&Load script..'
+        OnClick = MenuItem10Click
       end
       object MenuItem11: TMenuItem
         Caption = '&Save script..'
+        OnClick = MenuItem11Click
       end
       object Separator6: TMenuItem
         Caption = '-'
@@ -198,12 +208,15 @@ object Form1: TForm1
       object MenuItem18: TMenuItem
         Caption = 'Lis&t script'
         ShortCut = 122
+        OnClick = MenuItem18Click
       end
       object MenuItem30: TMenuItem
         Caption = 'E&dit script'
+        OnClick = MenuItem30Click
       end
       object MenuItem29: TMenuItem
         Caption = 'E&rase script'
+        OnClick = MenuItem29Click
       end
       object Separator3: TMenuItem
         Caption = '-'
@@ -211,6 +224,7 @@ object Form1: TForm1
       object MenuItem12: TMenuItem
         Caption = '&Run script'
         ShortCut = 123
+        OnClick = MenuItem12Click
       end
     end
     object MenuItem8: TMenuItem
@@ -218,19 +232,23 @@ object Form1: TForm1
       object MenuItem22: TMenuItem
         Caption = '&Clear screen'
         ShortCut = 119
+        OnClick = MenuItem22Click
       end
       object MenuItem28: TMenuItem
         Caption = 'S&wap echo mode'
         ShortCut = 120
+        OnClick = MenuItem28Click
       end
       object Separator11: TMenuItem
         Caption = '-'
       end
       object MenuItem55: TMenuItem
         Caption = 'R&ead data from serial port..'
+        OnClick = MenuItem55Click
       end
       object MenuItem53: TMenuItem
         Caption = 'W&rite data to serial port..'
+        OnClick = MenuItem53Click
       end
       object Separator12: TMenuItem
         Caption = '-'
@@ -238,51 +256,59 @@ object Form1: TForm1
       object MenuItem51: TMenuItem
         Caption = '&Read data from remote register(s)..'
         ShortCut = 32850
+        OnClick = MenuItem51Click
       end
       object MenuItem50: TMenuItem
         Caption = '&Write data to remote register(s)..'
         ShortCut = 32855
+        OnClick = MenuItem50Click
       end
       object Separator2: TMenuItem
         Caption = '-'
       end
       object MenuItem16: TMenuItem
         Caption = '&Start &gateway mode..'
+        OnClick = MenuItem16Click
       end
       object MenuItem19: TMenuItem
         Caption = 'Start &client mode..'
+        OnClick = MenuItem19Click
       end
       object Separator4: TMenuItem
         Caption = '-'
       end
       object MenuItem24: TMenuItem
         Caption = 'Show all &constants'
+        OnClick = MenuItem24Click
       end
       object MenuItem25: TMenuItem
         Caption = 'Show all &variables'
-      end
-      object Separator5: TMenuItem
-        Caption = '-'
+        OnClick = MenuItem25Click
       end
     end
     object MenuItem9: TMenuItem
       Caption = '&Utilities'
       object MenuItem21: TMenuItem
         Caption = '&ASCII table'
+        OnClick = MenuItem21Click
       end
       object MenuItem27: TMenuItem
         Caption = '&Date and time'
+        OnClick = MenuItem27Click
       end
       object MenuItem26: TMenuItem
         Caption = '&Number converter'
+        OnClick = MenuItem26Click
       end
       object MenuItem54: TMenuItem
         Caption = '&Mini serial console..'
         ShortCut = 118
+        OnClick = MenuItem54Click
       end
       object MenuItem52: TMenuItem
         Caption = '&Variable monitor..'
         ShortCut = 32845
+        OnClick = MenuItem52Click
       end
     end
     object MenuItem3: TMenuItem
@@ -290,16 +316,23 @@ object Form1: TForm1
       object MenuItem6: TMenuItem
         Caption = '&Commands'
         ShortCut = 112
+        OnClick = MenuItem6Click
       end
       object MenuItem56: TMenuItem
         Caption = '&Online wiki'
+        OnClick = MenuItem56Click
       end
       object Separator1: TMenuItem
         Caption = '-'
       end
       object MenuItem7: TMenuItem
         Caption = '&About'
+        OnClick = MenuItem7Click
       end
     end
+  end
+  object ImageList1: TImageList
+    Left = 176
+    Top = 48
   end
 end

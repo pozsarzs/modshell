@@ -60,7 +60,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir);../_inc;../_inc/commands;../_inc/modbus;../_inc/ports"/>
-      <OtherUnitFiles Value="../_ppu"/>
+      <OtherUnitFiles Value="../_ppu;../synapse;../convert"/>
       <UnitOutputDirectory Value="../_lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
