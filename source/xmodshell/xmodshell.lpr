@@ -23,8 +23,11 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, frmmain
-  { you can add units after this };
+  Dialogs,
+  Forms,
+  crt,
+  sysutils,
+  frmmain;
 var
   b: byte;
   fn: string;

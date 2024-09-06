@@ -3,7 +3,8 @@ object Form1: TForm1
   Height = 482
   Top = 112
   Width = 701
-  Caption = 'Form1'
+  ActiveControl = Memo1
+  Caption = 'XModShell'
   ClientHeight = 457
   ClientWidth = 701
   Menu = MainMenu1
@@ -67,20 +68,231 @@ object Form1: TForm1
     Top = 48
     object MenuItem1: TMenuItem
       Caption = '&File'
-    end
-    object MenuItem4: TMenuItem
-      Caption = '&Edit'
+      object MenuItem20: TMenuItem
+        Caption = '&Exit'
+        ShortCut = 121
+      end
     end
     object MenuItem5: TMenuItem
-      Caption = '&View'
+      Caption = '&Project'
+      object MenuItem37: TMenuItem
+        Caption = '&Load configuration..'
+        ShortCut = 114
+        OnClick = MenuItem37Click
+      end
+      object MenuItem36: TMenuItem
+        Caption = '&Save configuration..'
+        ShortCut = 113
+        OnClick = MenuItem36Click
+      end
+      object Separator10: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem17: TMenuItem
+        Caption = 'Project &name'
+        object MenuItem38: TMenuItem
+          Caption = '&Set project name..'
+          OnClick = MenuItem38Click
+        end
+        object MenuItem42: TMenuItem
+          Caption = '&Reset project name'
+          OnClick = MenuItem42Click
+        end
+        object MenuItem46: TMenuItem
+          Caption = 'Sho&w project name'
+        end
+      end
+      object MenuItem33: TMenuItem
+        Caption = 'Devices'
+        object MenuItem39: TMenuItem
+          Caption = '&Set devices..'
+          OnClick = MenuItem39Click
+        end
+        object MenuItem43: TMenuItem
+          Caption = '&Reset devices..'
+          OnClick = MenuItem43Click
+        end
+        object MenuItem47: TMenuItem
+          Caption = 'Sho&w devices'
+          OnClick = MenuItem47Click
+        end
+      end
+      object MenuItem34: TMenuItem
+        Caption = 'Protocols'
+        object MenuItem40: TMenuItem
+          Caption = '&Set protocols..'
+          OnClick = MenuItem40Click
+        end
+        object MenuItem44: TMenuItem
+          Caption = '&Reset protocols..'
+          OnClick = MenuItem44Click
+        end
+        object MenuItem48: TMenuItem
+          Caption = 'Sho&w protocols'
+          OnClick = MenuItem48Click
+        end
+      end
+      object MenuItem35: TMenuItem
+        Caption = 'Connections'
+        object MenuItem41: TMenuItem
+          Caption = '&Set connections..'
+          OnClick = MenuItem41Click
+        end
+        object MenuItem45: TMenuItem
+          Caption = '&Reset connections..'
+          OnClick = MenuItem45Click
+        end
+        object MenuItem49: TMenuItem
+          Caption = 'Sho&w connections'
+          OnClick = MenuItem49Click
+        end
+      end
+      object Separator9: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem23: TMenuItem
+        Caption = 'Set console &colors..'
+        OnClick = MenuItem23Click
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = '&Registers'
+      object MenuItem13: TMenuItem
+        Caption = '&Load registers..'
+        ShortCut = 116
+      end
+      object MenuItem14: TMenuItem
+        Caption = '&Save registers..'
+        ShortCut = 115
+      end
+      object Separator7: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem32: TMenuItem
+        Caption = 'I&mport registers..'
+        ShortCut = 32841
+      end
+      object MenuItem31: TMenuItem
+        Caption = 'E&xport registers..'
+        ShortCut = 32837
+      end
+      object Separator8: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem15: TMenuItem
+        Caption = '&Dump registers..'
+        ShortCut = 117
+      end
     end
     object MenuItem2: TMenuItem
-      Caption = '&Command'
+      Caption = '&Script'
+      object MenuItem10: TMenuItem
+        Caption = '&Load script..'
+      end
+      object MenuItem11: TMenuItem
+        Caption = '&Save script..'
+      end
+      object Separator6: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem18: TMenuItem
+        Caption = 'Lis&t script'
+        ShortCut = 122
+      end
+      object MenuItem30: TMenuItem
+        Caption = 'E&dit script'
+      end
+      object MenuItem29: TMenuItem
+        Caption = 'E&rase script'
+      end
+      object Separator3: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem12: TMenuItem
+        Caption = '&Run script'
+        ShortCut = 123
+      end
+    end
+    object MenuItem8: TMenuItem
+      Caption = '&Operation'
+      object MenuItem22: TMenuItem
+        Caption = '&Clear screen'
+        ShortCut = 119
+      end
+      object MenuItem28: TMenuItem
+        Caption = 'S&wap echo mode'
+        ShortCut = 120
+      end
+      object Separator11: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem55: TMenuItem
+        Caption = 'R&ead data from serial port..'
+      end
+      object MenuItem53: TMenuItem
+        Caption = 'W&rite data to serial port..'
+      end
+      object Separator12: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem51: TMenuItem
+        Caption = '&Read data from remote register(s)..'
+        ShortCut = 32850
+      end
+      object MenuItem50: TMenuItem
+        Caption = '&Write data to remote register(s)..'
+        ShortCut = 32855
+      end
+      object Separator2: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem16: TMenuItem
+        Caption = '&Start &gateway mode..'
+      end
+      object MenuItem19: TMenuItem
+        Caption = 'Start &client mode..'
+      end
+      object Separator4: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem24: TMenuItem
+        Caption = 'Show all &constants'
+      end
+      object MenuItem25: TMenuItem
+        Caption = 'Show all &variables'
+      end
+      object Separator5: TMenuItem
+        Caption = '-'
+      end
+    end
+    object MenuItem9: TMenuItem
+      Caption = '&Utilities'
+      object MenuItem21: TMenuItem
+        Caption = '&ASCII table'
+      end
+      object MenuItem27: TMenuItem
+        Caption = '&Date and time'
+      end
+      object MenuItem26: TMenuItem
+        Caption = '&Number converter'
+      end
+      object MenuItem54: TMenuItem
+        Caption = '&Mini serial console..'
+        ShortCut = 118
+      end
+      object MenuItem52: TMenuItem
+        Caption = '&Variable monitor..'
+        ShortCut = 32845
+      end
     end
     object MenuItem3: TMenuItem
       Caption = '&Help'
       object MenuItem6: TMenuItem
-        Caption = '&Content'
+        Caption = '&Commands'
+        ShortCut = 112
+      end
+      object MenuItem56: TMenuItem
+        Caption = '&Online wiki'
       end
       object Separator1: TMenuItem
         Caption = '-'

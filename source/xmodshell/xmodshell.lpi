@@ -59,9 +59,9 @@
       <Filename Value="xmodshell"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="../modshell;../modshell/commands;../modshell/modbus;../modshell/ports"/>
-      <UnitOutputDirectory Value="../lib/$(TargetCPU)-$(TargetOS)"/>
+      <IncludeFiles Value="$(ProjOutDir);../_inc;../_inc/commands;../_inc/modbus;../_inc/ports"/>
+      <OtherUnitFiles Value="../_ppu"/>
+      <UnitOutputDirectory Value="../_lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
       <Options>
