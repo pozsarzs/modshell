@@ -22,6 +22,16 @@ begin
   result := 0;
   getdate(y, mh, d, w);
   gettime(h, m, s, cs);
-  writeln(inttostr(y) + '.' + inttostr(mh) + '.' + inttostr(d)+ '. ' +
-  addzero(h) + ':' + addzero(m) + ':' + addzero(s));
+  {$IFNDEF X}
+    writeln(inttostr(y) + '.' + addzero(mh) + '.' + addzero(d)+ '. ' +
+      addzero(h) + ':' + addzero(m) + ':' + addzero(s));
+  {$ELSE}
+    Form1.Memo1.Lines.Add(inttostr(y) + '.' + addzero(mh) + '.' + addzero(d)+ '. ' +
+      addzero(h) + ':' + addzero(m) + ':' + addzero(s));
+  {$ENDIF}
+  {$IFNDEF X}
+    writeln;
+  {$ELSE}
+    Form1.Memo1.Lines.Add('');
+  {$ENDIF}
 end;

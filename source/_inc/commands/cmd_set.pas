@@ -24,7 +24,7 @@
 }
 
 // COMMAND 'SET'
-function cmd_set(p1, p2, p3, p4, p5, p6, p7: string):byte;
+function cmd_set(p1, p2, p3, p4, p5, p6, p7: string): byte;
 var
   i1: integer; // parameters in other type
   pr: byte;

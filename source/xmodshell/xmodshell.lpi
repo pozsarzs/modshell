@@ -17,7 +17,7 @@
     </General>
     <i18n>
       <EnableI18N Value="True"/>
-      <OutDir Value="../po"/>
+      <OutDir Value="../_po"/>
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>

@@ -151,6 +151,7 @@ type
     procedure MenuItem43Click(Sender: TObject);
     procedure MenuItem44Click(Sender: TObject);
     procedure MenuItem45Click(Sender: TObject);
+    procedure MenuItem46Click(Sender: TObject);
     procedure MenuItem47Click(Sender: TObject);
     procedure MenuItem48Click(Sender: TObject);
     procedure MenuItem49Click(Sender: TObject);
@@ -189,7 +190,7 @@ function intisitconstant(s: string): integer; forward;
 function intisitvariable(s: string): integer; forward;
 function isitconstant(s: string): string; forward;
 function isitvariable(s: string): string; forward;
-// procedure interpreter(f: string); forward;
+procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
@@ -254,9 +255,22 @@ procedure version(h: boolean); forward;
 {$I cmd_wrte.pas}
 
 {$I parsing.pas}
+{$I intrprtr.pas}
 {$I version.pas}
 
 { TForm1 }
+
+// REMOVE AMPERSAND AND DOT SIGNS
+function rmampdot(s: string): string;
+var
+  b: byte;
+  t: string = '';
+begin
+  for b := 1 to 255 do
+    if (s[b] <> '&') and (s[b] <> '.') then t := t + s[b];
+  result := t;
+
+end;
 
 // -- MAIN MENU/File -----------------------------------------------------------
 
@@ -283,14 +297,23 @@ end;
 // RUN COMMAND 'set prj ...' WITH InputBox
 procedure TForm1.MenuItem38Click(Sender: TObject);
 begin
-
+  parsingcommands(COMMANDS[8] + ' prj ' + InputBox(rmampdot(MenuItem38.Caption), '', proj));
+  Form1.Caption := PRGNAME + ' | ' + proj;
 end;
 
 // RUN COMMAND 'reset prj'
 procedure TForm1.MenuItem42Click(Sender: TObject);
 begin
-
+  // ...
+  Form1.Caption := PRGNAME + ' | ' + proj;
 end;
+
+// RUN COMMAND 'get prj'
+procedure TForm1.MenuItem46Click(Sender: TObject);
+begin
+  parsingcommands(COMMANDS[2] + ' prj');
+end;
+
 
 // RUN COMMAND 'set dev? ...' WITH DIALOG
 procedure TForm1.MenuItem39Click(Sender: TObject);
@@ -310,7 +333,7 @@ var
   b: byte;
 begin
   for b := 0 to 7 do
-    parsingcommands(COMMANDS[2] + 'dev' + inttostr(b));
+    parsingcommands(COMMANDS[2] + ' dev' + inttostr(b));
 end;
 // RUN COMMAND 'set pro? ...' WITH DIALOG
 procedure TForm1.MenuItem40Click(Sender: TObject);
@@ -330,7 +353,7 @@ var
   b: byte;
 begin
   for b := 0 to 7 do
-    parsingcommands(COMMANDS[2] + 'pro' + inttostr(b));
+    parsingcommands(COMMANDS[2] + ' pro' + inttostr(b));
 end;
 
 // RUN COMMAND 'set con? ...' WITH DIALOG
@@ -351,7 +374,7 @@ var
   b: byte;
 begin
   for b := 0 to 7 do
-    parsingcommands(COMMANDS[2] + 'con' + inttostr(b));
+    parsingcommands(COMMANDS[2] + ' con' + inttostr(b));
 end;
 
 // RUN COMMAND 'color ...' WITH InputBox
@@ -549,7 +572,8 @@ end;
 // OnCreate event
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-
+  // ...
+  Form1.Caption := PRGNAME + ' | ' + proj;
 end;
 
 end.
