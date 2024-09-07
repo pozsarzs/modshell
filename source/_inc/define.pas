@@ -47,3 +47,10 @@
 {$ELSE}
   {$DEFINE SLASH := #92}
 {$ENDIF}
+
+{$IFDEF UNIX}
+  {$DEFINE BROWSER := 'xdg-open'}
+{$ENDIF}
+{$IFDEF WINDOWS}
+  {$DEFINE BROWSER := 'rundll32.exe url.dll,FileProtocolHandler'}
+{$ENDIF}

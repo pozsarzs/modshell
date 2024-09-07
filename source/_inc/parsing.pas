@@ -99,7 +99,14 @@ begin
                // ver
            11: exitcode := cmd_write(splitted[1], splitted[2], splitted[3], splitted[4]);
                // write con? coil|hreg ADDRESS [COUNT]
-           12: begin clrscr; exitcode := 0; end;
+           12: begin
+                 {$IFNDEF X}
+                   clrscr;
+                 {$ELSE}
+                   Form1.Memo1.Lines.Clear;
+                 {$ENDIF}
+                 exitcode := 0;
+               end;
                // cls
            13: exitcode := cmd_savecfg(splitted[1]);
                // savecfg PATH_AND_FILENAME

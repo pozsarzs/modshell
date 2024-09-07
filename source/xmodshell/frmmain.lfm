@@ -51,19 +51,33 @@ object Form1: TForm1
     WordWrap = False
   end
   object Edit1: TEdit
-    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Control = Label1
+    AnchorSideLeft.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = StatusBar1
-    Left = 2
+    Left = 51
     Height = 34
     Top = 396
-    Width = 697
+    Width = 648
     Anchors = [akLeft, akRight, akBottom]
+    BorderSpacing.Left = 4
     BorderSpacing.Bottom = 6
     BorderSpacing.Around = 2
     TabOrder = 3
     Text = 'Edit1'
+  end
+  object Label1: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Edit1
+    AnchorSideTop.Side = asrCenter
+    Left = 2
+    Height = 17
+    Top = 405
+    Width = 43
+    BorderSpacing.Left = 2
+    Caption = 'Label1'
+    ParentColor = False
   end
   object MainMenu1: TMainMenu
     Images = ImageList1
@@ -293,13 +307,21 @@ object Form1: TForm1
       object MenuItem21: TMenuItem
         Caption = '&ASCII table'
         OnClick = MenuItem21Click
+        object MenuItem59: TMenuItem
+          Caption = '&Decimal'
+          OnClick = MenuItem59Click
+        end
+        object MenuItem60: TMenuItem
+          Caption = '&Hexadecimal'
+          OnClick = MenuItem60Click
+        end
       end
       object MenuItem27: TMenuItem
         Caption = '&Date and time'
         OnClick = MenuItem27Click
       end
       object MenuItem26: TMenuItem
-        Caption = '&Number converter'
+        Caption = '&Number converter..'
         OnClick = MenuItem26Click
       end
       object MenuItem54: TMenuItem
@@ -320,9 +342,20 @@ object Form1: TForm1
         ShortCut = 112
         OnClick = MenuItem6Click
       end
+      object Separator5: TMenuItem
+        Caption = '-'
+      end
       object MenuItem56: TMenuItem
         Caption = '&Online wiki'
         OnClick = MenuItem56Click
+      end
+      object MenuItem57: TMenuItem
+        Caption = 'Homepage'
+        OnClick = MenuItem57Click
+      end
+      object MenuItem58: TMenuItem
+        Caption = 'Github'
+        OnClick = MenuItem58Click
       end
       object Separator1: TMenuItem
         Caption = '-'

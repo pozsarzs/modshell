@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | cmd_date.pas                                                             | }
-{ | command 'date'                                                           | }
+{ | fllprmpt.pas                                                             | }
+{ | a function                                                               | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -13,20 +13,8 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-// COMMAND 'DATE'
-function cmd_date: byte;
-var
-  y, mh, d, w, h, m, s, cs: word;
-
+// INSERT PROJECT NAME INTO PROMPT
+function fullprompt: string;
 begin
-  result := 0;
-  getdate(y, mh, d, w);
-  gettime(h, m, s, cs);
-  {$IFNDEF X}
-    writeln(inttostr(y) + '.' + addzero(mh) + '.' + addzero(d)+ '. ' +
-      addzero(h) + ':' + addzero(m) + ':' + addzero(s));
-  {$ELSE}
-    Form1.Memo1.Lines.Add(inttostr(y) + '.' + addzero(mh) + '.' + addzero(d)+ '. ' +
-      addzero(h) + ':' + addzero(m) + ':' + addzero(s));
-  {$ENDIF}
+  result := stringreplace(PROMPT, '_' , proj, [rfReplaceAll]);
 end;

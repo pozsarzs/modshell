@@ -42,10 +42,5 @@ begin
       Memo1.Lines.Add(MSG98 + {$I %FPCTARGETCPU%});
     end;
   {$ENDIF}
-  {$IFNDEF X}
-    writeln;
-  {$ELSE}
-    Form1.Memo1.Lines.Add('');
-  {$ENDIF}
   if h then quit(0, false, '');
 end;

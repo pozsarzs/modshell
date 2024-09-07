@@ -399,9 +399,4 @@ begin
      {$ENDIF}
     end;
   end;
-  {$IFNDEF X}
-    writeln;
-  {$ELSE}
-    Form1.Memo1.Lines.Add('');
-  {$ENDIF}
 end;

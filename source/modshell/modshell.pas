@@ -116,19 +116,13 @@ procedure version(h: boolean); forward;
 {$I cmd_wrte.pas}
 
 {$I parsing.pas}
+{$I fllprmpt.pas}
 
 // SIMPLE COMMAND LINE
 procedure simplecommandline;
 var
   command: string;
   c: char;
-
-  // INSERT PROJECT NAME INTO PROMPT
-  function fullprompt: string;
-  begin
-    result := stringreplace(PROMPT, '_' , proj, [rfReplaceAll]);
-  end;
-
 begin
   if appmode = 0 then writeln(PRGNAME + ' v' + PRGVERSION);
   repeat

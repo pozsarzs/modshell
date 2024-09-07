@@ -24,6 +24,7 @@ uses
   Graphics,
   Dialogs,
   Menus,
+  Process,
   ComCtrls,
   StdCtrls,
   ExtCtrls,
@@ -100,6 +101,8 @@ type
     MenuItem54: TMenuItem;
     MenuItem55: TMenuItem;
     MenuItem56: TMenuItem;
+    MenuItem57: TMenuItem;
+    MenuItem58: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
@@ -111,6 +114,7 @@ type
     Separator2: TMenuItem;
     Separator3: TMenuItem;
     Separator4: TMenuItem;
+    Separator5: TMenuItem;
     Separator6: TMenuItem;
     Separator7: TMenuItem;
     Separator8: TMenuItem;
@@ -118,6 +122,7 @@ type
     StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
     ImageList1: TImageList;
+    Label1: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure MenuItem10Click(Sender: TObject);
     procedure MenuItem11Click(Sender: TObject);
@@ -162,6 +167,10 @@ type
     procedure MenuItem54Click(Sender: TObject);
     procedure MenuItem55Click(Sender: TObject);
     procedure MenuItem56Click(Sender: TObject);
+    procedure MenuItem57Click(Sender: TObject);
+    procedure MenuItem58Click(Sender: TObject);
+    procedure MenuItem59Click(Sender: TObject);
+    procedure MenuItem60Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
   private
@@ -170,6 +179,7 @@ type
 
 var
   Form1: TForm1;
+  menucmd: string;
 
 {$DEFINE X}
 
@@ -255,6 +265,7 @@ procedure version(h: boolean); forward;
 {$I cmd_wrte.pas}
 
 {$I parsing.pas}
+{$I fllprmpt.pas}
 {$I intrprtr.pas}
 {$I version.pas}
 
@@ -280,6 +291,11 @@ begin
   parsingcommands(COMMANDS[1]);
 end;
 
+procedure TForm1.MenuItem21Click(Sender: TObject);
+begin
+
+end;
+
 // -- MAIN MENU/Project --------------------------------------------------------
 
 // RUN COMMAND 'loadcfg' WITH TOpenDialog
@@ -299,6 +315,7 @@ procedure TForm1.MenuItem38Click(Sender: TObject);
 begin
   parsingcommands(COMMANDS[8] + ' prj ' + InputBox(rmampdot(MenuItem38.Caption), '', proj));
   Form1.Caption := PRGNAME + ' | ' + proj;
+  Label1.Caption := fullprompt;
 end;
 
 // RUN COMMAND 'reset prj'
@@ -306,6 +323,7 @@ procedure TForm1.MenuItem42Click(Sender: TObject);
 begin
   // ...
   Form1.Caption := PRGNAME + ' | ' + proj;
+  Label1.Caption := fullprompt;
 end;
 
 // RUN COMMAND 'get prj'
@@ -517,16 +535,28 @@ end;
 
 // -- MAIN MENU/Utilities ------------------------------------------------------
 
-// RUN COMMAND 'ascii'
-procedure TForm1.MenuItem21Click(Sender: TObject);
+// RUN COMMAND 'ascii dec'
+procedure TForm1.MenuItem59Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[79]);
+  menucmd := COMMANDS[79] + ' dec';
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
+end;
+
+// RUN COMMAND 'ascii hex'
+procedure TForm1.MenuItem60Click(Sender: TObject);
+begin
+  menucmd := COMMANDS[79] + ' hex';
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
 end;
 
 // RUN COMMAND 'date'
 procedure TForm1.MenuItem27Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[9]);
+  menucmd := COMMANDS[9];
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
 end;
 
 // RUN COMMAND 'conv' with DIALOG
@@ -552,19 +582,74 @@ end;
 // RUN COMMAND 'help'
 procedure TForm1.MenuItem6Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[3]);
+  menucmd := COMMANDS[3];
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
 end;
 
 // OPEN ONLINE WIKI
 procedure TForm1.MenuItem56Click(Sender: TObject);
+var
+  p: TProcess;
 begin
+  p := TProcess.Create(Nil);
+  if length(BROWSER) > 0 then
+  begin
+    p.Executable := BROWSER;
+    p.Parameters.Add('https://github.com/pozsarzs/modshell/wiki');
+    try
+      p.Execute;
+    except
+      ShowMessage(ERR38);
+    end;
+  end;
+  p.Free;
+end;
 
+// OPEN HOMEPAGE
+procedure TForm1.MenuItem57Click(Sender: TObject);
+var
+  p: TProcess;
+begin
+  p := TProcess.Create(Nil);
+  if length(BROWSER) > 0 then
+  begin
+    p.Executable := BROWSER;
+    p.Parameters.Add('https://pozsarzs.github.io/modshell/');
+    try
+      p.Execute;
+    except
+      ShowMessage(ERR38);
+    end;
+  end;
+  p.Free;
+end;
+
+// OPEN GITHUB PROJECT PAGE
+procedure TForm1.MenuItem58Click(Sender: TObject);
+var
+  p: TProcess;
+begin
+  p := TProcess.Create(Nil);
+  if length(BROWSER) > 0 then
+  begin
+    p.Executable := BROWSER;
+    p.Parameters.Add('https://github.com/pozsarzs/modshell');
+    try
+      p.Execute;
+    except
+      ShowMessage(ERR38);
+    end;
+  end;
+  p.Free;
 end;
 
 // RUN COMMAND 'ver'
 procedure TForm1.MenuItem7Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[10]);
+  menucmd := COMMANDS[10];
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
 end;
 
 // -- END OF THE MAIN MENU -----------------------------------------------------
@@ -574,6 +659,7 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
   // ...
   Form1.Caption := PRGNAME + ' | ' + proj;
+  Label1.Caption := fullprompt;
 end;
 
 end.

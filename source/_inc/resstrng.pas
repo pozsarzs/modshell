@@ -111,6 +111,7 @@ resourcestring
   ERR35 = 'No such label: ';
   ERR36 = 'Cannot write log record to ';
   ERR37 = 'Cannot save script to ';
+  ERR38 = 'Cannot run default webbrowser!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
