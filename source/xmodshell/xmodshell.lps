@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <TopLine Value="12"/>
         <CursorPos Y="15"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -20,9 +20,9 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="542"/>
-        <CursorPos X="14" Y="543"/>
-        <UsageCount Value="43"/>
+        <TopLine Value="648"/>
+        <CursorPos X="23" Y="665"/>
+        <UsageCount Value="44"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -128,12 +128,22 @@
         <CursorPos X="3" Y="74"/>
         <UsageCount Value="10"/>
       </Unit>
+      <Unit>
+        <Filename Value="../_inc/commands/cmd_var.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="68"/>
+        <CursorPos X="24" Y="73"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../_inc/commands/cmd_cons.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="88"/>
+        <CursorPos X="18" Y="93"/>
+        <UsageCount Value="10"/>
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="331" Column="20" TopLine="320"/>
-      </Position>
+    <JumpHistory HistoryIndex="28">
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="372" Column="20" TopLine="351"/>
@@ -248,7 +258,7 @@
       </Position>
       <Position>
         <Filename Value="frmmain.pas"/>
-        <Caret Line="543" Column="14" TopLine="542"/>
+        <Caret Line="543" Column="14" TopLine="523"/>
       </Position>
     </JumpHistory>
     <RunParams>

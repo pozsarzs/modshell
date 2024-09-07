@@ -322,5 +322,3 @@ begin
   saveconfiguration(BASENAME,'.ini');
   quit(0, false, '');
 end.
-
-define label (only in script)

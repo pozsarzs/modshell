@@ -70,7 +70,7 @@ var
   b, bb: byte;
   l: byte;
   line: byte;
-  s1, s2: string;         // parameters in other type
+  s, s1, s2: string;      // parameters in other type
   valid: boolean = true;
 
 begin
@@ -82,17 +82,24 @@ begin
     for l := 0 to VARBUFFSIZE-1 do
       if (length(vars[l].vname) > 0) and not vars[l].vreadonly then
       begin
-        xywrite(2, wherey, false, '$' + vars[l].vname);
-        xywrite(20, wherey, false, vars[l].vvalue);
-        writeln;
-        inc(line);
-        if line >= (termheight - 4) then
-        begin
-          write(MSG23); readkey;
-          write(#13); clreol;
+        {$IFNDEF X}
+          xywrite(2, wherey, false, '$' + vars[l].vname);
+          xywrite(20, wherey, false, vars[l].vvalue);
           writeln;
-          line := 0;
-        end;
+          inc(line);
+          if line >= (termheight - 4) then
+          begin
+            write(MSG23); readkey;
+            write(#13); clreol;
+            writeln;
+            line := 0;
+          end;
+        {$ELSE}
+          s := '$' + vars[l].vname;
+          for b := 1 to 28 - length(s) do s := s + ' ';
+          s := s + '$' + vars[l].vvalue;
+          Form1.Memo1.Lines.Add(s);
+        {$ENDIF}
       end;        
     exit;
   end;
@@ -113,7 +120,12 @@ begin
     for bb := 123 to 255 do
       if s1[b] = chr(bb) then valid := false;
   end;
-  if not valid then writeln(ERR15) else
+  if not valid then
+    {$IFNDEF X}
+      writeln(ERR15) else
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR15) else
+    {$ENDIF}
   begin
     // COMPARING EXISTING NAMES WITH THE NEW ONE
     valid := true;
@@ -121,7 +133,11 @@ begin
       if vars[l].vname = lowercase(p1) then valid := false;
     if not valid then
     begin
-      writeln(ERR17);
+      {$IFNDEF X}
+        writeln(ERR17);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR17);
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -135,7 +151,11 @@ begin
       end;
     if not valid then
     begin
-      writeln(ERR16);
+      {$IFNDEF X}
+        writeln(ERR16);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR16);
+      {$ENDIF}
       result := 1;
     exit;
     end;

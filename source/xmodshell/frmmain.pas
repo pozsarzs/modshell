@@ -524,13 +524,17 @@ end;
 // RUN COMMAND 'const'
 procedure TForm1.MenuItem24Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[66]);
+  menucmd := COMMANDS[66];
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
 end;
 
 // RUN COMMAND 'var'
 procedure TForm1.MenuItem25Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[20]);
+  menucmd := COMMANDS[20];
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
 end;
 
 // -- MAIN MENU/Utilities ------------------------------------------------------
@@ -658,6 +662,7 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   // ...
+  setdefaultconstants;
   Form1.Caption := PRGNAME + ' | ' + proj;
   Label1.Caption := fullprompt;
 end;
