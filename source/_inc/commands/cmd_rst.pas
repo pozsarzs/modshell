@@ -30,10 +30,16 @@ var
   procedure showvalid1stparameters;
   var
     b: byte;
+    s: string;
   begin
-    write(NUM1 + MSG05); // What is the 1st parameter?
-    for b := 0 to 2 do write(' ' + PREFIX[b] + '[0-7]');
-    writeln(' ' + PREFIX[3]);
+    s := NUM1 + MSG05; // What is the 1st parameter?
+    for b := 0 to 2 do s := s + ' ' + PREFIX[b] + '[0-7]';
+    s := s + ' ' + PREFIX[3];
+    {$IFNDEF X}
+      writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
   end;
 
 begin
@@ -41,7 +47,11 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    writeln(ERR05); // Parameter required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameter required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -77,9 +87,15 @@ begin
       end
     else
       case pr of
-        0: writeln(ERR01); // Device number must be 0-7!
-        1: writeln(ERR02); // Protocol number must be 0-7!
-        2: writeln(ERR03); // Connection number must be 0-7!
+        {$IFNDEF X}
+          0: writeln(ERR01); // Device number must be 0-7!
+          1: writeln(ERR02); // Protocol number must be 0-7!
+          2: writeln(ERR03); // Connection number must be 0-7!
+        {$ELSE}
+          0: Form1.Memo1.Lines.Add(ERR01);
+          1: Form1.Memo1.Lines.Add(ERR02);
+          2: Form1.Memo1.Lines.Add(ERR03);
+        {$ENDIF}
       end;
   end else
   begin

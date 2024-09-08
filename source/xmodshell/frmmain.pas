@@ -134,7 +134,6 @@ type
     procedure MenuItem18Click(Sender: TObject);
     procedure MenuItem19Click(Sender: TObject);
     procedure MenuItem20Click(Sender: TObject);
-    procedure MenuItem21Click(Sender: TObject);
     procedure MenuItem22Click(Sender: TObject);
     procedure MenuItem23Click(Sender: TObject);
     procedure MenuItem24Click(Sender: TObject);
@@ -288,12 +287,9 @@ end;
 // RUN command 'exit'
 procedure TForm1.MenuItem20Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[1]);
-end;
-
-procedure TForm1.MenuItem21Click(Sender: TObject);
-begin
-
+  menucmd := COMMANDS[1];
+  Memo1.Lines.Add(fullprompt + menucmd);
+  // ...
 end;
 
 // -- MAIN MENU/Project --------------------------------------------------------
@@ -313,7 +309,9 @@ end;
 // RUN COMMAND 'set prj ...' WITH InputBox
 procedure TForm1.MenuItem38Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[8] + ' prj ' + InputBox(rmampdot(MenuItem38.Caption), '', proj));
+  menucmd := COMMANDS[8] + ' prj ' + InputBox(rmampdot(MenuItem38.Caption), '', proj);
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
   Form1.Caption := PRGNAME + ' | ' + proj;
   Label1.Caption := fullprompt;
 end;
@@ -321,7 +319,9 @@ end;
 // RUN COMMAND 'reset prj'
 procedure TForm1.MenuItem42Click(Sender: TObject);
 begin
-  // ...
+  menucmd := COMMANDS[7] + ' prj';
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
   Form1.Caption := PRGNAME + ' | ' + proj;
   Label1.Caption := fullprompt;
 end;
@@ -329,7 +329,9 @@ end;
 // RUN COMMAND 'get prj'
 procedure TForm1.MenuItem46Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[2] + ' prj');
+  menucmd := COMMANDS[2] + ' prj';
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
 end;
 
 
@@ -350,8 +352,10 @@ procedure TForm1.MenuItem47Click(Sender: TObject);
 var
   b: byte;
 begin
+  menucmd := COMMANDS[2] + ' dev';
+  Memo1.Lines.Add(fullprompt + menucmd+ '[0-7]');
   for b := 0 to 7 do
-    parsingcommands(COMMANDS[2] + ' dev' + inttostr(b));
+    parsingcommands(menucmd + inttostr(b));
 end;
 // RUN COMMAND 'set pro? ...' WITH DIALOG
 procedure TForm1.MenuItem40Click(Sender: TObject);
@@ -370,8 +374,10 @@ procedure TForm1.MenuItem48Click(Sender: TObject);
 var
   b: byte;
 begin
+  menucmd := COMMANDS[2] + ' pro';
+  Memo1.Lines.Add(fullprompt + menucmd+ '[0-7]');
   for b := 0 to 7 do
-    parsingcommands(COMMANDS[2] + ' pro' + inttostr(b));
+    parsingcommands(menucmd + inttostr(b));
 end;
 
 // RUN COMMAND 'set con? ...' WITH DIALOG
@@ -391,8 +397,10 @@ procedure TForm1.MenuItem49Click(Sender: TObject);
 var
   b: byte;
 begin
+  menucmd := COMMANDS[2] + ' con';
+  Memo1.Lines.Add(fullprompt + menucmd+ '[0-7]');
   for b := 0 to 7 do
-    parsingcommands(COMMANDS[2] + ' con' + inttostr(b));
+    parsingcommands(menucmd + inttostr(b));
 end;
 
 // RUN COMMAND 'color ...' WITH InputBox
@@ -450,19 +458,23 @@ end;
 // RUN COMMAND 'list'
 procedure TForm1.MenuItem18Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[41]);
+  menucmd := COMMANDS[41];
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
 end;
 
-// RUN COMMAND 'edit'
+// RUN COMMAND 'edit' WITH DIALOG
 procedure TForm1.MenuItem30Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[91]);
+
 end;
 
 // RUN COMMAND 'erase'
 procedure TForm1.MenuItem29Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[92]);
+  menucmd := COMMANDS[92];
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
 end;
 
 // RUN COMMAND 'run'
@@ -479,10 +491,12 @@ begin
   parsingcommands(COMMANDS[12]);
 end;
 
-// RUN COMMAND 'echo'
+// RUN COMMAND 'echo swap'
 procedure TForm1.MenuItem28Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[38]);
+  menucmd := COMMANDS[38] + ' swap';
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
 end;
 
 // RUN COMMAND 'serread' with DIALOG

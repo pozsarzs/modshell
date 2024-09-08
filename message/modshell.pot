@@ -369,6 +369,10 @@ msgstr ""
 msgid "Cannot save script to "
 msgstr ""
 
+#: modshell:err38
+msgid "Cannot run default webbrowser!"
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""

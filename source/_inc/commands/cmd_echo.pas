@@ -22,13 +22,18 @@
 function cmd_echo(p1: string): byte;
 var
   ea: byte;
+  s: string = '';
   valid: boolean;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    writeln(ECHO_ARG[echo]);
+    {$IFNDEF X}
+      writeln(ECHO_ARG[echo]);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ECHO_ARG[echo]);
+    {$ENDIF}
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -41,11 +46,15 @@ begin
     end;
   if not valid then
   begin
-    write(NUM1 + MSG05); // What is the 1st parameter?
-    for ea := 0 to 3 do write(' ' + ECHO_ARG[ea]);
-     writeln;
-     result := 1;
-     exit;
+    s := NUM1 + MSG05; // What is the 1st parameter?
+    for ea := 0 to 3 do s := s + ' ' + ECHO_ARG[ea];
+    {$IFNDEF X}
+      writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
+    result := 1;
+    exit;
   end;
   // PRIMARY MISSION
   if ea = 3 then
@@ -53,5 +62,9 @@ begin
     inc(echo);
     if echo = 3 then echo := 0;
   end else echo := ea;
-  writeln(MSG28 + ECHO_ARG[echo]);
+  {$IFNDEF X}
+    writeln(MSG28 + ECHO_ARG[echo]);
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG28 + ECHO_ARG[echo]);
+  {$ENDIF}
 end;

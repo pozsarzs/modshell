@@ -22,12 +22,15 @@
 function cmd_list: byte;
 var
   y, line: integer;
-
 begin
   result := 0;
   if not scriptisloaded then
   begin
-    writeln(MSG38);  // No script loaded.
+    {$IFNDEF X}
+      writeln(MSG38);  // No script loaded.
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG38);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -35,16 +38,20 @@ begin
   for line := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[line]) > 0 then
     begin
-      textcolor(colors[1]); textbackground(colors[0]);
-      write(addsomezero(4, inttostr(line + 1)));
-      textcolor(colors[0]); textbackground(colors[1]);
-      writeln(' ' + sbuffer[line]);
-      inc(y);
-      if y >= (termheight - 6) then
-      begin
-        write(MSG23); readkey;
-        write(#13); clreol;
-        y := 0;
-      end;
+      {$IFNDEF X}
+        textcolor(colors[1]); textbackground(colors[0]);
+        write(addsomezero(4, inttostr(line + 1)));
+        textcolor(colors[0]); textbackground(colors[1]);
+        writeln(' ' + sbuffer[line]);
+        inc(y);
+        if y >= (termheight - 6) then
+        begin
+          write(MSG23); readkey;
+          write(#13); clreol;
+          y := 0;
+        end;
+      {$ELSE}
+        Form1.Memo1.Lines.Add(addsomezero(4, inttostr(line + 1)) + ' ' + sbuffer[line]);
+      {$ENDIF}
     end;
 end;

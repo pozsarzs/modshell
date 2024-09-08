@@ -35,44 +35,87 @@ var
            with dev[n] do
              if devtype = 0 then
              begin
-               writeln(PREFIX[pr], n, ':');
-               writeln(MSG07 + device);
-               writeln(MSG08, port);
+               {$IFNDEF X}
+                 writeln(PREFIX[pr], n, ':');
+                 writeln(MSG07 + device);
+                 writeln(MSG08, port);
+               {$ELSE}
+                 Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
+                 Form1.Memo1.Lines.Add(MSG07 + device);
+                 Form1.Memo1.Lines.Add(MSG08 + inttostr(port));
+               {$ENDIF}
              end else
              begin
-               writeln(PREFIX[pr], n, ':');
-               writeln(MSG07 + device);
-               writeln(MSG09, DEV_SPEED[speed]);
-               writeln(MSG10, databit, upcase(DEV_PARITY[parity]), stopbit);
+               {$IFNDEF X}
+                 writeln(PREFIX[pr], n, ':');
+                 writeln(MSG07 + device);
+                 writeln(MSG09, DEV_SPEED[speed]);
+                 writeln(MSG10, databit, upcase(DEV_PARITY[parity]), stopbit);
+               {$ELSE}
+                 Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
+                 Form1.Memo1.Lines.Add(MSG07 + device);
+                 Form1.Memo1.Lines.Add(MSG09 + DEV_SPEED[speed]);
+                 Form1.Memo1.Lines.Add(MSG10 + inttostr(databit) + upcase(DEV_PARITY[parity]) + inttostr(stopbit));
+               {$ENDIF}
              end
          else
-           writeln(PREFIX[pr], n, MSG06);
+           {$IFNDEF X}
+             writeln(PREFIX[pr], n, MSG06);
+           {$ELSE}
+             Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + MSG06);
+           {$ENDIF}
       1: if prot[n].valid
          then
            with prot[n] do
              if prottype < 2 then
              begin
-               writeln(PREFIX[pr], n, ':');
-               writeln(MSG11 + PROT_TYPE[prottype]);
-               writeln(MSG13, uid);
+               {$IFNDEF X}
+                 writeln(PREFIX[pr], n, ':');
+                 writeln(MSG11 + PROT_TYPE[prottype]);
+                 writeln(MSG13, uid);
+               {$ELSE}
+                 Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
+                 Form1.Memo1.Lines.Add(MSG11 + PROT_TYPE[prottype]);
+                 Form1.Memo1.Lines.Add(MSG13 + inttostr(uid));
+               {$ENDIF}
              end else
              begin
-               writeln(PREFIX[pr], n, ':');
-               writeln(MSG11 + PROT_TYPE[prottype]);
-               writeln(MSG12, ipaddress);
+               {$IFNDEF X}
+                 writeln(PREFIX[pr], n, ':');
+                 writeln(MSG11 + PROT_TYPE[prottype]);
+                 writeln(MSG12, ipaddress);
+               {$ELSE}
+                 Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
+                 Form1.Memo1.Lines.Add(MSG11 + PROT_TYPE[prottype]);
+                 Form1.Memo1.Lines.Add(MSG12 + ipaddress);
+               {$ENDIF}
              end
          else
-           writeln(PREFIX[pr], n, MSG06);
+           {$IFNDEF X}
+             writeln(PREFIX[pr], n, MSG06);
+           {$ELSE}
+             Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + MSG06);
+           {$ENDIF}
       2: if conn[n].valid
          then
            with conn[n] do
            begin
+           {$IFNDEF X}
              writeln(PREFIX[pr], n, ':');
              writeln(MSG07, PREFIX[0], dev);
              writeln(MSG11, PREFIX[1], prot);
+           {$ELSE}
+             Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
+             Form1.Memo1.Lines.Add(MSG07 + PREFIX[0] + inttostr(dev));
+             Form1.Memo1.Lines.Add(MSG11 + PREFIX[1] + inttostr(prot));
+           {$ENDIF}
            end
          else
-           writeln(PREFIX[pr], n, MSG06);
+           {$IFNDEF X}
+             writeln(PREFIX[pr], n, MSG06);
+           {$ELSE}
+             Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + MSG06);
+           {$ENDIF}
     end;
   end;
 
@@ -89,7 +132,6 @@ var
       writeln(s);
     {$ELSE}
       Form1.Memo1.Lines.Add(s);
-      Form1.Memo1.Lines.Add('');
     {$ENDIF}
   end;
 
@@ -102,7 +144,6 @@ begin
       writeln(ERR05); // Parameter required!
     {$ELSE}
       Form1.Memo1.Lines.Add(ERR05);
-      Form1.Memo1.Lines.Add('');
     {$ENDIF}
     result := 1;
     exit;
@@ -114,7 +155,6 @@ begin
       writeln(proj);
     {$ELSE}
       Form1.Memo1.Lines.Add(proj);
-      Form1.Memo1.Lines.Add('');
     {$ENDIF}
     result := 0;
     exit;
@@ -152,9 +192,6 @@ begin
           2: Form1.Memo1.Lines.Add(ERR03);
         {$ENDIF}
       end;
-      {$IFDEF X}
-        Form1.Memo1.Lines.Add('');
-      {$ENDIF}
   end else
   begin
     showvalid1stparameters;

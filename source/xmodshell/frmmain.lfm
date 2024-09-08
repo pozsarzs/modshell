@@ -306,7 +306,6 @@ object Form1: TForm1
       Caption = '&Utilities'
       object MenuItem21: TMenuItem
         Caption = '&ASCII table'
-        OnClick = MenuItem21Click
         object MenuItem59: TMenuItem
           Caption = '&Decimal'
           OnClick = MenuItem59Click
