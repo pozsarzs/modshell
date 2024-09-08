@@ -32,7 +32,11 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -67,13 +71,21 @@ begin
     for i := 1 to 9999 do read(ftb, coil[i]);
     closefile(ftb);
   except
-    writeln(ERR13 + fpn + '!');
+    {$IFNDEF X}
+      writeln(ERR13 + fpn + '!');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR13 + fpn + '!');
+    {$ENDIF}
     result := 1;
     exit;
   end;
-  writeln(MSG21 + fpn + '.');
+  {$IFNDEF X}
+    writeln(MSG21 + fpn + '.');
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG21 + fpn + '.');
+  {$ENDIF}
   // load ireg and hreg
-  fpn := fp + fn + '.idt';
+  fpn := fp + fn + '.wdt';
   assignfile(ftw, fpn);
   try 
     reset(ftw);
@@ -81,9 +93,17 @@ begin
     for i := 1 to 9999 do read(ftw, hreg[i]);
     closefile(ftw);
   except
-    writeln(ERR13 + fpn + '!');
+    {$IFNDEF X}
+      writeln(ERR13 + fpn + '!');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR13 + fpn + '!');
+    {$ENDIF}
     result := 1;
     exit;
   end;
-  writeln(MSG21 + fpn + '.');
+  {$IFNDEF X}
+    writeln(MSG21 + fpn + '.');
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG21 + fpn + '.');
+  {$ENDIF}
 end;

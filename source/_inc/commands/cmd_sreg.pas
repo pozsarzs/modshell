@@ -33,7 +33,11 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -59,15 +63,17 @@ begin
   end;
   fn := stringreplace(fn, fx , '', [rfReplaceAll]);
   fpn := fp + fn;
-  // CHECK EXIST
-  if fileexists(fpn) then
-  begin
-    writeln(MSG14);
-    repeat
-      c:= lowercase(readkey);
-      if c = 'n' then exit;
-    until c = 'y';
-  end;
+  {$IFNDEF X}
+    // CHECK EXIST
+    if fileexists(fpn) then
+    begin
+      writeln(MSG14);
+      repeat
+        c:= lowercase(readkey);
+        if c = 'n' then exit;
+      until c = 'y';
+    end;
+  {$ENDIF}
   // PRIMARY MISSION
   // save dinp and coil
   fpn := fp + fn + '.bdt';
@@ -78,11 +84,19 @@ begin
     for i := 1 to 9999 do write(ftb, coil[i]);
     closefile(ftb);
   except
-    writeln(ERR12 + fpn + '!');
+    {$IFNDEF X}
+      writeln(ERR12 + fpn + '!');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR12 + fpn + '!');
+    {$ENDIF}
     result := 1;
     exit;
   end;
-  writeln(MSG20 + fpn + '.');
+  {$IFNDEF X}
+    writeln(MSG20 + fpn + '.');
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG20 + fpn + '.');
+  {$ENDIF}
   // save ireg and hreg
   fpn := fp + fn + '.wdt';
   assignfile(ftw, fpn);
@@ -92,9 +106,17 @@ begin
     for i := 1 to 9999 do write(ftw, hreg[i]);
     closefile(ftw);
   except
-    writeln(ERR12 + fpn + '!');
+    {$IFNDEF X}
+      writeln(ERR12 + fpn + '!');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR12 + fpn + '!');
+    {$ENDIF}
     result := 1;
     exit;
   end;
-  writeln(MSG20 + fpn + '.');
+  {$IFNDEF X}
+    writeln(MSG20 + fpn + '.');
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG20 + fpn + '.');
+  {$ENDIF}
 end;

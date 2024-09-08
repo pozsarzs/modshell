@@ -32,7 +32,11 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -86,6 +90,10 @@ begin
     scriptlastline := line;
   except
     result := 1;
-    writeln(ERR22 + fpn);
+    {$IFNDEF X}
+      writeln(ERR22 + fpn);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR22 + fpn);
+    {$ENDIF}
   end;
 end;

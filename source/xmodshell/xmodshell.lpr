@@ -83,7 +83,7 @@ procedure verinfo;
 {$IFDEF WIN32} var s: string; {$ENDIF}
 begin
   {$IFDEF UNIX}
-     writeln(PRGNAME + ' v' + PRGVERSION);
+     writeln('X' + PRGNAME + ' v' + PRGVERSION);
      writeln;
      writeln('This application was compiled at ',{$I %TIME%}, ' on ',{$I %DATE%}, ' by ',{$I %USER%});
      writeln('FPC version: ',{$I %FPCVERSION%});
@@ -91,7 +91,7 @@ begin
      writeln('Target CPU:  ',{$I %FPCTARGETCPU%});
   {$ENDIF}
   {$IFDEF WIN32}
-     s := PRGNAME + ' v' + PRGVERSION + #13 + #10 + #13 + #10;
+     s := 'X' + PRGNAME + ' v' + PRGVERSION + #13 + #10 + #13 + #10;
      s := s + 'This was compiled at ' + {$I %TIME%} +' on ' + {$I %DATE%} +' by ' + {$I %USERNAME%} +'.' + #13 + #10 + #13 + #10;
      s := s + 'FPC version: ' + {$I %FPCVERSION%} + #13 + #10;
      s := s + 'Target OS:   ' + {$I %FPCTARGETOS%} + #13 + #10;

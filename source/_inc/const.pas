@@ -19,11 +19,7 @@ const
   MINTERMY = 25;
   PROMPT = 'MODSH|_>';
   PRGCOPYRIGHT = '(C) 2023-2024 Pozsar Zsolt <http://www.pozsarzs.hu>';
-  {$IFNDEF X}
-    PRGNAME = 'ModShell';
-  {$ELSE}
-    PRGNAME = 'XModShell';
-  {$ENDIF}
+  PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
   COMMARRSIZE = 94;
   SCRBUFFSIZE = 1024;

@@ -32,7 +32,11 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -56,15 +60,17 @@ begin
     fp := fp + SLASH;
   end;
   fpn := fp + fn;
-  // CHECK EXIST
-  if fileexists(fpn) then
-  begin
-    writeln(MSG14);
-    repeat
-      c:= lowercase(readkey);
-      if c = 'n' then exit;
-    until c = 'y';
-  end;
+  {$IFNDEF X}
+    // CHECK EXIST
+    if fileexists(fpn) then
+    begin
+      writeln(MSG14);
+      repeat
+        c:= lowercase(readkey);
+        if c = 'n' then exit;
+      until c = 'y';
+    end;
+  {$ENDIF}
   // PRIMARY MISSION
   assignfile(sf, fpn);
   try
@@ -73,7 +79,11 @@ begin
       if length(sbuffer[line]) > 0 then writeln(sf, sbuffer[line]);
     closefile(sf);
   except
+    {$IFNDEF X}
+      writeln(ERR37 + fpn);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR37 + fpn);
+    {$ENDIF}
     result := 1;
-    writeln(ERR37 + fpn);
   end;
 end;

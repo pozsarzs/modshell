@@ -18,16 +18,17 @@ unit frmmain;
 interface
 uses
   Classes,
-  SysUtils,
-  Forms,
+  ComCtrls,
   Controls,
-  Graphics,
   Dialogs,
+  ExtCtrls,
+  Forms,
+  Graphics,
+  LCLType,
   Menus,
   Process,
-  ComCtrls,
   StdCtrls,
-  ExtCtrls,
+  SysUtils,
   synaser,
   {$IFDEF WINDOWS} windows, {$ENDIF}
   convert,
@@ -178,6 +179,7 @@ type
 
 var
   Form1: TForm1;
+  fp: string = '';
   menucmd: string;
 
 {$DEFINE X}
@@ -296,14 +298,66 @@ end;
 
 // RUN COMMAND 'loadcfg' WITH TOpenDialog
 procedure TForm1.MenuItem37Click(Sender: TObject);
+var
+  od: TOpenDialog;
 begin
-
+  od := TOpenDialog.Create(Self);
+  with od do
+  begin
+    Title := rmampdot(MenuItem37.Caption);
+    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    Filter := 'all file|*.*';
+    DefaultExt := '';
+    FilterIndex := 1;
+  end;
+  if od.Execute then
+  begin
+    menucmd := COMMANDS[14] + ' ' + od.FileName;
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  od.Free;
 end;
 
 // RUN COMMAND 'savecfg' WITH TSaveDialog
 procedure TForm1.MenuItem36Click(Sender: TObject);
+var
+  fp,fn,fx, fpn: string;
+  sd: TSaveDialog;
+  exists: boolean = false;
 begin
-
+  sd := TSaveDialog.Create(Self);
+  with sd do
+  begin
+    Title := rmampdot(MenuItem36.Caption);
+    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    Filter := 'all file|*.*';
+    DefaultExt := '';
+    FilterIndex := 1;
+  end;
+  if sd.Execute then
+  begin
+    fp := extractfilepath(sd.FileName);
+    fn := extractfilename(sd.FileName);
+    fx := extractfileext(sd.FileName);
+    if length(fp) = 0 then fp := fp + SLASH;
+    for b := 0 to 2 do
+    begin
+      fn := stringreplace(fn, fx , '', [rfReplaceAll]);
+      fpn := fp + fn + '.' + PREFIX[b][1] + 'dt';
+      if fileexists(fpn) then exists := true;
+    end;
+    if exists then
+      if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem11.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+      begin
+        sd.Free;
+        exit;
+      end;
+    menucmd := COMMANDS[13] + ' ' + fp + fn;
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  sd.Free;
 end;
 
 // RUN COMMAND 'set prj ...' WITH InputBox
@@ -312,7 +366,7 @@ begin
   menucmd := COMMANDS[8] + ' prj ' + InputBox(rmampdot(MenuItem38.Caption), '', proj);
   Memo1.Lines.Add(fullprompt + menucmd);
   parsingcommands(menucmd);
-  Form1.Caption := PRGNAME + ' | ' + proj;
+  Form1.Caption := 'X' + PRGNAME + ' | ' + proj;
   Label1.Caption := fullprompt;
 end;
 
@@ -322,7 +376,7 @@ begin
   menucmd := COMMANDS[7] + ' prj';
   Memo1.Lines.Add(fullprompt + menucmd);
   parsingcommands(menucmd);
-  Form1.Caption := PRGNAME + ' | ' + proj;
+  Form1.Caption := 'X' + PRGNAME + ' | ' + proj;
   Label1.Caption := fullprompt;
 end;
 
@@ -413,14 +467,65 @@ end;
 
 // RUN COMMAND 'loadreg' WITH TOpenDialog
 procedure TForm1.MenuItem13Click(Sender: TObject);
+var
+  od: TOpenDialog;
 begin
-
+  od := TOpenDialog.Create(Self);
+  with od do
+  begin
+    Title := rmampdot(MenuItem13.Caption);
+    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    Filter := 'all file|*.*';
+    DefaultExt := '';
+    FilterIndex := 1;
+  end;
+  if od.Execute then
+  begin
+    menucmd := COMMANDS[19] + ' ' + od.FileName;
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  od.Free;
 end;
 
 // RUN COMMAND 'savereg' WITH TSaveDialog
 procedure TForm1.MenuItem14Click(Sender: TObject);
+var
+  fp,fn,fx, fpn: string;
+  sd: TSaveDialog;
+  exists: boolean = false;
 begin
-
+  sd := TSaveDialog.Create(Self);
+  with sd do
+  begin
+    Title := rmampdot(MenuItem14.Caption);
+    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    Filter := 'all file|*.*';
+    DefaultExt := '';
+    FilterIndex := 1;
+  end;
+  if sd.Execute then
+  begin
+    fp := extractfilepath(sd.FileName);
+    fn := extractfilename(sd.FileName);
+    fx := extractfileext(sd.FileName);
+    if length(fp) = 0 then fp := fp + SLASH;
+    fn := stringreplace(fn, fx , '', [rfReplaceAll]);
+    fpn := fp + fn + '.' + PREFIX[b][1] + 'bdt';
+    if fileexists(fpn) then exists := true;
+    fpn := fp + fn + '.' + PREFIX[b][1] + 'wdt';
+    if fileexists(fpn) then exists := true;
+    if exists then
+      if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem11.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+      begin
+        sd.Free;
+        exit;
+      end;
+    menucmd := COMMANDS[18] + ' ' + fp + fn;
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  sd.Free;
 end;
 
 // RUN COMMAND 'impreg' WITH TOpenDialog
@@ -445,14 +550,64 @@ end;
 
 // RUN COMMAND 'loadscr' WITH TOpenDialog
 procedure TForm1.MenuItem10Click(Sender: TObject);
+var
+  od: TOpenDialog;
 begin
-
+  od := TOpenDialog.Create(Self);
+  with od do
+  begin
+    Title := rmampdot(MenuItem10.Caption);
+    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    {$IFDEF WINDOWS}
+      Filter := 'batch file|*.bat|all file|*.*';
+      DefaultExt := 'bat';
+    {$ELSE}
+      Filter := 'all file|*';
+      DefaultExt := '';
+    {$ENDIF}
+    FilterIndex := 1;
+  end;
+  if od.Execute then
+  begin
+    menucmd := COMMANDS[39] + ' ' + od.FileName;
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  od.Free;
 end;
 
 // RUN COMMAND 'savescr' WITH TSaveDialog
 procedure TForm1.MenuItem11Click(Sender: TObject);
+var
+  sd: TSaveDialog;
 begin
-
+  sd := TSaveDialog.Create(Self);
+  with sd do
+  begin
+    Title := rmampdot(MenuItem11.Caption);
+    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    {$IFDEF WINDOWS}
+      Filter := 'batch file|*.bat|all file|*.*';
+      DefaultExt := 'bat';
+    {$ELSE}
+      Filter := 'all file|*';
+      DefaultExt := '';
+    {$ENDIF}
+    FilterIndex := 1;
+  end;
+  if sd.Execute then
+  begin
+    if FileExists(sd.FileName) then
+      if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem11.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+      begin
+        sd.Free;
+        exit;
+      end;
+    menucmd := COMMANDS[93] + ' ' + sd.FileName;
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  sd.Free;
 end;
 
 // RUN COMMAND 'list'
@@ -480,7 +635,9 @@ end;
 // RUN COMMAND 'run'
 procedure TForm1.MenuItem12Click(Sender: TObject);
 begin
-  parsingcommands(COMMANDS[40]);
+  menucmd := COMMANDS[40];
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
 end;
 
 // -- MAIN MENU/Operation ------------------------------------------------------
@@ -610,7 +767,7 @@ procedure TForm1.MenuItem56Click(Sender: TObject);
 var
   p: TProcess;
 begin
-  p := TProcess.Create(Nil);
+  p := TProcess.Create(Self);
   if length(BROWSER) > 0 then
   begin
     p.Executable := BROWSER;
@@ -629,7 +786,7 @@ procedure TForm1.MenuItem57Click(Sender: TObject);
 var
   p: TProcess;
 begin
-  p := TProcess.Create(Nil);
+  p := TProcess.Create(Self);
   if length(BROWSER) > 0 then
   begin
     p.Executable := BROWSER;
@@ -648,7 +805,7 @@ procedure TForm1.MenuItem58Click(Sender: TObject);
 var
   p: TProcess;
 begin
-  p := TProcess.Create(Nil);
+  p := TProcess.Create(Self);
   if length(BROWSER) > 0 then
   begin
     p.Executable := BROWSER;
@@ -675,9 +832,13 @@ end;
 // OnCreate event
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+  fp := getuserdir + PRGNAME;
+  createdir(fp);
   // ...
   setdefaultconstants;
-  Form1.Caption := PRGNAME + ' | ' + proj;
+  fp := getuserdir + PRGNAME + SLASH + proj;
+  createdir(fp);
+  Form1.Caption := 'X' + PRGNAME + ' | ' + proj;
   Label1.Caption := fullprompt;
 end;
 
