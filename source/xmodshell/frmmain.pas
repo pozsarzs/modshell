@@ -104,7 +104,9 @@ type
     MenuItem56: TMenuItem;
     MenuItem57: TMenuItem;
     MenuItem58: TMenuItem;
+    MenuItem59: TMenuItem;
     MenuItem6: TMenuItem;
+    MenuItem60: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
@@ -124,6 +126,26 @@ type
     ToolBar1: TToolBar;
     ImageList1: TImageList;
     Label1: TLabel;
+    ToolButton1: TToolButton;
+    ToolButton10: TToolButton;
+    ToolButton11: TToolButton;
+    ToolButton12: TToolButton;
+    ToolButton13: TToolButton;
+    ToolButton14: TToolButton;
+    ToolButton15: TToolButton;
+    ToolButton16: TToolButton;
+    ToolButton17: TToolButton;
+    ToolButton18: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
+    ToolButton8: TToolButton;
+    ToolButton9: TToolButton;
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
     procedure MenuItem10Click(Sender: TObject);
     procedure MenuItem11Click(Sender: TObject);
@@ -291,7 +313,7 @@ procedure TForm1.MenuItem20Click(Sender: TObject);
 begin
   menucmd := COMMANDS[1];
   Memo1.Lines.Add(fullprompt + menucmd);
-  // ...
+  Form1.Close;
 end;
 
 // -- MAIN MENU/Project --------------------------------------------------------
@@ -832,14 +854,45 @@ end;
 // OnCreate event
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+  // DETECT LANGUAGE
+  lang := getlang;
+  translatemessages(LANG,BASENAME,'.mo');
+  randomize;
+  //saveconfiguration(BASENAME,'.ini');
+  loadconfiguration(BASENAME,'.ini');
+  setdefaultconstants;
   fp := getuserdir + PRGNAME;
   createdir(fp);
-  // ...
-  setdefaultconstants;
   fp := getuserdir + PRGNAME + SLASH + proj;
   createdir(fp);
   Form1.Caption := 'X' + PRGNAME + ' | ' + proj;
   Label1.Caption := fullprompt;
+  ToolButton1.Hint := rmampdot(MenuItem37.Caption);
+  ToolButton2.Hint := rmampdot(MenuItem36.Caption);
+  ToolButton4.Hint := rmampdot(MenuItem15.Caption);
+  ToolButton6.Hint := rmampdot(MenuItem10.Caption);
+  ToolButton7.Hint := rmampdot(MenuItem18.Caption);
+  ToolButton8.Hint := rmampdot(MenuItem12.Caption);
+  ToolButton10.Hint := rmampdot(MenuItem22.Caption);
+  ToolButton11.Hint := rmampdot(MenuItem28.Caption);
+  ToolButton12.Hint := rmampdot(MenuItem24.Caption);
+  ToolButton13.Hint := rmampdot(MenuItem25.Caption);
+  ToolButton15.Hint := rmampdot(MenuItem26.Caption);
+  ToolButton16.Hint := rmampdot(MenuItem52.Caption);
+  ToolButton18.Hint := rmampdot(MenuItem6.Caption);
+end;
+
+// FormCloseQuery event
+procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  saveconfiguration(BASENAME,'.ini');
+  CanClose := True;
+end;
+
+// OnClose event
+procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  Application.Terminate;
 end;
 
 end.
