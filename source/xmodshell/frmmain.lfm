@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 297
+  Left = 299
   Height = 482
-  Top = 112
+  Top = 121
   Width = 701
   ActiveControl = Memo1
   Caption = 'Form1'

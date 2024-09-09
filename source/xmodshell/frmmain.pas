@@ -18,6 +18,7 @@ unit frmmain;
 interface
 uses
   Classes,
+  ColorBox,
   ComCtrls,
   Controls,
   Dialogs,
@@ -500,8 +501,8 @@ begin
   with lb1 do
   begin
     Parent := fr1;
-    Font.Style := [fsBold];
     Caption := 'con';
+    Font.Style := [fsBold];
     Anchors := [akTop, akLeft];
       AnchorSideTop.Control := se1;
       AnchorSideTop.Side := asrCenter;
@@ -515,7 +516,7 @@ begin
     Parent := fr1;
     MinValue := 0;
     MaxValue := 7;
-    TabOrder := 0;
+    TabOrder := 1;
     Anchors := [akTop, akLeft];
       AnchorSideTop.Control := se1;
       AnchorSideTop.Side := asrCenter;
@@ -541,7 +542,7 @@ begin
     Parent := fr1;
     MinValue := 0;
     MaxValue := 7;
-    TabOrder := 0;
+    TabOrder := 2;
     Anchors := [akTop, akLeft];
       AnchorSideTop.Control := se1;
       AnchorSideTop.Side := asrCenter;
@@ -583,6 +584,7 @@ begin
     Parent := fr1;
     Caption := '&Set';
     ModalResult := mrOk;
+    TabOrder := 4;
     Anchors := [akTop, akRight];
       AnchorSideTop.Control := bv1;
       AnchorSideTop.Side := asrTop;
@@ -596,6 +598,7 @@ begin
     Parent := fr1;
     Caption := '&Cancel';
     ModalResult := mrCancel;
+    TabOrder := 3;
     Anchors := [akTop, akRight];
       AnchorSideTop.Control := bv1;
       AnchorSideTop.Side := asrTop;
@@ -636,8 +639,134 @@ end;
 
 // RUN COMMAND 'color ...' WITH InputBox
 procedure TForm1.MenuItem23Click(Sender: TObject);
+var
+  fr1: TForm;
+  bv1: TBevel;
+  bt1, bt2: TButton;
+  lb1, lb2: TLabel;
+  cb1, cb2: TColorBox;
 begin
-
+  fr1 := TForm.Create(Nil);
+  bt1 := TButton.Create(fr1);
+  bt2 := TButton.Create(fr1);
+  bv1 := TBevel.Create(fr1);
+  lb1 := TLabel.Create(fr1);
+  lb2 := TLabel.Create(fr1);
+  cb1 := TColorBox.Create(fr1);
+  cb2 := TColorBox.Create(fr1);
+  with fr1 do
+  begin
+    Caption := rmampdot(MenuItem23.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Position := poMainFormCenter;
+  end;
+  with cb1 do
+  begin
+    Parent := fr1;
+    Style := [cbStandardColors];
+    TabOrder := 0;
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := fr1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := lb1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+  end;
+  with lb1 do
+  begin
+    Parent := fr1;
+    Caption := 'foreground';
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := cb1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := fr1;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+  end;
+  with cb2 do
+  begin
+    Parent := fr1;
+    Style := [cbStandardColors];
+    TabOrder := 1;
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := cb1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := lb2;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+  end;
+  with lb2 do
+  begin
+    Parent := fr1;
+    Caption := 'background';
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := cb1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := cb1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 16;
+  end;
+  with bv1 do
+  begin
+    Parent := fr1;
+    Shape := bsTopLine;
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := cb1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := fr1;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := fr1;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+  end;
+  with bt2 do
+  begin
+    Parent := fr1;
+    Caption := '&Set';
+    ModalResult := mrOk;
+    TabOrder := 3;
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := bv1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := fr1;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+  end;
+  with bt1 do
+  begin
+    Parent := fr1;
+    Caption := '&Cancel';
+    ModalResult := mrCancel;
+    TabOrder := 2;
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := bv1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := bt2;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+  end;
+  cb1.Selected := uconfig.guicolors[0];
+  cb2.Selected := uconfig.guicolors[1];
+  if fr1.ShowModal = mrOk then
+  begin
+    with fr1 do
+    begin
+      uconfig.guicolors[0] := cb1.Selected;
+      uconfig.guicolors[1] := cb2.Selected;
+    end;
+    Memo1.Font.Color := uconfig.guicolors[0];
+    Memo1.Color := uconfig.guicolors[1];
+  end;
+  FreeAndNil(fr1);
 end;
 
 // -- MAIN MENU/Registers ------------------------------------------------------
@@ -1013,7 +1142,6 @@ begin
   lang := getlang;
   translatemessages(LANG,BASENAME,'.mo');
   randomize;
-  //saveconfiguration(BASENAME,'.ini');
   loadconfiguration(BASENAME,'.ini');
   setdefaultconstants;
   fp := getuserdir + PRGNAME;
@@ -1035,6 +1163,8 @@ begin
   ToolButton15.Hint := rmampdot(MenuItem26.Caption);
   ToolButton16.Hint := rmampdot(MenuItem52.Caption);
   ToolButton18.Hint := rmampdot(MenuItem6.Caption);
+  Memo1.Font.Color := uconfig.guicolors[0];
+  Memo1.Color := uconfig.guicolors[1];
 end;
 
 // FormCloseQuery event

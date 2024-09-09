@@ -23,5 +23,10 @@ begin
   else
     result := false;
   end;
-  if not result then writeln(PREFIX[sets], number, MSG06);
+  if not result then
+    {$IFNDEF X}
+      writeln(PREFIX[sets], number, MSG06);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(PREFIX[sets] + inttostr(number) + MSG06);
+    {$ENDIF}
 end;
