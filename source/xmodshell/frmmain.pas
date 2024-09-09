@@ -606,20 +606,21 @@ begin
       BorderSpacing.Right := 8;
     Parent := Form;
     TabOrder := 2;
-//    Width := 150;
+    Width := 150;
   end;
   with LLabel1 do
-  begin
-    Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := Form;
-      AnchorSideTop.Side := asrTop;
-      BorderSpacing.Top := 12;
-      AnchorSideLeft.Control := LSpinEdit1;
-      AnchorSideLeft.Side := asrRight;
-      BorderSpacing.Left := 8;
-    Caption := MSG57;
-    Parent := Form;
-  end;
+    begin
+      Anchors := [akTop, akLeft];
+        AnchorSideTop.Control := LSpinEdit1;
+        AnchorSideTop.Side := asrCenter;
+        BorderSpacing.Top := 0;
+        AnchorSideLeft.Control := Form;
+        AnchorSideLeft.Side := asrLeft;
+        BorderSpacing.Left := 12;
+      Caption := 'pro';
+      Font.Style := [fsBold];
+      Parent := Form;
+    end;
   with LLabel2 do
   begin
     Anchors := [akTop, akLeft];
@@ -627,8 +628,20 @@ begin
       AnchorSideTop.Side := asrTop;
       BorderSpacing.Top := 12;
       AnchorSideLeft.Control := LComboBox1;
-      AnchorSideLeft.Side := asrRight;
-      BorderSpacing.Left := 8;
+      AnchorSideLeft.Side := asrCenter;
+      BorderSpacing.Left := 0;
+    Caption := MSG57;
+    Parent := Form;
+  end;
+  with LLabel3 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LEdit1;
+      AnchorSideLeft.Side := asrCenter;
+      BorderSpacing.Left := 0;
       BorderSpacing.Right := 8;
     Caption := MSG58;
     Parent := Form;
@@ -678,13 +691,13 @@ begin
   end;
   if Form.ShowModal = mrOk then
   begin
-{    with Form do
-      menucmd := COMMANDS[8] +
-      ' pro' + inttostr(SpinEdit1.Value) +
-      ' dev' + inttostr(SpinEdit2.Value) +
-      ' pro' + inttostr(se3.Value);
+    with Form do
+      menucmd := COMMANDS[8] + ' pro' +
+        inttostr(LSpinEdit1.Value) + ' ' +
+        LComboBox1.Items[LComboBox1.ItemIndex] + ' ' +
+        LEdit1.Text;
     Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);}
+    parsingcommands(menucmd);
   end;
   FreeAndNil(Form);
 end;

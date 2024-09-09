@@ -250,7 +250,7 @@ var
         exit;
       end;
     end else
-      if not checkipaddress(s3) then
+      if not checkipaddress(p3) then
       begin
         {$IFNDEF X}
           writeln(ERR04); // Invalid IP address!
@@ -269,7 +269,7 @@ var
       then
         uid := strtointdef(s3, 1)
       else
-        ipaddress := s3;
+        ipaddress := p3;
     end;
   end;
 

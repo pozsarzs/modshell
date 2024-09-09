@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Modshell v0.1\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Pozs r Zsolt <pozsarzs@gmail.com>\n"
+"Last-Translator: Pozsï¿½r Zsolt <pozsarzs@gmail.com>\n"
 "Language-Team: \n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -15,11 +15,11 @@ msgstr ""
 
 #: modshell:num1
 msgid "1st "
-msgstr "Els‹ "
+msgstr "Elsï¿½ "
 
 #: modshell:num2
 msgid "2nd "
-msgstr "M sodik "
+msgstr "Mï¿½sodik "
 
 #: modshell:num3
 msgid "3rd "
@@ -31,7 +31,7 @@ msgstr "Negyedik "
 
 #: modshell:num5
 msgid "5th "
-msgstr "™t”dik "
+msgstr "ï¿½tï¿½dik "
 
 #: modshell:num6
 msgid "6th "
@@ -51,27 +51,27 @@ msgstr ""
 
 #: modshell:msg02
 msgid "Command-driven scriptable Modbus utility"
-msgstr "Parancsvez‚relt szkriptelhet‹ Modbus seg‚dprogram"
+msgstr "Parancsvezï¿½relt szkriptelhetï¿½ Modbus segï¿½dprogram"
 
 #: modshell:msg03
 msgid "Use 'help COMMAND' to show usage."
-msgstr "Haszn lja a 'help PARANCS'-ot a haszn lata megjelen¡t‚s‚hez."
+msgstr "Hasznï¿½lja a 'help PARANCS'-ot a hasznï¿½lata megjelenï¿½tï¿½sï¿½hez."
 
 #: modshell:msg04
 msgid "Usage this command:"
-msgstr "A parancs haszn lata:"
+msgstr "A parancs hasznï¿½lata:"
 
 #: modshell:msg05
 msgid "parameter:"
-msgstr "param‚ter:"
+msgstr "paramï¿½ter:"
 
 #: modshell:msg06
 msgid " is not set."
-msgstr " nincs be ll¡tva."
+msgstr " nincs beï¿½llï¿½tva."
 
 #: modshell:msg07
 msgid " device:     "
-msgstr " eszk”z:     "
+msgstr " eszkï¿½z:     "
 
 #: modshell:msg08
 msgid " port:       "
@@ -79,11 +79,11 @@ msgstr " port:       "
 
 #: modshell:msg09
 msgid " baudrate:   "
-msgstr " sebess‚g:   "
+msgstr " sebessï¿½g:   "
 
 #: modshell:msg10
 msgid " settings:   "
-msgstr " be ll¡t sok:   "
+msgstr " beï¿½llï¿½tï¿½sok:   "
 
 #: modshell:msg11
 msgid " protocol:   "
@@ -91,35 +91,35 @@ msgstr " protokoll:   "
 
 #: modshell:msg12
 msgid " IP address: "
-msgstr " IP-c¡m: "
+msgstr " IP-cï¿½m: "
 
 #: modshell:msg13
 msgid " device UID: "
-msgstr " eszk”z UID: "
+msgstr " eszkï¿½z UID: "
 
 #: modshell:msg14
 msgid "File exist, overwrite? (y/n)"
-msgstr "L‚tezik a f jl, fell¡rjam? (y/n)"
+msgstr "Lï¿½tezik a fï¿½jl, felï¿½lï¿½rjam? (y/n)"
 
 #: modshell:msg15
 msgid "Command line history has exported to "
-msgstr "A parancssori el‹zm‚nyek export ltak ebbe: "
+msgstr "A parancssori elï¿½zmï¿½nyek exportï¿½ltak ebbe: "
 
 #: modshell:msg16
 msgid "Settings has saved to "
-msgstr "A be ll¡t sok el lettek mentve ebbe: "
+msgstr "A beï¿½llï¿½tï¿½sok el lettek mentve ebbe: "
 
 #: modshell:msg17
 msgid "Settings has loaded from "
-msgstr "A be ll¡t sok be lettek t”ltve ebb‹l: "
+msgstr "A beï¿½llï¿½tï¿½sok be lettek tï¿½ltve ebbï¿½l: "
 
 #: modshell:msg18
 msgid "Register content has exported to "
-msgstr "A regisztertartalom export lva ebbe: "
+msgstr "A regisztertartalom exportï¿½lva ebbe: "
 
 #: modshell:msg19
 msgid "Register content has imported from "
-msgstr "A regisztertartalom import lt ebb‹l: "
+msgstr "A regisztertartalom importï¿½lt ebbï¿½l: "
 
 #: modshell:msg20
 msgid "Register content has saved to "
@@ -127,15 +127,15 @@ msgstr "A regisztertartalom elmentve ebbe: "
 
 #: modshell:msg21
 msgid "Register content has loaded from "
-msgstr "A regisztertartalom bet”ltve ebb‹l: "
+msgstr "A regisztertartalom betï¿½ltve ebbï¿½l: "
 
 #: modshell:msg22
 msgid "Useable file types: "
-msgstr "Haszn lhat¢ f jlt¡pusok: "
+msgstr "Hasznï¿½lhatï¿½ fï¿½jltï¿½pusok: "
 
 #: modshell:msg23
 msgid "Press a key to continue... "
-msgstr "Nyomjon meg egy billentyût a folytat shoz... "
+msgstr "Nyomjon meg egy billentyï¿½t a folytatï¿½shoz... "
 
 #: modshell:msg24
 msgid ""
@@ -143,45 +143,45 @@ msgid ""
 "  - register: local buffer register\n"
 "  - remote register: register of the connected device\n"
 msgstr ""
-"Megjegyz‚s:\n"
+"Megjegyzï¿½s:\n"
 "  - regiszter: helyi puffer regiszter\n"
-"  - t voli regiszter: a csatlakoztatott eszk”z regisztere\n"
+"  - tï¿½voli regiszter: a csatlakoztatott eszkï¿½z regisztere\n"
 
 #: modshell:msg25
 msgid "Select register type: "
-msgstr "V lasszon regisztert¡pust: "
+msgstr "Vï¿½lasszon regisztertï¿½pust: "
 
 #: modshell:msg26
 msgid "Local register type (dinp/coil/ireg/hreg: 1/2/3/4): "
-msgstr "Helyi regiszter t¡pus (dinp/coil/ireg/hreg: 1/2/3/4): "
+msgstr "Helyi regiszter tï¿½pus (dinp/coil/ireg/hreg: 1/2/3/4): "
 
 #: modshell:msg27
 msgid "Start address (0-9990): "
-msgstr "Kezd‹c¡m (0-9990): "
+msgstr "Kezdï¿½cï¿½m (0-9990): "
 
 #: modshell:msg28
 msgid "Echo mode: "
-msgstr "Visszhang m¢d: "
+msgstr "Visszhang mï¿½d: "
 
 #: modshell:msg29
 msgid "Mini serial console (exit: <F10>)"
-msgstr "Mini soros konzol (kil‚p‚s: <F10>)"
+msgstr "Mini soros konzol (kilï¿½pï¿½s: <F10>)"
 
 #: modshell:msg30
 msgid "Device number (0-7): "
-msgstr "Eszk”zsz m (0-7): "
+msgstr "Eszkï¿½zszï¿½m (0-7): "
 
 #: modshell:msg31
 msgid "Press <Esc> to break receiving."
-msgstr "Nyomd meg az <Esc>-et a v‚tel megszak¡t s hoz."
+msgstr "Nyomd meg az <Esc>-et a vï¿½tel megszakï¿½tï¿½sï¿½hoz."
 
 #: modshell:msg32
 msgid "Variable monitor mode: "
-msgstr "V ltoz¢ monitor m¢d: "
+msgstr "Vï¿½ltozï¿½ monitor mï¿½d: "
 
 #: modshell:msg33
 msgid "This command can only be used in a script!"
-msgstr "Ez a parancs csak szkriptben haszn lhat¢!"
+msgstr "Ez a parancs csak szkriptben hasznï¿½lhatï¿½!"
 
 #: modshell:msg34
 msgid "line"
@@ -189,7 +189,7 @@ msgstr "sor"
 
 #: modshell:msg35
 msgid "hour"
-msgstr "¢ra"
+msgstr "ï¿½ra"
 
 #: modshell:msg36
 msgid "minute"
@@ -197,47 +197,47 @@ msgstr "perc"
 
 #: modshell:msg37
 msgid "status"
-msgstr " llapot"
+msgstr "ï¿½llapot"
 
 #: modshell:msg38
 msgid "No script loaded."
-msgstr "Nincs bet”lt”tt szkript."
+msgstr "Nincs betï¿½ltï¿½tt szkript."
 
 #: modshell:msg39
 msgid "Scroll: [Home][PgUp][Up]-[Down][PgDn][End]"
-msgstr "G”rget‚s:    [Home][PgUp][Up]-[Down][PgDn][End]"
+msgstr "Gï¿½rgetï¿½s:    [Home][PgUp][Up]-[Down][PgDn][End]"
 
 #: modshell:msg40
 msgid "Move:   [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
-msgstr "Mozg s:      [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
+msgstr "Mozgï¿½s:      [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
 
 #: modshell:msg41
 msgid "Edit:   [Ins][Del][Esc]"
-msgstr "Szerkeszt‚s: [Ins][Del][Esc]"
+msgstr "Szerkesztï¿½s: [Ins][Del][Esc]"
 
 #: modshell:msg94
 msgid "Build date:  "
-msgstr "Ford¡t s ideje: "
+msgstr "Fordï¿½tï¿½s ideje: "
 
 #: modshell:msg95
 msgid "Builder:     "
-msgstr "Ford¡t¢:        "
+msgstr "Fordï¿½tï¿½:        "
 
 #: modshell:msg96
 msgid "FPC version: "
-msgstr "FPC verzi¢:     "
+msgstr "FPC verziï¿½:     "
 
 #: modshell:msg97
 msgid "Target OS:   "
-msgstr "C‚l OS:         "
+msgstr "Cï¿½l OS:         "
 
 #: modshell:msg98
 msgid "Target CPU:  "
-msgstr "C‚l CPU:        "
+msgstr "Cï¿½l CPU:        "
 
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
-msgstr "Sajn lom, hogy ez a szolg ltat s m‚g nem val¢sult meg."
+msgstr "Sajnï¿½lom, hogy ez a szolgï¿½ltatï¿½s mï¿½g nem valï¿½sult meg."
 
 #: modshell:err00
 msgid "No such command!"
@@ -245,23 +245,23 @@ msgstr "Nincs ilyen parancs!"
 
 #: modshell:err01
 msgid "Device number must be 0-7!"
-msgstr "Az eszk”z sz m nak 0-7-nek kell lennie!"
+msgstr "Az eszkï¿½z szï¿½mï¿½nak 0-7-nek kell lennie!"
 
 #: modshell:err02
 msgid "Protocol number must be 0-7!"
-msgstr "A protokoll sz m nak 0-7-nek kell lennie!"
+msgstr "A protokoll szï¿½mï¿½nak 0-7-nek kell lennie!"
 
 #: modshell:err03
 msgid "Connection number must be 0-7!"
-msgstr "A kapcsolat sz m nak 0-7-nek kell lennie!"
+msgstr "A kapcsolat szï¿½mï¿½nak 0-7-nek kell lennie!"
 
 #: modshell:err04
 msgid "IP address is not valid!"
-msgstr "Az IP -c¡m nem ‚rv‚nyes!"
+msgstr "Az IP-cï¿½m nem ï¿½rvï¿½nyes!"
 
 #: modshell:err05
 msgid "Parameter(s) required!"
-msgstr "Param‚terek szks‚ges(ek)!"
+msgstr "Paramï¿½terek szï¿½ksï¿½ges(ek)!"
 
 #: modshell:err06
 msgid "UID must be 1-247!"
@@ -269,23 +269,23 @@ msgstr "Az UID-nek 1-247-nek kell lennie!"
 
 #: modshell:err07
 msgid "Cannot export command line history to "
-msgstr "Nem lehet export lni a parancssori el‹zm‚nyeket ebbe: "
+msgstr "Nem lehet exportï¿½lni a parancssori elï¿½zmï¿½nyeket ebbe: "
 
 #: modshell:err08
 msgid "Cannot save settings to "
-msgstr "Nem lehet menteni a be ll¡t sokat ebbe: "
+msgstr "Nem lehet menteni a beï¿½llï¿½tï¿½sokat ebbe: "
 
 #: modshell:err09
 msgid "Cannot load settings from "
-msgstr "Nem lehet bet”lteni a be ll¡t sokat ebb‹l: "
+msgstr "Nem lehet betï¿½lteni a beï¿½llï¿½tï¿½sokat ebbï¿½l: "
 
 #: modshell:err10
 msgid "Cannot export register content to "
-msgstr "Nem lehet export lni a regisztertartalmat ebbe: "
+msgstr "Nem lehet exportï¿½lni a regisztertartalmat ebbe: "
 
 #: modshell:err11
 msgid "Cannot import register content from "
-msgstr "Nem lehet import lni a regisztertartalmat ebb‹l: "
+msgstr "Nem lehet importï¿½lni a regisztertartalmat ebbï¿½l: "
 
 #: modshell:err12
 msgid "Cannot save register content to "
@@ -293,43 +293,43 @@ msgstr "Nem mentheti a regisztertartalmat ebbe: "
 
 #: modshell:err13
 msgid "Cannot load register content from "
-msgstr "Nem lehet bet”lteni a regisztertartalmat ebb‹l: "
+msgstr "Nem lehet betï¿½lteni a regisztertartalmat ebbï¿½l: "
 
 #: modshell:err14
 msgid "Illegal character in the project name!"
-msgstr "Nem enged‚lyezett karakter a projekt nev‚ben!"
+msgstr "Nem engedï¿½lyezett karakter a projekt nevï¿½ben!"
 
 #: modshell:err15
 msgid "Illegal character in the variable name!"
-msgstr "Nem enged‚lyezett karakter a v ltoz¢ nev‚ben!"
+msgstr "Nem engedï¿½lyezett karakter a vï¿½ltozï¿½ nevï¿½ben!"
 
 #: modshell:err16
 msgid "Cannot define more variable!"
-msgstr "Nem lehet l‚trehozni a v ltoz¢t!"
+msgstr "Nem lehet lï¿½trehozni a vï¿½ltozï¿½t!"
 
 #: modshell:err17
 msgid "There is already a variable or a constant with that name."
-msgstr "Van m r egy v ltoz¢ vagy  lland¢ ezzel a n‚vvel."
+msgstr "Van mï¿½r egy vï¿½ltozï¿½ vagy ï¿½llandï¿½ ezzel a nï¿½vvel."
 
 #: modshell:err18
 msgid "Cannot initialize serial port: "
-msgstr "Nem lehet inicializ lni a soros portot! "
+msgstr "Nem lehet inicializï¿½lni a soros portot! "
 
 #: modshell:err19
 msgid "No such variable: "
-msgstr "Nincs ilyen v ltoz¢: "
+msgstr "Nincs ilyen vï¿½ltozï¿½: "
 
 #: modshell:err20
 msgid "Calculating error!"
-msgstr "Sz m¡t si hiba!"
+msgstr "Szï¿½mï¿½tï¿½si hiba!"
 
 #: modshell:err21
 msgid "No such script file: "
-msgstr "Nincs ilyen szkriptf jl: "
+msgstr "Nincs ilyen szkriptfï¿½jl: "
 
 #: modshell:err22
 msgid "Cannot load script from "
-msgstr "Nem lehet bet”lteni a szkriptet ebb‹l: "
+msgstr "Nem lehet betï¿½lteni a szkriptet ebbï¿½l: "
 
 #: modshell:err23
 msgid "Script buffer is full!"
@@ -337,55 +337,55 @@ msgstr "A szkript puffer megtelt!"
 
 #: modshell:err24
 msgid "Specified device is not a serial port!"
-msgstr "A megadott eszk”z nem soros port!"
+msgstr "A megadott eszkï¿½z nem soros port!"
 
 #: modshell:err25
 msgid "Specified device is not a ethernet port!"
-msgstr "A megadott eszk”z nem ethernet port!"
+msgstr "A megadott eszkï¿½z nem ethernet port!"
 
 #: modshell:err26
 msgid "Cannot read data from serial port!"
-msgstr "Nem lehet olvasni a soros portr¢l!"
+msgstr "Nem lehet olvasni a soros portrï¿½l!"
 
 #: modshell:err27
 msgid "Cannot write data to serial port!"
-msgstr "Nem lehet ¡rni a soros portot!"
+msgstr "Nem lehet ï¿½rni a soros portot!"
 
 #: modshell:err28
 msgid "Modbus telegram parsing error!"
-msgstr "Modbus telegram ‚rtelmez‚si hiba!"
+msgstr "Modbus telegram ï¿½rtelmezï¿½si hiba!"
 
 #: modshell:err29
 msgid "Modbus error: illegal function."
-msgstr "Modbus hiba: szab lytalan funkci¢."
+msgstr "Modbus hiba: szabï¿½lytalan funkciï¿½."
 
 #: modshell:err30
 msgid "Modbus error: illegal data address."
-msgstr "Modbus hiba: szab lytalan adatc¡m."
+msgstr "Modbus hiba: szabï¿½lytalan adatcï¿½m."
 
 #: modshell:err31
 msgid "Modbus error: illegal data value."
-msgstr "Modbus hiba: szab lytalan adat‚rt‚k."
+msgstr "Modbus hiba: szabï¿½lytalan adatï¿½rtï¿½k."
 
 #: modshell:err32
 msgid "Modbus error: slave device failure."
-msgstr "Modbus hiba: slave eszk”z hiba."
+msgstr "Modbus hiba: slave eszkï¿½z hiba."
 
 #: modshell:err33
 msgid "Illegal character in the constant name!"
-msgstr "Nem enged‚lyezett karakter az  lland¢ nev‚ben!"
+msgstr "Nem engedï¿½lyezett karakter az ï¿½llandï¿½ nevï¿½ben!"
 
 #: modshell:err34
 msgid "Cannot define more constant!"
-msgstr "Nem lehet l‚trehozni t”bb  lland¢t!"
+msgstr "Nem lehet lï¿½trehozni tï¿½bb ï¿½llandï¿½t!"
 
 #: modshell:err35
 msgid "No such label: "
-msgstr "Nincs ilyen c¡mke: "
+msgstr "Nincs ilyen cï¿½mke: "
 
 #: modshell:err36
 msgid "Cannot write log record to "
-msgstr "Nem lehet ¡rni a napl¢f jlt: "
+msgstr "Nem lehet ï¿½rni a naplï¿½fï¿½jlt: "
 
 #: modshell:err37
 msgid "Cannot save script to "
@@ -393,383 +393,383 @@ msgstr "Nem lehet menteni a szkriptet ebbe: "
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
-msgstr "A legkisebb termin l m‚ret 80x25!"
+msgstr "A legkisebb terminï¿½l mï¿½ret 80x25!"
 
 #: modshell:des00
 msgid "       copy one or more remote reg. between two connections"
-msgstr "       egy vagy t”bb t voli regiszter m sol sa k‚t kapcsolat k”z”tt"
+msgstr "       egy vagy tï¿½bb tï¿½voli regiszter mï¿½solï¿½sa kï¿½t kapcsolat kï¿½zï¿½tt"
 
 #: modshell:des01
 msgid "F10    exit"
-msgstr "F10    kil‚p‚s"
+msgstr "F10    kilï¿½pï¿½s"
 
 #: modshell:des02
 msgid "ALT-G  show device, protocol, connection or project name"
-msgstr "ALT-G  eszk”z, protokoll, kapcsolat vagy projektn‚v ki¡r sa"
+msgstr "ALT-G  eszkï¿½z, protokoll, kapcsolat vagy projektnï¿½v kiï¿½rï¿½sa"
 
 #: modshell:des03
 msgid "F1     show description or usage of the commands"
-msgstr "F1     parancs le¡r s vagy haszn lat megjelen¡t‚se"
+msgstr "F1     parancs leï¿½rï¿½s vagy hasznï¿½lat megjelenï¿½tï¿½se"
 
 #: modshell:des04
 msgid "ALT-L  set value of a variable or a register"
-msgstr "ALT-L  regisztertartalom be ll¡t sa"
+msgstr "ALT-L  regisztertartalom beï¿½llï¿½tï¿½sa"
 
 #: modshell:des05
 msgid "ALT-P  print message, value of the variable and register"
-msgstr "ALT-P  zenet, a v ltoz¢ vagy regisztertartalom ki¡r sa"
+msgstr "ALT-P  ï¿½zenet, a vï¿½ltozï¿½ vagy regisztertartalom kiï¿½rï¿½sa"
 
 #: modshell:des06
 msgid "ALT-R  read one or more remote registers to buffer"
-msgstr "ALT-R  adat olvas sa t voli regiszterb‹l a pufferbe"
+msgstr "ALT-R  adat olvasï¿½sa tï¿½voli regiszterbï¿½l a pufferbe"
 
 #: modshell:des07
 msgid "ALT-T  reset device, protocol, connection or project name"
-msgstr "ALT-T  eszk”z, protokoll, kapcsolat vagy projektn‚v t”rl‚se"
+msgstr "ALT-T  eszkï¿½z, protokoll, kapcsolat vagy projektnï¿½v tï¿½rlï¿½se"
 
 #: modshell:des08
 msgid "ALT-S  set device, protocol, connection or project name"
-msgstr "ALT-S  eszk”z, protokoll, kapcsolat vagy projektn‚v be ll¡t sa"
+msgstr "ALT-S  eszkï¿½z, protokoll, kapcsolat vagy projektnï¿½v beï¿½llï¿½tï¿½sa"
 
 #: modshell:des09
 msgid "       show system date and time"
-msgstr "       d tum ‚s id‹ megjelen¡t‚se"
+msgstr "       dï¿½tum ï¿½s idï¿½ megjelenï¿½tï¿½se"
 
 #: modshell:des10
 msgid "       show version and build information of this program"
-msgstr "       v ltozat ‚s ford¡t si inform ci¢k a programr¢l"
+msgstr "       vï¿½ltozat ï¿½s fordï¿½tï¿½si informï¿½ciï¿½k a programrï¿½l"
 
 #: modshell:des11
 msgid "ALT-W  write data from buffer to one or more remote registers"
-msgstr "ALT-W  adat ¡r sa egy vagy t”bb pufferb‹l a t voli regiszterbe"
+msgstr "ALT-W  adat ï¿½rï¿½sa egy vagy tï¿½bb pufferbï¿½l a tï¿½voli regiszterbe"
 
 #: modshell:des12
 msgid "F8     clear screen"
-msgstr "F8     k‚perny‹t”rl‚s"
+msgstr "F8     kï¿½pernyï¿½tï¿½rlï¿½s"
 
 #: modshell:des13
 msgid "F2     save settings of device, protocol and connection"
-msgstr "F2     eszk”z-, protokoll- ‚s kapcsolatbe ll¡t sok ment‚se"
+msgstr "F2     eszkï¿½z-, protokoll- ï¿½s kapcsolatbeï¿½llï¿½tï¿½sok mentï¿½se"
 
 #: modshell:des14
 msgid "F3     load settings of device, protocol and connection"
-msgstr "F3     eszk”z-, protokoll- ‚s kapcsolatbe ll¡t sok bet”lt‚se"
+msgstr "F3     eszkï¿½z-, protokoll- ï¿½s kapcsolatbeï¿½llï¿½tï¿½sok betï¿½ltï¿½se"
 
 #: modshell:des15
 msgid "ALT-E  export value of the one or more registers"
-msgstr "ALT-E  egy vagy t”bb regisztertartalom export l sa"
+msgstr "ALT-E  egy vagy tï¿½bb regisztertartalom exportï¿½lï¿½sa"
 
 #: modshell:des16
 msgid "       export command line history to make a script easily"
-msgstr "       parancssori el‹zm‚nyek export l sa"
+msgstr "       parancssori elï¿½zmï¿½nyek exportï¿½lï¿½sa"
 
 #: modshell:des17
 msgid "ALT-C  convert value between different numeral systems"
-msgstr "ALT-C  konvert l s a kl”nb”z‹ sz mrendszerek k”z”tt"
+msgstr "ALT-C  konvertï¿½lï¿½s a kï¿½lï¿½nbï¿½zï¿½ szï¿½mrendszerek kï¿½zï¿½tt"
 
 #: modshell:des18
 msgid "F4     save all registers"
-msgstr "F4     ”sszes regisztertartalom ment‚se"
+msgstr "F4     ï¿½sszes regisztertartalom mentï¿½se"
 
 #: modshell:des19
 msgid "F5     load all registers"
-msgstr "F5     ”sszes regisztertartalom bet”lt‚se"
+msgstr "F5     ï¿½sszes regisztertartalom betï¿½ltï¿½se"
 
 #: modshell:des20
 msgid "       list all variable with value or define a new one"
-msgstr "       az ”sszes v ltoz¢ ki¡r sa vagy £j l‚trehoz sa"
+msgstr "       az ï¿½sszes vï¿½ltozï¿½ kiï¿½rï¿½sa vagy ï¿½j lï¿½trehozï¿½sa"
 
 #: modshell:des21
 msgid "       set colors"
-msgstr "       sz¡nek be ll¡t sa"
+msgstr "       szï¿½nek beï¿½llï¿½tï¿½sa"
 
 #: modshell:des22
 msgid "ALT-I  import value of the one or more registers"
-msgstr "ALT-I  egy vagy t”bb regisztertartalom import l sa"
+msgstr "ALT-I  egy vagy tï¿½bb regisztertartalom importï¿½lï¿½sa"
 
 #: modshell:des23
 msgid "       AND logical operations"
-msgstr "       S logikai mûvelet"
+msgstr "       ï¿½S logikai mï¿½velet"
 
 #: modshell:des24
 msgid "       OR logical operations"
-msgstr "       VAGY logikai mûvelet"
+msgstr "       VAGY logikai mï¿½velet"
 
 #: modshell:des25
 msgid "       NOT logical operations"
-msgstr "       NOT logikai mûvelet"
+msgstr "       NOT logikai mï¿½velet"
 
 #: modshell:des26
 msgid "       XOR logical operations"
-msgstr "       XOR logikai mûvelet"
+msgstr "       XOR logikai mï¿½velet"
 
 #: modshell:des27
 msgid "       bit shift to left"
-msgstr "       biteltol s balra"
+msgstr "       biteltolï¿½s balra"
 
 #: modshell:des28
 msgid "       bit shift to right"
-msgstr "       biteltol s jobbra"
+msgstr "       biteltolï¿½s jobbra"
 
 #: modshell:des29
 msgid "       addition mathematical operation"
-msgstr "       ”sszead s matematikai mûvelet"
+msgstr "       ï¿½sszeadï¿½s matematikai mï¿½velet"
 
 #: modshell:des30
 msgid "       substraction mathematical operation"
-msgstr "       kivon s matematikai mûvelet"
+msgstr "       kivonï¿½s matematikai mï¿½velet"
 
 #: modshell:des31
 msgid "       multiplication mathematical operation"
-msgstr "       szorz s matematikai mûvelet"
+msgstr "       szorzï¿½s matematikai mï¿½velet"
 
 #: modshell:des32
 msgid "       division mathematical operation"
-msgstr "       oszt s matematikai mûvelet"
+msgstr "       osztï¿½s matematikai mï¿½velet"
 
 #: modshell:des33
 msgid "F6     dump all registers in binary/hexadecimal format to a table"
-msgstr "F6     t bl zatos regiszterki¡r s bin. vagy hexadec. form ban"
+msgstr "F6     tï¿½blï¿½zatos regiszterkiï¿½rï¿½s bin. vagy hexadec. formï¿½ban"
 
 #: modshell:des34
 msgid "       wait for a keystroke or specified time"
-msgstr "       v rakoz s billentyûlet‚sre vagy id‹ letelt‚re"
+msgstr "       vï¿½rakozï¿½s billentyï¿½leï¿½tï¿½sre vagy idï¿½ leteltï¿½re"
 
 #: modshell:des35
 msgid "F7     open a simple serial console"
-msgstr "F7     egyszerû soros konzol"
+msgstr "F7     egyszerï¿½ soros konzol"
 
 #: modshell:des36
 msgid "       read string from serial device"
-msgstr "       string olvas sa soros portr¢l"
+msgstr "       string olvasï¿½sa soros portrï¿½l"
 
 #: modshell:des37
 msgid "       write string to serial device"
-msgstr "       string ¡r sa soros portra"
+msgstr "       string ï¿½rï¿½sa soros portra"
 
 #: modshell:des38
 msgid "F9     query local echo status or enable/disable it"
-msgstr "F9     visszahang  llapot lek‚r‚se/be ll¡t sa"
+msgstr "F9     visszahang ï¿½llapot lekï¿½rï¿½se/beï¿½llï¿½tï¿½sa"
 
 #: modshell:des39
 msgid "       load Modshell script from file"
-msgstr "       Modshell szkript bet”lt‚se f jlb¢l"
+msgstr "       Modshell szkript betï¿½ltï¿½se fï¿½jlbï¿½l"
 
 #: modshell:des40
 msgid "F12    run loaded Modshell script"
-msgstr "F12    bet”lt”tt ModShell szkript futatt sa"
+msgstr "F12    betï¿½ltï¿½tt ModShell szkript futattï¿½sa"
 
 #: modshell:des41
 msgid "F11    list loaded Modshell script"
-msgstr "F11    bet”lt”tt ModShell szkript list z sa"
+msgstr "F11    betï¿½ltï¿½tt ModShell szkript listï¿½zï¿½sa"
 
 #: modshell:des42
 msgid "       round real number"
-msgstr "       term‚szetes sz m kerek¡t‚se"
+msgstr "       termï¿½szetes szï¿½m kerekï¿½tï¿½se"
 
 #: modshell:des43
 msgid "       cosine function"
-msgstr "       koszinusz fggv‚ny"
+msgstr "       koszinusz fï¿½ggvï¿½ny"
 
 #: modshell:des44
 msgid "       cotangent function"
-msgstr "       kotangens fggv‚ny"
+msgstr "       kotangens fï¿½ggvï¿½ny"
 
 #: modshell:des45
 msgid "       decrement integer"
-msgstr "       eg‚sz sz m cs”kkent‚se eggyel"
+msgstr "       egï¿½sz szï¿½m csï¿½kkentï¿½se eggyel"
 
 #: modshell:des46
 msgid "       natural exponential"
-msgstr "       term‚szetes exponenci lis fggv‚ny"
+msgstr "       termï¿½szetes exponenciï¿½lis fï¿½ggvï¿½ny"
 
 #: modshell:des47
 msgid "       integer division"
-msgstr "       eg‚sz oszt s"
+msgstr "       egï¿½sz osztï¿½s"
 
 #: modshell:des48
 msgid "       modulus division"
-msgstr "       modulusz oszt s"
+msgstr "       modulusz osztï¿½s"
 
 #: modshell:des49
 msgid "       increment integer"
-msgstr "       eg‚sz sz m n”vel‚se eggyel"
+msgstr "       egï¿½sz szï¿½m nï¿½velï¿½se eggyel"
 
 #: modshell:des50
 msgid "       natural logarithm"
-msgstr "       term‚szetes alap£ logaritmus"
+msgstr "       termï¿½szetes alapï¿½ logaritmus"
 
 #: modshell:des51
 msgid "       multiplicative inverse"
-msgstr "       reciprok‚rt‚k"
+msgstr "       reciprokï¿½rtï¿½k"
 
 #: modshell:des52
 msgid "       odd or event"
-msgstr "       p ros vagy p ratlan"
+msgstr "       pï¿½ros vagy pï¿½ratlan"
 
 #: modshell:des53
 msgid "       create random integer"
-msgstr "       v‚letlen eg‚sz sz m k‚pz‚se"
+msgstr "       vï¿½letlen egï¿½sz szï¿½m kï¿½pzï¿½se"
 
 #: modshell:des54
 msgid "       tangent function"
-msgstr "       tangens fggv‚ny"
+msgstr "       tangens fï¿½ggvï¿½ny"
 
 #: modshell:des55
 msgid "       sine function"
-msgstr "       szinusz fggv‚ny"
+msgstr "       szinusz fï¿½ggvï¿½ny"
 
 #: modshell:des56
 msgid "       square"
-msgstr "       n‚gyzetreemel‚s"
+msgstr "       nï¿½gyzetreemelï¿½s"
 
 #: modshell:des57
 msgid "       square root"
-msgstr "       n‚gyzetgy”kvon s"
+msgstr "       nï¿½gyzetgyï¿½kvonï¿½s"
 
 #: modshell:des58
 msgid "       roll bit of integer to left"
-msgstr "       bitg”rget‚s balra"
+msgstr "       bitgï¿½rgetï¿½s balra"
 
 #: modshell:des59
 msgid "       roll bit of integer to right"
-msgstr "       bitg”rget‚s jobbra"
+msgstr "       bitgï¿½rgetï¿½s jobbra"
 
 #: modshell:des60
 msgid "       conversion to uppercase"
-msgstr "        talak¡t s nagybetûss‚"
+msgstr "       ï¿½talakï¿½tï¿½s nagybetï¿½ssï¿½"
 
 #: modshell:des61
 msgid "       length of string"
-msgstr "       karakterl nc hossza"
+msgstr "       karakterlï¿½nc hossza"
 
 #: modshell:des62
 msgid "       conversion to lowercase"
-msgstr "        talak¡t s kisbetûss‚"
+msgstr "       ï¿½talakï¿½tï¿½s kisbetï¿½ssï¿½"
 
 #: modshell:des63
 msgid "       specified element of the string"
-msgstr "       a karakterl nc megadott eleme"
+msgstr "       a karakterlï¿½nc megadott eleme"
 
 #: modshell:des64
 msgid "       convert byte to char"
-msgstr "       b jt karakterr‚ alak¡t sa"
+msgstr "       bï¿½jt karakterrï¿½ alakï¿½tï¿½sa"
 
 #: modshell:des65
 msgid "       convert char to byte"
-msgstr "       karakter b jtt  alak¡t sa"
+msgstr "       karakter bï¿½jttï¿½ alakï¿½tï¿½sa"
 
 #: modshell:des66
 msgid "       list all constant with value or define a new one"
-msgstr "       az ”sszes  lland¢ ki¡r sa vagy £j l‚trehoz sa"
+msgstr "       az ï¿½sszes ï¿½llandï¿½ kiï¿½rï¿½sa vagy ï¿½j lï¿½trehozï¿½sa"
 
 #: modshell:des67
 msgid "       value of the specified bit"
-msgstr "       megadott bit ‚rt‚ke"
+msgstr "       megadott bit ï¿½rtï¿½ke"
 
 #: modshell:des68
 msgid "       exponentiation"
-msgstr "       hatv nyoz s"
+msgstr "       hatvï¿½nyozï¿½s"
 
 #: modshell:des69
 msgid "       jump to specified label (only in script)"
-msgstr "       ugr s a megadott c¡mk‚re (csak szkriptekn‚l)"
+msgstr "       ugrï¿½s a megadott cï¿½mkï¿½re (csak szkripteknï¿½l)"
 
 #: modshell:des70
 msgid "       selection statement"
-msgstr "       el gaz s"
+msgstr "       elï¿½gazï¿½s"
 
 #: modshell:des71
 msgid "       loop iteration"
-msgstr "       sz ml l¢ hurok"
+msgstr "       szï¿½mlï¿½lï¿½ hurok"
 
 #: modshell:des72
 msgid "       define label (only in script)"
-msgstr "       c¡mke l‚trehoz sa (csak szkriptekn‚l)"
+msgstr "       cï¿½mke lï¿½trehozï¿½sa (csak szkripteknï¿½l)"
 
 #: modshell:des73
 msgid "       start internal Modbus slave/server"
-msgstr "       start bels‹ Modbus szolga/szerver"
+msgstr "       start belsï¿½ Modbus szolga/szerver"
 
 #: modshell:des74
 msgid "       start internal Modbus gateway"
-msgstr "       start bels‹ Modbus  tj r¢"
+msgstr "       start belsï¿½ Modbus ï¿½tjï¿½rï¿½"
 
 #: modshell:des75
 msgid "       check the value is in the range"
-msgstr "       ‚rt‚ktartom nyba tartoz s ellen‹rz‚se"
+msgstr "       ï¿½rtï¿½ktartomï¿½nyba tartozï¿½s ellenï¿½rzï¿½se"
 
 #: modshell:des76
 msgid "       make LRC"
-msgstr "       LRC k‚pz‚se"
+msgstr "       LRC kï¿½pzï¿½se"
 
 #: modshell:des77
 msgid "       make CRC"
-msgstr "       CRC k‚pz‚se"
+msgstr "       CRC kï¿½pzï¿½se"
 
 #: modshell:des78
 msgid "       exponentiation of two"
-msgstr "       a kett‹ hatv nyai"
+msgstr "       a kettï¿½ hatvï¿½nyai"
 
 #: modshell:des79
 msgid "       show ASCII table"
-msgstr "       ASCII t bla mutat s"
+msgstr "       ASCII tï¿½bla mutatï¿½s"
 
 #: modshell:des80
 msgid "       make a beep sound with internal speaker"
-msgstr "       hangjelz‚s a bels‹ hangsz¢r¢val"
+msgstr "       hangjelzï¿½s a belsï¿½ hangszï¿½rï¿½val"
 
 #: modshell:des81
 msgid "       calculate average"
-msgstr "        tlagsz m¡t s"
+msgstr "       ï¿½tlagszï¿½mï¿½tï¿½s"
 
 #: modshell:des82
 msgid "       propotional value calculation (with zero and span)"
-msgstr "       ar nyos ‚rt‚k sz m¡t s (kezdeti ‚s v‚g‚rt‚kkel)"
+msgstr "       arï¿½nyos ï¿½rtï¿½k szï¿½mï¿½tï¿½s (kezdeti ï¿½s vï¿½gï¿½rtï¿½kkel)"
 
 #: modshell:des83
 msgid "       concatenate strings"
-msgstr "       karakterl ncok ”sszefûz‚se"
+msgstr "       karakterlï¿½ncok ï¿½sszefï¿½zï¿½se"
 
 #: modshell:des84
 msgid "       delete specified element(s) of the string"
-msgstr "       a karakterl nc megadott elem‚nek t”rl‚se"
+msgstr "       a karakterlï¿½nc megadott elemï¿½nek tï¿½rlï¿½se"
 
 #: modshell:des85
 msgid "       find specified element(s) in the string"
-msgstr "       keres‚s a karakterl ncban"
+msgstr "       keresï¿½s a karakterlï¿½ncban"
 
 #: modshell:des86
 msgid "       insert element(s) into string"
-msgstr "       besz£r s a karakterl ncba"
+msgstr "       beszï¿½rï¿½s a karakterlï¿½ncba"
 
 #: modshell:des87
 msgid "       replace element(s) in the string"
-msgstr "       a karakterl nc megadott elem‚nek cser‚je"
+msgstr "       a karakterlï¿½nc megadott elemï¿½nek cserï¿½je"
 
 #: modshell:des88
 msgid "ALT-M  monitoring the value of variables"
-msgstr "ALT-M  v ltoz¢‚rt‚kek megfigyel‚se"
+msgstr "ALT-M  vï¿½ltozï¿½ï¿½rtï¿½kek megfigyelï¿½se"
 
 #: modshell:des89
 msgid "       append a record to log file"
-msgstr "       egy bejegyz‚s hozz fûz‚se a napl¢f jlhoz"
+msgstr "       egy bejegyzï¿½s hozzï¿½fï¿½zï¿½se a naplï¿½fï¿½jlhoz"
 
 #: modshell:des90
 msgid "       loaded script scheduled execution"
-msgstr "       a bet”lt”tt szkript temezett futatt sa"
+msgstr "       a betï¿½ltï¿½tt szkript ï¿½temezett futattï¿½sa"
 
 #: modshell:des91
 msgid "       edit loaded script with line editor"
-msgstr "       a bet”lt”tt szkript szerkeszt‚se sorszerkeszt‹vel"
+msgstr "       a betï¿½ltï¿½tt szkript szerkesztï¿½se sorszerkesztï¿½vel"
 
 #: modshell:des92
 msgid "       erase script from buffer"
-msgstr "       a szkript t”rl‚se a pufferb¢l"
+msgstr "       a szkript tï¿½rlï¿½se a pufferbï¿½l"
 
 #: modshell:des93
 msgid "       save loaded script to disc"
-msgstr "       a bet”lt”tt szkript ment‚se lemezre"
+msgstr "       a betï¿½ltï¿½tt szkript mentï¿½se lemezre"
 
 #: modshell:usg00
 msgid ""
@@ -777,9 +777,9 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"copy con? dinp|coil con? coil [$]CÖM [[$]MENNYISG]\n"
-"Megjegyz‚s:\n"
-"  - A '?' ‚rt‚ke 0-7 lehet."
+"copy con? dinp|coil con? coil [$]Cï¿½M [[$]MENNYISï¿½G]\n"
+"Megjegyzï¿½s:\n"
+"  - A '?' ï¿½rtï¿½ke 0-7 lehet."
 
 #: modshell:usg01
 msgid "exit"
@@ -792,8 +792,8 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 "get dev?|pro?|con?|prj\n"
-"Megjegyz‚s:\n"
-"  - A '?' ‚rt‚ke 0-7 lehet."
+"Megjegyzï¿½s:\n"
+"  - A '?' ï¿½rtï¿½ke 0-7 lehet."
 
 #: modshell:usg03
 msgid "help [[$]COMMAND]"
@@ -805,9 +805,9 @@ msgid ""
 "  let $VARIABLE [$]VALUE\n"
 "  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS"
 msgstr ""
-"let dinp|coil|ireg|hreg [$]CÖM [$]RTK\n"
-"  let $VµLTOZà [$]RTK\n"
-"  let $VµLTOZà dinp|coil|ireg|hreg [$]CÖM"
+"let dinp|coil|ireg|hreg [$]Cï¿½M [$]ï¿½RTï¿½K\n"
+"  let $Vï¿½LTOZï¿½ [$]ï¿½RTï¿½K\n"
+"  let $Vï¿½LTOZï¿½ dinp|coil|ireg|hreg [$]Cï¿½M"
 
 #: modshell:usg05
 msgid ""
@@ -815,13 +815,13 @@ msgid ""
 "  print $VARIABLE [-n]\n"
 "  print \"single\\ line\\ message\" [-n]"
 msgstr ""
-"print dinp|coil|ireg|hreg [$]CÖM [[$]MENNYISG] [-n]\n"
-"  print $VµLTOZà [-n]\n"
+"print dinp|coil|ireg|hreg [$]Cï¿½M [[$]MENNYISï¿½G] [-n]\n"
+"  print $Vï¿½LTOZï¿½ [-n]\n"
 "  print \"single\\ line\\ message\" [-n]"
 
 #: modshell:usg06
 msgid "read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
-msgstr "read con? dinp|coil|ireg|hreg [$]CÖM [[$]MENNYISG]"
+msgstr "read con? dinp|coil|ireg|hreg [$]Cï¿½M [[$]MENNYISï¿½G]"
 
 #: modshell:usg07
 msgid ""
@@ -830,8 +830,8 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 "reset dev?|pro?|con?|prj\n"
-"Megjegyz‚s:\n"
-"  - A '?' ‚rt‚ke 0-7 lehet."
+"Megjegyzï¿½s:\n"
+"  - A '?' ï¿½rtï¿½ke 0-7 lehet."
 
 #: modshell:usg08
 msgid ""
@@ -844,14 +844,14 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"set dev? net [$]ESZK™Z [$]PORT\n"
-"  set dev? ser [$]ESZK™Z [$]BAUDRATE [$]ADATBIT [$]PARITµS [$]STOPBIT\n"
+"set dev? net [$]ESZKï¿½Z [$]PORT\n"
+"  set dev? ser [$]ESZKï¿½Z [$]BAUDRATE [$]ADATBIT [$]PARITï¿½S [$]STOPBIT\n"
 "  set pro? ascii|rtu [$]UID\n"
-"  set pro? tcp [$]IP_CÖM\n"
+"  set pro? tcp [$]IP_Cï¿½M\n"
 "  set con? dev? pro?\n"
-"  set prj [$]PROJEKNV\n"
-"Megjegyz‚s:\n"
-"  - A '?' ‚rt‚ke 0-7 lehet."
+"  set prj [$]PROJEKNï¿½V\n"
+"Megjegyzï¿½s:\n"
+"  - A '?' ï¿½rtï¿½ke 0-7 lehet."
 
 #: modshell:usg09
 msgid "date"
@@ -867,9 +867,9 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"write con? coil|hreg [$]CÖM [[$]MENNYISG]\n"
-"Megjegyz‚s:\n"
-"  - A '?' ‚rt‚ke 0-7 lehet."
+"write con? coil|hreg [$]Cï¿½M [[$]MENNYISï¿½G]\n"
+"Megjegyzï¿½s:\n"
+"  - A '?' ï¿½rtï¿½ke 0-7 lehet."
 
 #: modshell:usg12
 msgid "cls"
@@ -877,32 +877,32 @@ msgstr "cls"
 
 #: modshell:usg13
 msgid "savecfg [$]PATH_AND_FILENAME"
-msgstr "savecfg [$]ELRSI_éT_S_FµJLNV"
+msgstr "savecfg [$]ELï¿½Rï¿½SI_ï¿½T_ï¿½S_Fï¿½JLNï¿½V"
 
 #: modshell:usg14
 msgid "loadcfg [$]PATH_AND_FILENAME"
-msgstr "loadcfg [$]ELRSI_éT_S_FµJLNV"
+msgstr "loadcfg [$]ELï¿½Rï¿½SI_ï¿½T_ï¿½S_Fï¿½JLNï¿½V"
 
 #: modshell:usg15
 msgid "expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
 msgstr ""
-"expreg [$]ELRSI_éT_S_FµJLNV dinp|coil|ireg|hreg [$]CÖM [[$]MENNYISG]"
+"expreg [$]ELï¿½Rï¿½SI_ï¿½T_ï¿½S_Fï¿½JLNï¿½V dinp|coil|ireg|hreg [$]Cï¿½M [[$]MENNYISï¿½G]"
 
 #: modshell:usg16
 msgid "exphis [$]PATH_AND_FILENAME"
-msgstr "exphis [$]ELRSI_éT_S_FµJLNV"
+msgstr "exphis [$]ELï¿½Rï¿½SI_ï¿½T_ï¿½S_Fï¿½JLNï¿½V"
 
 #: modshell:usg17
 msgid "conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
-msgstr "conv bin|dec|hex|oct bin|dec|hex|oct [$]RTK"
+msgstr "conv bin|dec|hex|oct bin|dec|hex|oct [$]ï¿½RTï¿½K"
 
 #: modshell:usg18
 msgid "savereg [$]PATH_AND_FILENAME"
-msgstr "savereg [$]ELRSI_éT_S_FµJLNV"
+msgstr "savereg [$]ELï¿½Rï¿½SI_ï¿½T_ï¿½S_Fï¿½JLNï¿½V"
 
 #: modshell:usg19
 msgid "loadreg [$]PATH_AND_FILENAME"
-msgstr "loadreg [$]ELRSI_éT_S_FµJLNV"
+msgstr "loadreg [$]ELï¿½Rï¿½SI_ï¿½T_ï¿½S_Fï¿½JLNï¿½V"
 
 #: modshell:usg20
 msgid ""
@@ -910,7 +910,7 @@ msgid ""
 "  var NAME [[$]VALUE]"
 msgstr ""
 "var\n"
-"  var NAME [[$]RTK]"
+"  var NAME [[$]ï¿½RTï¿½K]"
 
 #: modshell:usg21
 msgid ""
@@ -921,65 +921,65 @@ msgid ""
 "      2: green  6: brown      10: lightgreen  14: yellow\n"
 "      3: cyan   7: lightgray  11: lightcyan   15: white"
 msgstr ""
-"color [$]ELŠTRSZÖN [$]HµTTRSZÖN [$]VTELSZÖN [$]ADµSSZÖN [$]VµLTMON\n"
+"color [$]ELï¿½Tï¿½RSZï¿½N [$]Hï¿½TTï¿½RSZï¿½N [$]Vï¿½TELSZï¿½N [$]ADï¿½SSZï¿½N [$]Vï¿½LTMON\n"
 "\n"
-"  Sz¡nek: \\ 015\n"
-"      0: fekete  4: v”r”s           8: s”t‚tszrke  12: vil gosv”r”s\n"
-"      1: k‚k     5: magenta:        9: vil gosk‚k   13: vil gosmagenta\n"
-"      2: z”ld    6: barna          10: vil gosz”ld  14: s rga\n"
-"      3: ci n    7: vil gosszrke  11: vil gosci n  15: feh‚r"
+"  Szï¿½nek: \\ 015\n"
+"      0: fekete  4: vï¿½rï¿½s           8: sï¿½tï¿½tszï¿½rke  12: vilï¿½gosvï¿½rï¿½s\n"
+"      1: kï¿½k     5: magenta:        9: vilï¿½goskï¿½k   13: vilï¿½gosmagenta\n"
+"      2: zï¿½ld    6: barna          10: vilï¿½goszï¿½ld  14: sï¿½rga\n"
+"      3: ciï¿½n    7: vilï¿½gosszï¿½rke  11: vilï¿½gosciï¿½n  15: fehï¿½r"
 
 #: modshell:usg22
 msgid "impreg [$]PATH_AND_FILENAME"
-msgstr "impreg [$]ELRSI_éT_S_FµJLNV"
+msgstr "impreg [$]ELï¿½Rï¿½SI_ï¿½T_ï¿½S_Fï¿½JLNï¿½V"
 
 #: modshell:usg23
 msgid "and $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "and $CL [$]RTK1 [$]RTK2"
+msgstr "and $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg24
 msgid "or $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "or $CL [$]RTK1 [$]RTK2"
+msgstr "or $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg25
 msgid "not $TARGET [$]VALUE"
-msgstr "not $CL [$]RTK"
+msgstr "not $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg26
 msgid "xor $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "xor $CL [$]RTK1 [$]RTK2"
+msgstr "xor $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg27
 msgid "shl $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "shl $CL [$]RTK1 [$]RTK2"
+msgstr "shl $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg28
 msgid "shr $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "shr $CL [$]RTK1 [$]RTK2"
+msgstr "shr $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg29
 msgid "add $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "add $CL [$]RTK1 [$]RTK2"
+msgstr "add $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg30
 msgid "sub $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "sub $CL [$]RTK1 [$]RTK2"
+msgstr "sub $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg31
 msgid "mul $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "mul $CL [$]RTK1 [$]RTK2"
+msgstr "mul $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg32
 msgid "div $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "div $CL [$]RTK1 [$]RTK2"
+msgstr "div $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg33
 msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
-msgstr "dump [[dinp|coil|ireg|hreg] [$]CÖM]"
+msgstr "dump [[dinp|coil|ireg|hreg] [$]Cï¿½M]"
 
 #: modshell:usg34
 msgid "pause [[$]TIME]"
-msgstr "pause [[$]IDŠ]"
+msgstr "pause [[$]IDï¿½]"
 
 #: modshell:usg35
 msgid ""
@@ -988,8 +988,8 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 "sercons [dev?]\n"
-"Megjegyz‚s:\n"
-"  - A '?' ‚rt‚ke 0-7 lehet."
+"Megjegyzï¿½s:\n"
+"  - A '?' ï¿½rtï¿½ke 0-7 lehet."
 
 #: modshell:usg36
 msgid ""
@@ -997,9 +997,9 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"serread dev? [$CL]\n"
-"Megjegyz‚s:\n"
-"  - A '?' ‚rt‚ke 0-7 lehet."
+"serread dev? [$Cï¿½L]\n"
+"Megjegyzï¿½s:\n"
+"  - A '?' ï¿½rtï¿½ke 0-7 lehet."
 
 #: modshell:usg37
 msgid ""
@@ -1008,10 +1008,10 @@ msgid ""
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"serwrite dev? $šZENET\n"
-"  serwrite dev? \"MšZENET\"\n"
-"Megjegyz‚s:\n"
-"  - A '?' ‚rt‚ke 0-7 lehet."
+"serwrite dev? $ï¿½ZENET\n"
+"  serwrite dev? \"Mï¿½ZENET\"\n"
+"Megjegyzï¿½s:\n"
+"  - A '?' ï¿½rtï¿½ke 0-7 lehet."
 
 #: modshell:usg38
 msgid "echo [off|on|hex]"
@@ -1019,7 +1019,7 @@ msgstr "echo [off|on|hex]"
 
 #: modshell:usg39
 msgid "loadscr [$]PATH_AND_FILENAME"
-msgstr "loadscr [$]ELRSI_éT_S_FµJLNV"
+msgstr "loadscr [$]ELï¿½Rï¿½SI_ï¿½T_ï¿½S_Fï¿½JLNï¿½V"
 
 #: modshell:usg40
 msgid "run [-s]"
@@ -1031,99 +1031,99 @@ msgstr "list"
 
 #: modshell:usg42
 msgid "round $TARGET [$]VALUE [$]DEC_PLACES"
-msgstr "round $CL [$]RTK [$]DEC_HELYEK"
+msgstr "round $Cï¿½L [$]ï¿½RTï¿½K [$]DEC_HELYEK"
 
 #: modshell:usg43
 msgid "cos $TARGET [$]VALUE"
-msgstr "cos $CL [$]RTK"
+msgstr "cos $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg44
 msgid "cotan $TARGET [$]VALUE"
-msgstr "cotan $CL [$]RTK"
+msgstr "cotan $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg45
 msgid "dec $TARGET [$]VALUE"
-msgstr "dec $CL [$]RTK"
+msgstr "dec $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg46
 msgid "exp $TARGET [$]VALUE"
-msgstr "exp $CL [$]RTK"
+msgstr "exp $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg47
 msgid "idiv $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "idiv $CL [$]RTK1 [$]RTK2"
+msgstr "idiv $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg48
 msgid "imod $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "imod $CL [$]RTK1 [$]RTK2"
+msgstr "imod $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg49
 msgid "inc $TARGET [$]VALUE"
-msgstr "inc $CL [$]RTK"
+msgstr "inc $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg50
 msgid "ln $TARGET [$]VALUE"
-msgstr "ln $CL [$]RTK"
+msgstr "ln $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg51
 msgid "mulinv $TARGET [$]VALUE"
-msgstr "mulinv $CL [$]RTK"
+msgstr "mulinv $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg52
 msgid "odd $TARGET [$]VALUE"
-msgstr "odd $CL [$]RTK"
+msgstr "odd $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg53
 msgid "rnd $TARGET [$]VALUE"
-msgstr "rnd $CL [$]RTK"
+msgstr "rnd $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg54
 msgid "tan $TARGET [$]VALUE"
-msgstr "tan $CL [$]RTK"
+msgstr "tan $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg55
 msgid "sin $TARGET [$]VALUE"
-msgstr "sin $CL [$]RTK"
+msgstr "sin $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg56
 msgid "sqr $TARGET [$]VALUE"
-msgstr "sqr $CL [$]RTK"
+msgstr "sqr $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg57
 msgid "sqrt $TARGET [$]VALUE"
-msgstr "sqrt $CL [$]RTK"
+msgstr "sqrt $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg58
 msgid "roll $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "roll $CL [$]RTK1 [$]RTK2"
+msgstr "roll $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg59
 msgid "rolr $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "rolr $CL [$]RTK1 [$]RTK2"
+msgstr "rolr $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg60
 msgid "upcase $TARGET [$]VALUE"
-msgstr "upcase $CL [$]RTK"
+msgstr "upcase $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg61
 msgid "length $TARGET [$]VALUE"
-msgstr "length $CL [$]RTK"
+msgstr "length $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg62
 msgid "lowcase $TARGET [$]VALUE"
-msgstr "lowcase $CL [$]RTK"
+msgstr "lowcase $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg63
 msgid "stritem $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "stritem $CL [$]RTK1 [$]RTK2"
+msgstr "stritem $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg64
 msgid "chr $TARGET [$]VALUE"
-msgstr "chr $CL [$]RTK"
+msgstr "chr $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg65
 msgid "ord $TARGET [$]VALUE"
-msgstr "ord $CL [$]RTK"
+msgstr "ord $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg66
 msgid ""
@@ -1131,31 +1131,31 @@ msgid ""
 "  const NAME [$]VALUE"
 msgstr ""
 "const\n"
-"  const NAME [[$]RTK]"
+"  const NAME [[$]ï¿½RTï¿½K]"
 
 #: modshell:usg67
 msgid "bit $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "bit $CL [$]RTK1 [$]RTK2"
+msgstr "bit $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg68
 msgid "pow $TARGET [$]BASE [$]EXPONENT"
-msgstr "pow $CL [$]ALAP [$]KITEVŠ"
+msgstr "pow $Cï¿½L [$]ALAP [$]KITEVï¿½"
 
 #: modshell:usg69
 msgid "goto LABEL"
-msgstr "goto CÖMKE"
+msgstr "goto Cï¿½MKE"
 
 #: modshell:usg70
 msgid "if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND"
-msgstr "if [$]RTK1 RELµCIàJEL [$]RTK2 then PARANCS"
+msgstr "if [$]ï¿½RTï¿½K1 RELï¿½CIï¿½JEL [$]ï¿½RTï¿½K2 then PARANCS"
 
 #: modshell:usg71
 msgid "for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND"
-msgstr "for $VµLTOZà [$]RTK to [$]RTK do PARANCS"
+msgstr "for $Vï¿½LTOZï¿½ [$]ï¿½RTï¿½K to [$]ï¿½RTï¿½K do PARANCS"
 
 #: modshell:usg72
 msgid "label NAME"
-msgstr "label NV"
+msgstr "label Nï¿½V"
 
 #: modshell:usg73
 msgid ""
@@ -1164,8 +1164,8 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 "mbsrv con?\n"
-"Megjegyz‚s:\n"
-"  - A '?' ‚rt‚ke 0-7 lehet."
+"Megjegyzï¿½s:\n"
+"  - A '?' ï¿½rtï¿½ke 0-7 lehet."
 
 #: modshell:usg74
 msgid ""
@@ -1174,24 +1174,24 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 "mbgw con? con?\n"
-"Megjegyz‚s:\n"
-"  - A '?' ‚rt‚ke 0-7 lehet."
+"Megjegyzï¿½s:\n"
+"  - A '?' ï¿½rtï¿½ke 0-7 lehet."
 
 #: modshell:usg75
 msgid "inrange $TARGET [$]MIN [$]MAX [$]VALUE"
-msgstr "inrange $CL [$]MIN [$]MAX [$]RTK"
+msgstr "inrange $Cï¿½L [$]MIN [$]MAX [$]ï¿½RTï¿½K"
 
 #: modshell:usg76
 msgid "mklrc $TARGET [$]STRING"
-msgstr "mklrc $CL [$]KARAKTERLµNC"
+msgstr "mklrc $Cï¿½L [$]KARAKTERLï¿½NC"
 
 #: modshell:usg77
 msgid "mkcrc $TARGET [$]STRING"
-msgstr "mkcrc $CL [$]KARAKTERLµNC"
+msgstr "mkcrc $Cï¿½L [$]KARAKTERLï¿½NC"
 
 #: modshell:usg78
 msgid "pow2 $TARGET [$]EXPONENT"
-msgstr "pow2 $CL [$]KITEVŠ"
+msgstr "pow2 $Cï¿½L [$]KITEVï¿½"
 
 #: modshell:usg79
 msgid "ascii [dec|hex]"
@@ -1203,31 +1203,31 @@ msgstr "beep"
 
 #: modshell:usg81
 msgid "avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]"
-msgstr "avg $CL [$]RTK1 [$]RTK2 [[$]RTK3...6]"
+msgstr "avg $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2 [[$]ï¿½RTï¿½K3...6]"
 
 #: modshell:usg82
 msgid "prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE"
-msgstr "prop $CL [$]MIN [$]MAX [$]KEZDET [$]VG [$]RTK"
+msgstr "prop $Cï¿½L [$]MIN [$]MAX [$]KEZDET [$]Vï¿½G [$]ï¿½RTï¿½K"
 
 #: modshell:usg83
 msgid "concat $TARGET [$]VALUE1 [$]VALUE2"
-msgstr "concat $CL [$]RTK1 [$]RTK2"
+msgstr "concat $Cï¿½L [$]ï¿½RTï¿½K1 [$]ï¿½RTï¿½K2"
 
 #: modshell:usg84
 msgid "strdel $TARGET [$]PLACE [$]COUNT"
-msgstr "strdel $CL [$]HELY [$]MENNYISG"
+msgstr "strdel $Cï¿½L [$]HELY [$]MENNYISï¿½G"
 
 #: modshell:usg85
 msgid "strfind $TARGET [$]VALUE"
-msgstr "strfind $CL [$]RTK"
+msgstr "strfind $Cï¿½L [$]ï¿½RTï¿½K"
 
 #: modshell:usg86
 msgid "strins $TARGET [$]PLACE [$]VALUE"
-msgstr "strins $CL [$]HELY [$]RTK"
+msgstr "strins $Cï¿½L [$]HELY [$]ï¿½RTï¿½K"
 
 #: modshell:usg87
 msgid "strrepl $TARGET [$]OLD [$]NEW"
-msgstr "strrepl $CL [$]RGI [$]éJ"
+msgstr "strrepl $Cï¿½L [$]Rï¿½GI [$]ï¿½J"
 
 #: modshell:usg88
 msgid ""
@@ -1235,7 +1235,7 @@ msgid ""
 "  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
 msgstr ""
 "varmon [on|off]\n"
-"  varmon $VµLTOZà1 [$VµLTOZà2] [$VµLTOZà3] [$VµLTOZà4]"
+"  varmon $Vï¿½LTOZï¿½1 [$Vï¿½LTOZï¿½2] [$Vï¿½LTOZï¿½3] [$Vï¿½LTOZï¿½4]"
 
 #: modshell:usg89
 msgid ""
@@ -1248,9 +1248,9 @@ msgid ""
 msgstr ""
 "applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]\n"
 "  applog [$]LOGFILE \"TEXT\\ $$1\\ TEXT\" [$]LEVEL [$]VALUE1\n"
-"Megjegyz‚s:\n"
-"  - A '$$1' ‚rt‚ke $$1-$$4 lehet.\n"
-"  - A 'LEVEL' ‚rt‚ke 0-4 lehet:\n"
+"Megjegyzï¿½s:\n"
+"  - A '$$1' ï¿½rtï¿½ke $$1-$$4 lehet.\n"
+"  - A 'LEVEL' ï¿½rtï¿½ke 0-4 lehet:\n"
 "    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
 
 #: modshell:usg90
@@ -1260,12 +1260,12 @@ msgid ""
 "  cron [-r rec_num]"
 msgstr ""
 "cron\n"
-"  cron bejegyz‚s ¢ra perc\n"
-"  cron [-r bejegyz‚s]"
+"  cron bejegyzï¿½s ï¿½ra perc\n"
+"  cron [-r bejegyzï¿½s]"
 
 #: modshell:usg91
 msgid "edit [LINE_NUMBER]"
-msgstr "edit [SORSZµM]"
+msgstr "edit [SORSZï¿½M]"
 
 #: modshell:usg92
 msgid "erase"
@@ -1273,13 +1273,13 @@ msgstr "erase"
 
 #: modshell:usg93
 msgid "savescr [$]PATH_AND_FILENAME"
-msgstr "savescr [$]ELRSI_éT_S_FµJLNV"
+msgstr "savescr [$]ELï¿½Rï¿½SI_ï¿½T_ï¿½S_Fï¿½JLNï¿½V"
 
 #~ msgid "       set foreground and background color in full screen mode"
-#~ msgstr "       el‹t‚r- ‚s a h tt‚rsz¡n be ll¡t sa (fullscreen)"
+#~ msgstr "       elï¿½tï¿½r- ï¿½s a hï¿½ttï¿½rszï¿½n beï¿½llï¿½tï¿½sa (fullscreen)"
 
 #~ msgid "       define new variable and assign value"
-#~ msgstr "       £j v ltoz¢ defini l s ‚s ‚rt‚kad s"
+#~ msgstr "       ï¿½j vï¿½ltozï¿½ definiï¿½lï¿½s ï¿½s ï¿½rtï¿½kadï¿½s"
 
 #~ msgid ""
 #~ "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
@@ -1287,37 +1287,37 @@ msgstr "savescr [$]ELRSI_éT_S_FµJLNV"
 #~ "  - The '$' sign indicates a variable not a direct value."
 #~ msgstr ""
 #~ "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
-#~ "Megjegyz‚s:\n"
-#~ "  - A '$' jel jelzi, hogy ez v ltoz¢ ‚s nem k”zvetlen ‚rt‚k."
+#~ "Megjegyzï¿½s:\n"
+#~ "  - A '$' jel jelzi, hogy ez vï¿½ltozï¿½ ï¿½s nem kï¿½zvetlen ï¿½rtï¿½k."
 
 #~ msgid ""
 #~ "copy con? dinp|coil con? coil ADDRESS [COUNT]\n"
 #~ "  copy con? ireg|hreg con? hreg ADDRESS [COUNT]\n"
 #~ "  ?: [0-7]"
 #~ msgstr ""
-#~ "copy con? dinp|coil con? coil CÖM [MENNYISG]\n"
-#~ "  copy con? ireg|hreg con? hreg CÖM [MENNYISG]\n"
+#~ "copy con? dinp|coil con? coil Cï¿½M [MENNYISï¿½G]\n"
+#~ "  copy con? ireg|hreg con? hreg Cï¿½M [MENNYISï¿½G]\n"
 #~ "  ?: [0-7]"
 
 #~ msgid "let dinp|coil|ireg|hreg ADDRESS|$VARIABLE VALUE|$VARIABLE"
-#~ msgstr "let dinp|coil|ireg|hreg CÖM|$VµLTOZà RTK|$VµLTOZà"
+#~ msgstr "let dinp|coil|ireg|hreg Cï¿½M|$Vï¿½LTOZï¿½ ï¿½RTï¿½K|$Vï¿½LTOZï¿½"
 
 #~ msgid ""
 #~ "read con? dinp|coil|ireg|hreg ADDRESS [COUNT]\n"
 #~ "  ?: [0-7]"
 #~ msgstr ""
-#~ "read con? dinp|coil|ireg|hreg CÖM [MENNYISG]\n"
+#~ "read con? dinp|coil|ireg|hreg Cï¿½M [MENNYISï¿½G]\n"
 #~ "  ?: [0-7]"
 
 #~ msgid ""
 #~ "write con? coil|hreg ADDRESS [COUNT]\n"
 #~ "  ?: [0-7]"
 #~ msgstr ""
-#~ "write con? coil|hreg CÖM [MENNYISG]\n"
+#~ "write con? coil|hreg Cï¿½M [MENNYISï¿½G]\n"
 #~ "  ?: [0-7]"
 
 #~ msgid "conv bin|dec|hex|oct bin|dec|hex|oct VALUE|$VARIABLE"
-#~ msgstr "conv bin|dec|hex|oct bin|dec|hex|oct RTK|$VµLTOZà"
+#~ msgstr "conv bin|dec|hex|oct bin|dec|hex|oct ï¿½RTï¿½K|$Vï¿½LTOZï¿½"
 
 #~ msgid "var NAME [VALUE|$VARIABLE]"
-#~ msgstr "var NV [RTK|$VµLTOZà]"
+#~ msgstr "var Nï¿½V [ï¿½RTï¿½K|$Vï¿½LTOZï¿½]"

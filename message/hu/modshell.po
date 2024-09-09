@@ -257,7 +257,7 @@ msgstr "A kapcsolat számának 0-7-nek kell lennie!"
 
 #: modshell:err04
 msgid "IP address is not valid!"
-msgstr "Az IP -cím nem érvényes!"
+msgstr "Az IP-cím nem érvényes!"
 
 #: modshell:err05
 msgid "Parameter(s) required!"
