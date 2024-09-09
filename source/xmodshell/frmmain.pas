@@ -412,11 +412,300 @@ begin
   parsingcommands(menucmd);
 end;
 
-
 // RUN COMMAND 'set dev? ...' WITH DIALOG
 procedure TForm1.MenuItem39Click(Sender: TObject);
+var
+  Form: TForm;
+  LBevel1: TBevel;
+  LButton1, LButton2: TButton;
+  LComboBox1, LComboBox2: TComboBox;
+  LEdit1, LEdit2: TEdit;
+  LLabel1, LLabel2, LLabel3, LLabel4, LLabel5, LLabel6, LLabel7: TLabel;
+  LSpinEdit1, LSpinEdit2, LSpinEdit3: TSpinEdit;
 begin
-
+  Form := TForm.Create(Nil);
+  LBevel1 := TBevel.Create(Form);
+  LButton1 := TButton.Create(Form);
+  LButton2 := TButton.Create(Form);
+  LComboBox1 := TComboBox.Create(Form);
+  LComboBox2 := TComboBox.Create(Form);
+  LEdit1 := TEdit.Create(Form);
+  LEdit2 := TEdit.Create(Form);
+  LLabel1 := TLabel.Create(Form);
+  LLabel2 := TLabel.Create(Form);
+  LLabel3 := TLabel.Create(Form);
+  LLabel4 := TLabel.Create(Form);
+  LLabel5 := TLabel.Create(Form);
+  LLabel6 := TLabel.Create(Form);
+  LLabel7 := TLabel.Create(Form);
+  LSpinEdit1 := TSpinEdit.Create(Form);
+  LSpinEdit2 := TSpinEdit.Create(Form);
+  LSpinEdit3 := TSpinEdit.Create(Form);
+  with Form do
+  begin
+    Caption := rmampdot(MenuItem39.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Position := poMainFormCenter;
+  end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := 'dev';
+    Font.Style := [fsBold];
+    Parent := Form;
+  end;
+  with LSpinEdit1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LLabel2;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := LLabel1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Parent := Form;
+    MinValue := 0;
+    MaxValue := 7;
+    TabOrder := 0;
+  end;
+  with LComboBox1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := LSpinEdit1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Items.Add('ser');
+    Items.Add('net');
+    ItemIndex := 0;
+    Parent := Form;
+    ReadOnly := true;
+    TabOrder := 1;
+  end;
+  with LEdit1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := LComboBox1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Parent := Form;
+    TabOrder := 2;
+    Width := 100;
+  end;
+  with LEdit2 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := LEdit1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    TabOrder := 3;
+    Width := 100;
+  end;
+  with LSpinEdit2 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LLabel2;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := LEdit2;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Parent := Form;
+    MinValue := 7;
+    MaxValue := 8;
+    Value := 8;
+    TabOrder := 4;
+  end;
+  with LComboBox2 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := LSpinEdit2;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Items.Add('N');
+    Items.Add('E');
+    Items.Add('O');
+    ItemIndex := 0;
+    Parent := Form;
+    ReadOnly := true;
+    TabOrder := 5;
+  end;
+  with LSpinEdit3 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LLabel2;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := LComboBox2;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    MinValue := 1;
+    MaxValue := 2;
+    Value := 1;
+    TabOrder := 6;
+  end;
+  with LLabel2 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LComboBox1;
+      AnchorSideLeft.Side := asrCenter;
+      BorderSpacing.Left := 0;
+    Caption := MSG49;
+    Parent := Form;
+  end;
+  with LLabel3 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LEdit1;
+      AnchorSideLeft.Side := asrCenter;
+      BorderSpacing.Left := 0;
+      BorderSpacing.Right := 8;
+    Caption := MSG50;
+    Parent := Form;
+  end;
+  with LLabel4 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LEdit2;
+      AnchorSideLeft.Side := asrCenter;
+      BorderSpacing.Left := 0;
+    Caption := MSG51;
+    Parent := Form;
+  end;
+  with LLabel5 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LSpinEdit2;
+      AnchorSideLeft.Side := asrCenter;
+      BorderSpacing.Left := 0;
+      BorderSpacing.Right := 8;
+    Caption := MSG52;
+    Parent := Form;
+  end;
+  with LLabel6 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LComboBox2;
+      AnchorSideLeft.Side := asrCenter;
+      BorderSpacing.Left := 0;
+    Caption := MSG53;
+    Parent := Form;
+  end;
+  with LLabel7 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LSpinEdit3;
+      AnchorSideLeft.Side := asrCenter;
+      BorderSpacing.Left := 0;
+      BorderSpacing.Right := 8;
+    Caption := MSG54;
+    Parent := Form;
+  end;
+  with LBevel1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    Shape := bsTopLine;
+  end;
+  with LButton1 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton2;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+    Caption := MSG44;
+    ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 8;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG45;
+    ModalResult := mrOk;
+    Parent := Form;
+    TabOrder := 7;
+  end;
+  if Form.ShowModal = mrOk then
+  begin
+   with Form do
+     if LComboBox1.ItemIndex = 0 then
+       menucmd := COMMANDS[8] + ' dev' +
+         inttostr(LSpinEdit1.Value) + ' ' +
+         LComboBox1.Items[LComboBox1.ItemIndex] + ' ' +
+         LEdit1.Text + ' ' +
+         LEdit2.Text + ' ' +
+         inttostr(LSpinEdit2.Value) + ' ' +
+         LComboBox2.Items[LComboBox2.ItemIndex] + ' ' +
+         inttostr(LSpinEdit3.Value)
+     else
+       menucmd := COMMANDS[8] + ' dev' +
+         inttostr(LSpinEdit1.Value) + ' ' +
+         LComboBox1.Items[LComboBox1.ItemIndex] + ' ' +
+         LEdit1.Text + ' ' +
+         LEdit2.Text;
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'reset dev? ...' WITH DIALOG
@@ -441,6 +730,19 @@ begin
     BorderStyle := bsDialog;
     Position := poMainFormCenter;
   end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+    Caption := 'dev';
+    Parent := Form;
+    Font.Style := [fsBold];
+    BorderSpacing.Left := 12;
+  end;
   with LSpinEdit1 do
   begin
     Anchors := [akTop, akLeft, akRight];
@@ -458,19 +760,6 @@ begin
     MaxValue := 7;
     TabOrder := 0;
   end;
-  with LLabel1 do
-  begin
-    Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := LSpinEdit1;
-      AnchorSideTop.Side := asrCenter;
-      BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := Form;
-      AnchorSideLeft.Side := asrLeft;
-    Caption := 'dev';
-    Parent := Form;
-    Font.Style := [fsBold];
-    BorderSpacing.Left := 12;
-  end;
   with LBevel1 do
   begin
     Anchors := [akTop, akLeft, akRight];
@@ -486,20 +775,6 @@ begin
     Parent := Form;
     Shape := bsTopLine;
   end;
-  with LButton2 do
-  begin
-    Anchors := [akTop, akRight];
-      AnchorSideTop.Control := LBevel1;
-      AnchorSideTop.Side := asrTop;
-      BorderSpacing.Top := 16;
-      AnchorSideRight.Control := Form;
-      AnchorSideRight.Side := asrRight;
-      BorderSpacing.Right := 8;
-    Caption := MSG46;
-    Parent := Form;
-    ModalResult := mrOk;
-    TabOrder := 4;
-  end;
   with LButton1 do
   begin
     Anchors := [akTop, akRight];
@@ -512,7 +787,21 @@ begin
     Caption := MSG44;
     ModalResult := mrCancel;
     Parent := Form;
-    TabOrder := 3;
+    TabOrder := 2;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG46;
+    Parent := Form;
+    ModalResult := mrOk;
+    TabOrder := 1;
   end;
   if Form.ShowModal = mrOk then
   begin
@@ -563,6 +852,19 @@ begin
     BorderStyle := bsDialog;
     Position := poMainFormCenter;
   end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := 'pro';
+    Font.Style := [fsBold];
+    Parent := Form;
+  end;
   with LSpinEdit1 do
   begin
     Anchors := [akTop, akLeft];
@@ -608,19 +910,6 @@ begin
     TabOrder := 2;
     Width := 150;
   end;
-  with LLabel1 do
-    begin
-      Anchors := [akTop, akLeft];
-        AnchorSideTop.Control := LSpinEdit1;
-        AnchorSideTop.Side := asrCenter;
-        BorderSpacing.Top := 0;
-        AnchorSideLeft.Control := Form;
-        AnchorSideLeft.Side := asrLeft;
-        BorderSpacing.Left := 12;
-      Caption := 'pro';
-      Font.Style := [fsBold];
-      Parent := Form;
-    end;
   with LLabel2 do
   begin
     Anchors := [akTop, akLeft];
@@ -630,7 +919,7 @@ begin
       AnchorSideLeft.Control := LComboBox1;
       AnchorSideLeft.Side := asrCenter;
       BorderSpacing.Left := 0;
-    Caption := MSG57;
+    Caption := MSG55;
     Parent := Form;
   end;
   with LLabel3 do
@@ -643,7 +932,7 @@ begin
       AnchorSideLeft.Side := asrCenter;
       BorderSpacing.Left := 0;
       BorderSpacing.Right := 8;
-    Caption := MSG58;
+    Caption := MSG56;
     Parent := Form;
   end;
   with LBevel1 do
@@ -661,20 +950,6 @@ begin
     Parent := Form;
     Shape := bsTopLine;
   end;
-  with LButton2 do
-  begin
-    Anchors := [akTop, akRight];
-      AnchorSideTop.Control := LBevel1;
-      AnchorSideTop.Side := asrTop;
-      BorderSpacing.Top := 16;
-      AnchorSideRight.Control := Form;
-      AnchorSideRight.Side := asrRight;
-      BorderSpacing.Right := 8;
-    Caption := MSG45;
-    ModalResult := mrOk;
-    Parent := Form;
-    TabOrder := 4;
-  end;
   with LButton1 do
   begin
     Anchors := [akTop, akRight];
@@ -686,6 +961,20 @@ begin
       BorderSpacing.Right := 8;
     Caption := MSG44;
     ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 4;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG45;
+    ModalResult := mrOk;
     Parent := Form;
     TabOrder := 3;
   end;
@@ -724,6 +1013,19 @@ begin
     BorderStyle := bsDialog;
     Position := poMainFormCenter;
   end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := 'pro';
+    Font.Style := [fsBold];
+    Parent := Form;
+  end;
   with LSpinEdit1 do
   begin
     Anchors := [akTop, akLeft, akRight];
@@ -741,19 +1043,6 @@ begin
     Parent := Form;
     TabOrder := 0;
   end;
-  with LLabel1 do
-  begin
-    Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := LSpinEdit1;
-      AnchorSideTop.Side := asrCenter;
-      BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := Form;
-      AnchorSideLeft.Side := asrLeft;
-      BorderSpacing.Left := 12;
-    Caption := 'pro';
-    Font.Style := [fsBold];
-    Parent := Form;
-  end;
   with LBevel1 do
   begin
     Anchors := [akTop, akLeft, akRight];
@@ -769,20 +1058,6 @@ begin
     Parent := Form;
     Shape := bsTopLine;
   end;
-  with LButton2 do
-  begin
-    Anchors := [akTop, akRight];
-      AnchorSideTop.Control := LBevel1;
-      AnchorSideTop.Side := asrTop;
-      BorderSpacing.Top := 16;
-      AnchorSideRight.Control := Form;
-      AnchorSideRight.Side := asrRight;
-      BorderSpacing.Right := 8;
-    Caption := MSG46;
-    ModalResult := mrOk;
-    Parent := Form;
-    TabOrder := 4;
-  end;
   with LButton1 do
   begin
     Anchors := [akTop, akRight];
@@ -795,7 +1070,21 @@ begin
     Caption := MSG44;
     ModalResult := mrCancel;
     Parent := Form;
-    TabOrder := 3;
+    TabOrder := 2;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG46;
+    ModalResult := mrOk;
+    Parent := Form;
+    TabOrder := 1;
   end;
   if Form.ShowModal = mrOk then
   begin
@@ -845,20 +1134,6 @@ begin
     BorderStyle := bsDialog;
     Position := poMainFormCenter;
   end;
-  with LSpinEdit1 do
-  begin
-    Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := Form;
-      AnchorSideTop.Side := asrTop;
-      BorderSpacing.Top := 12;
-      AnchorSideLeft.Control := LLabel1;
-      AnchorSideLeft.Side := asrRight;
-      BorderSpacing.Left := 8;
-    MinValue := 0;
-    MaxValue := 7;
-    Parent := Form;
-    TabOrder := 0;
-  end;
   with LLabel1 do
   begin
     Anchors := [akTop, akLeft];
@@ -872,19 +1147,19 @@ begin
     Font.Style := [fsBold];
     Parent := Form;
   end;
-  with LSpinEdit2 do
+  with LSpinEdit1 do
   begin
     Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := LSpinEdit1;
-      AnchorSideTop.Side := asrCenter;
-      BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := LLabel2;
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LLabel1;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
     MinValue := 0;
     MaxValue := 7;
     Parent := Form;
-    TabOrder := 1;
+    TabOrder := 0;
   end;
   with LLabel2 do
   begin
@@ -904,14 +1179,13 @@ begin
       AnchorSideTop.Control := LSpinEdit1;
       AnchorSideTop.Side := asrCenter;
       BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := LLabel3;
+      AnchorSideLeft.Control := LLabel2;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
-      BorderSpacing.Right := 8;
     MinValue := 0;
     MaxValue := 7;
     Parent := Form;
-    TabOrder := 2;
+    TabOrder := 1;
   end;
   with LLabel3 do
   begin
@@ -924,6 +1198,21 @@ begin
       BorderSpacing.Left := 16;
     Caption := 'pro';
     Parent := Form;
+  end;
+  with LSpinEdit3 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := LLabel3;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      BorderSpacing.Right := 8;
+    MinValue := 0;
+    MaxValue := 7;
+    Parent := Form;
+    TabOrder := 2;
   end;
   with LBevel1 do
   begin
@@ -940,20 +1229,6 @@ begin
     Parent := Form;
     Shape := bsTopLine;
   end;
-  with LButton2 do
-  begin
-    Anchors := [akTop, akRight];
-      AnchorSideTop.Control := LBevel1;
-      AnchorSideTop.Side := asrTop;
-      BorderSpacing.Top := 16;
-      AnchorSideRight.Control := Form;
-      AnchorSideRight.Side := asrRight;
-      BorderSpacing.Right := 8;
-    Caption := MSG45;
-    ModalResult := mrOk;
-    Parent := Form;
-    TabOrder := 4;
-  end;
   with LButton1 do
   begin
     Anchors := [akTop, akRight];
@@ -965,6 +1240,20 @@ begin
       BorderSpacing.Right := 8;
     Caption := MSG44;
     ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 4;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG45;
+    ModalResult := mrOk;
     Parent := Form;
     TabOrder := 3;
   end;
@@ -1003,6 +1292,19 @@ begin
     BorderStyle := bsDialog;
     Position := poMainFormCenter;
   end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := 'con';
+    Font.Style := [fsBold];
+    Parent := Form;
+  end;
   with LSpinEdit1 do
   begin
     Anchors := [akTop, akLeft, akRight];
@@ -1020,19 +1322,6 @@ begin
     Parent := Form;
     TabOrder := 0;
   end;
-  with LLabel1 do
-  begin
-    Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := LSpinEdit1;
-      AnchorSideTop.Side := asrCenter;
-      BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := Form;
-      AnchorSideLeft.Side := asrLeft;
-      BorderSpacing.Left := 12;
-    Caption := 'con';
-    Font.Style := [fsBold];
-    Parent := Form;
-  end;
   with LBevel1 do
   begin
     Anchors := [akTop, akLeft, akRight];
@@ -1048,20 +1337,6 @@ begin
     Parent := Form;
     Shape := bsTopLine;
   end;
-  with LButton2 do
-  begin
-    Anchors := [akTop, akRight];
-      AnchorSideTop.Control := LBevel1;
-      AnchorSideTop.Side := asrTop;
-      BorderSpacing.Top := 16;
-      AnchorSideRight.Control := Form;
-      AnchorSideRight.Side := asrRight;
-      BorderSpacing.Right := 8;
-    Caption := MSG46;
-    ModalResult := mrOk;
-    Parent := Form;
-    TabOrder := 4;
-  end;
   with LButton1 do
   begin
     Anchors := [akTop, akRight];
@@ -1074,7 +1349,21 @@ begin
     Caption := MSG44;
     ModalResult := mrCancel;
     Parent := Form;
-    TabOrder := 3;
+    TabOrder := 2;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG46;
+    ModalResult := mrOk;
+    Parent := Form;
+    TabOrder := 1;
   end;
   if Form.ShowModal = mrOk then
   begin
@@ -1122,6 +1411,18 @@ begin
     BorderStyle := bsDialog;
     Position := poMainFormCenter;
   end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LColorBox1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := MSG47;
+    Parent := Form;
+  end;
   with LColorBox1 do
   begin
     Anchors := [akTop, akLeft];
@@ -1135,16 +1436,16 @@ begin
     Style := [cbStandardColors];
     TabOrder := 0;
   end;
-  with LLabel1 do
+  with LLabel2 do
   begin
     Anchors := [akTop, akLeft];
       AnchorSideTop.Control := LColorBox1;
       AnchorSideTop.Side := asrCenter;
       BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := Form;
-      AnchorSideLeft.Side := asrLeft;
-      BorderSpacing.Left := 12;
-    Caption := MSG47;
+      AnchorSideLeft.Control := LColorBox1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 16;
+    Caption := MSG48;
     Parent := Form;
   end;
   with LColorBox2 do
@@ -1161,18 +1462,6 @@ begin
     Style := [cbStandardColors];
     TabOrder := 1;
   end;
-  with LLabel2 do
-  begin
-    Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := LColorBox1;
-      AnchorSideTop.Side := asrCenter;
-      BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := LColorBox1;
-      AnchorSideLeft.Side := asrRight;
-      BorderSpacing.Left := 16;
-    Caption := MSG48;
-    Parent := Form;
-  end;
   with LBevel1 do
   begin
     Anchors := [akTop, akLeft, akRight];
@@ -1188,20 +1477,6 @@ begin
     Parent := Form;
     Shape := bsTopLine;
   end;
-  with LButton2 do
-  begin
-    Anchors := [akTop, akRight];
-      AnchorSideTop.Control := LBevel1;
-      AnchorSideTop.Side := asrTop;
-      BorderSpacing.Top := 16;
-      AnchorSideRight.Control := Form;
-      AnchorSideRight.Side := asrRight;
-      BorderSpacing.Right := 8;
-    Caption := MSG45;
-    ModalResult := mrOk;
-    Parent := Form;
-    TabOrder := 3;
-  end;
   with LButton1 do
   begin
     Anchors := [akTop, akRight];
@@ -1213,6 +1488,20 @@ begin
       BorderSpacing.Right := 8;
     Caption := MSG44;
     ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 3;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG45;
+    ModalResult := mrOk;
     Parent := Form;
     TabOrder := 2;
   end;
