@@ -250,8 +250,7 @@ object Form1: TForm1
   end
   object MainMenu1: TMainMenu
     Images = ImageList1
-    Left = 102
-    Top = 48
+    Left = 368
     object MenuItem1: TMenuItem
       Caption = '&File'
       object MenuItem20: TMenuItem
@@ -582,8 +581,7 @@ object Form1: TForm1
     end
   end
   object ImageList1: TImageList
-    Left = 176
-    Top = 48
+    Left = 400
     Bitmap = {
       4C7A1A0000001000000010000000691500000000000078DAED5D09785445B63E
       803AEA202A8AEB28E27B333A32E3C6B8CCA00EAE83FA1C755C1897278E3BF8D4

@@ -27,10 +27,11 @@ uses
   LCLType,
   Menus,
   Process,
+  Spin,
   StdCtrls,
   SysUtils,
+  {$IFDEF WINDOWS} Windows, {$ENDIF}
   synaser,
-  {$IFDEF WINDOWS} windows, {$ENDIF}
   convert,
   crt,
   dom,
@@ -458,8 +459,162 @@ end;
 
 // RUN COMMAND 'set con? ...' WITH DIALOG
 procedure TForm1.MenuItem41Click(Sender: TObject);
+var
+  fr1: TForm;
+  bv1: TBevel;
+  bt1, bt2: TButton;
+  lb1, lb2, lb3: TLabel;
+  se1, se2, se3: TSpinEdit;
 begin
-
+  fr1 := TForm.Create(Nil);
+  bt1 := TButton.Create(fr1);
+  bt2 := TButton.Create(fr1);
+  bv1 := TBevel.Create(fr1);
+  lb1 := TLabel.Create(fr1);
+  lb2 := TLabel.Create(fr1);
+  lb3 := TLabel.Create(fr1);
+  se1 := TSpinEdit.Create(fr1);
+  se2 := TSpinEdit.Create(fr1);
+  se3 := TSpinEdit.Create(fr1);
+  with fr1 do
+  begin
+    Caption := rmampdot(MenuItem41.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Position := poMainFormCenter;
+  end;
+  with se1 do
+  begin
+    Parent := fr1;
+    MinValue := 0;
+    MaxValue := 7;
+    TabOrder := 0;
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := fr1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := lb1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+  end;
+  with lb1 do
+  begin
+    Parent := fr1;
+    Font.Style := [fsBold];
+    Caption := 'con';
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := se1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := fr1;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+  end;
+  with se2 do
+  begin
+    Parent := fr1;
+    MinValue := 0;
+    MaxValue := 7;
+    TabOrder := 0;
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := se1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := lb2;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+  end;
+  with lb2 do
+  begin
+    Parent := fr1;
+    Caption := 'dev';
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := se1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := se1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 16;
+  end;
+  with se3 do
+  begin
+    Parent := fr1;
+    MinValue := 0;
+    MaxValue := 7;
+    TabOrder := 0;
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := se1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := lb3;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      BorderSpacing.Right := 8;
+  end;
+  with lb3 do
+  begin
+    Parent := fr1;
+    Caption := 'pro';
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := se1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := se2;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 16;
+  end;
+  with bv1 do
+  begin
+    Parent := fr1;
+    Shape := bsTopLine;
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := se1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := fr1;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := fr1;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+  end;
+  with bt2 do
+  begin
+    Parent := fr1;
+    Caption := '&Set';
+    ModalResult := mrOk;
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := bv1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := fr1;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+  end;
+  with bt1 do
+  begin
+    Parent := fr1;
+    Caption := '&Cancel';
+    ModalResult := mrCancel;
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := bv1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := bt2;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+  end;
+  if fr1.ShowModal = mrOk then
+  begin
+    with fr1 do
+      menucmd := COMMANDS[8] +
+      ' con' + inttostr(se1.Value) +
+      ' dev' + inttostr(se2.Value) +
+      ' pro' + inttostr(se3.Value);
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  FreeAndNil(fr1);
 end;
 
 // RUN COMMAND 'reset con? ...' WITH DIALOG
