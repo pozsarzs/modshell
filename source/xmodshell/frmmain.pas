@@ -203,7 +203,7 @@ type
 
 var
   Form1: TForm1;
-  fp: string = '';
+  fp: string;
   menucmd: string;
 
 {$DEFINE X}
@@ -323,47 +323,47 @@ end;
 // RUN COMMAND 'loadcfg' WITH TOpenDialog
 procedure TForm1.MenuItem37Click(Sender: TObject);
 var
-  od: TOpenDialog;
+  LOpenDialog1: TOpenDialog;
 begin
-  od := TOpenDialog.Create(Self);
-  with od do
+  LOpenDialog1 := TOpenDialog.Create(Self);
+  with LOpenDialog1 do
   begin
-    Title := rmampdot(MenuItem37.Caption);
-    InitialDir := getuserdir + PRGNAME + SLASH + proj;
-    Filter := 'all file|*.*';
     DefaultExt := '';
+    Filter := MSG42;
     FilterIndex := 1;
+    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    Title := rmampdot(MenuItem37.Caption);
   end;
-  if od.Execute then
+  if LOpenDialog1.Execute then
   begin
-    menucmd := COMMANDS[14] + ' ' + od.FileName;
+    menucmd := COMMANDS[14] + ' ' + LOpenDialog1.FileName;
     Memo1.Lines.Add(fullprompt + menucmd);
     parsingcommands(menucmd);
   end;
-  od.Free;
+  LOpenDialog1.Free;
 end;
 
 // RUN COMMAND 'savecfg' WITH TSaveDialog
 procedure TForm1.MenuItem36Click(Sender: TObject);
 var
-  fp,fn,fx, fpn: string;
-  sd: TSaveDialog;
   exists: boolean = false;
+  fp,fn,fx, fpn: string;
+  LSaveDialog1: TSaveDialog;
 begin
-  sd := TSaveDialog.Create(Self);
-  with sd do
+  LSaveDialog1 := TSaveDialog.Create(Self);
+  with LSaveDialog1 do
   begin
-    Title := rmampdot(MenuItem36.Caption);
-    InitialDir := getuserdir + PRGNAME + SLASH + proj;
-    Filter := 'all file|*.*';
     DefaultExt := '';
+    Filter := MSG42;
     FilterIndex := 1;
+    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    Title := rmampdot(MenuItem36.Caption);
   end;
-  if sd.Execute then
+  if LSaveDialog1.Execute then
   begin
-    fp := extractfilepath(sd.FileName);
-    fn := extractfilename(sd.FileName);
-    fx := extractfileext(sd.FileName);
+    fp := extractfilepath(LSaveDialog1.FileName);
+    fn := extractfilename(LSaveDialog1.FileName);
+    fx := extractfileext(LSaveDialog1.FileName);
     if length(fp) = 0 then fp := fp + SLASH;
     for b := 0 to 2 do
     begin
@@ -374,14 +374,14 @@ begin
     if exists then
       if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem11.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
       begin
-        sd.Free;
+        LSaveDialog1.Free;
         exit;
       end;
     menucmd := COMMANDS[13] + ' ' + fp + fn;
     Memo1.Lines.Add(fullprompt + menucmd);
     parsingcommands(menucmd);
   end;
-  sd.Free;
+  LSaveDialog1.Free;
 end;
 
 // RUN COMMAND 'set prj ...' WITH InputBox
@@ -421,8 +421,107 @@ end;
 
 // RUN COMMAND 'reset dev? ...' WITH DIALOG
 procedure TForm1.MenuItem43Click(Sender: TObject);
+var
+  Form: TForm;
+  LBevel1: TBevel;
+  LButton1, LButton2: TButton;
+  LLabel1: TLabel;
+  LSpinEdit1: TSpinEdit;
 begin
-
+  Form := TForm.Create(Nil);
+  LBevel1 := TBevel.Create(Form);
+  LButton1 := TButton.Create(Form);
+  LButton2 := TButton.Create(Form);
+  LLabel1 := TLabel.Create(Form);
+  LSpinEdit1 := TSpinEdit.Create(Form);
+  with Form do
+  begin
+    Caption := rmampdot(MenuItem43.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Position := poMainFormCenter;
+  end;
+  with LSpinEdit1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LLabel1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := LBevel1;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 0;
+    Parent := Form;
+    MinValue := 0;
+    MaxValue := 7;
+    TabOrder := 0;
+  end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+    Caption := 'dev';
+    Parent := Form;
+    Font.Style := [fsBold];
+    BorderSpacing.Left := 12;
+  end;
+  with LBevel1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    Shape := bsTopLine;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG46;
+    Parent := Form;
+    ModalResult := mrOk;
+    TabOrder := 4;
+  end;
+  with LButton1 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton2;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+    Caption := MSG44;
+    ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 3;
+  end;
+  if Form.ShowModal = mrOk then
+  begin
+    with Form do
+      menucmd := COMMANDS[7] + ' dev' + inttostr(LSpinEdit1.Value);
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'get dev? ...'
@@ -435,16 +534,265 @@ begin
   for b := 0 to 7 do
     parsingcommands(menucmd + inttostr(b));
 end;
+
 // RUN COMMAND 'set pro? ...' WITH DIALOG
 procedure TForm1.MenuItem40Click(Sender: TObject);
+var
+  Form: TForm;
+  LBevel1: TBevel;
+  LButton1, LButton2: TButton;
+  LComboBox1: TComboBox;
+  LEdit1: TEdit;
+  LLabel1, LLabel2, LLabel3: TLabel;
+  LSpinEdit1: TSpinEdit;
 begin
-
+  Form := TForm.Create(Nil);
+  LBevel1 := TBevel.Create(Form);
+  LButton1 := TButton.Create(Form);
+  LButton2 := TButton.Create(Form);
+  LComboBox1 := TComboBox.Create(Form);
+  LEdit1 := TEdit.Create(Form);
+  LLabel1 := TLabel.Create(Form);
+  LLabel2 := TLabel.Create(Form);
+  LLabel3 := TLabel.Create(Form);
+  LSpinEdit1 := TSpinEdit.Create(Form);
+  with Form do
+  begin
+    Caption := rmampdot(MenuItem40.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Position := poMainFormCenter;
+  end;
+  with LSpinEdit1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LLabel2;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := LLabel1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Parent := Form;
+    MinValue := 0;
+    MaxValue := 7;
+    TabOrder := 0;
+  end;
+  with LComboBox1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := LSpinEdit1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Items.Add('ascii');
+    Items.Add('rtu');
+    Items.Add('tcp');
+    ItemIndex := 0;
+    Parent := Form;
+    ReadOnly := true;
+    TabOrder := 1;
+  end;
+  with LEdit1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := LComboBox1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    TabOrder := 2;
+//    Width := 150;
+  end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LSpinEdit1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Caption := MSG57;
+    Parent := Form;
+  end;
+  with LLabel2 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LComboBox1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      BorderSpacing.Right := 8;
+    Caption := MSG58;
+    Parent := Form;
+  end;
+  with LBevel1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    Shape := bsTopLine;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG45;
+    ModalResult := mrOk;
+    Parent := Form;
+    TabOrder := 4;
+  end;
+  with LButton1 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton2;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+    Caption := MSG44;
+    ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 3;
+  end;
+  if Form.ShowModal = mrOk then
+  begin
+{    with Form do
+      menucmd := COMMANDS[8] +
+      ' pro' + inttostr(SpinEdit1.Value) +
+      ' dev' + inttostr(SpinEdit2.Value) +
+      ' pro' + inttostr(se3.Value);
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);}
+  end;
+  FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'reset pro? ...' WITH DIALOG
 procedure TForm1.MenuItem44Click(Sender: TObject);
+var
+  Form: TForm;
+  LBevel1: TBevel;
+  LButton1, LButton2: TButton;
+  LLabel1: TLabel;
+  LSpinEdit1: TSpinEdit;
 begin
-
+  Form := TForm.Create(Nil);
+  LBevel1 := TBevel.Create(Form);
+  LButton1 := TButton.Create(Form);
+  LButton2 := TButton.Create(Form);
+  LLabel1 := TLabel.Create(Form);
+  LSpinEdit1 := TSpinEdit.Create(Form);
+  with Form do
+  begin
+    AutoSize := True;
+    Caption := rmampdot(MenuItem44.Caption);
+    BorderStyle := bsDialog;
+    Position := poMainFormCenter;
+  end;
+  with LSpinEdit1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LLabel1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := LBevel1;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 0;
+    MinValue := 0;
+    MaxValue := 7;
+    Parent := Form;
+    TabOrder := 0;
+  end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := 'pro';
+    Font.Style := [fsBold];
+    Parent := Form;
+  end;
+  with LBevel1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    Shape := bsTopLine;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG46;
+    ModalResult := mrOk;
+    Parent := Form;
+    TabOrder := 4;
+  end;
+  with LButton1 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton2;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+    Caption := MSG44;
+    ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 3;
+  end;
+  if Form.ShowModal = mrOk then
+  begin
+    with Form do
+      menucmd := COMMANDS[7] +
+      ' pro' + inttostr(LSpinEdit1.Value);
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'get pro? ...'
@@ -461,169 +809,269 @@ end;
 // RUN COMMAND 'set con? ...' WITH DIALOG
 procedure TForm1.MenuItem41Click(Sender: TObject);
 var
-  fr1: TForm;
-  bv1: TBevel;
-  bt1, bt2: TButton;
-  lb1, lb2, lb3: TLabel;
-  se1, se2, se3: TSpinEdit;
+  Form: TForm;
+  LBevel1: TBevel;
+  LButton1, LButton2: TButton;
+  LLabel1, LLabel2, LLabel3: TLabel;
+  LSpinEdit1, LSpinEdit2, LSpinEdit3: TSpinEdit;
 begin
-  fr1 := TForm.Create(Nil);
-  bt1 := TButton.Create(fr1);
-  bt2 := TButton.Create(fr1);
-  bv1 := TBevel.Create(fr1);
-  lb1 := TLabel.Create(fr1);
-  lb2 := TLabel.Create(fr1);
-  lb3 := TLabel.Create(fr1);
-  se1 := TSpinEdit.Create(fr1);
-  se2 := TSpinEdit.Create(fr1);
-  se3 := TSpinEdit.Create(fr1);
-  with fr1 do
+  Form := TForm.Create(Nil);
+  LBevel1 := TBevel.Create(Form);
+  LButton1 := TButton.Create(Form);
+  LButton2 := TButton.Create(Form);
+  LLabel1 := TLabel.Create(Form);
+  LLabel2 := TLabel.Create(Form);
+  LLabel3 := TLabel.Create(Form);
+  LSpinEdit1 := TSpinEdit.Create(Form);
+  LSpinEdit2 := TSpinEdit.Create(Form);
+  LSpinEdit3 := TSpinEdit.Create(Form);
+  with Form do
   begin
     Caption := rmampdot(MenuItem41.Caption);
     AutoSize := True;
     BorderStyle := bsDialog;
     Position := poMainFormCenter;
   end;
-  with se1 do
+  with LSpinEdit1 do
   begin
-    Parent := fr1;
-    MinValue := 0;
-    MaxValue := 7;
-    TabOrder := 0;
     Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := fr1;
+      AnchorSideTop.Control := Form;
       AnchorSideTop.Side := asrTop;
       BorderSpacing.Top := 12;
-      AnchorSideLeft.Control := lb1;
+      AnchorSideLeft.Control := LLabel1;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
+    MinValue := 0;
+    MaxValue := 7;
+    Parent := Form;
+    TabOrder := 0;
   end;
-  with lb1 do
+  with LLabel1 do
   begin
-    Parent := fr1;
-    Caption := 'con';
-    Font.Style := [fsBold];
     Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := se1;
+      AnchorSideTop.Control := LSpinEdit1;
       AnchorSideTop.Side := asrCenter;
       BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := fr1;
+      AnchorSideLeft.Control := Form;
       AnchorSideLeft.Side := asrLeft;
       BorderSpacing.Left := 12;
+    Caption := 'con';
+    Font.Style := [fsBold];
+    Parent := Form;
   end;
-  with se2 do
+  with LSpinEdit2 do
   begin
-    Parent := fr1;
-    MinValue := 0;
-    MaxValue := 7;
-    TabOrder := 1;
     Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := se1;
+      AnchorSideTop.Control := LSpinEdit1;
       AnchorSideTop.Side := asrCenter;
       BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := lb2;
+      AnchorSideLeft.Control := LLabel2;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
-  end;
-  with lb2 do
-  begin
-    Parent := fr1;
-    Caption := 'dev';
-    Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := se1;
-      AnchorSideTop.Side := asrCenter;
-      BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := se1;
-      AnchorSideLeft.Side := asrRight;
-      BorderSpacing.Left := 16;
-  end;
-  with se3 do
-  begin
-    Parent := fr1;
     MinValue := 0;
     MaxValue := 7;
-    TabOrder := 2;
+    Parent := Form;
+    TabOrder := 1;
+  end;
+  with LLabel2 do
+  begin
     Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := se1;
+      AnchorSideTop.Control := LSpinEdit1;
       AnchorSideTop.Side := asrCenter;
       BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := lb3;
+      AnchorSideLeft.Control := LSpinEdit1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 16;
+    Caption := 'dev';
+    Parent := Form;
+  end;
+  with LSpinEdit2 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := LLabel3;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
       BorderSpacing.Right := 8;
+    MinValue := 0;
+    MaxValue := 7;
+    Parent := Form;
+    TabOrder := 2;
   end;
-  with lb3 do
+  with LLabel3 do
   begin
-    Parent := fr1;
-    Caption := 'pro';
     Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := se1;
+      AnchorSideTop.Control := LSpinEdit1;
       AnchorSideTop.Side := asrCenter;
       BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := se2;
+      AnchorSideLeft.Control := LSpinEdit2;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 16;
+    Caption := 'pro';
+    Parent := Form;
   end;
-  with bv1 do
+  with LBevel1 do
   begin
-    Parent := fr1;
-    Shape := bsTopLine;
     Anchors := [akTop, akLeft, akRight];
-      AnchorSideTop.Control := se1;
+      AnchorSideTop.Control := LSpinEdit1;
       AnchorSideTop.Side := asrBottom;
       BorderSpacing.Top := 8;
-      AnchorSideLeft.Control := fr1;
+      AnchorSideLeft.Control := Form;
       AnchorSideLeft.Side := asrLeft;
       BorderSpacing.Left := 8;
-      AnchorSideRight.Control := fr1;
+      AnchorSideRight.Control := Form;
       AnchorSideRight.Side := asrRight;
       BorderSpacing.Right := 8;
+    Parent := Form;
+    Shape := bsTopLine;
   end;
-  with bt2 do
+  with LButton2 do
   begin
-    Parent := fr1;
-    Caption := '&Set';
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG45;
     ModalResult := mrOk;
+    Parent := Form;
     TabOrder := 4;
-    Anchors := [akTop, akRight];
-      AnchorSideTop.Control := bv1;
-      AnchorSideTop.Side := asrTop;
-      BorderSpacing.Top := 16;
-      AnchorSideRight.Control := fr1;
-      AnchorSideRight.Side := asrRight;
-      BorderSpacing.Right := 8;
   end;
-  with bt1 do
+  with LButton1 do
   begin
-    Parent := fr1;
-    Caption := '&Cancel';
-    ModalResult := mrCancel;
-    TabOrder := 3;
     Anchors := [akTop, akRight];
-      AnchorSideTop.Control := bv1;
+      AnchorSideTop.Control := LBevel1;
       AnchorSideTop.Side := asrTop;
       BorderSpacing.Top := 16;
-      AnchorSideRight.Control := bt2;
+      AnchorSideRight.Control := LButton2;
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
+    Caption := MSG44;
+    ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 3;
   end;
-  if fr1.ShowModal = mrOk then
+  if Form.ShowModal = mrOk then
   begin
-    with fr1 do
+    with Form do
       menucmd := COMMANDS[8] +
-      ' con' + inttostr(se1.Value) +
-      ' dev' + inttostr(se2.Value) +
-      ' pro' + inttostr(se3.Value);
+      ' con' + inttostr(LSpinEdit1.Value) +
+      ' dev' + inttostr(LSpinEdit2.Value) +
+      ' pro' + inttostr(LSpinEdit3.Value);
     Memo1.Lines.Add(fullprompt + menucmd);
     parsingcommands(menucmd);
   end;
-  FreeAndNil(fr1);
+  FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'reset con? ...' WITH DIALOG
 procedure TForm1.MenuItem45Click(Sender: TObject);
+var
+  Form: TForm;
+  LBevel1: TBevel;
+  LButton1, LButton2: TButton;
+  LLabel1: TLabel;
+  LSpinEdit1: TSpinEdit;
 begin
-
+  Form := TForm.Create(Nil);
+  LBevel1 := TBevel.Create(Form);
+  LButton1 := TButton.Create(Form);
+  LButton2 := TButton.Create(Form);
+  LLabel1 := TLabel.Create(Form);
+  LSpinEdit1 := TSpinEdit.Create(Form);
+  with Form do
+  begin
+    Caption := rmampdot(MenuItem45.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Position := poMainFormCenter;
+  end;
+  with LSpinEdit1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LLabel1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := LBevel1;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 0;
+    MinValue := 0;
+    MaxValue := 7;
+    Parent := Form;
+    TabOrder := 0;
+  end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := 'con';
+    Font.Style := [fsBold];
+    Parent := Form;
+  end;
+  with LBevel1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    Shape := bsTopLine;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG46;
+    ModalResult := mrOk;
+    Parent := Form;
+    TabOrder := 4;
+  end;
+  with LButton1 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton2;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+    Caption := MSG44;
+    ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 3;
+  end;
+  if Form.ShowModal = mrOk then
+  begin
+    with Form do
+      menucmd := COMMANDS[7] +
+      ' con' + inttostr(LSpinEdit1.Value);
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'get con? ...'
@@ -640,133 +1088,134 @@ end;
 // RUN COMMAND 'color ...' WITH InputBox
 procedure TForm1.MenuItem23Click(Sender: TObject);
 var
-  fr1: TForm;
-  bv1: TBevel;
-  bt1, bt2: TButton;
-  lb1, lb2: TLabel;
-  cb1, cb2: TColorBox;
+  Form: TForm;
+  LBevel1: TBevel;
+  LButton1, LButton2: TButton;
+  LColorBox1, LColorBox2: TColorBox;
+  LLabel1, LLabel2: TLabel;
 begin
-  fr1 := TForm.Create(Nil);
-  bt1 := TButton.Create(fr1);
-  bt2 := TButton.Create(fr1);
-  bv1 := TBevel.Create(fr1);
-  lb1 := TLabel.Create(fr1);
-  lb2 := TLabel.Create(fr1);
-  cb1 := TColorBox.Create(fr1);
-  cb2 := TColorBox.Create(fr1);
-  with fr1 do
+  Form := TForm.Create(Nil);
+  LBevel1 := TBevel.Create(Form);
+  LButton1 := TButton.Create(Form);
+  LButton2 := TButton.Create(Form);
+  LColorBox1 := TColorBox.Create(Form);
+  LColorBox2 := TColorBox.Create(Form);
+  LLabel1 := TLabel.Create(Form);
+  LLabel2 := TLabel.Create(Form);
+  with Form do
   begin
     Caption := rmampdot(MenuItem23.Caption);
     AutoSize := True;
     BorderStyle := bsDialog;
     Position := poMainFormCenter;
   end;
-  with cb1 do
+  with LColorBox1 do
   begin
-    Parent := fr1;
-    Style := [cbStandardColors];
-    TabOrder := 0;
     Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := fr1;
+      AnchorSideTop.Control := Form;
       AnchorSideTop.Side := asrTop;
       BorderSpacing.Top := 12;
-      AnchorSideLeft.Control := lb1;
+      AnchorSideLeft.Control := LLabel1;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
+    Parent := Form;
+    Style := [cbStandardColors];
+    TabOrder := 0;
   end;
-  with lb1 do
+  with LLabel1 do
   begin
-    Parent := fr1;
-    Caption := 'foreground';
     Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := cb1;
+      AnchorSideTop.Control := LColorBox1;
       AnchorSideTop.Side := asrCenter;
       BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := fr1;
+      AnchorSideLeft.Control := Form;
       AnchorSideLeft.Side := asrLeft;
       BorderSpacing.Left := 12;
+    Caption := MSG47;
+    Parent := Form;
   end;
-  with cb2 do
+  with LColorBox2 do
   begin
-    Parent := fr1;
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LColorBox1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := LLabel2;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      BorderSpacing.Right := 8;
+    Parent := Form;
     Style := [cbStandardColors];
     TabOrder := 1;
-    Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := cb1;
-      AnchorSideTop.Side := asrCenter;
-      BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := lb2;
-      AnchorSideLeft.Side := asrRight;
-      BorderSpacing.Left := 8;
   end;
-  with lb2 do
+  with LLabel2 do
   begin
-    Parent := fr1;
-    Caption := 'background';
     Anchors := [akTop, akLeft];
-      AnchorSideTop.Control := cb1;
+      AnchorSideTop.Control := LColorBox1;
       AnchorSideTop.Side := asrCenter;
       BorderSpacing.Top := 0;
-      AnchorSideLeft.Control := cb1;
+      AnchorSideLeft.Control := LColorBox1;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 16;
+    Caption := MSG48;
+    Parent := Form;
   end;
-  with bv1 do
+  with LBevel1 do
   begin
-    Parent := fr1;
-    Shape := bsTopLine;
     Anchors := [akTop, akLeft, akRight];
-      AnchorSideTop.Control := cb1;
+      AnchorSideTop.Control := LColorBox1;
       AnchorSideTop.Side := asrBottom;
       BorderSpacing.Top := 8;
-      AnchorSideLeft.Control := fr1;
+      AnchorSideLeft.Control := Form;
       AnchorSideLeft.Side := asrLeft;
       BorderSpacing.Left := 8;
-      AnchorSideRight.Control := fr1;
+      AnchorSideRight.Control := Form;
       AnchorSideRight.Side := asrRight;
       BorderSpacing.Right := 8;
+    Parent := Form;
+    Shape := bsTopLine;
   end;
-  with bt2 do
+  with LButton2 do
   begin
-    Parent := fr1;
-    Caption := '&Set';
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG45;
     ModalResult := mrOk;
+    Parent := Form;
     TabOrder := 3;
-    Anchors := [akTop, akRight];
-      AnchorSideTop.Control := bv1;
-      AnchorSideTop.Side := asrTop;
-      BorderSpacing.Top := 16;
-      AnchorSideRight.Control := fr1;
-      AnchorSideRight.Side := asrRight;
-      BorderSpacing.Right := 8;
   end;
-  with bt1 do
+  with LButton1 do
   begin
-    Parent := fr1;
-    Caption := '&Cancel';
-    ModalResult := mrCancel;
-    TabOrder := 2;
     Anchors := [akTop, akRight];
-      AnchorSideTop.Control := bv1;
+      AnchorSideTop.Control := LBevel1;
       AnchorSideTop.Side := asrTop;
       BorderSpacing.Top := 16;
-      AnchorSideRight.Control := bt2;
+      AnchorSideRight.Control := LButton2;
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
+    Caption := MSG44;
+    ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 2;
   end;
-  cb1.Selected := uconfig.guicolors[0];
-  cb2.Selected := uconfig.guicolors[1];
-  if fr1.ShowModal = mrOk then
+  LColorBox1.Selected := uconfig.guicolors[0];
+  LColorBox2.Selected := uconfig.guicolors[1];
+  if Form.ShowModal = mrOk then
   begin
-    with fr1 do
+    with Form do
     begin
-      uconfig.guicolors[0] := cb1.Selected;
-      uconfig.guicolors[1] := cb2.Selected;
+      uconfig.guicolors[0] := LColorBox1.Selected;
+      uconfig.guicolors[1] := LColorBox2.Selected;
     end;
     Memo1.Font.Color := uconfig.guicolors[0];
     Memo1.Color := uconfig.guicolors[1];
   end;
-  FreeAndNil(fr1);
+  FreeAndNil(Form);
 end;
 
 // -- MAIN MENU/Registers ------------------------------------------------------
@@ -774,47 +1223,47 @@ end;
 // RUN COMMAND 'loadreg' WITH TOpenDialog
 procedure TForm1.MenuItem13Click(Sender: TObject);
 var
-  od: TOpenDialog;
+  LOpenDialog1: TOpenDialog;
 begin
-  od := TOpenDialog.Create(Self);
-  with od do
+  LOpenDialog1 := TOpenDialog.Create(Self);
+  with LOpenDialog1 do
   begin
     Title := rmampdot(MenuItem13.Caption);
     InitialDir := getuserdir + PRGNAME + SLASH + proj;
-    Filter := 'all file|*.*';
+    Filter := MSG42;
     DefaultExt := '';
     FilterIndex := 1;
   end;
-  if od.Execute then
+  if LOpenDialog1.Execute then
   begin
-    menucmd := COMMANDS[19] + ' ' + od.FileName;
+    menucmd := COMMANDS[19] + ' ' + LOpenDialog1.FileName;
     Memo1.Lines.Add(fullprompt + menucmd);
     parsingcommands(menucmd);
   end;
-  od.Free;
+  LOpenDialog1.Free;
 end;
 
 // RUN COMMAND 'savereg' WITH TSaveDialog
 procedure TForm1.MenuItem14Click(Sender: TObject);
 var
-  fp,fn,fx, fpn: string;
-  sd: TSaveDialog;
   exists: boolean = false;
+  fp,fn,fx, fpn: string;
+  LSaveDialog1: TSaveDialog;
 begin
-  sd := TSaveDialog.Create(Self);
-  with sd do
+  LSaveDialog1 := TSaveDialog.Create(Self);
+  with LSaveDialog1 do
   begin
     Title := rmampdot(MenuItem14.Caption);
     InitialDir := getuserdir + PRGNAME + SLASH + proj;
-    Filter := 'all file|*.*';
+    Filter := MSG42;
     DefaultExt := '';
     FilterIndex := 1;
   end;
-  if sd.Execute then
+  if LSaveDialog1.Execute then
   begin
-    fp := extractfilepath(sd.FileName);
-    fn := extractfilename(sd.FileName);
-    fx := extractfileext(sd.FileName);
+    fp := extractfilepath(LSaveDialog1.FileName);
+    fn := extractfilename(LSaveDialog1.FileName);
+    fx := extractfileext(LSaveDialog1.FileName);
     if length(fp) = 0 then fp := fp + SLASH;
     fn := stringreplace(fn, fx , '', [rfReplaceAll]);
     fpn := fp + fn + '.' + PREFIX[b][1] + 'bdt';
@@ -824,14 +1273,14 @@ begin
     if exists then
       if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem11.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
       begin
-        sd.Free;
+        LSaveDialog1.Free;
         exit;
       end;
     menucmd := COMMANDS[18] + ' ' + fp + fn;
     Memo1.Lines.Add(fullprompt + menucmd);
     parsingcommands(menucmd);
   end;
-  sd.Free;
+  LSaveDialog1.Free;
 end;
 
 // RUN COMMAND 'impreg' WITH TOpenDialog
@@ -857,63 +1306,63 @@ end;
 // RUN COMMAND 'loadscr' WITH TOpenDialog
 procedure TForm1.MenuItem10Click(Sender: TObject);
 var
-  od: TOpenDialog;
+  LOpenDialog1: TOpenDialog;
 begin
-  od := TOpenDialog.Create(Self);
-  with od do
+  LOpenDialog1 := TOpenDialog.Create(Self);
+  with LOpenDialog1 do
   begin
     Title := rmampdot(MenuItem10.Caption);
     InitialDir := getuserdir + PRGNAME + SLASH + proj;
     {$IFDEF WINDOWS}
-      Filter := 'batch file|*.bat|all file|*.*';
+      Filter := MSG43;
       DefaultExt := 'bat';
     {$ELSE}
-      Filter := 'all file|*';
+      Filter := MSG42;
       DefaultExt := '';
     {$ENDIF}
     FilterIndex := 1;
   end;
-  if od.Execute then
+  if LOpenDialog1.Execute then
   begin
-    menucmd := COMMANDS[39] + ' ' + od.FileName;
+    menucmd := COMMANDS[39] + ' ' + LOpenDialog1.FileName;
     Memo1.Lines.Add(fullprompt + menucmd);
     parsingcommands(menucmd);
   end;
-  od.Free;
+  LOpenDialog1.Free;
 end;
 
 // RUN COMMAND 'savescr' WITH TSaveDialog
 procedure TForm1.MenuItem11Click(Sender: TObject);
 var
-  sd: TSaveDialog;
+  LSaveDialog1: TSaveDialog;
 begin
-  sd := TSaveDialog.Create(Self);
-  with sd do
+  LSaveDialog1 := TSaveDialog.Create(Self);
+  with LSaveDialog1 do
   begin
     Title := rmampdot(MenuItem11.Caption);
     InitialDir := getuserdir + PRGNAME + SLASH + proj;
     {$IFDEF WINDOWS}
-      Filter := 'batch file|*.bat|all file|*.*';
+      Filter := MSG43;
       DefaultExt := 'bat';
     {$ELSE}
-      Filter := 'all file|*';
+      Filter := MSG42;
       DefaultExt := '';
     {$ENDIF}
     FilterIndex := 1;
   end;
-  if sd.Execute then
+  if LSaveDialog1.Execute then
   begin
-    if FileExists(sd.FileName) then
+    if FileExists(LSaveDialog1.FileName) then
       if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem11.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
       begin
-        sd.Free;
+        LSaveDialog1.Free;
         exit;
       end;
-    menucmd := COMMANDS[93] + ' ' + sd.FileName;
+    menucmd := COMMANDS[93] + ' ' + LSaveDialog1.FileName;
     Memo1.Lines.Add(fullprompt + menucmd);
     parsingcommands(menucmd);
   end;
-  sd.Free;
+  LSaveDialog1.Free;
 end;
 
 // RUN COMMAND 'list'
@@ -1071,58 +1520,58 @@ end;
 // OPEN ONLINE WIKI
 procedure TForm1.MenuItem56Click(Sender: TObject);
 var
-  p: TProcess;
+  LProcess1: TProcess;
 begin
-  p := TProcess.Create(Self);
+  LProcess1 := TProcess.Create(Self);
   if length(BROWSER) > 0 then
   begin
-    p.Executable := BROWSER;
-    p.Parameters.Add('https://github.com/pozsarzs/modshell/wiki');
+    LProcess1.Executable := BROWSER;
+    LProcess1.Parameters.Add('https://github.com/pozsarzs/modshell/wiki');
     try
-      p.Execute;
+      LProcess1.Execute;
     except
       ShowMessage(ERR38);
     end;
   end;
-  p.Free;
+  LProcess1.Free;
 end;
 
 // OPEN HOMEPAGE
 procedure TForm1.MenuItem57Click(Sender: TObject);
 var
-  p: TProcess;
+  LProcess1: TProcess;
 begin
-  p := TProcess.Create(Self);
+  LProcess1 := TProcess.Create(Self);
   if length(BROWSER) > 0 then
   begin
-    p.Executable := BROWSER;
-    p.Parameters.Add('https://pozsarzs.github.io/modshell/');
+    LProcess1.Executable := BROWSER;
+    LProcess1.Parameters.Add('https://pozsarzs.github.io/modshell/');
     try
-      p.Execute;
+      LProcess1.Execute;
     except
       ShowMessage(ERR38);
     end;
   end;
-  p.Free;
+  LProcess1.Free;
 end;
 
 // OPEN GITHUB PROJECT PAGE
 procedure TForm1.MenuItem58Click(Sender: TObject);
 var
-  p: TProcess;
+  LProcess1: TProcess;
 begin
-  p := TProcess.Create(Self);
+  LProcess1 := TProcess.Create(Self);
   if length(BROWSER) > 0 then
   begin
-    p.Executable := BROWSER;
-    p.Parameters.Add('https://github.com/pozsarzs/modshell');
+    LProcess1.Executable := BROWSER;
+    LProcess1.Parameters.Add('https://github.com/pozsarzs/modshell');
     try
-      p.Execute;
+      LProcess1.Execute;
     except
       ShowMessage(ERR38);
     end;
   end;
-  p.Free;
+  LProcess1.Free;
 end;
 
 // RUN COMMAND 'ver'
