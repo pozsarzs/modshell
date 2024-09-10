@@ -87,6 +87,7 @@ resourcestring
   MSG60 = 'start address';
   MSG61 = 'count';
   MSG62 = '&Export';
+  MSG63 = '&Dump';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';

@@ -84,6 +84,9 @@ Run example script on bash with ModShell interpreter
 Main screen with operation menu  
 ![operation menu](document/picture/xmodshell-opmenu.png)
 
+Dump input registers  
+![operation menu](document/picture/xmodshell-dump.png)
+
 Set device dialog  
 ![set device dialog](document/picture/xmodshell-setdev.png)
 
