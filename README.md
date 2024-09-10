@@ -72,8 +72,8 @@ Project webpage: <https://pozsarzs.github.io/modshell>
 
 Normal command line
 ![CLI](document/picture/modshell.png)
-Fullscreen command line
 
+Fullscreen command line
 ![TUI](document/picture/modshell-f.png)
 
 Run example script on bash with ModShell interpreter
@@ -81,10 +81,10 @@ Run example script on bash with ModShell interpreter
 
 **XModShell**
 
-Main screen with operation menu
+Main screen with operation menu  
 ![operation menu](document/picture/xmodshell-opmenu.png)
 
-Set device dialog
+Set device dialog  
 ![set device dialog](document/picture/xmodshell-setdev.png)
 
 #### 2. Used external libraries
