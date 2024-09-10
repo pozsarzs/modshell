@@ -68,6 +68,8 @@ Project webpage: <https://pozsarzs.github.io/modshell>
 
 #### 1. Screenshots
 
+**ModShell**
+
 Normal command line
 ![CLI](document/picture/modshell.png)
 Fullscreen command line
@@ -76,6 +78,14 @@ Fullscreen command line
 
 Run example script on bash with ModShell interpreter
 ![script running](document/picture/modshell-r.png)
+
+**XModShell**
+
+Main screen with operation menu
+![operation menu](document/picture/xmodshell-opmenu.png)
+
+Set device dialog
+![set device dialog](document/picture/xmodshell-setdev.png)
 
 #### 2. Used external libraries
 
@@ -98,12 +108,16 @@ read, write or copy data from one device to another (e.g. transferring
 settings). When copying, the source and destination register areas can be
 different.
 
-The program has a *traditional (CLI)* or *full-screen (TUI) command-line*
+The ModShell program has a *traditional (CLI)* or *full-screen (TUI) command-line*
 interface and is also *suitable for running pre-created scripts* independently
 (as a command interpreter). The program provides help on the commands that can
 be used, and offers possible values when the parameters are entered incorrectly.
 The issued commands are placed in history, which can be browsed with the up/down
 arrow keys.
+
+The XModShell program has a *graphical interface (GUI)*, which helps to perform
+several operations with dialog windows, but the original command line input remained
+available for them (e.g. file selection, settings, etc.).
 
 **Operating principle**
 
