@@ -193,6 +193,66 @@ msgstr ""
 msgid "Edit:   [Ins][Del][Esc]"
 msgstr ""
 
+#: modshell:msg42
+msgid "all file|*.*"
+msgstr ""
+
+#: modshell:msg43
+msgid "batch file|*.bat|all file|*.*"
+msgstr ""
+
+#: modshell:msg44
+msgid "&Cancel"
+msgstr ""
+
+#: modshell:msg45
+msgid "&Set"
+msgstr ""
+
+#: modshell:msg46
+msgid "&Reset"
+msgstr ""
+
+#: modshell:msg47
+msgid "foreground"
+msgstr ""
+
+#: modshell:msg48
+msgid "background"
+msgstr ""
+
+#: modshell:msg49
+msgid "type"
+msgstr ""
+
+#: modshell:msg50
+msgid "device"
+msgstr ""
+
+#: modshell:msg51
+msgid "port/baudrate"
+msgstr ""
+
+#: modshell:msg52
+msgid "databits"
+msgstr ""
+
+#: modshell:msg53
+msgid "parity"
+msgstr ""
+
+#: modshell:msg54
+msgid "stopbit(s)"
+msgstr ""
+
+#: modshell:msg55
+msgid "protocol"
+msgstr ""
+
+#: modshell:msg56
+msgid "UID/IP address"
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""

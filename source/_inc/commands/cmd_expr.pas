@@ -30,7 +30,7 @@ var
   ft: byte;
   rootnode, parentnode, itemnode: tdomnode; 
   rt: byte; // register type
-  s1, s3, s4: string; // parameters in other type
+  s, s1, s3, s4: string; // parameters in other type
   tf: textfile;
   valid: boolean = false;
   xml: txmldocument;
@@ -42,7 +42,11 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -67,18 +71,20 @@ begin
     fp := fp + SLASH;
   end;
   fpn := fp + fn;
-  // CHECK EXIST
-  if fileexists(fpn) then
-  begin
-    writeln(MSG14);
-    repeat
-      c:= lowercase(readkey);
-      if c = 'n' then exit;
-      // if c = 'a' then appendfile := true;
-    until (c = 'y') { or (c = 'a') };
-  end;
+  {$IFNDEF X}
+    // CHECK EXIST
+    if fileexists(fpn) then
+    begin
+      writeln(MSG14);
+      repeat
+        c:= lowercase(readkey);
+        if c = 'n' then exit;
+        // if c = 'a' then appendfile := true;
+      until (c = 'y') { or (c = 'a') };
+    end;
+  {$ENDIF}
   // CHECK FILE EXTENSION
-  for ft := 0 to 3 do
+  for ft := 0 to 2 do
     if '.' + FILE_TYPE[ft] = lowercase(fx) then
     begin
       valid := true;
@@ -86,9 +92,13 @@ begin
     end;
   if not valid then
   begin
-    write(MSG22); // What is the file extension?
-    for ft := 0 to 3 do write(' ' + FILE_TYPE[ft]);
-    writeln;
+    s := MSG22; // What is the file extension?
+    for ft := 0 to 2 do s := s + ' ' + FILE_TYPE[ft];
+    {$IFNDEF X}
+      writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -102,9 +112,13 @@ begin
     end;
   if not valid then
   begin
-    write(NUM2 + MSG05); // What is the 2nd parameter?
-    for rt := 0 to 3 do write(' ' + REG_TYPE[rt]);
-    writeln;
+    s := NUM2 + MSG05; // What is the 2nd parameter?
+    for rt := 0 to 3 do s := s + ' ' + REG_TYPE[rt];
+    {$IFNDEF X}
+        writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -115,7 +129,11 @@ begin
   i3 := strtointdef(s3, -1);
   if (i3 < 1) or (i3 > 9999) then
   begin
-    writeln(NUM3 + MSG05 + ' 1-9999'); // What is the 3rd parameter?
+    {$IFNDEF X}
+      writeln(NUM3 + MSG05 + ' 1-9999'); // What is the 3rd parameter?
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 1-9999');
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -128,7 +146,11 @@ begin
     i4 := strtointdef(s4, -1);
     if (i4 < 1 ) or (i4 > 9999) then
     begin
-      writeln(NUM4 + MSG05 + ' 1-9999'); // What is the 4rd parameter?
+      {$IFNDEF X}
+        writeln(NUM4 + MSG05 + ' 1-9999'); // What is the 4rd parameter?
+      {$ELSE}
+        Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 1-9999');
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -151,7 +173,11 @@ begin
            end;
            closefile(tf);  
          except
-           writeln(ERR10 + fpn + '!');
+           {$IFNDEF X}
+             writeln(ERR10 + fpn + '!');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(ERR10 + fpn + '!');
+           {$ENDIF}
            result := 1;
            exit;
          end;
@@ -171,7 +197,11 @@ begin
                   if i < 10000 then ini.writeinteger(REG_TYPE[rt], PREFIX + '_' + inttostr(i), hreg[i]);
            end;
          except
-           writeln(ERR10 + fpn + '!');
+           {$IFNDEF X}
+             writeln(ERR10 + fpn + '!');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(ERR10 + fpn + '!');
+           {$ENDIF}
            result := 1;
          end;
          ini.free;
@@ -227,11 +257,19 @@ begin
          try
            writexmlfile(xml, fpn);
          except
-           writeln(ERR10 + fpn + '!');
+           {$IFNDEF X}
+             writeln(ERR10 + fpn + '!');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(ERR10 + fpn + '!');
+           {$ENDIF}
            result := 1;
          end;
          xml.free;
        end;
   end;
-  writeln(MSG18 + fpn + '.');
+  {$IFNDEF X}
+    writeln(MSG18 + fpn + '.');
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG18 + fpn + '.');
+  {$ENDIF}
 end;

@@ -19,9 +19,6 @@ uses
   {$IFDEF UNIX}
   cthreads,
   {$ENDIF}
-  {$IFDEF HASAMIGA}
-  athreads,
-  {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Dialogs,
   Forms,
@@ -121,7 +118,7 @@ begin
     20: verinfo;
   end;
   RequireDerivedFormResource:=True;
-  Application.Title:='XModShell';
+  Application.Title:='X' + PRGNAME';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);

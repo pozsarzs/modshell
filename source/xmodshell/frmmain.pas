@@ -330,7 +330,7 @@ begin
   begin
     DefaultExt := '';
     Filter := MSG42;
-    FilterIndex := 1;
+    FilterIndex := 0;
     InitialDir := getuserdir + PRGNAME + SLASH + proj;
     Title := rmampdot(MenuItem37.Caption);
   end;
@@ -355,7 +355,7 @@ begin
   begin
     DefaultExt := '';
     Filter := MSG42;
-    FilterIndex := 1;
+    FilterIndex := 0;
     InitialDir := getuserdir + PRGNAME + SLASH + proj;
     Title := rmampdot(MenuItem36.Caption);
   end;
@@ -372,7 +372,7 @@ begin
       if fileexists(fpn) then exists := true;
     end;
     if exists then
-      if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem11.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+      if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem36.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
       begin
         LSaveDialog1.Free;
         exit;
@@ -1534,7 +1534,7 @@ begin
     InitialDir := getuserdir + PRGNAME + SLASH + proj;
     Filter := MSG42;
     DefaultExt := '';
-    FilterIndex := 1;
+    FilterIndex := 0;
   end;
   if LOpenDialog1.Execute then
   begin
@@ -1559,7 +1559,7 @@ begin
     InitialDir := getuserdir + PRGNAME + SLASH + proj;
     Filter := MSG42;
     DefaultExt := '';
-    FilterIndex := 1;
+    FilterIndex := 0;
   end;
   if LSaveDialog1.Execute then
   begin
@@ -1573,7 +1573,7 @@ begin
     fpn := fp + fn + '.' + PREFIX[b][1] + 'wdt';
     if fileexists(fpn) then exists := true;
     if exists then
-      if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem11.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+      if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem14.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
       begin
         LSaveDialog1.Free;
         exit;
@@ -1587,14 +1587,57 @@ end;
 
 // RUN COMMAND 'impreg' WITH TOpenDialog
 procedure TForm1.MenuItem32Click(Sender: TObject);
+var
+  LOpenDialog1: TOpenDialog;
 begin
-
+  LOpenDialog1 := TOpenDialog.Create(Self);
+  with LOpenDialog1 do
+  begin
+    Title := rmampdot(MenuItem32.Caption);
+    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    Filter := MSG58;
+    DefaultExt := 'xml';
+    FilterIndex := 2;
+  end;
+  if LOpenDialog1.Execute then
+  begin
+    menucmd := COMMANDS[22] + ' ' + LOpenDialog1.FileName;
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  LOpenDialog1.Free;
 end;
 
 // RUN COMMAND 'expreg' WITH TSaveDialog
 procedure TForm1.MenuItem31Click(Sender: TObject);
+var
+  LSaveDialog1: TSaveDialog;
 begin
 
+  // ide jön az adatválasztás
+
+  LSaveDialog1 := TSaveDialog.Create(Self);
+  with LSaveDialog1 do
+  begin
+    Title := rmampdot(MenuItem14.Caption);
+    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    Filter := MSG57;
+    DefaultExt := 'xml';
+    FilterIndex := 3;
+  end;
+  if LSaveDialog1.Execute then
+  begin
+    if fileexists(LSaveDialog1.FileName) then
+      if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem31.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+      begin
+        LSaveDialog1.Free;
+        exit;
+      end;
+    menucmd := COMMANDS[15] + ' ' + LSaveDialog1.FileName + ' ';
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  LSaveDialog1.Free;
 end;
 
 // RUN COMMAND 'dump' WITH DIALOG
@@ -1889,7 +1932,6 @@ end;
 // OnCreate event
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  // DETECT LANGUAGE
   lang := getlang;
   translatemessages(LANG,BASENAME,'.mo');
   randomize;

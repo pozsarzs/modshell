@@ -81,6 +81,8 @@ resourcestring
   MSG54 = 'stopbit(s)';
   MSG55 = 'protocol';
   MSG56 = 'UID/IP address';
+  MSG57 = 'CSV file|*.csv|INI file|*.ini|XML file|*.xml';
+  MSG58 = 'INI file|*.ini|XML file|*.xml';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';

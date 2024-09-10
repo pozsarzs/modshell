@@ -37,7 +37,11 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -63,7 +67,7 @@ begin
   end;
   fpn := fp + fn;
   // CHECK FILE EXTENSION
-  for ft := 1 to 3 do
+  for ft := 1 to 2 do
     if '.' + FILE_TYPE[ft] = lowercase(fx) then
     begin
       valid := true;
@@ -71,9 +75,13 @@ begin
     end;
   if not valid then
   begin
-    write(MSG22); // What is the file extension?
-    for ft := 1 to 3 do write(' ' + FILE_TYPE[ft]);
-    writeln;
+    s := MSG22; // What is the file extension?
+    for ft := 1 to 2 do s := s + ' ' + FILE_TYPE[ft];
+    {$IFNDEF X}
+      writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -95,7 +103,11 @@ begin
                end;
              end; 
          except
-           writeln(ERR11 + fpn + '!');
+           {$IFNDEF X}
+             writeln(ERR11 + fpn + '!');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(ERR11 + fpn + '!');
+           {$ENDIF}
            result := 1;
          end;
          ini.free;
@@ -130,7 +142,11 @@ begin
                  end;
                end;
              except
-               writeln(err10 + fpn + '!');
+               {$IFNDEF X}
+                 writeln(ERR11 + fpn + '!');
+               {$ELSE}
+                 Form1.Memo1.Lines.Add(ERR11 + fpn + '!');
+               {$ENDIF}
                result := 1;
                exit;
              end;
@@ -139,5 +155,9 @@ begin
          xml.free;
        end;
   end;
-  writeln(MSG19 + fpn + '.');
+  {$IFNDEF X}
+    writeln(MSG19 + fpn + '.');
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG19 + fpn + '.');
+  {$ENDIF}
 end;
