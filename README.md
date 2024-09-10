@@ -2,7 +2,7 @@
 > The program is still under development, it is not yet suitable for its task.  
 >
 > **v0.1-alpha3:**  
-> Follow the developments here: <https://github.com/pozsarzs/modshell/tree/dev_xmodshell/source>
+> Follow the developments here: <https://github.com/pozsarzs/modshell/tree/dev_xmodshell/source>.  
 > The next release will be with the following changes:
 > - New source code directory structure,
 > - bug fixes,
