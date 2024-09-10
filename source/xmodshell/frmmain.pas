@@ -30,22 +30,12 @@ uses
   Process,
   Spin,
   StdCtrls,
+  SynEdit,
   SysUtils,
   {$IFDEF WINDOWS} Windows, {$ENDIF}
-  synaser,
-  convert,
-  crt,
-  dom,
-  dos,
-  gettext,
-  inifiles,
-  math,
-  strings,
-  ucommon,
-  uconfig,
-  utranslt,
-  xmlread,
-  xmlwrite;
+  synaser, convert, crt, dom, dos, gettext, inifiles, math, strings, ucommon,
+  uconfig, utranslt, xmlread, xmlwrite, SynHighlighterXML, SynHighlighterPython,
+  SynHighlighterAny, SynHighlighterVB, synhighlighterunixshellscript;
 type
   { TForm1 }
   TForm1 = class(TForm)
@@ -125,6 +115,7 @@ type
     Separator8: TMenuItem;
     Separator9: TMenuItem;
     StatusBar1: TStatusBar;
+    SynAnySyn1: TSynAnySyn;
     ToolBar1: TToolBar;
     ImageList1: TImageList;
     Label1: TLabel;
@@ -1989,8 +1980,53 @@ end;
 
 // RUN COMMAND 'edit' WITH DIALOG
 procedure TForm1.MenuItem30Click(Sender: TObject);
+var
+  Form: TForm;
+  LSynEdit1: TSynEdit;
+  line: integer;
 begin
-
+  Form := TForm.Create(Nil);
+  LSynEdit1 := TSynEdit.Create(Form);
+  with Form do
+  begin
+    Caption := rmampdot(MenuItem30.Caption);
+    Width := 640;
+    Height := 480;
+    BorderStyle := bsSizeable;
+    Position := poMainFormCenter;
+  end;
+  with LSynEdit1 do
+  begin
+    Anchors := [akTop, akBottom, akLeft, akRight];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 1;
+      AnchorSideBottom.Control := Form;
+      AnchorSideBottom.Side := asrBottom;
+      BorderSpacing.Bottom := 1;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 1;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 1;
+    Parent := Form;
+    ReadOnly := False;
+    ScrollBars := ssAutoBoth;
+    TabOrder := 0;
+    Position := poMainFormCenter;
+    HighLighter := SynAnySyn1;
+  end;
+  for line := 0 to SCRBUFFSIZE - 1 do
+    if length(sbuffer[line]) > 0 then
+      LSynEdit1.Lines.Add(sbuffer[line]);
+  if Form.ShowModal = mrOk then
+  begin
+    with Form do
+    begin
+    end;
+  end;
+  FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'erase'
@@ -2105,8 +2141,147 @@ end;
 
 // RUN COMMAND 'conv' with DIALOG
 procedure TForm1.MenuItem26Click(Sender: TObject);
+var
+  Form: TForm;
+  LBevel1: TBevel;
+  LButton1, LButton2: TButton;
+  LEdit1: TEdit;
+  LLabel1: TLabel;
+  LRadioGroup1: TRadiogroup;
+  LRadioGroup2: TRadiogroup;
 begin
-
+  Form := TForm.Create(Nil);
+  LBevel1 := TBevel.Create(Form);
+  LButton1 := TButton.Create(Form);
+  LButton2 := TButton.Create(Form);
+  LEdit1 := TEdit.Create(Form);
+  LLabel1 := TLabel.Create(Form);
+  LRadioGroup1 := TRadioGroup.Create(Form);
+  LRadioGroup2 := TRadioGroup.Create(Form);
+  for b := 0 to 3 do
+  begin
+    LRadioGroup1.Items.Add(NUM_SYS[b]);
+    LRadioGroup2.Items.Add(NUM_SYS[b]);
+  end;
+  LRadioGroup1.ItemIndex := 1;
+  LRadioGroup2.ItemIndex := 2;
+  with Form do
+  begin
+    Caption := rmampdot(MenuItem26.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Position := poMainFormCenter;
+  end;
+  with LRadioGroup1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+    AutoSize := True;
+    Caption := MSG66;
+    Parent := Form;
+    TabOrder := 0;
+  end;
+  with LRadioGroup2 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := LRadioGroup1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    AutoSize := True;
+    Caption := MSG67;
+    Parent := Form;
+    TabOrder := 1;
+  end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LEdit1;
+      AnchorSideLeft.Side := asrCenter;
+      BorderSpacing.Left := 0;
+    Caption := MSG68;
+    Parent := Form;
+  end;
+  with LEdit1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LLabel1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      BorderSpacing.Right := 8;
+      AnchorSideLeft.Control := LRadioGroup2;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Parent := Form;
+    TabOrder := 2;
+    Width := 100;
+  end;
+  with LBevel1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LRadioGroup1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    Shape := bsTopLine;
+  end;
+  with LButton1 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton2;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+    Caption := MSG44;
+    ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 4;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG69;
+    ModalResult := mrOk;
+    Parent := Form;
+    TabOrder := 3;
+  end;
+  if Form.ShowModal = mrOk then
+  begin
+    with Form do
+    begin
+      menucmd := COMMANDS[17] + ' ' +
+        NUM_SYS[LRadioGroup1.ItemIndex] + ' ' +
+        NUM_SYS[LRadioGroup2.ItemIndex] + ' ' +
+        LEdit1.Text;
+      Memo1.Lines.Add(fullprompt + menucmd);
+      parsingcommands(menucmd);
+    end;
+  end;
+  FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'sercons' with DIALOG

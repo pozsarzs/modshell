@@ -1,0 +1,1633 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: frmmain.des00
+msgid "       copy one or more remote reg. between two connections"
+msgstr ""
+
+#: frmmain.des01
+msgid "F10    exit"
+msgstr ""
+
+#: frmmain.des02
+msgid "ALT-G  show device, protocol, connection or project name"
+msgstr ""
+
+#: frmmain.des03
+msgid "F1     show description or usage of the commands"
+msgstr ""
+
+#: frmmain.des04
+msgid "ALT-L  set value of a variable or a register"
+msgstr ""
+
+#: frmmain.des05
+msgid "ALT-P  print message, value of the variable and register"
+msgstr ""
+
+#: frmmain.des06
+msgid "ALT-R  read one or more remote registers to buffer"
+msgstr ""
+
+#: frmmain.des07
+msgid "ALT-T  reset device, protocol, connection or project name"
+msgstr ""
+
+#: frmmain.des08
+msgid "ALT-S  set device, protocol, connection or project name"
+msgstr ""
+
+#: frmmain.des09
+msgid "       show system date and time"
+msgstr ""
+
+#: frmmain.des10
+msgid "       show version and build information of this program"
+msgstr ""
+
+#: frmmain.des11
+msgid "ALT-W  write data from buffer to one or more remote registers"
+msgstr ""
+
+#: frmmain.des12
+msgid "F8     clear screen"
+msgstr ""
+
+#: frmmain.des13
+msgid "F2     save settings of device, protocol and connection"
+msgstr ""
+
+#: frmmain.des14
+msgid "F3     load settings of device, protocol and connection"
+msgstr ""
+
+#: frmmain.des15
+msgid "ALT-E  export value of the one or more registers"
+msgstr ""
+
+#: frmmain.des16
+msgid "       export command line history to make a script easily"
+msgstr ""
+
+#: frmmain.des17
+msgid "ALT-C  convert value between different numeral systems"
+msgstr ""
+
+#: frmmain.des18
+msgid "F4     save all registers"
+msgstr ""
+
+#: frmmain.des19
+msgid "F5     load all registers"
+msgstr ""
+
+#: frmmain.des20
+msgid "       list all variable with value or define a new one"
+msgstr ""
+
+#: frmmain.des21
+msgid "       set colors"
+msgstr ""
+
+#: frmmain.des22
+msgid "ALT-I  import value of the one or more registers"
+msgstr ""
+
+#: frmmain.des23
+msgid "       AND logical operations"
+msgstr ""
+
+#: frmmain.des24
+msgid "       OR logical operations"
+msgstr ""
+
+#: frmmain.des25
+msgid "       NOT logical operations"
+msgstr ""
+
+#: frmmain.des26
+msgid "       XOR logical operations"
+msgstr ""
+
+#: frmmain.des27
+msgid "       bit shift to left"
+msgstr ""
+
+#: frmmain.des28
+msgid "       bit shift to right"
+msgstr ""
+
+#: frmmain.des29
+msgid "       addition mathematical operation"
+msgstr ""
+
+#: frmmain.des30
+msgid "       substraction mathematical operation"
+msgstr ""
+
+#: frmmain.des31
+msgid "       multiplication mathematical operation"
+msgstr ""
+
+#: frmmain.des32
+msgid "       division mathematical operation"
+msgstr ""
+
+#: frmmain.des33
+msgid "F6     dump all registers in binary/hexadecimal format to a table"
+msgstr ""
+
+#: frmmain.des34
+msgid "       wait for a keystroke or specified time"
+msgstr ""
+
+#: frmmain.des35
+msgid "F7     open a simple serial console"
+msgstr ""
+
+#: frmmain.des36
+msgid "       read string from serial device"
+msgstr ""
+
+#: frmmain.des37
+msgid "       write string to serial device"
+msgstr ""
+
+#: frmmain.des38
+msgid "F9     query local echo status or enable/disable it"
+msgstr ""
+
+#: frmmain.des39
+msgid "       load Modshell script from file"
+msgstr ""
+
+#: frmmain.des40
+msgid "F12    run loaded Modshell script"
+msgstr ""
+
+#: frmmain.des41
+msgid "F11    list loaded Modshell script"
+msgstr ""
+
+#: frmmain.des42
+msgid "       round real number"
+msgstr ""
+
+#: frmmain.des43
+msgid "       cosine function"
+msgstr ""
+
+#: frmmain.des44
+msgid "       cotangent function"
+msgstr ""
+
+#: frmmain.des45
+msgid "       decrement integer"
+msgstr ""
+
+#: frmmain.des46
+msgid "       natural exponential"
+msgstr ""
+
+#: frmmain.des47
+msgid "       integer division"
+msgstr ""
+
+#: frmmain.des48
+msgid "       modulus division"
+msgstr ""
+
+#: frmmain.des49
+msgid "       increment integer"
+msgstr ""
+
+#: frmmain.des50
+msgid "       natural logarithm"
+msgstr ""
+
+#: frmmain.des51
+msgid "       multiplicative inverse"
+msgstr ""
+
+#: frmmain.des52
+msgid "       odd or event"
+msgstr ""
+
+#: frmmain.des53
+msgid "       create random integer"
+msgstr ""
+
+#: frmmain.des54
+msgid "       tangent function"
+msgstr ""
+
+#: frmmain.des55
+msgid "       sine function"
+msgstr ""
+
+#: frmmain.des56
+msgid "       square"
+msgstr ""
+
+#: frmmain.des57
+msgid "       square root"
+msgstr ""
+
+#: frmmain.des58
+msgid "       roll bit of integer to left"
+msgstr ""
+
+#: frmmain.des59
+msgid "       roll bit of integer to right"
+msgstr ""
+
+#: frmmain.des60
+msgid "       conversion to uppercase"
+msgstr ""
+
+#: frmmain.des61
+msgid "       length of string"
+msgstr ""
+
+#: frmmain.des62
+msgid "       conversion to lowercase"
+msgstr ""
+
+#: frmmain.des63
+msgid "       specified element of the string"
+msgstr ""
+
+#: frmmain.des64
+msgid "       convert byte to char"
+msgstr ""
+
+#: frmmain.des65
+msgid "       convert char to byte"
+msgstr ""
+
+#: frmmain.des66
+msgid "       list all constant with value or define a new one"
+msgstr ""
+
+#: frmmain.des67
+msgid "       value of the specified bit"
+msgstr ""
+
+#: frmmain.des68
+msgid "       exponentiation"
+msgstr ""
+
+#: frmmain.des69
+msgid "       jump to specified label (only in script)"
+msgstr ""
+
+#: frmmain.des70
+msgid "       selection statement"
+msgstr ""
+
+#: frmmain.des71
+msgid "       loop iteration"
+msgstr ""
+
+#: frmmain.des72
+msgid "       define label (only in script)"
+msgstr ""
+
+#: frmmain.des73
+msgid "       start internal Modbus slave/server"
+msgstr ""
+
+#: frmmain.des74
+msgid "       start internal Modbus gateway"
+msgstr ""
+
+#: frmmain.des75
+msgid "       check the value is in the range"
+msgstr ""
+
+#: frmmain.des76
+msgid "       make LRC"
+msgstr ""
+
+#: frmmain.des77
+msgid "       make CRC"
+msgstr ""
+
+#: frmmain.des78
+msgid "       exponentiation of two"
+msgstr ""
+
+#: frmmain.des79
+msgid "       show ASCII table"
+msgstr ""
+
+#: frmmain.des80
+msgid "       make a beep sound with internal speaker"
+msgstr ""
+
+#: frmmain.des81
+msgid "       calculate average"
+msgstr ""
+
+#: frmmain.des82
+msgid "       propotional value calculation (with zero and span)"
+msgstr ""
+
+#: frmmain.des83
+msgid "       concatenate strings"
+msgstr ""
+
+#: frmmain.des84
+msgid "       delete specified element(s) of the string"
+msgstr ""
+
+#: frmmain.des85
+msgid "       find specified element(s) in the string"
+msgstr ""
+
+#: frmmain.des86
+msgid "       insert element(s) into string"
+msgstr ""
+
+#: frmmain.des87
+msgid "       replace element(s) in the string"
+msgstr ""
+
+#: frmmain.des88
+msgid "ALT-M  monitoring the value of variables"
+msgstr ""
+
+#: frmmain.des89
+msgid "       append a record to log file"
+msgstr ""
+
+#: frmmain.des90
+msgid "       loaded script scheduled execution"
+msgstr ""
+
+#: frmmain.des91
+msgid "       edit loaded script with line editor"
+msgstr ""
+
+#: frmmain.des92
+msgid "       erase script from buffer"
+msgstr ""
+
+#: frmmain.des93
+msgid "       save loaded script to disc"
+msgstr ""
+
+#: frmmain.err00
+msgid "No such command!"
+msgstr ""
+
+#: frmmain.err01
+msgid "Device number must be 0-7!"
+msgstr ""
+
+#: frmmain.err02
+msgid "Protocol number must be 0-7!"
+msgstr ""
+
+#: frmmain.err03
+msgid "Connection number must be 0-7!"
+msgstr ""
+
+#: frmmain.err04
+msgid "IP address is not valid!"
+msgstr ""
+
+#: frmmain.err05
+msgid "Parameter(s) required!"
+msgstr ""
+
+#: frmmain.err06
+msgid "UID must be 1-247!"
+msgstr ""
+
+#: frmmain.err07
+msgid "Cannot export command line history to "
+msgstr ""
+
+#: frmmain.err08
+msgid "Cannot save settings to "
+msgstr ""
+
+#: frmmain.err09
+msgid "Cannot load settings from "
+msgstr ""
+
+#: frmmain.err10
+msgid "Cannot export register content to "
+msgstr ""
+
+#: frmmain.err11
+msgid "Cannot import register content from "
+msgstr ""
+
+#: frmmain.err12
+msgid "Cannot save register content to "
+msgstr ""
+
+#: frmmain.err13
+msgid "Cannot load register content from "
+msgstr ""
+
+#: frmmain.err14
+msgid "Illegal character in the project name!"
+msgstr ""
+
+#: frmmain.err15
+msgid "Illegal character in the variable name!"
+msgstr ""
+
+#: frmmain.err16
+msgid "Cannot define more variable!"
+msgstr ""
+
+#: frmmain.err17
+msgid "There is already a variable or a constant with that name."
+msgstr ""
+
+#: frmmain.err18
+msgid "Cannot initialize serial port: "
+msgstr ""
+
+#: frmmain.err19
+msgid "No such variable: "
+msgstr ""
+
+#: frmmain.err20
+msgid "Calculating error!"
+msgstr ""
+
+#: frmmain.err21
+msgid "No such script file: "
+msgstr ""
+
+#: frmmain.err22
+msgid "Cannot load script from "
+msgstr ""
+
+#: frmmain.err23
+msgid "Script buffer is full!"
+msgstr ""
+
+#: frmmain.err24
+msgid "Specified device is not a serial port!"
+msgstr ""
+
+#: frmmain.err25
+msgid "Specified device is not a ethernet port!"
+msgstr ""
+
+#: frmmain.err26
+msgid "Cannot read data from serial port!"
+msgstr ""
+
+#: frmmain.err27
+msgid "Cannot write data to serial port!"
+msgstr ""
+
+#: frmmain.err28
+msgid "Modbus telegram parsing error!"
+msgstr ""
+
+#: frmmain.err29
+msgid "Modbus error: illegal function."
+msgstr ""
+
+#: frmmain.err30
+msgid "Modbus error: illegal data address."
+msgstr ""
+
+#: frmmain.err31
+msgid "Modbus error: illegal data value."
+msgstr ""
+
+#: frmmain.err32
+msgid "Modbus error: slave device failure."
+msgstr ""
+
+#: frmmain.err33
+msgid "Illegal character in the constant name!"
+msgstr ""
+
+#: frmmain.err34
+msgid "Cannot define more constant!"
+msgstr ""
+
+#: frmmain.err35
+msgid "No such label: "
+msgstr ""
+
+#: frmmain.err36
+msgid "Cannot write log record to "
+msgstr ""
+
+#: frmmain.err37
+msgid "Cannot save script to "
+msgstr ""
+
+#: frmmain.err38
+msgid "Cannot run default webbrowser!"
+msgstr ""
+
+#: frmmain.err99
+msgid "Minimal terminal size is 80x25!"
+msgstr ""
+
+#: frmmain.msg01
+msgid "<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> clear <F10> exit"
+msgstr ""
+
+#: frmmain.msg02
+msgid "Command-driven scriptable Modbus utility"
+msgstr ""
+
+#: frmmain.msg03
+msgid "Use 'help COMMAND' to show usage."
+msgstr ""
+
+#: frmmain.msg04
+msgid "Usage this command:"
+msgstr ""
+
+#: frmmain.msg05
+msgid "parameter:"
+msgstr ""
+
+#: frmmain.msg06
+msgid " is not set."
+msgstr ""
+
+#: frmmain.msg07
+msgid " device:     "
+msgstr ""
+
+#: frmmain.msg08
+msgid " port:       "
+msgstr ""
+
+#: frmmain.msg09
+msgid " baudrate:   "
+msgstr ""
+
+#: frmmain.msg10
+msgid " settings:   "
+msgstr ""
+
+#: frmmain.msg11
+msgid " protocol:   "
+msgstr ""
+
+#: frmmain.msg12
+msgid " IP address: "
+msgstr ""
+
+#: frmmain.msg13
+msgid " device UID: "
+msgstr ""
+
+#: frmmain.msg14
+msgid "File exist, overwrite? (y/n)"
+msgstr ""
+
+#: frmmain.msg15
+msgid "Command line history has exported to "
+msgstr ""
+
+#: frmmain.msg16
+msgid "Settings has saved to "
+msgstr ""
+
+#: frmmain.msg17
+msgid "Settings has loaded from "
+msgstr ""
+
+#: frmmain.msg18
+msgid "Register content has exported to "
+msgstr ""
+
+#: frmmain.msg19
+msgid "Register content has imported from "
+msgstr ""
+
+#: frmmain.msg20
+msgid "Register content has saved to "
+msgstr ""
+
+#: frmmain.msg21
+msgid "Register content has loaded from "
+msgstr ""
+
+#: frmmain.msg22
+msgid "Useable file types: "
+msgstr ""
+
+#: frmmain.msg23
+msgid "Press a key to continue... "
+msgstr ""
+
+#: frmmain.msg24
+msgid ""
+"Note:\n"
+"  - register: local buffer register\n"
+"  - remote register: register of the connected device\n"
+msgstr ""
+
+#: frmmain.msg25
+msgid "Select register type: "
+msgstr ""
+
+#: frmmain.msg26
+msgid "Local register type (dinp/coil/ireg/hreg: 1/2/3/4): "
+msgstr ""
+
+#: frmmain.msg27
+msgid "Start address (0-9990): "
+msgstr ""
+
+#: frmmain.msg28
+msgid "Echo mode: "
+msgstr ""
+
+#: frmmain.msg29
+msgid "Mini serial console (exit: <F10>)"
+msgstr ""
+
+#: frmmain.msg30
+msgid "Device number (0-7): "
+msgstr ""
+
+#: frmmain.msg31
+msgid "Press <Esc> to break receiving."
+msgstr ""
+
+#: frmmain.msg32
+msgid "Variable monitor mode: "
+msgstr ""
+
+#: frmmain.msg33
+msgid "This command can only be used in a script!"
+msgstr ""
+
+#: frmmain.msg34
+msgid "line"
+msgstr ""
+
+#: frmmain.msg35
+msgid "hour"
+msgstr ""
+
+#: frmmain.msg36
+msgid "minute"
+msgstr ""
+
+#: frmmain.msg37
+msgid "status"
+msgstr ""
+
+#: frmmain.msg38
+msgid "No script loaded."
+msgstr ""
+
+#: frmmain.msg39
+msgid "Scroll: [Home][PgUp][Up]-[Down][PgDn][End]"
+msgstr ""
+
+#: frmmain.msg40
+msgid "Move:   [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
+msgstr ""
+
+#: frmmain.msg41
+msgid "Edit:   [Ins][Del][Esc]"
+msgstr ""
+
+#: frmmain.msg42
+msgid "all file|*"
+msgstr ""
+
+#: frmmain.msg43
+msgid "batch file|*.bat|all file|*.*"
+msgstr ""
+
+#: frmmain.msg44
+msgid "&Cancel"
+msgstr ""
+
+#: frmmain.msg45
+msgid "&Set"
+msgstr ""
+
+#: frmmain.msg46
+msgid "&Reset"
+msgstr ""
+
+#: frmmain.msg47
+msgid "foreground"
+msgstr ""
+
+#: frmmain.msg48
+msgid "background"
+msgstr ""
+
+#: frmmain.msg49
+msgid "type"
+msgstr ""
+
+#: frmmain.msg50
+msgid "device"
+msgstr ""
+
+#: frmmain.msg51
+msgid "port/baudrate"
+msgstr ""
+
+#: frmmain.msg52
+msgid "databits"
+msgstr ""
+
+#: frmmain.msg53
+msgid "parity"
+msgstr ""
+
+#: frmmain.msg54
+msgid "stopbit(s)"
+msgstr ""
+
+#: frmmain.msg55
+msgid "protocol"
+msgstr ""
+
+#: frmmain.msg56
+msgid "UID/IP address"
+msgstr ""
+
+#: frmmain.msg57
+msgid "CSV file|*.csv|INI file|*.ini|XML file|*.xml"
+msgstr ""
+
+#: frmmain.msg58
+msgid "INI file|*.ini|XML file|*.xml"
+msgstr ""
+
+#: frmmain.msg59
+msgid "registers"
+msgstr ""
+
+#: frmmain.msg60
+msgid "start address"
+msgstr ""
+
+#: frmmain.msg61
+msgid "count"
+msgstr ""
+
+#: frmmain.msg62
+msgid "&Export"
+msgstr ""
+
+#: frmmain.msg63
+msgid "&Dump"
+msgstr ""
+
+#: frmmain.msg64
+msgid "Use 'Project/Set console colors' on GUI version."
+msgstr ""
+
+#: frmmain.msg65
+msgid "Use 'Script/Edit script' on GUI version."
+msgstr ""
+
+#: frmmain.msg66
+msgid "from"
+msgstr ""
+
+#: frmmain.msg67
+msgid "to"
+msgstr ""
+
+#: frmmain.msg68
+msgid "number"
+msgstr ""
+
+#: frmmain.msg69
+msgid "&Convert"
+msgstr ""
+
+#: frmmain.msg94
+msgid "Build date:  "
+msgstr ""
+
+#: frmmain.msg95
+msgid "Builder:     "
+msgstr ""
+
+#: frmmain.msg96
+msgid "FPC version: "
+msgstr ""
+
+#: frmmain.msg97
+msgid "Target OS:   "
+msgstr ""
+
+#: frmmain.msg98
+msgid "Target CPU:  "
+msgstr ""
+
+#: frmmain.msg99
+msgid "Sorry, this feature is not yet implemented."
+msgstr ""
+
+#: frmmain.num1
+msgid "1st "
+msgstr ""
+
+#: frmmain.num2
+msgid "2nd "
+msgstr ""
+
+#: frmmain.num3
+msgid "3rd "
+msgstr ""
+
+#: frmmain.num4
+msgid "4th "
+msgstr ""
+
+#: frmmain.num5
+msgid "5th "
+msgstr ""
+
+#: frmmain.num6
+msgid "6th "
+msgstr ""
+
+#: frmmain.num7
+msgid "7th "
+msgstr ""
+
+#: frmmain.usg00
+msgid ""
+"copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg01
+msgid "exit"
+msgstr ""
+
+#: frmmain.usg02
+msgid ""
+"get dev?|pro?|con?|prj\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg03
+msgid "help [[$]COMMAND]"
+msgstr ""
+
+#: frmmain.usg04
+msgid ""
+"let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
+"  let $VARIABLE [$]VALUE\n"
+"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS"
+msgstr ""
+
+#: frmmain.usg05
+msgid ""
+"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]\n"
+"  print $VARIABLE [-n]\n"
+"  print \"single\\ line\\ message\" [-n]"
+msgstr ""
+
+#: frmmain.usg06
+msgid "read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr ""
+
+#: frmmain.usg07
+msgid ""
+"reset dev?|pro?|con?|prj\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg08
+msgid ""
+"set dev? net [$]DEVICE [$]PORT\n"
+"  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
+"  set pro? ascii|rtu [$]UID\n"
+"  set pro? tcp [$]IP_ADDRESS\n"
+"  set con? dev? pro?\n"
+"  set prj [$]PROJECT_NAME\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg09
+msgid "date"
+msgstr ""
+
+#: frmmain.usg10
+msgid "ver"
+msgstr ""
+
+#: frmmain.usg11
+msgid ""
+"write con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg12
+msgid "cls"
+msgstr ""
+
+#: frmmain.usg13
+msgid "savecfg [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: frmmain.usg14
+msgid "loadcfg [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: frmmain.usg15
+msgid "expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr ""
+
+#: frmmain.usg16
+msgid "exphis [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: frmmain.usg17
+msgid "conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
+msgstr ""
+
+#: frmmain.usg18
+msgid "savereg [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: frmmain.usg19
+msgid "loadreg [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: frmmain.usg20
+msgid ""
+"var\n"
+"  var NAME [[$]VALUE]"
+msgstr ""
+
+#: frmmain.usg21
+msgid ""
+"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VARMON\n"
+"  colors:\n"
+"      0: black  4: red         8: darkgray    12: lightred\n"
+"      1: blue   5: magenta:    9: lightblue   13: lightmagenta\n"
+"      2: green  6: brown      10: lightgreen  14: yellow\n"
+"      3: cyan   7: lightgray  11: lightcyan   15: white"
+msgstr ""
+
+#: frmmain.usg22
+msgid "impreg [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: frmmain.usg23
+msgid "and $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg24
+msgid "or $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg25
+msgid "not $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg26
+msgid "xor $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg27
+msgid "shl $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg28
+msgid "shr $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg29
+msgid "add $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg30
+msgid "sub $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg31
+msgid "mul $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg32
+msgid "div $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg33
+msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
+msgstr ""
+
+#: frmmain.usg34
+msgid "pause [[$]TIME]"
+msgstr ""
+
+#: frmmain.usg35
+msgid ""
+"sercons [dev?]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg36
+msgid ""
+"serread dev? [$TARGET]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg37
+msgid ""
+"serwrite dev? $MESSAGE\n"
+"  serwrite dev? \"MESSAGE\"\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg38
+msgid "echo [off|on|hex]"
+msgstr ""
+
+#: frmmain.usg39
+msgid "loadscr [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: frmmain.usg40
+msgid "run [-s]"
+msgstr ""
+
+#: frmmain.usg41
+msgid "list"
+msgstr ""
+
+#: frmmain.usg42
+msgid "round $TARGET [$]VALUE [$]DEC_PLACES"
+msgstr ""
+
+#: frmmain.usg43
+msgid "cos $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg44
+msgid "cotan $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg45
+msgid "dec $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg46
+msgid "exp $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg47
+msgid "idiv $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg48
+msgid "imod $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg49
+msgid "inc $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg50
+msgid "ln $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg51
+msgid "mulinv $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg52
+msgid "odd $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg53
+msgid "rnd $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg54
+msgid "tan $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg55
+msgid "sin $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg56
+msgid "sqr $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg57
+msgid "sqrt $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg58
+msgid "roll $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg59
+msgid "rolr $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg60
+msgid "upcase $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg61
+msgid "length $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg62
+msgid "lowcase $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg63
+msgid "stritem $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg64
+msgid "chr $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg65
+msgid "ord $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg66
+msgid ""
+"const\n"
+"  const NAME [$]VALUE"
+msgstr ""
+
+#: frmmain.usg67
+msgid "bit $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg68
+msgid "pow $TARGET [$]BASE [$]EXPONENT"
+msgstr ""
+
+#: frmmain.usg69
+msgid "goto LABEL"
+msgstr ""
+
+#: frmmain.usg70
+msgid "if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND"
+msgstr ""
+
+#: frmmain.usg71
+msgid "for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND"
+msgstr ""
+
+#: frmmain.usg72
+msgid "label NAME"
+msgstr ""
+
+#: frmmain.usg73
+msgid ""
+"mbsrv con?\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg74
+msgid ""
+"mbgw con? con?\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg75
+msgid "inrange $TARGET [$]MIN [$]MAX [$]VALUE"
+msgstr ""
+
+#: frmmain.usg76
+msgid "mklrc $TARGET [$]STRING"
+msgstr ""
+
+#: frmmain.usg77
+msgid "mkcrc $TARGET [$]STRING"
+msgstr ""
+
+#: frmmain.usg78
+msgid "pow2 $TARGET [$]EXPONENT"
+msgstr ""
+
+#: frmmain.usg79
+msgid "ascii [dec|hex]"
+msgstr ""
+
+#: frmmain.usg80
+msgid "beep"
+msgstr ""
+
+#: frmmain.usg81
+msgid "avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]"
+msgstr ""
+
+#: frmmain.usg82
+msgid "prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE"
+msgstr ""
+
+#: frmmain.usg83
+msgid "concat $TARGET [$]VALUE1 [$]VALUE2"
+msgstr ""
+
+#: frmmain.usg84
+msgid "strdel $TARGET [$]PLACE [$]COUNT"
+msgstr ""
+
+#: frmmain.usg85
+msgid "strfind $TARGET [$]VALUE"
+msgstr ""
+
+#: frmmain.usg86
+msgid "strins $TARGET [$]PLACE [$]VALUE"
+msgstr ""
+
+#: frmmain.usg87
+msgid "strrepl $TARGET [$]OLD [$]NEW"
+msgstr ""
+
+#: frmmain.usg88
+msgid ""
+"varmon [on|off]\n"
+"  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+msgstr ""
+
+#: frmmain.usg89
+msgid ""
+"applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]\n"
+"  applog [$]LOGFILE \"TEXT\\ $$1\\ TEXT\" [$]LEVEL [$]VALUE1\n"
+"Notes:\n"
+"  - The '$$1' value can be $$1-$$4.\n"
+"  - The 'LEVEL' value can be 0-4:\n"
+"    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
+msgstr ""
+
+#: frmmain.usg90
+msgid ""
+"cron\n"
+"  cron rec_num hour minute\n"
+"  cron [-r rec_num]"
+msgstr ""
+
+#: frmmain.usg91
+msgid "edit [LINE_NUMBER]"
+msgstr ""
+
+#: frmmain.usg92
+msgid "erase"
+msgstr ""
+
+#: frmmain.usg93
+msgid "savescr [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: tform1.caption
+msgid "Form1"
+msgstr ""
+
+#: tform1.label1.caption
+msgid "Label1"
+msgstr ""
+
+#: tform1.menuitem1.caption
+msgid "&File"
+msgstr ""
+
+#: tform1.menuitem10.caption
+msgid "&Load script.."
+msgstr ""
+
+#: tform1.menuitem11.caption
+msgid "&Save script.."
+msgstr ""
+
+#: tform1.menuitem12.caption
+msgid "&Run script"
+msgstr ""
+
+#: tform1.menuitem13.caption
+msgid "&Load registers.."
+msgstr ""
+
+#: tform1.menuitem14.caption
+msgid "&Save registers.."
+msgstr ""
+
+#: tform1.menuitem15.caption
+msgid "&Dump registers.."
+msgstr ""
+
+#: tform1.menuitem16.caption
+msgid "Start &gateway mode.."
+msgstr ""
+
+#: tform1.menuitem17.caption
+msgid "Project &name"
+msgstr ""
+
+#: tform1.menuitem18.caption
+msgid "Lis&t script"
+msgstr ""
+
+#: tform1.menuitem19.caption
+msgid "Start &client mode.."
+msgstr ""
+
+#: tform1.menuitem2.caption
+msgid "&Script"
+msgstr ""
+
+#: tform1.menuitem20.caption
+msgid "&Exit"
+msgstr ""
+
+#: tform1.menuitem21.caption
+msgid "&ASCII table"
+msgstr ""
+
+#: tform1.menuitem22.caption
+msgid "&Clear screen"
+msgstr ""
+
+#: tform1.menuitem23.caption
+msgid "Set console &colors.."
+msgstr ""
+
+#: tform1.menuitem24.caption
+msgid "Show all &constants"
+msgstr ""
+
+#: tform1.menuitem25.caption
+msgid "Show all &variables"
+msgstr ""
+
+#: tform1.menuitem26.caption
+msgid "&Number converter.."
+msgstr ""
+
+#: tform1.menuitem27.caption
+msgid "&Date and time"
+msgstr ""
+
+#: tform1.menuitem28.caption
+msgid "S&wap echo mode"
+msgstr ""
+
+#: tform1.menuitem29.caption
+msgid "E&rase script"
+msgstr ""
+
+#: tform1.menuitem3.caption
+msgid "&Help"
+msgstr ""
+
+#: tform1.menuitem30.caption
+msgid "E&dit script"
+msgstr ""
+
+#: tform1.menuitem31.caption
+msgid "E&xport registers.."
+msgstr ""
+
+#: tform1.menuitem32.caption
+msgid "I&mport registers.."
+msgstr ""
+
+#: tform1.menuitem33.caption
+msgid "Devices"
+msgstr ""
+
+#: tform1.menuitem34.caption
+msgid "Protocols"
+msgstr ""
+
+#: tform1.menuitem35.caption
+msgid "Connections"
+msgstr ""
+
+#: tform1.menuitem36.caption
+msgid "&Save configuration.."
+msgstr ""
+
+#: tform1.menuitem37.caption
+msgid "&Load configuration.."
+msgstr ""
+
+#: tform1.menuitem38.caption
+msgid "&Set project name.."
+msgstr ""
+
+#: tform1.menuitem39.caption
+msgid "&Set devices.."
+msgstr ""
+
+#: tform1.menuitem4.caption
+msgid "&Registers"
+msgstr ""
+
+#: tform1.menuitem40.caption
+msgid "&Set protocols.."
+msgstr ""
+
+#: tform1.menuitem41.caption
+msgid "&Set connections.."
+msgstr ""
+
+#: tform1.menuitem42.caption
+msgid "&Reset project name"
+msgstr ""
+
+#: tform1.menuitem43.caption
+msgid "&Reset devices.."
+msgstr ""
+
+#: tform1.menuitem44.caption
+msgid "&Reset protocols.."
+msgstr ""
+
+#: tform1.menuitem45.caption
+msgid "&Reset connections.."
+msgstr ""
+
+#: tform1.menuitem46.caption
+msgid "Sho&w project name"
+msgstr ""
+
+#: tform1.menuitem47.caption
+msgid "Sho&w devices"
+msgstr ""
+
+#: tform1.menuitem48.caption
+msgid "Sho&w protocols"
+msgstr ""
+
+#: tform1.menuitem49.caption
+msgid "Sho&w connections"
+msgstr ""
+
+#: tform1.menuitem5.caption
+msgid "&Project"
+msgstr ""
+
+#: tform1.menuitem50.caption
+msgid "&Write data to remote register(s).."
+msgstr ""
+
+#: tform1.menuitem51.caption
+msgid "&Read data from remote register(s).."
+msgstr ""
+
+#: tform1.menuitem52.caption
+msgid "&Variable monitor.."
+msgstr ""
+
+#: tform1.menuitem53.caption
+msgid "W&rite data to serial port.."
+msgstr ""
+
+#: tform1.menuitem54.caption
+msgid "&Mini serial console.."
+msgstr ""
+
+#: tform1.menuitem55.caption
+msgid "R&ead data from serial port.."
+msgstr ""
+
+#: tform1.menuitem56.caption
+msgid "&Online wiki"
+msgstr ""
+
+#: tform1.menuitem57.caption
+msgid "Homepage"
+msgstr ""
+
+#: tform1.menuitem58.caption
+msgid "Github"
+msgstr ""
+
+#: tform1.menuitem59.caption
+msgid "&Decimal"
+msgstr ""
+
+#: tform1.menuitem6.caption
+msgid "&Commands"
+msgstr ""
+
+#: tform1.menuitem60.caption
+msgid "&Hexadecimal"
+msgstr ""
+
+#: tform1.menuitem7.caption
+msgid "&About"
+msgstr ""
+
+#: tform1.menuitem8.caption
+msgid "&Operation"
+msgstr ""
+
+#: tform1.menuitem9.caption
+msgid "&Utilities"
+msgstr ""
+
+#: tform1.toolbar1.caption
+msgid "ToolBar1"
+msgstr ""
+
+#: tform1.toolbutton1.caption
+msgid "ToolButton1"
+msgstr ""
+
+#: tform1.toolbutton10.caption
+msgid "ToolButton10"
+msgstr ""
+
+#: tform1.toolbutton11.caption
+msgid "ToolButton11"
+msgstr ""
+
+#: tform1.toolbutton12.caption
+msgid "ToolButton12"
+msgstr ""
+
+#: tform1.toolbutton13.caption
+msgid "ToolButton13"
+msgstr ""
+
+#: tform1.toolbutton14.caption
+msgid "ToolButton14"
+msgstr ""
+
+#: tform1.toolbutton15.caption
+msgid "ToolButton15"
+msgstr ""
+
+#: tform1.toolbutton16.caption
+msgid "ToolButton16"
+msgstr ""
+
+#: tform1.toolbutton17.caption
+msgid "ToolButton17"
+msgstr ""
+
+#: tform1.toolbutton18.caption
+msgid "ToolButton18"
+msgstr ""
+
+#: tform1.toolbutton2.caption
+msgid "ToolButton2"
+msgstr ""
+
+#: tform1.toolbutton3.caption
+msgid "ToolButton3"
+msgstr ""
+
+#: tform1.toolbutton4.caption
+msgid "ToolButton4"
+msgstr ""
+
+#: tform1.toolbutton5.caption
+msgid "ToolButton5"
+msgstr ""
+
+#: tform1.toolbutton6.caption
+msgid "ToolButton6"
+msgstr ""
+
+#: tform1.toolbutton7.caption
+msgid "ToolButton7"
+msgstr ""
+
+#: tform1.toolbutton8.caption
+msgid "ToolButton8"
+msgstr ""
+
+#: tform1.toolbutton9.caption
+msgid "ToolButton9"
+msgstr ""
+

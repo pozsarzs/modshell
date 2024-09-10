@@ -1,0 +1,1716 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Modshell v0.1\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pozsár Zsolt <pozsarzs@gmail.com>\n"
+"Language-Team: \n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: frmmain.des00
+msgid "       copy one or more remote reg. between two connections"
+msgstr "       egy vagy több távoli regiszter másolása két kapcsolat között"
+
+#: frmmain.des01
+msgid "F10    exit"
+msgstr "F10    kilépés"
+
+#: frmmain.des02
+msgid "ALT-G  show device, protocol, connection or project name"
+msgstr "ALT-G  eszköz, protokoll, kapcsolat vagy projektnév kiírása"
+
+#: frmmain.des03
+msgid "F1     show description or usage of the commands"
+msgstr "F1     parancs leírás vagy használat megjelenítése"
+
+#: frmmain.des04
+msgid "ALT-L  set value of a variable or a register"
+msgstr "ALT-L  regisztertartalom beállítása"
+
+#: frmmain.des05
+msgid "ALT-P  print message, value of the variable and register"
+msgstr "ALT-P  üzenet, a változó vagy regisztertartalom kiírása"
+
+#: frmmain.des06
+msgid "ALT-R  read one or more remote registers to buffer"
+msgstr "ALT-R  adat olvasása távoli regiszterből a pufferbe"
+
+#: frmmain.des07
+msgid "ALT-T  reset device, protocol, connection or project name"
+msgstr "ALT-T  eszköz, protokoll, kapcsolat vagy projektnév törlése"
+
+#: frmmain.des08
+msgid "ALT-S  set device, protocol, connection or project name"
+msgstr "ALT-S  eszköz, protokoll, kapcsolat vagy projektnév beállítása"
+
+#: frmmain.des09
+msgid "       show system date and time"
+msgstr "       dátum és idő megjelenítése"
+
+#: frmmain.des10
+msgid "       show version and build information of this program"
+msgstr "       változat és fordítási információk a programról"
+
+#: frmmain.des11
+msgid "ALT-W  write data from buffer to one or more remote registers"
+msgstr "ALT-W  adat írása egy vagy több pufferből a távoli regiszterbe"
+
+#: frmmain.des12
+msgid "F8     clear screen"
+msgstr "F8     képernyőtörlés"
+
+#: frmmain.des13
+msgid "F2     save settings of device, protocol and connection"
+msgstr "F2     eszköz-, protokoll- és kapcsolatbeállítások mentése"
+
+#: frmmain.des14
+msgid "F3     load settings of device, protocol and connection"
+msgstr "F3     eszköz-, protokoll- és kapcsolatbeállítások betöltése"
+
+#: frmmain.des15
+msgid "ALT-E  export value of the one or more registers"
+msgstr "ALT-E  egy vagy több regisztertartalom exportálása"
+
+#: frmmain.des16
+msgid "       export command line history to make a script easily"
+msgstr "       parancssori előzmények exportálása"
+
+#: frmmain.des17
+msgid "ALT-C  convert value between different numeral systems"
+msgstr "ALT-C  konvertálás a különböző számrendszerek között"
+
+#: frmmain.des18
+msgid "F4     save all registers"
+msgstr "F4     összes regisztertartalom mentése"
+
+#: frmmain.des19
+msgid "F5     load all registers"
+msgstr "F5     összes regisztertartalom betöltése"
+
+#: frmmain.des20
+msgid "       list all variable with value or define a new one"
+msgstr "       az összes változó kiírása vagy új létrehozása"
+
+#: frmmain.des21
+msgid "       set colors"
+msgstr "       színek beállítása"
+
+#: frmmain.des22
+msgid "ALT-I  import value of the one or more registers"
+msgstr "ALT-I  egy vagy több regisztertartalom importálása"
+
+#: frmmain.des23
+msgid "       AND logical operations"
+msgstr "       ÉS logikai művelet"
+
+#: frmmain.des24
+msgid "       OR logical operations"
+msgstr "       VAGY logikai művelet"
+
+#: frmmain.des25
+msgid "       NOT logical operations"
+msgstr "       NOT logikai művelet"
+
+#: frmmain.des26
+msgid "       XOR logical operations"
+msgstr "       XOR logikai művelet"
+
+#: frmmain.des27
+msgid "       bit shift to left"
+msgstr "       biteltolás balra"
+
+#: frmmain.des28
+msgid "       bit shift to right"
+msgstr "       biteltolás jobbra"
+
+#: frmmain.des29
+msgid "       addition mathematical operation"
+msgstr "       összeadás matematikai művelet"
+
+#: frmmain.des30
+msgid "       substraction mathematical operation"
+msgstr "       kivonás matematikai művelet"
+
+#: frmmain.des31
+msgid "       multiplication mathematical operation"
+msgstr "       szorzás matematikai művelet"
+
+#: frmmain.des32
+msgid "       division mathematical operation"
+msgstr "       osztás matematikai művelet"
+
+#: frmmain.des33
+msgid "F6     dump all registers in binary/hexadecimal format to a table"
+msgstr "F6     táblázatos regiszterkiírás bin. vagy hexadec. formában"
+
+#: frmmain.des34
+msgid "       wait for a keystroke or specified time"
+msgstr "       várakozás billentyűleütésre vagy idő leteltére"
+
+#: frmmain.des35
+msgid "F7     open a simple serial console"
+msgstr "F7     egyszerű soros konzol"
+
+#: frmmain.des36
+msgid "       read string from serial device"
+msgstr "       string olvasása soros portról"
+
+#: frmmain.des37
+msgid "       write string to serial device"
+msgstr "       string írása soros portra"
+
+#: frmmain.des38
+msgid "F9     query local echo status or enable/disable it"
+msgstr "F9     visszahang állapot lekérése/beállítása"
+
+#: frmmain.des39
+msgid "       load Modshell script from file"
+msgstr "       Modshell szkript betöltése fájlból"
+
+#: frmmain.des40
+msgid "F12    run loaded Modshell script"
+msgstr "F12    betöltött ModShell szkript futattása"
+
+#: frmmain.des41
+msgid "F11    list loaded Modshell script"
+msgstr "F11    betöltött ModShell szkript listázása"
+
+#: frmmain.des42
+msgid "       round real number"
+msgstr "       természetes szám kerekítése"
+
+#: frmmain.des43
+msgid "       cosine function"
+msgstr "       koszinusz függvény"
+
+#: frmmain.des44
+msgid "       cotangent function"
+msgstr "       kotangens függvény"
+
+#: frmmain.des45
+msgid "       decrement integer"
+msgstr "       egész szám csökkentése eggyel"
+
+#: frmmain.des46
+msgid "       natural exponential"
+msgstr "       természetes exponenciális függvény"
+
+#: frmmain.des47
+msgid "       integer division"
+msgstr "       egész osztás"
+
+#: frmmain.des48
+msgid "       modulus division"
+msgstr "       modulusz osztás"
+
+#: frmmain.des49
+msgid "       increment integer"
+msgstr "       egész szám növelése eggyel"
+
+#: frmmain.des50
+msgid "       natural logarithm"
+msgstr "       természetes alapú logaritmus"
+
+#: frmmain.des51
+msgid "       multiplicative inverse"
+msgstr "       reciprokérték"
+
+#: frmmain.des52
+msgid "       odd or event"
+msgstr "       páros vagy páratlan"
+
+#: frmmain.des53
+msgid "       create random integer"
+msgstr "       véletlen egész szám képzése"
+
+#: frmmain.des54
+msgid "       tangent function"
+msgstr "       tangens függvény"
+
+#: frmmain.des55
+msgid "       sine function"
+msgstr "       szinusz függvény"
+
+#: frmmain.des56
+msgid "       square"
+msgstr "       négyzetreemelés"
+
+#: frmmain.des57
+msgid "       square root"
+msgstr "       négyzetgyökvonás"
+
+#: frmmain.des58
+msgid "       roll bit of integer to left"
+msgstr "       bitgörgetés balra"
+
+#: frmmain.des59
+msgid "       roll bit of integer to right"
+msgstr "       bitgörgetés jobbra"
+
+#: frmmain.des60
+msgid "       conversion to uppercase"
+msgstr "       átalakítás nagybetűssé"
+
+#: frmmain.des61
+msgid "       length of string"
+msgstr "       karakterlánc hossza"
+
+#: frmmain.des62
+msgid "       conversion to lowercase"
+msgstr "       átalakítás kisbetűssé"
+
+#: frmmain.des63
+msgid "       specified element of the string"
+msgstr "       a karakterlánc megadott eleme"
+
+#: frmmain.des64
+msgid "       convert byte to char"
+msgstr "       bájt karakterré alakítása"
+
+#: frmmain.des65
+msgid "       convert char to byte"
+msgstr "       karakter bájttá alakítása"
+
+#: frmmain.des66
+msgid "       list all constant with value or define a new one"
+msgstr "       az összes állandó kiírása vagy új létrehozása"
+
+#: frmmain.des67
+msgid "       value of the specified bit"
+msgstr "       megadott bit értéke"
+
+#: frmmain.des68
+msgid "       exponentiation"
+msgstr "       hatványozás"
+
+#: frmmain.des69
+msgid "       jump to specified label (only in script)"
+msgstr "       ugrás a megadott címkére (csak szkripteknél)"
+
+#: frmmain.des70
+msgid "       selection statement"
+msgstr "       elágazás"
+
+#: frmmain.des71
+msgid "       loop iteration"
+msgstr "       számláló hurok"
+
+#: frmmain.des72
+msgid "       define label (only in script)"
+msgstr "       címke létrehozása (csak szkripteknél)"
+
+#: frmmain.des73
+msgid "       start internal Modbus slave/server"
+msgstr "       start belső Modbus szolga/szerver"
+
+#: frmmain.des74
+msgid "       start internal Modbus gateway"
+msgstr "       start belső Modbus átjáró"
+
+#: frmmain.des75
+msgid "       check the value is in the range"
+msgstr "       értéktartományba tartozás ellenőrzése"
+
+#: frmmain.des76
+msgid "       make LRC"
+msgstr "       LRC képzése"
+
+#: frmmain.des77
+msgid "       make CRC"
+msgstr "       CRC képzése"
+
+#: frmmain.des78
+msgid "       exponentiation of two"
+msgstr "       a kettő hatványai"
+
+#: frmmain.des79
+msgid "       show ASCII table"
+msgstr "       ASCII tábla mutatás"
+
+#: frmmain.des80
+msgid "       make a beep sound with internal speaker"
+msgstr "       hangjelzés a belső hangszóróval"
+
+#: frmmain.des81
+msgid "       calculate average"
+msgstr "       átlagszámítás"
+
+#: frmmain.des82
+msgid "       propotional value calculation (with zero and span)"
+msgstr "       arányos érték számítás (kezdeti és végértékkel)"
+
+#: frmmain.des83
+msgid "       concatenate strings"
+msgstr "       karakterláncok összefűzése"
+
+#: frmmain.des84
+msgid "       delete specified element(s) of the string"
+msgstr "       a karakterlánc megadott elemének törlése"
+
+#: frmmain.des85
+msgid "       find specified element(s) in the string"
+msgstr "       keresés a karakterláncban"
+
+#: frmmain.des86
+msgid "       insert element(s) into string"
+msgstr "       beszúrás a karakterláncba"
+
+#: frmmain.des87
+msgid "       replace element(s) in the string"
+msgstr "       a karakterlánc megadott elemének cseréje"
+
+#: frmmain.des88
+msgid "ALT-M  monitoring the value of variables"
+msgstr "ALT-M  változóértékek megfigyelése"
+
+#: frmmain.des89
+msgid "       append a record to log file"
+msgstr "       egy bejegyzés hozzáfűzése a naplófájlhoz"
+
+#: frmmain.des90
+msgid "       loaded script scheduled execution"
+msgstr "       a betöltött szkript ütemezett futattása"
+
+#: frmmain.des91
+msgid "       edit loaded script with line editor"
+msgstr "       a betöltött szkript szerkesztése sorszerkesztővel"
+
+#: frmmain.des92
+msgid "       erase script from buffer"
+msgstr "       a szkript törlése a pufferból"
+
+#: frmmain.des93
+msgid "       save loaded script to disc"
+msgstr "       a betöltött szkript mentése lemezre"
+
+#: frmmain.err00
+msgid "No such command!"
+msgstr "Nincs ilyen parancs!"
+
+#: frmmain.err01
+msgid "Device number must be 0-7!"
+msgstr "Az eszköz számának 0-7-nek kell lennie!"
+
+#: frmmain.err02
+msgid "Protocol number must be 0-7!"
+msgstr "A protokoll számának 0-7-nek kell lennie!"
+
+#: frmmain.err03
+msgid "Connection number must be 0-7!"
+msgstr "A kapcsolat számának 0-7-nek kell lennie!"
+
+#: frmmain.err04
+msgid "IP address is not valid!"
+msgstr "Az IP-cím nem érvényes!"
+
+#: frmmain.err05
+msgid "Parameter(s) required!"
+msgstr "Paraméterek szükséges(ek)!"
+
+#: frmmain.err06
+msgid "UID must be 1-247!"
+msgstr "Az UID-nek 1-247-nek kell lennie!"
+
+#: frmmain.err07
+msgid "Cannot export command line history to "
+msgstr "Nem lehet exportálni a parancssori előzményeket ebbe: "
+
+#: frmmain.err08
+msgid "Cannot save settings to "
+msgstr "Nem lehet menteni a beállításokat ebbe: "
+
+#: frmmain.err09
+msgid "Cannot load settings from "
+msgstr "Nem lehet betölteni a beállításokat ebből: "
+
+#: frmmain.err10
+msgid "Cannot export register content to "
+msgstr "Nem lehet exportálni a regisztertartalmat ebbe: "
+
+#: frmmain.err11
+msgid "Cannot import register content from "
+msgstr "Nem lehet importálni a regisztertartalmat ebből: "
+
+#: frmmain.err12
+msgid "Cannot save register content to "
+msgstr "Nem mentheti a regisztertartalmat ebbe: "
+
+#: frmmain.err13
+msgid "Cannot load register content from "
+msgstr "Nem lehet betölteni a regisztertartalmat ebből: "
+
+#: frmmain.err14
+msgid "Illegal character in the project name!"
+msgstr "Nem engedélyezett karakter a projekt nevében!"
+
+#: frmmain.err15
+msgid "Illegal character in the variable name!"
+msgstr "Nem engedélyezett karakter a változó nevében!"
+
+#: frmmain.err16
+msgid "Cannot define more variable!"
+msgstr "Nem lehet létrehozni a változót!"
+
+#: frmmain.err17
+msgid "There is already a variable or a constant with that name."
+msgstr "Van már egy változó vagy állandó ezzel a névvel."
+
+#: frmmain.err18
+msgid "Cannot initialize serial port: "
+msgstr "Nem lehet inicializálni a soros portot! "
+
+#: frmmain.err19
+msgid "No such variable: "
+msgstr "Nincs ilyen változó: "
+
+#: frmmain.err20
+msgid "Calculating error!"
+msgstr "Számítási hiba!"
+
+#: frmmain.err21
+msgid "No such script file: "
+msgstr "Nincs ilyen szkriptfájl: "
+
+#: frmmain.err22
+msgid "Cannot load script from "
+msgstr "Nem lehet betölteni a szkriptet ebből: "
+
+#: frmmain.err23
+msgid "Script buffer is full!"
+msgstr "A szkript puffer megtelt!"
+
+#: frmmain.err24
+msgid "Specified device is not a serial port!"
+msgstr "A megadott eszköz nem soros port!"
+
+#: frmmain.err25
+msgid "Specified device is not a ethernet port!"
+msgstr "A megadott eszköz nem ethernet port!"
+
+#: frmmain.err26
+msgid "Cannot read data from serial port!"
+msgstr "Nem lehet olvasni a soros portról!"
+
+#: frmmain.err27
+msgid "Cannot write data to serial port!"
+msgstr "Nem lehet írni a soros portot!"
+
+#: frmmain.err28
+msgid "Modbus telegram parsing error!"
+msgstr "Modbus telegram értelmezési hiba!"
+
+#: frmmain.err29
+msgid "Modbus error: illegal function."
+msgstr "Modbus hiba: szabálytalan funkció."
+
+#: frmmain.err30
+msgid "Modbus error: illegal data address."
+msgstr "Modbus hiba: szabálytalan adatcím."
+
+#: frmmain.err31
+msgid "Modbus error: illegal data value."
+msgstr "Modbus hiba: szabálytalan adatérték."
+
+#: frmmain.err32
+msgid "Modbus error: slave device failure."
+msgstr "Modbus hiba: slave eszköz hiba."
+
+#: frmmain.err33
+msgid "Illegal character in the constant name!"
+msgstr "Nem engedélyezett karakter az állandó nevében!"
+
+#: frmmain.err34
+msgid "Cannot define more constant!"
+msgstr "Nem lehet létrehozni több állandót!"
+
+#: frmmain.err35
+msgid "No such label: "
+msgstr "Nincs ilyen címke: "
+
+#: frmmain.err36
+msgid "Cannot write log record to "
+msgstr "Nem lehet írni a naplófájlt: "
+
+#: frmmain.err37
+msgid "Cannot save script to "
+msgstr "Nem lehet menteni a szkriptet ebbe: "
+
+#: frmmain.err38
+msgid "Cannot run default webbrowser!"
+msgstr "Nem tudom futtatni az alapértelmezés szerinti böngészőt!"
+
+#: frmmain.err99
+msgid "Minimal terminal size is 80x25!"
+msgstr "A legkisebb terminál méret 80x25!"
+
+#: frmmain.msg01
+msgid ""
+"<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> "
+"clear <F10> exit"
+msgstr ""
+"<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> "
+"clear <F10> exit"
+
+#: frmmain.msg02
+msgid "Command-driven scriptable Modbus utility"
+msgstr "Parancsvezérelt szkriptelhető Modbus segédprogram"
+
+#: frmmain.msg03
+msgid "Use 'help COMMAND' to show usage."
+msgstr "Használja a 'help PARANCS'-ot a használata megjelenítéséhez."
+
+#: frmmain.msg04
+msgid "Usage this command:"
+msgstr "A parancs használata:"
+
+#: frmmain.msg05
+msgid "parameter:"
+msgstr "paraméter:"
+
+#: frmmain.msg06
+msgid " is not set."
+msgstr " nincs beállítva."
+
+#: frmmain.msg07
+msgid " device:     "
+msgstr " eszköz:     "
+
+#: frmmain.msg08
+msgid " port:       "
+msgstr " port:       "
+
+#: frmmain.msg09
+msgid " baudrate:   "
+msgstr " sebesség:   "
+
+#: frmmain.msg10
+msgid " settings:   "
+msgstr " beállítások:   "
+
+#: frmmain.msg11
+msgid " protocol:   "
+msgstr " protokoll:   "
+
+#: frmmain.msg12
+msgid " IP address: "
+msgstr " IP-cím: "
+
+#: frmmain.msg13
+msgid " device UID: "
+msgstr " eszköz UID: "
+
+#: frmmain.msg14
+msgid "File exist, overwrite? (y/n)"
+msgstr "Létezik a fájl, felülírjam? (y/n)"
+
+#: frmmain.msg15
+msgid "Command line history has exported to "
+msgstr "A parancssori előzmények exportáltak ebbe: "
+
+#: frmmain.msg16
+msgid "Settings has saved to "
+msgstr "A beállítások el lettek mentve ebbe: "
+
+#: frmmain.msg17
+msgid "Settings has loaded from "
+msgstr "A beállítások be lettek töltve ebből: "
+
+#: frmmain.msg18
+msgid "Register content has exported to "
+msgstr "A regisztertartalom exportálva ebbe: "
+
+#: frmmain.msg19
+msgid "Register content has imported from "
+msgstr "A regisztertartalom importált ebből: "
+
+#: frmmain.msg20
+msgid "Register content has saved to "
+msgstr "A regisztertartalom elmentve ebbe: "
+
+#: frmmain.msg21
+msgid "Register content has loaded from "
+msgstr "A regisztertartalom betöltve ebből: "
+
+#: frmmain.msg22
+msgid "Useable file types: "
+msgstr "Használható fájltípusok: "
+
+#: frmmain.msg23
+msgid "Press a key to continue... "
+msgstr "Nyomjon meg egy billentyűt a folytatáshoz... "
+
+#: frmmain.msg24
+msgid ""
+"Note:\n"
+"  - register: local buffer register\n"
+"  - remote register: register of the connected device\n"
+msgstr ""
+"Megjegyzés:\n"
+"  - regiszter: helyi puffer regiszter\n"
+"  - távoli regiszter: a csatlakoztatott eszköz regisztere\n"
+
+#: frmmain.msg25
+msgid "Select register type: "
+msgstr "Válasszon regisztertípust: "
+
+#: frmmain.msg26
+msgid "Local register type (dinp/coil/ireg/hreg: 1/2/3/4): "
+msgstr "Helyi regiszter típus (dinp/coil/ireg/hreg: 1/2/3/4): "
+
+#: frmmain.msg27
+msgid "Start address (0-9990): "
+msgstr "Kezdőcím (0-9990): "
+
+#: frmmain.msg28
+msgid "Echo mode: "
+msgstr "Visszhang mód: "
+
+#: frmmain.msg29
+msgid "Mini serial console (exit: <F10>)"
+msgstr "Mini soros konzol (kilépés: <F10>)"
+
+#: frmmain.msg30
+msgid "Device number (0-7): "
+msgstr "Eszközszám (0-7): "
+
+#: frmmain.msg31
+msgid "Press <Esc> to break receiving."
+msgstr "Nyomd meg az <Esc>-et a vétel megszakításához."
+
+#: frmmain.msg32
+msgid "Variable monitor mode: "
+msgstr "Változó monitor mód: "
+
+#: frmmain.msg33
+msgid "This command can only be used in a script!"
+msgstr "Ez a parancs csak szkriptben használható!"
+
+#: frmmain.msg34
+msgid "line"
+msgstr "sor"
+
+#: frmmain.msg35
+msgid "hour"
+msgstr "óra"
+
+#: frmmain.msg36
+msgid "minute"
+msgstr "perc"
+
+#: frmmain.msg37
+msgid "status"
+msgstr "állapot"
+
+#: frmmain.msg38
+msgid "No script loaded."
+msgstr "Nincs betöltött szkript."
+
+#: frmmain.msg39
+msgid "Scroll: [Home][PgUp][Up]-[Down][PgDn][End]"
+msgstr "Görgetés:    [Home][PgUp][Up]-[Down][PgDn][End]"
+
+#: frmmain.msg40
+msgid "Move:   [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
+msgstr "Mozgás:      [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
+
+#: frmmain.msg41
+msgid "Edit:   [Ins][Del][Esc]"
+msgstr "Szerkesztés: [Ins][Del][Esc]"
+
+#: frmmain.msg42
+msgid "all file|*"
+msgstr "minden fájl|*"
+
+#: frmmain.msg43
+msgid "batch file|*.bat|all file|*.*"
+msgstr "batch fájl|*.bat|minden fájl|*.*"
+
+#: frmmain.msg44
+msgid "&Cancel"
+msgstr "&Mégsem"
+
+#: frmmain.msg45
+msgid "&Set"
+msgstr "&Beállít"
+
+#: frmmain.msg46
+msgid "&Reset"
+msgstr "&Töröl"
+
+#: frmmain.msg47
+msgid "foreground"
+msgstr "előtérszín"
+
+#: frmmain.msg48
+msgid "background"
+msgstr "háttérszín"
+
+#: frmmain.msg49
+msgid "type"
+msgstr "típus"
+
+#: frmmain.msg50
+msgid "device"
+msgstr "eszköz"
+
+#: frmmain.msg51
+msgid "port/baudrate"
+msgstr "port/sebesség"
+
+#: frmmain.msg52
+msgid "databits"
+msgstr "adatbitek"
+
+#: frmmain.msg53
+msgid "parity"
+msgstr "paritás"
+
+#: frmmain.msg54
+msgid "stopbit(s)"
+msgstr "stopbit(ek)"
+
+#: frmmain.msg55
+msgid "protocol"
+msgstr "protokoll"
+
+#: frmmain.msg56
+msgid "UID/IP address"
+msgstr "UID/IP cím"
+
+#: frmmain.msg57
+msgid "CSV file|*.csv|INI file|*.ini|XML file|*.xml"
+msgstr "CSV fájl|*.csv|INI fájl|*.ini|XML fájl|*.xml"
+
+#: frmmain.msg58
+msgid "INI file|*.ini|XML file|*.xml"
+msgstr "INI fájl|*.ini|XML fájl|*.xml"
+
+#: frmmain.msg59
+msgid "registers"
+msgstr "regiszterek"
+
+#: frmmain.msg60
+msgid "start address"
+msgstr "kezdőcím"
+
+#: frmmain.msg61
+msgid "count"
+msgstr "mennyiség"
+
+#: frmmain.msg62
+msgid "&Export"
+msgstr "&Exportál"
+
+#: frmmain.msg63
+msgid "&Dump"
+msgstr "&Kiírat"
+
+#: frmmain.msg64
+msgid "Use 'Project/Set console colors' on GUI version."
+msgstr "Használja a Projekt/Konzol színek beállítása'-t a GUI változatnál."
+
+#: frmmain.msg65
+msgid "Use 'Script/Edit script' on GUI version."
+msgstr "Használja a Szkript/Szkript szerkesztés'-t a GUI változatnál."
+
+#: frmmain.msg66
+msgid "from"
+msgstr "ebből"
+
+#: frmmain.msg67
+msgid "to"
+msgstr "ebbe"
+
+#: frmmain.msg68
+msgid "number"
+msgstr "szám"
+
+#: frmmain.msg69
+msgid "&Convert"
+msgstr "Át&alakít"
+
+#: frmmain.msg94
+msgid "Build date:  "
+msgstr "Fordítás ideje: "
+
+#: frmmain.msg95
+msgid "Builder:     "
+msgstr "Fordító:        "
+
+#: frmmain.msg96
+msgid "FPC version: "
+msgstr "FPC verzió:     "
+
+#: frmmain.msg97
+msgid "Target OS:   "
+msgstr "Cél OS:         "
+
+#: frmmain.msg98
+msgid "Target CPU:  "
+msgstr "Cél CPU:        "
+
+#: frmmain.msg99
+msgid "Sorry, this feature is not yet implemented."
+msgstr "Sajnálom, hogy ez a szolgáltatás még nem valósult meg."
+
+#: frmmain.num1
+msgid "1st "
+msgstr "Első "
+
+#: frmmain.num2
+msgid "2nd "
+msgstr "Második "
+
+#: frmmain.num3
+msgid "3rd "
+msgstr "Harmadik "
+
+#: frmmain.num4
+msgid "4th "
+msgstr "Negyedik "
+
+#: frmmain.num5
+msgid "5th "
+msgstr "Ötödik "
+
+#: frmmain.num6
+msgid "6th "
+msgstr "Hatodik "
+
+#: frmmain.num7
+msgid "7th "
+msgstr "Hetedik "
+
+#: frmmain.usg00
+msgid ""
+"copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"copy con? dinp|coil con? coil [$]CÍM [[$]MENNYISÉG]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg01
+msgid "exit"
+msgstr "exit"
+
+#: frmmain.usg02
+msgid ""
+"get dev?|pro?|con?|prj\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"get dev?|pro?|con?|prj\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg03
+msgid "help [[$]COMMAND]"
+msgstr "help [[$]PARANCS]"
+
+#: frmmain.usg04
+msgid ""
+"let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
+"  let $VARIABLE [$]VALUE\n"
+"  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS"
+msgstr ""
+"let dinp|coil|ireg|hreg [$]CÍM [$]ÉRTÉK\n"
+"  let $VÁLTOZÓ [$]ÉRTÉK\n"
+"  let $VÁLTOZÓ dinp|coil|ireg|hreg [$]CÍM"
+
+#: frmmain.usg05
+msgid ""
+"print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]\n"
+"  print $VARIABLE [-n]\n"
+"  print \"single\\ line\\ message\" [-n]"
+msgstr ""
+"print dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG] [-n]\n"
+"  print $VÁLTOZÓ [-n]\n"
+"  print \"single\\ line\\ message\" [-n]"
+
+#: frmmain.usg06
+msgid "read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr "read con? dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
+
+#: frmmain.usg07
+msgid ""
+"reset dev?|pro?|con?|prj\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"reset dev?|pro?|con?|prj\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg08
+msgid ""
+"set dev? net [$]DEVICE [$]PORT\n"
+"  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
+"  set pro? ascii|rtu [$]UID\n"
+"  set pro? tcp [$]IP_ADDRESS\n"
+"  set con? dev? pro?\n"
+"  set prj [$]PROJECT_NAME\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"set dev? net [$]ESZKÖZ [$]PORT\n"
+"  set dev? ser [$]ESZKÖZ [$]BAUDRATE [$]ADATBIT [$]PARITÁS [$]STOPBIT\n"
+"  set pro? ascii|rtu [$]UID\n"
+"  set pro? tcp [$]IP_CÍM\n"
+"  set con? dev? pro?\n"
+"  set prj [$]PROJEKNÉV\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg09
+msgid "date"
+msgstr "date"
+
+#: frmmain.usg10
+msgid "ver"
+msgstr "ver"
+
+#: frmmain.usg11
+msgid ""
+"write con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"write con? coil|hreg [$]CÍM [[$]MENNYISÉG]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg12
+msgid "cls"
+msgstr "cls"
+
+#: frmmain.usg13
+msgid "savecfg [$]PATH_AND_FILENAME"
+msgstr "savecfg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg14
+msgid "loadcfg [$]PATH_AND_FILENAME"
+msgstr "loadcfg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg15
+msgid "expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr ""
+"expreg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
+
+#: frmmain.usg16
+msgid "exphis [$]PATH_AND_FILENAME"
+msgstr "exphis [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg17
+msgid "conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
+msgstr "conv bin|dec|hex|oct bin|dec|hex|oct [$]ÉRTÉK"
+
+#: frmmain.usg18
+msgid "savereg [$]PATH_AND_FILENAME"
+msgstr "savereg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg19
+msgid "loadreg [$]PATH_AND_FILENAME"
+msgstr "loadreg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg20
+msgid ""
+"var\n"
+"  var NAME [[$]VALUE]"
+msgstr ""
+"var\n"
+"  var NAME [[$]ÉRTÉK]"
+
+#: frmmain.usg21
+msgid ""
+"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VARMON\n"
+"  colors:\n"
+"      0: black  4: red         8: darkgray    12: lightred\n"
+"      1: blue   5: magenta:    9: lightblue   13: lightmagenta\n"
+"      2: green  6: brown      10: lightgreen  14: yellow\n"
+"      3: cyan   7: lightgray  11: lightcyan   15: white"
+msgstr ""
+"color [$]ELŐTÉRSZÍN [$]HÁTTÉRSZÍN [$]VÉTELSZÍN [$]ADÁSSZÍN [$]VÁLTMON\n"
+"\n"
+"  színek:\n"
+"      0: fekete  4: vörös           8: sötétszürke  12: világosvörös\n"
+"      1: kék     5: magenta:        9: világoskék   13: világosmagenta\n"
+"      2: zöld    6: barna          10: világoszöld  14: sárga\n"
+"      3: cián    7: világosszürke  11: világoscián  15: fehér"
+
+#: frmmain.usg22
+msgid "impreg [$]PATH_AND_FILENAME"
+msgstr "impreg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg23
+msgid "and $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "and $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg24
+msgid "or $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "or $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg25
+msgid "not $TARGET [$]VALUE"
+msgstr "not $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg26
+msgid "xor $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "xor $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg27
+msgid "shl $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "shl $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg28
+msgid "shr $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "shr $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg29
+msgid "add $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "add $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg30
+msgid "sub $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "sub $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg31
+msgid "mul $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "mul $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg32
+msgid "div $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "div $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg33
+msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
+msgstr "dump [[dinp|coil|ireg|hreg] [$]CÍM]"
+
+#: frmmain.usg34
+msgid "pause [[$]TIME]"
+msgstr "pause [[$]IDŐ]"
+
+#: frmmain.usg35
+msgid ""
+"sercons [dev?]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"sercons [dev?]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg36
+msgid ""
+"serread dev? [$TARGET]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"serread dev? [$CÉL]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg37
+msgid ""
+"serwrite dev? $MESSAGE\n"
+"  serwrite dev? \"MESSAGE\"\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"serwrite dev? $ÜZENET\n"
+"  serwrite dev? \"MÜZENET\"\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg38
+msgid "echo [off|on|hex]"
+msgstr "echo [off|on|hex]"
+
+#: frmmain.usg39
+msgid "loadscr [$]PATH_AND_FILENAME"
+msgstr "loadscr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg40
+msgid "run [-s]"
+msgstr "run [-s]"
+
+#: frmmain.usg41
+msgid "list"
+msgstr "list"
+
+#: frmmain.usg42
+msgid "round $TARGET [$]VALUE [$]DEC_PLACES"
+msgstr "round $CÉL [$]ÉRTÉK [$]DEC_HELYEK"
+
+#: frmmain.usg43
+msgid "cos $TARGET [$]VALUE"
+msgstr "cos $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg44
+msgid "cotan $TARGET [$]VALUE"
+msgstr "cotan $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg45
+msgid "dec $TARGET [$]VALUE"
+msgstr "dec $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg46
+msgid "exp $TARGET [$]VALUE"
+msgstr "exp $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg47
+msgid "idiv $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "idiv $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg48
+msgid "imod $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "imod $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg49
+msgid "inc $TARGET [$]VALUE"
+msgstr "inc $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg50
+msgid "ln $TARGET [$]VALUE"
+msgstr "ln $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg51
+msgid "mulinv $TARGET [$]VALUE"
+msgstr "mulinv $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg52
+msgid "odd $TARGET [$]VALUE"
+msgstr "odd $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg53
+msgid "rnd $TARGET [$]VALUE"
+msgstr "rnd $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg54
+msgid "tan $TARGET [$]VALUE"
+msgstr "tan $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg55
+msgid "sin $TARGET [$]VALUE"
+msgstr "sin $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg56
+msgid "sqr $TARGET [$]VALUE"
+msgstr "sqr $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg57
+msgid "sqrt $TARGET [$]VALUE"
+msgstr "sqrt $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg58
+msgid "roll $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "roll $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg59
+msgid "rolr $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "rolr $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg60
+msgid "upcase $TARGET [$]VALUE"
+msgstr "upcase $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg61
+msgid "length $TARGET [$]VALUE"
+msgstr "length $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg62
+msgid "lowcase $TARGET [$]VALUE"
+msgstr "lowcase $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg63
+msgid "stritem $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "stritem $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg64
+msgid "chr $TARGET [$]VALUE"
+msgstr "chr $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg65
+msgid "ord $TARGET [$]VALUE"
+msgstr "ord $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg66
+msgid ""
+"const\n"
+"  const NAME [$]VALUE"
+msgstr ""
+"const\n"
+"  const NAME [[$]ÉRTÉK]"
+
+#: frmmain.usg67
+msgid "bit $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "bit $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg68
+msgid "pow $TARGET [$]BASE [$]EXPONENT"
+msgstr "pow $CÉL [$]ALAP [$]KITEVŐ"
+
+#: frmmain.usg69
+msgid "goto LABEL"
+msgstr "goto CÍMKE"
+
+#: frmmain.usg70
+msgid "if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND"
+msgstr "if [$]ÉRTÉK1 RELÁCIÓJEL [$]ÉRTÉK2 then PARANCS"
+
+#: frmmain.usg71
+msgid "for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND"
+msgstr "for $VÁLTOZÓ [$]ÉRTÉK to [$]ÉRTÉK do PARANCS"
+
+#: frmmain.usg72
+msgid "label NAME"
+msgstr "label NÉV"
+
+#: frmmain.usg73
+msgid ""
+"mbsrv con?\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"mbsrv con?\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg74
+msgid ""
+"mbgw con? con?\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"mbgw con? con?\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg75
+msgid "inrange $TARGET [$]MIN [$]MAX [$]VALUE"
+msgstr "inrange $CÉL [$]MIN [$]MAX [$]ÉRTÉK"
+
+#: frmmain.usg76
+msgid "mklrc $TARGET [$]STRING"
+msgstr "mklrc $CÉL [$]KARAKTERLÁNC"
+
+#: frmmain.usg77
+msgid "mkcrc $TARGET [$]STRING"
+msgstr "mkcrc $CÉL [$]KARAKTERLÁNC"
+
+#: frmmain.usg78
+msgid "pow2 $TARGET [$]EXPONENT"
+msgstr "pow2 $CÉL [$]KITEVŐ"
+
+#: frmmain.usg79
+msgid "ascii [dec|hex]"
+msgstr "ascii [dec|hex]"
+
+#: frmmain.usg80
+msgid "beep"
+msgstr "beep"
+
+#: frmmain.usg81
+msgid "avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]"
+msgstr "avg $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2 [[$]ÉRTÉK3...6]"
+
+#: frmmain.usg82
+msgid "prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE"
+msgstr "prop $CÉL [$]MIN [$]MAX [$]KEZDET [$]VÉG [$]ÉRTÉK"
+
+#: frmmain.usg83
+msgid "concat $TARGET [$]VALUE1 [$]VALUE2"
+msgstr "concat $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
+
+#: frmmain.usg84
+msgid "strdel $TARGET [$]PLACE [$]COUNT"
+msgstr "strdel $CÉL [$]HELY [$]MENNYISÉG"
+
+#: frmmain.usg85
+msgid "strfind $TARGET [$]VALUE"
+msgstr "strfind $CÉL [$]ÉRTÉK"
+
+#: frmmain.usg86
+msgid "strins $TARGET [$]PLACE [$]VALUE"
+msgstr "strins $CÉL [$]HELY [$]ÉRTÉK"
+
+#: frmmain.usg87
+msgid "strrepl $TARGET [$]OLD [$]NEW"
+msgstr "strrepl $CÉL [$]RÉGI [$]ÚJ"
+
+#: frmmain.usg88
+msgid ""
+"varmon [on|off]\n"
+"  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+msgstr ""
+"varmon [on|off]\n"
+"  varmon $VÁLTOZÓ1 [$VÁLTOZÓ2] [$VÁLTOZÓ3] [$VÁLTOZÓ4]"
+
+#: frmmain.usg89
+msgid ""
+"applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]\n"
+"  applog [$]LOGFILE \"TEXT\\ $$1\\ TEXT\" [$]LEVEL [$]VALUE1\n"
+"Notes:\n"
+"  - The '$$1' value can be $$1-$$4.\n"
+"  - The 'LEVEL' value can be 0-4:\n"
+"    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
+msgstr ""
+"applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]\n"
+"  applog [$]LOGFILE \"TEXT\\ $$1\\ TEXT\" [$]LEVEL [$]VALUE1\n"
+"Megjegyzés:\n"
+"  - A '$$1' értéke $$1-$$4 lehet.\n"
+"  - A 'LEVEL' értéke 0-4 lehet:\n"
+"    NOTE, MESSAGE, WARNING, ERROR, DEBUG."
+
+#: frmmain.usg90
+msgid ""
+"cron\n"
+"  cron rec_num hour minute\n"
+"  cron [-r rec_num]"
+msgstr ""
+"cron\n"
+"  cron bejegyzés óra perc\n"
+"  cron [-r bejegyzés]"
+
+#: frmmain.usg91
+msgid "edit [LINE_NUMBER]"
+msgstr "edit [SORSZÁM]"
+
+#: frmmain.usg92
+msgid "erase"
+msgstr "erase"
+
+#: frmmain.usg93
+msgid "savescr [$]PATH_AND_FILENAME"
+msgstr "savescr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: tform1.caption
+msgid "Form1"
+msgstr "Form1"
+
+#: tform1.label1.caption
+msgid "Label1"
+msgstr "Label1"
+
+#: tform1.menuitem1.caption
+msgid "&File"
+msgstr "&Fájl"
+
+#: tform1.menuitem10.caption
+msgid "&Load script.."
+msgstr "Szkript betö&ltése.."
+
+#: tform1.menuitem11.caption
+msgid "&Save script.."
+msgstr "Szkript menté&se.."
+
+#: tform1.menuitem12.caption
+msgid "&Run script"
+msgstr "Szk&ript futtatása"
+
+#: tform1.menuitem13.caption
+msgid "&Load registers.."
+msgstr "Regiszterek betö&ltése.."
+
+#: tform1.menuitem14.caption
+msgid "&Save registers.."
+msgstr "Regiszterek menté&se.."
+
+#: tform1.menuitem15.caption
+msgid "&Dump registers.."
+msgstr "Regiszterek kiíra&tása.."
+
+#: tform1.menuitem16.caption
+msgid "Start &gateway mode.."
+msgstr "&Gateway mód indítása.."
+
+#: tform1.menuitem17.caption
+msgid "Project &name"
+msgstr "Projekt &név"
+
+#: tform1.menuitem18.caption
+msgid "Lis&t script"
+msgstr "Szkrip&t listázása"
+
+#: tform1.menuitem19.caption
+msgid "Start &client mode.."
+msgstr "Klien&s mód indítása.."
+
+#: tform1.menuitem2.caption
+msgid "&Script"
+msgstr "&Szkript"
+
+#: tform1.menuitem20.caption
+msgid "&Exit"
+msgstr "K&ilépés"
+
+#: tform1.menuitem21.caption
+msgid "&ASCII table"
+msgstr "&ASCII tábla"
+
+#: tform1.menuitem22.caption
+msgid "&Clear screen"
+msgstr "&Képernyőtörlés"
+
+#: tform1.menuitem23.caption
+msgid "Set console &colors.."
+msgstr "Konzol színek &beállítása.."
+
+#: tform1.menuitem24.caption
+msgid "Show all &constants"
+msgstr "Á&llandók mutatása"
+
+#: tform1.menuitem25.caption
+msgid "Show all &variables"
+msgstr "&Változók mutatása"
+
+#: tform1.menuitem26.caption
+msgid "&Number converter.."
+msgstr "Számko&nverter.."
+
+#: tform1.menuitem27.caption
+msgid "&Date and time"
+msgstr "&Dátum és idő"
+
+#: tform1.menuitem28.caption
+msgid "S&wap echo mode"
+msgstr "Echo mód váltá&s"
+
+#: tform1.menuitem29.caption
+msgid "E&rase script"
+msgstr "Szk&ript törlése"
+
+#: tform1.menuitem3.caption
+msgid "&Help"
+msgstr "&Segí­tség"
+
+#: tform1.menuitem30.caption
+msgid "E&dit script"
+msgstr "Szkript szer&kesztése"
+
+#: tform1.menuitem31.caption
+msgid "E&xport registers.."
+msgstr "Regiszterek e&xportálása.."
+
+#: tform1.menuitem32.caption
+msgid "I&mport registers.."
+msgstr "Regiszterek i&mportálása.."
+
+#: tform1.menuitem33.caption
+msgid "Devices"
+msgstr "Eszközök"
+
+#: tform1.menuitem34.caption
+msgid "Protocols"
+msgstr "Protokollok"
+
+#: tform1.menuitem35.caption
+msgid "Connections"
+msgstr "Kapcsolatok"
+
+#: tform1.menuitem36.caption
+msgid "&Save configuration.."
+msgstr "Beállítások menté&se.."
+
+#: tform1.menuitem37.caption
+msgid "&Load configuration.."
+msgstr "Beá&llítások betöltése.."
+
+#: tform1.menuitem38.caption
+msgid "&Set project name.."
+msgstr "Projekt név beállítá&sa.."
+
+#: tform1.menuitem39.caption
+msgid "&Set devices.."
+msgstr "Eszközök beállítá&sa.."
+
+#: tform1.menuitem4.caption
+msgid "&Registers"
+msgstr "&Regiszterek"
+
+#: tform1.menuitem40.caption
+msgid "&Set protocols.."
+msgstr "Protokollok beállítá&sa.."
+
+#: tform1.menuitem41.caption
+msgid "&Set connections.."
+msgstr "Kapcsolatok beállítá&sa.."
+
+#: tform1.menuitem42.caption
+msgid "&Reset project name"
+msgstr "Projekt név tör&lése"
+
+#: tform1.menuitem43.caption
+msgid "&Reset devices.."
+msgstr "Eszközök tör&lése.."
+
+#: tform1.menuitem44.caption
+msgid "&Reset protocols.."
+msgstr "Protokollok tör&lése.."
+
+#: tform1.menuitem45.caption
+msgid "&Reset connections.."
+msgstr "Kapcsolatok tör&lése.."
+
+#: tform1.menuitem46.caption
+msgid "Sho&w project name"
+msgstr "Projekt név &mutatása"
+
+#: tform1.menuitem47.caption
+msgid "Sho&w devices"
+msgstr "Eszközök &mutatása"
+
+#: tform1.menuitem48.caption
+msgid "Sho&w protocols"
+msgstr "Protokollok &mutatása"
+
+#: tform1.menuitem49.caption
+msgid "Sho&w connections"
+msgstr "Kapcsolatok &mutatása"
+
+#: tform1.menuitem5.caption
+msgid "&Project"
+msgstr "&Projekt"
+
+#: tform1.menuitem50.caption
+msgid "&Write data to remote register(s).."
+msgstr "Távoli regiszter(e&k) írása.."
+
+#: tform1.menuitem51.caption
+msgid "&Read data from remote register(s).."
+msgstr "Távoli &regiszter(ek) olvasása.."
+
+#: tform1.menuitem52.caption
+msgid "&Variable monitor.."
+msgstr "&Változó monitor.."
+
+#: tform1.menuitem53.caption
+msgid "W&rite data to serial port.."
+msgstr "Adat í&rása soros portra.."
+
+#: tform1.menuitem54.caption
+msgid "&Mini serial console.."
+msgstr "&Mini soros konzol.."
+
+#: tform1.menuitem55.caption
+msgid "R&ead data from serial port.."
+msgstr "Adat olvasása s&oros portról.."
+
+#: tform1.menuitem56.caption
+msgid "&Online wiki"
+msgstr "&Online wiki"
+
+#: tform1.menuitem57.caption
+msgid "Homepage"
+msgstr "Honlap"
+
+#: tform1.menuitem58.caption
+msgid "Github"
+msgstr "Github"
+
+#: tform1.menuitem59.caption
+msgid "&Decimal"
+msgstr "&Decimális"
+
+#: tform1.menuitem6.caption
+msgid "&Commands"
+msgstr "&Parancsok"
+
+#: tform1.menuitem60.caption
+msgid "&Hexadecimal"
+msgstr "&Hexadecimális"
+
+#: tform1.menuitem7.caption
+msgid "&About"
+msgstr "&Névjegy"
+
+#: tform1.menuitem8.caption
+msgid "&Operation"
+msgstr "Műkö&dés"
+
+#: tform1.menuitem9.caption
+msgid "&Utilities"
+msgstr "&Kellékek"
+
+#: tform1.toolbar1.caption
+msgid "ToolBar1"
+msgstr "ToolBar1"
+
+#: tform1.toolbutton1.caption
+msgid "ToolButton1"
+msgstr "ToolButton1"
+
+#: tform1.toolbutton10.caption
+msgid "ToolButton10"
+msgstr "ToolButton10"
+
+#: tform1.toolbutton11.caption
+msgid "ToolButton11"
+msgstr "ToolButton11"
+
+#: tform1.toolbutton12.caption
+msgid "ToolButton12"
+msgstr "ToolButton12"
+
+#: tform1.toolbutton13.caption
+msgid "ToolButton13"
+msgstr "ToolButton13"
+
+#: tform1.toolbutton14.caption
+msgid "ToolButton14"
+msgstr "ToolButton14"
+
+#: tform1.toolbutton15.caption
+msgid "ToolButton15"
+msgstr "ToolButton15"
+
+#: tform1.toolbutton16.caption
+msgid "ToolButton16"
+msgstr "ToolButton16"
+
+#: tform1.toolbutton17.caption
+msgid "ToolButton17"
+msgstr "ToolButton17"
+
+#: tform1.toolbutton18.caption
+msgid "ToolButton18"
+msgstr "ToolButton18"
+
+#: tform1.toolbutton2.caption
+msgid "ToolButton2"
+msgstr "ToolButton2"
+
+#: tform1.toolbutton3.caption
+msgid "ToolButton3"
+msgstr "ToolButton3"
+
+#: tform1.toolbutton4.caption
+msgid "ToolButton4"
+msgstr "ToolButton4"
+
+#: tform1.toolbutton5.caption
+msgid "ToolButton5"
+msgstr "ToolButton5"
+
+#: tform1.toolbutton6.caption
+msgid "ToolButton6"
+msgstr "ToolButton6"
+
+#: tform1.toolbutton7.caption
+msgid "ToolButton7"
+msgstr "ToolButton7"
+
+#: tform1.toolbutton8.caption
+msgid "ToolButton8"
+msgstr "ToolButton8"
+
+#: tform1.toolbutton9.caption
+msgid "ToolButton9"
+msgstr "ToolButton9"

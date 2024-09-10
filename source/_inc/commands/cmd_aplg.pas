@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | cmd_cron.pas                                                             | }
-{ | command 'cron'                                                           | }
+{ | cmd_aplg.pas                                                             | }
+{ | command 'applog'                                                         | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -50,7 +50,11 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -74,7 +78,11 @@ begin
   i3 := strtointdef(s[3], -1);
   if (i3 < 0) or (i3 > 7) then
   begin
-    writeln(NUM1 + MSG05 + ' 0-7'); // What is the 1st parameter?
+    {$IFNDEF X}
+      writeln(NUM1 + MSG05 + ' 0-7'); // What is the 1st parameter?
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 0-7');
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -137,7 +145,11 @@ begin
     writeln(tf, s[2]);
     closefile(tf);
   except
-    writeln(ERR36 + fpn + '!');
+    {$IFNDEF X}
+      writeln(ERR36 + fpn + '!');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR36 + fpn + '!');
+    {$ENDIF}
     result := 1;
     exit;
   end;

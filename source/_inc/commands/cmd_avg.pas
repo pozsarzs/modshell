@@ -30,14 +30,22 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
   if not boolisitvariable(p1) then
   begin
-    writeln(ERR19 + p1); // No such variable
+    {$IFNDEF X}
+      writeln(ERR19 + p1); // No such variable
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR19 + p1);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -79,6 +87,10 @@ begin
       f := f + strtofloatdef(s[b], 0);
     vars[intisitvariable(p1)].vvalue := floattostr(f / count);
   except
-    writeln(ERR20);
+    {$IFNDEF X}
+      writeln(ERR20);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR20);
+    {$ENDIF}
   end;
 end;

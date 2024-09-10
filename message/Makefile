@@ -38,12 +38,27 @@ install:
 	    echo -n "#"; \
 	  fi; \
 	done
+	@for x in $(languages); do \
+	  if [ -f $$x/x$(name).mo ]; \
+	  then \
+	    $(install) -d $(targetdir)/$$x/LC_MESSAGES/; \
+	    $(install) -m $(filemode) $(sourcedir)/$$x/$(name).mo $(targetdir)/$$x/LC_MESSAGES/; \
+	    echo -n "#"; \
+	  fi; \
+	done
 	@echo "]"
 
 uninstall:
 	@echo -n "- Removing "$(title)"["
 	@for x in $(languages); do \
 	  if [ -f $$x/$(name).mo ]; \
+	  then \
+	    $(rm) $(targetdir)/$$x/LC_MESSAGES/$(name).mo; \
+	    echo -n "#"; \
+	  fi; \
+	done  
+	@for x in $(languages); do \
+	  if [ -f $$x/x$(name).mo ]; \
 	  then \
 	    $(rm) $(targetdir)/$$x/LC_MESSAGES/$(name).mo; \
 	    echo -n "#"; \

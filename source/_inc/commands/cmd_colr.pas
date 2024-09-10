@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | cmd_color.pas                                                            | }
+{ | cmd_colr.pas                                                             | }
 { | command 'color'                                                          | }
 { +--------------------------------------------------------------------------+ }
 {
@@ -26,6 +26,10 @@ var
 
 begin
   result := 0;
+  {$IFDEF X}
+    writeln(MSG64);
+    exit;
+  {$ENDIF}
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
      (length(p4) = 0) or (length(p5) = 0) then

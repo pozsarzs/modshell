@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | cmd_mbgw.pas                                                             | }
+{ | cmd_gw.pas                                                               | }
 { | command 'mbgw'                                                           | }
 { +--------------------------------------------------------------------------+ }
 {

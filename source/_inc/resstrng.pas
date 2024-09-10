@@ -66,7 +66,7 @@ resourcestring
   MSG39 = 'Scroll: [Home][PgUp][Up]-[Down][PgDn][End]';
   MSG40 = 'Move:   [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]';
   MSG41 = 'Edit:   [Ins][Del][Esc]';
-  MSG42 = 'all file|*.*';
+  MSG42 = 'all file|*';
   MSG43 = 'batch file|*.bat|all file|*.*';
   MSG44 = '&Cancel';
   MSG45 = '&Set';
@@ -88,6 +88,12 @@ resourcestring
   MSG61 = 'count';
   MSG62 = '&Export';
   MSG63 = '&Dump';
+  MSG64 = 'Use ''Project/Set console colors'' on GUI version.';
+  MSG65 = 'Use ''Script/Edit script'' on GUI version.';
+  MSG66 = 'from';
+  MSG67 = 'to';
+  MSG68 = 'number';
+  MSG69 = '&Convert';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';

@@ -34,8 +34,12 @@ var
   x2: byte;
 
 begin
-  x2 := termwidth - 1;
   result := 0;
+  {$IFDEF X}
+    writeln(MSG65);
+    exit;
+  {$ENDIF}
+  x2 := termwidth - 1;
   if not scriptisloaded then
   begin
     writeln(MSG38);  // No script loaded.

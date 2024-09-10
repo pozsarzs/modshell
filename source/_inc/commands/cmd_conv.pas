@@ -31,7 +31,11 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -44,9 +48,13 @@ begin
     end;
   if not valid then
   begin
-    write(NUM1 + MSG05); // What is the 1st parameter?
-    for ns1 := 0 to 3 do write(' ' + NUM_SYS[ns1]);
-    writeln;
+    s := NUM1 + MSG05; // What is the 1st parameter?
+    for ns1 := 0 to 3 do s := s + ' ' + NUM_SYS[ns1];
+    {$IFNDEF X}
+      writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -60,9 +68,13 @@ begin
     end;
   if not valid then
   begin
-    write(NUM2 + MSG05); // What is the 2nd parameter?
-    for ns2 := 0 to 3 do write(' ' + NUM_SYS[ns2]);
-    writeln;
+    s := NUM2 + MSG05; // What is the 1st parameter?
+    for ns2 := 0 to 3 do s := s + ' ' + NUM_SYS[ns2];
+    {$IFNDEF X}
+      writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -75,14 +87,22 @@ begin
          s := BinToDez(s3);
          if DezToBin(s) <> s3 then
          begin
-           writeln(NUM3 + MSG05 + ' 0-1111111111111111'); // What is the 3rd parameter?
+           {$IFNDEF X}
+             writeln(NUM3 + MSG05 + ' 0-1111111111111111'); // What is the 3rd parameter?
+           {$ELSE}
+             Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-1111111111111111');
+           {$ENDIF}
            result := 1;
            exit;
          end;
        end;
     1: if (strtointdef(s3, -1) < 0 ) or (strtointdef(p3, -1) > 65535) then
        begin
-         writeln(NUM3 + MSG05 + ' 0-65535'); // What is the 3rd parameter?
+         {$IFNDEF X}
+            writeln(NUM3 + MSG05 + ' 0-65535'); // What is the 3rd parameter?
+         {$ELSE}
+            Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-655535');
+         {$ENDIF}
          result := 1;
          exit;
        end;
@@ -90,7 +110,11 @@ begin
          s := HexToDez(s3);
          if DezToHex(s) <> uppercase(s3) then
          begin
-           writeln(NUM3 + MSG05 + ' 0-FFFF'); // What is the 3rd parameter?
+           {$IFNDEF X}
+             writeln(NUM3 + MSG05 + ' 0-FFFF'); // What is the 3rd parameter?
+           {$ELSE}
+             Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-FFFF');
+           {$ENDIF}
            result := 1;
            exit;
          end;
@@ -99,7 +123,11 @@ begin
          s := OktToDez(s3);
          if DezToOkt(s) <> s3 then
          begin
-           writeln(NUM3 + MSG05 + ' 0-177777'); // What is the 3rd parameter?
+           {$IFNDEF X}
+             writeln(NUM3 + MSG05 + ' 0-0-177777'); // What is the 3rd parameter?
+           {$ELSE}
+             Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-0-177777');
+           {$ENDIF}
            result := 1;
            exit;
          end;
@@ -136,5 +164,9 @@ begin
     32: s := OktToHex(s3);
     33: s := s3;
   end;
-  writeln(s);
+  {$IFNDEF X}
+    writeln(s);
+  {$ELSE}
+    Form1.Memo1.Lines.Add(s);
+  {$ENDIF}
 end;

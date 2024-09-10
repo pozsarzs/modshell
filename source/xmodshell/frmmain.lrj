@@ -62,7 +62,7 @@
 {"hash":72026254,"name":"tform1.menuitem53.caption","sourcebytes":[87,38,114,105,116,101,32,100,97,116,97,32,116,111,32,115,101,114,105,97,108,32,112,111,114,116,46,46],"value":"W&rite data to serial port.."},
 {"hash":122689118,"name":"tform1.menuitem51.caption","sourcebytes":[38,82,101,97,100,32,100,97,116,97,32,102,114,111,109,32,114,101,109,111,116,101,32,114,101,103,105,115,116,101,114,40,115,41,46,46],"value":"&Read data from remote register(s).."},
 {"hash":131834366,"name":"tform1.menuitem50.caption","sourcebytes":[38,87,114,105,116,101,32,100,97,116,97,32,116,111,32,114,101,109,111,116,101,32,114,101,103,105,115,116,101,114,40,115,41,46,46],"value":"&Write data to remote register(s).."},
-{"hash":119401166,"name":"tform1.menuitem16.caption","sourcebytes":[38,83,116,97,114,116,32,38,103,97,116,101,119,97,121,32,109,111,100,101,46,46],"value":"&Start &gateway mode.."},
+{"hash":119474894,"name":"tform1.menuitem16.caption","sourcebytes":[83,116,97,114,116,32,38,103,97,116,101,119,97,121,32,109,111,100,101,46,46],"value":"Start &gateway mode.."},
 {"hash":61031950,"name":"tform1.menuitem19.caption","sourcebytes":[83,116,97,114,116,32,38,99,108,105,101,110,116,32,109,111,100,101,46,46],"value":"Start &client mode.."},
 {"hash":247342531,"name":"tform1.menuitem24.caption","sourcebytes":[83,104,111,119,32,97,108,108,32,38,99,111,110,115,116,97,110,116,115],"value":"Show all &constants"},
 {"hash":65263731,"name":"tform1.menuitem25.caption","sourcebytes":[83,104,111,119,32,97,108,108,32,38,118,97,114,105,97,98,108,101,115],"value":"Show all &variables"},

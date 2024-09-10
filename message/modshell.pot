@@ -194,7 +194,7 @@ msgid "Edit:   [Ins][Del][Esc]"
 msgstr ""
 
 #: modshell:msg42
-msgid "all file|*.*"
+msgid "all file|*"
 msgstr ""
 
 #: modshell:msg43
@@ -251,6 +251,58 @@ msgstr ""
 
 #: modshell:msg56
 msgid "UID/IP address"
+msgstr ""
+
+#: modshell:msg57
+msgid "CSV file|*.csv|INI file|*.ini|XML file|*.xml"
+msgstr ""
+
+#: modshell:msg58
+msgid "INI file|*.ini|XML file|*.xml"
+msgstr ""
+
+#: modshell:msg59
+msgid "registers"
+msgstr ""
+
+#: modshell:msg60
+msgid "start address"
+msgstr ""
+
+#: modshell:msg61
+msgid "count"
+msgstr ""
+
+#: modshell:msg62
+msgid "&Export"
+msgstr ""
+
+#: modshell:msg63
+msgid "&Dump"
+msgstr ""
+
+#: modshell:msg64
+msgid "Use 'Project/Set console colors' on GUI version."
+msgstr ""
+
+#: modshell:msg65
+msgid "Use 'Script/Edit script' on GUI version."
+msgstr ""
+
+#: modshell:msg66
+msgid "from"
+msgstr ""
+
+#: modshell:msg67
+msgid "to"
+msgstr ""
+
+#: modshell:msg68
+msgid "number"
+msgstr ""
+
+#: modshell:msg69
+msgid "&Convert"
 msgstr ""
 
 #: modshell:msg94

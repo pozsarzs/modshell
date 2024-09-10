@@ -215,6 +215,118 @@ msgstr "Mozgás:      [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]
 msgid "Edit:   [Ins][Del][Esc]"
 msgstr "Szerkesztés: [Ins][Del][Esc]"
 
+#: modshell:msg42
+msgid "all file|*"
+msgstr "minden fájl|*"
+
+#: modshell:msg43
+msgid "batch file|*.bat|all file|*.*"
+msgstr "batch fájl|*.bat|minden fájl|*.*"
+
+#: modshell:msg44
+msgid "&Cancel"
+msgstr "&Mégsem"
+
+#: modshell:msg45
+msgid "&Set"
+msgstr "&Beállít"
+
+#: modshell:msg46
+msgid "&Reset"
+msgstr "&Töröl"
+
+#: modshell:msg47
+msgid "foreground"
+msgstr "előtérszín"
+
+#: modshell:msg48
+msgid "background"
+msgstr "háttérszín"
+
+#: modshell:msg49
+msgid "type"
+msgstr "típus"
+
+#: modshell:msg50
+msgid "device"
+msgstr "eszköz"
+
+#: modshell:msg51
+msgid "port/baudrate"
+msgstr "port/sebesség"
+
+#: modshell:msg52
+msgid "databits"
+msgstr "adatbitek"
+
+#: modshell:msg53
+msgid "parity"
+msgstr "paritás"
+
+#: modshell:msg54
+msgid "stopbit(s)"
+msgstr "stopbit(ek)"
+
+#: modshell:msg55
+msgid "protocol"
+msgstr "protokoll"
+
+#: modshell:msg56
+msgid "UID/IP address"
+msgstr "UID/IP cím"
+
+#: modshell:msg57
+msgid "CSV file|*.csv|INI file|*.ini|XML file|*.xml"
+msgstr "CSV fájl|*.csv|INI fájl|*.ini|XML fájl|*.xml"
+
+#: modshell:msg58
+msgid "INI file|*.ini|XML file|*.xml"
+msgstr "INI fájl|*.ini|XML fájl|*.xml"
+
+#: modshell:msg59
+msgid "registers"
+msgstr "regiszterek"
+
+#: modshell:msg60
+msgid "start address"
+msgstr "kezdőcím"
+
+#: modshell:msg61
+msgid "count"
+msgstr "mennyiség"
+
+#: modshell:msg62
+msgid "&Export"
+msgstr "&Exportál"
+
+#: modshell:msg63
+msgid "&Dump"
+msgstr "&Kiírat"
+
+#: modshell:msg64
+msgid "Use 'Project/Set console colors' on GUI version."
+msgstr "Használja a Projekt/Konzol színek beállítása'-t a GUI változatnál."
+
+#: modshell:msg65
+msgid "Use 'Script/Edit script' on GUI version."
+msgstr "Használja a Szkript/Szkript szerkesztés'-t a GUI változatnál."
+
+#: modshell:msg66
+msgid "from"
+msgstr "ebből"
+
+#: modshell:msg67
+msgid "to"
+msgstr "ebbe"
+
+#: modshell:msg68
+msgid "number"
+msgstr "szám"
+
+#: modshell:msg69
+msgid "&Convert"
+msgstr "Át&alakít"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -390,6 +502,10 @@ msgstr "Nem lehet írni a naplófájlt: "
 #: modshell:err37
 msgid "Cannot save script to "
 msgstr "Nem lehet menteni a szkriptet ebbe: "
+
+#: modshell:err38
+msgid "Cannot run default webbrowser!"
+msgstr "Nem tudom futtatni az alapértelmezés szerinti böngészőt!"
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"

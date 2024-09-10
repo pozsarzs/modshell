@@ -1,9 +1,8 @@
 object Form1: TForm1
-  Left = 299
+  Left = 293
   Height = 482
-  Top = 121
+  Top = 182
   Width = 701
-  ActiveControl = Memo1
   Caption = 'Form1'
   ClientHeight = 457
   ClientWidth = 701
@@ -195,6 +194,34 @@ object Form1: TForm1
       ShowHint = True
     end
   end
+  object Edit1: TEdit
+    AnchorSideLeft.Control = Label1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = StatusBar1
+    Left = 51
+    Height = 34
+    Top = 396
+    Width = 648
+    Anchors = [akLeft, akRight, akBottom]
+    BorderSpacing.Left = 4
+    BorderSpacing.Bottom = 6
+    BorderSpacing.Around = 2
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Edit1
+    AnchorSideTop.Side = asrCenter
+    Left = 2
+    Height = 17
+    Top = 405
+    Width = 43
+    BorderSpacing.Left = 2
+    Caption = 'Label1'
+    ParentColor = False
+  end
   object Memo1: TMemo
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = ToolBar1
@@ -217,36 +244,8 @@ object Form1: TForm1
     ParentFont = False
     ReadOnly = True
     ScrollBars = ssAutoBoth
-    TabOrder = 2
-    WordWrap = False
-  end
-  object Edit1: TEdit
-    AnchorSideLeft.Control = Label1
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = StatusBar1
-    Left = 51
-    Height = 34
-    Top = 396
-    Width = 648
-    Anchors = [akLeft, akRight, akBottom]
-    BorderSpacing.Left = 4
-    BorderSpacing.Bottom = 6
-    BorderSpacing.Around = 2
     TabOrder = 3
-  end
-  object Label1: TLabel
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = Edit1
-    AnchorSideTop.Side = asrCenter
-    Left = 2
-    Height = 17
-    Top = 405
-    Width = 43
-    BorderSpacing.Left = 2
-    Caption = 'Label1'
-    ParentColor = False
+    WordWrap = False
   end
   object MainMenu1: TMainMenu
     Images = ImageList1
@@ -484,7 +483,7 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem16: TMenuItem
-        Caption = '&Start &gateway mode..'
+        Caption = 'Start &gateway mode..'
         ImageIndex = 25
         OnClick = MenuItem16Click
       end
@@ -756,5 +755,114 @@ object Form1: TForm1
       3DE9B6F143A833B765BA5BDF3FA1339DCA6DDB55DF9FC4EDCC63286DDE183A97
       FBCE4B375D41F7263B1EBB9E4CBF7CEC767AE1B2F3A9B7DDF3FF03D6EE3485
     }
+  end
+  object SynAnySyn1: TSynAnySyn
+    Enabled = False
+    Comments = []
+    DetectPreprocessor = False
+    IdentifierChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz'
+    KeyWords.Strings = (
+      'ADD'
+      'AND'
+      'APPLOG'
+      'ASCII'
+      'AVG'
+      'BEEP'
+      'BIT'
+      'CHR'
+      'CLS'
+      'COLOR'
+      'CONCAT'
+      'CONST'
+      'CONV'
+      'COPY'
+      'COS'
+      'COTAN'
+      'CRON'
+      'DATE'
+      'DEC'
+      'DIV'
+      'DUMP'
+      'ECHO'
+      'EDIT'
+      'ERASE'
+      'EXIT'
+      'EXP'
+      'EXPHIS'
+      'EXPREG'
+      'FOR'
+      'GET'
+      'GOTO'
+      'HELP'
+      'IDIV'
+      'IF'
+      'IMOD'
+      'IMPREG'
+      'INC'
+      'INRANGE'
+      'LABEL'
+      'LENGTH'
+      'LET'
+      'LIST'
+      'LN'
+      'LOADCFG'
+      'LOADREG'
+      'LOADSCR'
+      'LOWCASE'
+      'MBGW'
+      'MBSRV'
+      'MKCRC'
+      'MKLRC'
+      'MUL'
+      'MULINV'
+      'NOT'
+      'ODD'
+      'OR'
+      'ORD'
+      'PAUSE'
+      'POW'
+      'POW2'
+      'PRINT'
+      'PROP'
+      'READ'
+      'RESET'
+      'RND'
+      'ROLL'
+      'ROLR'
+      'ROUND'
+      'RUN'
+      'SAVECFG'
+      'SAVEREG'
+      'SAVESCR'
+      'SERCONS'
+      'SERREAD'
+      'SERWRITE'
+      'SET'
+      'SHL'
+      'SHR'
+      'SIN'
+      'SQR'
+      'SQRT'
+      'STRDEL'
+      'STRFIND'
+      'STRINS'
+      'STRITEM'
+      'STRREPL'
+      'SUB'
+      'TAN'
+      'UPCASE'
+      'VAR'
+      'VARMON'
+      'VER'
+      'WRITE'
+      'XOR'
+    )
+    StringAttri.Style = [fsItalic]
+    StringDelim = sdDoubleQuote
+    Markup = False
+    Entity = False
+    DollarVariables = True
+    ActiveDot = False
+    Left = 440
   end
 end
