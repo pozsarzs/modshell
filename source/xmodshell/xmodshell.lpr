@@ -118,7 +118,7 @@ begin
     20: verinfo;
   end;
   RequireDerivedFormResource:=True;
-  Application.Title:='X' + PRGNAME';
+  Application.Title:='X' + PRGNAME;
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);

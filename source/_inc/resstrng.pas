@@ -83,6 +83,10 @@ resourcestring
   MSG56 = 'UID/IP address';
   MSG57 = 'CSV file|*.csv|INI file|*.ini|XML file|*.xml';
   MSG58 = 'INI file|*.ini|XML file|*.xml';
+  MSG59 = 'registers';
+  MSG60 = 'start address';
+  MSG61 = 'count';
+  MSG62 = '&Export';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';

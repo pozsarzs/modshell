@@ -1612,32 +1612,175 @@ end;
 procedure TForm1.MenuItem31Click(Sender: TObject);
 var
   LSaveDialog1: TSaveDialog;
+  Form: TForm;
+  LBevel1: TBevel;
+  LButton1, LButton2: TButton;
+  LLabel1, LLabel2: TLabel;
+  LRadioGroup1: TRadiogroup;
+  LSpinEdit1, LSpinEdit2: TSpinEdit;
+  b: byte;
 begin
-
-  // ide jön az adatválasztás
-
-  LSaveDialog1 := TSaveDialog.Create(Self);
-  with LSaveDialog1 do
+  Form := TForm.Create(Nil);
+  LBevel1 := TBevel.Create(Form);
+  LButton1 := TButton.Create(Form);
+  LButton2 := TButton.Create(Form);
+  LLabel1 := TLabel.Create(Form);
+  LLabel2 := TLabel.Create(Form);
+  LRadioGroup1 := TRadioGroup.Create(Form);
+  LSpinEdit1 := TSpinEdit.Create(Form);
+  LSpinEdit2 := TSpinEdit.Create(Form);
+  for b := 0 to 3 do
+    LRadioGroup1.Items.Add(REG_TYPE[b]);
+  LRadioGroup1.ItemIndex := 0;
+  with Form do
   begin
-    Title := rmampdot(MenuItem14.Caption);
-    InitialDir := getuserdir + PRGNAME + SLASH + proj;
-    Filter := MSG57;
-    DefaultExt := 'xml';
-    FilterIndex := 3;
+    Caption := rmampdot(MenuItem31.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Position := poMainFormCenter;
   end;
-  if LSaveDialog1.Execute then
+  with LRadioGroup1 do
   begin
-    if fileexists(LSaveDialog1.FileName) then
-      if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem31.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+    Anchors := [akTop, akBottom, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 8;
+      AnchorSideBottom.Control := LSpinEdit2;
+      AnchorSideBottom.Side := asrBottom;
+      BorderSpacing.Bottom := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+    AutoSize := True;
+    Caption := MSG59;
+    Parent := Form;
+  end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideRight.Control := LSpinEdit1;
+      AnchorSideRight.Side := asrCenter;
+      BorderSpacing.Right := 0;
+    Caption := MSG60;
+    Parent := Form;
+  end;
+  with LSpinEdit1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LLabel1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      BorderSpacing.Right := 8;
+      AnchorSideLeft.Control := LRadioGroup1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Parent := Form;
+    Value := 0;
+    Width := 100;
+  end;
+  with LLabel2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 12;
+      AnchorSideRight.Control := LSpinEdit2;
+      AnchorSideRight.Side := asrCenter;
+      BorderSpacing.Right := 0;
+    Caption := MSG61;
+    Parent := Form;
+  end;
+  with LSpinEdit2 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LLabel2;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      BorderSpacing.Right := 8;
+      AnchorSideLeft.Control := LRadioGroup1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Parent := Form;
+    Value := 1;
+    Width := 100;
+  end;
+  with LBevel1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LRadioGroup1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    Shape := bsTopLine;
+  end;
+  with LButton1 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton2;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+    Caption := MSG44;
+    ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 3;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG62;
+    ModalResult := mrOk;
+    Parent := Form;
+    TabOrder := 2;
+  end;
+  if Form.ShowModal = mrOk then
+  begin
+    with Form do
+    begin
+      LSaveDialog1 := TSaveDialog.Create(Self);
+      with LSaveDialog1 do
       begin
-        LSaveDialog1.Free;
-        exit;
+        Title := rmampdot(MenuItem14.Caption);
+        InitialDir := getuserdir + PRGNAME + SLASH + proj;
+        Filter := MSG57;
+        DefaultExt := 'xml';
+        FilterIndex := 3;
       end;
-    menucmd := COMMANDS[15] + ' ' + LSaveDialog1.FileName + ' ';
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+      if LSaveDialog1.Execute then
+      begin
+        if fileexists(LSaveDialog1.FileName) then
+          if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem31.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+          begin
+            LSaveDialog1.Free;
+            exit;
+          end;
+        menucmd := COMMANDS[15] + ' ' + LSaveDialog1.FileName + ' ' +
+          REG_TYPE[LRadioGroup1.ItemIndex] + ' ' +
+          inttostr(LSpinEdit1.Value) + ' ' + inttostr(LSpinEdit2.Value);
+        Memo1.Lines.Add(fullprompt + menucmd);
+        parsingcommands(menucmd);
+      end;
+      LSaveDialog1.Free;
+    end;
   end;
-  LSaveDialog1.Free;
+  FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'dump' WITH DIALOG
