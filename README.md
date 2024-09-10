@@ -1,6 +1,14 @@
 > [!WARNING]
 > The program is still under development, it is not yet suitable for its task.  
-> 
+>
+> **v0.1-alpha3:**  
+> Follow the developments here: <https://github.com/pozsarzs/modshell/tree/dev_xmodshell/source>
+> The next release will be with the following changes:
+> - New source code directory structure,
+> - bug fixes,
+> - GUI (FreeBSD, Linux and Windows) and
+> - Script syntax highlighting file for Midnight Commander.
+>
 > **v0.1-alpha2:**  
 > The next release with the following changes:
 > - Bug fixes,
