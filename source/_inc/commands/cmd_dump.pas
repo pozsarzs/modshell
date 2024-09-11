@@ -58,7 +58,7 @@ begin
       writeln;
       i2 := strtointdef(s2, 0);
     {$ELSE}
-      writeln(ERR05); // Parameters required!
+      Form1.Memo1.Lines.Add(ERR05); // Parameters required!
       result := 1;
       exit;
     {$ENDIF}

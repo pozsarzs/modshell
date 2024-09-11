@@ -64,7 +64,7 @@ begin
             o := true;
             break;
           end;
-        if not o then writeln(ERR00) else
+        if not o then {$IFNDEF X} writeln(ERR00) {$ELSE} Form1.Memo1.Lines.Add(ERR00) {$ENDIF} else
         begin
           case b of
             0: exitcode := cmd_copy(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);

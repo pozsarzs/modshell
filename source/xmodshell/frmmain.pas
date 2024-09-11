@@ -31,15 +31,27 @@ uses
   Spin,
   StdCtrls,
   SynEdit,
+  SynHighlighterAny,
   SysUtils,
   {$IFDEF WINDOWS} Windows, {$ENDIF}
-  synaser, convert, crt, dom, dos, gettext, inifiles, math, strings, ucommon,
-  uconfig, utranslt, xmlread, xmlwrite, SynHighlighterXML, SynHighlighterPython,
-  SynHighlighterAny, SynHighlighterVB, synhighlighterunixshellscript;
+  synaser,
+  convert,
+  crt,
+  dom,
+  dos,
+  gettext,
+  inifiles,
+  math,
+  strings,
+  ucommon,
+  uconfig,
+  utranslt,
+  xmlread,
+  xmlwrite;
 type
   { TForm1 }
   TForm1 = class(TForm)
-    Edit1: TEdit;
+    ComboBox1: TComboBox;
     MainMenu1: TMainMenu;
     Memo1: TMemo;
     MenuItem1: TMenuItem;
@@ -137,6 +149,7 @@ type
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
     ToolButton9: TToolButton;
+    procedure ComboBox1EditingDone(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
@@ -2373,6 +2386,19 @@ end;
 
 // -- END OF THE MAIN MENU -----------------------------------------------------
 
+// Run a command
+procedure TForm1.ComboBox1EditingDone(Sender: TObject);
+begin
+  menucmd := ComboBox1.Text;
+  Memo1.Lines.Add(fullprompt + menucmd);
+  if length(ComboBox1.Text) > 0 then
+  begin
+    ComboBox1.Items.Add(menucmd);
+    ComboBox1.Text := '';
+    if menucmd = COMMANDS[1] then Form1.Close else parsingcommands(menucmd);
+  end;
+end;
+
 // OnCreate event
 procedure TForm1.FormCreate(Sender: TObject);
 begin
@@ -2402,11 +2428,23 @@ begin
   ToolButton18.Hint := rmampdot(MenuItem6.Caption);
   Memo1.Font.Color := uconfig.guicolors[0];
   Memo1.Color := uconfig.guicolors[1];
+  for b := 0 to 255 do
+    if length(histbuff[b]) > 0 then ComboBox1.Items.Add(histbuff[b]);
 end;
 
 // FormCloseQuery event
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+var
+  i: integer;
 begin
+  for i := 0 to 255 do histbuff[i] := '';
+  for i := 0 to 255 do
+    if ComboBox1.Items.Count - 1 - i >= 0 then
+    begin
+      histbuff[i] := ComboBox1.Items[ComboBox1.Items.Count - 1 - i];
+      histitem := i;
+      histlast := i;
+    end;
   saveconfiguration(BASENAME,'.ini');
   CanClose := True;
 end;
