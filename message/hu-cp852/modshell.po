@@ -1125,7 +1125,7 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 "serwrite dev? $šZENET\n"
-"  serwrite dev? \"MšZENET\"\n"
+"  serwrite dev? \"šZENET\"\n"
 "Megjegyz‚s:\n"
 "  - A '?' ‚rt‚ke 0-7 lehet."
 

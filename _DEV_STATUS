@@ -118,8 +118,6 @@ version.pas				OK
 Others
 ~~~~~~
 document/others/modshell.syntax
-manual/xmodshell.1
 message/xmodshell.pot
 message/hu/xmodshell.po
 message/hu/xmodshell.mo
-packages/*

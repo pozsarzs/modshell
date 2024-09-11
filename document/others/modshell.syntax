@@ -1,0 +1,141 @@
+# ModShell script
+
+caseinsensitive
+
+context default yellow
+    keyword whole add white
+    keyword whole and white
+    keyword whole applog white
+    keyword whole ascii white
+    keyword whole avg white
+    keyword whole beep white
+    keyword whole bit white
+    keyword whole chr white
+    keyword whole cls white
+    keyword whole color white
+    keyword whole concat white
+    keyword whole const white
+    keyword whole conv white
+    keyword whole copy white
+    keyword whole cos white
+    keyword whole cotan white
+    keyword whole cron white
+    keyword whole date white
+    keyword whole dec white
+    keyword whole div white
+    keyword whole dump white
+    keyword whole echo white
+    keyword whole edit white
+    keyword whole erase white
+    keyword whole exit white
+    keyword whole exphis white
+    keyword whole expreg white
+    keyword whole exp white
+    keyword whole for white
+    keyword whole get white
+    keyword whole goto white
+    keyword whole help white
+    keyword whole idiv white
+    keyword whole if white
+    keyword whole imod white
+    keyword whole impreg white
+    keyword whole inc white
+    keyword whole inrange white
+    keyword whole label white
+    keyword whole length white
+    keyword whole let white
+    keyword whole list white
+    keyword whole ln white
+    keyword whole loadcfg white
+    keyword whole loadreg white
+    keyword whole loadscr white
+    keyword whole lowcase white
+    keyword whole mbgw white
+    keyword whole mbsrv white
+    keyword whole mkcrc white
+    keyword whole mklrc white
+    keyword whole mulinv white
+    keyword whole mul white
+    keyword whole not white
+    keyword whole odd white
+    keyword whole ord white
+    keyword whole or white
+    keyword whole pause white
+    keyword whole pow2 white
+    keyword whole pow white
+    keyword whole print white
+    keyword whole prop white
+    keyword whole read white
+    keyword whole reset white
+    keyword whole rnd white
+    keyword whole roll white
+    keyword whole rolr white
+    keyword whole round white
+    keyword whole run white
+    keyword whole savecfg white
+    keyword whole savereg white
+    keyword whole savescr white
+    keyword whole sercons white
+    keyword whole serread white
+    keyword whole serwrite white
+    keyword whole set white
+    keyword whole shl white
+    keyword whole shr white
+    keyword whole sin white
+    keyword whole sqrt white
+    keyword whole sqr white
+    keyword whole strdel white
+    keyword whole strfind white
+    keyword whole strins white
+    keyword whole stritem white
+    keyword whole strrepl white
+    keyword whole sub white
+    keyword whole tan white
+    keyword whole upcase white
+    keyword whole varmon white
+    keyword whole var white
+    keyword whole ver white
+    keyword whole write white
+    keyword whole xor white
+
+    keyword whole bin brightred
+    keyword whole coil brightred
+    keyword whole csv brightred
+    keyword whole dec brightred
+    keyword whole dinp brightred
+    keyword whole hex brightred
+    keyword whole hreg brightred
+    keyword whole ini brightred
+    keyword whole ireg brightred
+    keyword whole net brightred
+    keyword whole oct brightred
+    keyword whole off brightred
+    keyword whole on brightred
+    keyword whole rtu brightred
+    keyword whole ser brightred
+    keyword whole swap brightred
+    keyword whole tcp brightred
+    keyword whole xml brightred
+ 
+    keyword # brightgreen
+
+    keyword > cyan
+    keyword < cyan
+    keyword \+ cyan
+    keyword - cyan
+    keyword / cyan
+    keyword % lightgray
+    keyword = cyan
+    keyword [ lightgray
+    keyword ] lightgray
+    keyword ( lightgray
+    keyword ) lightgray
+    keyword , lightgray
+    keyword . lightgray
+    keyword : lightgray
+    keyword ; lightgray
+
+context " " brightcyan
+context exclusive # \n brightgreen
+
+   spellcheck

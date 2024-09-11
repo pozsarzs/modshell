@@ -15,7 +15,7 @@ SYSDIRS="$LINKDIR/bin \
          $LINKDIR/share/applications \
          $LINKDIR/share/man/man1 \
          $LINKDIR/share/pixmaps"
-BINFILES="modshell"
+BINFILES="modshell xmodshell"
 README=./README
 
 # installer

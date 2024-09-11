@@ -1,0 +1,5 @@
+# Append into these lines to ~/.local/share/mc/Syntax file and
+# copy modshell.syntax file to this directory.
+
+file ..\*\\.(bat|)$ ModShell\sScript ^#!.\*([\s/]modshell|modshell.exe)
+include modshell.syntax

@@ -1,7 +1,9 @@
 bin/modshell
+bin/xmodshell
 man/man1/modshell.1.gz
-share/applications/modshell1.desktop
-share/applications/modshell2.desktop
+man/man1/xmodshell.1.gz
+share/applications/modshell.desktop
+share/applications/modshell-fs.desktop
 share/doc/modshell/AUTHORS
 share/doc/modshell/README
 share/doc/modshell/VERSION
@@ -16,4 +18,5 @@ share/doc/modshell/example/getdt510
 share/doc/modshell/example/getpm9c
 share/doc/modshell/example/setdt510
 share/locale/hu/LC_MESSAGES/modshell.mo
+share/locale/hu/LC_MESSAGES/xmodshell.mo
 share/pixmaps/modshell.xpm

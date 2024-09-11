@@ -1,0 +1,56 @@
+.TH XModShell 1 "2024 September 11" ""
+.SH NAME
+xmodshell \- Command-driven scriptable Modbus utility with GUI
+.SH SYNOPSIS
+.B xmodshell
+[options]
+.SH COPYRIGHT
+XModShell is Copyright (C) 2023-2024 by Pozsar Zsolt.
+.SH DESCRIPTION
+This is a utility that can be used on several operating systems, which can
+communicate with connected equipment using Modbus/ASCII, Modbus/RTU and
+Modbus/TCP protocols. The program is designed for DOS, Windows and Unix-like
+operating systems.
+.SH OPTIONS
+.TP
+.B \-h \-\-help
+Write useable parameters.
+.TP
+.B \-v \-\-version
+Write version and build information.
+.SH OPERATION
+The program can - even automatically - read, write or copy data from one device
+to another (e.g. transferring settings). When copying, the source and
+destination register areas can be different.
+.PP
+The program has a traditional (CLI) or full-screen (TUI) command-line interface
+and is also suitable for running pre-created scripts independently (as a command
+interpreter). The program provides help on the commands that can be used, and
+offers possible values when the parameters are entered incorrectly. The issued
+commands are placed in history, which can be browsed with the up/down arrow keys.
+.PP
+The XModShell program has a *graphical interface (GUI)*, which helps to perform
+several operations with dialog windows, but the original command line input remained
+available for them (e.g. file selection, settings, etc.).
+.PP
+For operating principle, prepredefined constants, builtin commands with example, useable hotkeys,
+used environmental variables and files with internal structure see manual page of ModShell.
+.SH HOMEPAGE
+.UR http://www.pozsarzs.hu
+.UE
+.PP
+.UR https://pozsarzs.github.io/modshell
+.UE
+.PP
+.UR https://github.com/pozsarzs/modshell
+.UE
+.SH SEE ALSO
+.PD 0
+.LP
+\fBmodshell\fP(1)
+.LP
+and files in document or /usr/share/doc/modshell/ folder (or equivalent on your system).
+.SH AUTHOR
+Pozsar Zsolt
+.MT pozsarzs@gmail.com
+.ME

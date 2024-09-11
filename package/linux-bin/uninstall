@@ -12,7 +12,7 @@ SWV=`cat documents/VERSION`
 CR=`cat documents/copyright`
 INSTDIR=/opt/modshell
 LINKDIR=/usr/local
-BINFILES="modshell"
+BINFILES="modshell xmodshell"
 
 # uninstaller
 clear

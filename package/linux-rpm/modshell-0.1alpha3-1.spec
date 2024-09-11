@@ -19,8 +19,9 @@ settings).
 
 %files
 /usr/bin/modshell
-/usr/share/applications/modshell1.desktop
-/usr/share/applications/modshell2.desktop
+/usr/bin/xmodshell
+/usr/share/applications/modshell.desktop
+/usr/share/applications/modshell-fs.desktop
 /usr/share/doc/modshell/AUTHORS
 /usr/share/doc/modshell/README
 /usr/share/doc/modshell/VERSION
@@ -35,7 +36,10 @@ settings).
 /usr/share/doc/modshell/example/getpm9c
 /usr/share/doc/modshell/example/setdt510
 /usr/share/locale/hu/LC_MESSAGES/modshell.mo
+/usr/share/locale/hu/LC_MESSAGES/xmodshell.mo
 /usr/share/man/man1/modshell.1.gz
+/usr/share/man/man1/xmodshell.1.gz
 /usr/share/pixmaps/modshell.xpm
+
 
 
