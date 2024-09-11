@@ -13,8 +13,8 @@ sourcedir=_lib/$(architecture)-$(os)
 targetdir=$(bindir)
 filemode=$(binmode)
 
-projectdirs="modshell"
-#projectdirs="modshell xmodshell"
+#projectdirs="modshell"
+projectdirs=modshell xmodshell
 
 all:
 	@mkdir -p $(sourcedir)/

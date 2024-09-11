@@ -60,7 +60,7 @@ uninstall:
 	@for x in $(languages); do \
 	  if [ -f $$x/x$(name).mo ]; \
 	  then \
-	    $(rm) $(targetdir)/$$x/LC_MESSAGES/$(name).mo; \
+	    $(rm) $(targetdir)/$$x/LC_MESSAGES/x$(name).mo; \
 	    echo -n "#"; \
 	  fi; \
 	  if [ $(removetargetdir) -eq 1 ]; \

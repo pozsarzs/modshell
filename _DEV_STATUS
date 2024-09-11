@@ -71,7 +71,7 @@ cmd_colr.pas				OK
 cmd_cons.pas				OK
 cmd_conv.pas				OK
 cmd_copy.pas				OK
-cmd_cron.pas
+cmd_cron.pas				OK
 cmd_date.pas				OK
 cmd_dump.pas				OK
 cmd_echo.pas				OK

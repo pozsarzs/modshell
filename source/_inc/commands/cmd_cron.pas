@@ -51,11 +51,14 @@ begin
   if (length(p1) = 0) then
   begin
     // PRIMARY MISSION
+    {$IFNDEF X}
+    // header
     s := ' '; write(s);
     gotoxy(length(s) + 2, wherey); write(MSG34);
     s := s + MSG34; gotoxy(length(s) + 4, wherey); write(MSG35);
     s := s + MSG35; gotoxy(length(s) + 6, wherey); write(MSG36);
     s := s + MSG36; gotoxy(length(s) + 8, wherey); writeln(MSG37);
+    // content
     for b := 1 to 4 do
       with crontable[b] do
       begin
@@ -68,17 +71,40 @@ begin
         s := s + MSG36; gotoxy(length(s) + 8 + length(MSG37) div 2 , wherey);
         if cenable then  writeln('+') else writeln('-');
       end;
+    {$ELSE}
+      // header
+      s := ' ' + MSG34 + #9 + MSG35 + #9 + MSG36 + #9 + MSG37;
+      Form1.Memo1.Lines.Add(s);
+      // content
+      for b := 1 to 4 do
+        with crontable[b] do
+        begin
+          s := ' ' + inttostr(b);
+          if chour = 255 then  s := s + #9 +'*' else s := s  + #9 + inttostr(chour);
+          if cminute = 255 then  s := s + #9 +'*' else s := s  + #9 + inttostr(cminute);
+          if cenable then s := s + #9 +'+' else s := s + #9 +'-';
+          Form1.Memo1.Lines.Add(s);
+      end;
+    {$ENDIF}
   end else
   begin
     if (length(p2) = 0) and (length(p3) = 0) then
       if p1 <> R then
       begin
-        writeln(NUM1 + MSG05 + ' ' + R); // What is the 2nd parameter?
+        {$IFNDEF X}
+          writeln(NUM1 + MSG05 + ' ' + R); // What is the 2nd parameter?
+        {$ELSE}
+          Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' ' + R);
+        {$ENDIF}
         result := 1;
         exit;
       end else
       begin
-        writeln(ERR05); // Parameters required!
+        {$IFNDEF X}
+          writeln(ERR05); // Parameters required!
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR05);
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -87,7 +113,11 @@ begin
       // CHECK P1 PARAMETER
       if p1 <> R then
       begin
-        writeln(NUM1 + MSG05 + ' ' + R); // What is the 1st parameter?
+        {$IFNDEF X}
+          writeln(NUM1 + MSG05 + ' ' + R); // What is the 1st parameter?
+        {$ELSE}
+          Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' ' + R);
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -95,7 +125,11 @@ begin
       i2 := strtointdef(p2, -1);
       if (i2 < 1) or (i2 > 4) then
       begin
-        writeln(NUM2 + MSG05 + ' 1-4'); // What is the 2nd parameter?
+        {$IFNDEF X}
+          writeln(NUM2 + MSG05 + ' 1-4'); // What is the 2nd parameter?
+        {$ELSE}
+          Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-4');
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -113,7 +147,11 @@ begin
       i1 := strtointdef(p1, -1);
       if (i1 < 1) or (i1 > 4) then
       begin
-        writeln(NUM1 + MSG05 + ' 1-4'); // What is the 2nd parameter?
+        {$IFNDEF X}
+          writeln(NUM1 + MSG05 + ' 1-4'); // What is the 2nd parameter?
+        {$ELSE}
+          Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 1-4');
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -123,7 +161,11 @@ begin
         i2 := strtointdef(p2, -1);
         if (i2 < 0) or (i2 > 23) then
         begin
-          writeln(NUM2 + MSG05 + ' 0-23'); // What is the 2nd parameter?
+          {$IFNDEF X}
+            writeln(NUM2 + MSG05 + ' 0-23'); // What is the 2nd parameter?
+          {$ELSE}
+            Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 0-23');
+          {$ENDIF}
           result := 1;
           exit;
         end;
@@ -134,7 +176,11 @@ begin
         i3 := strtointdef(p3, -1);
         if (i3 < 0) or (i3 > 59) then
         begin
-          writeln(NUM3 + MSG05 + ' 0-59'); // What is the 3rd parameter?
+          {$IFNDEF X}
+            writeln(NUM3 + MSG05 + ' 0-59'); // What is the 3rd parameter?
+          {$ELSE}
+            Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-59');
+          {$ENDIF}
           result := 1;
           exit;
         end;
