@@ -24,6 +24,7 @@ function cmd_serwrite(p1, p2: string): byte;
 var
   b: byte;
   i1: integer; // parameters other type
+  s: string;
   s1, s2: string; // parameters in other type
   valid: boolean = false;
 
@@ -32,7 +33,11 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -48,20 +53,33 @@ begin
     end;
   if not valid then
   begin
-    write(NUM1 + MSG05); // What is the 1st parameter?
-    writeln(' ' + PREFIX[0] + '[0-7]');
+    s := NUM1 + MSG05; // What is the 1st parameter?
+    s := s + ' ' + PREFIX[0] + '[0-7]';
+    {$IFNDEF X}
+      writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   if not dev[i1].valid then
   begin
-    writeln(PREFIX[0], i1, MSG06);
+    {$IFNDEF X}
+      writeln(PREFIX[0], i1, MSG06);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   if not (dev[i1].devtype = 1) then
   begin
-    writeln(MSG24);
+    {$IFNDEF X}
+      writeln(MSG24);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG24);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -74,7 +92,11 @@ begin
     if boolisitvariable(p2) then s2 := isitvariable(p2);
     if length(s2) = 0 then
     begin
+    {$IFNDEF X}
       writeln(ERR19);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR19);
+    {$ENDIF}
       result := 1;
       exit;
     end;
@@ -86,26 +108,34 @@ begin
       if ser_canwrite then
       begin
         ser_sendstring(s2);
-        textcolor(uconfig.colors[3]);
+        {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
         case uconfig.echo of
-          1: writeln(s2);
+          1: {$IFNDEF X} writeln(s2); {$ELSE} Form1.Memo1.Lines.Add(s2); {$ENDIF}
           2: begin
                for b := 1 to length(s2) do
-                 write(addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ');
-               writeln;
+                 s := s + addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ';
+               {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
              end;
         end;
-        textcolor(uconfig.colors[0]);
+        {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
         if (uconfig.echo = 1) and (b = 13) then write(EOL);
       end else
       begin
-        writeln(ERR27);
+        {$IFNDEF X}
+          writeln(ERR27);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR27);
+        {$ENDIF}
         result := 1;
       end;
       ser_close;
     end else
     begin
-      writeln(ERR18, dev[i1].device);
+      {$IFNDEF X}
+        writeln(ERR18, dev[i1].device);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR18 + dev[i1].device);
+      {$ENDIF}
       result := 1;
     end;
 end;

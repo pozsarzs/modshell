@@ -34,7 +34,11 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -62,15 +66,17 @@ begin
   begin
     fn := stringreplace(fn, fx , '', [rfReplaceAll]);
     fpn := fp + fn + '.' + PREFIX[b][1] + 'dt';
-    // CHECK EXIST
-    if fileexists(fpn) then
-    begin
-      writeln(MSG14);
-      repeat
-        c:= lowercase(readkey);
-        if c = 'n' then exit;
-      until c = 'y';
-    end;
+    {$IFNDEF X}
+      // CHECK EXIST
+      if fileexists(fpn) then
+      begin
+        writeln(MSG14);
+        repeat
+          c:= lowercase(readkey);
+          if c = 'n' then exit;
+        until c = 'y';
+      end;
+    {$ENDIF}
     // PRIMARY MISSION
     case b of
       0: begin
@@ -81,11 +87,19 @@ begin
                write(ftd, dev[bb]);
              closefile(ftd);
            except
-             writeln(ERR08 + fpn + '!');
+             {$IFNDEF X}
+               writeln(ERR08 + fpn + '!');
+             {$ELSE}
+               Form1.Memo1.Lines.Add(ERR08 + fpn + '!');
+             {$ENDIF}
              result := 1;
              exit;
            end;
-           writeln(MSG16 + fpn + '.');
+           {$IFNDEF X}
+             writeln(MSG16 + fpn + '.');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(MSG16 + fpn + '.');
+           {$ENDIF}
          end;
       1: begin
            assignfile(ftp, fpn);
@@ -95,11 +109,19 @@ begin
                write(ftp, prot[bb]);
              closefile(ftp);
            except
-             writeln(ERR08 + fpn + '!');
+             {$IFNDEF X}
+               writeln(ERR08 + fpn + '!');
+             {$ELSE}
+               Form1.Memo1.Lines.Add(ERR08 + fpn + '!');
+             {$ENDIF}
              result := 1;
              exit;
            end;
-           writeln(MSG16 + fpn + '.');
+           {$IFNDEF X}
+             writeln(MSG16 + fpn + '.');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(MSG16 + fpn + '.');
+           {$ENDIF}
          end;
       2: begin
            assignfile(ftc, fpn);
@@ -109,11 +131,19 @@ begin
                write(ftc, conn[bb]);
              closefile(ftc);
            except
-             writeln(ERR08 + fpn + '!');
+             {$IFNDEF X}
+               writeln(ERR08 + fpn + '!');
+             {$ELSE}
+               Form1.Memo1.Lines.Add(ERR08 + fpn + '!');
+             {$ENDIF}
              result := 1;
              exit;
            end;
-           writeln(MSG16 + fpn + '.');
+           {$IFNDEF X}
+             writeln(MSG16 + fpn + '.');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(MSG16 + fpn + '.');
+           {$ENDIF}
          end;
       end;
   end;

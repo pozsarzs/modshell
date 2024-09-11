@@ -23,6 +23,7 @@ function cmd_mbsrv(p1: string): byte;
 var
   i1: integer; // parameter in other type
   loop: boolean;
+  s: string;
   s1: string; // parameter in other type
 
 begin
@@ -30,7 +31,11 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -39,14 +44,23 @@ begin
   // CHECK P1 PARAMETER
   if PREFIX[2] <> s1 then
   begin
-    write(NUM1 + MSG05); // What is the 1st parameter?
-    writeln(' ' + PREFIX[2] + '[0-7]');
+    s := NUM1 + MSG05; // What is the 1st parameter?
+    s := s + ' ' + PREFIX[2] + '[0-7]';
+    {$IFNDEF X}
+      writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
   begin
-    writeln(ERR01); // Device number must be 0-7!
+    {$IFNDEF X}
+      writeln(ERR01); // Device number must be 0-7!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR01);
+    {$ENDIF}
     result := 1;
     exit;
   end;

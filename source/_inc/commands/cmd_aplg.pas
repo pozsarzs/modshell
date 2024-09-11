@@ -38,6 +38,7 @@ var
   function timestamp: string;
   var
     y, mh, d, w, h, m, s, cs: word;
+    
   begin
     getdate(y, mh, d, w);
     gettime(h, m, s, cs);

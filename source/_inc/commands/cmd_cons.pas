@@ -49,6 +49,7 @@ end;
 function intisitconstant(s: string): integer;
 var
   i: integer;
+  
 begin
   result := 0;
   if (s[1] = #36) then
@@ -64,6 +65,7 @@ end;
 function boolisitconstant(s: string): boolean;
 var
   i: integer;
+  
 begin
   result := false;
   if (s[1] = #36) then
@@ -79,6 +81,7 @@ end;
 function isitconstant(s: string): string;
 var
   i: integer;
+  
 begin
   result := '';
   if (s[1] = #36) then
@@ -96,7 +99,8 @@ var
   b, bb: byte;
   l: byte;
   line: byte;
-  s, s1, s2: string;      // parameters in other type
+  s: string;
+  s1, s2: string;      // parameters in other type
   valid: boolean = true;
 
 begin

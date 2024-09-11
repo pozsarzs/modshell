@@ -27,6 +27,7 @@ const
 var
   i, i2, i3: integer; // parameters in other type
   rt: byte; // register type
+  s: string;
   s1, s2, s3: string; // parameters in other type
   valid: boolean = false;
   crlf: boolean = true; // carriage return and line feed
@@ -41,25 +42,41 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER: IS IT A MESSAGE?
   s1 := isitmessage(p1);
+  s := '';
   if length(s1) > 0 then 
   begin
-    write(s1);
-    if crlf then writeln;
+    {$IFNDEF X}
+      write(s1);
+      if crlf then writeln;
+    {$ELSE}
+      s := s + s1;
+      if crlf then Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     exit;
   end;
   // CHECK P1 PARAMETER: IS IT A VARIABLE?
   if boolisitconstant(p1) then s1 := isitconstant(p1);
   if boolisitvariable(p1) then s1 := isitvariable(p1);
+  s := '';
   if length(s1) > 0 then 
   begin
-    write(s1);
-    if crlf then writeln;
+    {$IFNDEF X}
+      write(s1);
+      if crlf then writeln;
+    {$ELSE}
+      s := s + s1;
+      if crlf then Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -72,9 +89,13 @@ begin
     end;
   if not valid then
   begin
-    write(NUM1 + MSG05); // What is the 1st parameter?
-    for i := 0 to 3 do write(' ' + REG_TYPE[i]);
-    writeln;
+    s := NUM1 + MSG05; // What is the 1st parameter?
+    for i := 0 to 3 do s := s + ' ' + REG_TYPE[i];
+    {$IFNDEF X}
+      writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -85,7 +106,11 @@ begin
   i2 := strtointdef(s2, -1); // start address
   if (i2 < 1 ) or (i2 > 9999) then
   begin
-    writeln(NUM2 + MSG05 + ' 1-9999'); // What is the 2nd parameter?
+    {$IFNDEF X}
+      writeln(NUM2 + MSG05 + ' 1-9999'); // What is the 2nd parameter?
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999');
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -99,19 +124,28 @@ begin
   end;
   if (i3 < 1 ) or (i3 > 9999) then
   begin
-    writeln(NUM3 + MSG05 + ' 1-9999'); // What is the 3rd parameter?
+    {$IFNDEF X}
+      writeln(NUM3 + MSG05 + ' 1-9999'); // What is the 2nd parameter?
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 1-9999');
+    {$ENDIF}
     result := 1;
     exit;
   end;
   // RANGE CHECK
   if (i2 + i3) > 9999 then i3 := (i2 + i3) - 9999;
   // PRIMARY MISSION
+  s := '';
   for i2 := i2  to i2 + i3 - 1 do
     case rt of
-      0: write(dinp[i2],' ');
-      1: write(coil[i2],' ');
-      2: write(ireg[i2],' ');
-      3: write(hreg[i2],' ');
+      0: {$IFNDEF X} write(dinp[i2], ' '); {$ELSE} s := s + booltostr(dinp[i2]) + ' '; {$ENDIF}
+      1: {$IFNDEF X} write(coil[i2], ' '); {$ELSE} s := s + booltostr(coil[i2]) + ' '; {$ENDIF}
+      2: {$IFNDEF X} write(ireg[i2], ' '); {$ELSE} s := s + inttostr(ireg[i2]) + ' '; {$ENDIF}
+      3: {$IFNDEF X} write(hreg[i2], ' '); {$ELSE} s := s + inttostr(hreg[i2]) + ' '; {$ENDIF}
     end;
-    if crlf then writeln;
+    {$IFNDEF X}
+      if crlf then writeln;
+    {$ELSE}
+      if crlf then Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
 end;

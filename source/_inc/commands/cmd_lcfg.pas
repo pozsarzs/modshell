@@ -33,7 +33,11 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -70,11 +74,19 @@ begin
                read(ftd, dev[bb]);
              closefile(ftd);
            except
-             writeln(ERR09 + fpn + '!');
+             {$IFNDEF X}
+               writeln(ERR09 + fpn + '!');
+             {$ELSE}
+               Form1.Memo1.Lines.Add(ERR09 + fpn + '!');
+             {$ENDIF}
              result := 1;
              exit;
            end;
-           writeln(MSG17 + fpn + '.');
+           {$IFNDEF X}
+             writeln(MSG17 + fpn + '.');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(MSG17 + fpn + '.');
+           {$ENDIF}
          end;
       1: begin
            assignfile(ftp, fpn);
@@ -84,11 +96,19 @@ begin
                read(ftp, prot[bb]);
              closefile(ftp);
            except
-             writeln(ERR09 + fpn + '!');
+             {$IFNDEF X}
+               writeln(ERR09 + fpn + '!');
+             {$ELSE}
+               Form1.Memo1.Lines.Add(ERR09 + fpn + '!');
+             {$ENDIF}
              result := 1;
              exit;
            end;
-           writeln(MSG17 + fpn + '.');
+           {$IFNDEF X}
+             writeln(MSG17 + fpn + '.');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(MSG17 + fpn + '.');
+           {$ENDIF}
          end;
       2: begin
            assignfile(ftc, fpn);
@@ -98,11 +118,19 @@ begin
                read(ftc, conn[bb]);
              closefile(ftc);
            except
-             writeln(ERR09 + fpn + '!');
+             {$IFNDEF X}
+               writeln(ERR09 + fpn + '!');
+             {$ELSE}
+               Form1.Memo1.Lines.Add(ERR09 + fpn + '!');
+             {$ENDIF}
              result := 1;
              exit;
            end;
-           writeln(MSG17 + fpn + '.');
+           {$IFNDEF X}
+             writeln(MSG17 + fpn + '.');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(MSG17 + fpn + '.');
+           {$ENDIF}
          end;
       end;
   end;

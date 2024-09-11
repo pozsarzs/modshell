@@ -24,6 +24,7 @@ const
   RS: array[0..5] of string = ('<','<=','=','=>','>','<>');
 var
   i1, i2, i3: integer; // parameters in other type
+  s: string;
   s1, s3: string; // parameters in other type
   valid: boolean = false;
 
@@ -33,7 +34,11 @@ begin
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
      (length(p4) = 0) or (length(p5) = 0) then
   begin
-    writeln(ERR05); // parameter required
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -43,7 +48,11 @@ begin
   i1 := strtointdef(s1, -1);
   if (i1 < 0) or (i1 > 65535) then
   begin
-    writeln(NUM1 + MSG05 + ' 0-65535'); // What is the 1st parameter?
+    {$IFNDEF X}
+      writeln(NUM1 + MSG05 + ' 0-65535'); // What is the 1st parameter?
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 0-65535');
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -56,9 +65,13 @@ begin
     end;
   if not valid then
   begin
-    write(NUM2 + MSG05); // What is the 2nd parameter?
-    for i2 := 0 to 5 do write(' ' + RS[i2]);
-    writeln;
+    s := NUM2 + MSG05; // What is the 2nd parameter?
+    for i2 := 0 to 5 do s := s + ' ' + RS[i2];
+    {$IFNDEF X}
+      writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -69,14 +82,22 @@ begin
   i3 := strtointdef(s3, -1);
   if (i3 < 0) or (i3 > 65535) then
   begin
-    writeln(NUM3 + MSG05 + ' 0-65535'); // What is the 3rd parameter?
+    {$IFNDEF X}
+      writeln(NUM3 + MSG05 + ' 0-65535'); // What is the 3rd parameter?
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-65535');
+    {$ENDIF}
     result := 1;
     exit;
   end;
   // CHECK P4 PARAMETER
   if lowercase(p4) <> 'then' then
   begin
-    writeln(NUM4 + MSG05+'  then'); // What is the 4th parameter?
+    {$IFNDEF X}
+      writeln(NUM4 + MSG05+'  then'); // What is the 4th parameter?
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM4 + MSG05+'  then');
+    {$ENDIF}
     result := 1;
     exit;
   end;

@@ -30,7 +30,8 @@ var
   ft: byte;
   rootnode, parentnode, itemnode: tdomnode; 
   rt: byte; // register type
-  s, s1, s3, s4: string; // parameters in other type
+  s: string;
+  s1, s3, s4: string; // parameters in other type
   tf: textfile;
   valid: boolean = false;
   xml: txmldocument;

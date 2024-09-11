@@ -30,15 +30,24 @@
 function bit(w: integer; n: integer): byte;
 var
   s: string;
+
 begin
   if (w < 0) or (w > 65535) then
   begin
-    writeln(NUM2 + MSG05 + ' 0-65535'); // What is the 2nd parameter?
+    {$IFNDEF X}
+      writeln(NUM2 + MSG05 + ' 0-65535'); // What is the 2nd parameter?
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 0-65535');
+    {$ENDIF}
     exit;
   end;
   if (n < 0) or (n > 15) then
   begin
-    writeln(NUM3 + MSG05 + ' 0-15'); // What is the 3rd parameter?
+    {$IFNDEF X}
+      writeln(NUM3 + MSG05 + ' 0-15'); // What is the 3rd parameter?
+      {$ELSE}
+      Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-15');
+    {$ENDIF}
     exit;
   end;
   s := addsomezero(16, deztobin(inttostr(w)));
@@ -49,26 +58,39 @@ end;
 function cmd_logic(op: byte; p1, p2, p3: string): byte;
 var
   s2, s3: string; // parameters in other type
+
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    {$IFNDEF X}
+      writeln(ERR05); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   if op <> 25 then
     if (length(p3) = 0) then
     begin
-      writeln(ERR05); // Parameters required!
+      {$IFNDEF X}
+        writeln(ERR05); // Parameters required!
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR05);
+      {$ENDIF}
       result := 1;
       exit;
     end;
   // CHECK P1 PARAMETER
   if not boolisitvariable(p1) then
   begin
-    writeln(ERR19 + p1); // No such variable
+    {$IFNDEF X}
+      writeln(ERR19 + p1); // No such variable
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR19 + p1);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -97,7 +119,11 @@ begin
       67: vars[intisitvariable(p1)].vvalue := inttostr(bit(strtointdef(s2, 0), strtointdef(s3, 0)));
     end;
   except
-    writeln(ERR20);
+    {$IFNDEF X}
+      writeln(ERR20);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR20);
+    {$ENDIF}
     result := 1;
   end;
 end;

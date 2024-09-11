@@ -24,6 +24,7 @@ var
   ea: byte;
   s: string = '';
   valid: boolean;
+
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS

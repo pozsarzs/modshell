@@ -23,6 +23,7 @@
 function intisitvariable(s: string): integer;
 var
   i: integer;
+
 begin
   result := 0;
   if (s[1] = #36) then
@@ -70,7 +71,8 @@ var
   b, bb: byte;
   l: byte;
   line: byte;
-  s, s1, s2: string;      // parameters in other type
+  s: string;
+  s1, s2: string;      // parameters in other type
   valid: boolean = true;
 
 begin

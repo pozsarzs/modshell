@@ -37,7 +37,9 @@ var
   var
     dvt, i: integer;
     i4, i6: integer; // parameters in other type
-    s, s4, s5, s6, s7: string; // parameters in other type
+    s: string;
+    s4, s5, s6, s7: string; // parameters in other type
+
   begin
     // 1ST CHECK LENGTH OF PARAMETERS
     if (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0) then
@@ -199,7 +201,8 @@ var
   var
     i: integer;
     prt: byte;
-    s, s3: string; // parameter in other type
+    s: string;
+    s3: string; // parameter in other type
     valid: boolean = false;
 
   begin
@@ -277,8 +280,9 @@ var
   procedure cmd_set_con(n, p2, p3: string);
   var
     i2, i3: integer;
-    s, s2, s3: string;
-  
+    s: string;
+    s2, s3: string;
+
   begin
     // CHECK LENGTH OF PARAMETERS
     if (length(p2) = 0) or (length(p3) = 0) then
@@ -367,6 +371,7 @@ var
       s: string[16];
     {$ENDIF}
     valid : boolean = true;  
+
   begin
     // SEARCH ILLEGAL CHARACTERS
     if boolisitconstant(p2) then s2 := isitconstant(p2);
@@ -404,6 +409,7 @@ var
   var
     b: byte;
     s: string = '';
+
   begin
     s := NUM1 + MSG05; // What is the 1st parameter?
     for b := 0 to 3 do  s := s + ' ' + PREFIX[b] + '[0-7]';

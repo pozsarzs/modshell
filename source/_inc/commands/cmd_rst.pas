@@ -31,6 +31,7 @@ var
   var
     b: byte;
     s: string;
+
   begin
     s := NUM1 + MSG05; // What is the 1st parameter?
     for b := 0 to 2 do s := s + ' ' + PREFIX[b] + '[0-7]';

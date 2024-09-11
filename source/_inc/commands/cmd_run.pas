@@ -23,6 +23,7 @@ function cmd_run(p1: string): byte;
 var
   line: integer;
   stepbystep: boolean;
+
 begin
   result := 0;
   if not scriptisloaded then

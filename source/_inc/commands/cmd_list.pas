@@ -22,6 +22,7 @@
 function cmd_list: byte;
 var
   y, line: integer;
+
 begin
   result := 0;
   if not scriptisloaded then

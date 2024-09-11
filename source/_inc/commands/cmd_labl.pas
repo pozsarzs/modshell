@@ -24,7 +24,11 @@ begin
   result := 0;
   if appmode <> 4 then
   begin
-    writeln(MSG33);
+    {$IFNDEF X}
+      writeln(MSG33);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG33);
+    {$ENDIF}
     result := 1;
   end;
 end;
