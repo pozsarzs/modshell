@@ -22,6 +22,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Dialogs,
   Forms,
+  ModLCLTranslator,
   crt,
   sysutils,
   frmmain;
@@ -118,7 +119,7 @@ begin
     20: verinfo;
   end;
   RequireDerivedFormResource:=True;
-  Application.Title:='X' + PRGNAME;
+  Application.Title:='XModShell';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);

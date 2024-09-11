@@ -50,6 +50,7 @@ fpcargs		= -T@os@ \
                   -Fu@lcldir@/units/@architecture@-@os@/gtk2/ \
                   -Fu../_ppu/ \
                   -Fu../convert/ \
+                  -Fu../mlcltrans/ \
                   -Fu../protcom/ \
                   -Fu../synapse/ \
                   -Fu. \

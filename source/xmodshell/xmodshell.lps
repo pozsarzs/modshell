@@ -7,9 +7,10 @@
       <Unit>
         <Filename Value="xmodshell.lpr"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="12"/>
-        <CursorPos X="3" Y="23"/>
-        <UsageCount Value="189"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="14"/>
+        <CursorPos X="3" Y="25"/>
+        <UsageCount Value="190"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -18,11 +19,10 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="2384"/>
-        <CursorPos Y="2399"/>
-        <UsageCount Value="189"/>
+        <TopLine Value="2398"/>
+        <CursorPos Y="2406"/>
+        <UsageCount Value="190"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -119,28 +119,21 @@
         <CursorPos Y="50"/>
         <UsageCount Value="10"/>
       </Unit>
+      <Unit>
+        <Filename Value="unttranslator.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="6"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../mlcltrns/mlcltrns.pas"/>
+        <UnitName Value="mlcltrans"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="12"/>
+        <UsageCount Value="10"/>
+      </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="2145" Column="3" TopLine="2133"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="1907" TopLine="1733"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="2281" Column="3" TopLine="2263"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="2148" Column="12" TopLine="2148"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="2281" TopLine="2264"/>
-      </Position>
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="7" Column="5"/>
@@ -240,6 +233,26 @@
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="2398" Column="62" TopLine="2389"/>
+      </Position>
+      <Position>
+        <Filename Value="xmodshell.lpr"/>
+        <Caret Line="120" TopLine="105"/>
+      </Position>
+      <Position>
+        <Filename Value="xmodshell.lpr"/>
+        <Caret Line="27" Column="3" TopLine="16"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="2406" TopLine="2392"/>
+      </Position>
+      <Position>
+        <Filename Value="xmodshell.lpr"/>
+        <Caret Line="26" Column="19" TopLine="12"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="2406" TopLine="2398"/>
       </Position>
     </JumpHistory>
     <RunParams>

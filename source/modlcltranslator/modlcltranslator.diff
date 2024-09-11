@@ -1,0 +1,5 @@
+74a75,78
+>       Result:=ExtractFilePath(ParamStrUTF8(0))+'message'+DirectorySeparator+LangID+
+>         DirectorySeparator+ChangeFileExt(ExtractFileName(ParamStrUTF8(0)),'.mo');
+>       if FileExistsUTF8(Result) then exit;
+> 

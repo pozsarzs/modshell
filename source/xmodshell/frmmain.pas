@@ -2403,7 +2403,6 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   lang := getlang;
-  translatemessages(LANG,BASENAME,'.mo');
   randomize;
   loadconfiguration(BASENAME,'.ini');
   setdefaultconstants;

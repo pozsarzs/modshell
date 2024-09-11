@@ -42,7 +42,7 @@ install:
 	  if [ -f $$x/x$(name).mo ]; \
 	  then \
 	    $(install) -d $(targetdir)/$$x/LC_MESSAGES/; \
-	    $(install) -m $(filemode) $(sourcedir)/$$x/$(name).mo $(targetdir)/$$x/LC_MESSAGES/; \
+	    $(install) -m $(filemode) $(sourcedir)/$$x/x$(name).mo $(targetdir)/$$x/LC_MESSAGES/; \
 	    echo -n "#"; \
 	  fi; \
 	done
