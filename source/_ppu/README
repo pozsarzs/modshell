@@ -1,0 +1,8 @@
+Source code of (X)Modshell - common unit files
+
+ - ucommon.pas  common functions and procedures
+ - uconfig.pas  load/save configurations
+ - utranslt.pas translate CUI/TUI program
+
+Copyright (C) 2023-2024 Pozsar Zsolt
+Licence: EUPL v1.2

@@ -816,6 +816,30 @@ msgstr ""
 msgid "&Convert"
 msgstr ""
 
+#: frmmain.msg70
+msgid "&Start"
+msgstr ""
+
+#: frmmain.msg71
+msgid "New project name:"
+msgstr ""
+
+#: frmmain.msg72
+msgid "name"
+msgstr ""
+
+#: frmmain.msg73
+msgid "connenction"
+msgstr ""
+
+#: frmmain.msg74
+msgid "variable"
+msgstr ""
+
+#: frmmain.msg75
+msgid "message"
+msgstr ""
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr ""

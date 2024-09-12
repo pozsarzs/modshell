@@ -94,6 +94,18 @@ resourcestring
   MSG67 = 'to';
   MSG68 = 'number';
   MSG69 = '&Convert';
+  MSG70 = '&Start';
+  MSG71 = 'New project name:';
+  MSG72 = 'name';
+  MSG73 = 'connenction';
+  MSG74 = 'variable';
+  MSG75 = 'message';
+  
+
+
+
+
+
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';

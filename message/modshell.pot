@@ -305,6 +305,30 @@ msgstr ""
 msgid "&Convert"
 msgstr ""
 
+#: modshell:msg70
+msgid "&Start"
+msgstr ""
+
+#: modshell:msg71
+msgid "New project name:"
+msgstr ""
+
+#: modshell:msg72
+msgid "name"
+msgstr ""
+
+#: modshell:msg73
+msgid "connenction"
+msgstr ""
+
+#: modshell:msg74
+msgid "variable"
+msgstr ""
+
+#: modshell:msg75
+msgid "message"
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""

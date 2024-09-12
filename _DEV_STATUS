@@ -38,12 +38,12 @@ Script -----------------------------------
 Operation --------------------------------
   Clear screen				OK
   Swap echo mode			OK
-  Read data from serial port..
-  Write data to serial port..
+  Read data from serial port..		OK
+  Write data to serial port..		OK
   Read data from remote register(s)..
   Write data to remote register(s)..
-  Start &gateway mode..
-  Start client mode..
+  Start &gateway mode..			OK
+  Start client mode..			OK
   Show all constants			OK
   Show all variables			OK
 Utilities --------------------------------
@@ -117,7 +117,6 @@ version.pas				OK
 
 Others
 ~~~~~~
-document/others/modshell.syntax
 message/xmodshell.pot
 message/hu/xmodshell.po
 message/hu/xmodshell.mo

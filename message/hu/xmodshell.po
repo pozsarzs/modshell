@@ -835,6 +835,30 @@ msgstr "szám"
 msgid "&Convert"
 msgstr "Át&alakít"
 
+#: frmmain.msg70
+msgid "&Start"
+msgstr "In&dítás"
+
+#: frmmain.msg71
+msgid "New project name:"
+msgstr "Új projekt név:"
+
+#: frmmain.msg72
+msgid "name"
+msgstr "név"
+
+#: frmmain.msg73
+msgid "connenction"
+msgstr "kapcsolat"
+
+#: frmmain.msg74
+msgid "variable"
+msgstr "változó"
+
+#: frmmain.msg75
+msgid "message"
+msgstr "üzenet"
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
