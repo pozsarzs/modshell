@@ -36,7 +36,7 @@ var
 begin
   result := 0;
   {$IFDEF X}
-    writeln(MSG65);
+    Form1.Memo1.Lines.Add(MSG65);
     exit;
   {$ENDIF}
   x2 := termwidth - 1;

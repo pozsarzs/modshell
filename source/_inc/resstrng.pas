@@ -94,12 +94,13 @@ resourcestring
   MSG67 = 'to';
   MSG68 = 'number';
   MSG69 = '&Convert';
-  MSG70 = '&Start';
+  MSG70 = '&Read';
   MSG71 = 'New project name:';
   MSG72 = 'name';
   MSG73 = 'connenction';
   MSG74 = 'variable';
   MSG75 = 'message';
+  MSG76 = '&Write';
   
 
 

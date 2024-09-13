@@ -27,7 +27,7 @@ var
 begin
   result := 0;
   {$IFDEF X}
-    writeln(MSG64);
+    Form1.Memo1.Lines.Add(MSG64);
     exit;
   {$ENDIF}
   // CHECK LENGTH OF PARAMETER

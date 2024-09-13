@@ -2504,7 +2504,7 @@ procedure TForm1.MenuItem53Click(Sender: TObject);
         AnchorSideRight.Control := Form;
         AnchorSideRight.Side := asrRight;
         BorderSpacing.Right := 8;
-      Caption := MSG70;
+      Caption := MSG76;
       ModalResult := mrOk;
       Parent := Form;
       TabOrder := 2;
@@ -2524,14 +2524,403 @@ end;
 
 // RUN COMMAND 'read' with DIALOG
 procedure TForm1.MenuItem51Click(Sender: TObject);
-begin
-
+  var
+    Form: TForm;
+    LBevel1: TBevel;
+    LButton1, LButton2: TButton;
+    LLabel1, LLabel2, LLabel3, LLabel4: TLabel;
+    LRadioGroup1: TRadiogroup;
+    LSpinEdit1, LSpinEdit2, LSpinEdit3: TSpinEdit;
+    b: byte;
+  begin
+    Form := TForm.Create(Nil);
+    LBevel1 := TBevel.Create(Form);
+    LButton1 := TButton.Create(Form);
+    LButton2 := TButton.Create(Form);
+    LLabel1 := TLabel.Create(Form);
+    LLabel2 := TLabel.Create(Form);
+    LLabel3 := TLabel.Create(Form);
+    LLabel4 := TLabel.Create(Form);
+    LRadioGroup1 := TRadioGroup.Create(Form);
+    LSpinEdit1 := TSpinEdit.Create(Form);
+    LSpinEdit2 := TSpinEdit.Create(Form);
+    LSpinEdit3 := TSpinEdit.Create(Form);
+    for b := 0 to 3 do
+      LRadioGroup1.Items.Add(REG_TYPE[b]);
+    LRadioGroup1.ItemIndex := 0;
+    with Form do
+    begin
+      Caption := rmampdot(MenuItem51.Caption);
+      AutoSize := True;
+      BorderStyle := bsDialog;
+      Position := poMainFormCenter;
+    end;
+    with LLabel3 do
+    begin
+      Anchors := [akTop, akLeft];
+        AnchorSideTop.Control := LSpinEdit3;
+        AnchorSideTop.Side := asrCenter;
+        BorderSpacing.Top := 0;
+        AnchorSideLeft.Control := Form;
+        AnchorSideLeft.Side := asrLeft;
+        BorderSpacing.Left := 12;
+      Caption := 'con';
+      Font.Style := [fsBold];
+      Parent := Form;
+    end;
+    with LSpinEdit3 do
+    begin
+      Anchors := [akTop, akLeft, akRight];
+        AnchorSideTop.Control := LLabel4;
+        AnchorSideTop.Side := asrBottom;
+        BorderSpacing.Top := 8;
+        AnchorSideLeft.Control := LLabel3;
+        AnchorSideLeft.Side := asrRight;
+        BorderSpacing.Left := 8;
+        AnchorSideRight.Control := LRadioGroup1;
+        AnchorSideRight.Side := asrRight;
+      MinValue := 0;
+      MaxValue := 7;
+      Parent := Form;
+      TabOrder := 0;
+    end;
+    with LRadioGroup1 do
+    begin
+      Anchors := [akTop, akLeft];
+        AnchorSideTop.Control := LSpinEdit3;
+        AnchorSideTop.Side := asrBottom;
+        BorderSpacing.Top := 8;
+        AnchorSideLeft.Control := Form;
+        AnchorSideLeft.Side := asrLeft;
+        BorderSpacing.Left := 12;
+      Caption := MSG59;
+      ColumnLayout := clHorizontalThenVertical;
+      Parent := Form;
+      TabOrder := 1;
+      Width := 100;
+    end;
+    with LLabel1 do
+    begin
+      Anchors := [akTop, akLeft];
+        AnchorSideTop.Control := Form;
+        AnchorSideTop.Side := asrTop;
+        BorderSpacing.Top := 12;
+        AnchorSideLeft.Control := LSpinEdit1;
+        AnchorSideLeft.Side := asrCenter;
+        BorderSpacing.Left := 0;
+      Caption := MSG60;
+      Parent := Form;
+    end;
+    with LSpinEdit1 do
+    begin
+      Anchors := [akTop, akLeft];
+        AnchorSideTop.Control := LLabel1;
+        AnchorSideTop.Side := asrBottom;
+        BorderSpacing.Top := 8;
+        BorderSpacing.Right := 8;
+        AnchorSideLeft.Control := LRadioGroup1;
+        AnchorSideLeft.Side := asrRight;
+        BorderSpacing.Left := 8;
+      Parent := Form;
+      Value := 1;
+      Width := 100;
+      TabOrder := 2;
+    end;
+    with LLabel2 do
+    begin
+      Anchors := [akTop, akLeft];
+        AnchorSideTop.Control := LSpinEdit1;
+        AnchorSideTop.Side := asrBottom;
+        BorderSpacing.Top := 12;
+        AnchorSideLeft.Control := LSpinEdit2;
+        AnchorSideLeft.Side := asrCenter;
+        BorderSpacing.Left := 0;
+      Caption := MSG61;
+      Parent := Form;
+    end;
+    with LSpinEdit2 do
+    begin
+      Anchors := [akTop, akLeft];
+        AnchorSideTop.Control := LLabel2;
+        AnchorSideTop.Side := asrBottom;
+        BorderSpacing.Top := 8;
+        BorderSpacing.Right := 8;
+        AnchorSideLeft.Control := LRadioGroup1;
+        AnchorSideLeft.Side := asrRight;
+        BorderSpacing.Left := 8;
+      Parent := Form;
+      Value := 1;
+      TabOrder := 3;
+      Width := 100;
+    end;
+    with LLabel4 do
+    begin
+      Anchors := [akTop, akLeft, akRight];
+        AnchorSideTop.Control := Form;
+        AnchorSideTop.Side := asrTop;
+        BorderSpacing.Top := 12;
+        AnchorSideLeft.Control := LLabel3;
+        AnchorSideLeft.Side := asrLeft;
+        BorderSpacing.Left := 0;
+        AnchorSideRight.Control := LSpinEdit3;
+        AnchorSideRight.Side := asrRight;
+        BorderSpacing.Right := 0;
+      Alignment := taCenter;
+      Caption := MSG50;
+      Parent := Form;
+    end;
+    with LBevel1 do
+    begin
+      Anchors := [akTop, akLeft, akRight];
+        AnchorSideTop.Control := LRadioGroup1;
+        AnchorSideTop.Side := asrBottom;
+        BorderSpacing.Top := 8;
+        AnchorSideLeft.Control := Form;
+        AnchorSideLeft.Side := asrLeft;
+        BorderSpacing.Left := 8;
+        AnchorSideRight.Control := Form;
+        AnchorSideRight.Side := asrRight;
+        BorderSpacing.Right := 8;
+      Parent := Form;
+      Shape := bsTopLine;
+    end;
+    with LButton1 do
+    begin
+      Anchors := [akTop, akRight];
+        AnchorSideTop.Control := LBevel1;
+        AnchorSideTop.Side := asrTop;
+        BorderSpacing.Top := 16;
+        AnchorSideRight.Control := LButton2;
+        AnchorSideRight.Side := asrLeft;
+        BorderSpacing.Right := 8;
+      Caption := MSG44;
+      ModalResult := mrCancel;
+      Parent := Form;
+      TabOrder := 5;
+    end;
+    with LButton2 do
+    begin
+      Anchors := [akTop, akRight];
+        AnchorSideTop.Control := LBevel1;
+        AnchorSideTop.Side := asrTop;
+        BorderSpacing.Top := 16;
+        AnchorSideRight.Control := Form;
+        AnchorSideRight.Side := asrRight;
+        BorderSpacing.Right := 8;
+      Caption := MSG70;
+      ModalResult := mrOk;
+      Parent := Form;
+      TabOrder := 4;
+    end;
+    if Form.ShowModal = mrOk then
+    begin
+      menucmd := COMMANDS[6] + ' con' + inttostr(LSpinEdit3.Value) + ' ' +
+        REG_TYPE[LRadioGroup1.ItemIndex] + ' ' +
+        inttostr(LSpinEdit1.Value) + ' ' + inttostr(LSpinEdit2.Value);
+      Memo1.Lines.Add(fullprompt + menucmd);
+      parsingcommands(menucmd);
+    end;
+    FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'write' with DIALOG
 procedure TForm1.MenuItem50Click(Sender: TObject);
+var
+  Form: TForm;
+  LBevel1: TBevel;
+  LButton1, LButton2: TButton;
+  LLabel1, LLabel2, LLabel3, LLabel4: TLabel;
+  LRadioGroup1: TRadiogroup;
+  LSpinEdit1, LSpinEdit2, LSpinEdit3: TSpinEdit;
 begin
-
+  Form := TForm.Create(Nil);
+  LBevel1 := TBevel.Create(Form);
+  LButton1 := TButton.Create(Form);
+  LButton2 := TButton.Create(Form);
+  LLabel1 := TLabel.Create(Form);
+  LLabel2 := TLabel.Create(Form);
+  LLabel3 := TLabel.Create(Form);
+  LLabel4 := TLabel.Create(Form);
+  LRadioGroup1 := TRadioGroup.Create(Form);
+  LSpinEdit1 := TSpinEdit.Create(Form);
+  LSpinEdit2 := TSpinEdit.Create(Form);
+  LSpinEdit3 := TSpinEdit.Create(Form);
+  LRadioGroup1.Items.Add(REG_TYPE[0]);
+  LRadioGroup1.Items.Add(REG_TYPE[3]);
+  LRadioGroup1.ItemIndex := 0;
+  with Form do
+  begin
+    Caption := rmampdot(MenuItem50.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Position := poMainFormCenter;
+  end;
+  with LLabel3 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit3;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := 'con';
+    Font.Style := [fsBold];
+    Parent := Form;
+  end;
+  with LSpinEdit3 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LLabel4;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := LLabel3;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := LRadioGroup1;
+      AnchorSideRight.Side := asrRight;
+    MinValue := 0;
+    MaxValue := 7;
+    Parent := Form;
+    TabOrder := 0;
+  end;
+  with LRadioGroup1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit3;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := MSG59;
+    ColumnLayout := clHorizontalThenVertical;
+    Parent := Form;
+    TabOrder := 1;
+    Width := 100;
+  end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LSpinEdit1;
+      AnchorSideLeft.Side := asrCenter;
+      BorderSpacing.Left := 0;
+    Caption := MSG60;
+    Parent := Form;
+  end;
+  with LSpinEdit1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LLabel1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      BorderSpacing.Right := 8;
+      AnchorSideLeft.Control := LRadioGroup1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Parent := Form;
+    Value := 1;
+    Width := 100;
+    TabOrder := 2;
+  end;
+  with LLabel2 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LSpinEdit2;
+      AnchorSideLeft.Side := asrCenter;
+      BorderSpacing.Left := 0;
+    Caption := MSG61;
+    Parent := Form;
+  end;
+  with LSpinEdit2 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LLabel2;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      BorderSpacing.Right := 8;
+      AnchorSideLeft.Control := LRadioGroup1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    Parent := Form;
+    Value := 1;
+    TabOrder := 3;
+    Width := 100;
+  end;
+  with LLabel4 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LLabel3;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 0;
+      AnchorSideRight.Control := LSpinEdit3;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 0;
+    Alignment := taCenter;
+    Caption := MSG50;
+    Parent := Form;
+  end;
+  with LBevel1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LRadioGroup1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    Shape := bsTopLine;
+  end;
+  with LButton1 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton2;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+    Caption := MSG44;
+    ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 5;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG76;
+    ModalResult := mrOk;
+    Parent := Form;
+    TabOrder := 4;
+  end;
+  if Form.ShowModal = mrOk then
+  begin
+    menucmd := COMMANDS[7] + ' con' + inttostr(LSpinEdit3.Value) + ' ' +
+      REG_TYPE[LRadioGroup1.ItemIndex] + ' ' +
+      inttostr(LSpinEdit1.Value) + ' ' + inttostr(LSpinEdit2.Value);
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'mbgw' with DIALOG

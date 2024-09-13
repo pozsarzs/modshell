@@ -40,8 +40,8 @@ Operation --------------------------------
   Swap echo mode			OK
   Read data from serial port..		OK
   Write data to serial port..		OK
-  Read data from remote register(s)..
-  Write data to remote register(s)..
+  Read data from remote register(s)..	OK
+  Write data to remote register(s)..	OK
   Start &gateway mode..			OK
   Start client mode..			OK
   Show all constants			OK
@@ -62,7 +62,7 @@ Help -------------------------------------
   About					OK
 
 
-Command file modification for the GUI version
+Include file modification for the GUI version
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 cmd_aplg.pas				OK
 cmd_asci.pas				OK
@@ -114,6 +114,12 @@ cmd_vrmn.pas				OK
 cmd_wrte.pas				OK
 version.pas				OK
 
+Unit file modification for the GUI version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mbascii.pas
+mbrtu.pas
+mbtcp.pas
+modbus.pas
 
 Others
 ~~~~~~
