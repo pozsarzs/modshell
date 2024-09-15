@@ -187,6 +187,7 @@ begin
                // erase
            93: exitcode := cmd_savescr(splitted[1]);
                // savescr [$]PATH_AND_FILENAME
+           COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
           else
           begin
             // logical functions

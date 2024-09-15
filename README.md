@@ -5,6 +5,7 @@
 > The next release will be with the following changes:
 > - New source code directory structure,
 > - bug fixes,
+> - 12 new commands in system category (total: 106),
 > - GUI (FreeBSD, Linux and Windows) and
 > - Script syntax highlighting file for Midnight Commander.
 > 
@@ -14,7 +15,7 @@
 > - Modbus/ASCII and Modbus/RTU communication,
 > - handling of constants,
 > - three predefined constants and
-> - 28 new command (total: 94).
+> - 28 new commands (total: 94).
 > - Script syntax highlighting file for Micro.
 >
 > **v0.1-alpha1:**  
@@ -49,7 +50,7 @@ Project webpage: <https://pozsarzs.github.io/modshell>
 |running modes           |command line, full-screen or interpreter                                                    |
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                                                       |
 |variables               |max. 128 variables or constants (stored as string)                                          |
-|built-in commands       |94 commands in 9 categories                                                                 |
+|built-in commands       |106 commands in 10 categories                                                               |
 |load from file          |registers, script, settings                                                                 |
 |save to file            |command history, console traffic, registers, communication settings, user log with timestamp|
 |auto save to file       |general settings and console traffic                                                        |
@@ -64,7 +65,7 @@ Project webpage: <https://pozsarzs.github.io/modshell>
 |                        |gateway to access devices using other ports or protocols                                    |
 |script size             |max. 1024 line                                                                              |
 |example scripts         |7 scripts (shellscript and batch file versions)                                             | 
-|script syntax plugins   |for Micro editor                                                                            |
+|script syntax plugins   |for Micro editor and MCEdit                                                                            |
 
 #### 1. Screenshots
 
@@ -285,6 +286,18 @@ selected.
 |stritem |string        |        |specified element of the string                                  |
 |strrepl |string        |        |replace element in the string                                    |
 |upcase  |string        |        |conversion to uppercase                                          |
+|cd      |system        |        |change or get actual directory                                   |
+|chdir   |system        |        |change actual directory                                          |
+|del     |system        |        |remove file                                                      |
+|dir     |system        |        |list files in actual directory                                   |
+|ls      |system        |        |list files in actual directory                                   |
+|md      |system        |        |make directory                                                   |
+|mkdir   |system        |        |make directory                                                   |
+|pwd     |system        |        |get actual directory                                             |
+|rd      |system        |        |remove empty directory                                           |
+|rmdir   |system        |        |remove empty directory                                           |
+|rm      |system        |        |remove file                                                      |
+|x:      |system        |        |change drive (only on DOS and Windows)                           |
 
 (Commands with function keys (F?) are executed immediately, modifier keys
 (ALT-?) only make typing easier.)

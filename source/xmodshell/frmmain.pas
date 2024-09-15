@@ -295,6 +295,7 @@ procedure version(h: boolean); forward;
 {$I cmd_var.pas}
 {$I cmd_vrmn.pas}
 {$I cmd_wrte.pas}
+{$I cmd_whvr.pas}
 
 {$I parsing.pas}
 {$I fllprmpt.pas}

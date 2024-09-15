@@ -21,7 +21,7 @@ const
   PRGCOPYRIGHT = '(C) 2023-2024 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
-  COMMARRSIZE = 94;
+  COMMARRSIZE = 95;
   SCRBUFFSIZE = 1024;
   SHOWTIMEDELAY = 25;
   VARBUFFSIZE = 128;
@@ -55,7 +55,7 @@ const
      'upcase','length','lowcase','stritem','chr',    'ord',    'const',  'bit',     'pow',    'goto',
      'if',    'for',   'label',  'mbsrv',  'mbgw',   'inrange','mklrc',  'mkcrc',   'pow2',   'ascii',
      'beep',  'avg',   'prop',   'concat', 'strdel', 'strfind','strins', 'strrepl', 'varmon', 'applog',
-     'cron',  'edit',  'erase',  'savescr');
+     'cron',  'edit',  'erase',  'savescr', 'whatever');
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string =
     ('1200','2400','4800','9600','19200','38400','57600','115200');
