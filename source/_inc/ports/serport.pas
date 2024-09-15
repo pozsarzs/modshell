@@ -19,7 +19,7 @@ begin
   {$IFDEF GO32V2}
     result := canread;
   {$ELSE}
-    result := ser.canread(0);
+    result := ser.CanRead(0);
   {$ENDIF}
 end;
 
@@ -29,7 +29,7 @@ begin
   {$IFDEF GO32V2}
     result := canwrite;
   {$ELSE}
-    result := ser.canwrite(0);
+    result := ser.CanWrite(0);
   {$ENDIF}
 end;
 
@@ -39,7 +39,7 @@ begin
   {$IFDEF GO32V2}
     result := recvbyte;
   {$ELSE}
-    result := ser.recvbyte(0);
+    result := ser.Recvbyte(0);
   {$ENDIF}
 end;
 
@@ -49,7 +49,7 @@ begin
   {$IFDEF GO32V2}
     result := recvstring;
   {$ELSE}
-    result := ser.recvstring(0);
+    result := ser.RecvString(0);
   {$ENDIF}
 end;
 
@@ -59,7 +59,7 @@ begin
   {$IFDEF GO32V2}
     sendbyte(b);
   {$ELSE}
-    ser.sendbyte(b);
+    ser.SendByte(b);
   {$ENDIF}
 end;
 
@@ -69,7 +69,7 @@ begin
   {$IFDEF GO32V2}
     sendstring(s);
   {$ELSE}
-    ser.sendstring(s);
+    ser.SendString(s);
   {$ENDIF}
 end;
 
@@ -81,12 +81,16 @@ begin
     connect(device);
     config(speed, databit, parity, stopbit);
   {$ELSE}
-    ser := tblockserial.create;
+    ser := TBlockSerial.Create;
     try
-      ser.connect(device);
-      ser.config(strtoint(DEV_SPEED[speed]), databit, DEV_PARITY[parity], stopbit, False, False);
+      ser.Connect(device);
+      ser.Config(strtoint(DEV_SPEED[speed]), databit, DEV_PARITY[parity], stopbit, False, False);
     except
-      writeln(ERR18, device);
+      {$IFNDEF X}
+        writeln(ERR18, device);
+      {$ELSE}  
+        Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 0-7');
+      {$ENDIF}
       result := false;
     end;
   {$ENDIF}
@@ -98,6 +102,6 @@ begin
   {$IFDEF GO32V2}
     disconnect;
   {$ELSE}
-    ser.free;
+    ser.Free;
   {$ENDIF}
 end;

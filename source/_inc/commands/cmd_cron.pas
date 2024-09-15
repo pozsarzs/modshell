@@ -33,7 +33,7 @@ begin
         if (chour = h) or (chour = 255) then
           if (cminute = m) or (cminute = 255) then
             if s = 0 then
-              if scriptisloaded then cmd_run('');
+              if scriptisloaded then cmd_run('','');
 end;
 
 // COMMAND 'CRON'

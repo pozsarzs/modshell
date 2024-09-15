@@ -42,7 +42,11 @@ begin
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
-    writeln(MSG31);
+    {$IFNDEF X}
+      writeln(MSG31);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG31);
+    {$ENDIF}
     // TRANSMIT REQUEST
     if ser_canwrite then
     begin

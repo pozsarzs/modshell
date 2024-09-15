@@ -5,7 +5,9 @@ dnl # | Makefile                                                               |
 dnl # | Makefile for Unix-like systems                                         |
 dnl # +------------------------------------------------------------------------+
 
+
 AC_INIT
+lcldir=`find /usr/lib/lazarus -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
 AC_CONFIG_SRCDIR([source/modshell/])
 AC_CONFIG_AUX_DIR(config)
 AC_CANONICAL_TARGET
@@ -17,15 +19,9 @@ AC_PATH_PROG(install, install, no)
 
 AC_PATH_PROG(make, make, no)
 test "$make" == "no" && AC_MSG_ERROR(Make utility not found!)
-
 AC_PATH_PROG(gmake, gmake, no)
 test "$gmake" == "no" && AC_MSG_WARN(GNU make utility not found!)
-
-AC_PATH_PROG(fpc, fpc, no)
-test "$fpc" == "no" && AC_MSG_ERROR(Free Pascal compiler not found!)
-
-lcldir=`find /usr/lib/lazarus -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
-AC_CHECK_FILE($lcldir/lclbase.lpk,,AC_MSG_ERROR(LCL unit files not found!))
+test $gmake != "no" && make=$gmake
 
 AC_PATH_PROG(rstconv, rstconv, no)
 test "$rstconv" == "no" && AC_MSG_ERROR(Free Pascal resource string converter tool not found!)
@@ -42,24 +38,25 @@ test "$msgfmt" == "no" && AC_MSG_WARN(Msgfmt tool (GNU gettext utilities) not fo
 AC_PATH_PROG(iconv, iconv, no)
 test "$iconv" == "no" && AC_MSG_WARN(Iconv text encoding converter tool not found!)
 
-AC_CHECK_FILE(document/VERSION,,AC_MSG_ERROR(VERSION file not found!))
+AC_PATH_PROG(fpc, fpc, no)
+test "$fpc" == "no" && AC_MSG_ERROR(Free Pascal compiler not found!)
+
+AC_CHECK_FILE($lcldir/lclbase.lpk, lclunits="yes", lclunits="no")
+test "$lclunits" == "no" && AC_MSG_WARN(LCL unit files not found!)
+
+AC_CHECK_FILE(document/VERSION, , AC_MSG_ERROR(VERSION file not found!))
 version=`cat document/VERSION`
 
-AC_CHECK_FILE(document/copyright,,AC_MSG_ERROR(copyright file not found!))
+AC_CHECK_FILE(document/copyright, , AC_MSG_ERROR(copyright file not found!))
 copyright=`cat document/copyright`
 
 os=`fpc -iSO`
 architecture=`fpc -iSP`
 
-if test $gmake != "no"
-then
-  make=$gmake
-fi
-
 AC_PREFIX_DEFAULT("/usr/local")
 test x"$prefix" == xNONE && prefix="$ac_default_prefix"
 
-if test $prefix == "/usr" 
+if test "$prefix" == "/usr" 
 then
   vardir="/var"
 else
@@ -74,44 +71,40 @@ test "$stagedir" != "" && prefix="$stagedir"
 test "$stagedir" != "" && mandir="$prefix/man"
 
 AC_SUBST(architecture)
-AC_SUBST(copyright)
-AC_SUBST(os)
-AC_SUBST(prefix)
-AC_SUBST(version)
-
 AC_SUBST(bindir)
 AC_SUBST(bprefix)
+AC_SUBST(copyright)
 AC_SUBST(datarootdir)
-AC_SUBST(libdir)
-AC_SUBST(mandir)
-AC_SUBST(sysconfdir)
-AC_SUBST(vardir)
-AC_SUBST(lcldir)
-
-AC_SUBST(fpcargs)
-
 AC_SUBST(fpc)
+AC_SUBST(fpcargs)
 AC_SUBST(iconv)
 AC_SUBST(install)
+AC_SUBST(lcldir)
+AC_SUBST(lclunits)
+AC_SUBST(libdir)
 AC_SUBST(ln)
-AC_SUBST(man)
 AC_SUBST(make)
+AC_SUBST(man)
+AC_SUBST(mandir)
 AC_SUBST(msgfmt)
+AC_SUBST(os)
+AC_SUBST(prefix)
 AC_SUBST(rm)
 AC_SUBST(rstconv)
+AC_SUBST(sysconfdir)
 AC_SUBST(unix2dos)
+AC_SUBST(vardir)
+AC_SUBST(version)
 
 AC_CONFIG_FILES([Makefile.global])
 AC_OUTPUT
 
 echo "
-Summary
-=======
-    Target op. system	$os
-    Target processor	$architecture
-    Target directory	$prefix
-
-
-  Type '${make}' for compilation and then '${make} install'.
+Target op. system	$os
+Target processor	$architecture
+Target directory	$prefix
 "
-test "$stagedir" != "" && echo Install to FreeBSD stage directory: $prefix
+test "$lclunits" == "no" && echo "Compilation of XModShell disabled due to missing LCL units!"
+test "$stagedir" != "" && echo "Install to FreeBSD stage directory: $prefix"
+echo "
+Type '${make}' for compilation and then '${make} install'."

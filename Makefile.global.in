@@ -37,6 +37,7 @@ rm		= @rm@ -f
 rstconv		= @rstconv@
 unix2dos	= @unix2dos@
 
+lclunits        = @lclunits@
 fpcargs		= -T@os@ \
                   -MObjFPC \
                   -Scgi \

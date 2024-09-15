@@ -153,6 +153,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: char);
     procedure MenuItem10Click(Sender: TObject);
     procedure MenuItem11Click(Sender: TObject);
     procedure MenuItem12Click(Sender: TObject);
@@ -222,13 +223,15 @@ implementation
 
 {$R *.lfm}
 
-function cmd_run(p1: string): byte; forward;
+function cmd_run(p1, p2: string): byte; forward;
 function boolisitconstant(s: string): boolean; forward;
 function boolisitvariable(s: string): boolean; forward;
 function intisitconstant(s: string): integer; forward;
 function intisitvariable(s: string): integer; forward;
 function isitconstant(s: string): string; forward;
 function isitvariable(s: string): string; forward;
+procedure clearallconstants; forward;
+procedure clearallvariables; forward;
 procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
@@ -688,6 +691,7 @@ begin
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 8;
@@ -825,6 +829,7 @@ begin
       BorderSpacing.Right := 8;
       BorderSpacing.Left := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 2;
@@ -1017,6 +1022,7 @@ begin
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 4;
@@ -1143,6 +1149,7 @@ begin
       BorderSpacing.Right := 8;
       BorderSpacing.Left := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 2;
@@ -1365,6 +1372,7 @@ begin
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 4;
@@ -1491,6 +1499,7 @@ begin
       BorderSpacing.Right := 8;
       BorderSpacing.Left := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 2;
@@ -1631,6 +1640,7 @@ begin
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 3;
@@ -1879,6 +1889,7 @@ begin
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 4;
@@ -2026,6 +2037,7 @@ begin
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 3;
@@ -2337,6 +2349,7 @@ begin
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 3;
@@ -2350,7 +2363,7 @@ begin
       AnchorSideRight.Control := Form;
       AnchorSideRight.Side := asrRight;
       BorderSpacing.Right := 8;
-    Caption := MSG70;
+    Caption := MSG77;
     ModalResult := mrOk;
     Parent := Form;
     TabOrder := 2;
@@ -2491,6 +2504,7 @@ procedure TForm1.MenuItem53Click(Sender: TObject);
         AnchorSideRight.Side := asrLeft;
         BorderSpacing.Right := 8;
       Caption := MSG44;
+      Cancel := True;
       ModalResult := mrCancel;
       Parent := Form;
       TabOrder := 3;
@@ -2694,6 +2708,7 @@ procedure TForm1.MenuItem51Click(Sender: TObject);
         AnchorSideRight.Side := asrLeft;
         BorderSpacing.Right := 8;
       Caption := MSG44;
+      Cancel := True;
       ModalResult := mrCancel;
       Parent := Form;
       TabOrder := 5;
@@ -2707,7 +2722,7 @@ procedure TForm1.MenuItem51Click(Sender: TObject);
         AnchorSideRight.Control := Form;
         AnchorSideRight.Side := asrRight;
         BorderSpacing.Right := 8;
-      Caption := MSG70;
+      Caption := MSG77;
       ModalResult := mrOk;
       Parent := Form;
       TabOrder := 4;
@@ -2894,6 +2909,7 @@ begin
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 5;
@@ -3062,6 +3078,7 @@ begin
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 3;
@@ -3075,7 +3092,7 @@ begin
       AnchorSideRight.Control := Form;
       AnchorSideRight.Side := asrRight;
       BorderSpacing.Right := 8;
-    Caption := MSG70;
+    Caption := MSG77;
     ModalResult := mrOk;
     Parent := Form;
     TabOrder := 2;
@@ -3186,6 +3203,7 @@ begin
       BorderSpacing.Right := 8;
       BorderSpacing.Left := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 2;
@@ -3199,7 +3217,7 @@ begin
       AnchorSideRight.Control := Form;
       AnchorSideRight.Side := asrRight;
       BorderSpacing.Right := 8;
-    Caption := MSG70;
+    Caption := MSG77;
     ModalResult := mrOk;
     Parent := Form;
     TabOrder := 1;
@@ -3368,6 +3386,7 @@ begin
       AnchorSideRight.Side := asrLeft;
       BorderSpacing.Right := 8;
     Caption := MSG44;
+    Cancel := True;
     ModalResult := mrCancel;
     Parent := Form;
     TabOrder := 4;
@@ -3403,8 +3422,125 @@ end;
 
 // RUN COMMAND 'sercons' with DIALOG
 procedure TForm1.MenuItem54Click(Sender: TObject);
+var
+  Form: TForm;
+  LBevel1: TBevel;
+  LButton1, LButton2: TButton;
+  LLabel1, LLabel2: TLabel;
+  LSpinEdit1: TSpinEdit;
 begin
-
+  Form := TForm.Create(Nil);
+  LBevel1 := TBevel.Create(Form);
+  LButton1 := TButton.Create(Form);
+  LButton2 := TButton.Create(Form);
+  LLabel1 := TLabel.Create(Form);
+  LLabel2 := TLabel.Create(Form);
+  LSpinEdit1 := TSpinEdit.Create(Form);
+  with Form do
+  begin
+    Caption := rmampdot(MenuItem54.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Position := poMainFormCenter;
+  end;
+  with LLabel1 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := 'dev';
+    Font.Style := [fsBold];
+    Parent := Form;
+  end;
+  with LSpinEdit1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LLabel2;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := LLabel1;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := LBevel1;
+      AnchorSideRight.Side := asrRight;
+    MinValue := 0;
+    MaxValue := 7;
+    Parent := Form;
+    TabOrder := 0;
+  end;
+  with LLabel2 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := Form;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LLabel1;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 0;
+      AnchorSideRight.Control := LSpinEdit1;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 0;
+    Alignment := taCenter;
+    Caption := MSG50;
+    Parent := Form;
+  end;
+  with LBevel1 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LSpinEdit1;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Parent := Form;
+    Shape := bsTopLine;
+  end;
+  with LButton1 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton2;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+      BorderSpacing.Left := 8;
+    Caption := MSG44;
+    Cancel := True;
+    ModalResult := mrCancel;
+    Parent := Form;
+    TabOrder := 2;
+  end;
+  with LButton2 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel1;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG70;
+    ModalResult := mrOk;
+    Parent := Form;
+    TabOrder := 1;
+  end;
+  if Form.ShowModal = mrOk then
+  begin
+    with Form do
+      menucmd := COMMANDS[35] + ' dev' + inttostr(LSpinEdit1.Value);
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+  end;
+  FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'varmon' with DIALOG
@@ -3501,6 +3637,11 @@ begin
     ComboBox1.Text := '';
     if menucmd = COMMANDS[1] then Form1.Close else parsingcommands(menucmd);
   end;
+end;
+
+// FormKeyPress event
+procedure TForm1.FormKeyPress(Sender: TObject; var Key: char);
+begin
 end;
 
 // OnCreate event

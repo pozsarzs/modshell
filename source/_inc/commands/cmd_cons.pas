@@ -45,11 +45,26 @@ begin
   end;
 end;
 
+// CLEAR ALL VARIABLES AND SET PREDEFINED ONES
+procedure clearallconstants;
+var
+  i: byte;
+begin
+  for i := 0 to VARBUFFSIZE-1 do
+    if vars[i].vreadonly = true then
+    begin
+      vars[i].vname := '';
+      vars[i].vvalue := '';
+      vars[i].vreadonly := false;
+      vars[i].vmonitored := false;
+    end;
+  setdefaultconstants;
+end;
+
 // IF S IS A CONSTANT, IT RETURNS theirs number
 function intisitconstant(s: string): integer;
 var
   i: integer;
-  
 begin
   result := 0;
   if (s[1] = #36) then
@@ -65,7 +80,6 @@ end;
 function boolisitconstant(s: string): boolean;
 var
   i: integer;
-  
 begin
   result := false;
   if (s[1] = #36) then
@@ -81,7 +95,6 @@ end;
 function isitconstant(s: string): string;
 var
   i: integer;
-  
 begin
   result := '';
   if (s[1] = #36) then
@@ -98,17 +111,18 @@ function cmd_const(p1, p2: string): byte;
 var
   b, bb: byte;
   l: byte;
-  line: byte;
-  s: string;
+  {$IFNDEF X} line: byte; {$ENDIF}
+  {$IFDEF X} s: string; {$ENDIF}
   s1, s2: string;      // parameters in other type
   valid: boolean = true;
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    line := 0;
+    {$IFNDEF X}
+      line := 0;
+    {$ENDIF}
     for l := 0 to VARBUFFSIZE-1 do
       if (length(vars[l].vname) > 0) and vars[l].vreadonly  then
       begin
@@ -127,7 +141,7 @@ begin
         {$ELSE}
           s := '$' + uppercase(vars[l].vname);
           for b := 1 to 28 - length(s) do s := s + ' ';
-          s := s + '$' + vars[l].vvalue;
+          s := s + vars[l].vvalue;
           Form1.Memo1.Lines.Add(s);
         {$ENDIF}
       end;        

@@ -24,7 +24,7 @@ var
   b, bb: byte;
   valid: boolean;
   buffer: array[0..COMMARRSIZE + 5] of string;
-  line: byte;
+  {$IFNDEF X} line: byte; {$ENDIF}
   s1: string; // parameters in other type
 
   // SHORTING CONTENT OF BUFFER
@@ -157,7 +157,9 @@ begin
     end;
     shorting;
     buffer[COMMARRSIZE] := MSG24;
-    line := 0;
+    {$IFNDEF X}
+      line := 0;
+    {$ENDIF}
     for b := COMMARRSIZE downto 0 do
     begin
       {$IFNDEF X}

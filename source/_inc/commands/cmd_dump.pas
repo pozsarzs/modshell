@@ -21,10 +21,12 @@
 // COMMAND 'DUMP'
 function cmd_dump(p1, p2: string): byte;
 var
-  b, bb, line, column: byte;
-  c: char;
+  b, line, column: byte;
+  {$IFDEF X} bb: byte; {$ENDIF}
+  {$IFNDEF X} c: char; {$ENDIF}
   i2: integer = 0; // parameter in other type
-  s, ss: string;
+  s: string;
+  {$IFDEF X} ss: string; {$ENDIF}
   s2: string = ''; // parameter in other type
   rt: byte; // register type
   valid: boolean = false;

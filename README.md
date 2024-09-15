@@ -90,6 +90,9 @@ Dump input registers
 Set device dialog  
 ![set device dialog](document/picture/xmodshell-setdev.png)
 
+Script editor  
+![set device dialog](document/picture/xmodshell-edit.png)
+
 #### 2. Used external libraries
 
  - _Convert - Bin/Oct/Dec/Hex number converter_  
@@ -169,7 +172,13 @@ The script on the disc can be loaded into the already running program and
 started manually.
 
 The loaded script can be edited with a line editor, saved to disk or
-deleted from the buffer.
+deleted from the buffer. The graphical version has a simple editor window
+with syntax highlighting instead of the line editor.
+
+Variables and constants defined before running the script will be deleted.
+It is also possible to observe the values of up to four variables during
+runtime and to keep the final values​of constants and variables created
+during runtime.
 
 **Serial connection**
 
@@ -290,9 +299,11 @@ selected.
 
 **Documentation and Help**
 
-Modshell has a minimal built-in help which you can access by typing help.
-Additionally, you can view the manual page from *nix shell (_man modshell_) or
-_modshell.txt_ on other systems.
+Modshell and XModShell has a minimal built-in help which you can access by
+typing help. Additionally, you can view the manual page from *nix shell
+(_man modshell_) or _modshell.txt_ on other systems.
+
+In the graphical version, the Online Wiki can be opened directly from the 'Help' menu.
 
 **Contributing**
 

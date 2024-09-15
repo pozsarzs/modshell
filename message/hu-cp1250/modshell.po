@@ -668,15 +668,15 @@ msgid "F9     query local echo status or enable/disable it"
 msgstr "F9     visszahang állapot lekérése/beállítása"
 
 #: modshell:des39
-msgid "       load Modshell script from file"
-msgstr "       Modshell szkript betöltése fájlból"
+msgid "       load ModShell script from file"
+msgstr "       ModShell szkript betöltése fájlból"
 
 #: modshell:des40
-msgid "F12    run loaded Modshell script"
+msgid "F12    run loaded ModShell script"
 msgstr "F12    betöltött ModShell szkript futattása"
 
 #: modshell:des41
-msgid "F11    list loaded Modshell script"
+msgid "F11    list loaded ModShell script"
 msgstr "F11    betöltött ModShell szkript listázása"
 
 #: modshell:des42
@@ -1138,8 +1138,8 @@ msgid "loadscr [$]PATH_AND_FILENAME"
 msgstr "loadscr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg40
-msgid "run [-s]"
-msgstr "run [-s]"
+msgid "run [-h] [-s]"
+msgstr "run [-h] [-s]"
 
 #: modshell:usg41
 msgid "list"

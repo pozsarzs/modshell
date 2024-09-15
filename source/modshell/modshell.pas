@@ -44,13 +44,15 @@ uses
 
 {$I resstrng.pas}
 
-function cmd_run(p1: string): byte; forward;
 function boolisitconstant(s: string): boolean; forward;
 function boolisitvariable(s: string): boolean; forward;
+function cmd_run(p1, p2: string): byte; forward;
 function intisitconstant(s: string): integer; forward;
 function intisitvariable(s: string): integer; forward;
 function isitconstant(s: string): string; forward;
 function isitvariable(s: string): string; forward;
+procedure clearallconstants; forward;
+procedure clearallvariables; forward;
 procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
@@ -246,7 +248,7 @@ procedure fullscreencommandline;
 begin
   window(1, 1, termwidth, termheight);
   textbackground(lightgray); textcolor(black); clrscr;
-  xywrite(1, 1, true, ' '+PRGNAME + ' v' + PRGVERSION);
+  xywrite(1, 1, true, ' ' + PRGNAME + ' v' + PRGVERSION);
   xywrite((termwidth div 2) - (length(MSG02) div 2), 1, false, MSG02);
   gotoxy(2,termheight); ewrite(black, red, MSG01);
   window(1, 2, termwidth, termheight - 1);
@@ -288,7 +290,7 @@ end;
 begin
   // DETECT LANGUAGE
   lang := getlang;
-  translatemessages(LANG,BASENAME,'.mo');
+  translatemessages(LANG, BASENAME, '.mo');
   // CHECK SIZE OF TERMINAL
   if not terminalsize(MINTERMX, MINTERMY) then quit(1, false, ERR99);
   randomize;
@@ -312,13 +314,13 @@ begin
       0: help(true);
     end;
   end;
-  loadconfiguration(BASENAME,'.ini');
+  loadconfiguration(BASENAME, '.ini');
   setdefaultconstants;
   case appmode of
     0: simplecommandline;
     3: fullscreencommandline;
     4: interpreter(paramstr(2));
   end;
-  saveconfiguration(BASENAME,'.ini');
+  saveconfiguration(BASENAME, '.ini');
   quit(0, false, '');
 end.

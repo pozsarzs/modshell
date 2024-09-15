@@ -19,11 +19,24 @@
   var NAME [[$]VALUE]
 }
 
+// CLEAR ALL VARIABLES
+procedure clearallvariables;
+var
+  i: byte;
+begin
+  for i := 0 to VARBUFFSIZE-1 do
+    if vars[i].vreadonly = false then
+    begin
+      vars[i].vname := '';
+      vars[i].vvalue := '';
+      vars[i].vmonitored := false;
+    end;
+end;
+
 // IF S IS A VARIABLE, IT RETURNS theirs number
 function intisitvariable(s: string): integer;
 var
   i: integer;
-
 begin
   result := 0;
   if (s[1] = #36) then
@@ -70,17 +83,18 @@ function cmd_var(p1, p2: string): byte;
 var
   b, bb: byte;
   l: byte;
-  line: byte;
-  s: string;
+  {$IFNDEF X} line: integer; {$ENDIF}
+  {$IFDEF X} s: string; {$ENDIF}
   s1, s2: string;      // parameters in other type
   valid: boolean = true;
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    line := 0;
+    {$IFNDEF X}
+      line := 0;
+    {$ENDIF}
     for l := 0 to VARBUFFSIZE-1 do
       if (length(vars[l].vname) > 0) and not vars[l].vreadonly then
       begin
@@ -99,7 +113,7 @@ begin
         {$ELSE}
           s := '$' + vars[l].vname;
           for b := 1 to 28 - length(s) do s := s + ' ';
-          s := s + '$' + vars[l].vvalue;
+          s := s + vars[l].vvalue;
           Form1.Memo1.Lines.Add(s);
         {$ENDIF}
       end;        

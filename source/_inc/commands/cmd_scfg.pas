@@ -22,7 +22,7 @@
 function cmd_savecfg(p1: string): byte;
 var
   b, bb: byte;
-  c: char;
+  {$IFNDEF X} c: char; {$ENDIF}
   fpn, fp, fn, fx: string;
   ftd: file of tdevice;
   ftp: file of tprotocol;

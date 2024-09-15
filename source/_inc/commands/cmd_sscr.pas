@@ -21,7 +21,7 @@
 // COMMAND 'SAVESCR'
 function cmd_savescr(p1: string): byte;
 var
-  c: char;
+  {$IFNDEF X} c: char; {$ENDIF}
   line: integer;
   fpn, fp, fn: string;
   sf: textfile;

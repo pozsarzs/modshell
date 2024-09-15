@@ -15,7 +15,7 @@
 
 var
   {$IFNDEF GO32V2}
-    ser: tblockserial;
+    ser: TBlockSerial;
   {$ENDIF}
   // BUFFERS
   // registers

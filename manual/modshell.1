@@ -72,8 +72,13 @@ directory as console.log.
 On exit, the command line history, echo mode and colors are preserved.
 .SS Script operations
 The script on the disc can be loaded into the already running program and started
-manually. The loaded script can be edited with a line editor, saved to disk or
-deleted from the buffer.
+manually.The loaded script can be edited with a line editor, saved to disk or
+deleted from the buffer. The graphical version has a simple editor window
+with syntax highlighting instead of the line editor.
+Variables and constants defined before running the script will be deleted.
+It is also possible to observe the values of up to four variables during
+runtime and to keep the final values​of constants and variables created
+during runtime.
 .SS Serial console
 The program also provides the possibility to send and receive raw data
 via a serial port, and also includes a very simple serial console. The
@@ -483,10 +488,11 @@ Lists loaded script.
 \fBloadscr\fP \fI[$]PATH_AND_FILENAME\fP
 Loads ModShell scriptfile from disc.
 .TP
-\fBrun\fP \fI[-s]\fP
-Runs loaded script. \fI[-s]\fP parameter means
-step-by-step program execution.
-.TP
+\fBrun\fP \fI[-h]\fP \fI[-s]\fP
+Runs loaded script. When the \fI[-h]\fP parameter is specified, the values​of the
+variables and constants created by the script are preserved until the next run.
+\fI[-h]\fP parameter means step-by-step program execution.
+ .TP
 \fBsavescr\fP \fI[$]PATH_AND_FILENAME\fP
 Saves loaded script to disc.
 

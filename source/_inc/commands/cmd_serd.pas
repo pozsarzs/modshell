@@ -25,9 +25,10 @@ var
   c: char;
   i1: integer; // parameters other type
   s: string = '';
+  ss: string;
   s1: string; // parameters in other type
   valid: boolean = false;
-
+  wait: integer = 0;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
@@ -53,20 +54,33 @@ begin
     end;
   if not valid then
   begin
-    write(NUM1 + MSG05); // What is the 1st parameter?
-    writeln(' ' + PREFIX[0] + '[0-7]');
+    ss := NUM1 + MSG05; // What is the 1st parameter?
+    ss := ss + ' ' + PREFIX[0] + '[0-7]';
+    {$IFNDEF X}
+      writeln(ss); // Parameters required!
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ss);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   if not dev[i1].valid then
   begin
-    writeln(PREFIX[0], i1, MSG06);
+    {$IFNDEF X}
+      writeln(PREFIX[0], i1, MSG06);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   if not (dev[i1].devtype = 1) then
   begin
-    writeln(MSG24);
+    {$IFNDEF X}
+      writeln(MSG24);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG24);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -75,7 +89,11 @@ begin
   begin
     if not boolisitvariable(p2) then
     begin
-      writeln(ERR19 + p2);
+      {$IFNDEF X}
+        writeln(ERR19 + p2);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR19 + p2);
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -84,29 +102,57 @@ begin
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
-      writeln(MSG31);
+      {$IFNDEF X}
+        writeln(MSG31);
+      {$ENDIF}
+      ss := '';
       repeat
         if ser_canread then
         begin
+          wait := 0;
           b := ser_recvbyte;
-          textcolor(uconfig.colors[2]);
-          case uconfig.echo of
-            1: write(char(b));
-            2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
-          end;
-          textcolor(uconfig.colors[0]);
+          {$IFNDEF X}
+            textcolor(uconfig.colors[2]);
+            case uconfig.echo of
+              1: write(char(b));
+              2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+            end;
+            textcolor(uconfig.colors[0]);
+          {$ELSE}
+            case uconfig.echo of
+              1: ss := ss + char(b);
+              2: ss := ss + addsomezero(2, deztohex(inttostr(b))) + ' ';
+            end;
+          {$ENDIF}
           s := s + char(b);
-          if (uconfig.echo = 1) and (b = 13) then write(EOL);
-        end;
+          if (uconfig.echo = 1) and (b = 13) then
+          begin
+            {$IFNDEF X}
+              write(EOL);
+            {$ELSE}
+              Form1.Memo1.Lines.Add(ss);
+              ss := '';
+            {$ENDIF}
+          end;
+        end else
+          if wait < 65535 then inc(wait);
         if keypressed then c := readkey;
-      until (c = #27)  or (length(s) = 255);
-      writeln;
-      if length(p2) = 0 then writeln(s);
+      until (c = #27) or (length(s) = 255) or (wait = DEV_TIMEOUT);
+      {$IFNDEF X}
+        writeln;
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ss);
+      {$ENDIF}
+      if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
       if length(p2) > 0 then vars[intisitvariable(p1)].vvalue := s;
       ser_close;
     end else
     begin
-      writeln(ERR18, dev[i1].device);
+      {$IFNDEF X}
+        writeln(ERR18, dev[i1].device);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR18 + dev[i1].device);
+      {$ENDIF}
       result := 1;
     end;
 end;

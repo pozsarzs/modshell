@@ -21,7 +21,7 @@
 // COMMAND 'SAVECFG'
 function cmd_savereg(p1: string): byte;
 var
-  c: char;
+  {$IFNDEF X} c: char; {$ENDIF}
   i: integer;
   fpn, fp, fn, fx: string;
   ftb: file of boolean;

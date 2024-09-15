@@ -94,13 +94,15 @@ resourcestring
   MSG67 = 'to';
   MSG68 = 'number';
   MSG69 = '&Convert';
-  MSG70 = '&Read';
+  MSG70 = '&Start';
   MSG71 = 'New project name:';
   MSG72 = 'name';
   MSG73 = 'connenction';
   MSG74 = 'variable';
   MSG75 = 'message';
   MSG76 = '&Write';
+  MSG77 = '&Read';
+  MSG78 = 'Go on!';
   
 
 
@@ -194,9 +196,9 @@ resourcestring
   DES36='       read string from serial device';
   DES37='       write string to serial device';
   DES38='F9     query local echo status or enable/disable it';
-  DES39='       load Modshell script from file';
-  DES40='F12    run loaded Modshell script';
-  DES41='F11    list loaded Modshell script';
+  DES39='       load ModShell script from file';
+  DES40='F12    run loaded ModShell script';
+  DES41='F11    list loaded ModShell script';
   DES42='       round real number';
   DES43='       cosine function';
   DES44='       cotangent function';
@@ -322,7 +324,7 @@ resourcestring
         '  - The ''?'' value can be 0-7.';
   USG38='echo [off|on|hex]';
   USG39='loadscr [$]PATH_AND_FILENAME';
-  USG40='run [-s]';
+  USG40='run [-h] [-s]';
   USG41='list';
   USG42='round $TARGET [$]VALUE [$]DEC_PLACES';
   USG43='cos $TARGET [$]VALUE';

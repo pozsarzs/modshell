@@ -1,10 +1,11 @@
 Installation from source package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-FreePascal compiler is required to compile the program. On DOS and Windows
-operating systems, FreePascal's BIN directory contains the compiler and
-additional necessary utilities (make, rstconv), so this directory must be
-included in the PATH.
+Lazarus LCL units are required to compile XModShell and FreePascal compiler
+is required to compile both of them programs.
+On DOS and Windows operating systems, FreePascal's BIN directory contains
+the compiler and additional necessary utilities (make, rstconv), so this
+directory must be included in the PATH.
 
 1. On Unix-like systems
 -----------------------

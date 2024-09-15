@@ -21,8 +21,8 @@
 // COMMAND 'LIST'
 function cmd_list: byte;
 var
-  y, line: integer;
-
+  line: integer;
+  {$IFNDEF X} y: integer; {$ENDIF}
 begin
   result := 0;
   if not scriptisloaded then
@@ -35,7 +35,9 @@ begin
     result := 1;
     exit;
   end;
-  y := 0;
+  {$IFNDEF X} 
+    y := 0;
+  {$ENDIF}
   for line := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[line]) > 0 then
     begin

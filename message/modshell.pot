@@ -329,6 +329,18 @@ msgstr ""
 msgid "message"
 msgstr ""
 
+#: modshell:msg76
+msgid "&Write"
+msgstr ""
+
+#: modshell:msg77
+msgid "&Read"
+msgstr ""
+
+#: modshell:msg78
+msgid "Go on!"
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""
@@ -670,15 +682,15 @@ msgid "F9     query local echo status or enable/disable it"
 msgstr ""
 
 #: modshell:des39
-msgid "       load Modshell script from file"
+msgid "       load ModShell script from file"
 msgstr ""
 
 #: modshell:des40
-msgid "F12    run loaded Modshell script"
+msgid "F12    run loaded ModShell script"
 msgstr ""
 
 #: modshell:des41
-msgid "F11    list loaded Modshell script"
+msgid "F11    list loaded ModShell script"
 msgstr ""
 
 #: modshell:des42
@@ -1094,7 +1106,7 @@ msgid "loadscr [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg40
-msgid "run [-s]"
+msgid "run [-h] [-s]"
 msgstr ""
 
 #: modshell:usg41

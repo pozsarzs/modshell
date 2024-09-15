@@ -668,15 +668,15 @@ msgid "F9     query local echo status or enable/disable it"
 msgstr "F9     visszahang †llapot lekÇrÇse/be†ll°t†sa"
 
 #: modshell:des39
-msgid "       load Modshell script from file"
-msgstr "       Modshell szkript betîltÇse f†jlb¢l"
+msgid "       load ModShell script from file"
+msgstr "       ModShell szkript betîltÇse f†jlb¢l"
 
 #: modshell:des40
-msgid "F12    run loaded Modshell script"
+msgid "F12    run loaded ModShell script"
 msgstr "F12    betîltîtt ModShell szkript futatt†sa"
 
 #: modshell:des41
-msgid "F11    list loaded Modshell script"
+msgid "F11    list loaded ModShell script"
 msgstr "F11    betîltîtt ModShell szkript list†z†sa"
 
 #: modshell:des42
@@ -1138,8 +1138,8 @@ msgid "loadscr [$]PATH_AND_FILENAME"
 msgstr "loadscr [$]ELêRêSI_ÈT_êS_FµJLNêV"
 
 #: modshell:usg40
-msgid "run [-s]"
-msgstr "run [-s]"
+msgid "run [-h] [-s]"
+msgstr "run [-h] [-s]"
 
 #: modshell:usg41
 msgid "list"

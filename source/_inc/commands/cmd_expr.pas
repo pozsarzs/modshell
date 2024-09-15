@@ -22,7 +22,7 @@
 function cmd_expreg(p1, p2, p3, p4: string): byte;
 var
   // appendfile: boolean = false;
-  c: char;
+  {$IFNDEF X} c: char; {$ENDIF}
   i: integer;
   i3, i4: integer; // parameters in other type
   ini: tinifile;

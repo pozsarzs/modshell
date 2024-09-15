@@ -12,8 +12,6 @@ removetargetdir=0
 sourcedir=_lib/$(architecture)-$(os)
 targetdir=$(bindir)
 filemode=$(binmode)
-
-#projectdirs="modshell"
 projectdirs=modshell xmodshell
 
 all:
@@ -23,7 +21,9 @@ all:
 	  then \
 	    cd $$x; \
 	    if [ -f $$x.pas ]; then $(fpc) $(fpcargs) $$x.pas; fi; \
-	    if [ -f $$x.lpr ]; then $(fpc) $(fpcargs) $$x.lpr; fi; \
+            if [ $(lclunits) = yes ]; then \
+              if [ -f $$x.lpr ]; then $(fpc) $(fpcargs) $$x.lpr; fi; \
+            fi; \
 	    cd ..; \
 	    echo ""; \
 	  fi; \

@@ -37,8 +37,6 @@ const
     ('-v', '--version', 'show version and build information')
     );
 
-{$I const.pas}
-
 {$R *.res}
 
 procedure help(mode: boolean);

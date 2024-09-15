@@ -20,6 +20,7 @@ var
   c: char;
   pdu, adu, tgm: string;
   recvbyte, recvcount: byte;
+  s: string;
   wait: integer = 0;
 const
   FUNCTION_CODE = $01;
@@ -37,22 +38,34 @@ begin
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
-    writeln(MSG31);
+    {$IFNDEF X}
+      writeln(MSG31);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG31);
+    {$ENDIF}
     // TRANSMIT REQUEST
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
-      textcolor(uconfig.colors[3]);
+      {$IFNDEF X}
+        textcolor(uconfig.colors[3]);
+      {$ENDIF}
+      s := '';
       case uconfig.echo of
-        1: write(tgm);
+        1: {$IFNDEF X} write(tgm); {$ELSE} Form1.Memo1.Lines.Add(tgm); {$ENDIF}
         2: begin
-             for b := 1 to length(tgm) do
-               write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
-             writeln;
+             for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
+             {$IFNDEF X}
+               writeln(s);
+             {$ELSE}
+               Form1.Memo1.Lines.Add(s);
+             {$ENDIF}
            end;
       end;
-      textcolor(uconfig.colors[0]);
-    end else writeln(ERR27);
+      {$IFNDEF X}
+        textcolor(uconfig.colors[0]);
+      {$ENDIF}
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat
@@ -61,12 +74,16 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        textcolor(uconfig.colors[2]);
+          {$IFNDEF X}
+            textcolor(uconfig.colors[2]);
+          {$ENDIF}
         case uconfig.echo of
           1: write(char(b));
           2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
         end;
-        textcolor(uconfig.colors[0]);
+          {$IFNDEF X}
+            textcolor(uconfig.colors[0]);
+          {$ENDIF}
         tgm := tgm + char(b);
       end else
         if wait < 65535 then inc(wait);

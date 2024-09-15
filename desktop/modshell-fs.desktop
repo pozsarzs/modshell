@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=ModShell (fullscreen)
 Name[hu]=ModShell (teljes képernyős)
 Exec=modshell --fullscreen
@@ -7,6 +6,6 @@ Icon=modshell
 GenericName=Command-driven scriptable Modbus utility
 GenericName[hu]=Parancsvezérelt szkriptelhető Modbus segédprogram
 Type=Application
-Categories=Network;Utility;
+Categories=Science
 StartupNotify=true
 Terminal=true

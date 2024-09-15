@@ -144,7 +144,7 @@ begin
                // echo [off|on|hex|swap]
            39: exitcode := cmd_loadscr(splitted[1]);
                // loadscr [$]PATH_AND_FILENAME
-           40: exitcode := cmd_run(splitted[1]);
+           40: exitcode := cmd_run(splitted[1], splitted[2]);
                // run [-s]
            41: exitcode := cmd_list;
                // list
