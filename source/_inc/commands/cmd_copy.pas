@@ -2,7 +2,7 @@
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_copy.pas                                                             | }
-{ | command 'copy'                                                           | }
+{ | command 'copyreg'                                                        | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -13,14 +13,14 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0   p1   p2        p3   p4   p5         p6
-  ---------------------------------------------------
-  copy con? di|coil   con? coil [$]ADDRESS [[$]COUNT]
-  copy con? ireg|hreg con? hreg [$]ADDRESS [[$]COUNT]
+  p0      p1   p2        p3   p4   p5         p6
+  ------------------------------------------------------
+  copyreg con? di|coil   con? coil [$]ADDRESS [[$]COUNT]
+  copyreg con? ireg|hreg con? hreg [$]ADDRESS [[$]COUNT]
 }
 
-// COMMAND 'COPY'
-function cmd_copy(p1, p2, p3, p4, p5, p6: string): byte;
+// COMMAND 'COPYREG'
+function cmd_copyreg(p1, p2, p3, p4, p5, p6: string): byte;
 var
   i1, i3, i5, i6: integer; // parameters in other type
   rt: byte; // register type

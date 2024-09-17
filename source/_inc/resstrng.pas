@@ -103,12 +103,6 @@ resourcestring
   MSG76 = '&Write';
   MSG77 = '&Read';
   MSG78 = 'Go on!';
-  
-
-
-
-
-
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -155,6 +149,15 @@ resourcestring
   ERR36 = 'Cannot write log record to ';
   ERR37 = 'Cannot save script to ';
   ERR38 = 'Cannot run default webbrowser!';
+  ERR39 = 'Cannot change directory!';
+  ERR40 = 'Cannot make directory!';
+  ERR41 = 'Cannot remove directory!';
+  ERR42 = 'Cannot erase file!';
+  ERR43 = 'Cannot type file!';
+  ERR44 = 'Cannot copy file!';
+  ERR45 = 'Cannot move file!';
+  ERR46 = 'Cannot rename file!';
+  ERR47 = 'Cannot change drive!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
@@ -251,6 +254,14 @@ resourcestring
   DES91='       edit loaded script with line editor';
   DES92='       erase script from buffer';
   DES93='       save loaded script to disc';
+  DES94='       change directory or get name';
+  DES95='       make directory';
+  DES96='       remove directory';
+  DES98='       remove file';
+  DES99='       type file';
+  DES97='       copy file';
+  DES100='       move file';
+  DES101='       rename file';
   // COMMAND USAGE
   USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -391,3 +402,11 @@ resourcestring
   USG91='edit [LINE_NUMBER]';
   USG92='erase';
   USG93='savescr [$]PATH_AND_FILENAME';
+  USG94='chdir [[$]PATH_AND_DIRECTORYNAME]';
+  USG95='mkdir [$]PATH_AND_DIRECTORYNAME';
+  USG96='rmdir [$]PATH_AND_DIRECTORYNAME';
+  USG97='erase [$]PATH_AND_FILENAME';
+  USG98='type [$]PATH_AND_FILENAME';
+  USG99='copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME';
+  USG100='move [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME';
+  USG101='rename [$]PATH_AND_FILENAME [$]NEW_FILENAME';

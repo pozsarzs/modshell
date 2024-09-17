@@ -521,6 +521,42 @@ msgstr ""
 msgid "Cannot run default webbrowser!"
 msgstr ""
 
+#: modshell:err39
+msgid "Cannot change directory!"
+msgstr ""
+
+#: modshell:err40
+msgid "Cannot make directory!"
+msgstr ""
+
+#: modshell:err41
+msgid "Cannot remove directory!"
+msgstr ""
+
+#: modshell:err42
+msgid "Cannot erase file!"
+msgstr ""
+
+#: modshell:err43
+msgid "Cannot type file!"
+msgstr ""
+
+#: modshell:err44
+msgid "Cannot copy file!"
+msgstr ""
+
+#: modshell:err45
+msgid "Cannot move file!"
+msgstr ""
+
+#: modshell:err46
+msgid "Cannot rename file!"
+msgstr ""
+
+#: modshell:err47
+msgid "Cannot change drive!"
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -899,6 +935,38 @@ msgstr ""
 
 #: modshell:des93
 msgid "       save loaded script to disc"
+msgstr ""
+
+#: modshell:des94
+msgid "       change directory or get name"
+msgstr ""
+
+#: modshell:des95
+msgid "       make directory"
+msgstr ""
+
+#: modshell:des96
+msgid "       remove directory"
+msgstr ""
+
+#: modshell:des98
+msgid "       remove file"
+msgstr ""
+
+#: modshell:des99
+msgid "       type file"
+msgstr ""
+
+#: modshell:des97
+msgid "       copy file"
+msgstr ""
+
+#: modshell:des100
+msgid "       move file"
+msgstr ""
+
+#: modshell:des101
+msgid "       rename file"
 msgstr ""
 
 #: modshell:usg00
@@ -1338,5 +1406,37 @@ msgstr ""
 
 #: modshell:usg93
 msgid "savescr [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg94
+msgid "chdir [[$]PATH_AND_DIRECTORYNAME]"
+msgstr ""
+
+#: modshell:usg95
+msgid "mkdir [$]PATH_AND_DIRECTORYNAME"
+msgstr ""
+
+#: modshell:usg96
+msgid "rmdir [$]PATH_AND_DIRECTORYNAME"
+msgstr ""
+
+#: modshell:usg97
+msgid "erase [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg98
+msgid "type [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg99
+msgid "copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg100
+msgid "move [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg101
+msgid "rename [$]PATH_AND_FILENAME [$]NEW_FILENAME"
 msgstr ""
 

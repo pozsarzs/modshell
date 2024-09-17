@@ -53,7 +53,7 @@ begin
     {$ELSE}
       Form1.Memo1.Lines.Add(MSG03);
     {$ENDIF}
-    for b := 0 to COMMARRSIZE - 1 do
+    for b := 0 to COMMARRSIZE - 2 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
       for bb := 0 to 6 - length(COMMANDS[b]) + 2 do
@@ -153,6 +153,14 @@ begin
         91: buffer[b] := buffer[b] + DES91;
         92: buffer[b] := buffer[b] + DES92;
         93: buffer[b] := buffer[b] + DES93;
+        94: buffer[b] := buffer[b] + DES94;
+        95: buffer[b] := buffer[b] + DES95;
+        96: buffer[b] := buffer[b] + DES96;
+        97: buffer[b] := buffer[b] + DES97;
+        98: buffer[b] := buffer[b] + DES98;
+        99: buffer[b] := buffer[b] + DES99;
+       100: buffer[b] := buffer[b] + DES100;
+       101: buffer[b] := buffer[b] + DES101;
       end;
     end;
     shorting;
@@ -160,7 +168,7 @@ begin
     {$IFNDEF X}
       line := 0;
     {$ENDIF}
-    for b := COMMARRSIZE downto 0 do
+    for b := COMMARRSIZE - 1 downto 0 do
     begin
       {$IFNDEF X}
         writeln(buffer[b]);
@@ -181,7 +189,7 @@ begin
     s1 := isitvariable(p1);
     if length(s1) = 0 then s1 := p1;
     valid := false;
-    for b := 0 to COMMARRSIZE - 1 do
+    for b := 0 to COMMARRSIZE - 2 do
       if s1 = COMMANDS[b] then
       begin
         valid := true;
@@ -296,6 +304,14 @@ begin
           91: writeln(USG91);
           92: writeln(USG92);
           93: writeln(USG93);
+          94: writeln(USG94);
+          95: writeln(USG95);
+          96: writeln(USG96);
+          97: writeln(USG97);
+          98: writeln(USG98);
+          99: writeln(USG99);
+         100: writeln(USG100);
+         101: writeln(USG101);
         end;
       {$ELSE}
         with Form1 do
@@ -396,6 +412,14 @@ begin
           91: Memo1.Lines.Add('   ' + USG91);
           92: Memo1.Lines.Add('   ' + USG92);
           93: Memo1.Lines.Add('   ' + USG93);
+          94: Memo1.Lines.Add('   ' + USG94);
+          95: Memo1.Lines.Add('   ' + USG95);
+          96: Memo1.Lines.Add('   ' + USG96);
+          97: Memo1.Lines.Add('   ' + USG97);
+          98: Memo1.Lines.Add('   ' + USG98);
+          99: Memo1.Lines.Add('   ' + USG99);
+         100: Memo1.Lines.Add('   ' + USG100);
+         101: Memo1.Lines.Add('   ' + USG101);
         end;
       end;
      {$ENDIF}

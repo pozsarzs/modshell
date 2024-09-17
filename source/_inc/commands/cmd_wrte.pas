@@ -2,7 +2,7 @@
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_wrte.pas                                                             | }
-{ | command 'write'                                                          | }
+{ | command 'writereg'                                                       | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -13,13 +13,13 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0    p1   p2        p3         p4
-  ------------------------------------------
-  write con? coil|hreg [$]ADDRESS [[$]COUNT]
+  p0       p1   p2        p3         p4
+  ---------------------------------------------
+  writereg con? coil|hreg [$]ADDRESS [[$]COUNT]
 }
 
-// COMMAND 'WRITE'
-function cmd_write(p1, p2, p3, p4: string): byte;
+// COMMAND 'WRITEREG'
+function cmd_writereg(p1, p2, p3, p4: string): byte;
 var
   i1, i3, i4: integer; // parameters other type
   rt: byte = 1; // register type

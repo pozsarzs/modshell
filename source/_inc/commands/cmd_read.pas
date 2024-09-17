@@ -2,7 +2,7 @@
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_read.pas                                                             | }
-{ | command 'read'                                                           | }
+{ | command 'readreg'                                                        | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -13,13 +13,13 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0   p1   p2                  p3         p4
-  ---------------------------------------------------
-  read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
+  p0      p1   p2                  p3         p4
+  ------------------------------------------------------
+  readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
 }
 
-//COMMAND 'READ'
-function cmd_read(p1, p2, p3, p4: string): byte;
+//COMMAND 'READREG'
+function cmd_readreg(p1, p2, p3, p4: string): byte;
 var
   i1, i3, i4: integer; // parameters other type
   rt: byte; // register type

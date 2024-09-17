@@ -37,6 +37,10 @@ var
   conn: array[0..7] of tconnection;
   // OTHERS
   b: byte;
+  {$IFNDEF UNIX}
+    actualdrive: char;
+  {$ENDIF}
+  actualpath: string;
   appmode: byte;
   exitcode: byte;
   lang: string;

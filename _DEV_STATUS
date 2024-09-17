@@ -2,6 +2,7 @@ Things that still need work:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - menu:         Operation/Variable monitor
 - include file: cmd_secn.pas
+- include file: cmd_sys.pas
 - unit file:    mbascii.pas                              !
 - unit file:    mbrtu.pas
 - message file: modshell.pot
@@ -10,3 +11,5 @@ Things that still need work:
 - message file: xmodshell.pot
 - message file: xmodshell.po
 - message file: xmodshell.mo
+- manual page:  modshell.1
+- wiki

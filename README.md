@@ -5,7 +5,7 @@
 > The next release will be with the following changes:
 > - New source code directory structure,
 > - bug fixes,
-> - 12 new commands in system category (total: 106),
+> - 8 new commands in system category (total: 102),
 > - GUI (FreeBSD, Linux and Windows) and
 > - Script syntax highlighting file for Midnight Commander.
 > 
@@ -50,7 +50,7 @@ Project webpage: <https://pozsarzs.github.io/modshell>
 |running modes           |command line, full-screen or interpreter                                                    |
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                                                       |
 |variables               |max. 128 variables or constants (stored as string)                                          |
-|built-in commands       |106 commands in 10 categories                                                               |
+|built-in commands       |102 commands in 10 categories                                                               |
 |load from file          |registers, script, settings                                                                 |
 |save to file            |command history, console traffic, registers, communication settings, user log with timestamp|
 |auto save to file       |general settings and console traffic                                                        |
@@ -218,14 +218,14 @@ selected.
 |sqrt    |arithmetic    |        |square root                                                      |
 |sub     |arithmetic    |        |substraction                                                     |
 |tan     |arithmetic    |        |tangent function                                                 |
-|copy    |communication |        |copy one or more remote registers between two connections        |
+|copyreg |communication |        |copy one or more remote registers between two connections        |
 |mbgw    |communication |        |start internal Modbus gateway                                    |
 |mbsrv   |communication |        |start internal Modbus slave/server                               |
-|read    |communication |ALT-R   |read one or more remote registers                                |
+|readreg |communication |ALT-R   |read one or more remote registers                                |
 |sercons |communication |F7      |serial console                                                   |
 |serread |communication |        |read a string from serial device                                 |
 |serwrite|communication |        |write a string from serial device                                |
-|write   |communication |ALT-W   |write data to one or more remote registers                       |
+|writereg|communication |ALT-W   |write data to one or more remote registers                       |
 |get     |configuration |ALT-G   |get setting of a device, protocol, connection or get project name|
 |reset   |configuration |ALT-T   |reset device, protocol or connection or reset project name       |
 |set     |configuration |ALT-S   |set device, protocol or connection or set project name           |
@@ -268,7 +268,7 @@ selected.
 |dump    |register      |F6      |dump all registers in binary/hexadecimal format to a table       |
 |let     |register      |ALT-L   |set value of a variable or register                              |
 |edit    |script        |        |edit loaded script with line editor                              |
-|erase   |script        |        |erase script from buffer                                         |
+|erasescr|script        |        |erase script from buffer                                         |
 |list    |script        |F11     |list loaded script                                               |
 |loadscr |script        |        |load ModShell scriptfile from disc                               |
 |run     |script        |F12     |run loaded script                                                |
@@ -285,19 +285,16 @@ selected.
 |strins  |string        |        |insert element into string                                       |
 |stritem |string        |        |specified element of the string                                  |
 |strrepl |string        |        |replace element in the string                                    |
-|upcase  |string        |        |conversion to uppercase                                          |
-|cd      |system        |        |change or get actual directory                                   |
+|upcase  |string        |        |conversion to uppercase                                          | 
 |chdir   |system        |        |change actual directory                                          |
-|del     |system        |        |remove file                                                      |
-|dir     |system        |        |list files in actual directory                                   |
-|ls      |system        |        |list files in actual directory                                   |
-|md      |system        |        |make directory                                                   |
+|copy    |system        |        |copy file                                                        |
+|erase   |system        |        |remove file                                                      |
 |mkdir   |system        |        |make directory                                                   |
-|pwd     |system        |        |get actual directory                                             |
-|rd      |system        |        |remove empty directory                                           |
-|rmdir   |system        |        |remove empty directory                                           |
-|rm      |system        |        |remove file                                                      |
-|x:      |system        |        |change drive (only on DOS and Windows)                           |
+|move    |system        |        |move file                                                        |
+|rename  |system        |        |rename file                                                      |
+|rmdir   |system        |        |remove directory                                                 |
+|type    |system        |        |type file                                                        |
+|x:      |system        |        |change drive (DOS/Windows)                                       |
 
 (Commands with function keys (F?) are executed immediately, modifier keys
 (ALT-?) only make typing easier.)

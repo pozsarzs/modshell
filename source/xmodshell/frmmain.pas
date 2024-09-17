@@ -253,8 +253,8 @@ procedure version(h: boolean); forward;
 {$I cmd_colr.pas}
 {$I cmd_cons.pas}
 {$I cmd_conv.pas}
-{$I cmd_cron.pas}
 {$I cmd_copy.pas}
+{$I cmd_cron.pas}
 {$I cmd_date.pas}
 {$I cmd_dump.pas}
 {$I cmd_echo.pas}
@@ -265,6 +265,7 @@ procedure version(h: boolean); forward;
 {$I cmd_for.pas}
 {$I cmd_get.pas}
 {$I cmd_goto.pas}
+{$I cmd_gw.pas}
 {$I cmd_help.pas}
 {$I cmd_if.pas}
 {$I cmd_impr.pas}
@@ -276,26 +277,26 @@ procedure version(h: boolean); forward;
 {$I cmd_lreg.pas}
 {$I cmd_lscr.pas}
 {$I cmd_math.pas}
-{$I cmd_gw.pas}
-{$I cmd_srv.pas}
 {$I cmd_paus.pas}
-{$I cmd_prop.pas}
 {$I cmd_prnt.pas}
+{$I cmd_prop.pas}
 {$I cmd_read.pas}
 {$I cmd_rst.pas}
 {$I cmd_run.pas}
 {$I cmd_scfg.pas}
-{$I cmd_str.pas}
 {$I cmd_secn.pas}
 {$I cmd_serd.pas}
+{$I cmd_set.pas}
 {$I cmd_sewr.pas}
 {$I cmd_sreg.pas}
+{$I cmd_srv.pas}
 {$I cmd_sscr.pas}
-{$I cmd_set.pas}
+{$I cmd_str.pas}
+{$I cmd_sys.pas}
 {$I cmd_var.pas}
 {$I cmd_vrmn.pas}
-{$I cmd_wrte.pas}
 {$I cmd_whvr.pas}
+{$I cmd_wrte.pas}
 
 {$I parsing.pas}
 {$I fllprmpt.pas}
@@ -2192,7 +2193,7 @@ begin
   FreeAndNil(Form);
 end;
 
-// RUN COMMAND 'erase'
+// RUN COMMAND 'erasescr'
 procedure TForm1.MenuItem29Click(Sender: TObject);
 begin
   menucmd := COMMANDS[92];
@@ -2537,7 +2538,7 @@ procedure TForm1.MenuItem53Click(Sender: TObject);
     FreeAndNil(Form);
 end;
 
-// RUN COMMAND 'read' with DIALOG
+// RUN COMMAND 'readreg' with DIALOG
 procedure TForm1.MenuItem51Click(Sender: TObject);
   var
     Form: TForm;
@@ -2739,7 +2740,7 @@ procedure TForm1.MenuItem51Click(Sender: TObject);
     FreeAndNil(Form);
 end;
 
-// RUN COMMAND 'write' with DIALOG
+// RUN COMMAND 'writereg' with DIALOG
 procedure TForm1.MenuItem50Click(Sender: TObject);
 var
   Form: TForm;

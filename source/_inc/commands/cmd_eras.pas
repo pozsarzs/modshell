@@ -2,7 +2,7 @@
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_eras.pas                                                             | }
-{ | command 'erase'                                                          | }
+{ | command 'erasescr'                                                       | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -14,12 +14,12 @@
 }
 {
   p0
-  -----
-  erase
+  --------
+  erasescr
 }
 
-// COMMAND 'ERASE'
-function cmd_erase: byte;
+// COMMAND 'ERASESCR'
+function cmd_erasescr: byte;
 var
   line: integer;
 

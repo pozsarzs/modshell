@@ -18,7 +18,7 @@
   whatever [parameter]
 }
 
-// COMMAND 'WHATEVER'
+// COMMAND 'WHATEVER' - FOR MAKE NEW COMMAND ONLY
 function cmd_whatever(p1, p2, p3, p4, p5, p6: string): byte;
 begin
 end;

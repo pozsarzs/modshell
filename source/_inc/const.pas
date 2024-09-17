@@ -21,7 +21,7 @@ const
   PRGCOPYRIGHT = '(C) 2023-2024 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
-  COMMARRSIZE = 95;
+  COMMARRSIZE = 103;
   SCRBUFFSIZE = 1024;
   SHOWTIMEDELAY = 25;
   VARBUFFSIZE = 128;
@@ -46,19 +46,21 @@ const
   );
   // COMMANDS AND PARAMETERS
   COMMANDS: array[0..COMMARRSIZE - 1] of string =
-    ('copy',  'exit',  'get',    'help',   'let',    'print',  'read',   'reset',   'set',    'date',
-     'ver',   'write', 'cls',    'savecfg','loadcfg','expreg', 'exphis', 'conv',    'savereg','loadreg',
-     'var',   'color', 'impreg', 'and',    'or',     'not',    'xor',    'shl',     'shr',    'add',
-     'sub',   'mul',   'div',    'dump',   'pause',  'sercons','serread','serwrite','echo',   'loadscr',
-     'run',   'list',  'round',  'cos',    'cotan',  'dec',    'exp',    'idiv',    'imod',   'inc',
-     'ln',    'mulinv','odd',    'rnd',    'tan',    'sin',    'sqr',    'sqrt',    'roll',   'rolr',
-     'upcase','length','lowcase','stritem','chr',    'ord',    'const',  'bit',     'pow',    'goto',
-     'if',    'for',   'label',  'mbsrv',  'mbgw',   'inrange','mklrc',  'mkcrc',   'pow2',   'ascii',
-     'beep',  'avg',   'prop',   'concat', 'strdel', 'strfind','strins', 'strrepl', 'varmon', 'applog',
-     'cron',  'edit',  'erase',  'savescr', 'whatever');
+    {         0           1           2           3           4           5           6           7           8           9           }
+    {   0 } ('copyreg',  'exit',     'get',      'help',     'let',      'print',    'readreg',  'reset',    'set',      'date',
+    {  10 }  'ver',      'writereg', 'cls',      'savecfg',  'loadcfg',  'expreg',   'exphis',   'conv',     'savereg',  'loadreg',
+    {  20 }  'var',      'color',    'impreg',   'and',      'or',       'not',      'xor',      'shl',      'shr',      'add',
+    {  30 }  'sub',      'mul',      'div',      'dump',     'pause',    'sercons',  'serread',  'serwrite', 'echo',     'loadscr',
+    {  40 }  'run',      'list',     'round',    'cos',      'cotan',    'dec',      'exp',      'idiv',     'imod',     'inc',
+    {  50 }  'ln',       'mulinv',   'odd',      'rnd',      'tan',      'sin',      'sqr',      'sqrt',     'roll',     'rolr',
+    {  60 }  'upcase',   'length',   'lowcase',  'stritem',  'chr',      'ord',      'const',    'bit',      'pow',      'goto',
+    {  70 }  'if',       'for',      'label',    'mbsrv',    'mbgw',     'inrange',  'mklrc',    'mkcrc',    'pow2',     'ascii',
+    {  80 }  'beep',     'avg',      'prop',     'concat',   'strdel',   'strfind',  'strins',   'strrepl',  'varmon',   'applog',
+    {  90 }  'cron',     'edit',     'erasescr', 'savescr',  'chdir',    'mkdir',    'rmdir',    'erase',    'type',     'copy',
+    { 100 }  'move',    'rename',     'whatever');
+    
   DEV_TYPE: array[0..1] of string = ('net','ser');
-  DEV_SPEED: array[0..7] of string =
-    ('1200','2400','4800','9600','19200','38400','57600','115200');
+  DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200','38400','57600','115200');
   DEV_PARITY: array[0..2] of char = ('e','n','o');
   FILE_TYPE: array[0..2] of string = ('csv','ini','xml');
   PROT_TYPE: array[0..2] of string = ('ascii','rtu','tcp');
