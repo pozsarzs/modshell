@@ -2,7 +2,7 @@
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | modshell.yaml                                                              |
-# | syntax highlighting file for Micro editor                                  |
+# | syntax highlighting file for Micro text editor                             |
 # +----------------------------------------------------------------------------+
 
 filetype: modshell
@@ -17,7 +17,7 @@ rules:
   # arithmetic commands
   - type: "\\b(add|avg|conv|cos|cotan|dec|div|exp|idiv|imod|inc|inrange|ln|mul|mulinv|odd|pow|pow2|prop|rnd|round|sin|sqr|sqrt|sub|tan)\\b"
   # communication commands
-  - type: "\\b(copy|mbgw|mbsrv|read|sercons|serread|serwrite|write)\\b"
+  - type: "\\b(copyreg|mbgw|mbsrv|readreg|sercons|serread|serwrite|writereg)\\b"
   # configuration commands)
   - type: "\\b(get|reset|set)\\b"
   # file handler commands
@@ -29,9 +29,11 @@ rules:
   # register handler commands
   - type: "\\b(dump|let)\\b"
   # script handler commands
-  - type: "\\b(list|loadscr|run)\\b"
+  - type: "\\b(erasescr|list|loadscr|run|savescr)\\b"
   # string handler commands
   - type: "\\b(chr|concat|length|lowcase|mkcrc|mklrc|ord|strdel|strfind|strins|stritem|strrepl|upcase)\\b"
+  # directory and file handler commands
+  - type: "\\b(cd|copy|dir|del|md|ren|rd|type)\\b"
   # conditional flags
   - statement: " (-[A-Za-z]+|--[a-z]+)"
   - identifier: "\\$[0-9A-Za-z_:!%&=+#~@*^$?,\\-\\[\\]]+"

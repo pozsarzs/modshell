@@ -1,4 +1,9 @@
-# ModShell script
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | modshell.yaml                                                              |
+# | syntax highlighting file for MCEdit text editor                            |
+# +----------------------------------------------------------------------------+
 
 caseinsensitive
 
@@ -10,23 +15,27 @@ context default yellow
     keyword whole avg white
     keyword whole beep white
     keyword whole bit white
+    keyword whole cd white
     keyword whole chr white
     keyword whole cls white
     keyword whole color white
     keyword whole concat white
     keyword whole const white
     keyword whole conv white
+    keyword whole copyreg white
     keyword whole copy white
     keyword whole cos white
     keyword whole cotan white
     keyword whole cron white
     keyword whole date white
     keyword whole dec white
+    keyword whole del white
+    keyword whole dir white
     keyword whole div white
     keyword whole dump white
     keyword whole echo white
     keyword whole edit white
-    keyword whole erase white
+    keyword whole erasescr white
     keyword whole exit white
     keyword whole exphis white
     keyword whole expreg white
@@ -52,6 +61,7 @@ context default yellow
     keyword whole lowcase white
     keyword whole mbgw white
     keyword whole mbsrv white
+    keyword whole md white
     keyword whole mkcrc white
     keyword whole mklrc white
     keyword whole mulinv white
@@ -65,7 +75,9 @@ context default yellow
     keyword whole pow white
     keyword whole print white
     keyword whole prop white
-    keyword whole read white
+    keyword whole rd white
+    keyword whole readreg white
+    keyword whole ren white
     keyword whole reset white
     keyword whole rnd white
     keyword whole roll white
@@ -91,11 +103,12 @@ context default yellow
     keyword whole strrepl white
     keyword whole sub white
     keyword whole tan white
+    keyword whole type white
     keyword whole upcase white
     keyword whole varmon white
     keyword whole var white
     keyword whole ver white
-    keyword whole write white
+    keyword whole writereg white
     keyword whole xor white
 
     keyword whole bin brightred

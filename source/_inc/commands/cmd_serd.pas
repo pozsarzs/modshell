@@ -137,7 +137,7 @@ begin
         end else
           if wait < 65535 then inc(wait);
         if keypressed then c := readkey;
-      until (c = #27) or (length(s) = 255) or (wait = DEV_TIMEOUT);
+      until (c = #27) or (length(s) = 255) or (wait = timeout);
       {$IFNDEF X}
         writeln;
       {$ELSE}

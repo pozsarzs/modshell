@@ -19,7 +19,8 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos Y="3644"/>
+        <TopLine Value="3623"/>
+        <CursorPos X="31" Y="3633"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -145,7 +146,7 @@
         <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="23">
+    <JumpHistory HistoryIndex="20">
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="2506" Column="30" TopLine="2489"/>
@@ -188,14 +189,6 @@
       </Position>
       <Position>
         <Filename Value="frmmain.pas"/>
-        <Caret Line="2548" Column="5" TopLine="2707"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="2235" Column="3" TopLine="2348"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
         <Caret Line="3486" Column="21" TopLine="3476"/>
       </Position>
       <Position>
@@ -225,10 +218,6 @@
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="3652" Column="44" TopLine="3641"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="33" TopLine="67"/>
       </Position>
       <Position>
         <Filename Value="frmmain.pas"/>

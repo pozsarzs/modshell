@@ -97,7 +97,7 @@ resourcestring
   MSG70 = '&Start';
   MSG71 = 'New project name:';
   MSG72 = 'name';
-  MSG73 = 'connenction';
+  MSG73 = 'connection';
   MSG74 = 'variable';
   MSG75 = 'message';
   MSG76 = '&Write';
@@ -149,15 +149,14 @@ resourcestring
   ERR36 = 'Cannot write log record to ';
   ERR37 = 'Cannot save script to ';
   ERR38 = 'Cannot run default webbrowser!';
-  ERR39 = 'Cannot change directory!';
-  ERR40 = 'Cannot make directory!';
-  ERR41 = 'Cannot remove directory!';
-  ERR42 = 'Cannot erase file!';
-  ERR43 = 'Cannot type file!';
-  ERR44 = 'Cannot copy file!';
-  ERR45 = 'Cannot move file!';
+  ERR39 = 'Cannot list directory!';
+  ERR40 = 'Cannot change directory!';
+  ERR41 = 'Cannot make directory!';
+  ERR42 = 'Cannot remove directory!';
+  ERR43 = 'Cannot erase file!';
+  ERR44 = 'Cannot type file!';
+  ERR45 = 'Cannot copy file!';
   ERR46 = 'Cannot rename file!';
-  ERR47 = 'Cannot change drive!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
@@ -254,20 +253,20 @@ resourcestring
   DES91='       edit loaded script with line editor';
   DES92='       erase script from buffer';
   DES93='       save loaded script to disc';
-  DES94='       change directory or get name';
-  DES95='       make directory';
-  DES96='       remove directory';
+  DES94='       list directory content';
+  DES95='       change directory or get name';
+  DES96='       make directory';
+  DES97='       remove directory';
   DES98='       remove file';
   DES99='       type file';
-  DES97='       copy file';
-  DES100='       move file';
+  DES100='       copy file';
   DES101='       rename file';
   // COMMAND USAGE
-  USG00='copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
+  USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG01='exit';
-  USG02='get dev?|pro?|con?|prj' + EOL +
+  USG02='get dev?|pro?|con?|prj|timeout' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG03='help [[$]COMMAND]';
@@ -277,7 +276,7 @@ resourcestring
   USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]' + EOL +
         '  print $VARIABLE [-n]' + EOL +
         '  print "single\ line\ message" [-n]';
-  USG06='read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
+  USG06='readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
   USG07='reset dev?|pro?|con?|prj' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
@@ -287,11 +286,13 @@ resourcestring
         '  set pro? tcp [$]IP_ADDRESS' + EOL +
         '  set con? dev? pro?' + EOL +
         '  set prj [$]PROJECT_NAME' + EOL +
+        '  set timeout [$]TIME_OUT' + EOL +
         'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
+        '  - The ''?'' value can be 0-7.' + EOL +
+        '  - The ''TIMEOUT'' value is in ms.';
   USG09='date';
   USG10='ver';
-  USG11='write con? coil|hreg [$]ADDRESS [[$]COUNT]' + EOL +
+  USG11='writereg con? coil|hreg [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG12='cls';
@@ -400,13 +401,13 @@ resourcestring
         '  cron rec_num hour minute' + EOL +
         '  cron [-r rec_num]';
   USG91='edit [LINE_NUMBER]';
-  USG92='erase';
+  USG92='erasescr';
   USG93='savescr [$]PATH_AND_FILENAME';
-  USG94='chdir [[$]PATH_AND_DIRECTORYNAME]';
-  USG95='mkdir [$]PATH_AND_DIRECTORYNAME';
-  USG96='rmdir [$]PATH_AND_DIRECTORYNAME';
-  USG97='erase [$]PATH_AND_FILENAME';
-  USG98='type [$]PATH_AND_FILENAME';
-  USG99='copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME';
-  USG100='move [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME';
-  USG101='rename [$]PATH_AND_FILENAME [$]NEW_FILENAME';
+  USG94='dir [[$]PATH_AND_DIRECTORYNAME]';
+  USG95='cd [[$]PATH_AND_DIRECTORYNAME]';
+  USG96='md [$]PATH_AND_DIRECTORYNAME';
+  USG97='rd [$]PATH_AND_DIRECTORYNAME';
+  USG98='del [$]PATH_AND_FILENAME';
+  USG99='type [$]PATH_AND_FILENAME';
+  USG100='copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME';
+  USG101='ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME';

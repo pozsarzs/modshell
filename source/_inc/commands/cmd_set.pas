@@ -13,14 +13,15 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0  p1   p2             p3            p4          p5         p6        p7
-  ---------------------------------------------------------------------------------
-  set dev? net            [$]DEVICE     PORT
-  set dev? ser            [$]DEVICE     [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT
-  set pro? ascii|rtu      [$]UID
-  set pro? tcp            [$]IP_ADDRESS
-  set con? dev?           pro?
-  set prj  [$]PROJECTNAME
+  p0  p1      p2             p3            p4          p5         p6        p7
+  ------------------------------------------------------------------------------------
+  set dev?    net            [$]DEVICE     PORT
+  set dev?    ser            [$]DEVICE     [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT
+  set pro?    ascii|rtu      [$]UID
+  set pro?    tcp            [$]IP_ADDRESS
+  set con?    dev?           pro?
+  set prj     [$]PROJECTNAME
+  set timeout [$]TIMEOUT
 }
 
 // COMMAND 'SET'

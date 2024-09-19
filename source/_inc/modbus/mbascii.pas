@@ -88,7 +88,7 @@ begin
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
-    until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
+    until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then writeln;
     // DISCONNECT SERIAL PORT
     ser_close;
@@ -180,7 +180,7 @@ begin
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
-    until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
+    until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then writeln;
     // DISCONNECT SERIAL PORT
     ser_close;
@@ -272,7 +272,7 @@ begin
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
-    until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
+    until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then writeln;
     // DISCONNECT SERIAL PORT
     ser_close;
@@ -366,7 +366,7 @@ begin
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
-    until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
+    until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then writeln;
     // DISCONNECT SERIAL PORT
     ser_close;
@@ -470,7 +470,7 @@ begin
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
-    until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
+    until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then writeln;
     // DISCONNECT SERIAL PORT
     ser_close;
@@ -554,7 +554,7 @@ begin
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
-    until (c = #27) or (length(tgm) = 255) or (wait = DEV_TIMEOUT);
+    until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then writeln;
     // DISCONNECT SERIAL PORT
     ser_close;

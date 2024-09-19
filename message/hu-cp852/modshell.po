@@ -327,6 +327,42 @@ msgstr "sz†m"
 msgid "&Convert"
 msgstr "µt&alak°t"
 
+#: modshell:msg70
+msgid "&Start"
+msgstr "In&d°t†s"
+
+#: modshell:msg71
+msgid "New project name:"
+msgstr "Èj projekt nÇv:"
+
+#: modshell:msg72
+msgid "name"
+msgstr "nÇv"
+
+#: modshell:msg73
+msgid "connection"
+msgstr "kapcsolat"
+
+#: modshell:msg74
+msgid "variable"
+msgstr "v†ltoz¢"
+
+#: modshell:msg75
+msgid "message"
+msgstr "Åzenet"
+
+#: modshell:msg76
+msgid "&Write"
+msgstr "÷&r†s"
+
+#: modshell:msg77
+msgid "&Read"
+msgstr "Ol&vas†s"
+
+#: modshell:msg78
+msgid "Go on!"
+msgstr "In&d°t†s"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Ford°t†s ideje: "
@@ -506,6 +542,38 @@ msgstr "Nem lehet menteni a szkriptet ebbe: "
 #: modshell:err38
 msgid "Cannot run default webbrowser!"
 msgstr "Nem tudom futtatni az alapÇrtelmezÇs szerinti bîngÇszãt!"
+
+#: modshell:err39
+msgid "Cannot list directory!"
+msgstr "A kînyvt†rtartalom list†z†sa nem sikerÅlt!"
+
+#: modshell:err40
+msgid "Cannot change directory!"
+msgstr "Nem sikerÅlt kînyvt†rt v†ltani!"
+
+#: modshell:err41
+msgid "Cannot make directory!"
+msgstr "A kînyvt†r lÇtrehoz†sa nem sikerÅlt!"
+
+#: modshell:err42
+msgid "Cannot remove directory!"
+msgstr "A kînyvt†r tîrlÇse nem sikerÅlt!"
+
+#: modshell:err43
+msgid "Cannot erase file!"
+msgstr "A f†jl tîrlÇse nem sikerÅlt!"
+
+#: modshell:err44
+msgid "Cannot type file!"
+msgstr "A f†jl ki°r†sa nem sikerÅlt!"
+
+#: modshell:err45
+msgid "Cannot copy file!"
+msgstr "A f†jl m†sol†sa nem sikerÅlt!"
+
+#: modshell:err46
+msgid "Cannot rename file!"
+msgstr "A f†jl †tnevezÇse nem sikerÅlt!"
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
@@ -887,13 +955,45 @@ msgstr "       a szkript tîrlÇse a pufferb¢l"
 msgid "       save loaded script to disc"
 msgstr "       a betîltîtt szkript mentÇse lemezre"
 
+#: modshell:des94
+msgid "       list directory content"
+msgstr "       kînyvt†rtartalom list†z†sa"
+
+#: modshell:des95
+msgid "       change directory or get name"
+msgstr "       kînyvt†r v†lt†sa vagy kînyvt†rnÇv ki°r†sa"
+
+#: modshell:des96
+msgid "       make directory"
+msgstr "       kînyvt†r lÇtrehoz†sa"
+
+#: modshell:des97
+msgid "       remove directory"
+msgstr "       kînyvt†r tîrlÇse"
+
+#: modshell:des98
+msgid "       remove file"
+msgstr "       f†jl tîrlÇse"
+
+#: modshell:des99
+msgid "       type file"
+msgstr "       f†jltartalom ki°r†sa"
+
+#: modshell:des100
+msgid "       copy file"
+msgstr "       f†jl m†sol†sa"
+
+#: modshell:des101
+msgid "       rename file"
+msgstr "       f†jl †tnevezÇse"
+
 #: modshell:usg00
 msgid ""
-"copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"copy con? dinp|coil con? coil [$]C÷M [[$]MENNYISêG]\n"
+"copyreg con? dinp|coil con? coil [$]C÷M [[$]MENNYISêG]\n"
 "MegjegyzÇs:\n"
 "  - A '?' ÇrtÇke 0-7 lehet."
 
@@ -903,11 +1003,11 @@ msgstr "exit"
 
 #: modshell:usg02
 msgid ""
-"get dev?|pro?|con?|prj\n"
+"get dev?|pro?|con?|prj|timeout\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"get dev?|pro?|con?|prj\n"
+"get dev?|pro?|con?|prj|timeout\n"
 "MegjegyzÇs:\n"
 "  - A '?' ÇrtÇke 0-7 lehet."
 
@@ -936,8 +1036,8 @@ msgstr ""
 "  print \"single\\ line\\ message\" [-n]"
 
 #: modshell:usg06
-msgid "read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
-msgstr "read con? dinp|coil|ireg|hreg [$]C÷M [[$]MENNYISêG]"
+msgid "readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr "readreg con? dinp|coil|ireg|hreg [$]C÷M [[$]MENNYISêG]"
 
 #: modshell:usg07
 msgid ""
@@ -957,8 +1057,10 @@ msgid ""
 "  set pro? tcp [$]IP_ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set prj [$]PROJECT_NAME\n"
+"  set timeout [$]TIME_OUT\n"
 "Notes:\n"
-"  - The '?' value can be 0-7."
+"  - The '?' value can be 0-7.\n"
+"  - The 'TIMEOUT' value is in ms."
 msgstr ""
 "set dev? net [$]ESZKôZ [$]PORT\n"
 "  set dev? ser [$]ESZKôZ [$]BAUDRATE [$]ADATBIT [$]PARITµS [$]STOPBIT\n"
@@ -966,8 +1068,10 @@ msgstr ""
 "  set pro? tcp [$]IP_C÷M\n"
 "  set con? dev? pro?\n"
 "  set prj [$]PROJEKNêV\n"
+"  set timeout [$]IDäTÈLLêPêS\n"
 "MegjegyzÇs:\n"
-"  - A '?' ÇrtÇke 0-7 lehet."
+"  - A '?' ÇrtÇke 0-7 lehet.\n"
+"  - A 'TIMEOUT' ÇrtÇke ms-ban van."
 
 #: modshell:usg09
 msgid "date"
@@ -979,11 +1083,11 @@ msgstr "ver"
 
 #: modshell:usg11
 msgid ""
-"write con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"write con? coil|hreg [$]C÷M [[$]MENNYISêG]\n"
+"writereg con? coil|hreg [$]C÷M [[$]MENNYISêG]\n"
 "MegjegyzÇs:\n"
 "  - A '?' ÇrtÇke 0-7 lehet."
 
@@ -1384,12 +1488,44 @@ msgid "edit [LINE_NUMBER]"
 msgstr "edit [SORSZµM]"
 
 #: modshell:usg92
-msgid "erase"
-msgstr "erase"
+msgid "erasescr"
+msgstr "erasescr"
 
 #: modshell:usg93
 msgid "savescr [$]PATH_AND_FILENAME"
 msgstr "savescr [$]ELêRêSI_ÈT_êS_FµJLNêV"
+
+#: modshell:usg94
+msgid "dir [[$]PATH_AND_DIRECTORYNAME]"
+msgstr "dir [[$]ELêRêSI_ÈT_êS_FµJLNêV]"
+
+#: modshell:usg95
+msgid "cd [[$]PATH_AND_DIRECTORYNAME]"
+msgstr "cd [[$]ELêRêSI_ÈT_êS_FµJLNêV]"
+
+#: modshell:usg96
+msgid "md [$]PATH_AND_DIRECTORYNAME"
+msgstr "md [$]ELêRêSI_ÈT_êS_FµJLNêV"
+
+#: modshell:usg97
+msgid "rd [$]PATH_AND_DIRECTORYNAME"
+msgstr "rd [$]ELêRêSI_ÈT_êS_FµJLNêV"
+
+#: modshell:usg98
+msgid "del [$]PATH_AND_FILENAME"
+msgstr "del [$]ELêRêSI_ÈT_êS_FµJLNêV"
+
+#: modshell:usg99
+msgid "type [$]PATH_AND_FILENAME"
+msgstr "type [$]ELêRêSI_ÈT_êS_FµJLNêV"
+
+#: modshell:usg100
+msgid "copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr "copy [$]ELêRêSI_ÈT_êS_FµJLNêV [$]ELêRêSI_ÈT_êS_FµJLNêV"
+
+#: modshell:usg101
+msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr "ren [$]ELêRêSI_ÈT_êS_FµJLNêV [$]ELêRêSI_ÈT_êS_FµJLNêV"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       elãtÇr- Çs a h†ttÇrsz°n be†ll°t†sa (fullscreen)"

@@ -22,6 +22,7 @@ uses
   crt,
   dom,
   dos,
+  fileutil,
   gettext,
   inifiles,
   math,

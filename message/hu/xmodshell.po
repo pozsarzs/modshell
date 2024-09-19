@@ -57,6 +57,14 @@ msgstr "       dátum és idő megjelenítése"
 msgid "       show version and build information of this program"
 msgstr "       változat és fordítási információk a programról"
 
+#: frmmain.des100
+msgid "       copy file"
+msgstr "       fájl másolása"
+
+#: frmmain.des101
+msgid "       rename file"
+msgstr "       fájl átnevezése"
+
 #: frmmain.des11
 msgid "ALT-W  write data from buffer to one or more remote registers"
 msgstr "ALT-W  adat írása egy vagy több pufferből a távoli regiszterbe"
@@ -170,15 +178,15 @@ msgid "F9     query local echo status or enable/disable it"
 msgstr "F9     visszahang állapot lekérése/beállítása"
 
 #: frmmain.des39
-msgid "       load Modshell script from file"
-msgstr "       Modshell szkript betöltése fájlból"
+msgid "       load ModShell script from file"
+msgstr "       ModShell szkript betöltése fájlból"
 
 #: frmmain.des40
-msgid "F12    run loaded Modshell script"
+msgid "F12    run loaded ModShell script"
 msgstr "F12    betöltött ModShell szkript futattása"
 
 #: frmmain.des41
-msgid "F11    list loaded Modshell script"
+msgid "F11    list loaded ModShell script"
 msgstr "F11    betöltött ModShell szkript listázása"
 
 #: frmmain.des42
@@ -389,6 +397,30 @@ msgstr "       a szkript törlése a pufferból"
 msgid "       save loaded script to disc"
 msgstr "       a betöltött szkript mentése lemezre"
 
+#: frmmain.des94
+msgid "       list directory content"
+msgstr "       könyvtártartalom listázása"
+
+#: frmmain.des95
+msgid "       change directory or get name"
+msgstr "       könyvtár váltása vagy könyvtárnév kiírása"
+
+#: frmmain.des96
+msgid "       make directory"
+msgstr "       könyvtár létrehozása"
+
+#: frmmain.des97
+msgid "       remove directory"
+msgstr "       könyvtár törlése"
+
+#: frmmain.des98
+msgid "       remove file"
+msgstr "       fájl törlése"
+
+#: frmmain.des99
+msgid "       type file"
+msgstr "       fájltartalom kiírása"
+
 #: frmmain.err00
 msgid "No such command!"
 msgstr "Nincs ilyen parancs!"
@@ -544,6 +576,38 @@ msgstr "Nem lehet menteni a szkriptet ebbe: "
 #: frmmain.err38
 msgid "Cannot run default webbrowser!"
 msgstr "Nem tudom futtatni az alapértelmezés szerinti böngészőt!"
+
+#: frmmain.err39
+msgid "Cannot list directory!"
+msgstr "A könyvtártartalom listázása nem sikerült!"
+
+#: frmmain.err40
+msgid "Cannot change directory!"
+msgstr "Nem sikerült könyvtárt váltani!"
+
+#: frmmain.err41
+msgid "Cannot make directory!"
+msgstr "A könyvtár létrehozása nem sikerült!"
+
+#: frmmain.err42
+msgid "Cannot remove directory!"
+msgstr "A könyvtár törlése nem sikerült!"
+
+#: frmmain.err43
+msgid "Cannot erase file!"
+msgstr "A fájl törlése nem sikerült!"
+
+#: frmmain.err44
+msgid "Cannot type file!"
+msgstr "A fájl kiírása nem sikerült!"
+
+#: frmmain.err45
+msgid "Cannot copy file!"
+msgstr "A fájl másolása nem sikerült!"
+
+#: frmmain.err46
+msgid "Cannot rename file!"
+msgstr "A fájl átnevezése nem sikerült!"
 
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
@@ -836,6 +900,7 @@ msgid "&Convert"
 msgstr "Át&alakít"
 
 #: frmmain.msg70
+msgctxt "frmmain.msg70"
 msgid "&Start"
 msgstr "In&dítás"
 
@@ -848,7 +913,7 @@ msgid "name"
 msgstr "név"
 
 #: frmmain.msg73
-msgid "connenction"
+msgid "connection"
 msgstr "kapcsolat"
 
 #: frmmain.msg74
@@ -858,6 +923,19 @@ msgstr "változó"
 #: frmmain.msg75
 msgid "message"
 msgstr "üzenet"
+
+#: frmmain.msg76
+msgid "&Write"
+msgstr "Í&rás"
+
+#: frmmain.msg77
+msgctxt "frmmain.msg77"
+msgid "&Read"
+msgstr "Ol&vasás"
+
+#: frmmain.msg78
+msgid "Go on!"
+msgstr "In&dítás"
 
 #: frmmain.msg94
 msgid "Build date:  "
@@ -913,11 +991,11 @@ msgstr "Hetedik "
 
 #: frmmain.usg00
 msgid ""
-"copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"copy con? dinp|coil con? coil [$]CÍM [[$]MENNYISÉG]\n"
+"copyreg con? dinp|coil con? coil [$]CÍM [[$]MENNYISÉG]\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -927,11 +1005,11 @@ msgstr "exit"
 
 #: frmmain.usg02
 msgid ""
-"get dev?|pro?|con?|prj\n"
+"get dev?|pro?|con?|prj|timeout\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"get dev?|pro?|con?|prj\n"
+"get dev?|pro?|con?|prj|timeout\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -960,8 +1038,8 @@ msgstr ""
 "  print \"single\\ line\\ message\" [-n]"
 
 #: frmmain.usg06
-msgid "read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
-msgstr "read con? dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
+msgid "readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr "readreg con? dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
 
 #: frmmain.usg07
 msgid ""
@@ -981,8 +1059,10 @@ msgid ""
 "  set pro? tcp [$]IP_ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set prj [$]PROJECT_NAME\n"
+"  set timeout [$]TIME_OUT\n"
 "Notes:\n"
-"  - The '?' value can be 0-7."
+"  - The '?' value can be 0-7.\n"
+"  - The 'TIMEOUT' value is in ms."
 msgstr ""
 "set dev? net [$]ESZKÖZ [$]PORT\n"
 "  set dev? ser [$]ESZKÖZ [$]BAUDRATE [$]ADATBIT [$]PARITÁS [$]STOPBIT\n"
@@ -990,8 +1070,10 @@ msgstr ""
 "  set pro? tcp [$]IP_CÍM\n"
 "  set con? dev? pro?\n"
 "  set prj [$]PROJEKNÉV\n"
+"  set timeout [$]IDŐTÚLLÉPÉS\n"
 "Megjegyzés:\n"
-"  - A '?' értéke 0-7 lehet."
+"  - A '?' értéke 0-7 lehet.\n"
+"  - A 'TIMEOUT' értéke ms-ban van."
 
 #: frmmain.usg09
 msgid "date"
@@ -1001,13 +1083,21 @@ msgstr "date"
 msgid "ver"
 msgstr "ver"
 
+#: frmmain.usg100
+msgid "copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr "copy [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg101
+msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr "ren [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
 #: frmmain.usg11
 msgid ""
-"write con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"write con? coil|hreg [$]CÍM [[$]MENNYISÉG]\n"
+"writereg con? coil|hreg [$]CÍM [[$]MENNYISÉG]\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -1162,8 +1252,8 @@ msgid "loadscr [$]PATH_AND_FILENAME"
 msgstr "loadscr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: frmmain.usg40
-msgid "run [-s]"
-msgstr "run [-s]"
+msgid "run [-h] [-s]"
+msgstr "run [-h] [-s]"
 
 #: frmmain.usg41
 msgid "list"
@@ -1408,12 +1498,36 @@ msgid "edit [LINE_NUMBER]"
 msgstr "edit [SORSZÁM]"
 
 #: frmmain.usg92
-msgid "erase"
-msgstr "erase"
+msgid "erasescr"
+msgstr "erasescr"
 
 #: frmmain.usg93
 msgid "savescr [$]PATH_AND_FILENAME"
 msgstr "savescr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg94
+msgid "dir [[$]PATH_AND_DIRECTORYNAME]"
+msgstr "dir [[$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV]"
+
+#: frmmain.usg95
+msgid "cd [[$]PATH_AND_DIRECTORYNAME]"
+msgstr "cd [[$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV]"
+
+#: frmmain.usg96
+msgid "md [$]PATH_AND_DIRECTORYNAME"
+msgstr "md [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg97
+msgid "rd [$]PATH_AND_DIRECTORYNAME"
+msgstr "rd [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg98
+msgid "del [$]PATH_AND_FILENAME"
+msgstr "del [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg99
+msgid "type [$]PATH_AND_FILENAME"
+msgstr "type [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: tform1.caption
 msgid "Form1"

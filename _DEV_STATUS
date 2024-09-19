@@ -2,14 +2,9 @@ Things that still need work:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - menu:         Operation/Variable monitor
 - include file: cmd_secn.pas
-- include file: cmd_sys.pas
-- unit file:    mbascii.pas                              !
+- include file: cmd_sys.pas (cmd_dir)
+- include file: cmd_set.pas (set_timeout)
+- unit file:    mbascii.pas !
 - unit file:    mbrtu.pas
-- message file: modshell.pot
-- message file: modshell.po
-- message file: modshell.mo
-- message file: xmodshell.pot
-- message file: xmodshell.po
-- message file: xmodshell.mo
 - manual page:  modshell.1
 - wiki

@@ -37,10 +37,6 @@ var
   conn: array[0..7] of tconnection;
   // OTHERS
   b: byte;
-  {$IFNDEF UNIX}
-    actualdrive: char;
-  {$ENDIF}
-  actualpath: string;
   appmode: byte;
   exitcode: byte;
   lang: string;
@@ -49,7 +45,9 @@ var
   scriptlastline: integer;
   scriptisloaded: boolean = false;
   varmon: boolean = false;
-  // SPLITTED COMMAND LINE
-  splitted: array[0..7] of string;
   // CRON
   crontable: array[1..4] of tcron;
+  // CONNECTION TIMEOUT
+  timeout: integer = 100; // x 10 ms
+  // SPLITTED COMMAND LINE
+  splitted: array[0..7] of string;

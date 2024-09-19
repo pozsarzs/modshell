@@ -327,6 +327,42 @@ msgstr "szám"
 msgid "&Convert"
 msgstr "Át&alakít"
 
+#: modshell:msg70
+msgid "&Start"
+msgstr "In&dítás"
+
+#: modshell:msg71
+msgid "New project name:"
+msgstr "Új projekt név:"
+
+#: modshell:msg72
+msgid "name"
+msgstr "név"
+
+#: modshell:msg73
+msgid "connection"
+msgstr "kapcsolat"
+
+#: modshell:msg74
+msgid "variable"
+msgstr "változó"
+
+#: modshell:msg75
+msgid "message"
+msgstr "üzenet"
+
+#: modshell:msg76
+msgid "&Write"
+msgstr "Í&rás"
+
+#: modshell:msg77
+msgid "&Read"
+msgstr "Ol&vasás"
+
+#: modshell:msg78
+msgid "Go on!"
+msgstr "In&dítás"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -506,6 +542,38 @@ msgstr "Nem lehet menteni a szkriptet ebbe: "
 #: modshell:err38
 msgid "Cannot run default webbrowser!"
 msgstr "Nem tudom futtatni az alapértelmezés szerinti böngészõt!"
+
+#: modshell:err39
+msgid "Cannot list directory!"
+msgstr "A könyvtártartalom listázása nem sikerült!"
+
+#: modshell:err40
+msgid "Cannot change directory!"
+msgstr "Nem sikerült könyvtárt váltani!"
+
+#: modshell:err41
+msgid "Cannot make directory!"
+msgstr "A könyvtár létrehozása nem sikerült!"
+
+#: modshell:err42
+msgid "Cannot remove directory!"
+msgstr "A könyvtár törlése nem sikerült!"
+
+#: modshell:err43
+msgid "Cannot erase file!"
+msgstr "A fájl törlése nem sikerült!"
+
+#: modshell:err44
+msgid "Cannot type file!"
+msgstr "A fájl kiírása nem sikerült!"
+
+#: modshell:err45
+msgid "Cannot copy file!"
+msgstr "A fájl másolása nem sikerült!"
+
+#: modshell:err46
+msgid "Cannot rename file!"
+msgstr "A fájl átnevezése nem sikerült!"
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
@@ -887,13 +955,45 @@ msgstr "       a szkript törlése a pufferból"
 msgid "       save loaded script to disc"
 msgstr "       a betöltött szkript mentése lemezre"
 
+#: modshell:des94
+msgid "       list directory content"
+msgstr "       könyvtártartalom listázása"
+
+#: modshell:des95
+msgid "       change directory or get name"
+msgstr "       könyvtár váltása vagy könyvtárnév kiírása"
+
+#: modshell:des96
+msgid "       make directory"
+msgstr "       könyvtár létrehozása"
+
+#: modshell:des97
+msgid "       remove directory"
+msgstr "       könyvtár törlése"
+
+#: modshell:des98
+msgid "       remove file"
+msgstr "       fájl törlése"
+
+#: modshell:des99
+msgid "       type file"
+msgstr "       fájltartalom kiírása"
+
+#: modshell:des100
+msgid "       copy file"
+msgstr "       fájl másolása"
+
+#: modshell:des101
+msgid "       rename file"
+msgstr "       fájl átnevezése"
+
 #: modshell:usg00
 msgid ""
-"copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"copy con? dinp|coil con? coil [$]CÍM [[$]MENNYISÉG]\n"
+"copyreg con? dinp|coil con? coil [$]CÍM [[$]MENNYISÉG]\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -903,11 +1003,11 @@ msgstr "exit"
 
 #: modshell:usg02
 msgid ""
-"get dev?|pro?|con?|prj\n"
+"get dev?|pro?|con?|prj|timeout\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"get dev?|pro?|con?|prj\n"
+"get dev?|pro?|con?|prj|timeout\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -936,8 +1036,8 @@ msgstr ""
 "  print \"single\\ line\\ message\" [-n]"
 
 #: modshell:usg06
-msgid "read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
-msgstr "read con? dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
+msgid "readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr "readreg con? dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
 
 #: modshell:usg07
 msgid ""
@@ -957,8 +1057,10 @@ msgid ""
 "  set pro? tcp [$]IP_ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set prj [$]PROJECT_NAME\n"
+"  set timeout [$]TIME_OUT\n"
 "Notes:\n"
-"  - The '?' value can be 0-7."
+"  - The '?' value can be 0-7.\n"
+"  - The 'TIMEOUT' value is in ms."
 msgstr ""
 "set dev? net [$]ESZKÖZ [$]PORT\n"
 "  set dev? ser [$]ESZKÖZ [$]BAUDRATE [$]ADATBIT [$]PARITÁS [$]STOPBIT\n"
@@ -966,8 +1068,10 @@ msgstr ""
 "  set pro? tcp [$]IP_CÍM\n"
 "  set con? dev? pro?\n"
 "  set prj [$]PROJEKNÉV\n"
+"  set timeout [$]IDÕTÚLLÉPÉS\n"
 "Megjegyzés:\n"
-"  - A '?' értéke 0-7 lehet."
+"  - A '?' értéke 0-7 lehet.\n"
+"  - A 'TIMEOUT' értéke ms-ban van."
 
 #: modshell:usg09
 msgid "date"
@@ -979,11 +1083,11 @@ msgstr "ver"
 
 #: modshell:usg11
 msgid ""
-"write con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"write con? coil|hreg [$]CÍM [[$]MENNYISÉG]\n"
+"writereg con? coil|hreg [$]CÍM [[$]MENNYISÉG]\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -1384,12 +1488,44 @@ msgid "edit [LINE_NUMBER]"
 msgstr "edit [SORSZÁM]"
 
 #: modshell:usg92
-msgid "erase"
-msgstr "erase"
+msgid "erasescr"
+msgstr "erasescr"
 
 #: modshell:usg93
 msgid "savescr [$]PATH_AND_FILENAME"
 msgstr "savescr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg94
+msgid "dir [[$]PATH_AND_DIRECTORYNAME]"
+msgstr "dir [[$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV]"
+
+#: modshell:usg95
+msgid "cd [[$]PATH_AND_DIRECTORYNAME]"
+msgstr "cd [[$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV]"
+
+#: modshell:usg96
+msgid "md [$]PATH_AND_DIRECTORYNAME"
+msgstr "md [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg97
+msgid "rd [$]PATH_AND_DIRECTORYNAME"
+msgstr "rd [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg98
+msgid "del [$]PATH_AND_FILENAME"
+msgstr "del [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg99
+msgid "type [$]PATH_AND_FILENAME"
+msgstr "type [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg100
+msgid "copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr "copy [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg101
+msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr "ren [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       elõtér- és a háttérszín beállítása (fullscreen)"

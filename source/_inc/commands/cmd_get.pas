@@ -14,8 +14,8 @@
 }
 {
   p0  p1
-  ----------------------
-  get dev?|pro?|con?|prj
+  ------------------------------
+  get dev?|pro?|con?|prj|timeout
 }
 
 // COMMAND 'GET'
@@ -110,7 +110,7 @@ var
              Form1.Memo1.Lines.Add(MSG11 + PREFIX[1] + inttostr(prot));
            {$ENDIF}
            end
-         else
+       else
            {$IFNDEF X}
              writeln(PREFIX[pr], n, MSG06);
            {$ELSE}
@@ -156,6 +156,16 @@ begin
       writeln(proj);
     {$ELSE}
       Form1.Memo1.Lines.Add(proj);
+    {$ENDIF}
+    result := 0;
+    exit;
+  end;
+  if p1 = PREFIX[4] then
+  begin
+    {$IFNDEF X}
+      writeln(timeout);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(inttostr(timeout));
     {$ENDIF}
     result := 0;
     exit;

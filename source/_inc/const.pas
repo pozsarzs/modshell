@@ -56,8 +56,8 @@ const
     {  60 }  'upcase',   'length',   'lowcase',  'stritem',  'chr',      'ord',      'const',    'bit',      'pow',      'goto',
     {  70 }  'if',       'for',      'label',    'mbsrv',    'mbgw',     'inrange',  'mklrc',    'mkcrc',    'pow2',     'ascii',
     {  80 }  'beep',     'avg',      'prop',     'concat',   'strdel',   'strfind',  'strins',   'strrepl',  'varmon',   'applog',
-    {  90 }  'cron',     'edit',     'erasescr', 'savescr',  'chdir',    'mkdir',    'rmdir',    'erase',    'type',     'copy',
-    { 100 }  'move',    'rename',     'whatever');
+    {  90 }  'cron',     'edit',     'erasescr', 'savescr',  'dir',      'cd',       'md',       'rd',       'del',      'type',
+    { 100 }  'copy',     'ren',      'whatever');
     
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200','38400','57600','115200');
@@ -65,8 +65,6 @@ const
   FILE_TYPE: array[0..2] of string = ('csv','ini','xml');
   PROT_TYPE: array[0..2] of string = ('ascii','rtu','tcp');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');
-  PREFIX: array[0..3] of string = ('dev','pro','con','prj');
+  PREFIX: array[0..4] of string = ('dev','pro','con','prj','timeout');
   ECHO_ARG: array[0..3] of string = ('off','on','hex','swap');
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
-  // Modbus timeout
-  DEV_TIMEOUT: integer = 100; // x 10 ms

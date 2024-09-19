@@ -13,36 +13,20 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0      p1
-  --------------
-  chdir   drive:
-
-  p0      p1
-  -----------------------------------------------------
-  chdir   [[$]PATH_AND_DIRECTORYNAME]
-  mkdir   [$]PATH_AND_DIRECTORYNAME
-  rmdir   [$]PATH_AND_DIRECTORYNAME
-  erase   [$]PATH_AND_FILENAME
-  type    [$]PATH_AND_FILENAME
-  copy    [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME
-  move    [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME
-  rename  [$]PATH_AND_FILENAME [$]NEW_FILENAME
+  p0   p1
+  --------------------------------------------------
+  dir  [[$]PATH_AND_DIRECTORYNAME]
+  cd   [[$]PATH_AND_DIRECTORYNAME]
+  md   [$]PATH_AND_DIRECTORYNAME
+  rd   [$]PATH_AND_DIRECTORYNAME
+  del  [$]PATH_AND_FILENAME
+  type [$]PATH_AND_FILENAME
+  copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME
+  ren  [$]PATH_AND_FILENAME [$]NEW_FILENAME
 }
 
-// CHANGE DRIVE
-function cmd_chdrive(p1: char): byte;
-begin
-  result := 0;
-  try
-
-  except
-    {$IFNDEF X} writeln(ERR47); {$ELSE} Form1.Memo1.Lines.Add(ERR47); {$ENDIF}
-    result := 1;
-  end;
-end;
-
-// CHANGE DIRECTORY OR GET NAME
-function cmd_chdir(p1: string): byte;
+// LIST DIRECTORY CONTENT
+function cmd_dir(p1: string): byte;
 var
   s: string;
 begin
@@ -59,50 +43,76 @@ begin
   end;
 end;
 
-// MAKE DIRECTORY
-function cmd_mkdir(p1: string): byte;
+// CHANGE DIRECTORY OR GET NAME
+function cmd_cd(p1: string): byte;
+var
+  s: string;
 begin
   result := 0;
   try
-    mkdir(p1);
+    if length(p1) = 0 then
+    begin
+      getdir(0, s);
+      {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    end else chdir(p1);
   except
     {$IFNDEF X} writeln(ERR40); {$ELSE} Form1.Memo1.Lines.Add(ERR40); {$ENDIF}
     result := 1;
   end;
 end;
 
-// REMOVE EMPTY DIRECTORY
-function cmd_rmdir(p1: string): byte;
+// MAKE DIRECTORY
+function cmd_md(p1: string): byte;
 begin
-  result := 0;
-  try
-    rmdir(p1);
-  except
+  if CreateDir(p1) then result := 0 else
+  begin
     {$IFNDEF X} writeln(ERR41); {$ELSE} Form1.Memo1.Lines.Add(ERR41); {$ENDIF}
     result := 1;
   end;
 end;
 
-// ERASE FILE
-function cmd_erase(p1: string): byte;
+// REMOVE EMPTY DIRECTORY
+function cmd_rd(p1: string): byte;
 begin
-  result := 0;
-  try
-  
-  except
+  if RemoveDir(p1) then result := 0 else
+  begin
     {$IFNDEF X} writeln(ERR42); {$ELSE} Form1.Memo1.Lines.Add(ERR42); {$ENDIF}
     result := 1;
   end;
 end;
 
+// ERASE FILE
+function cmd_del(p1: string): byte;
+begin
+  if not DeleteFile(p1) then
+  begin
+    {$IFNDEF X} writeln(ERR43); {$ELSE} Form1.Memo1.Lines.Add(ERR43); {$ENDIF}
+    result := 1;
+  end else result := 0;
+end;
+
 // TYPE FILE
 function cmd_type(p1: string): byte;
+var
+  f: text;
+  s: string;
 begin
   result := 0;
   try
-  
+    assign(f, p1);
+    reset(f);
+    repeat
+      {$IFNDEF X}
+        readln(f, s);
+        writeln(s);
+      {$ELSE}
+        readln(f, s);
+        Form1.Memo1.Lines.Add(s);
+      {$ENDIF}
+    until eof(f);
+    close(f);
   except
-    {$IFNDEF X} writeln(ERR43); {$ELSE} Form1.Memo1.Lines.Add(ERR43); {$ENDIF}
+    {$IFNDEF X} writeln(ERR44); {$ELSE} Form1.Memo1.Lines.Add(ERR44); {$ENDIF}
     result := 1;
   end;
 end;
@@ -110,37 +120,21 @@ end;
 // COPY FILE
 function cmd_copy(p1, p2: string): byte;
 begin
-  result := 0;
-  try
-  
-  except
-    {$IFNDEF X} writeln(ERR44); {$ELSE} Form1.Memo1.Lines.Add(ERR44); {$ENDIF}
-      result := 1;
-  end;
-end;
-
-// MOVE FILE
-function cmd_move(p1, p2: string): byte;
-begin
-  result := 0;
-  try
-  
-  except
+  if not CopyFile(p1, p2) then
+  begin
     {$IFNDEF X} writeln(ERR45); {$ELSE} Form1.Memo1.Lines.Add(ERR45); {$ENDIF}
     result := 1;
-  end;
+  end else result := 0;
 end;
 
 // RENAME FILE
-function cmd_rename(p1, p2: string): byte;
+function cmd_ren(p1, p2: string): byte;
 begin
-  result := 0;
-  try
-  
-  except
+  if not RenameFile(p1, p2) then
+  begin
     {$IFNDEF X} writeln(ERR46); {$ELSE} Form1.Memo1.Lines.Add(ERR46); {$ENDIF}
     result := 1;
-  end;
+  end else result := 0;
 end;
 
 function cmd_sys(op: byte; p1, p2: string): byte;
@@ -163,7 +157,7 @@ begin
     end;
   end else
   begin
-    if (length(p1) = 0) and (op >= 95)  then
+    if (length(p1) = 0) and (op >= 96)  then
     begin
       {$IFNDEF X}
         writeln(ERR05); // Parameters required!
@@ -190,13 +184,13 @@ begin
   end;
   // PRIMARY MISSION
   case op of
-     94: result := cmd_chdir(s1);
-     95: result := cmd_mkdir(s1);
-     96: result := cmd_rmdir(s1);
-     97: result := cmd_erase(s1);
-     98: result := cmd_type(s1);
-     99: result := cmd_copy(s1, s2);
-    100: result := cmd_move(s1, s2);
-    101: result := cmd_rename(s1, s2);
+     94: result := cmd_dir(s1);
+     95: result := cmd_cd(s1);
+     96: result := cmd_md(s1);
+     97: result := cmd_rd(s1);
+     98: result := cmd_del(s1);
+     99: result := cmd_type(s1);
+    100: result := cmd_copy(s1, s2);
+    101: result := cmd_ren(s1, s2);
   end;
 end;

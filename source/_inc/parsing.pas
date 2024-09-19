@@ -64,12 +64,6 @@ begin
             o := true;
             break;
           end;
-        if not o then
-          if (length(splitted[0]) = 2) and (splitted[0][2] = ':')
-            then exitcode := cmd_chdrive(splitted[0][1])
-                 // x:
-            else
-             {$IFNDEF X} writeln(ERR00) {$ELSE} Form1.Memo1.Lines.Add(ERR00) {$ENDIF};
         if o then
         begin
           case b of
