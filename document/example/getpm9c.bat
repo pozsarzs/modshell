@@ -29,14 +29,14 @@ print $UID
 echo hex
 
 # settings
-set dev0 ser /dev/ttyUSB0 9600 8 n 1
+set dev0 ser COM3 9600 8 n 1
 set pro0 rtu $UID
 set con0 dev0 pro0
 
 # read remote data
 print "\ "
 print "-\ telegrams:"
-read con0 hreg 1000 22
+readreg con0 hreg 1000 22
 
 # calculations
 let $uh hreg 1014

@@ -7,7 +7,7 @@
 > - bug fixes,
 > - 8 new commands in system category (total: 102),
 > - GUI (FreeBSD, Linux and Windows) and
-> - Script syntax highlighting file for Midnight Commander.
+> - Script syntax highlighting file for MCEdit and Nano.
 > 
 > **v0.1-alpha2:**  
 > The 2nd release with the following changes:
@@ -65,7 +65,7 @@ Project webpage: <https://pozsarzs.github.io/modshell>
 |                        |gateway to access devices using other ports or protocols                                    |
 |script size             |max. 1024 line                                                                              |
 |example scripts         |7 scripts (shellscript and batch file versions)                                             | 
-|script syntax plugins   |for Micro editor and MCEdit                                                                            |
+|script syntax plugins   |for MCedit, Micro and Nano                                                                  |
 
 #### 1. Screenshots
 
@@ -305,6 +305,14 @@ selected.
 |$?    |exit value of the commands         |
 |$PI   |value of Pi (3.1415926535897932385)|
 |$EULER|value of e  (2.7182818284590452354)|
+|$B1   |1200                               |
+|$B2   |2400                               |
+|$B4   |4800                               |
+|$B9   |9600                               |
+|$B19  |19200                              |
+|$B38  |38400                              |
+|$B57  |57600                              |
+|$B115 |115700                             |
 
 **Documentation and Help**
 

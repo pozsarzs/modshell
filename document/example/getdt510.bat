@@ -35,12 +35,8 @@ print $UID
 echo on
 
 # settings
-# uncomment next line on DOS or Windows:
-#set dev0 ser com1 9600 7 e 1
-# uncomment next line on Linux:
-set dev0 ser /dev/ttyS0 9600 7 e 1
-# uncomment next line on FreeBSD:
-#set dev0 ser /dev/cuau0 9600 7 e 1
+# set device on DOS/Windows:
+set dev0 ser COM1 9600 7 e 1
 set pro0 ascii $UID
 set con0 dev0 pro0
 
@@ -54,7 +50,7 @@ print $count
 # read remote data
 print "\ "
 print "-\ telegrams:"
-read con0 hreg 100 7
+readreg con0 hreg 100 7
 
 # calculations
 let $p hreg 100

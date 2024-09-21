@@ -1689,7 +1689,7 @@ fi
 ac_aux_files="config.guess config.sub"
 
 # Locations in which to look for auxiliary files.
-ac_aux_dir_candidates="${srcdir}/config"
+ac_aux_dir_candidates="${srcdir}/autoconf"
 
 # Search for a directory containing all of the required auxiliary files,
 # $ac_aux_files, from the $PATH-style list $ac_aux_dir_candidates.

@@ -21,6 +21,8 @@
 
 // SET PREDEFINED CONSTANTS
 procedure setdefaultconstants;
+var
+  b: byte;
 begin
   with vars[0] do
   begin
@@ -43,6 +45,14 @@ begin
     vreadonly := true;
     vmonitored := false;
   end;
+  for b:= 3 to 10 do
+    with vars[b] do
+    begin
+      vname := 'b' + inttostr(strtoint(DEV_SPEED[b - 3]) div 1000);
+      vvalue := DEV_SPEED[b - 3];
+      vreadonly := true;
+      vmonitored := false;
+    end;
 end;
 
 // CLEAR ALL VARIABLES AND SET PREDEFINED ONES

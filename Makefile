@@ -7,7 +7,7 @@
 
 include ./Makefile.global
 
-dirs =	desktop document/example document/picture document/others document manual message source
+dirs =	desktop document/example document/picture document/syntax document manual message source
 
 all:
 	@echo "Compiling source code..."

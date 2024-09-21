@@ -1,0 +1,60 @@
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | modshell.yaml                                                              |
+# | syntax highlighting file for Micro text editor                             |
+# +----------------------------------------------------------------------------+
+
+filetype: modshell
+detect:
+  header: "^#!.*/(env +)?modshell|@modshell.exe"
+rules:
+
+  ## group #1
+  - special: "\\b(con[0-7]|dev[0-7]|pro[0-7]|proj|timeout)\\b"
+
+  ## group #2
+  - statement: "\\b(add|and|applog|ascii|avg|beep|bit|cd|chr|cls)\\b"
+  - statement: "\\b(color|concat|const|conv|copyreg|copy|cos|cotan|cron|date)\\b"
+  - statement: "\\b(dec|del|dir|div|do|dump|echo|edit|erasescr|exit)\\b"
+  - statement: "\\b(exphis|expreg|exp|for|get|goto|help|idiv|if|imod)\\b"
+  - statement: "\\b(impreg|inc|inrange|label|length|let|list|ln|loadcfg|loadreg)\\b"
+  - statement: "\\b(loadscr|lowcase|mbgw|mbsrv|md|mkcrc|mklrc|mulinv|mul|not)\\b"
+  - statement: "\\b(odd|ord|or|pause|pow2|pow|print|prop|rd|readreg)\\b"
+  - statement: "\\b(ren|reset|rnd|roll|rolr|round|run|savecfg|savereg|savescr)\\b"
+  - statement: "\\b(sercons|serread|serwrite|set|shl|shr|sin|sqrt|sqr|strdel)\\b"
+  - statement: "\\b(strfind|strins|stritem|strrepl|sub|tan|then|to|type|upcase)\\b"
+  - statement: "\\b(varmon|var|ver|writereg|xor)\\b"
+
+  ## group #3
+  - identifier: "\\b(bin|coil|csv|dec|dinp|hex|hreg|ini|ireg|net)\\b"
+  - identifier: "\\b(oct|off|on|rtu|ser|swap|tcp|xml)\\b"
+
+  ## group #4
+  - statement: "<=>"
+
+  - constant.string:
+      start: "\""
+      end: "\""
+      skip: "\\\\."
+      rules: []
+
+  - preproc.shebang:
+      start: "^#!.*/(env +)?modshell|@modshell.exe"
+      end: "$"
+      rules: []
+
+  - preproc.shebang:
+      start: "(^|\\s)@goto"
+      end: "$"
+      rules: []
+
+  - preproc.shebang:
+      start: "(^|\\s):eof"
+      end: "$"
+      rules: []
+
+  - comment:
+      start: "(^|\\s)#"
+      end: "$"
+      rules: []

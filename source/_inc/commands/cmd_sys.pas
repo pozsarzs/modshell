@@ -32,11 +32,6 @@ var
 begin
   result := 0;
   try
-    if length(p1) = 0 then
-    begin
-      getdir(0, s);
-      {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-    end else chdir(p1);
   except
     {$IFNDEF X} writeln(ERR39); {$ELSE} Form1.Memo1.Lines.Add(ERR39); {$ENDIF}
     result := 1;
@@ -45,16 +40,12 @@ end;
 
 // CHANGE DIRECTORY OR GET NAME
 function cmd_cd(p1: string): byte;
-var
-  s: string;
 begin
   result := 0;
   try
-    if length(p1) = 0 then
-    begin
-      getdir(0, s);
-      {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-    end else chdir(p1);
+    if length(p1) = 0
+      then {$IFNDEF X} writeln(GetCurrentDir) {$ELSE} Form1.Memo1.Lines.Add(GetCurrentDir) {$ENDIF}
+      else SetCurrentDir(p1);
   except
     {$IFNDEF X} writeln(ERR40); {$ELSE} Form1.Memo1.Lines.Add(ERR40); {$ENDIF}
     result := 1;

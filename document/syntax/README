@@ -1,0 +1,46 @@
+Syntax highlighting
+~~~~~~~~~~~~~~~~~~~
+
+Files
+~~~~~
+  Editor Filename         Target file or directory
+  ------------------------------------------------------------------------------
+  MCEdit Syntax           insert file content to top of ~/.local/share/mc/Syntax
+  MCEdit modshell.syntax  copy file into ~/.local/share/mc/Syntax/
+  Micro  modshell.yaml    copy file into ~/.config/micro/syntax/
+  Nano   modshell.nanorc  copy file into /usr/share/nano/
+
+Synopsis
+~~~~~~~~
+- case:
+    insensitivity
+- comment:
+    after #
+- start line:
+    #!\....
+    @modshell.exe...
+    @goto eof
+    @:eof
+- text:
+    between ""
+- word group #1:
+    dev[0-7] pro[0-7] con[0-7] prj      timeout
+- word group #2:
+    add      and      applog   ascii    avg      beep     bit      cd       chr      cls
+    color    concat   const    conv     copyreg  copy     cos      cotan    cron     date
+    dec      del      dir      div      do       dump     echo     edit     erasescr exit
+    exphis   expreg   exp      for      get      goto     help     idiv     if       imod
+    impreg   inc      inrange  label    length   let      list     ln       loadcfg  loadreg
+    loadscr  lowcase  mbgw     mbsrv    md       mkcrc    mklrc    mulinv   mul      not
+    odd      ord      or       pause    pow2     pow      print    prop     rd       readreg
+    ren      reset    rnd      roll     rolr     round    run      savecfg  savereg  savescr
+    sercons  serread  serwrite set      shl      shr      sin      sqrt     sqr      strdel
+    strfind  strins   stritem  strrepl  sub      tan      then     to       type     upcase
+    varmon   var      ver      writereg xor
+- word group #3:
+    bin      coil     csv      dec      dinp     hex      hreg     ini      ireg     net
+    oct      off      on       rtu      ser      swap     tcp      xml
+- word group #4:
+    <        <=       =        =>       >        <>
+--------------------------------------------------------------------------------------------
+  ModShell * Copyright (C) 2023-2024 Pozsár Zsolt <pozsarzs@gmail.com>

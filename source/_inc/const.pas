@@ -58,7 +58,6 @@ const
     {  80 }  'beep',     'avg',      'prop',     'concat',   'strdel',   'strfind',  'strins',   'strrepl',  'varmon',   'applog',
     {  90 }  'cron',     'edit',     'erasescr', 'savescr',  'dir',      'cd',       'md',       'rd',       'del',      'type',
     { 100 }  'copy',     'ren',      'whatever');
-    
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..7] of string = ('1200','2400','4800','9600','19200','38400','57600','115200');
   DEV_PARITY: array[0..2] of char = ('e','n','o');

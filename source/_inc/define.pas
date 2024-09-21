@@ -42,11 +42,13 @@
   {$ENDIF}
 {$ENDIF}
 
-{$IFDEF UNIX}
-  {$DEFINE SLASH := #47}
-{$ELSE}
-  {$DEFINE SLASH := #92}
-{$ENDIF}
+//{$IFDEF UNIX}
+//  {$DEFINE SLASH := #47}
+//{$ELSE}
+//  {$DEFINE SLASH := #92}
+//{$ENDIF}
+
+  {$DEFINE SLASH := DirectorySeparator }
 
 {$IFDEF UNIX}
   {$DEFINE BROWSER := 'xdg-open'}

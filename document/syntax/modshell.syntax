@@ -1,17 +1,22 @@
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
-# | modshell.yaml                                                              |
+# | modshell.syntax                                                            |
 # | syntax highlighting file for MCEdit text editor                            |
 # +----------------------------------------------------------------------------+
 
 caseinsensitive
-
-context default yellow
+context default brightcyan
+    # group #1
+    keyword whole con\{01234567\} brightblue
+    keyword whole dev\{01234567\} brightblue
+    keyword whole pro\{01234567\} brightblue
+    keyword whole proj brightblue
+    keyword whole timeout brightblue
+    # group #2
     keyword whole add white
-    keyword whole and white
     keyword whole applog white
-    keyword whole ascii white
+    keyword whole ascii\n white
     keyword whole avg white
     keyword whole beep white
     keyword whole bit white
@@ -32,6 +37,7 @@ context default yellow
     keyword whole del white
     keyword whole dir white
     keyword whole div white
+    keyword whole do white
     keyword whole dump white
     keyword whole echo white
     keyword whole edit white
@@ -103,6 +109,8 @@ context default yellow
     keyword whole strrepl white
     keyword whole sub white
     keyword whole tan white
+    keyword whole then white
+    keyword whole to white
     keyword whole type white
     keyword whole upcase white
     keyword whole varmon white
@@ -110,7 +118,8 @@ context default yellow
     keyword whole ver white
     keyword whole writereg white
     keyword whole xor white
-
+    # group #3
+    keyword whole ascii brightred
     keyword whole bin brightred
     keyword whole coil brightred
     keyword whole csv brightred
@@ -129,26 +138,20 @@ context default yellow
     keyword whole swap brightred
     keyword whole tcp brightred
     keyword whole xml brightred
- 
-    keyword # brightgreen
-
-    keyword > cyan
-    keyword < cyan
-    keyword \+ cyan
-    keyword - cyan
-    keyword / cyan
-    keyword % lightgray
-    keyword = cyan
-    keyword [ lightgray
-    keyword ] lightgray
-    keyword ( lightgray
-    keyword ) lightgray
-    keyword , lightgray
-    keyword . lightgray
-    keyword : lightgray
-    keyword ; lightgray
-
-context " " brightcyan
+    # group #4
+    keyword whole < white
+    keyword whole <= white
+    keyword whole = white
+    keyword whole >= white
+    keyword whole > white
+    keyword whole <> white
+    # start lines
+    keyword whole linestart #!\[\s\]*\n brightcyan black
+    keyword whole linestart :eof brightcyan black
+    keyword whole linestart @*\n brightcyan black
+    # comment sign
+    keyword whole # brightgreen
+# text
+context " " yellow
+# comment
 context exclusive # \n brightgreen
-
-   spellcheck

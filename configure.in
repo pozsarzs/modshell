@@ -9,7 +9,7 @@ dnl # +------------------------------------------------------------------------+
 AC_INIT
 lcldir=`find /usr/lib/lazarus -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
 AC_CONFIG_SRCDIR([source/modshell/])
-AC_CONFIG_AUX_DIR(config)
+AC_CONFIG_AUX_DIR(autoconf)
 AC_CANONICAL_TARGET
 
 AC_PATH_PROG(ln, ln, no)

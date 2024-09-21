@@ -35,7 +35,7 @@ set con0 dev0 pro0
 # read remote data
 print "\ "
 print "-\ telegrams:"
-read con0 hreg 1000 22
+readreg con0 hreg 1000 22
 
 # calculations
 let $uh hreg 1014

@@ -14,7 +14,7 @@ print "-------------------------------------------------"
 const MIN 1
 const MAX 1000
 
-#variables
+# variables
 var value
 var half
 
