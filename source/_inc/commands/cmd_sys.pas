@@ -28,14 +28,48 @@
 // LIST DIRECTORY CONTENT
 function cmd_dir(p1: string): byte;
 var
+  {$IFNDEF UNIX}
+    a: longint;
+  {$ENDIF}
+  i: integer;
   s: string;
+  allfiles, alldirectories: TStringList;
 begin
   result := 0;
   try
+    if length(p1) = 0 then s := GetCurrentDir else s := p1;
+    alldirectories := FindAllDirectories(s, false);
+    allfiles := FindAllFiles(s, '*;*.*', false);
+    alldirectories.sort;
+    allfiles.sort;
+    for i := 0 to alldirectories.Count - 1 do
+    begin
+      {$IFDEF UNIX}
+        if ExtractFileName(alldirectories[i])[1] <> '.' then
+          writeln(' [' + ExtractFileName(alldirectories[i]) + ']');
+      {$ELSE}
+        a := FileGetAttr(ExtractFileName(alldirectories[i]));
+        if (a and faHidden) = 0 then
+          writeln(' [' + ExtractFileName(alldirectories[i]) + ']');
+      {$ENDIF}
+    end;
+    for i := 0 to allfiles.Count - 1 do
+    begin
+      {$IFDEF UNIX}
+      if ExtractFileName(allfiles[i])[1] <> '.' then
+      writeln('  ' + ExtractFileName(allfiles[i]) + ' ');
+      {$ELSE}
+        a := FileGetAttr(ExtractFileName(allfiles[i]));
+        if (a and faHidden) = 0 then
+          writeln(' [' + ExtractFileName(allfiles[i]) + ']');
+      {$ENDIF}
+    end;
   except
     {$IFNDEF X} writeln(ERR39); {$ELSE} Form1.Memo1.Lines.Add(ERR39); {$ENDIF}
     result := 1;
   end;
+  alldirectories.Free;
+  allfiles.Free;
 end;
 
 // CHANGE DIRECTORY OR GET NAME

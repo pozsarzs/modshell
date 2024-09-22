@@ -18,16 +18,17 @@ program modshell;
 uses
   {$IFDEF GO32V2} protcom, {$ELSE} synaser, {$ENDIF}
   {$IFDEF WINDOWS} windows, {$ENDIF}
+  Classes,
+  FileUtil,
+  GetText,
+  INIFiles,
   convert,
+  SysUtils,
   crt,
   dom,
   dos,
-  fileutil,
-  gettext,
-  inifiles,
-  math,
-  strings,
-  sysutils,
+  Math,
+  Strings,
   ucommon,
   uconfig,
   utranslt,

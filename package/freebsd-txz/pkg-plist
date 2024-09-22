@@ -4,6 +4,7 @@ man/man1/modshell.1.gz
 man/man1/xmodshell.1.gz
 share/applications/modshell.desktop
 share/applications/modshell-fs.desktop
+share/applications/xmodshell.desktop
 share/doc/modshell/AUTHORS
 share/doc/modshell/README
 share/doc/modshell/VERSION
@@ -17,6 +18,11 @@ share/doc/modshell/example/for-if
 share/doc/modshell/example/getdt510
 share/doc/modshell/example/getpm9c
 share/doc/modshell/example/setdt510
+share/doc/modshell/syntax/modshell.nanorc
+share/doc/modshell/syntax/modshell.syntax
+share/doc/modshell/syntax/modshell.yaml
+share/doc/modshell/syntax/README
+share/doc/modshell/syntax/Syntax
 share/locale/hu/LC_MESSAGES/modshell.mo
 share/locale/hu/LC_MESSAGES/xmodshell.mo
 share/pixmaps/modshell.xpm

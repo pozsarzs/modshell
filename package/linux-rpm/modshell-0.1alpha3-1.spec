@@ -22,6 +22,7 @@ settings).
 /usr/bin/xmodshell
 /usr/share/applications/modshell.desktop
 /usr/share/applications/modshell-fs.desktop
+/usr/share/applications/xmodshell.desktop
 /usr/share/doc/modshell/AUTHORS
 /usr/share/doc/modshell/README
 /usr/share/doc/modshell/VERSION
@@ -35,11 +36,13 @@ settings).
 /usr/share/doc/modshell/example/getdt510
 /usr/share/doc/modshell/example/getpm9c
 /usr/share/doc/modshell/example/setdt510
+/usr/share/doc/modshell/syntax/modshell.nanorc
+/usr/share/doc/modshell/syntax/modshell.syntax
+/usr/share/doc/modshell/syntax/modshell.yaml
+/usr/share/doc/modshell/syntax/README
+/usr/share/doc/modshell/syntax/Syntax
 /usr/share/locale/hu/LC_MESSAGES/modshell.mo
 /usr/share/locale/hu/LC_MESSAGES/xmodshell.mo
 /usr/share/man/man1/modshell.1.gz
 /usr/share/man/man1/xmodshell.1.gz
 /usr/share/pixmaps/modshell.xpm
-
-
-
