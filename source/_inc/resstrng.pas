@@ -157,6 +157,7 @@ resourcestring
   ERR44 = 'Cannot type file!';
   ERR45 = 'Cannot copy file!';
   ERR46 = 'Cannot rename file!';
+  ERR47 = 'Cannot set connection timeout!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';

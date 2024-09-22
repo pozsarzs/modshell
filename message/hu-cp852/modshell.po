@@ -575,6 +575,10 @@ msgstr "A f jl m sol sa nem sikerlt!"
 msgid "Cannot rename file!"
 msgstr "A f jl  tnevez‚se nem sikerlt!"
 
+#: modshell:err47
+msgid "Cannot set connection timeout!"
+msgstr "Nem lehet be ll¡tani az id‹t£ll‚p‚st!"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb termin l m‚ret 80x25!"

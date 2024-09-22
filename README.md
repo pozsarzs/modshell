@@ -307,14 +307,14 @@ selected.
 |$?    |exit value of the commands         |
 |$PI   |value of Pi (3.1415926535897932385)|
 |$EULER|value of e  (2.7182818284590452354)|
-|$B1   |1200                               |
-|$B2   |2400                               |
-|$B4   |4800                               |
-|$B9   |9600                               |
-|$B19  |19200                              |
-|$B38  |38400                              |
-|$B57  |57600                              |
-|$B115 |115200                             |
+|$B1   |1200 (baud)                        |
+|$B2   |2400 (baud)                        |
+|$B4   |4800 (baud)                        |
+|$B9   |9600 (baud)                        |
+|$B19  |19200 (baud)                       |
+|$B38  |38400 (baud)                       |
+|$B57  |57600 (baud)                       |
+|$B115 |115200 (baud                       |
 
 **Documentation and Help**
 

@@ -98,28 +98,28 @@ Value of Pi (3.1415926535897932385).
 Value of e  (2.7182818284590452354).
 .TP
 \fb$B1\fP
-1200 baud (1200).
+1200 (baud).
 .TP
 \fb$B2\fP
-2400 baud (2400).
+2400 (baud).
 .TP
 \fb$B41\fP
-4800 baud (4800).
+4800 (baud).
 .TP
 \fb$B8\fP
-9600 baud (9600).
+9600 (baud).
 .TP
 \fb$B19\fP
-19200 baud (19200).
+19200 (baud).
 .TP
 \fb$B38\fP
-38400 baud (38400).
+38400 (baud).
 .TP
 \fb$B57\fP
-57600 baud (57600).
+57600 (baud).
 .TP
 \fb$B115\fP
-115200 baud (115200).
+115200 (baud).
 .SH BUILTIN COMMANDS
 Notes:
   - register: local buffer register;
@@ -570,25 +570,28 @@ Converts string (\fI[$]VALUE\fP) to uppercase and the result is placed in \fI$TA
 .SS File and directory management system commands
 .TP
 \fBdir\fP \fI[[$]PATH_AND_DIRECTORYNAME]\fP
-Lists content of directory or get name of the actual directory.
+Lists content of actual or \fI[[$]PATH_AND_DIRECTORYNAME]\fP directory.
+.TP
+\fBcd\fP
+Gets name of the actual directory.
 .TP
 \fBcd\fP \fI[[$]PATH_AND_DIRECTORYNAME]\fP
-Changes directory.
+Changes actual directory to \fI[[$]PATH_AND_DIRECTORYNAME]\fP.
 .TP\fBmd\fP \fI[$]PATH_AND_DIRECTORYNAME\fP
 Makes a directory.
 .TP\fBrd\fP \fI[$]PATH_AND_DIRECTORYNAME\fP
-Removes an empty directory.
+Removes \fI[$]PATH_AND_DIRECTORYNAME\fP directory if empty.
 .TP\fBdel\fP \fI[$]PATH_AND_FILENAME\fP
-Removes a file.
+Removes \fI[$]PATH_AND_FILENAME\fP file.
 .TP
 \fBtype\fP \fI[$]PATH_AND_FILENAME\fP
-Lists file content.
+Lists content \fI[$]PATH_AND_FILENAME\fP file.
 .TP
-\fBcopy\fP \fI[$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME\fP
-Copies a file.
+\fBrcopy\fP \fI[$]PATH_AND_FILENAME\fP \fI[$]NEW_PATH_AND_FILENAME\fP
+Copies \fI[$]PATH_AND_FILENAME\fP file to \fI[$]NEW_PATH_AND_FILENAME\fP.
 .TP
-.TP\fBren\fP \fI[$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME\fP
-Renames a file.
+\fBren\fP \fI[$]PATH_AND_FILENAME\fP \fI[$]NEW_PATH_AND_FILENAME\fP
+Renames \fI[$]PATH_AND_FILENAME\fP file to \fI[$]NEW_PATH_AND_FILENAME\fP.
 .SH EXAMPLES
 .SS Arithmetical commands
 .TP

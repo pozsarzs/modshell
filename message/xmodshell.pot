@@ -597,6 +597,10 @@ msgstr ""
 msgid "Cannot rename file!"
 msgstr ""
 
+#: frmmain.err47
+msgid "Cannot set connection timeout!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""

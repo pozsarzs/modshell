@@ -40,7 +40,6 @@ var
     i4, i6: integer; // parameters in other type
     s: string;
     s4, s5, s6, s7: string; // parameters in other type
-
   begin
     // 1ST CHECK LENGTH OF PARAMETERS
     if (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0) then
@@ -205,7 +204,6 @@ var
     s: string;
     s3: string; // parameter in other type
     valid: boolean = false;
-
   begin
     // CHECK LENGTH OF PARAMETERS
     if (length(p2) = 0) or (length(p3) = 0) then
@@ -283,7 +281,6 @@ var
     i2, i3: integer;
     s: string;
     s2, s3: string;
-
   begin
     // CHECK LENGTH OF PARAMETERS
     if (length(p2) = 0) or (length(p3) = 0) then
@@ -365,14 +362,13 @@ var
   procedure cmd_set_prj(p2: string);
   var
     b, bb: byte;
-    s2: string;              // parameter in other type
+    s2: string; // parameter in other type
     {$IFDEF GO32V2}
       s: string[8];
     {$ELSE}
       s: string[16];
     {$ENDIF}
     valid : boolean = true;  
-
   begin
     // SEARCH ILLEGAL CHARACTERS
     if boolisitconstant(p2) then s2 := isitconstant(p2);
@@ -405,15 +401,35 @@ var
     end else proj := s;
   end;
 
+  // SET CONNECTION TIMEOUT
+  procedure cmd_set_timeout(p2: string);
+  var
+    s2: string; // parameter in other type
+  begin
+    // SEARCH ILLEGAL CHARACTERS
+    if boolisitconstant(p2) then s2 := isitconstant(p2);
+    if boolisitvariable(p2) then s2 := isitvariable(p2);
+    if length(s2) = 0 then s2 := p2;
+    try
+      timeout := strtoint(s2);
+    except
+      {$IFNDEF X}
+        writeln(ERR47);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR47);
+      {$ENDIF}
+      error := 1;
+    end;
+  end;
+
   //SHOW VALID 1ST PARAMETERS
   procedure showvalid1stparameters;
   var
     b: byte;
     s: string = '';
-
   begin
     s := NUM1 + MSG05; // What is the 1st parameter?
-    for b := 0 to 3 do  s := s + ' ' + PREFIX[b] + '[0-7]';
+    for b := 0 to 4 do  s := s + ' ' + PREFIX[b] + '[0-7]';
     s := s + ' ' + PREFIX[3];
     {$IFNDEF X}
       writeln(s);
@@ -439,6 +455,12 @@ begin
   if p1 = PREFIX[3] then
   begin
     cmd_set_prj(p2);
+    result := 1;
+    exit;
+  end;
+  if p1 = PREFIX[4] then
+  begin
+    cmd_set_timeout(p2);
     result := 1;
     exit;
   end;

@@ -553,6 +553,10 @@ msgstr ""
 msgid "Cannot rename file!"
 msgstr ""
 
+#: modshell:err47
+msgid "Cannot set connection timeout!"
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""

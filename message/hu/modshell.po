@@ -575,6 +575,10 @@ msgstr "A fájl másolása nem sikerült!"
 msgid "Cannot rename file!"
 msgstr "A fájl átnevezése nem sikerült!"
 
+#: modshell:err47
+msgid "Cannot set connection timeout!"
+msgstr "Nem lehet beállítani az időtúllépést!"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
