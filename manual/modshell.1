@@ -1,4 +1,4 @@
-.TH ModShell 1 "2023 December 20" ""
+.TH ModShell 1 "2024 Szeptember 30" ""
 .SH NAME
 modshell \- Command-driven scriptable Modbus utility
 .SH SYNOPSIS
@@ -70,6 +70,8 @@ The program has a simple serial console whose traffic is logged in the project
 directory as console.log.
 .PP
 On exit, the command line history, echo mode and colors are preserved.
+.PP
+The program also has basic file and directory management commands.
 .SS Script operations
 The script on the disc can be loaded into the already running program and started
 manually.The loaded script can be edited with a line editor, saved to disk or
@@ -94,6 +96,30 @@ Value of Pi (3.1415926535897932385).
 .TP
 \fB$EULER\fP
 Value of e  (2.7182818284590452354).
+.TP
+\fb$B1\fP
+1200 baud (1200).
+.TP
+\fb$B2\fP
+2400 baud (2400).
+.TP
+\fb$B41\fP
+4800 baud (4800).
+.TP
+\fb$B8\fP
+9600 baud (9600).
+.TP
+\fb$B19\fP
+19200 baud (19200).
+.TP
+\fb$B38\fP
+38400 baud (38400).
+.TP
+\fb$B57\fP
+57600 baud (57600).
+.TP
+\fb$B115\fP
+115200 baud (115200).
 .SH BUILTIN COMMANDS
 Notes:
   - register: local buffer register;
@@ -203,12 +229,12 @@ the result is placed in \fI$TARGET\fP.
 
 .SS Communication commands
 .TP
-\fBcopy\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP \fIcon?\fP \fIcoil?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
+\fBcopyreg\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP \fIcon?\fP \fIcoil?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Copies logical data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
 \fICOUNT\fP must be between 1-9999.
 .TP
-\fBcopy\fP \fIcon?\fP \fIireg\fP|\fIhreg\fP \fIcon?\fP \fIhreg?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
+\fBcopyreg\fP \fIcon?\fP \fIireg\fP|\fIhreg\fP \fIcon?\fP \fIhreg?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Copies numeral data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
 \fICOUNT\fP must be between 1-9999.
@@ -220,7 +246,7 @@ Start internal Modbus slave/server for remote access own registers.
 Start internal Modbus gateway for access other remote device's registers with
 different communication and/or protocol.
 .TP
-\fBread\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\f[$]ICOUNT\fP]
+\fBreadreg\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\f[$]ICOUNT\fP]
 Reads one or more remote registers. Number of connection (\fIcon?\fP)
 must be between 0-7, register start \fIADDRESS\fP and the \fICOUNT\fP must be
 between 1-9999.
@@ -240,16 +266,17 @@ Number of device (\fIdev?\fP) must be between 0-7.
 \fBserwrite\fP \fI[dev?]\fP \fI"MESSAGE"\fP
 Writes "MESSAGE" to serial device. Number of device (\fIdev?\fP) must be between 0-7.
 .TP
-\fBwrite\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
+\fBwritereg\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Writes data to one or more remote registers. Number of connection
 (\fIcon?\fP) must be between 0-7, register start address and the count must be
 between 1-9999.
 
 .SS Configuration commands
 .TP
-\fBget\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP
+\fBget\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP|\fItimeout\fP
 Gets configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
-(\fIcon?\fP), or get project name (\fIprj\fP). ? number must be 0-7.
+(\fIcon?\fP), or project name (\fIprj\fP) or connection timeout (\fItimeout\fP) in ms.
+? number must be 0-7.
 .TP
 \fBreset\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP
 Resets configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
@@ -283,6 +310,9 @@ Assigns a device (\fIdev?\fP) and a protocol (\fIpro?\fP) to a connection
 \fBset\fP \fIprj\fP [$]PROJECT_NAME
 Sets the project name. The name cannot contain spaces or special characters.
 The project directory will also be created with this name.
+.TP
+\fBset\fP \fItimeout\fP [$]TIMEOUT
+Sets the connection timeout in ms.
 
 .SS File operation commands
 The specified parameter does not contain a path, the file will be saved in the
@@ -479,7 +509,7 @@ and must be between 1-9999, If register type is discrete input (\fIdinp\fP) and 
 \fBedit\fP [\fILINE_NUMBER\fP]
 Edits loaded script with line editor.
 .TP
-\fBerase\fP
+\fBerasescr\fP
 Erases script from buffer.
 .TP
 \fBlist\fP
@@ -491,7 +521,7 @@ Loads ModShell scriptfile from disc.
 \fBrun\fP \fI[-h]\fP \fI[-s]\fP
 Runs loaded script. When the \fI[-h]\fP parameter is specified, the values​of the
 variables and constants created by the script are preserved until the next run.
-\fI[-h]\fP parameter means step-by-step program execution.
+\fI[-s]\fP parameter means step-by-step program execution.
  .TP
 \fBsavescr\fP \fI[$]PATH_AND_FILENAME\fP
 Saves loaded script to disc.
@@ -516,7 +546,7 @@ Make LRC of the \fI[$]STRING\fP
 \fBmkcrc\fP \fI$TARGET\fP \fI[$]STRING\fP
 Make CRC of the \fI[$]STRING\fP
 .TP
-\fBord\fP \fI$TARGET\fP \fI[$]VALUE';
+\fBord\fP \fI$TARGET\fP \fI[$]VALUE\fP
 Converts char value (\fI[$]VALUE\fP) to byte value and the result is placed in \fI$TARGET\fP.
 .TP
 \fBstrdel\fP \fI$TARGET\fP \fI[$]PLACE\fP \fI[$]COUNT\fP
@@ -536,6 +566,29 @@ Replace specified element (\fI[$]OLD\fP) to \fI[$]NEW\fP in the \fI$TARGET\fP va
 .TP
 \fBupcase\fP \fI$TARGET\fP \fI[$]VALUE\fP
 Converts string (\fI[$]VALUE\fP) to uppercase and the result is placed in \fI$TARGET\fP.
+
+.SS File and directory management system commands
+.TP
+\fBdir\fP \fI[[$]PATH_AND_DIRECTORYNAME]\fP
+Lists content of directory or get name of the actual directory.
+.TP
+\fBcd\fP \fI[[$]PATH_AND_DIRECTORYNAME]\fP
+Changes directory.
+.TP\fBmd\fP \fI[$]PATH_AND_DIRECTORYNAME\fP
+Makes a directory.
+.TP\fBrd\fP \fI[$]PATH_AND_DIRECTORYNAME\fP
+Removes an empty directory.
+.TP\fBdel\fP \fI[$]PATH_AND_FILENAME\fP
+Removes a file.
+.TP
+\fBtype\fP \fI[$]PATH_AND_FILENAME\fP
+Lists file content.
+.TP
+\fBcopy\fP \fI[$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME\fP
+Copies a file.
+.TP
+.TP\fBren\fP \fI[$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME\fP
+Renames a file.
 .SH EXAMPLES
 .SS Arithmetical commands
 .TP
@@ -557,18 +610,18 @@ Substract 13 from 12, and the result is placed in $result.
 
 .SS Communication commands
 .TP
-\fBcopy\fP con0 ireg con2 hreg 210 10
+\fBcopyreg\fP con0 ireg con2 hreg 210 10
 Copy input register content of the connection #0 to holding register content of the
 connection #2 from address 210 to 220.
 .TP
-\fBcopy\fP con0 ireg con2 hreg $a $b
+\fBcopyreg\fP con0 ireg con2 hreg $a $b
 Copy input register content of the connection #0 to holding register content of the
 connection #2 from address value of the $a to $a+$b.
 .TP
-\fBread\fP con0 hreg 100 15
+\fBreadreg\fP con0 hreg 100 15
 Read remote holding registers of the connection #0 from address 100 to 115.
 .TP
-\fBread\fP con0 hreg $a 15
+\fBreadreg\fP con0 hreg $a 15
 Read remote holding registers of the connection #0 from address value of the $a to $a+15.
 .TP
 \fBsercons\fP
@@ -589,10 +642,10 @@ Write string to dev0 device.
 \fBserwrite\fP dev0 "$message"
 Write string from $message variable to dev0 device.
 .TP
-\fBwrite\fP con2 coil 10
+\fBwritereg\fP con2 coil 10
 Write data from to coil address 10 of the connection #2.
 .TP
-\fBwrite\fP con2 coil $c
+\fBwritereg\fP con2 coil $c
 Write data from to coil address value of the $c of the connection #2.
 
 .SS Configuration commands
@@ -632,6 +685,9 @@ Assigns a device #0 and protocol #2 to connection #0.
 .TP
 \fBset\fP prj temp_meter
 Set the project name to 'temp_meter'.
+.TP
+\fBset\fP timeout 1000
+Set the connection timeout to 1 s.
 
 .SS File operation commands
 .TP
@@ -767,8 +823,8 @@ Print value of the input register address value of $a to value of $b.
 \fBloadscr\fP /home/username/Desktop/dt510
 Load dt510 scriptfile other directory.
 .TP
-\fBrun\fP -s
-Run loaded script step-by-step.
+\fBrun\fP -s -h
+Run loaded script step-by-step and reserve variables until next run.
 
 .SS String handler commands
 .TP
@@ -783,6 +839,14 @@ Put 5th element of the $name string to $char variable.
 .TP
 \fBupcase\fP $target $title
 Convert string in title to uppercase and the result is placed in $target.
+
+.SS System commands
+.TP
+\fBtype\fP $LOGFILE
+List file in $LOGFILE to console.
+.TP
+\fBren\fP $LOGFILE backup
+Rename file in $LOGFILE to "backup.bak".
 .SH HOTKEYS
 Commands with function keys (\fBF?\fP) are executed immediately,
 modifier keys (\fBALT\fP-\fB?\fP) only make typing easier.
@@ -863,7 +927,7 @@ monitoring the value of variables
 print command
 .TP
 \fBALT\fP-\fBR\fP
-read command
+readreg command
 .TP
 \fBALT\fP-\fBT\fP
 reset command
@@ -872,7 +936,7 @@ reset command
 set command
 .TP
 \fBALT\fP-\fBW\fP
-write command
+writereg command
 .SH ENVIRONMENTAL VARIABLES
 .TP
 .B LANG

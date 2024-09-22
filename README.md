@@ -167,6 +167,8 @@ We can also create time-stamped log entries with the program and or script.
 
 On exit, the command line history, echo mode and colors are preserved.
 
+The program also has basic file and directory management commands.
+
 **Script operations**
 
 The script on the disc can be loaded into the already running program and
@@ -312,7 +314,7 @@ selected.
 |$B19  |19200                              |
 |$B38  |38400                              |
 |$B57  |57600                              |
-|$B115 |115700                             |
+|$B115 |115200                             |
 
 **Documentation and Help**
 
