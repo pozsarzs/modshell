@@ -1,6 +1,5 @@
 Things that still need work:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - menu:         Operation/Variable monitor
-- include file: cmd_secn.pas
-- unit file:    mbascii.pas !
+- include file: cmd_secn.pas - PRIMARY MISSION
 - unit file:    mbrtu.pas

@@ -27,7 +27,6 @@ var
   s: string;
   s1, s2: string; // parameters in other type
   valid: boolean = false;
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER

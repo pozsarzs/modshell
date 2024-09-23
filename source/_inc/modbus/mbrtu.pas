@@ -20,12 +20,12 @@ var
   c: char;
   pdu, adu, tgm: string;
   recvbyte, recvcount: byte;
+  s: string;
   wait: integer = 0;
   crc: word;
 const
   FUNCTION_CODE = $01;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
-
 begin
   // CREATE TELEGRAM FOR REQUEST
   pdu := char(FUNCTION_CODE) +
@@ -51,17 +51,22 @@ begin
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
-      textcolor(uconfig.colors[3]);
+      {$IFNDEF X}
+        textcolor(uconfig.colors[3]);
+      {$ENDIF}
+      s := '';
       case uconfig.echo of
-        1: write(tgm);
+        1: {$IFNDEF X} write(tgm); {$ELSE} Form1.Memo1.Lines.Add(tgm); {$ENDIF}
         2: begin
              for b := 1 to length(tgm) do
                write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
              writeln;
            end;
       end;
-      textcolor(uconfig.colors[0]);
-    end else writeln(ERR27);
+      {$IFNDEF X}
+        textcolor(uconfig.colors[0]);
+      {$ENDIF}
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat

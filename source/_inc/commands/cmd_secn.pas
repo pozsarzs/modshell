@@ -24,6 +24,7 @@ var
   b: byte;
   c: char;
   i1: integer; // parameters other type
+  s: string;
   s1: string; // parameters in other type
   valid: boolean = false;
   fpn, fp: string;
@@ -53,19 +54,32 @@ begin
     end;
   if not valid then
   begin
-    write(NUM1 + MSG05); // What is the 1st parameter?
-    writeln(' ' + PREFIX[0] + '[0-7]');
+    s := NUM1 + MSG05; // What is the 1st parameter?
+    s := s + ' ' + PREFIX[0] + '[0-7]';
+    {$IFNDEF X}
+      writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   if not dev[i1].valid then
   begin
-    writeln(PREFIX[0], i1, MSG06);
+    {$IFNDEF X}
+      writeln(PREFIX[0], i1, MSG06);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06);
+    {$ENDIF}
     exit;
   end;
   if not (dev[i1].devtype = 1) then
   begin
-    writeln(MSG24);
+    {$IFNDEF X}
+      writeln(MSG24);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG24);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -125,7 +139,11 @@ begin
       writeln;
     end else
     begin
-      writeln(ERR18, dev[i1].device);
+      {$IFNDEF X}
+        writeln(ERR18, dev[i1].device);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR18 + dev[i1].device);
+      {$ENDIF}
       result := 1;
     end;
     try
