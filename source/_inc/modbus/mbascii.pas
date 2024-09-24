@@ -145,7 +145,7 @@ begin
            end;
       end;
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
-    end else writeln(ERR27);
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat
@@ -238,7 +238,7 @@ begin
            end;
       end;
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
-    end else writeln(ERR27);
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat
@@ -333,7 +333,7 @@ begin
            end;
       end;
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
-    end else writeln(ERR27);
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat
@@ -438,7 +438,7 @@ begin
            end;
       end;
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
-    end else writeln(ERR27);
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat
@@ -523,7 +523,7 @@ begin
            end;
       end;
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
-    end else writeln(ERR27);
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat

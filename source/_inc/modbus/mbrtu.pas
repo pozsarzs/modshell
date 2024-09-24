@@ -42,30 +42,21 @@ begin
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
-    {$IFNDEF X}
-      writeln(MSG31);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(MSG31);
-    {$ENDIF}
+    {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
     // TRANSMIT REQUEST
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
-      {$IFNDEF X}
-        textcolor(uconfig.colors[3]);
-      {$ENDIF}
+      {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
       s := '';
       case uconfig.echo of
         1: {$IFNDEF X} write(tgm); {$ELSE} Form1.Memo1.Lines.Add(tgm); {$ENDIF}
         2: begin
-             for b := 1 to length(tgm) do
-               write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
-             writeln;
+             for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
+             {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
            end;
       end;
-      {$IFNDEF X}
-        textcolor(uconfig.colors[0]);
-      {$ENDIF}
+      {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
@@ -75,18 +66,19 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        textcolor(uconfig.colors[2]);
+        {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
+        s := '';
         case uconfig.echo of
-          1: write(char(b));
-          2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+          1: s := s + char(b);
+          2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
-        textcolor(uconfig.colors[0]);
+        {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
         tgm := tgm + char(b);
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
-    if uconfig.echo > 0 then writeln;
+    if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     // DISCONNECT SERIAL PORT
     ser_close;
     // PARSE RESPONSE
@@ -105,15 +97,15 @@ begin
                            until b = recvcount;
                          end;
           FUNCTERR_CODE: case ord(tgm[3]) of
-                           1: writeln(ERR29);
-                           2: writeln(ERR30);
-                           3: writeln(ERR31);
-                           4: writeln(ERR32);
+                           1: {$IFNDEF X} writeln(ERR29); {$ELSE} Form1.Memo1.Lines.Add(ERR29); {$ENDIF}
+                           2: {$IFNDEF X} writeln(ERR30); {$ELSE} Form1.Memo1.Lines.Add(ERR30); {$ENDIF}
+                           3: {$IFNDEF X} writeln(ERR31); {$ELSE} Form1.Memo1.Lines.Add(ERR31); {$ENDIF}
+                           4: {$IFNDEF X} writeln(ERR32); {$ELSE} Form1.Memo1.Lines.Add(ERR32); {$ENDIF}
                          end;
         end;
-      end else writeln(ERR28);
+      end else {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     except
-      writeln(ERR28);
+      {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     end;
   end else writeln(ERR18, dev[device].device);
 end;
@@ -125,12 +117,12 @@ var
   c: char;
   pdu, adu, tgm: string;
   recvbyte, recvcount: byte;
+  s: string;
   wait: integer = 0;
   crc: word;
 const
   FUNCTION_CODE = $02;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
-
 begin
   // CREATE TELEGRAM FOR REQUEST
   pdu := char(FUNCTION_CODE) +
@@ -147,22 +139,22 @@ begin
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
-    writeln(MSG31);
+    {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
     // TRANSMIT REQUEST
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
-      textcolor(uconfig.colors[3]);
+      {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
+      s := '';
       case uconfig.echo of
-        1: write(tgm);
+        1: {$IFNDEF X} write(tgm); {$ELSE} Form1.Memo1.Lines.Add(tgm); {$ENDIF}
         2: begin
-             for b := 1 to length(tgm) do
-               write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
-             writeln;
+             for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
+             {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
            end;
       end;
-      textcolor(uconfig.colors[0]);
-    end else writeln(ERR27);
+      {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat
@@ -171,18 +163,19 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        textcolor(uconfig.colors[2]);
+        {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
+        s := '';
         case uconfig.echo of
-          1: write(char(b));
-          2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+          1: s := s + char(b);
+          2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
-        textcolor(uconfig.colors[0]);
+        {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
         tgm := tgm + char(b);
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
-    if uconfig.echo > 0 then writeln;
+    if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     // DISCONNECT SERIAL PORT
     ser_close;
     // PARSE RESPONSE
@@ -201,15 +194,15 @@ begin
                            until b = recvcount;
                          end;
           FUNCTERR_CODE: case ord(tgm[3]) of
-                           1: writeln(ERR29);
-                           2: writeln(ERR30);
-                           3: writeln(ERR31);
-                           4: writeln(ERR32);
+                           1: {$IFNDEF X} writeln(ERR29); {$ELSE} Form1.Memo1.Lines.Add(ERR29); {$ENDIF}
+                           2: {$IFNDEF X} writeln(ERR30); {$ELSE} Form1.Memo1.Lines.Add(ERR30); {$ENDIF}
+                           3: {$IFNDEF X} writeln(ERR31); {$ELSE} Form1.Memo1.Lines.Add(ERR31); {$ENDIF}
+                           4: {$IFNDEF X} writeln(ERR32); {$ELSE} Form1.Memo1.Lines.Add(ERR32); {$ENDIF}
                          end;
         end;
-      end else writeln(ERR28);
+      end else {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     except
-      writeln(ERR28);
+      {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     end;
   end else writeln(ERR18, dev[device].device);
 end;
@@ -221,12 +214,12 @@ var
   c: char;
   pdu, adu, tgm: string;
   recvcount: byte;
+  s: string;
   wait: integer = 0;
   crc: word;
 const
   FUNCTION_CODE = $03;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
-
 begin
   // CREATE TELEGRAM FOR REQUEST
   pdu := char(FUNCTION_CODE) +
@@ -243,22 +236,22 @@ begin
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
-    writeln(MSG31);
+    {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
     // TRANSMIT REQUEST
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
-      textcolor(uconfig.colors[3]);
+      {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
+      s := '';
       case uconfig.echo of
-        1: write(tgm);
+        1: {$IFNDEF X} write(tgm); {$ELSE} Form1.Memo1.Lines.Add(tgm); {$ENDIF}
         2: begin
-             for b := 1 to length(tgm) do
-               write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
-             writeln;
+             for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
+             {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
            end;
       end;
-      textcolor(uconfig.colors[0]);
-    end else writeln(ERR27);
+      {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat
@@ -267,18 +260,19 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        textcolor(uconfig.colors[2]);
+        {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
+        s := '';
         case uconfig.echo of
-          1: write(char(b));
-          2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+          1: s := s + char(b);
+          2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
-        textcolor(uconfig.colors[0]);
+        {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
         tgm := tgm + char(b);
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
-    if uconfig.echo > 0 then writeln;
+    if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     // DISCONNECT SERIAL PORT
     ser_close;
     // PARSE RESPONSE
@@ -295,15 +289,15 @@ begin
                            until b = recvcount;
                          end;
           FUNCTERR_CODE: case ord(tgm[3]) of
-                           1: writeln(ERR29);
-                           2: writeln(ERR30);
-                           3: writeln(ERR31);
-                           4: writeln(ERR32);
+                           1: {$IFNDEF X} writeln(ERR29); {$ELSE} Form1.Memo1.Lines.Add(ERR29); {$ENDIF}
+                           2: {$IFNDEF X} writeln(ERR30); {$ELSE} Form1.Memo1.Lines.Add(ERR30); {$ENDIF}
+                           3: {$IFNDEF X} writeln(ERR31); {$ELSE} Form1.Memo1.Lines.Add(ERR31); {$ENDIF}
+                           4: {$IFNDEF X} writeln(ERR32); {$ELSE} Form1.Memo1.Lines.Add(ERR32); {$ENDIF}
                          end;
         end;
-      end else writeln(ERR28);
+      end else {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     except
-      writeln(ERR28);
+      {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     end;
   end else writeln(ERR18, dev[device].device);
 end;
@@ -315,12 +309,12 @@ var
   c: char;
   pdu, adu, tgm: string;
   recvcount: byte;
+  s: string;
   wait: integer = 0;
   crc: word;
 const
   FUNCTION_CODE = $02;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
-
 begin
   // CREATE ASCII TELEGRAM FOR REQUEST
   pdu := char(FUNCTION_CODE) +
@@ -337,22 +331,22 @@ begin
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
-    writeln(MSG31);
+    {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
     // TRANSMIT REQUEST
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
-      textcolor(uconfig.colors[3]);
+      {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
+      s := '';
       case uconfig.echo of
-        1: write(tgm);
+        1: {$IFNDEF X} write(tgm); {$ELSE} Form1.Memo1.Lines.Add(tgm); {$ENDIF}
         2: begin
-             for b := 1 to length(tgm) do
-               write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
-             writeln;
+             for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
+             {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
            end;
       end;
-      textcolor(uconfig.colors[0]);
-    end else writeln(ERR27);
+      {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat
@@ -361,18 +355,19 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        textcolor(uconfig.colors[2]);
+        {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
+        s := '';
         case uconfig.echo of
-          1: write(char(b));
-          2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+          1: s := s + char(b);
+          2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
-        textcolor(uconfig.colors[0]);
+        {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
         tgm := tgm + char(b);
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
-    if uconfig.echo > 0 then writeln;
+    if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     // DISCONNECT SERIAL PORT
     ser_close;
     // PARSE RESPONSE
@@ -389,15 +384,15 @@ begin
                            until b = recvcount;
                          end;
           FUNCTERR_CODE: case ord(tgm[3]) of
-                           1: writeln(ERR29);
-                           2: writeln(ERR30);
-                           3: writeln(ERR31);
-                           4: writeln(ERR32);
+                           1: {$IFNDEF X} writeln(ERR29); {$ELSE} Form1.Memo1.Lines.Add(ERR29); {$ENDIF}
+                           2: {$IFNDEF X} writeln(ERR30); {$ELSE} Form1.Memo1.Lines.Add(ERR30); {$ENDIF}
+                           3: {$IFNDEF X} writeln(ERR31); {$ELSE} Form1.Memo1.Lines.Add(ERR31); {$ENDIF}
+                           4: {$IFNDEF X} writeln(ERR32); {$ELSE} Form1.Memo1.Lines.Add(ERR32); {$ENDIF}
                          end;
         end;
-      end else writeln(ERR28);
+      end else {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     except
-      writeln(ERR28);
+      {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     end;
   end else writeln(ERR18, dev[device].device);
 end;
@@ -409,12 +404,12 @@ var
   c: char;
   i: integer;
   pdu, adu, tgm: string;
+  s: string;
   wait: integer = 0;
   crc: word;
 const
   FUNCTION_CODE = $0F;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
-
 begin
   // CREATE TELEGRAM FOR REQUEST
   pdu := char(FUNCTION_CODE) +
@@ -441,22 +436,22 @@ begin
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
-    writeln(MSG31);
+    {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
     // TRANSMIT REQUEST
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
-      textcolor(uconfig.colors[3]);
+      {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
+      s := '';
       case uconfig.echo of
-        1: write(tgm);
+        1: {$IFNDEF X} write(tgm); {$ELSE} Form1.Memo1.Lines.Add(tgm); {$ENDIF}
         2: begin
-             for b := 1 to length(tgm) do
-               write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
-             writeln;
+             for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
+             {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
            end;
       end;
-      textcolor(uconfig.colors[0]);
-    end else writeln(ERR27);
+      {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat
@@ -465,18 +460,19 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        textcolor(uconfig.colors[2]);
+        {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
+        s := '';
         case uconfig.echo of
-          1: write(char(b));
-          2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+          1: s := s + char(b);
+          2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
-        textcolor(uconfig.colors[0]);
+        {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
         tgm := tgm + char(b);
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
-    if uconfig.echo > 0 then writeln;
+    if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     // DISCONNECT SERIAL PORT
     ser_close;
     // PARSE RESPONSE
@@ -485,14 +481,14 @@ begin
       begin
         if ord(tgm[2]) = FUNCTERR_CODE then
           case ord(tgm[3]) of
-            1: writeln(ERR29);
-            2: writeln(ERR30);
-            3: writeln(ERR31);
-            4: writeln(ERR32);
+            1: {$IFNDEF X} writeln(ERR29); {$ELSE} Form1.Memo1.Lines.Add(ERR29); {$ENDIF}
+            2: {$IFNDEF X} writeln(ERR30); {$ELSE} Form1.Memo1.Lines.Add(ERR30); {$ENDIF}
+            3: {$IFNDEF X} writeln(ERR31); {$ELSE} Form1.Memo1.Lines.Add(ERR31); {$ENDIF}
+            4: {$IFNDEF X} writeln(ERR32); {$ELSE} Form1.Memo1.Lines.Add(ERR32); {$ENDIF}
           end;
-      end else writeln(ERR28);
+      end else {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     except
-      writeln(ERR28);
+      {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     end;
   end else writeln(ERR18, dev[device].device);
 end;
@@ -504,12 +500,12 @@ var
   c: char;
   i: integer;
   pdu, adu, tgm: string;
+  s: string;
   wait: integer = 0;
   crc: word;
 const
   FUNCTION_CODE = $10;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
-
 begin
   // CREATE TELEGRAM FOR REQUEST
   pdu := char(FUNCTION_CODE) +
@@ -529,22 +525,22 @@ begin
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
-    writeln(MSG31);
+    {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
     // TRANSMIT REQUEST
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
-      textcolor(uconfig.colors[3]);
+      {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
+      s := '';
       case uconfig.echo of
-        1: write(tgm);
+        1: {$IFNDEF X} write(tgm); {$ELSE} Form1.Memo1.Lines.Add(tgm); {$ENDIF}
         2: begin
-             for b := 1 to length(tgm) do
-               write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
-             writeln;
+             for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
+             {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
            end;
       end;
-      textcolor(uconfig.colors[0]);
-    end else writeln(ERR27);
+      {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // RECEIVE RESPONSE
     tgm := '';
     repeat
@@ -553,18 +549,19 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        textcolor(uconfig.colors[2]);
+        {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
+        s := '';
         case uconfig.echo of
-          1: write(char(b));
-          2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+          1: s := s + char(b);
+          2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
-        textcolor(uconfig.colors[0]);
+        {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
         tgm := tgm + char(b);
       end else
         if wait < 65535 then inc(wait);
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
-    if uconfig.echo > 0 then writeln;
+    if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     // DISCONNECT SERIAL PORT
     ser_close;
     // PARSE RESPONSE
@@ -573,16 +570,16 @@ begin
       begin
         if ord(tgm[2]) = FUNCTERR_CODE then
           case ord(tgm[3]) of
-            1: writeln(ERR29);
-            2: writeln(ERR30);
-            3: writeln(ERR31);
-            4: writeln(ERR32);
+            1: {$IFNDEF X} writeln(ERR29); {$ELSE} Form1.Memo1.Lines.Add(ERR29); {$ENDIF}
+            2: {$IFNDEF X} writeln(ERR30); {$ELSE} Form1.Memo1.Lines.Add(ERR30); {$ENDIF}
+            3: {$IFNDEF X} writeln(ERR31); {$ELSE} Form1.Memo1.Lines.Add(ERR31); {$ENDIF}
+            4: {$IFNDEF X} writeln(ERR32); {$ELSE} Form1.Memo1.Lines.Add(ERR32); {$ENDIF}
           end;
-      end else writeln(ERR28);
+      end else {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     except
-      writeln(ERR28);
+      {$IFNDEF X} writeln(ERR28); {$ELSE} Form1.Memo1.Lines.Add(ERR28); {$ENDIF}
     end;
-  end else writeln(ERR18, dev[device].device);
+  end else {$IFNDEF X} writeln(ERR18, dev[device].device); {$ELSE} Form1.Memo1.Lines.Add(ERR18 + dev[device].device); {$ENDIF}
 end;
 
 // RUN GATEWAY OR SLAVE
@@ -600,12 +597,12 @@ var
   loop: boolean = true;
   ready: boolean = false;
   recvbyte: byte;
+  s: string;
   uid: byte;
   valid: boolean = true;
 const
   FUNCTION_CODES_ALL: array[0..5] of byte = ($01, $02, $03, $04, $0F, $10);
   FUNCTERR_CODE_OFFSET = $80;
-
 begin
   // CONNECT TO SERIAL PORT
   if ser_open(dev[device1].device, dev[device1].speed, dev[device1].databit, dev[device1].parity, dev[device1].stopbit) then
@@ -627,18 +624,19 @@ begin
         if ser_canread then
         begin
           b := ser_recvbyte;
-          textcolor(uconfig.colors[2]);
+          {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
+          s := '';
           case uconfig.echo of
-            1: write(char(b));
-            2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+            1: s := s + char(b);
+            2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
           end;
-          textcolor(uconfig.colors[0]);
+          {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
           tgm := tgm + char(b);
         end else ready := true;
         if keypressed then c := readkey;
         if c = #27 then loop := false;
       until (c = #27) or (length(tgm) = 255) or ready;
-      if uconfig.echo > 0 then writeln;
+      if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
       // PARSE REQUEST
       if length(tgm) >= 8 then
       begin
@@ -659,7 +657,7 @@ begin
       end else error := $04;
     end;
     ser_close;
-  end else writeln(ERR18, dev[device1].device);
+  end else {$IFNDEF X} writeln(ERR18, dev[device1].device); {$ELSE} Form1.Memo1.Lines.Add(ERR18 + dev[device1].device); {$ENDIF}
   // GATEWAY
   if loop and enablegw then
   begin
@@ -754,21 +752,21 @@ begin
         if ser_canwrite then
         begin
           ser_sendstring(tgm);
-          textcolor(uconfig.colors[3]);
+          {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
+          s := '';
           case uconfig.echo of
-            1: write(tgm);
+            1: {$IFNDEF X} write(tgm); {$ELSE} Form1.Memo1.Lines.Add(tgm); {$ENDIF}
             2: begin
-                 for b := 1 to length(tgm) do
-                   write(addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ');
-                 writeln;
+                 for b := 1 to length(tgm) do s := s + deztohex(inttostr(ord(tgm[b]))) + ' ';
+                 {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
                end;
           end;
-          textcolor(uconfig.colors[0]);
-        end else writeln(ERR27);
+        {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
+        end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
       end;
     end;
     // DISCONNECT SERIAL PORT
     ser_close;
-  end else writeln(ERR18, dev[device1].device);
+  end else {$IFNDEF X} writeln(ERR18, dev[device1].device); {$ELSE} Form1.Memo1.Lines.Add(ERR18 + dev[device1].device); {$ENDIF}
   result := loop;
 end;
