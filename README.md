@@ -1,31 +1,6 @@
 > [!WARNING]
 > The program is still under development, it is not yet suitable for its task.  
 >
-> **v0.1-alpha3:**  
-> The next release will be with the following changes:
-> - New source code directory structure,
-> - bug fixes,
-> - 8 new commands in system category (total: 102),
-> - GUI (FreeBSD, Linux and Windows) and
-> - Script syntax highlighting file for MCEdit and Nano.
-> 
-> **v0.1-alpha2:**  
-> The 2nd release with the following changes:
-> - Bug fixes,
-> - Modbus/ASCII and Modbus/RTU communication,
-> - handling of constants,
-> - three predefined constants and
-> - 28 new commands (total: 94).
-> - Script syntax highlighting file for Micro.
->
-> **v0.1-alpha1:**  
-> This test release is not yet suitable for work, although it is functional, but
-> it can only communicate via Modbus/ASCII.
-> 
-> The purpose of this release is to test the program's construction, operation,
-> packaging, and package installation in all supported environments. In
-> addition, the documentation and other files are checked for possible typos and
-> errors.
 
 <img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon" src="desktop/modshell.png">   
 
@@ -65,7 +40,34 @@ Project webpage: <https://pozsarzs.github.io/modshell>
 |                        |gateway to access devices using other ports or protocols                                    |
 |script size             |max. 1024 line                                                                              |
 |example scripts         |7 scripts (shellscript and batch file versions)                                             | 
-|script syntax plugins   |for MCedit, Micro and Nano                                                                  |
+|script syntax plugins   |for MCEdit, Micro and Nano                                                                  |
+
+**Releases**  
+
+_v0.1-alpha3:_  
+The next release _will be_ with the following changes:  
+New source code directory structure, bug fixes, 8 new commands in system category (total: 102), GUI (FreeBSD, Linux and Windows) and script syntax highlighting file for MCEdit, Micro and Nano.  
+
+_v0.1-alpha2:_  
+The 2nd release with the following changes:
+Bug fixes, Modbus/ASCII and Modbus/RTU communication, handling of constants, three predefined constants and 28 new commands (total: 94) and script syntax highlighting file for Micro.  
+
+_v0.1-alpha1:_  
+This test release is not yet suitable for work, although it is functional, but it can only communicate via Modbus/ASCII. The purpose of this release is to test the program's construction, operation, packaging, and package installation in all supported environments. In addition, the documentation and other files are checked for possible typos and errors.
+
+**Planned features**  
+
+...that either will or won't.  
+
+in _v0.1-beta1:_  
+ - [ ] Modbus/TCP communication;  
+ - [ ] device discovery script;  
+ - [ ] syntax highlighting file for Vim/Neovim;  
+ - [ ] syntax highlighting file for Scite.  
+
+in _v0.1-beta2:_  
+ - [ ] Support for multi-dimensional arrays;
+ - [ ] graphical monitoring the change of values ​​over time (only XModShell).  
 
 #### 1. Screenshots
 
@@ -99,18 +101,18 @@ Script editor
  - _Convert - Bin/Oct/Dec/Hex number converter_  
    Unit for Turbo Pascal v3.0  
    Public Domain, Copyright (C) 1993 Tom Wellige  
- - _Ararat Synapse Release 40_  
+ - _Ararat Synapse Release 40_ [^1]  
    TCP/IP and serial library for FreePascal  
    Modified BSD style license, Copyright (C) 1999-2012 Lukas Gebauer  
- - _ProtCOM v0.1 Protected mode serial port handler for DOS_  
+ - _ProtCOM v0.1 Protected mode serial port handler for DOS_ [^2]  
    Unit for FreePascal  
    Creative Common Zero Universal v1.0, Copyright (C) 2024 Pozsar Zsolt  
 
 #### 3. About
 
 This is a utility that can be used on several operating systems, which can
-communicate with connected equipment using [Modbus](https://modbus.org/)/ASCII,
-Modbus/RTU and Modbus/TCP protocols. The program can - even automatically -
+communicate with connected equipment using Modbus/ASCII,
+Modbus/RTU and Modbus/TCP protocols [^3]. The program can - even automatically -
 read, write or copy data from one device to another (e.g. transferring
 settings). When copying, the source and destination register areas can be
 different.
@@ -332,7 +334,7 @@ questions, or suggest new features.
 
 **Precompiled binaries and installer packages for several OS and architecture**
 
-> [!NOTE]
+> [!TIP]
 > The download is done via http. Some browsers are not happy with this and may block it.
 
 | name                                                                                                            | version    |OS               |arch.  | type  | note|
@@ -367,3 +369,7 @@ questions, or suggest new features.
 | [installer package](http://www.pozsarzs.hu/packages/software/modshell/windows/modshell-0.1alpha2-win64.exe)     | v0.1-alpha2| Windows         | x86_64| exe   |     |
 | [installer package](http://www.pozsarzs.hu/packages/software/modshell/windows/modshell-0.1alpha2-win32.msi)     | v0.1-alpha2| Windows         | i386  | msi   |     |
 | [installer package](http://www.pozsarzs.hu.hu/packages/software/modshell/windows/modshell-0.1alpha2-win64.msi)  | v0.1-alpha2| Windows         | x86_64| msi   |     |
+
+[^1]: [Synapse Github repository](https://github.com/geby/synapse)
+[^2]: [ProtCOM Github repository](https://github.com/pozsarzs/protcom)
+[^3]: [Modbus](https://modbus.org)
