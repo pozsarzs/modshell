@@ -126,7 +126,7 @@ arrow keys.
 
 The XModShell program has a *graphical interface (GUI)*, which helps to perform
 several operations with dialog windows, but the original command line input remained
-available for them (e.g. file selection, settings, etc.).
+available for them (e.g. file selection, settings, etc.) [^4].
 
 **Operating principle**
 
@@ -316,7 +316,7 @@ selected.
 |$B19  |19200 (baud)                       |
 |$B38  |38400 (baud)                       |
 |$B57  |57600 (baud)                       |
-|$B115 |115200 (baud                       |
+|$B115 |115200 (baud)                      |
 
 **Documentation and Help**
 
@@ -373,3 +373,4 @@ questions, or suggest new features.
 [^1]: [Synapse Github repository](https://github.com/geby/synapse)
 [^2]: [ProtCOM Github repository](https://github.com/pozsarzs/protcom)
 [^3]: [Modbus](https://modbus.org)
+[^4]: [Wiki - Differents between CUI and GUI version](https://github.com/pozsarzs/modshell/wiki/c.-Differents-between-CUI-and-GUI-version)
