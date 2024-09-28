@@ -31,17 +31,13 @@ var
   s1: string; // parameters in other type
   valid: boolean = false;
   xml: txmldocument;
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(MSG05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -75,13 +71,10 @@ begin
     end;
   if not valid then
   begin
-    s := MSG22; // What is the file extension?
+    // What is the file extension?
+    s := MSG22;
     for ft := 1 to 2 do s := s + ' ' + FILE_TYPE[ft];
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -103,11 +96,8 @@ begin
                end;
              end; 
          except
-           {$IFNDEF X}
-             writeln(ERR11 + fpn + '!');
-           {$ELSE}
-             Form1.Memo1.Lines.Add(ERR11 + fpn + '!');
-           {$ENDIF}
+           // Cannot import register content!
+           {$IFNDEF X} writeln(ERR11 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR11 + fpn + '!'); {$ENDIF}
            result := 1;
          end;
          ini.free;
@@ -142,11 +132,7 @@ begin
                  end;
                end;
              except
-               {$IFNDEF X}
-                 writeln(ERR11 + fpn + '!');
-               {$ELSE}
-                 Form1.Memo1.Lines.Add(ERR11 + fpn + '!');
-               {$ENDIF}
+               {$IFNDEF X} writeln(ERR11 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR11 + fpn + '!'); {$ENDIF}
                result := 1;
                exit;
              end;
@@ -155,9 +141,5 @@ begin
          xml.free;
        end;
   end;
-  {$IFNDEF X}
-    writeln(MSG19 + fpn + '.');
-  {$ELSE}
-    Form1.Memo1.Lines.Add(MSG19 + fpn + '.');
-  {$ENDIF}
+  {$IFNDEF X} writeln(MSG19 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG19 + fpn + '.'); {$ENDIF}
 end;

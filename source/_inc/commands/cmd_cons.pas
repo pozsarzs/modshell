@@ -121,18 +121,15 @@ function cmd_const(p1, p2: string): byte;
 var
   b, bb: byte;
   l: byte;
-  {$IFNDEF X} line: byte; {$ENDIF}
-  {$IFDEF X} s: string; {$ENDIF}
-  s1, s2: string;      // parameters in other type
+  {$IFNDEF X} line: byte; {$ELSE} s: string; {$ENDIF}
+  s1, s2: string; // parameters in other type
   valid: boolean = true;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      line := 0;
-    {$ENDIF}
+    {$IFNDEF X} line := 0; {$ENDIF}
     for l := 0 to VARBUFFSIZE-1 do
       if (length(vars[l].vname) > 0) and vars[l].vreadonly  then
       begin
@@ -159,11 +156,8 @@ begin
   end;
   if (length(p1) > 0) and (length(p2) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -184,12 +178,9 @@ begin
     for bb := 123 to 255 do
       if s1[b] = chr(bb) then valid := false;
   end;
+  // Illegal character in the constant name!
   if not valid then
-  {$IFNDEF X}
-    writeln(ERR33) else
-  {$ELSE}
-    Form1.Memo1.Lines.Add(ERR33) else
-  {$ENDIF}
+    {$IFNDEF X} writeln(ERR33) {$ELSE} Form1.Memo1.Lines.Add(ERR33) {$ENDIF} else
   begin
     // COMPARING EXISTING NAMES WITH THE NEW ONE
     valid := true;
@@ -197,11 +188,8 @@ begin
       if vars[l].vname = lowercase(p1) then valid := false;
     if not valid then
     begin
-      {$IFNDEF X}
-        writeln(ERR17);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR17);
-      {$ENDIF}
+      // There is already a variable or a constant with that name.
+      {$IFNDEF X} writeln(ERR17); {$ELSE} Form1.Memo1.Lines.Add(ERR17); {$ENDIF}
       result := 1;
       exit;
     end;
@@ -215,11 +203,8 @@ begin
       end;
     if not valid then
     begin
-      {$IFNDEF X}
-        writeln(ERR34);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR34);
-      {$ENDIF}
+      // Cannot define more constant!
+      {$IFNDEF X} writeln(ERR34); {$ELSE} Form1.Memo1.Lines.Add(ERR34); {$ENDIF}
       result := 1;
       exit;
     end;

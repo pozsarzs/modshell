@@ -21,18 +21,17 @@
 // COMMAND 'EDIT'
 function cmd_edit(p1: string): byte;
 var
-  i1: integer; // parameter in other format
-  s1: string; // parameter in other format
   b, bb: byte;
   c: char;
   en: byte;
+  i1: integer; // parameter in other format
+  s1: string; // parameter in other format
   shift: byte = 0;
   tp: byte = 1;
   txt: string;
-  x: byte;
   x1: byte = 10;
   x2: byte;
-
+  x: byte;
 begin
   result := 0;
   {$IFDEF X}
@@ -51,7 +50,8 @@ begin
   i1 := strtointdef(s1, -1);
   if (i1 < 1) or (i1 > SCRBUFFSIZE) then
   begin
-    writeln(NUM1 + MSG05 + ' 1-' + inttostr(SCRBUFFSIZE)); // What is the 1st parameter?
+    // What is the 1st parameter?
+    writeln(NUM1 + MSG05 + ' 1-' + inttostr(SCRBUFFSIZE));
     result := 1;
     exit;
   end;

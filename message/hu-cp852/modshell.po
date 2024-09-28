@@ -579,6 +579,10 @@ msgstr "A f jl  tnevez‚se nem sikerlt!"
 msgid "Cannot set connection timeout!"
 msgstr "Nem lehet be ll¡tani az id‹t£ll‚p‚st!"
 
+#: modshell:err48
+msgid "Operation error!"
+msgstr "Mûvelet hiba!"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb termin l m‚ret 80x25!"

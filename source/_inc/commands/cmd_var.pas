@@ -92,9 +92,7 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      line := 0;
-    {$ENDIF}
+    {$IFNDEF X} line := 0; {$ENDIF}
     for l := 0 to VARBUFFSIZE-1 do
       if (length(vars[l].vname) > 0) and not vars[l].vreadonly then
       begin
@@ -137,11 +135,8 @@ begin
       if s1[b] = chr(bb) then valid := false;
   end;
   if not valid then
-    {$IFNDEF X}
-      writeln(ERR15) else
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR15) else
-    {$ENDIF}
+    // Illegal character in the variable name!
+    {$IFNDEF X} writeln(ERR15) {$ELSE} Form1.Memo1.Lines.Add(ERR15) {$ENDIF} else
   begin
     // COMPARING EXISTING NAMES WITH THE NEW ONE
     valid := true;
@@ -149,11 +144,8 @@ begin
       if vars[l].vname = lowercase(p1) then valid := false;
     if not valid then
     begin
-      {$IFNDEF X}
-        writeln(ERR17);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR17);
-      {$ENDIF}
+      // There is already a variable or a constant with that name.
+      {$IFNDEF X} writeln(ERR17); {$ELSE}  Form1.Memo1.Lines.Add(ERR17); {$ENDIF}
       result := 1;
       exit;
     end;
@@ -167,11 +159,8 @@ begin
       end;
     if not valid then
     begin
-      {$IFNDEF X}
-        writeln(ERR16);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR16);
-      {$ENDIF}
+      // Cannot define more variable!
+      {$IFNDEF X} writeln(ERR16); {$ELSE} Form1.Memo1.Lines.Add(ERR16); {$ENDIF}
       result := 1;
     exit;
     end;

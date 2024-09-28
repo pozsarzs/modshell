@@ -21,8 +21,8 @@
 // COMMAND 'GET'
 function cmd_get(p1: string): byte;
 var
-  pr: byte;
   i: integer;
+  pr: byte;
   s1: string; // parameter in other type
   valid: boolean;
 
@@ -124,16 +124,12 @@ var
   var
     b: byte;
     s: string = '';
-    
   begin
-    s := NUM1 + MSG05; // What is the 1st parameter?
+    // What is the 1st parameter?
+    s := NUM1 + MSG05;
     for b := 0 to 2 do  s := s + ' ' + PREFIX[b] + '[0-7]';
     s := s + ' ' + PREFIX[3];
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
   end;
 
 begin
@@ -141,32 +137,21 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameter required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
   // CHECK P1 PARAMETERS
   if p1 = PREFIX[3] then
   begin
-    {$IFNDEF X}
-      writeln(proj);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(proj);
-    {$ENDIF}
+    {$IFNDEF X} writeln(proj); {$ELSE} Form1.Memo1.Lines.Add(proj); {$ENDIF}
     result := 0;
     exit;
   end;
   if p1 = PREFIX[4] then
   begin
-    {$IFNDEF X}
-      writeln(timeout);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(inttostr(timeout));
-    {$ENDIF}
+    {$IFNDEF X} writeln(timeout); {$ELSE} Form1.Memo1.Lines.Add(inttostr(timeout)); {$ENDIF}
     result := 0;
     exit;
   end;

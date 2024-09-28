@@ -100,11 +100,7 @@ begin
             11: exitcode := cmd_writereg(splitted[1], splitted[2], splitted[3], splitted[4]);
                 // writereg con? coil|hreg ADDRESS [COUNT]
             12: begin
-                  {$IFNDEF X}
-                    clrscr;
-                  {$ELSE}
-                    Form1.Memo1.Lines.Clear;
-                  {$ENDIF}
+                  {$IFNDEF X} clrscr; {$ELSE} Form1.Memo1.Lines.Clear; {$ENDIF}
                   exitcode := 0;
                 end;
                 // cls

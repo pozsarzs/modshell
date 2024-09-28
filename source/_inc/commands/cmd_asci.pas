@@ -31,7 +31,6 @@ const
   SPC2 = '  ';
   SPC3 = '   ';
   SPC4 = '    ';
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
@@ -47,13 +46,10 @@ begin
     end;
     if not valid then
     begin
-      s := NUM1 + MSG05; // What is the 1st parameter?
+      // What is the 1st parameter?
+      s := NUM1 + MSG05;
       for ns := 1 to 2 do s := s + ' ' + NUM_SYS[ns];
-      {$IFNDEF X}
-        writeln(s);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(s);
-      {$ENDIF}
+      {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
       result := 1;
       exit;
     end;
@@ -62,19 +58,11 @@ begin
   if ns = 2 then
   begin
     col := 15; row := 7;
-    {$IFNDEF X}
-      write(SPC3);
-    {$ELSE}
-      s := SPC3;
-    {$ENDIF}
+    {$IFNDEF X} write(SPC3); {$ELSE} s := SPC3; {$ENDIF}
   end else
   begin
     col := 9; row := 12;
-    {$IFNDEF X}
-      write(SPC2 + SPC2);
-    {$ELSE}
-      s := SPC2 + SPC2;
-    {$ENDIF}
+    {$IFNDEF X} write(SPC2 + SPC2); {$ELSE} s := SPC2 + SPC2; {$ENDIF}
   end;
   {$IFNDEF X}
     // columns

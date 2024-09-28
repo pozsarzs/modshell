@@ -27,17 +27,12 @@ begin
   result := 0;
   if not scriptisloaded then
   begin
-    {$IFNDEF X}
-      writeln(MSG38);  // No script loaded.
-    {$ELSE}
-      Form1.Memo1.Lines.Add(MSG38);
-    {$ENDIF}
+    // No script loaded.
+    {$IFNDEF X} writeln(MSG38); {$ELSE} Form1.Memo1.Lines.Add(MSG38); {$ENDIF}
     result := 1;
     exit;
   end;
-  {$IFNDEF X} 
-    y := 0;
-  {$ENDIF}
+  {$IFNDEF X} y := 0; {$ENDIF}
   for line := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[line]) > 0 then
     begin

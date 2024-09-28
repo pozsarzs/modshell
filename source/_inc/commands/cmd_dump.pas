@@ -30,7 +30,6 @@ var
   s2: string = ''; // parameter in other type
   rt: byte; // register type
   valid: boolean = false;
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -60,7 +59,8 @@ begin
       writeln;
       i2 := strtointdef(s2, 0);
     {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05); // Parameters required!
+      // Parameter(s) required!
+      Form1.Memo1.Lines.Add(ERR05);
       result := 1;
       exit;
     {$ENDIF}
@@ -75,13 +75,10 @@ begin
       end;
     if not valid then
     begin
-      s := NUM1 + MSG05; // What is the 2nd parameter?
+      // What is the 2nd parameter?
+      s := NUM1 + MSG05;
       for rt := 0 to 3 do s := s + ' ' + REG_TYPE[rt];
-      {$IFNDEF X}
-        writeln(s);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(s);
-      {$ENDIF}
+      {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
       result := 1;
       exit;
     end;
@@ -92,11 +89,8 @@ begin
     i2 := strtointdef(s2, -1);
     if (i2 < 1) or (i2 > 9990) then
     begin
-      {$IFNDEF X}
-        writeln(NUM2 + MSG05 + ' 1-9990'); // What is the 3rd parameter?
-      {$ELSE}
-        Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9990');
-      {$ENDIF}
+      // What is the 3rd parameter?
+      {$IFNDEF X} writeln(NUM2 + MSG05 + ' 1-9990'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9990'); {$ENDIF}
       result := 1;
       exit;
     end;

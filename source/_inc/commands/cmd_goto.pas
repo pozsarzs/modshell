@@ -23,17 +23,13 @@ function cmd_goto(p1: string): byte;
 var
   line: integer;
   valid: boolean = false;
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -50,11 +46,8 @@ begin
         end;
     if not valid then
     begin
-      {$IFNDEF X}
-        writeln(ERR35 + p1);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR35 + p1);
-      {$ENDIF}
+      // No such label!
+      {$IFNDEF X} writeln(ERR35 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR35 + p1); {$ENDIF}
       result := 1;
     end;
   end;

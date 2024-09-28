@@ -25,13 +25,12 @@ function cmd_print(p1, p2, p3, p4: string): byte;
 const
   N: string[2] = '-n';
 var
+  crlf: boolean = true; // carriage return and line feed
   i, i2, i3: integer; // parameters in other type
   rt: byte; // register type
-  s: string;
   s1, s2, s3: string; // parameters in other type
+  s: string;
   valid: boolean = false;
-  crlf: boolean = true; // carriage return and line feed
-  
 begin
   result := 0;
   // SEARCH -N IN ALL PARAMETERS
@@ -42,11 +41,8 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -89,13 +85,10 @@ begin
     end;
   if not valid then
   begin
-    s := NUM1 + MSG05; // What is the 1st parameter?
+    // What is the 1st parameter?
+    s := NUM1 + MSG05;
     for i := 0 to 3 do s := s + ' ' + REG_TYPE[i];
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -106,11 +99,8 @@ begin
   i2 := strtointdef(s2, -1); // start address
   if (i2 < 1 ) or (i2 > 9999) then
   begin
-    {$IFNDEF X}
-      writeln(NUM2 + MSG05 + ' 1-9999'); // What is the 2nd parameter?
-    {$ELSE}
-      Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999');
-    {$ENDIF}
+    // What is the 2nd parameter?
+    {$IFNDEF X} writeln(NUM2 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999'); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -124,11 +114,8 @@ begin
   end;
   if (i3 < 1 ) or (i3 > 9999) then
   begin
-    {$IFNDEF X}
-      writeln(NUM3 + MSG05 + ' 1-9999'); // What is the 2nd parameter?
-    {$ELSE}
-      Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 1-9999');
-    {$ENDIF}
+    // What is the 2nd parameter?
+    {$IFNDEF X} writeln(NUM3 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 1-9999'); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -143,9 +130,5 @@ begin
       2: {$IFNDEF X} write(ireg[i2], ' '); {$ELSE} s := s + inttostr(ireg[i2]) + ' '; {$ENDIF}
       3: {$IFNDEF X} write(hreg[i2], ' '); {$ELSE} s := s + inttostr(hreg[i2]) + ' '; {$ENDIF}
     end;
-    {$IFNDEF X}
-      if crlf then writeln;
-    {$ELSE}
-      if crlf then Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} if crlf then writeln; {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
 end;

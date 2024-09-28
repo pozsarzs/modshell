@@ -23,22 +23,19 @@ function cmd_sercons(p1: string): byte;
 var
   b: byte;
   c: char;
-  i1: integer; // parameters other type
-  s: string;
-  s1: string; // parameters in other type
-  valid: boolean = false;
   fpn, fp: string;
+  i1: integer; // parameters other type
   lf: file of char;
+  s1: string; // parameters in other type
+  s: string;
+  valid: boolean = false;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -54,32 +51,21 @@ begin
     end;
   if not valid then
   begin
-    s := NUM1 + MSG05; // What is the 1st parameter?
+    // What is the 1st parameter?
+    s := NUM1 + MSG05;
     s := s + ' ' + PREFIX[0] + '[0-7]';
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
   if not dev[i1].valid then
   begin
-    {$IFNDEF X}
-      writeln(PREFIX[0], i1, MSG06);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06);
-    {$ENDIF}
+    {$IFNDEF X} writeln(PREFIX[0], i1, MSG06); {$ELSE} Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06); {$ENDIF}
     exit;
   end;
   if not (dev[i1].devtype = 1) then
   begin
-    {$IFNDEF X}
-      writeln(MSG24);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(MSG24);
-    {$ENDIF}
+    {$IFNDEF X} writeln(MSG24); {$ELSE} Form1.Memo1.Lines.Add(MSG24); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -139,11 +125,8 @@ begin
       writeln;
     end else
     begin
-      {$IFNDEF X}
-        writeln(ERR18, dev[i1].device);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR18 + dev[i1].device);
-      {$ENDIF}
+      // Cannot initialize serial port!
+      {$IFNDEF X} writeln(ERR18, dev[i1].device); {$ELSE} Form1.Memo1.Lines.Add(ERR18 + dev[i1].device); {$ENDIF}
       result := 1;
     end;
     try

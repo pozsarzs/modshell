@@ -23,7 +23,6 @@
 procedure varmon_viewer;
 var
   b, x, y: byte;
-  
 begin
   if varmon then
   begin
@@ -54,11 +53,8 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end else
@@ -74,34 +70,24 @@ begin
         end;
       if not valid then
       begin
-        s := NUM1 + MSG05; // What is the 1st parameter?
+        // What is the 1st parameter?
+        s := NUM1 + MSG05;
         for b := 0 to 1 do s := s + ' ' + ECHO_ARG[b];
-        {$IFNDEF X}
-          writeln(s);
-        {$ELSE}
-          Form1.Memo1.Lines.Add(s);
-        {$ENDIF}
+        {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
         result := 1;
         exit;
       end;
       // PRIMARY MISSION
       // on/off variable monitor
       varmon := inttobool(b);
-      {$IFNDEF X}
-        writeln(MSG32 + ECHO_ARG[b]);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(MSG32 + ECHO_ARG[b]);
-      {$ENDIF}
+      {$IFNDEF X} writeln(MSG32 + ECHO_ARG[b]); {$ELSE} Form1.Memo1.Lines.Add(MSG32 + ECHO_ARG[b]); {$ENDIF}
     end else
     begin
       // CHECK P1 PARAMETER
       if not boolisitvariable(p1) then
       begin
-        {$IFNDEF X}
-          writeln(ERR19 + p1); // No such variable
-        {$ELSE}
-          Form1.Memo1.Lines.Add(ERR19 + p1);
-        {$ENDIF}
+        // No such variable!
+        {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
         result := 1;
         exit;
       end;
@@ -115,13 +101,10 @@ begin
         end;
       if not valid then
       begin
-        s := NUM2 + MSG05; // What is the 2nd parameter?
+        // What is the 2nd parameter?
+        s := NUM2 + MSG05;
         for b := 0 to 1 do s := s + ' ' + ECHO_ARG[b];
-        {$IFNDEF X}
-          writeln(s);
-        {$ELSE}
-          Form1.Memo1.Lines.Add(s);
-        {$ENDIF}
+        {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
         result := 1;
         exit;
       end;

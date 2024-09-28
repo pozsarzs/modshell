@@ -25,17 +25,13 @@ var
   s: string;
   s3: string; // parameter in other type
   valid: boolean = false;
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -48,13 +44,10 @@ begin
     end;
   if not valid then
   begin
-    s := NUM1 + MSG05; // What is the 1st parameter?
+    // What is the 1st parameter?
+    s := NUM1 + MSG05;
     for ns1 := 0 to 3 do s := s + ' ' + NUM_SYS[ns1];
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -68,13 +61,10 @@ begin
     end;
   if not valid then
   begin
-    s := NUM2 + MSG05; // What is the 1st parameter?
+    // What is the 2nd parameter?
+    s := NUM2 + MSG05;
     for ns2 := 0 to 3 do s := s + ' ' + NUM_SYS[ns2];
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE}  Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -87,8 +77,9 @@ begin
          s := BinToDez(s3);
          if DezToBin(s) <> s3 then
          begin
+           // What is the 3rd parameter?
            {$IFNDEF X}
-             writeln(NUM3 + MSG05 + ' 0-1111111111111111'); // What is the 3rd parameter?
+             writeln(NUM3 + MSG05 + ' 0-1111111111111111');
            {$ELSE}
              Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-1111111111111111');
            {$ENDIF}
@@ -98,11 +89,8 @@ begin
        end;
     1: if (strtointdef(s3, -1) < 0 ) or (strtointdef(p3, -1) > 65535) then
        begin
-         {$IFNDEF X}
-            writeln(NUM3 + MSG05 + ' 0-65535'); // What is the 3rd parameter?
-         {$ELSE}
-            Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-655535');
-         {$ENDIF}
+         // What is the 3rd parameter?
+         {$IFNDEF X} writeln(NUM3 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-655535'); {$ENDIF}
          result := 1;
          exit;
        end;
@@ -110,11 +98,8 @@ begin
          s := HexToDez(s3);
          if DezToHex(s) <> uppercase(s3) then
          begin
-           {$IFNDEF X}
-             writeln(NUM3 + MSG05 + ' 0-FFFF'); // What is the 3rd parameter?
-           {$ELSE}
-             Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-FFFF');
-           {$ENDIF}
+           // What is the 3rd parameter?
+           {$IFNDEF X} writeln(NUM3 + MSG05 + ' 0-FFFF'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-FFFF'); {$ENDIF}
            result := 1;
            exit;
          end;
@@ -123,11 +108,8 @@ begin
          s := OktToDez(s3);
          if DezToOkt(s) <> s3 then
          begin
-           {$IFNDEF X}
-             writeln(NUM3 + MSG05 + ' 0-0-177777'); // What is the 3rd parameter?
-           {$ELSE}
-             Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-0-177777');
-           {$ENDIF}
+           // What is the 3rd parameter?
+           {$IFNDEF X}  writeln(NUM3 + MSG05 + ' 0-0-177777'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-0-177777'); {$ENDIF}
            result := 1;
            exit;
          end;
@@ -164,9 +146,5 @@ begin
     32: s := OktToHex(s3);
     33: s := s3;
   end;
-  {$IFNDEF X}
-    writeln(s);
-  {$ELSE}
-    Form1.Memo1.Lines.Add(s);
-  {$ENDIF}
+  {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
 end;

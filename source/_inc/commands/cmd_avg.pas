@@ -20,32 +20,25 @@
 
 function cmd_avg(p1, p2, p3, p4, p5, p6: string): byte;
 var
+  count: byte = 2; // number of the input values
   b: byte;
   f: float = 0;
   s: array[2..6] of string; // parameters in other type
-  count: byte = 2; // number of the input values
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
   if not boolisitvariable(p1) then
   begin
-    {$IFNDEF X}
-      writeln(ERR19 + p1); // No such variable
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR19 + p1);
-    {$ENDIF}
+    // No such variable!
+    {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -87,10 +80,7 @@ begin
       f := f + strtofloatdef(s[b], 0);
     vars[intisitvariable(p1)].vvalue := floattostr(f / count);
   except
-    {$IFNDEF X}
-      writeln(ERR20);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR20);
-    {$ENDIF}
+    // Calculating error!
+    {$IFNDEF X} writeln(ERR20); {$ELSE} Form1.Memo1.Lines.Add(ERR20); {$ENDIF}
   end;
 end;

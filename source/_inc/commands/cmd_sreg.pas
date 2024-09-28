@@ -27,17 +27,13 @@ var
   ftb: file of boolean;
   ftw: file of word;
   s1: string; // parameters in other type
- 
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -84,19 +80,12 @@ begin
     for i := 1 to 9999 do write(ftb, coil[i]);
     closefile(ftb);
   except
-    {$IFNDEF X}
-      writeln(ERR12 + fpn + '!');
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR12 + fpn + '!');
-    {$ENDIF}
+    // Cannot save register content!
+    {$IFNDEF X} writeln(ERR12 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR12 + fpn + '!'); {$ENDIF}
     result := 1;
     exit;
   end;
-  {$IFNDEF X}
-    writeln(MSG20 + fpn + '.');
-  {$ELSE}
-    Form1.Memo1.Lines.Add(MSG20 + fpn + '.');
-  {$ENDIF}
+  {$IFNDEF X} writeln(MSG20 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG20 + fpn + '.'); {$ENDIF}
   // save ireg and hreg
   fpn := fp + fn + '.wdt';
   assignfile(ftw, fpn);
@@ -106,17 +95,10 @@ begin
     for i := 1 to 9999 do write(ftw, hreg[i]);
     closefile(ftw);
   except
-    {$IFNDEF X}
-      writeln(ERR12 + fpn + '!');
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR12 + fpn + '!');
-    {$ENDIF}
+    // Cannot save register content!
+    {$IFNDEF X} writeln(ERR12 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR12 + fpn + '!'); {$ENDIF}
     result := 1;
     exit;
   end;
-  {$IFNDEF X}
-    writeln(MSG20 + fpn + '.');
-  {$ELSE}
-    Form1.Memo1.Lines.Add(MSG20 + fpn + '.');
-  {$ENDIF}
+  {$IFNDEF X} writeln(MSG20 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG20 + fpn + '.'); {$ENDIF}
 end;

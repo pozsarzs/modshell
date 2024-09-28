@@ -38,7 +38,6 @@ var
   function timestamp: string;
   var
     y, mh, d, w, h, m, s, cs: word;
-    
   begin
     getdate(y, mh, d, w);
     gettime(h, m, s, cs);
@@ -51,11 +50,8 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -79,11 +75,8 @@ begin
   i3 := strtointdef(s[3], -1);
   if (i3 < 0) or (i3 > 7) then
   begin
-    {$IFNDEF X}
-      writeln(NUM1 + MSG05 + ' 0-7'); // What is the 1st parameter?
-    {$ELSE}
-      Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 0-7');
-    {$ENDIF}
+    // What is the 1st parameter?
+    {$IFNDEF X} writeln(NUM1 + MSG05 + ' 0-7'); {$ELSE} Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 0-7'); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -146,11 +139,8 @@ begin
     writeln(tf, s[2]);
     closefile(tf);
   except
-    {$IFNDEF X}
-      writeln(ERR36 + fpn + '!');
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR36 + fpn + '!');
-    {$ENDIF}
+    // Cannot write log record!
+    {$IFNDEF X} writeln(ERR36 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR36 + fpn + '!'); {$ENDIF}
     result := 1;
     exit;
   end;

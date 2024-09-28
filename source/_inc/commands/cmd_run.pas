@@ -24,16 +24,12 @@ var
   line: integer;
   stepbystep: boolean;
   holdvariables: boolean;
-
 begin
   result := 0;
   if not scriptisloaded then
   begin
-    {$IFNDEF X}
-      writeln(MSG38);  // No script loaded.
-    {$ELSE}
-      Form1.Memo1.Lines.Add(MSG38);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -54,11 +50,7 @@ begin
       if sbuffer[line][1] <> COMMENT then parsingcommands(sbuffer[line]);
       if stepbystep then
       begin
-        {$IFNDEF X}
-          readkey;
-        {$ELSE}
-          ShowMessage(MSG78);
-        {$ENDIF}
+        {$IFNDEF X} readkey; {$ELSE} ShowMessage(MSG78); {$ENDIF}
       end;
     end;
   if not holdvariables then

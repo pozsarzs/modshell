@@ -26,17 +26,13 @@ var
   s: string;
   sf: textfile;
   s1: string; // parameters in other type
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -79,7 +75,8 @@ begin
             if line < int(SCRBUFFSIZE - 1) then inc(line);
           end else
           begin
-            writeln(ERR23);
+            // Script buffer is full!
+            {$IFNDEF X} writeln(ERR23); {$ELSE} Form1.Memo1.Lines.Add(ERR23); {$ENDIF}
             result := 1;
             exit;
           end;
@@ -89,11 +86,8 @@ begin
     scriptisloaded := true;
     scriptlastline := line;
   except
+    // Cannot load script!
+    {$IFNDEF X} writeln(ERR22 + fpn); {$ELSE} Form1.Memo1.Lines.Add(ERR22 + fpn); {$ENDIF}
     result := 1;
-    {$IFNDEF X}
-      writeln(ERR22 + fpn);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR22 + fpn);
-    {$ENDIF}
   end;
 end;

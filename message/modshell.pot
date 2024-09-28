@@ -557,6 +557,10 @@ msgstr ""
 msgid "Cannot set connection timeout!"
 msgstr ""
 
+#: modshell:err48
+msgid "Operation error!"
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""

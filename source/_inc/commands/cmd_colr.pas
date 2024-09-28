@@ -23,7 +23,6 @@ function cmd_color(p1, p2, p3, p4, p5: string): byte;
 var
   i1, i2, i3, i4, i5: integer; // parameters in other type
   s1, s2, s3, s4, s5: string; // parameters in other type
-
 begin
   result := 0;
   {$IFDEF X}
@@ -34,7 +33,8 @@ begin
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
      (length(p4) = 0) or (length(p5) = 0) then
   begin
-    writeln(ERR05); // Parameters required!
+    // Parameter(s) required!
+    writeln(ERR05);
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -44,7 +44,8 @@ begin
   i1 := strtointdef(s1, -1);
   if (i1 < 0) or (i1 > 15) then
   begin
-    writeln(NUM1 + MSG05 + ' 0-15'); // What is the 1st parameter?
+    // What is the 1st parameter?
+    writeln(NUM1 + MSG05 + ' 0-15');
     result := 1;
     exit;
   end;
@@ -54,7 +55,8 @@ begin
   i2 := strtointdef(s2, -1);
   if (i2 < 0) or (i2 > 15) then
   begin
-    writeln(NUM2 + MSG05 + ' 0-15'); // What is the 2nd parameter?
+    // What is the 2nd parameter?
+    writeln(NUM2 + MSG05 + ' 0-15');
     result := 1;
     exit;
   end;
@@ -65,7 +67,8 @@ begin
   i3 := strtointdef(s3, -1);
   if (i3 < 0) or (i3 > 15) then
   begin
-    writeln(NUM3 + MSG05 + ' 0-15'); // What is the 3rd parameter?
+    // What is the 3rd parameter?
+    writeln(NUM3 + MSG05 + ' 0-15');
     result := 1;
     exit;
   end;
@@ -76,7 +79,8 @@ begin
   i4 := strtointdef(s4, -1);
   if (i4 < 0) or (i4 > 15) then
   begin
-    writeln(NUM4 + MSG05 + ' 0-15'); // What is the 4th parameter?
+    // What is the 4th parameter?
+    writeln(NUM4 + MSG05 + ' 0-15');
     result := 1;
     exit;
   end;
@@ -87,7 +91,8 @@ begin
   i5 := strtointdef(s5, -1);
   if (i5 < 0) or (i5 > 15) then
   begin
-    writeln(NUM5 + MSG05 + ' 0-15'); // What is the 5th parameter?
+    // What is the 5th parameter?
+    writeln(NUM5 + MSG05 + ' 0-15');
     result := 1;
     exit;
   end;

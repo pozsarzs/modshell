@@ -22,7 +22,6 @@
 function cmd_erasescr: byte;
 var
   line: integer;
-
 begin
   result := 0;
   // PRIMARY MISSION

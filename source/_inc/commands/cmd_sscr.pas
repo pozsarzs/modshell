@@ -26,17 +26,13 @@ var
   fpn, fp, fn: string;
   sf: textfile;
   s1: string; // parameters in other type
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -79,11 +75,8 @@ begin
       if length(sbuffer[line]) > 0 then writeln(sf, sbuffer[line]);
     closefile(sf);
   except
-    {$IFNDEF X}
-      writeln(ERR37 + fpn);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR37 + fpn);
-    {$ENDIF}
+    // Cannot save script!
+    {$IFNDEF X} writeln(ERR37 + fpn); {$ELSE} Form1.Memo1.Lines.Add(ERR37 + fpn); {$ENDIF}
     result := 1;
   end;
 end;

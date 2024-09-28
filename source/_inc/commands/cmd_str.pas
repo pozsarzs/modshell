@@ -39,33 +39,24 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
   if op = 63 then
     if (length(p3) = 0) then
     begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+      // Parameter(s) required!
+      {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
       result := 1;
       exit;
     end;
   // CHECK P1 PARAMETER
   if not boolisitvariable(p1) then
   begin
-    {$IFNDEF X}
-      writeln(ERR19 + p1); // No such variable
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR19 + p1);
-    {$ENDIF}
+    // No such variable!
+    {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -98,11 +89,8 @@ begin
       87: vars[intisitvariable(p1)].vvalue := stringreplace(vars[intisitvariable(p1)].vvalue, s2, s3, [rfReplaceAll]);
     end;
   except
+    // Operating error
+    {$IFNDEF X} writeln(ERR48); {$ELSE} Form1.Memo1.Lines.Add(ERR48); {$ENDIF}
     result := 1;
-    {$IFNDEF X}
-      writeln(ERR20);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR20);
-    {$ENDIF}
   end;
 end;

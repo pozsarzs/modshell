@@ -23,7 +23,6 @@
 function cmd_pause(p1: string): byte;
 var
   s1: string; // parameter in other type
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -36,11 +35,8 @@ begin
     // PRIMARY MISSION
     if strtointdef(s1, -1) > -1 then delay(strtoint(s1) * 1000) else
     begin
-      {$IFNDEF X}
-        writeln(NUM1 + MSG05 + ' 1-65535'); // What is the 1st parameter?
-      {$ELSE}
-        Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 1-65535');
-      {$ENDIF}
+      // What is the 1st parameter?
+      {$IFNDEF X} writeln(NUM1 + MSG05 + ' 1-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 1-65535'); {$ENDIF}
       result := 1;
     end;
   end;

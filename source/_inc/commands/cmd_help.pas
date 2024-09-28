@@ -22,10 +22,10 @@
 function cmd_help(p1: string): byte;
 var
   b, bb: byte;
-  valid: boolean;
   buffer: array[0..COMMARRSIZE + 5] of string;
   {$IFNDEF X} line: byte; {$ENDIF}
   s1: string; // parameters in other type
+  valid: boolean;
 
   // SHORTING CONTENT OF BUFFER
   procedure shorting;
@@ -48,11 +48,8 @@ begin
   for b := 0 to COMMARRSIZE + 5 do buffer[b] := '';
   if length(p1) = 0 then
   begin
-    {$IFNDEF X}
-      writeln(MSG03); // How to use help with command list.
-    {$ELSE}
-      Form1.Memo1.Lines.Add(MSG03);
-    {$ENDIF}
+    // How to use help with command list.
+    {$IFNDEF X} writeln(MSG03); {$ELSE} Form1.Memo1.Lines.Add(MSG03); {$ENDIF}
     for b := 0 to COMMARRSIZE - 2 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
@@ -197,11 +194,8 @@ begin
       end;
     if not valid then
     begin
-      {$IFNDEF X}
-        writeln(ERR00);  // No such command!
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR00);  // No such command!
-      {$ENDIF}
+      // No such command!
+      {$IFNDEF X} writeln(ERR00); {$ELSE} Form1.Memo1.Lines.Add(ERR00); {$ENDIF}
       result := 1;
     end else
     begin

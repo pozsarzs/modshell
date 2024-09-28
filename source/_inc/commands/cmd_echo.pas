@@ -24,17 +24,12 @@ var
   ea: byte;
   s: string = '';
   valid: boolean;
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ECHO_ARG[echo]);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ECHO_ARG[echo]);
-    {$ENDIF}
+    {$IFNDEF X} writeln(ECHO_ARG[echo]); {$ELSE} Form1.Memo1.Lines.Add(ECHO_ARG[echo]); {$ENDIF}
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -47,13 +42,10 @@ begin
     end;
   if not valid then
   begin
-    s := NUM1 + MSG05; // What is the 1st parameter?
+    // What is the 1st parameter?
+    s := NUM1 + MSG05;
     for ea := 0 to 3 do s := s + ' ' + ECHO_ARG[ea];
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -63,9 +55,5 @@ begin
     inc(echo);
     if echo = 3 then echo := 0;
   end else echo := ea;
-  {$IFNDEF X}
-    writeln(MSG28 + ECHO_ARG[echo]);
-  {$ELSE}
-    Form1.Memo1.Lines.Add(MSG28 + ECHO_ARG[echo]);
-  {$ENDIF}
+  {$IFNDEF X} writeln(MSG28 + ECHO_ARG[echo]); {$ELSE}  Form1.Memo1.Lines.Add(MSG28 + ECHO_ARG[echo]); {$ENDIF}
 end;

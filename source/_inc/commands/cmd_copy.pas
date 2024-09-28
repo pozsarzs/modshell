@@ -27,18 +27,14 @@ var
   s: string;
   s1, s3, s5, s6: string; // parameters in other type
   valid: boolean = false;
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
      (length(p4) = 0) or (length(p5) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -47,22 +43,16 @@ begin
   // CHECK P1 PARAMETER
   if PREFIX[2] <> s1 then
   begin
-    s := NUM1 + MSG05; // What is the 1st parameter?
+    // What is the 1st parameter?
+    s := NUM1 + MSG05;
     s := s + ' ' + PREFIX[2] + '[0-7]';
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     exit;
   end;
   if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
   begin
-    {$IFNDEF X}
-      writeln(ERR01); // Device number must be 0-7!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR19);
-    {$ENDIF}
+    // Device number must be 0-7!
+    {$IFNDEF X} writeln(ERR01); {$ELSE}  Form1.Memo1.Lines.Add(ERR19); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -75,13 +65,10 @@ begin
     end;
   if not valid then
   begin
-    s := NUM2 + MSG05; // What is the 2nd parameter?
+    // What is the 2nd parameter?
+    s := NUM2 + MSG05;
     for rt := 0 to 3 do s := s + ' ' + REG_TYPE[rt];
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -90,23 +77,17 @@ begin
   // CHECK P3 PARAMETER
   if PREFIX[2] <> s1 then
   begin
-    s := NUM2 + MSG05; // What is the 3rd parameter?
+    // What is the 3rd parameter?
+    s := NUM2 + MSG05;
     s := s + ' ' + PREFIX[2] + '[0-7]';
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
   if length(p3) >= 4 then i3 := strtointdef(p3[4],-1) else
   begin
-    {$IFNDEF X}
-      writeln(ERR01); // Device number must be 0-7!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR01);
-    {$ENDIF}
+    // Device number must be 0-7!
+    {$IFNDEF X} writeln(ERR01); {$ELSE} Form1.Memo1.Lines.Add(ERR01); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -122,16 +103,17 @@ begin
   if not valid then
   begin
     result := 1;
+    // What is the 4th parameter?
     if rt <= 1
     then
       {$IFNDEF X}
-        writeln(NUM4 + MSG05 + ' ' + REG_TYPE[1]) // What is the 4th parameter?
+        writeln(NUM4 + MSG05 + ' ' + REG_TYPE[1])
       {$ELSE}
         Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' ' + REG_TYPE[1])
       {$ENDIF}
     else
       {$IFNDEF X}
-        writeln(NUM4 + MSG05 + ' ' + REG_TYPE[3]); // What is the 4th parameter?
+        writeln(NUM4 + MSG05 + ' ' + REG_TYPE[3]);
       {$ELSE}
         Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' ' + REG_TYPE[3]);
       {$ENDIF}
@@ -144,11 +126,8 @@ begin
   i5 := strtointdef(s5, -1);
   if (i5 < 1) or (i5 > 9999) then
   begin
-    {$IFNDEF X}
-      writeln(NUM5 + MSG05 + ' 1-9999'); // What is the 5th parameter?
-    {$ELSE}
-      Form1.Memo1.Lines.Add(NUM5 + MSG05 + ' 1-9999');
-    {$ENDIF}
+    // What is the 5th parameter?
+    {$IFNDEF X} writeln(NUM5 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM5 + MSG05 + ' 1-9999'); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -161,11 +140,8 @@ begin
     i6 := strtointdef(s6, -1);
     if (i6 < 1 ) or (i6 > 125) then
     begin
-      {$IFNDEF X}
-        writeln(NUM6 + MSG05 + ' 1-125'); // What is the 6th parameter?
-      {$ELSE}
-        Form1.Memo1.Lines.Add(NUM6 + MSG05 + ' 1-125');
-      {$ENDIF}
+      // What is the 6th parameter?
+      {$IFNDEF X} writeln(NUM6 + MSG05 + ' 1-125'); {$ELSE} Form1.Memo1.Lines.Add(NUM6 + MSG05 + ' 1-125'); {$ENDIF}
       result := 1;
       exit;
     end;

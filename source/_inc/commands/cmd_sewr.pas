@@ -32,11 +32,8 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -52,33 +49,22 @@ begin
     end;
   if not valid then
   begin
-    s := NUM1 + MSG05; // What is the 1st parameter?
+    // What is the 1st parameter?
+    s := NUM1 + MSG05;
     s := s + ' ' + PREFIX[0] + '[0-7]';
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
   if not dev[i1].valid then
   begin
-    {$IFNDEF X}
-      writeln(PREFIX[0], i1, MSG06);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06);
-    {$ENDIF}
+    {$IFNDEF X} writeln(PREFIX[0], i1, MSG06); {$ELSE} Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06); {$ENDIF}
     result := 1;
     exit;
   end;
   if not (dev[i1].devtype = 1) then
   begin
-    {$IFNDEF X}
-      writeln(MSG24);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(MSG24);
-    {$ENDIF}
+    {$IFNDEF X} writeln(MSG24); {$ELSE} Form1.Memo1.Lines.Add(MSG24); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -91,11 +77,8 @@ begin
     if boolisitvariable(p2) then s2 := isitvariable(p2);
     if length(s2) = 0 then
     begin
-    {$IFNDEF X}
-      writeln(ERR19);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR19);
-    {$ENDIF}
+    // No such variable!
+    {$IFNDEF X} writeln(ERR19); {$ELSE} Form1.Memo1.Lines.Add(ERR19); {$ENDIF}
       result := 1;
       exit;
     end;
@@ -120,21 +103,15 @@ begin
         if (uconfig.echo = 1) and (b = 13) then write(EOL);
       end else
       begin
-        {$IFNDEF X}
-          writeln(ERR27);
-        {$ELSE}
-          Form1.Memo1.Lines.Add(ERR27);
-        {$ENDIF}
+        // Cannot write data to serial port!
+        {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
         result := 1;
       end;
       ser_close;
     end else
     begin
-      {$IFNDEF X}
-        writeln(ERR18, dev[i1].device);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR18 + dev[i1].device);
-      {$ENDIF}
+      // Cannot initialize serial port!
+      {$IFNDEF X} writeln(ERR18, dev[i1].device); {$ELSE} Form1.Memo1.Lines.Add(ERR18 + dev[i1].device); {$ENDIF}
       result := 1;
     end;
 end;

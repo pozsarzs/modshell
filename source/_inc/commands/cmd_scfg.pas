@@ -28,17 +28,13 @@ var
   ftp: file of tprotocol;
   ftc: file of tconnection;
   s1: string; // parameters in other type
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -87,19 +83,12 @@ begin
                write(ftd, dev[bb]);
              closefile(ftd);
            except
-             {$IFNDEF X}
-               writeln(ERR08 + fpn + '!');
-             {$ELSE}
-               Form1.Memo1.Lines.Add(ERR08 + fpn + '!');
-             {$ENDIF}
+             // Cannot save settings!
+             {$IFNDEF X} writeln(ERR08 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR08 + fpn + '!'); {$ENDIF}
              result := 1;
              exit;
            end;
-           {$IFNDEF X}
-             writeln(MSG16 + fpn + '.');
-           {$ELSE}
-             Form1.Memo1.Lines.Add(MSG16 + fpn + '.');
-           {$ENDIF}
+           {$IFNDEF X} writeln(MSG16 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG16 + fpn + '.'); {$ENDIF}
          end;
       1: begin
            assignfile(ftp, fpn);
@@ -109,19 +98,12 @@ begin
                write(ftp, prot[bb]);
              closefile(ftp);
            except
-             {$IFNDEF X}
-               writeln(ERR08 + fpn + '!');
-             {$ELSE}
-               Form1.Memo1.Lines.Add(ERR08 + fpn + '!');
-             {$ENDIF}
+             // Cannot save settings!
+             {$IFNDEF X} writeln(ERR08 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR08 + fpn + '!'); {$ENDIF}
              result := 1;
              exit;
            end;
-           {$IFNDEF X}
-             writeln(MSG16 + fpn + '.');
-           {$ELSE}
-             Form1.Memo1.Lines.Add(MSG16 + fpn + '.');
-           {$ENDIF}
+           {$IFNDEF X} writeln(MSG16 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG16 + fpn + '.'); {$ENDIF}
          end;
       2: begin
            assignfile(ftc, fpn);
@@ -131,19 +113,12 @@ begin
                write(ftc, conn[bb]);
              closefile(ftc);
            except
-             {$IFNDEF X}
-               writeln(ERR08 + fpn + '!');
-             {$ELSE}
-               Form1.Memo1.Lines.Add(ERR08 + fpn + '!');
-             {$ENDIF}
+             // Cannot save settings!
+             {$IFNDEF X} writeln(ERR08 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR08 + fpn + '!'); {$ENDIF}
              result := 1;
              exit;
            end;
-           {$IFNDEF X}
-             writeln(MSG16 + fpn + '.');
-           {$ELSE}
-             Form1.Memo1.Lines.Add(MSG16 + fpn + '.');
-           {$ENDIF}
+           {$IFNDEF X} writeln(MSG16 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG16 + fpn + '.'); {$ENDIF}
          end;
       end;
   end;

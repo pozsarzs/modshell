@@ -21,11 +21,13 @@ uses
  ucommon,
  sysutils;
 
-{$IFDEF UNIX}  
-  {$DEFINE SLASH := #47}
-{$ELSE}
-  {$DEFINE SLASH := #92}
-{$ENDIF}
+// {$IFDEF UNIX}  
+//   {$DEFINE SLASH := #47}
+// {$ELSE}
+//  {$DEFINE SLASH := #92}
+// {$ENDIF}
+
+{$DEFINE SLASH := DirectorySeparator}
 
 function translatemessages(lang, basename, extension: string): boolean;
 

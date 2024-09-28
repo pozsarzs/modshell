@@ -24,21 +24,17 @@
 function cmd_let(p1, p2, p3: string): byte;
 var
   rt: byte; // register type
-  x, y: byte;
   s: string;
   s2, s3: string; // parameters in other type
+  x, y: byte;
   valid: boolean = false;
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -76,13 +72,10 @@ begin
         end;
       if not valid then
       begin
-        s := NUM1 + MSG05; // What is the 1st parameter?
+        // What is the 1st parameter?
+        s := NUM1 + MSG05;
         for x := 0 to 3 do s := s + ' ' + REG_TYPE[x];
-        {$IFNDEF X}
-          writeln(s);
-        {$ELSE}
-          Form1.Memo1.Lines.Add(s);
-        {$ENDIF}
+        {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
         result := 1;
         exit;
       end;
@@ -95,11 +88,8 @@ begin
       // RANGE CHECK
       if (strtointdef(s3, -1) < 1 ) or (strtointdef(s3, -1) > 9999) then
       begin
-        {$IFNDEF X}
-          writeln(NUM2 + MSG05 + ' 1-9999'); // What is the 2nd parameter?
-        {$ELSE}
-          Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999');
-        {$ENDIF}
+        // What is the 2nd parameter?
+        {$IFNDEF X} writeln(NUM2 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999'); {$ENDIF}
         result := 1;
         exit;
       end;
@@ -123,13 +113,10 @@ begin
     end;
   if not valid then
   begin
-    s := NUM1 + MSG05; // What is the 1st parameter?
+    // What is the 1st parameter?
+    s := NUM1 + MSG05;
     for x := 0 to 3 do s := s + ' ' + REG_TYPE[x];
-    {$IFNDEF X}
-      writeln(s);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(s);
-    {$ENDIF}
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -139,11 +126,8 @@ begin
   if length(s2) = 0 then s2 := p2;
   if (strtointdef(s2, -1) < 1 ) or (strtointdef(s2, -1) > 9999) then
   begin
-    {$IFNDEF X}
-      writeln(NUM2 + MSG05 + ' 1-9999'); // What is the 2nd parameter?
-    {$ELSE}
-      Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999');
-    {$ENDIF}
+    // What is the 2nd parameter?
+    {$IFNDEF X} writeln(NUM2 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999'); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -154,11 +138,8 @@ begin
   if rt > 1 then
     if (strtointdef(s3, -1) < 0 ) or (strtointdef(s3, -1) > 65535) then
     begin
-      {$IFNDEF X}
-        writeln(NUM3 + MSG05 + ' 0-65535'); // What is the 3rd parameter?
-      {$ELSE}
-        Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 1-65535');
-      {$ENDIF}
+      // What is the 3rd parameter?
+      {$IFNDEF X} writeln(NUM3 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 1-65535'); {$ENDIF}
       result := 1;
       exit;
     end;
@@ -174,15 +155,12 @@ begin
         end;
     if not valid then
     begin
-      s := NUM3 + MSG05; // What is the 3rd parameter?
+      // What is the 3rd parameter?
+      s := NUM3 + MSG05;
       for x := 0 to 1 do
         for y := 0 to 2 do
           s := s + ' ' + BOOLVALUES[x, y];
-        {$IFNDEF X}
-          writeln(s);
-        {$ELSE}
-          Form1.Memo1.Lines.Add(s);
-        {$ENDIF}
+        {$IFNDEF X} writeln(s); {$ELSE}  Form1.Memo1.Lines.Add(s); {$ENDIF}
       result := 1;
       exit;
     end;

@@ -28,12 +28,10 @@
 // LIST DIRECTORY CONTENT
 function cmd_dir(p1: string): byte;
 var
-  {$IFNDEF UNIX}
-    a: longint;
-  {$ENDIF}
+  {$IFNDEF UNIX} a: longint; {$ENDIF}
+  allfiles, alldirectories: TStringList;
   i: integer;
   s: string;
-  allfiles, alldirectories: TStringList;
 begin
   result := 0;
   try
@@ -65,6 +63,7 @@ begin
       {$ENDIF}
     end;
   except
+    // Cannot list directory!
     {$IFNDEF X} writeln(ERR39); {$ELSE} Form1.Memo1.Lines.Add(ERR39); {$ENDIF}
     result := 1;
   end;
@@ -81,6 +80,7 @@ begin
       then {$IFNDEF X} writeln(GetCurrentDir) {$ELSE} Form1.Memo1.Lines.Add(GetCurrentDir) {$ENDIF}
       else SetCurrentDir(p1);
   except
+    // Cannot change directory!
     {$IFNDEF X} writeln(ERR40); {$ELSE} Form1.Memo1.Lines.Add(ERR40); {$ENDIF}
     result := 1;
   end;
@@ -91,6 +91,7 @@ function cmd_md(p1: string): byte;
 begin
   if CreateDir(p1) then result := 0 else
   begin
+    // Cannot make directory!
     {$IFNDEF X} writeln(ERR41); {$ELSE} Form1.Memo1.Lines.Add(ERR41); {$ENDIF}
     result := 1;
   end;
@@ -101,6 +102,7 @@ function cmd_rd(p1: string): byte;
 begin
   if RemoveDir(p1) then result := 0 else
   begin
+    // Cannot remove directory!
     {$IFNDEF X} writeln(ERR42); {$ELSE} Form1.Memo1.Lines.Add(ERR42); {$ENDIF}
     result := 1;
   end;
@@ -111,6 +113,7 @@ function cmd_del(p1: string): byte;
 begin
   if not DeleteFile(p1) then
   begin
+    // Cannot remove file!
     {$IFNDEF X} writeln(ERR43); {$ELSE} Form1.Memo1.Lines.Add(ERR43); {$ENDIF}
     result := 1;
   end else result := 0;
@@ -137,6 +140,7 @@ begin
     until eof(f);
     close(f);
   except
+    // Cannot type file content!
     {$IFNDEF X} writeln(ERR44); {$ELSE} Form1.Memo1.Lines.Add(ERR44); {$ENDIF}
     result := 1;
   end;
@@ -147,6 +151,7 @@ function cmd_copy(p1, p2: string): byte;
 begin
   if not CopyFile(p1, p2) then
   begin
+    // Cannot copy file!
     {$IFNDEF X} writeln(ERR45); {$ELSE} Form1.Memo1.Lines.Add(ERR45); {$ENDIF}
     result := 1;
   end else result := 0;
@@ -157,6 +162,7 @@ function cmd_ren(p1, p2: string): byte;
 begin
   if not RenameFile(p1, p2) then
   begin
+    // Cannot rename file!
     {$IFNDEF X} writeln(ERR46); {$ELSE} Form1.Memo1.Lines.Add(ERR46); {$ENDIF}
     result := 1;
   end else result := 0;
@@ -172,11 +178,8 @@ begin
   begin
     if (length(p1) = 0) or (length(p2) = 0) then
     begin
-      {$IFNDEF X}
-        writeln(ERR05); // Parameters required!
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR05);
-      {$ENDIF}
+      // Parameter(s) required!
+      {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
       result := 1;
       exit;
     end;
@@ -184,11 +187,8 @@ begin
   begin
     if (length(p1) = 0) and (op >= 96)  then
     begin
-      {$IFNDEF X}
-        writeln(ERR05); // Parameters required!
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR05);
-      {$ENDIF}
+      // Parameter(s) required!
+      {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
       result := 1;
       exit;
     end;

@@ -26,17 +26,13 @@ var
   fpn, fp, fn {$IFDEF GO32V2}, fx{$ENDIF}: string;
   s1: string = ''; // parameter in other type
   tf: text;
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -46,9 +42,7 @@ begin
   if length(s1) = 0 then s1 := p1;
   fp := extractfilepath(s1);
   fn := extractfilename(s1);
-  {$IFDEF GO32V2}
-    fx := extractfileext(s1);
-  {$ENDIF}
+  {$IFDEF GO32V2} fx := extractfileext(s1); {$ENDIF}
   if length(fp) = 0 then
   begin
     {$IFDEF GO32V2}
@@ -91,17 +85,10 @@ begin
     {$ENDIF}
     closefile(tf);
   except
-    {$IFNDEF X}
-      writeln(ERR07 + fpn + '!');
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR07 + fpn + '!');
-    {$ENDIF}
+    // Cannot export command line history!
+    {$IFNDEF X} writeln(ERR07 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR07 + fpn + '!'); {$ENDIF}
     result := 1;
     exit;
   end;
-  {$IFNDEF X}
-    writeln(MSG15 + fpn + '.');
-  {$ELSE}
-    Form1.Memo1.Lines.Add(MSG15 + fpn + '.');
-  {$ENDIF}
+  {$IFNDEF X} writeln(MSG15 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG15 + fpn + '.'); {$ENDIF}
 end;

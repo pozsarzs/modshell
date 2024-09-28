@@ -25,11 +25,7 @@ const
   SCRBUFFSIZE = 1024;
   SHOWTIMEDELAY = 25;
   VARBUFFSIZE = 128;
-  {$IFDEF UNIX}
-    EOL = #10;
-  {$ELSE}
-    EOL = #13 + #10;
-  {$ENDIF}
+  {$IFDEF UNIX} EOL = #10; {$ELSE} EOL = #13 + #10; {$ENDIF}
   // VALID BOOLEAN VALUES
   BOOLVALUES: array[0..1,0..2] of string =
   (

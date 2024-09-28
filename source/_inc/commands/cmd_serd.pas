@@ -34,11 +34,8 @@ begin
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -54,33 +51,22 @@ begin
     end;
   if not valid then
   begin
-    ss := NUM1 + MSG05; // What is the 1st parameter?
+    // What is the 1st parameter?
+    ss := NUM1 + MSG05;
     ss := ss + ' ' + PREFIX[0] + '[0-7]';
-    {$IFNDEF X}
-      writeln(ss); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ss);
-    {$ENDIF}
+    {$IFNDEF X} writeln(ss); {$ELSE} Form1.Memo1.Lines.Add(ss); {$ENDIF}
     result := 1;
     exit;
   end;
   if not dev[i1].valid then
   begin
-    {$IFNDEF X}
-      writeln(PREFIX[0], i1, MSG06);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06);
-    {$ENDIF}
+    {$IFNDEF X} writeln(PREFIX[0], i1, MSG06); {$ELSE} Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06); {$ENDIF}
     result := 1;
     exit;
   end;
   if not (dev[i1].devtype = 1) then
   begin
-    {$IFNDEF X}
-      writeln(MSG24);
-    {$ELSE}
-      Form1.Memo1.Lines.Add(MSG24);
-    {$ENDIF}
+    {$IFNDEF X} writeln(MSG24); {$ELSE} Form1.Memo1.Lines.Add(MSG24); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -89,11 +75,8 @@ begin
   begin
     if not boolisitvariable(p2) then
     begin
-      {$IFNDEF X}
-        writeln(ERR19 + p2);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR19 + p2);
-      {$ENDIF}
+      // No such variable!
+      {$IFNDEF X} writeln(ERR19 + p2); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p2); {$ENDIF}
       result := 1;
       exit;
     end;
@@ -102,9 +85,7 @@ begin
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
-      {$IFNDEF X}
-        writeln(MSG31);
-      {$ENDIF}
+      {$IFNDEF X} writeln(MSG31); {$ENDIF}
       ss := '';
       repeat
         if ser_canread then
@@ -138,21 +119,14 @@ begin
           if wait < 65535 then inc(wait);
         if keypressed then c := readkey;
       until (c = #27) or (length(s) = 255) or (wait = timeout);
-      {$IFNDEF X}
-        writeln;
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ss);
-      {$ENDIF}
+      {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Lines.Add(ss); {$ENDIF}
       if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
       if length(p2) > 0 then vars[intisitvariable(p1)].vvalue := s;
       ser_close;
     end else
     begin
-      {$IFNDEF X}
-        writeln(ERR18, dev[i1].device);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR18 + dev[i1].device);
-      {$ENDIF}
+      // Cannot initialize serial port!
+      {$IFNDEF X} writeln(ERR18, dev[i1].device); {$ELSE} Form1.Memo1.Lines.Add(ERR18 + dev[i1].device); {$ENDIF}
       result := 1;
     end;
 end;

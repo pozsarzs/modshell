@@ -23,29 +23,22 @@ function cmd_for(p1, p2, p3, p4, p5, p6: string): byte;
 var
   i, i2, i4: integer; // parameters in other type
   s2, s4: string; // parameters in other type
-
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or
      (length(p4) = 0) or (length(p5) = 0) or (length(p6) = 0) then
   begin
-    {$IFNDEF X}
-      writeln(ERR05); // Parameters required!
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR05);
-    {$ENDIF}
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;
   end;
   // CHECK P1 PARAMETER
   if not boolisitvariable(p1) then
   begin
-    {$IFNDEF X}
-      writeln(ERR19 + p1); // No such variable
-    {$ELSE}
-      Form1.Memo1.Lines.Add(ERR19 + p1);
-    {$ENDIF}
+    // No such variable!
+    {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -56,22 +49,16 @@ begin
   i2 := strtointdef(s2, -1);
   if (i2 < 0) or (i2 > 65535) then
   begin
-    {$IFNDEF X}
-      writeln(NUM2 + MSG05 + ' 0-65535'); // What is the 2nd parameter?
-    {$ELSE}
-      Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 0-65535');
-    {$ENDIF}
+    // What is the 2nd parameter?
+    {$IFNDEF X} writeln(NUM2 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 0-65535'); {$ENDIF}
     result := 1;
     exit;
   end;
   // CHECK P3 PARAMETER
   if lowercase(p3) <> 'to' then
   begin
-    {$IFNDEF X}
-      writeln(NUM3 + MSG05+'  to'); // What is the 3rd parameter?
-    {$ELSE}
-      Form1.Memo1.Lines.Add(NUM3 + MSG05+'  to');
-    {$ENDIF}
+    // What is the 3rd parameter?
+    {$IFNDEF X} writeln(NUM3 + MSG05+'  to'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05+'  to'); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -82,22 +69,16 @@ begin
   i4 := strtointdef(s4, -1);
   if (i4 < 0) or (i4 > 65535) then
   begin
-    {$IFNDEF X}
-      writeln(NUM4 + MSG05 + ' 0-65535'); // What is the 4th parameter?
-    {$ELSE}
-      Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-65535');
-    {$ENDIF}
+    // What is the 4th parameter?
+    {$IFNDEF X} writeln(NUM4 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-65535'); {$ENDIF}
     result := 1;
     exit;
   end;
   // CHECK P5 PARAMETER
   if lowercase(p5) <> 'do' then
   begin
-    {$IFNDEF X}
-      writeln(NUM5 + MSG05+'  do'); // What is the 5th parameter?
-    {$ELSE}
-      Form1.Memo1.Lines.Add(NUM5 + MSG05+'  do');
-    {$ENDIF}
+    // What is the 5th parameter?
+    {$IFNDEF X} writeln(NUM5 + MSG05+'  do'); {$ELSE}  Form1.Memo1.Lines.Add(NUM5 + MSG05+'  do'); {$ENDIF}
     result := 1;
     exit;
   end;
