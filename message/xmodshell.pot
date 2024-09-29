@@ -601,6 +601,10 @@ msgstr ""
 msgid "Cannot set connection timeout!"
 msgstr ""
 
+#: frmmain.err48
+msgid "Operation error!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -885,7 +889,6 @@ msgid "&Convert"
 msgstr ""
 
 #: frmmain.msg70
-msgctxt "frmmain.msg70"
 msgid "&Start"
 msgstr ""
 
@@ -914,12 +917,19 @@ msgid "&Write"
 msgstr ""
 
 #: frmmain.msg77
-msgctxt "frmmain.msg77"
 msgid "&Read"
 msgstr ""
 
 #: frmmain.msg78
 msgid "Go on!"
+msgstr ""
+
+#: frmmain.msg79
+msgid "Variable"
+msgstr ""
+
+#: frmmain.msg80
+msgid "Value"
 msgstr ""
 
 #: frmmain.msg94
@@ -1390,8 +1400,8 @@ msgstr ""
 
 #: frmmain.usg88
 msgid ""
-"varmon [on|off]\n"
-"  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+"varmon on|off\n"
+"  varmon $VARIABLE on|off"
 msgstr ""
 
 #: frmmain.usg89
@@ -1644,7 +1654,7 @@ msgid "&Read data from remote register(s).."
 msgstr ""
 
 #: tform1.menuitem52.caption
-msgid "&Variable monitor.."
+msgid "Show &variable monitor.."
 msgstr ""
 
 #: tform1.menuitem53.caption
@@ -1769,5 +1779,9 @@ msgstr ""
 
 #: tform1.toolbutton9.caption
 msgid "ToolButton9"
+msgstr ""
+
+#: tform2.caption
+msgid "Variable monitor"
 msgstr ""
 

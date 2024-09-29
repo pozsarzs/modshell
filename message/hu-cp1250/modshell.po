@@ -361,7 +361,15 @@ msgstr "Ol&vasás"
 
 #: modshell:msg78
 msgid "Go on!"
-msgstr "In&dítás"
+msgstr "Indítás"
+
+#: modshell:msg79
+msgid "Variable"
+msgstr "Változó"
+
+#: modshell:msg80
+msgid "Value"
+msgstr "Érték"
 
 #: modshell:msg94
 msgid "Build date:  "
@@ -1459,11 +1467,11 @@ msgstr "strrepl $CÉL [$]RÉGI [$]ÚJ"
 
 #: modshell:usg88
 msgid ""
-"varmon [on|off]\n"
-"  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+"varmon on|off\n"
+"  varmon $VARIABLE on|off"
 msgstr ""
-"varmon [on|off]\n"
-"  varmon $VÁLTOZÓ1 [$VÁLTOZÓ2] [$VÁLTOZÓ3] [$VÁLTOZÓ4]"
+"varmon on|off\n"
+"  varmon $VÁLTOZÓ on|off"
 
 #: modshell:usg89
 msgid ""
@@ -1534,6 +1542,13 @@ msgstr "copy [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 #: modshell:usg101
 msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
 msgstr "ren [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#~ msgid ""
+#~ "varmon [on|off]\n"
+#~ "  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+#~ msgstr ""
+#~ "varmon [on|off]\n"
+#~ "  varmon $VÁLTOZÓ1 [$VÁLTOZÓ2] [$VÁLTOZÓ3] [$VÁLTOZÓ4]"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       elõtér- és a háttérszín beállítása (fullscreen)"

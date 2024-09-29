@@ -613,6 +613,10 @@ msgstr "A fájl átnevezése nem sikerült!"
 msgid "Cannot set connection timeout!"
 msgstr "Nem lehet beállítani az időtúllépést!"
 
+#: frmmain.err48
+msgid "Operation error!"
+msgstr "Művelet hiba!"
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -904,7 +908,6 @@ msgid "&Convert"
 msgstr "Át&alakít"
 
 #: frmmain.msg70
-msgctxt "frmmain.msg70"
 msgid "&Start"
 msgstr "In&dítás"
 
@@ -933,13 +936,20 @@ msgid "&Write"
 msgstr "Í&rás"
 
 #: frmmain.msg77
-msgctxt "frmmain.msg77"
 msgid "&Read"
 msgstr "Ol&vasás"
 
 #: frmmain.msg78
 msgid "Go on!"
 msgstr "In&dítás"
+
+#: frmmain.msg79
+msgid "Variable"
+msgstr "Változó"
+
+#: frmmain.msg80
+msgid "Value"
+msgstr "Érték"
 
 #: frmmain.msg94
 msgid "Build date:  "
@@ -1465,11 +1475,11 @@ msgstr "strrepl $CÉL [$]RÉGI [$]ÚJ"
 
 #: frmmain.usg88
 msgid ""
-"varmon [on|off]\n"
-"  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+"varmon on|off\n"
+"  varmon $VARIABLE on|off"
 msgstr ""
-"varmon [on|off]\n"
-"  varmon $VÁLTOZÓ1 [$VÁLTOZÓ2] [$VÁLTOZÓ3] [$VÁLTOZÓ4]"
+"varmon on|off\n"
+"  varmon $VÁLTOZÓ on|off"
 
 #: frmmain.usg89
 msgid ""
@@ -1730,7 +1740,7 @@ msgid "&Read data from remote register(s).."
 msgstr "Távoli &regiszter(ek) olvasása.."
 
 #: tform1.menuitem52.caption
-msgid "&Variable monitor.."
+msgid "Show &variable monitor.."
 msgstr "&Változó monitor.."
 
 #: tform1.menuitem53.caption
@@ -1856,3 +1866,14 @@ msgstr "ToolButton8"
 #: tform1.toolbutton9.caption
 msgid "ToolButton9"
 msgstr "ToolButton9"
+
+#: tform2.caption
+msgid "Variable monitor"
+msgstr "Változó monitor"
+
+#~ msgid ""
+#~ "varmon [on|off]\n"
+#~ "  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+#~ msgstr ""
+#~ "varmon [on|off]\n"
+#~ "  varmon $VÁLTOZÓ1 [$VÁLTOZÓ2] [$VÁLTOZÓ3] [$VÁLTOZÓ4]"

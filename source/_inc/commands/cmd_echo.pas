@@ -55,5 +55,10 @@ begin
     inc(echo);
     if echo = 3 then echo := 0;
   end else echo := ea;
-  {$IFNDEF X} writeln(MSG28 + ECHO_ARG[echo]); {$ELSE}  Form1.Memo1.Lines.Add(MSG28 + ECHO_ARG[echo]); {$ENDIF}
+  {$IFNDEF X}
+    writeln(MSG28 + ECHO_ARG[echo]);
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG28 + ECHO_ARG[echo]);
+    Form1.StatusBar1.Panels[0].Text := 'Echo: ' + upcase(ECHO_ARG[echo]);
+  {$ENDIF}
 end;

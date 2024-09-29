@@ -361,7 +361,15 @@ msgstr "Ol&vas†s"
 
 #: modshell:msg78
 msgid "Go on!"
-msgstr "In&d°t†s"
+msgstr "Ind°t†s"
+
+#: modshell:msg79
+msgid "Variable"
+msgstr "V†ltoz¢"
+
+#: modshell:msg80
+msgid "Value"
+msgstr "êrtÇk"
 
 #: modshell:msg94
 msgid "Build date:  "
@@ -1459,11 +1467,11 @@ msgstr "strrepl $CêL [$]RêGI [$]ÈJ"
 
 #: modshell:usg88
 msgid ""
-"varmon [on|off]\n"
-"  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+"varmon on|off\n"
+"  varmon $VARIABLE on|off"
 msgstr ""
-"varmon [on|off]\n"
-"  varmon $VµLTOZ‡1 [$VµLTOZ‡2] [$VµLTOZ‡3] [$VµLTOZ‡4]"
+"varmon on|off\n"
+"  varmon $VµLTOZ‡ on|off"
 
 #: modshell:usg89
 msgid ""
@@ -1534,6 +1542,13 @@ msgstr "copy [$]ELêRêSI_ÈT_êS_FµJLNêV [$]ELêRêSI_ÈT_êS_FµJLNêV"
 #: modshell:usg101
 msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
 msgstr "ren [$]ELêRêSI_ÈT_êS_FµJLNêV [$]ELêRêSI_ÈT_êS_FµJLNêV"
+
+#~ msgid ""
+#~ "varmon [on|off]\n"
+#~ "  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+#~ msgstr ""
+#~ "varmon [on|off]\n"
+#~ "  varmon $VµLTOZ‡1 [$VµLTOZ‡2] [$VµLTOZ‡3] [$VµLTOZ‡4]"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       elãtÇr- Çs a h†ttÇrsz°n be†ll°t†sa (fullscreen)"

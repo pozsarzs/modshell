@@ -73,7 +73,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir);../_inc;../_inc/commands;../_inc/modbus;../_inc/ports"/>
-      <OtherUnitFiles Value="../_ppu;../synapse;../convert;../modlcltranslator"/>
+      <OtherUnitFiles Value="../_ppu;../synapse;../convert;../modlcltranslator;../modsynhighlighterany"/>
       <UnitOutputDirectory Value="../_lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

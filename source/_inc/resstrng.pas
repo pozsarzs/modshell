@@ -103,6 +103,8 @@ resourcestring
   MSG76 = '&Write';
   MSG77 = '&Read';
   MSG78 = 'Go on!';
+  MSG79 = 'Variable';
+  MSG80 = 'Value';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';

@@ -341,6 +341,14 @@ msgstr ""
 msgid "Go on!"
 msgstr ""
 
+#: modshell:msg79
+msgid "Variable"
+msgstr ""
+
+#: modshell:msg80
+msgid "Value"
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""

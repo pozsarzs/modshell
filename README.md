@@ -85,16 +85,19 @@ Run example script on bash with ModShell interpreter
 **XModShell**
 
 Main screen with operation menu  
-![operation menu](document/picture/xmodshell-opmenu.png)
+![main screen with operation menu](document/picture/xmodshell-opmenu.png)
 
 Dump input registers  
-![operation menu](document/picture/xmodshell-dump.png)
+![dump input registers](document/picture/xmodshell-dump.png)
 
 Set device dialog  
 ![set device dialog](document/picture/xmodshell-setdev.png)
 
 Script editor  
-![set device dialog](document/picture/xmodshell-edit.png)
+![script editor](document/picture/xmodshell-edit.png)
+
+Variable monitor
+![variable monitor](document/picture/xmodshell-varmon.png)
 
 #### 2. Used external libraries
 

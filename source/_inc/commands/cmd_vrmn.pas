@@ -22,7 +22,8 @@
 // SHOW VARIABLE MONITOR
 procedure varmon_viewer;
 var
-  b, x, y: byte;
+  b: byte;
+  {$IFNDEF X} x, y: byte; {$ENDIF}
 begin
   if varmon then
   begin
@@ -49,6 +50,7 @@ begin
             if vars[b].vmonitored then
               if length(vars[b].vname) > 0 then
                 InsertRow(vars[b].vname, vars[b].vvalue, true);
+        Form1.Show;
       end;
     {$ENDIF}
   end {$IFDEF X} else Form2.Hide {$ENDIF};

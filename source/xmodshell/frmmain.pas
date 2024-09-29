@@ -31,7 +31,11 @@ uses
   Spin,
   StdCtrls,
   SynEdit,
-  SynHighlighterAny,
+  {$IFDEF UNIX}
+    SynHighlighterAny in '../modesynhighlighterany/synhighlighterany.pas',
+  {$ELSE}
+    SynHighlighterAny in '..\modesynhighlighterany\synhighlighterany.pas',
+  {$ENDIF}
   SysUtils,
   {$IFDEF WINDOWS} Windows, {$ENDIF}
   synaser,
@@ -2151,6 +2155,7 @@ var
   LSynEdit1: TSynEdit;
   line: integer;
 begin
+  SynAnySyn1.Comments := [csBashStyle];
   Form := TForm.Create(Nil);
   LSynEdit1 := TSynEdit.Create(Form);
   with Form do
@@ -2176,6 +2181,11 @@ begin
       AnchorSideRight.Control := Form;
       AnchorSideRight.Side := asrRight;
       BorderSpacing.Right := 1;
+    Color := clNavy;
+    Gutter.LineNumberPart.MarkupInfo.Background := clNavy;
+    Gutter.LineNumberPart.MarkupInfo.Foreground := clYellow;
+    Font.Color := clAqua;
+    Gutter.Color := clNavy;
     Parent := Form;
     ReadOnly := False;
     ScrollBars := ssAutoBoth;
@@ -2225,7 +2235,6 @@ begin
   menucmd := COMMANDS[38] + ' swap';
   Memo1.Lines.Add(fullprompt + menucmd);
   parsingcommands(menucmd);
-  StatusBar1.Panels[0].Text := 'Echo: ' + upcase(ECHO_ARG[echo]);
 end;
 
 // RUN COMMAND 'serread' with DIALOG
@@ -3550,7 +3559,13 @@ end;
 // RUN COMMAND 'varmon' with DIALOG
 procedure TForm1.MenuItem52Click(Sender: TObject);
 begin
-  Form2.Show;
+  with Form2 do
+  begin
+    Show;
+    ValueListEditor1.TitleCaptions.Add(MSG79);
+    ValueListEditor1.TitleCaptions.Add(MSG80);
+  end;
+  Form1.Show;
 end;
 
 // -- MAIN MENU/Help -----------------------------------------------------------
@@ -3711,6 +3726,13 @@ begin
     formpositions[0, 1] := Left;
     formpositions[0, 2] := Height;
     formpositions[0, 3] := Width;
+  end;
+  with Form2 do
+  begin
+    formpositions[1, 0] := Top;
+    formpositions[1, 1] := Left;
+    formpositions[1, 2] := Height;
+    formpositions[1, 3] := Width;
   end;
   saveconfiguration(BASENAME,'.ini');
   CanClose := True;
