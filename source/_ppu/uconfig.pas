@@ -26,16 +26,22 @@ var
   ini: TINIFile;
   // settings from/to ini file
   colors: array[0..4] of integer;
+  formpositions: array[0..1, 0..3] of integer;
   guicolors: array[0..1] of integer;
   histbuff: array[0..255] of string;
   histitem: integer;
   histlast: integer;
   echo: byte;
 const
-  SECTION: array[0..3] of string = ('cmdline-colors',
+  SECTION: array[0..4] of string = ('cmdline-colors',
                                     'gui-colors',
                                     'connection',
-                                    'cmdline-history');
+                                    'cmdline-history',
+                                    'positions');
+  FORMPROP: array[0..3] of string = ('top',
+                                     'left',
+                                     'height',
+                                     'width');
 {$IFDEF UNIX}
   {$DEFINE SLASH := #47}
 {$ELSE}
@@ -69,7 +75,9 @@ end;
 // SAVE CONFIGURATION
 function saveconfiguration(basename, extension: string): boolean;
 var
+  b: byte;
   fn: string;
+  s: string;
 begin
   result := false;
   setconfdir(basename, true);
@@ -84,8 +92,12 @@ begin
     ini.writeinteger(SECTION[1], 'foreground', guicolors[0]);
     ini.writeinteger(SECTION[1], 'background', guicolors[1]);
     ini.writeinteger(SECTION[2], 'echo', echo);
-    ini.writeinteger(SECTION[3], 'histitem', histitem);
-    ini.writeinteger(SECTION[3], 'histlast', histlast);
+    s := 'form1_';
+    for b:= 0 to 3 do
+      ini.writeinteger(SECTION[4], s + FORMPROP[b], formpositions[0, b]);
+    s := 'form2_';
+    for b:= 0 to 3 do
+      ini.writeinteger(SECTION[4], s + FORMPROP[b], formpositions[1, b]);
     for b := 0 to 255 do
       ini.writestring(SECTION[3], 'line' + inttostr(b), histbuff[b]);
   except
@@ -99,6 +111,8 @@ end;
 function loadconfiguration(basename, extension: string): boolean;
 var
   fn: string;
+  s: string;
+  i: integer;
 begin
   setconfdir(basename, false);
   fn := SLASH + basename + extension;
@@ -112,6 +126,12 @@ begin
     guicolors[0] := ini.readinteger(SECTION[1], 'foreground', 16776960);
     guicolors[1] := ini.readinteger(SECTION[1], 'background', 8388608);
     echo := ini.readinteger(SECTION[2], 'echo', 0);
+    s := 'form1_';
+    for b:= 0 to 3 do
+      formpositions[0, b] := ini.readinteger(SECTION[4], s + FORMPROP[b], 0);
+    s := 'form2_';
+    for b:= 0 to 3 do
+      formpositions[1, b] := ini.readinteger(SECTION[4], s + FORMPROP[b], 0);
     histitem := ini.readinteger(SECTION[3], 'histitem', 0);
     histlast := ini.readinteger(SECTION[3], 'histlast', 0);
     for b := 0 to 255 do

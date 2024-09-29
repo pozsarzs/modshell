@@ -46,7 +46,7 @@ Project webpage: <https://pozsarzs.github.io/modshell>
 
 _v0.1-alpha3:_  
 The next release _will be_ with the following changes:  
-New source code directory structure, bug fixes, 8 new commands in system category (total: 102), GUI (FreeBSD, Linux and Windows) and script syntax highlighting file for MCEdit and Nano.  
+New source code directory structure, bug fixes, 8 new commands in system category (total: 102), GUI (FreeBSD, Linux and Windows), script syntax highlighting file for MCEdit and Nano and windows size and position saving and restoring.  
 
 _v0.1-alpha2:_  
 The 2nd release with the following changes:
@@ -67,7 +67,7 @@ in _v0.1-beta1:_
 
 in _v0.1-beta2:_  
  - [ ] Support for multi-dimensional arrays;
- - [ ] graphical monitoring the change of values ​​over time (only XModShell).  
+ - [ ] graphical monitoring the change of values over time (only XModShell).  
 
 #### 1. Screenshots
 

@@ -40,6 +40,7 @@ uses
   dom,
   dos,
   fileutil,
+  frmvrmn,
   gettext,
   inifiles,
   math,
@@ -3549,7 +3550,7 @@ end;
 // RUN COMMAND 'varmon' with DIALOG
 procedure TForm1.MenuItem52Click(Sender: TObject);
 begin
-
+  Form2.Show;
 end;
 
 // -- MAIN MENU/Help -----------------------------------------------------------
@@ -3638,7 +3639,11 @@ begin
   begin
     ComboBox1.Items.Add(menucmd);
     ComboBox1.Text := '';
-    if menucmd = COMMANDS[1] then Form1.Close else parsingcommands(menucmd);
+    if menucmd = COMMANDS[1] then Form1.Close else
+    begin
+      parsingcommands(menucmd);
+      varmon_viewer;
+    end;
   end;
 end;
 
@@ -3658,7 +3663,14 @@ begin
   createdir(fp);
   fp := getuserdir + PRGNAME + SLASH + proj;
   createdir(fp);
-  Form1.Caption := 'X' + PRGNAME + ' | ' + proj;
+  with Form1 do
+  begin
+    Top := formpositions[0, 0];
+    Left := formpositions[0, 1];
+    if formpositions[0, 2] > 150 then Height := formpositions[0, 2];
+    if formpositions[0, 3] > 200 then Width := formpositions[0, 3];
+    Caption := 'X' + PRGNAME + ' | ' + proj;
+  end;
   Label1.Caption := fullprompt;
   ToolButton1.Hint := rmampdot(MenuItem37.Caption);
   ToolButton2.Hint := rmampdot(MenuItem36.Caption);
@@ -3676,7 +3688,6 @@ begin
   Memo1.Font.Color := uconfig.guicolors[0];
   Memo1.Color := uconfig.guicolors[1];
   StatusBar1.Panels[0].Text := 'Echo: ' + upcase(ECHO_ARG[echo]);
-  StatusBar1.Panels[1].Text := 'VarMon: ' + upcase(ECHO_ARG[booltoint(varmon)]);
   for b := 0 to 255 do
     if length(histbuff[b]) > 0 then ComboBox1.Items.Add(histbuff[b]);
 end;
@@ -3694,6 +3705,13 @@ begin
       histitem := i;
       histlast := i;
     end;
+  with Form1 do
+  begin
+    formpositions[0, 0] := Top;
+    formpositions[0, 1] := Left;
+    formpositions[0, 2] := Height;
+    formpositions[0, 3] := Width;
+  end;
   saveconfiguration(BASENAME,'.ini');
   CanClose := True;
 end;

@@ -2,7 +2,7 @@
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_vrmn.pas                                                             | }
-{ | command 'vrmn'                                                           | }
+{ | command 'varmon'                                                         | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -14,9 +14,9 @@
 }
 {
   p0     p1         p2
-  --------------------------
+  -----------------------
   varmon on|off
-  varmon $VARIABLE1 on|off
+  varmon $VARIABLE on|off
 }
 
 // SHOW VARIABLE MONITOR
@@ -26,19 +26,32 @@ var
 begin
   if varmon then
   begin
-    x := wherex;
-    y := wherey;
-    gotoxy(1,1);
-    textcolor(uconfig.colors[4]);
-    for b := 0 to 128 do
-      if not vars[b].vreadonly then
-        if vars[b].vmonitored then
-          if length(vars[b].vname) > 0 then
-            write (' ' + vars[b].vname + '=' + vars[b].vvalue + ' ');
-    clreol;
-    textcolor(uconfig.colors[0]);
-    gotoxy(x, y);
-  end;
+    {$IFNDEF X}
+      x := wherex;
+      y := wherey;
+      gotoxy(1,1);
+      textcolor(uconfig.colors[4]);
+      for b := 0 to 128 do
+        if not vars[b].vreadonly then
+          if vars[b].vmonitored then
+            if length(vars[b].vname) > 0 then
+              write (' ' + vars[b].vname + '=' + vars[b].vvalue + ' ');
+      clreol;
+      textcolor(uconfig.colors[0]);
+      gotoxy(x, y);
+    {$ELSE}
+      Form2.Show;
+      with Form2.ValueListEditor1 do
+      begin
+        Clear;
+        for b := 0 to 128 do
+          if not vars[b].vreadonly then
+            if vars[b].vmonitored then
+              if length(vars[b].vname) > 0 then
+                InsertRow(vars[b].vname, vars[b].vvalue, true);
+      end;
+    {$ENDIF}
+  end {$IFDEF X} else Form2.Hide {$ENDIF};
 end;
 
 // COMMAND 'VARMON'
@@ -53,7 +66,7 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    // Parameter(s) required!
+    // show status Parameter(s) required!
     {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
     result := 1;
     exit;

@@ -1381,8 +1381,8 @@ msgstr ""
 
 #: modshell:usg88
 msgid ""
-"varmon [on|off]\n"
-"  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+"varmon on|off\n"
+"  varmon $VARIABLE on|off"
 msgstr ""
 
 #: modshell:usg89

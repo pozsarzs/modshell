@@ -391,8 +391,8 @@ resourcestring
   USG85='strfind $TARGET [$]VALUE';
   USG86='strins $TARGET [$]PLACE [$]VALUE';
   USG87='strrepl $TARGET [$]OLD [$]NEW';
-  USG88='varmon [on|off]' + EOL +
-        '  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]';
+  USG88='varmon on|off' + EOL +
+        '  varmon $VARIABLE on|off';
   USG89='applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]' + EOL +
         '  applog [$]LOGFILE "TEXT\ $$1\ TEXT" [$]LEVEL [$]VALUE1' + EOL +
         'Notes:' + EOL +

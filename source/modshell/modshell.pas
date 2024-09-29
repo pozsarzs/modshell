@@ -240,7 +240,7 @@ begin
       end;
       uconfig.histitem := uconfig.histlast;
     end;
-    writeln;
+    {$IFNDEF X} writeln; {$ENDIF}
     parsingcommands(command);
     varmon_viewer;
   until command = COMMANDS[1]; // exit
