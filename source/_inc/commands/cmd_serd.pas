@@ -86,7 +86,6 @@ begin
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
       {$IFNDEF X} writeln(MSG31); {$ENDIF}
-      ss := '';
       repeat
         if ser_canread then
         begin
@@ -101,25 +100,20 @@ begin
             textcolor(uconfig.colors[0]);
           {$ELSE}
             case uconfig.echo of
-              1: ss := ss + char(b);
-              2: ss := ss + addsomezero(2, deztohex(inttostr(b))) + ' ';
+              1: Form1.Memo1.Text := Form1.Memo1.Text + char(b);
+              2: Form1.Memo1.Text := Form1.Memo1.Text + addsomezero(2, deztohex(inttostr(b))) + ' ';
             end;
           {$ENDIF}
           s := s + char(b);
           if (uconfig.echo = 1) and (b = 13) then
           begin
-            {$IFNDEF X}
-              write(EOL);
-            {$ELSE}
-              Form1.Memo1.Lines.Add(ss);
-              ss := '';
-            {$ENDIF}
+            {$IFNDEF X} write(EOL); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
           end;
         end else
           if wait < 65535 then inc(wait);
         if keypressed then c := readkey;
       until (c = #27) or (length(s) = 255) or (wait = timeout);
-      {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Lines.Add(ss); {$ENDIF}
+      {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
       if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
       if length(p2) > 0 then vars[intisitvariable(p1)].vvalue := s;
       ser_close;

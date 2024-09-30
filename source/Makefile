@@ -10,6 +10,7 @@ include ../Makefile.global
 title="binary files  "
 removetargetdir=0
 sourcedir=_lib/$(architecture)-$(os)
+podir=_po
 targetdir=$(bindir)
 filemode=$(binmode)
 projectdirs=modshell xmodshell
@@ -31,7 +32,8 @@ all:
 	@if [ -f $(sourcedir)/$(name).rsj ]; \
 	  then \
 	    $(rstconv) -f po -p utf-8 -i $(sourcedir)/$(name).rsj  -o ../message/$(name).pot; \
-	fi
+	  fi
+	@if [ -f $(podir)/x$(name).pot ]; then mv $(podir)/x$(name).pot  ../message/; fi
 
 clean:
 	@for x in $(projectdirs); do \

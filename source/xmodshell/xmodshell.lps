@@ -7,7 +7,6 @@
       <Unit>
         <Filename Value="xmodshell.lpr"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="13"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
       </Unit>
@@ -19,8 +18,8 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="28"/>
-        <CursorPos Y="39"/>
+        <TopLine Value="2161"/>
+        <CursorPos X="13" Y="2166"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -34,7 +33,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="2"/>
         <CursorPos X="4" Y="2"/>
-        <UsageCount Value="67"/>
+        <UsageCount Value="72"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -44,21 +43,21 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="31" Y="19"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="22"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/cmd_copy.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="121"/>
         <CursorPos X="51" Y="134"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/const.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="48"/>
         <CursorPos X="3" Y="68"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="../modlcltranslator/modlcltranslator.pas"/>
@@ -66,48 +65,48 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="201"/>
         <CursorPos Y="211"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/cmd_run.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="25"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/cmd_serd.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="119"/>
         <CursorPos X="9" Y="137"/>
-        <UsageCount Value="17"/>
+        <UsageCount Value="16"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/resstrng.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="47"/>
         <CursorPos X="3" Y="58"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
       </Unit>
       <Unit>
         <Filename Value="../_ppu/uconfig.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="16"/>
         <CursorPos X="73" Y="134"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="../_ppu/ucommon.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="49"/>
         <CursorPos X="41" Y="71"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/lib/lazarus/2.2.6/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4262"/>
         <CursorPos Y="4276"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/lib/lazarus/2.2.6/lcl/forms.pp"/>
@@ -115,28 +114,28 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="792"/>
         <CursorPos X="14" Y="801"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/var.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="25"/>
         <CursorPos X="3" Y="41"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/cmd_echo.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="43"/>
         <CursorPos Y="49"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/cmd_vrmn.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="41"/>
         <CursorPos X="19" Y="52"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="../_ppu/mysynhighlighterany.pas"/>
@@ -144,7 +143,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="42"/>
         <CursorPos X="34" Y="49"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="../_ppu/synhighlighterany.pas"/>
@@ -152,18 +151,18 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="44"/>
         <CursorPos X="2" Y="55"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../modsynhighlighterany/synhighlighterany.pas"/>
+        <UnitName Value="SynHighlighterAny"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="50"/>
+        <CursorPos X="3" Y="61"/>
         <UsageCount Value="10"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="frmvrmn.pas"/>
-        <Caret Line="56" Column="9" TopLine="39"/>
-      </Position>
-      <Position>
-        <Filename Value="frmvrmn.pas"/>
-        <Caret Line="26" Column="8" TopLine="12"/>
-      </Position>
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="3553" Column="14" TopLine="19"/>
@@ -275,6 +274,13 @@
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="34" Column="3" TopLine="23"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="32" Column="39" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="xmodshell.lpr"/>
       </Position>
     </JumpHistory>
     <RunParams>

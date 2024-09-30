@@ -30,12 +30,12 @@ uses
   Process,
   Spin,
   StdCtrls,
-  SynEdit,
   {$IFDEF UNIX}
-    SynHighlighterAny in '../modesynhighlighterany/synhighlighterany.pas',
+    SynHighlighterAny in '../modsynhighlighterany/synhighlighterany.pas',
   {$ELSE}
-    SynHighlighterAny in '..\modesynhighlighterany\synhighlighterany.pas',
+    SynHighlighterAny in '..\modsynhighlighterany\synhighlighterany.pas',
   {$ENDIF}
+  SynEdit,
   SysUtils,
   {$IFDEF WINDOWS} Windows, {$ENDIF}
   synaser,
@@ -2153,7 +2153,7 @@ procedure TForm1.MenuItem30Click(Sender: TObject);
 var
   Form: TForm;
   LSynEdit1: TSynEdit;
-  line: integer;
+  line, sline: integer;
 begin
   SynAnySyn1.Comments := [csBashStyle];
   Form := TForm.Create(Nil);
@@ -2193,15 +2193,19 @@ begin
     Position := poMainFormCenter;
     HighLighter := SynAnySyn1;
   end;
-  for line := 0 to SCRBUFFSIZE - 1 do
-    if length(sbuffer[line]) > 0 then
-      LSynEdit1.Lines.Add(sbuffer[line]);
-  if Form.ShowModal = mrOk then
-  begin
-    with Form do
-    begin
-    end;
-  end;
+  for sline := 0 to SCRBUFFSIZE - 1 do
+    if length(sbuffer[sline]) > 0 then
+      LSynEdit1.Lines.Add(sbuffer[sline]);
+  Form.ShowModal;
+  sline := 0;
+  for line := 0 to LSynEdit1.Lines.Count -1 do
+    if sline < SCRBUFFSIZE - 1 then
+      if length(LSynEdit1.Lines[line]) > 0 then
+      begin
+        sbuffer[sline] := LSynEdit1.Lines[line];
+        inc(sline);
+      end;
+  if length(LSynEdit1.Text) > 0 then scriptisloaded := true;
   FreeAndNil(Form);
 end;
 

@@ -112,7 +112,6 @@ function loadconfiguration(basename, extension: string): boolean;
 var
   fn: string;
   s: string;
-  i: integer;
 begin
   setconfdir(basename, false);
   fn := SLASH + basename + extension;
