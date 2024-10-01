@@ -216,7 +216,9 @@ var
   Form1: TForm1;
   fp: string;
   menucmd: string;
-
+  pressakey: boolean;
+  pressedkey: char;
+  
 {$DEFINE X}
 
 {$I type.pas}
@@ -3669,6 +3671,8 @@ end;
 // FormKeyPress event
 procedure TForm1.FormKeyPress(Sender: TObject; var Key: char);
 begin
+  pressakey := true;
+  pressedkey := Key;
 end;
 
 // OnCreate event

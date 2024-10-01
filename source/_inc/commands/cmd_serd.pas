@@ -85,7 +85,7 @@ begin
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
-      {$IFNDEF X} writeln(MSG31); {$ENDIF}
+      {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
       repeat
         if ser_canread then
         begin
@@ -111,7 +111,15 @@ begin
           end;
         end else
           if wait < 65535 then inc(wait);
-        if keypressed then c := readkey;
+        {$IFNDEF X}
+          if keypressed then c := readkey;
+        {$ELSE}  
+          if pressakey then
+          begin
+            c := pressedkey;
+            pressakey := false;
+          end;
+        {$ENDIF}
       until (c = #27) or (length(s) = 255) or (wait = timeout);
       {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
       if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}

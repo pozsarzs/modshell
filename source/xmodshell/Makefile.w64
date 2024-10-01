@@ -9,7 +9,7 @@ name = xmodshell
 architecture = x86_64
 os = win64
 outdir = ..\_lib\$(architecture)-$(os)
-fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Fi..\inc -Fi..\inc\* -Fu..\ppu -Fu. -Fu..\convert -Fu..\synapse -Fu$(outdir) -FE$(outdir)
+fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Fi..\inc -Fi..\inc\* -fU..\modlcltranslator -Fu..\modsynhighlighterany -Fu..\ppu -Fu. -Fu..\convert -Fu..\synapse -Fu$(outdir) -FE$(outdir)
 
 all:
 	@if not exist ..\lib\nul md ..\lib

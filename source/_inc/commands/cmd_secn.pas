@@ -89,40 +89,44 @@ begin
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
-      writeln(MSG31);
+      {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
       repeat
-        if keypressed then
+        if {$IFNDEF X} keypressed {$ELSE} pressakey {$ENDIF} then
         begin
-          c := readkey;
+          {$IFNDEF X}
+            c := readkey;
+          {$ELSE}
+            pressakey := false;
+            c := pressedkey;
+          {$ENDIF}
           if ser_canwrite then
           begin
             ser_sendstring(c);
-            textcolor(uconfig.colors[3]);
-            write(c);
+            {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
+            {$IFNDEF X} write(c); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + c; {$ENDIF}
             try
               write(lf, c);
             except
             end;
-            if c = #13 then write(EOL);
-            textcolor(uconfig.colors[0]);
-          end else writeln(ERR27);
+            if c = #13 then {$IFNDEF X} write(EOL); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
+            {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
+          end else {$IFNDEF X} writeln(MSG27); {$ELSE} Form1.Memo1.Lines.Add(MSG27); {$ENDIF}
         end;
         if ser_canread then
         begin
           b := ser_recvbyte;
-          textcolor(uconfig.colors[2]);
-          write(char(b));
+          {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
+          {$IFNDEF X} write(char(b)); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + char(b); {$ENDIF}
           try
             write(lf, char(b));
           except
           end;
           if b = 13 then write(EOL);
-          textcolor(uconfig.colors[0]);
+          {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
         end;
       until c = #27;
-      writeln;
       ser_close;
-      writeln;
+      {$IFNDEF X} write(EOL); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}      
     end else
     begin
       // Cannot initialize serial port!
