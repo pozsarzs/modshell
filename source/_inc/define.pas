@@ -42,6 +42,10 @@
   {$ENDIF}
 {$ENDIF}
 
+{$IFDEF UNIX}
+  {$DEFINE DIR_LOCK := '/var/lock'}
+{$ENDIF}
+
 // {$IFDEF UNIX}
 //   {$DEFINE SLASH := #47}
 // {$ELSE}

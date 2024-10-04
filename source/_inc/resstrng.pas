@@ -32,7 +32,7 @@ resourcestring
   MSG07 = ' device:     ';
   MSG08 = ' port:       ';
   MSG09 = ' baudrate:   ';
-  MSG10 = ' settings:   ';
+  MSG10 = ' bits:       ';
   MSG11 = ' protocol:   ';
   MSG12 = ' IP address: ';
   MSG13 = ' device UID: ';
@@ -105,6 +105,7 @@ resourcestring
   MSG78 = 'Go on!';
   MSG79 = 'Variable';
   MSG80 = 'Value';
+  MSG81 = 'Use ''Utilities/Mini serial console'' on GUI version.';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -161,6 +162,7 @@ resourcestring
   ERR46 = 'Cannot rename file!';
   ERR47 = 'Cannot set connection timeout!';
   ERR48 = 'Operation error!';
+  ERR49 = 'Locked device!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
@@ -171,7 +173,7 @@ resourcestring
   DES05='ALT-P  print message, value of the variable and register';
   DES06='ALT-R  read one or more remote registers to buffer';
   DES07='ALT-T  reset device, protocol, connection or project name';
-  DES08='ALT-S  set device, protocol, connection or project name';
+  DES08='ALT-S  set device, protocol, connection, project name or timeout';
   DES09='       show system date and time';
   DES10='       show version and build information of this program';
   DES11='ALT-W  write data from buffer to one or more remote registers';
@@ -272,7 +274,8 @@ resourcestring
   USG01='exit';
   USG02='get dev?|pro?|con?|prj|timeout' + EOL +
         'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
+        '  - The ''?'' value can be 0-7.' + EOL +
+        '  - The timeout value can be 1-60.';
   USG03='help [[$]COMMAND]';
   USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + EOL +
         '  let $VARIABLE [$]VALUE' + EOL +

@@ -27,14 +27,10 @@ uses
   Graphics,
   LCLType,
   Menus,
+  MODSynHighlighterAny,
   Process,
   Spin,
   StdCtrls,
-  {$IFDEF UNIX}
-    SynHighlighterAny in '../modsynhighlighterany/synhighlighterany.pas',
-  {$ELSE}
-    SynHighlighterAny in '..\modsynhighlighterany\synhighlighterany.pas',
-  {$ENDIF}
   SynEdit,
   SysUtils,
   {$IFDEF WINDOWS} Windows, {$ENDIF}
@@ -44,6 +40,7 @@ uses
   dom,
   dos,
   fileutil,
+  frmsecn,
   frmvrmn,
   gettext,
   inifiles,
@@ -133,7 +130,6 @@ type
     Separator8: TMenuItem;
     Separator9: TMenuItem;
     StatusBar1: TStatusBar;
-    SynAnySyn1: TSynAnySyn;
     ToolBar1: TToolBar;
     ImageList1: TImageList;
     Label1: TLabel;
@@ -159,7 +155,6 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
-    procedure FormKeyPress(Sender: TObject; var Key: char);
     procedure MenuItem10Click(Sender: TObject);
     procedure MenuItem11Click(Sender: TObject);
     procedure MenuItem12Click(Sender: TObject);
@@ -206,6 +201,8 @@ type
     procedure MenuItem58Click(Sender: TObject);
     procedure MenuItem59Click(Sender: TObject);
     procedure MenuItem60Click(Sender: TObject);
+    procedure MenuItem62Click(Sender: TObject);
+    procedure MenuItem63Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
   private
@@ -214,11 +211,10 @@ type
 
 var
   Form1: TForm1;
+  LSynAnySyn1: TSynAnySyn;
   fp: string;
   menucmd: string;
-  pressakey: boolean;
-  pressedkey: char;
-  
+
 {$DEFINE X}
 
 {$I type.pas}
@@ -231,12 +227,13 @@ implementation
 
 {$R *.lfm}
 
-function cmd_run(p1, p2: string): byte; forward;
 function boolisitconstant(s: string): boolean; forward;
 function boolisitvariable(s: string): boolean; forward;
+function cmd_run(p1, p2: string): byte; forward;
 function intisitconstant(s: string): integer; forward;
 function intisitvariable(s: string): integer; forward;
 function isitconstant(s: string): string; forward;
+function isitmessage(s: string): string; forward;
 function isitvariable(s: string): string; forward;
 procedure clearallconstants; forward;
 procedure clearallvariables; forward;
@@ -244,7 +241,7 @@ procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
-{$I isitmsg.pas}
+{$I checklck.pas}
 {$I validity.pas}
 
 {$I ethernet.pas}
@@ -2157,16 +2154,16 @@ var
   LSynEdit1: TSynEdit;
   line, sline: integer;
 begin
-  SynAnySyn1.Comments := [csBashStyle];
   Form := TForm.Create(Nil);
   LSynEdit1 := TSynEdit.Create(Form);
   with Form do
   begin
     Caption := rmampdot(MenuItem30.Caption);
-    Width := 640;
-    Height := 480;
+    Top := formpositions[3, 0];
+    Left := formpositions[3, 1];
+    if formpositions[3, 2] > 240 then Height := formpositions[1, 2];
+    if formpositions[3, 3] > 320 then Width := formpositions[1, 3];
     BorderStyle := bsSizeable;
-    Position := poMainFormCenter;
   end;
   with LSynEdit1 do
   begin
@@ -2193,7 +2190,7 @@ begin
     ScrollBars := ssAutoBoth;
     TabOrder := 0;
     Position := poMainFormCenter;
-    HighLighter := SynAnySyn1;
+    HighLighter := LSynAnySyn1;
   end;
   for sline := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[sline]) > 0 then
@@ -2208,6 +2205,13 @@ begin
         inc(sline);
       end;
   if length(LSynEdit1.Text) > 0 then scriptisloaded := true;
+  with Form do
+  begin
+    formpositions[3, 0] := Top;
+    formpositions[3, 1] := Left;
+    formpositions[3, 2] := Height;
+    formpositions[3, 3] := Width;
+  end;
   FreeAndNil(Form);
 end;
 
@@ -3285,6 +3289,16 @@ begin
   parsingcommands(menucmd);
 end;
 
+procedure TForm1.MenuItem62Click(Sender: TObject);
+begin
+  //set timeout
+end;
+
+procedure TForm1.MenuItem63Click(Sender: TObject);
+begin
+  //get timeout
+end;
+
 // RUN COMMAND 'date'
 procedure TForm1.MenuItem27Click(Sender: TObject);
 begin
@@ -3651,7 +3665,7 @@ end;
 
 // -- END OF THE MAIN MENU -----------------------------------------------------
 
-// Run a command
+// RUN A COMMAND
 procedure TForm1.ComboBox1EditingDone(Sender: TObject);
 begin
   menucmd := ComboBox1.Text;
@@ -3668,24 +3682,69 @@ begin
   end;
 end;
 
-// FormKeyPress event
-procedure TForm1.FormKeyPress(Sender: TObject; var Key: char);
+// BEFORE CLOSE MAIN WINDOW
+procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+var
+  i: integer;
 begin
-  pressakey := true;
-  pressedkey := Key;
+  // save history
+  for i := 0 to 255 do histbuff[i] := '';
+  for i := 0 to 255 do
+    if ComboBox1.Items.Count - 1 - i >= 0 then
+    begin
+      histbuff[i] := ComboBox1.Items[ComboBox1.Items.Count - 1 - i];
+      histitem := i;
+      histlast := i;
+    end;
+  // save main window size and position and set title
+  with Form1 do
+  begin
+    formpositions[0, 0] := Top;
+    formpositions[0, 1] := Left;
+    formpositions[0, 2] := Height;
+    formpositions[0, 3] := Width;
+  end;
+  // save variable monitor window size and position and set title
+  with Form2 do
+  begin
+    formpositions[1, 0] := Top;
+    formpositions[1, 1] := Left;
+    formpositions[1, 2] := Height;
+    formpositions[1, 3] := Width;
+  end;
+  // save mini serial console window size and position and set title
+  with Form3 do
+  begin
+    formpositions[2, 0] := Top;
+    formpositions[2, 1] := Left;
+    formpositions[2, 2] := Height;
+    formpositions[2, 3] := Width;
+  end;
+  saveconfiguration(BASENAME,'.ini');
+  CanClose := true;
 end;
 
-// OnCreate event
-procedure TForm1.FormCreate(Sender: TObject);
+// CLOSE MAIN WINDOW
+procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  lang := getlang;
+  Application.Terminate;
+end;
+
+// CREATE MAIN WINDOW
+procedure TForm1.FormCreate(Sender: TObject);
+var
+  b: byte;
+begin
   randomize;
+  // general settings
+  lang := getlang;
   loadconfiguration(BASENAME,'.ini');
-  setdefaultconstants;
+  // create user's directory
   fp := getuserdir + PRGNAME;
   createdir(fp);
   fp := getuserdir + PRGNAME + SLASH + proj;
   createdir(fp);
+  // restore main window size and position and set title
   with Form1 do
   begin
     Top := formpositions[0, 0];
@@ -3694,6 +3753,7 @@ begin
     if formpositions[0, 3] > 200 then Width := formpositions[0, 3];
     Caption := 'X' + PRGNAME + ' | ' + proj;
   end;
+  // set textcaptions and hints
   Label1.Caption := fullprompt;
   ToolButton1.Hint := rmampdot(MenuItem37.Caption);
   ToolButton2.Hint := rmampdot(MenuItem36.Caption);
@@ -3708,48 +3768,41 @@ begin
   ToolButton15.Hint := rmampdot(MenuItem26.Caption);
   ToolButton16.Hint := rmampdot(MenuItem52.Caption);
   ToolButton18.Hint := rmampdot(MenuItem6.Caption);
+  // set colors
   Memo1.Font.Color := uconfig.guicolors[0];
   Memo1.Color := uconfig.guicolors[1];
+  // set statusbar
   StatusBar1.Panels[0].Text := 'Echo: ' + upcase(ECHO_ARG[echo]);
+  // restore history
   for b := 0 to 255 do
     if length(histbuff[b]) > 0 then ComboBox1.Items.Add(histbuff[b]);
-end;
-
-// FormCloseQuery event
-procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-var
-  i: integer;
-begin
-  for i := 0 to 255 do histbuff[i] := '';
-  for i := 0 to 255 do
-    if ComboBox1.Items.Count - 1 - i >= 0 then
-    begin
-      histbuff[i] := ComboBox1.Items[ComboBox1.Items.Count - 1 - i];
-      histitem := i;
-      histlast := i;
-    end;
-  with Form1 do
+  // set default constants
+  setdefaultconstants;
+  // set syntax highlightning for the script editor
+  LSynAnySyn1 := TSynAnySyn.Create(Form1);
+  with LSynAnySyn1 do
   begin
-    formpositions[0, 0] := Top;
-    formpositions[0, 1] := Left;
-    formpositions[0, 2] := Height;
-    formpositions[0, 3] := Width;
+    ActiveDot := False;
+    Comments := [csBashStyle];
+    CommentAttri.Foreground := clLime;
+    for b := 0 to 1 do Constants.Add(DEV_TYPE[b]);
+    for b := 0 to 2 do Constants.Add(FILE_TYPE[b]);
+    for b := 1 to 2 do Constants.Add(PROT_TYPE[b]);
+    for b := 0 to 3 do Constants.Add(REG_TYPE[b]);
+    for b := 0 to 4 do Constants.Add(PREFIX[b]);
+    for b := 0 to 3 do Constants.Add(ECHO_ARG[b]);
+    for b := 0 to 3 do Constants.Add(NUM_SYS[b]);
+    ConstantAttri.Foreground := clRed;
+    DetectPreprocessor := false;
+    DollarVariables := false;
+    KeyAttri.Foreground := clWhite;
+    for b := 0 to COMMARRSIZE - 1 do KeyWords.Add(COMMANDS[b]);
+    Markup := False;
+    StringAttri.Foreground := clYellow;
+    StringAttri.Style := [fsItalic];
+    StringDelim := sdDoubleQuote;
+    VariableAttri.Foreground := clNone;
   end;
-  with Form2 do
-  begin
-    formpositions[1, 0] := Top;
-    formpositions[1, 1] := Left;
-    formpositions[1, 2] := Height;
-    formpositions[1, 3] := Width;
-  end;
-  saveconfiguration(BASENAME,'.ini');
-  CanClose := True;
-end;
-
-// OnClose event
-procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
-begin
-  Application.Terminate;
 end;
 
 end.

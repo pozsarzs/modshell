@@ -51,6 +51,7 @@ function cmd_run(p1, p2: string): byte; forward;
 function intisitconstant(s: string): integer; forward;
 function intisitvariable(s: string): integer; forward;
 function isitconstant(s: string): string; forward;
+function isitmessage(s: string): string; forward;
 function isitvariable(s: string): string; forward;
 procedure clearallconstants; forward;
 procedure clearallvariables; forward;
@@ -58,7 +59,7 @@ procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
-{$I isitmsg.pas}
+{$I checklck.pas}
 {$I validity.pas}
 
 {$I ethernet.pas}

@@ -26,7 +26,7 @@ var
   ini: TINIFile;
   // settings from/to ini file
   colors: array[0..4] of integer;
-  formpositions: array[0..1, 0..3] of integer;
+  formpositions: array[0..3, 0..3] of integer;
   guicolors: array[0..1] of integer;
   histbuff: array[0..255] of string;
   histitem: integer;
@@ -98,6 +98,12 @@ begin
     s := 'form2_';
     for b:= 0 to 3 do
       ini.writeinteger(SECTION[4], s + FORMPROP[b], formpositions[1, b]);
+    s := 'form3_';
+    for b:= 0 to 3 do
+      ini.writeinteger(SECTION[4], s + FORMPROP[b], formpositions[2, b]);
+    s := 'form4_';
+    for b:= 0 to 3 do
+      ini.writeinteger(SECTION[4], s + FORMPROP[b], formpositions[3, b]);
     for b := 0 to 255 do
       ini.writestring(SECTION[3], 'line' + inttostr(b), histbuff[b]);
   except
@@ -131,6 +137,12 @@ begin
     s := 'form2_';
     for b:= 0 to 3 do
       formpositions[1, b] := ini.readinteger(SECTION[4], s + FORMPROP[b], 0);
+    s := 'form3_';
+    for b:= 0 to 3 do
+      formpositions[2, b] := ini.readinteger(SECTION[4], s + FORMPROP[b], 0);
+    s := 'form4_';
+    for b:= 0 to 3 do
+      formpositions[3, b] := ini.readinteger(SECTION[4], s + FORMPROP[b], 0);
     histitem := ini.readinteger(SECTION[3], 'histitem', 0);
     histlast := ini.readinteger(SECTION[3], 'histlast', 0);
     for b := 0 to 255 do

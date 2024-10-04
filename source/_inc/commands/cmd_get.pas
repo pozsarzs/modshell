@@ -151,7 +151,7 @@ begin
   end;
   if p1 = PREFIX[4] then
   begin
-    {$IFNDEF X} writeln(timeout); {$ELSE} Form1.Memo1.Lines.Add(inttostr(timeout)); {$ENDIF}
+    {$IFNDEF X} writeln(timeout, ' s'); {$ELSE} Form1.Memo1.Lines.Add(inttostr(timeout) + ' s'); {$ENDIF}
     result := 0;
     exit;
   end;

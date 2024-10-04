@@ -66,6 +66,7 @@ begin
           end;
         if o then
         begin
+          {$IFDEF X} Form1.ComboBox1.Enabled := false; {$ENDIF}
           case b of
              0: exitcode := cmd_copyreg(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
                 // copyreg con? dinp|coil con? coil ADDRESS COUNT
@@ -204,7 +205,11 @@ begin
           end;
         end;
         vars[0].vvalue := inttostr(exitcode);
-      end;
+        {$IFDEF X}
+          Form1.ComboBox1.Enabled := true;
+          Form1.ComboBox1.SetFocus;
+        {$ENDIF}
+      end else {$IFNDEF X} writeln(ERR00); {$ELSE} Form1.Memo1.Lines.Add(ERR00); {$ENDIF}
     end;
   end;
 end;

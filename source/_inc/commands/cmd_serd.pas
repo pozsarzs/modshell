@@ -85,8 +85,9 @@ begin
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
-      {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
+      {$IFNDEF X} writeln(MSG31); {$ENDIF}
       repeat
+        sleep(10);
         if ser_canread then
         begin
           wait := 0;
@@ -110,21 +111,14 @@ begin
             {$IFNDEF X} write(EOL); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
           end;
         end else
-          if wait < 65535 then inc(wait);
-        {$IFNDEF X}
-          if keypressed then c := readkey;
-        {$ELSE}  
-          if pressakey then
-          begin
-            c := pressedkey;
-            pressakey := false;
-          end;
-        {$ENDIF}
-      until (c = #27) or (length(s) = 255) or (wait = timeout);
-      {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
-      if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-      if length(p2) > 0 then vars[intisitvariable(p1)].vvalue := s;
+          if wait < 6000 then inc(wait);
+        {$IFNDEF X} if keypressed then c := readkey; {$ENDIF}
+      until (c = #27) or (length(s) = 255) or (wait = timeout * 100);
       ser_close;
+      if (uconfig.echo > 0)
+        then {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Lines.Add(''); {$ENDIF}      
+      if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+      if length(p2) > 0 then vars[intisitvariable(p2)].vvalue := s;
     end else
     begin
       // Cannot initialize serial port!

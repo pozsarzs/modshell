@@ -31,11 +31,15 @@ var
   valid: boolean = false;
 begin
   result := 0;
+  {$IFDEF X}
+    Form1.Memo1.Lines.Add(MSG81);
+    exit;
+  {$ENDIF}
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    writeln(ERR05);
     result := 1;
     exit;
   end;
@@ -54,18 +58,18 @@ begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
     s := s + ' ' + PREFIX[0] + '[0-7]';
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    writeln(s);
     result := 1;
     exit;
   end;
   if not dev[i1].valid then
   begin
-    {$IFNDEF X} writeln(PREFIX[0], i1, MSG06); {$ELSE} Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06); {$ENDIF}
+    writeln(PREFIX[0], i1, MSG06);
     exit;
   end;
   if not (dev[i1].devtype = 1) then
   begin
-    {$IFNDEF X} writeln(MSG24); {$ELSE} Form1.Memo1.Lines.Add(MSG24); {$ENDIF}
+    writeln(MSG24);
     result := 1;
     exit;
   end;
@@ -89,48 +93,43 @@ begin
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
-      {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
+      writeln(MSG31);
       repeat
-        if {$IFNDEF X} keypressed {$ELSE} pressakey {$ENDIF} then
+        if  keypressed then
         begin
-          {$IFNDEF X}
-            c := readkey;
-          {$ELSE}
-            pressakey := false;
-            c := pressedkey;
-          {$ENDIF}
+          c := readkey;
           if ser_canwrite then
           begin
             ser_sendstring(c);
-            {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
-            {$IFNDEF X} write(c); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + c; {$ENDIF}
+            textcolor(uconfig.colors[3]);
+            write(c);
             try
               write(lf, c);
             except
             end;
             if c = #13 then {$IFNDEF X} write(EOL); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
-            {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
-          end else {$IFNDEF X} writeln(MSG27); {$ELSE} Form1.Memo1.Lines.Add(MSG27); {$ENDIF}
+            textcolor(uconfig.colors[0]);
+          end else writeln(ERR27);
         end;
         if ser_canread then
         begin
           b := ser_recvbyte;
-          {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
-          {$IFNDEF X} write(char(b)); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + char(b); {$ENDIF}
+          textcolor(uconfig.colors[2]);
+          write(char(b));
           try
             write(lf, char(b));
           except
           end;
           if b = 13 then write(EOL);
-          {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
+          textcolor(uconfig.colors[0]);
         end;
       until c = #27;
       ser_close;
-      {$IFNDEF X} write(EOL); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}      
+      writeln(EOL);
     end else
     begin
       // Cannot initialize serial port!
-      {$IFNDEF X} writeln(ERR18, dev[i1].device); {$ELSE} Form1.Memo1.Lines.Add(ERR18 + dev[i1].device); {$ENDIF}
+      writeln(ERR18, dev[i1].device);
       result := 1;
     end;
     try

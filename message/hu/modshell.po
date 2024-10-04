@@ -82,8 +82,8 @@ msgid " baudrate:   "
 msgstr " sebesség:   "
 
 #: modshell:msg10
-msgid " settings:   "
-msgstr " beállítások:   "
+msgid " bits:       "
+msgstr " bitek:      "
 
 #: modshell:msg11
 msgid " protocol:   "
@@ -371,6 +371,10 @@ msgstr "Változó"
 msgid "Value"
 msgstr "Érték"
 
+#: modshell:msg81
+msgid "Use 'Utilities/Mini serial console' on GUI version."
+msgstr "Használja az 'Eszközök/Mini soros konzol'-t a GUI változatnál."
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -591,6 +595,10 @@ msgstr "Nem lehet beállítani az időtúllépést!"
 msgid "Operation error!"
 msgstr "Művelet hiba!"
 
+#: modshell:err49
+msgid "Locked device!"
+msgstr "Zárolt eszköz!"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -628,8 +636,9 @@ msgid "ALT-T  reset device, protocol, connection or project name"
 msgstr "ALT-T  eszköz, protokoll, kapcsolat vagy projektnév törlése"
 
 #: modshell:des08
-msgid "ALT-S  set device, protocol, connection or project name"
-msgstr "ALT-S  eszköz, protokoll, kapcsolat vagy projektnév beállítása"
+msgid "ALT-S  set device, protocol, connection, project name or timeout"
+msgstr ""
+"ALT-S  eszköz, protokoll, kapcsolat, projektnév vagy időtúllépés beállítása"
 
 #: modshell:des09
 msgid "       show system date and time"
@@ -1021,11 +1030,13 @@ msgstr "exit"
 msgid ""
 "get dev?|pro?|con?|prj|timeout\n"
 "Notes:\n"
-"  - The '?' value can be 0-7."
+"  - The '?' value can be 0-7.\n"
+"  - The timeout value can be 1-60."
 msgstr ""
 "get dev?|pro?|con?|prj|timeout\n"
 "Megjegyzés:\n"
-"  - A '?' értéke 0-7 lehet."
+"  - A '?' értéke 0-7 lehet.\n"
+"  - A 'timeout' értéke 1-60 lehet."
 
 #: modshell:usg03
 msgid "help [[$]COMMAND]"

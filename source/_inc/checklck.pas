@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | isitmsg.pas                                                              | }
+{ | checklck.pas                                                             | }
 { | a function                                                               | }
 { +--------------------------------------------------------------------------+ }
 {
@@ -13,14 +13,16 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-// IF IT IS A MESSAGE, IT RETURNS ITS VALUE
-function isitmessage(s: string): string;
+// CHECK LOCK FILE
+function checklockfile(device: string; message: boolean): boolean;
+var
+  fn: string;
 begin
-  result := '';
-  if (s[1] = #34) and (s[length(s)] = #34) then
-  begin
-    s := stringreplace(s, #34 , '', [rfReplaceAll]);
-    s := stringreplace(s, #92 + #32 , #32, [rfReplaceAll]);
-    result := s;
-  end;
+  {$IFDEF UNIX}
+    // example: /var/lock/LCK..ttyUSB1
+    fn := stringreplace(device, '/dev/', 'LCK..', [rfReplaceAll]);
+    result := inttobool(length(filesearch(fn, DIR_LOCK)));
+  {$ENDIF}
+  if result and message
+    then {$IFNDEF X} writeln(ERR49); {$ELSE} Form1.Memo1.Lines.Add(ERR49); {$ENDIF}
 end;

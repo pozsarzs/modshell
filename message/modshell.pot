@@ -63,7 +63,7 @@ msgid " baudrate:   "
 msgstr ""
 
 #: modshell:msg10
-msgid " settings:   "
+msgid " bits:       "
 msgstr ""
 
 #: modshell:msg11
@@ -349,6 +349,10 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
+#: modshell:msg81
+msgid "Use 'Utilities/Mini serial console' on GUI version."
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""
@@ -569,6 +573,10 @@ msgstr ""
 msgid "Operation error!"
 msgstr ""
 
+#: modshell:err49
+msgid "Locked device!"
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -606,7 +614,7 @@ msgid "ALT-T  reset device, protocol, connection or project name"
 msgstr ""
 
 #: modshell:des08
-msgid "ALT-S  set device, protocol, connection or project name"
+msgid "ALT-S  set device, protocol, connection, project name or timeout"
 msgstr ""
 
 #: modshell:des09
@@ -996,7 +1004,8 @@ msgstr ""
 msgid ""
 "get dev?|pro?|con?|prj|timeout\n"
 "Notes:\n"
-"  - The '?' value can be 0-7."
+"  - The '?' value can be 0-7.\n"
+"  - The timeout value can be 1-60."
 msgstr ""
 
 #: modshell:usg03

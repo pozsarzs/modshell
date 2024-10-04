@@ -56,7 +56,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
-      delay(10);
+      sleep(1);
       if ser_canread then
       begin
         wait := 0;
@@ -149,7 +149,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
-      delay(10);
+      sleep(1);
       if ser_canread then
       begin
         wait := 0;
@@ -242,7 +242,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
-      delay(10);
+      sleep(1);
       if ser_canread then
       begin
         wait := 0;
@@ -337,7 +337,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
-      delay(10);
+      sleep(1);
       if ser_canread then
       begin
         wait := 0;
@@ -442,7 +442,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
-      delay(10);
+      sleep(1);
       if ser_canread then
       begin
         wait := 0;
@@ -527,7 +527,7 @@ begin
     // RECEIVE RESPONSE
     tgm := '';
     repeat
-      delay(10);
+      sleep(1);
       if ser_canread then
       begin
         wait := 0;
@@ -597,14 +597,14 @@ begin
       begin
         c := readkey;
         if c = #27 then loop := false;
-      end else delay(10);
+      end else sleep(1);
     until ser_canread or (c = #27);
     if loop then
     begin
       // RECEIVE REQUEST
       tgm := '';
       repeat
-        delay(10);
+        sleep(1);
         if ser_canread then
         begin
           b := ser_recvbyte;

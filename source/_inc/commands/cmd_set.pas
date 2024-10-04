@@ -352,10 +352,10 @@ var
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
     if length(s2) = 0 then s2 := p2;
-    if (strtointdef(s2, -1) < 0 ) or (strtointdef(s2, -1) > 65535) then
+    if (strtointdef(s2, -1) < 1 ) or (strtointdef(s2, -1) > 60) then
     begin
       // What is the 4th parameter?
-      {$IFNDEF X} writeln(NUM4 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-65535'); {$ENDIF}
+      {$IFNDEF X} writeln(NUM2 + MSG05 + ' 1-60'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-60'); {$ENDIF}
       error := 1;
       exit;
     end;

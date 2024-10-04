@@ -30,6 +30,19 @@
   upcase  $TARGET [$]VALUE
 }
 
+// IF IT IS A MESSAGE, IT RETURNS ITS VALUE
+function isitmessage(s: string): string;
+begin
+  result := '';
+  if (s[1] = #34) and (s[length(s)] = #34) then
+  begin
+    s := stringreplace(s, #34 , '', [rfReplaceAll]);
+    s := stringreplace(s, #92 + #32 , #32, [rfReplaceAll]);
+    result := s;
+  end;
+end;
+
+// STRING HANDLER COMMANDS
 function cmd_string(op: byte; p1, p2, p3: string): byte;
 var
   s2, s3: string; // parameters in other type

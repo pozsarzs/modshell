@@ -50,9 +50,9 @@ Notes: March 21, 2006
 
 
 
-unit SynHighlighterAny;
+unit MODSynHighlighterAny;
 
-{$I SynEdit.inc}
+{$I MODSynEdit.inc}
 
 interface
 

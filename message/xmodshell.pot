@@ -34,7 +34,7 @@ msgid "ALT-T  reset device, protocol, connection or project name"
 msgstr ""
 
 #: frmmain.des08
-msgid "ALT-S  set device, protocol, connection or project name"
+msgid "ALT-S  set device, protocol, connection, project name or timeout"
 msgstr ""
 
 #: frmmain.des09
@@ -605,6 +605,10 @@ msgstr ""
 msgid "Operation error!"
 msgstr ""
 
+#: frmmain.err49
+msgid "Locked device!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -646,7 +650,7 @@ msgid " baudrate:   "
 msgstr ""
 
 #: frmmain.msg10
-msgid " settings:   "
+msgid " bits:       "
 msgstr ""
 
 #: frmmain.msg11
@@ -932,6 +936,10 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
+#: frmmain.msg81
+msgid "Use 'Utilities/Mini serial console' on GUI version."
+msgstr ""
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr ""
@@ -999,7 +1007,8 @@ msgstr ""
 msgid ""
 "get dev?|pro?|con?|prj|timeout\n"
 "Notes:\n"
-"  - The '?' value can be 0-7."
+"  - The '?' value can be 0-7.\n"
+"  - The timeout value can be 1-60."
 msgstr ""
 
 #: frmmain.usg03
@@ -1693,6 +1702,18 @@ msgstr ""
 msgid "&Hexadecimal"
 msgstr ""
 
+#: tform1.menuitem61.caption
+msgid "T&imeout"
+msgstr ""
+
+#: tform1.menuitem62.caption
+msgid "&Set timeout"
+msgstr ""
+
+#: tform1.menuitem63.caption
+msgid "&Get timeout"
+msgstr ""
+
 #: tform1.menuitem7.caption
 msgid "&About"
 msgstr ""
@@ -1783,5 +1804,9 @@ msgstr ""
 
 #: tform2.caption
 msgid "Variable monitor"
+msgstr ""
+
+#: tform3.caption
+msgid "Form3"
 msgstr ""
 

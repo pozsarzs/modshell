@@ -42,6 +42,6 @@ var
   // CRON
   crontable: array[1..4] of tcron;
   // CONNECTION TIMEOUT
-  timeout: integer = 100; // x 10 ms
+  timeout: integer = 3; // in s
   // SPLITTED COMMAND LINE
   splitted: array[0..7] of string;

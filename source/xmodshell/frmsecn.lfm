@@ -1,0 +1,10 @@
+object Form3: TForm3
+  Left = 526
+  Height = 240
+  Top = 295
+  Width = 320
+  Caption = 'Form3'
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  LCLVersion = '2.2.6.0'
+end
