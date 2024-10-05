@@ -960,6 +960,10 @@ msgstr "Érték"
 msgid "Use 'Utilities/Mini serial console' on GUI version."
 msgstr "Használja az 'Eszközök/Mini soros konzol'-t a GUI változatnál."
 
+#: frmmain.msg82
+msgid "timeout"
+msgstr "időtúllépés"
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -1590,10 +1594,6 @@ msgstr "Regiszterek menté&se.."
 msgid "&Dump registers.."
 msgstr "Regiszterek kiíra&tása.."
 
-#: tform1.menuitem16.caption
-msgid "Start &gateway mode.."
-msgstr "&Gateway mód indítása.."
-
 #: tform1.menuitem17.caption
 msgid "Project &name"
 msgstr "Projekt &név"
@@ -1601,10 +1601,6 @@ msgstr "Projekt &név"
 #: tform1.menuitem18.caption
 msgid "Lis&t script"
 msgstr "Szkrip&t listázása"
-
-#: tform1.menuitem19.caption
-msgid "Start &client mode.."
-msgstr "Klien&s mód indítása.."
 
 #: tform1.menuitem2.caption
 msgid "&Script"
@@ -1792,15 +1788,15 @@ msgstr "&Hexadecimális"
 
 #: tform1.menuitem61.caption
 msgid "T&imeout"
-msgstr ""
+msgstr "&Időtúllépés"
 
 #: tform1.menuitem62.caption
 msgid "&Set timeout"
-msgstr ""
+msgstr "Időtúllépés beállítá&sa"
 
 #: tform1.menuitem63.caption
 msgid "&Get timeout"
-msgstr ""
+msgstr "Időtúllépés &mutatása"
 
 #: tform1.menuitem7.caption
 msgid "&About"
@@ -1897,6 +1893,12 @@ msgstr "Változó monitor"
 #: tform3.caption
 msgid "Form3"
 msgstr "Form3"
+
+#~ msgid "Start &gateway mode.."
+#~ msgstr "&Gateway mód indítása.."
+
+#~ msgid "Start &client mode.."
+#~ msgstr "Klien&s mód indítása.."
 
 #~ msgid " settings:   "
 #~ msgstr " beállítások:   "

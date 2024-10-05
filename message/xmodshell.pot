@@ -940,6 +940,10 @@ msgstr ""
 msgid "Use 'Utilities/Mini serial console' on GUI version."
 msgstr ""
 
+#: frmmain.msg82
+msgid "timeout"
+msgstr ""
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr ""
@@ -1502,20 +1506,12 @@ msgstr ""
 msgid "&Dump registers.."
 msgstr ""
 
-#: tform1.menuitem16.caption
-msgid "Start &gateway mode.."
-msgstr ""
-
 #: tform1.menuitem17.caption
 msgid "Project &name"
 msgstr ""
 
 #: tform1.menuitem18.caption
 msgid "Lis&t script"
-msgstr ""
-
-#: tform1.menuitem19.caption
-msgid "Start &client mode.."
 msgstr ""
 
 #: tform1.menuitem2.caption

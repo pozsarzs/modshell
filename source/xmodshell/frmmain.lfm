@@ -807,19 +807,6 @@ object Form1: TForm1
         ShortCut = 32855
         OnClick = MenuItem50Click
       end
-      object Separator2: TMenuItem
-        Caption = '-'
-      end
-      object MenuItem16: TMenuItem
-        Caption = 'Start &gateway mode..'
-        ImageIndex = 25
-        OnClick = MenuItem16Click
-      end
-      object MenuItem19: TMenuItem
-        Caption = 'Start &client mode..'
-        ImageIndex = 25
-        OnClick = MenuItem19Click
-      end
       object Separator4: TMenuItem
         Caption = '-'
       end

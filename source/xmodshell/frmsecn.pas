@@ -26,7 +26,7 @@ uses
   ucommon,
   uconfig;
 type
-  { TFooThread }
+  { TLThread }
   TLThread = class(TThread)
   protected
     procedure Execute; override;

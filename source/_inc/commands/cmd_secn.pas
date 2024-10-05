@@ -90,6 +90,7 @@ begin
   except
   end;
   // PRIMARY MISSION
+  if checklockfile(dev[i1].device, true) then exit;
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin

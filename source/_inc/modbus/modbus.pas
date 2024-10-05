@@ -20,6 +20,8 @@ begin
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
+  // CHECK DEVICE LOCK FILE
+  if checklockfile(dev[conn[connection].dev].device, true) then exit;
   // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: mbasc_readdinp(conn[connection].prot, conn[connection].dev, address, count);
@@ -35,6 +37,8 @@ begin
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
+  // CHECK DEVICE LOCK FILE
+  if checklockfile(dev[conn[connection].dev].device, true) then exit;
   // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: mbasc_readcoil(conn[connection].prot, conn[connection].dev, address, count);
@@ -50,6 +54,8 @@ begin
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
+  // CHECK DEVICE LOCK FILE
+  if checklockfile(dev[conn[connection].dev].device, true) then exit;
   // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: mbasc_readireg(conn[connection].prot, conn[connection].dev, address, count);
@@ -65,6 +71,8 @@ begin
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
+  // CHECK DEVICE LOCK FILE
+  if checklockfile(dev[conn[connection].dev].device, true) then exit;
   // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: mbasc_readhreg(conn[connection].prot, conn[connection].dev, address, count);
@@ -80,6 +88,8 @@ begin
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
+  // CHECK DEVICE LOCK FILE
+  if checklockfile(dev[conn[connection].dev].device, true) then exit;
   // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: mbasc_writecoil(conn[connection].prot, conn[connection].dev, address, count);
@@ -95,6 +105,8 @@ begin
   if not validity(2, connection) then exit;
   if not validity(1, conn[connection].prot) then exit;
   if not validity(0, conn[connection].dev) then exit;
+  // CHECK DEVICE LOCK FILE
+  if checklockfile(dev[conn[connection].dev].device, true) then exit;
   // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: mbasc_writehreg(conn[connection].prot, conn[connection].dev, address, count);
@@ -114,6 +126,9 @@ begin
   if not validity(2, connection2) then result := false;
   if not validity(1, conn[connection2].prot) then result := false;
   if not validity(0, conn[connection2].dev) then result := false;
+  // CHECK DEVICE LOCK FILE
+  if checklockfile(dev[conn[connection1].dev].device, true) then exit;
+  if checklockfile(dev[conn[connection2].dev].device, true) then exit;
   // CALL NEXT PROCEDURE
   if not result then exit;
   case prot[conn[connection1].prot].prottype of
@@ -132,6 +147,8 @@ begin
   if not validity(1, conn[connection].prot) then result := false;
   if not validity(0, conn[connection].dev) then result := false;
   if not result then exit;
+  // CHECK DEVICE LOCK FILE
+  if checklockfile(dev[conn[connection].dev].device, true) then exit;
   // CALL NEXT PROCEDURE
   case prot[conn[connection].prot].prottype of
     0: result := mbasc_slave(false, conn[connection].prot, conn[connection].dev, 0, 0);

@@ -353,6 +353,10 @@ msgstr ""
 msgid "Use 'Utilities/Mini serial console' on GUI version."
 msgstr ""
 
+#: modshell:msg82
+msgid "timeout"
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""

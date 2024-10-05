@@ -375,6 +375,10 @@ msgstr "Érték"
 msgid "Use 'Utilities/Mini serial console' on GUI version."
 msgstr "Használja az 'Eszközök/Mini soros konzol'-t a GUI változatnál."
 
+#: modshell:msg82
+msgid "timeout"
+msgstr "időtúllépés"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "

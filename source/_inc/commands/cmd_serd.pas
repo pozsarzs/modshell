@@ -82,6 +82,7 @@ begin
     end;
   end;
   // PRIMARY MISSION
+  if checklockfile(dev[i1].device, true) then exit;
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
@@ -100,15 +101,15 @@ begin
             end;
             textcolor(uconfig.colors[0]);
           {$ELSE}
-            case uconfig.echo of
-              1: Form1.Memo1.Text := Form1.Memo1.Text + char(b);
-              2: Form1.Memo1.Text := Form1.Memo1.Text + addsomezero(2, deztohex(inttostr(b))) + ' ';
-            end;
+            //case uconfig.echo of
+              //1: Form1.Memo1.Text := Form1.Memo1.Text + char(b);
+              //2: Form1.Memo1.Text := Form1.Memo1.Text + addsomezero(2, deztohex(inttostr(b))) + ' ';
+            //end;
           {$ENDIF}
           s := s + char(b);
           if (uconfig.echo = 1) and (b = 13) then
           begin
-            {$IFNDEF X} write(EOL); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
+            {$IFNDEF X} write(EOL); {$ELSE} (*Form1.Memo1.Text := Form1.Memo1.Text + EOL;*) {$ENDIF}
           end;
         end else
           if wait < 6000 then inc(wait);
@@ -116,7 +117,7 @@ begin
       until (c = #27) or (length(s) = 255) or (wait = timeout * 100);
       ser_close;
       if (uconfig.echo > 0)
-        then {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Lines.Add(''); {$ENDIF}      
+        then {$IFNDEF X} writeln; {$ELSE} (*Form1.Memo1.Lines.Add('');*) {$ENDIF}      
       if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
       if length(p2) > 0 then vars[intisitvariable(p2)].vvalue := s;
     end else

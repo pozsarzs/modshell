@@ -106,6 +106,7 @@ resourcestring
   MSG79 = 'Variable';
   MSG80 = 'Value';
   MSG81 = 'Use ''Utilities/Mini serial console'' on GUI version.';
+  MSG82 = 'timeout';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
