@@ -375,6 +375,10 @@ msgstr "êrtÇk"
 msgid "Use 'Utilities/Mini serial console' on GUI version."
 msgstr "Haszn†lja az 'Eszkîzîk/Mini soros konzol'-t a GUI v†ltozatn†l."
 
+#: modshell:msg82
+msgid "timeout"
+msgstr "idãt£llÇpÇs"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Ford°t†s ideje: "

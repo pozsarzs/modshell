@@ -1594,6 +1594,10 @@ msgstr "Regiszterek menté&se.."
 msgid "&Dump registers.."
 msgstr "Regiszterek kiíra&tása.."
 
+#: tform1.menuitem16.caption
+msgid "R&ead data from serial port.."
+msgstr "Adat olvasása s&oros portról.."
+
 #: tform1.menuitem17.caption
 msgid "Project &name"
 msgstr "Projekt &név"
@@ -1739,28 +1743,16 @@ msgid "&Project"
 msgstr "&Projekt"
 
 #: tform1.menuitem50.caption
-msgid "&Write data to remote register(s).."
-msgstr "Távoli regiszter(e&k) írása.."
-
-#: tform1.menuitem51.caption
-msgid "&Read data from remote register(s).."
-msgstr "Távoli &regiszter(ek) olvasása.."
+msgid "W&rite data to serial port.."
+msgstr "Adat í&rása soros portra.."
 
 #: tform1.menuitem52.caption
 msgid "Show &variable monitor.."
 msgstr "&Változó monitor.."
 
-#: tform1.menuitem53.caption
-msgid "W&rite data to serial port.."
-msgstr "Adat í&rása soros portra.."
-
 #: tform1.menuitem54.caption
 msgid "&Mini serial console.."
 msgstr "&Mini soros konzol.."
-
-#: tform1.menuitem55.caption
-msgid "R&ead data from serial port.."
-msgstr "Adat olvasása s&oros portról.."
 
 #: tform1.menuitem56.caption
 msgid "&Online wiki"
@@ -1893,6 +1885,12 @@ msgstr "Változó monitor"
 #: tform3.caption
 msgid "Form3"
 msgstr "Form3"
+
+#~ msgid "&Write data to remote register(s).."
+#~ msgstr "Távoli regiszter(e&k) írása.."
+
+#~ msgid "&Read data from remote register(s).."
+#~ msgstr "Távoli &regiszter(ek) olvasása.."
 
 #~ msgid "Start &gateway mode.."
 #~ msgstr "&Gateway mód indítása.."

@@ -4,7 +4,30 @@ object Form3: TForm3
   Top = 295
   Width = 320
   Caption = 'Form3'
+  ClientHeight = 240
+  ClientWidth = 320
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
   LCLVersion = '2.2.6.0'
+  object Memo1: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 2
+    Height = 236
+    Top = 2
+    Width = 316
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Around = 2
+    Color = clNavy
+    Font.Color = clAqua
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssAutoBoth
+    TabOrder = 0
+  end
 end

@@ -2731,10 +2731,8 @@ begin
   if Form.ShowModal = mrOk then
   begin
     Form3.Show;
-//    with Form do
-//      menucmd := COMMANDS[35] + ' dev' + inttostr(LSpinEdit1.Value);
-//    Memo1.Lines.Add(fullprompt + menucmd);
-//    parsingcommands(menucmd);
+    Form3.Caption := rmampdot(MenuItem54.Caption);
+    frmsecn.device := LSpinEdit1.Value;
   end;
   FreeAndNil(Form);
 end;

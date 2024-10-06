@@ -22,7 +22,7 @@
 function cmd_serread(p1, p2: string): byte;
 var
   b: byte;
-  c: char;
+  {$IFNDEF X} c: char; {$ENDIF}
   i1: integer; // parameters other type
   s: string = '';
   ss: string;

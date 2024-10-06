@@ -1506,6 +1506,10 @@ msgstr ""
 msgid "&Dump registers.."
 msgstr ""
 
+#: tform1.menuitem16.caption
+msgid "R&ead data from serial port.."
+msgstr ""
+
 #: tform1.menuitem17.caption
 msgid "Project &name"
 msgstr ""
@@ -1651,27 +1655,15 @@ msgid "&Project"
 msgstr ""
 
 #: tform1.menuitem50.caption
-msgid "&Write data to remote register(s).."
-msgstr ""
-
-#: tform1.menuitem51.caption
-msgid "&Read data from remote register(s).."
+msgid "W&rite data to serial port.."
 msgstr ""
 
 #: tform1.menuitem52.caption
 msgid "Show &variable monitor.."
 msgstr ""
 
-#: tform1.menuitem53.caption
-msgid "W&rite data to serial port.."
-msgstr ""
-
 #: tform1.menuitem54.caption
 msgid "&Mini serial console.."
-msgstr ""
-
-#: tform1.menuitem55.caption
-msgid "R&ead data from serial port.."
 msgstr ""
 
 #: tform1.menuitem56.caption

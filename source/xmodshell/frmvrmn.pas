@@ -31,6 +31,7 @@ type
   TForm2 = class(TForm)
     ValueListEditor1: TValueListEditor;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
   public
@@ -63,6 +64,13 @@ end;
 
 // SHOW VARIABLE MONITOR WINDOW
 procedure TForm2.FormShow(Sender: TObject);
+begin
+  // enable variable monitor
+  frmmain.varmon := true;
+end;
+
+// CREATE VARIABLE MONITOR WINDOW
+procedure TForm2.FormCreate(Sender: TObject);
 begin
   // restore window size and position
   with Form2 do

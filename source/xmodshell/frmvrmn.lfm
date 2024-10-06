@@ -312,6 +312,7 @@ object Form2: TForm2
     6F00
   }
   OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
   OnShow = FormShow
   Position = poDefault
   LCLVersion = '2.2.6.0'
