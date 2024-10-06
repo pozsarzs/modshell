@@ -3,6 +3,7 @@ Source code of (X)Modshell - common include files
  + commands     useable command line commands
  + modbus       Modbus handlers   
  + ports        I/O port handlers
+ + threads      useable command that can be run on a new thread
  - type.pas     declaration of types
  - const.pas    declaration of constants
  - var.pas      declaration of variables

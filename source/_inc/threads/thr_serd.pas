@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | cmd_serd.pas                                                             | }
+{ | thr_serd.pas                                                             | }
 { | command 'serread'                                                        | }
 { +--------------------------------------------------------------------------+ }
 {
@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'SERREAD'
-function cmd_serread(p1, p2: string): byte;
+function TLThread.thr_serread(p1, p2: string): byte;
 var
   b: byte;
   c: char;
@@ -29,13 +29,22 @@ var
   s1: string; // parameters in other type
   valid: boolean = false;
   wait: integer = 0;
+
+  // SEND A TEXT MESSAGE TO MEMO1
+  procedure sendmessage(message :string; linefeed: boolean);
+  begin
+    fstatustext := s;
+    if linefeed then fstatustext := fstatustext + EOL;
+    Synchronize(@Showstatus);
+  end;
+
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    sendmessage(ERR05, true);
     result := 1;
     exit;
   end;
@@ -54,19 +63,19 @@ begin
     // What is the 1st parameter?
     ss := NUM1 + MSG05;
     ss := ss + ' ' + PREFIX[0] + '[0-7]';
-    {$IFNDEF X} writeln(ss); {$ELSE} Form1.Memo1.Lines.Add(ss); {$ENDIF}
+    sendmessage(ss, true);
     result := 1;
     exit;
   end;
   if not dev[i1].valid then
   begin
-    {$IFNDEF X} writeln(PREFIX[0], i1, MSG06); {$ELSE} Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06); {$ENDIF}
+    sendmessage(PREFIX[0] + inttostr(i1) + MSG06, true);
     result := 1;
     exit;
   end;
   if not (dev[i1].devtype = 1) then
   begin
-    {$IFNDEF X} writeln(MSG24); {$ELSE} Form1.Memo1.Lines.Add(MSG24); {$ENDIF}
+    sendmessage(MSG24, true);
     result := 1;
     exit;
   end;
@@ -76,54 +85,46 @@ begin
     if not boolisitvariable(p2) then
     begin
       // No such variable!
-      {$IFNDEF X} writeln(ERR19 + p2); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p2); {$ENDIF}
+      sendmessage(ERR19 + p2, true);
       result := 1;
       exit;
     end;
   end;
   // PRIMARY MISSION
-  if checklockfile(dev[i1].device, true) then exit;
+  if checklockfile(dev[i1].device, false) then
+  begin
+    sendmessage(ERR49, true);
+    exit;
+  end;
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
-      {$IFNDEF X} writeln(MSG31); {$ENDIF}
       repeat
         sleep(10);
         if ser_canread then
         begin
           wait := 0;
           b := ser_recvbyte;
-          {$IFNDEF X}
-            textcolor(uconfig.colors[2]);
-            case uconfig.echo of
-              1: write(char(b));
-              2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
-            end;
-            textcolor(uconfig.colors[0]);
-          {$ELSE}
-            case uconfig.echo of
-              1: Form1.Memo1.Text := Form1.Memo1.Text + char(b);
-              2: Form1.Memo1.Text := Form1.Memo1.Text + addsomezero(2, deztohex(inttostr(b))) + ' ';
-            end;
-          {$ENDIF}
+          case uconfig.echo of
+            1: sendmessage(char(b), false);
+            2: sendmessage(addsomezero(2, deztohex(inttostr(b))) + ' ', false);
+          end;
           s := s + char(b);
           if (uconfig.echo = 1) and (b = 13) then
           begin
-            {$IFNDEF X} write(EOL); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
+            sendmessage('', true);
           end;
         end else
           if wait < 6000 then inc(wait);
-        {$IFNDEF X} if keypressed then c := readkey; {$ENDIF}
-      until {$IFNDEF X} (c = #27) or {$ENDIF} (length(s) = 255) or (wait = timeout * 100);
+      until (length(s) = 255) or (wait = timeout * 100);
       ser_close;
-      if (uconfig.echo > 0)
-        then {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Lines.Add(''); {$ENDIF}      
-      if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+      if (uconfig.echo > 0) then sendmessage('', true);
+      if length(p2) = 0 then sendmessage(s, true);
       if length(p2) > 0 then vars[intisitvariable(p2)].vvalue := s;
     end else
     begin
       // Cannot initialize serial port!
-      {$IFNDEF X} writeln(ERR18, dev[i1].device); {$ELSE} Form1.Memo1.Lines.Add(ERR18 + dev[i1].device); {$ENDIF}
+      sendmessage(ERR18 + dev[i1].device, true);
       result := 1;
     end;
 end;

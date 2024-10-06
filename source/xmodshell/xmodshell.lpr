@@ -16,7 +16,7 @@
 program xmodshell;
 {$MODE OBJFPC}{$h+}
 uses
-  {$IFDEF UNIX} cthreads, {$ENDIF}
+  {$IFDEF UNIX} cthreads, cmem, {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Dialogs,
   Forms,

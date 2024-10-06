@@ -2,7 +2,7 @@
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | parsingcommands.pas                                                      | }
-{ | a procedure                                                              | }
+{ | parsing commands                                                         | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -19,7 +19,6 @@ var
  a, b: byte;
  s: string;
  o: boolean;
-
 begin
   if (length(command) > 0) then
     if (command[1] <> #58) and (command[1] <> #64) then
@@ -66,7 +65,7 @@ begin
           end;
         if o then
         begin
-         // {$IFDEF X} Form1.ComboBox1.Enabled := false; {$ENDIF}
+          {$IFDEF X} Form1.ComboBox1.Enabled := false; {$ENDIF}
           case b of
              0: exitcode := cmd_copyreg(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
                 // copyreg con? dinp|coil con? coil ADDRESS COUNT
@@ -206,7 +205,7 @@ begin
         end;
         vars[0].vvalue := inttostr(exitcode);
         {$IFDEF X}
-       //   Form1.ComboBox1.Enabled := true;
+          Form1.ComboBox1.Enabled := true;
           Form1.ComboBox1.SetFocus;
         {$ENDIF}
       end else {$IFNDEF X} writeln(ERR00); {$ELSE} Form1.Memo1.Lines.Add(ERR00); {$ENDIF}

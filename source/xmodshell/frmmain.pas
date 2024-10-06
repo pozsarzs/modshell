@@ -54,8 +54,14 @@ uses
 type
   { TLThread }
   TLThread = class(TThread)
+  private
+    fStatusText: string;
+    procedure ShowStatus;
   protected
     procedure Execute; override;
+  public
+    constructor Create(CreateSuspended: boolean);
+    function thr_serread(p1, p2: string): byte;
   end;
   { TForm1 }
   TForm1 = class(TForm)
@@ -221,6 +227,7 @@ var
   fp: string;
   menucmd: string;
   thrdcmd: tthrdcmd;
+  status: string;
 
 {$DEFINE X}
 
@@ -310,12 +317,12 @@ procedure version(h: boolean); forward;
 {$I cmd_whvr.pas}
 {$I cmd_wrte.pas}
 
+{$I thr_serd.pas}
+
 {$I parsing.pas}
 {$I fllprmpt.pas}
 {$I intrprtr.pas}
 {$I version.pas}
-
-{ TForm1 }
 
 // REMOVE AMPERSAND AND DOT SIGNS
 function rmampdot(s: string): string;
@@ -326,8 +333,38 @@ begin
   for b := 1 to 255 do
     if (s[b] <> '&') and (s[b] <> '.') then t := t + s[b];
   result := t;
-
 end;
+
+{ TLThread }
+
+// ADD TEXT TO MEMO1 FROM OTHER THREAD
+procedure TLThread.ShowStatus;
+begin
+  Form1.Memo1.Text := Form1.Memo1.Text + fStatusText;
+end;
+
+// RUN A COMMAND ON NEW THREAD
+procedure TLThread.Execute;
+begin
+  fStatusText := fullprompt + menucmd + EOL;
+  Synchronize(@Showstatus);
+  with thrdcmd do
+    case c of
+       6: exitcode := cmd_readreg(p1, p2, p3, p4);
+       7: exitcode := cmd_writereg(p1, p2, p3, p4);
+      36: exitcode := thr_serread(p1, p2);
+      37: exitcode := cmd_serwrite(p1, p2);
+    end;
+end;
+
+// CREATE THREAD
+constructor TLThread.Create(CreateSuspended: boolean);
+begin
+  FreeOnTerminate := True;
+  inherited Create(CreateSuspended);
+end;
+
+{ TForm1 }
 
 // -- MAIN MENU/File -----------------------------------------------------------
 
@@ -2382,19 +2419,6 @@ begin
   menucmd := COMMANDS[38] + ' swap';
   Memo1.Lines.Add(fullprompt + menucmd);
   parsingcommands(menucmd);
-end;
-
-// RUN A COMMAND ON NEW THREAD
-procedure TLThread.Execute;
-begin
-  Form1.Memo1.Lines.Add(fullprompt + menucmd);
-  with thrdcmd do
-    case c of
-       6: exitcode := cmd_readreg(p1, p2, p3, p4);
-       7: exitcode := cmd_writereg(p1, p2, p3, p4);
-      36: exitcode := cmd_serread(p1, p2);
-      37: exitcode := cmd_serwrite(p1, p2);
-    end;
 end;
 
 // RUN COMMAND 'serread' with DIALOG
