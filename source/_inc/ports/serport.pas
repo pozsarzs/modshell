@@ -86,8 +86,6 @@ begin
       ser.Connect(device);
       ser.Config(strtoint(DEV_SPEED[speed]), databit, DEV_PARITY[parity], stopbit, False, False);
     except
-      // Cannot initialize serial port!
-      {$IFNDEF X} writeln(ERR18, device); {$ELSE} Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 0-7'); {$ENDIF}
       result := false;
     end;
   {$ENDIF}

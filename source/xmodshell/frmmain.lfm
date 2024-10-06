@@ -782,34 +782,6 @@ object Form1: TForm1
       object Separator11: TMenuItem
         Caption = '-'
       end
-      object MenuItem55: TMenuItem
-        Caption = 'R&ead data from serial port..'
-        ImageIndex = 21
-        OnClick = MenuItem55Click
-      end
-      object MenuItem53: TMenuItem
-        Caption = 'W&rite data to serial port..'
-        ImageIndex = 21
-        OnClick = MenuItem53Click
-      end
-      object Separator12: TMenuItem
-        Caption = '-'
-      end
-      object MenuItem51: TMenuItem
-        Caption = '&Read data from remote register(s)..'
-        ImageIndex = 25
-        ShortCut = 32850
-        OnClick = MenuItem51Click
-      end
-      object MenuItem50: TMenuItem
-        Caption = '&Write data to remote register(s)..'
-        ImageIndex = 25
-        ShortCut = 32855
-        OnClick = MenuItem50Click
-      end
-      object Separator4: TMenuItem
-        Caption = '-'
-      end
       object MenuItem24: TMenuItem
         Caption = 'Show all &constants'
         ImageIndex = 23
@@ -845,17 +817,30 @@ object Form1: TForm1
         ImageIndex = 12
         OnClick = MenuItem26Click
       end
+      object MenuItem52: TMenuItem
+        Caption = 'Show &variable monitor..'
+        ImageIndex = 22
+        ShortCut = 32845
+        OnClick = MenuItem52Click
+      end
+      object Separator2: TMenuItem
+        Caption = '-'
+      end
       object MenuItem54: TMenuItem
         Caption = '&Mini serial console..'
         ImageIndex = 21
         ShortCut = 118
         OnClick = MenuItem54Click
       end
-      object MenuItem52: TMenuItem
-        Caption = 'Show &variable monitor..'
-        ImageIndex = 22
-        ShortCut = 32845
-        OnClick = MenuItem52Click
+      object MenuItem16: TMenuItem
+        Caption = 'R&ead data from serial port..'
+        ImageIndex = 21
+        OnClick = MenuItem16Click
+      end
+      object MenuItem50: TMenuItem
+        Caption = 'W&rite data to serial port..'
+        ImageIndex = 21
+        OnClick = MenuItem50Click
       end
     end
     object MenuItem3: TMenuItem

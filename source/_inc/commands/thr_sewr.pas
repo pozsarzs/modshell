@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | thr_serd.pas                                                             | }
-{ | command 'serread'                                                        | }
+{ | thr_sewr.pas                                                             | }
+{ | command 'serwrite'                                                       | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -13,35 +13,27 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0      p1   p2
+  p0       p1   p2
   -----------------------
-  serread dev? [$TARGET]
+  serwrite dev? "MESSAGE"
+  serwrite dev? $MESSAGE
 }
 
-// COMMAND 'SERREAD'
-function TLThread.thr_serread(p1, p2: string): byte;
+// COMMAND 'SERWRITE'
+function TLThread.thr_serwrite(p1, p2: string): byte;
 var
   b: byte;
-  c: char;
   i1: integer; // parameters other type
-  s: string = '';
-  ss: string;
-  s1: string; // parameters in other type
+  s: string;
+  s1, s2: string; // parameters in other type
   valid: boolean = false;
-  wait: integer = 0;
 
-  // SEND A TEXT MESSAGE TO MEMO1
-  procedure sendmessage(message :string; linefeed: boolean);
-  begin
-    fstatustext := s;
-    if linefeed then fstatustext := fstatustext + EOL;
-    Synchronize(@Showstatus);
-  end;
+{$I sendmesg.pas}
 
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
-  if (length(p1) = 0) then
+  if (length(p1) = 0) or (length(p2) = 0) then
   begin
     // Parameter(s) required!
     sendmessage(ERR05, true);
@@ -61,9 +53,9 @@ begin
   if not valid then
   begin
     // What is the 1st parameter?
-    ss := NUM1 + MSG05;
-    ss := ss + ' ' + PREFIX[0] + '[0-7]';
-    sendmessage(ss, true);
+    s := NUM1 + MSG05;
+    s := s + ' ' + PREFIX[0] + '[0-7]';
+    sendmessage(s, true);
     result := 1;
     exit;
   end;
@@ -79,13 +71,17 @@ begin
     result := 1;
     exit;
   end;
-  // CHECK P2 PARAMETER
-  if length(p2) > 0 then
+  // CHECK P2 PARAMETER: IS IT A MESSAGE?
+  s2 := isitmessage(p2);
+  if length(s2) = 0 then
   begin
-    if not boolisitvariable(p2) then
+    // CHECK P2 PARAMETER
+    if boolisitconstant(p2) then s2 := isitconstant(p2);
+    if boolisitvariable(p2) then s2 := isitvariable(p2);
+    if length(s2) = 0 then
     begin
-      // No such variable!
-      sendmessage(ERR19 + p2, true);
+    // No such variable!
+      sendmessage(MSG19, true);
       result := 1;
       exit;
     end;
@@ -99,28 +95,25 @@ begin
   with dev[i1] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
-      repeat
-        sleep(10);
-        if ser_canread then
-        begin
-          wait := 0;
-          b := ser_recvbyte;
-          case uconfig.echo of
-            1: sendmessage(char(b), false);
-            2: sendmessage(addsomezero(2, deztohex(inttostr(b))) + ' ', false);
-          end;
-          s := s + char(b);
-          if (uconfig.echo = 1) and (b = 13) then
-          begin
-            sendmessage('', true);
-          end;
-        end else
-          if wait < 6000 then inc(wait);
-      until (length(s) = 255) or (wait = timeout * 100);
+      if ser_canwrite then
+      begin
+        ser_sendstring(s2);
+        case uconfig.echo of
+          1: sendmessage(s2, true);
+          2: begin
+               for b := 1 to length(s2) do      
+                 s := s + addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ';
+               sendmessage(s, true)
+             end;
+        end;
+        if (uconfig.echo = 1) and (b = 13) then sendmessage('', true);
+      end else
+      begin
+        // Cannot write data to serial port!
+        sendmessage(ERR27, true);
+        result := 1;
+      end;
       ser_close;
-      if (uconfig.echo > 0) then sendmessage('', true);
-      if length(p2) = 0 then sendmessage(s, true);
-      if length(p2) > 0 then vars[intisitvariable(p2)].vvalue := s;
     end else
     begin
       // Cannot initialize serial port!

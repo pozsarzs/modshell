@@ -78,7 +78,7 @@
       <Filename Value="xmodshell"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir);../_inc;../_inc/commands;../_inc/modbus;../_inc/ports;../_inc/threads"/>
+      <IncludeFiles Value="$(ProjOutDir);../_inc;../_inc/commands;../_inc/modbus;../_inc/ports"/>
       <OtherUnitFiles Value="../_ppu;../synapse;../convert;../modlcltranslator;../modsynhighlighterany"/>
       <UnitOutputDirectory Value="../_lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
