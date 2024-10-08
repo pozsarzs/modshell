@@ -34,7 +34,6 @@ uses
   SynEdit,
   SysUtils,
   {$IFDEF WINDOWS} Windows, {$ENDIF}
-  synaser,
   convert,
   crt,
   dom,
@@ -46,6 +45,7 @@ uses
   inifiles,
   math,
   strings,
+  synaser,
   ucommon,
   uconfig,
   utranslt,
@@ -61,7 +61,7 @@ type
     procedure Execute; override;
   public
     constructor Create(CreateSuspended: boolean);
-    function thr_serread(p1, p2: string): byte;
+    function thr_serread(p1, p2: string; no_timeout_error: boolean): byte;
     function thr_serwrite(p1, p2: string): byte;
   end;
   { TForm1 }
@@ -346,7 +346,7 @@ begin
   Synchronize(@Showstatus);
   with thrdcmd do
     case c of
-      36: exitcode := thr_serread(p1, p2);
+      36: exitcode := thr_serread(p1, p2, false);
       37: exitcode := thr_serwrite(p1, p2);
     end;
 end;
@@ -2268,6 +2268,7 @@ begin
   begin
     menucmd := COMMANDS[39] + ' ' + LOpenDialog1.FileName;
     Memo1.Lines.Add(fullprompt + menucmd);
+    StatusBar1.Panels.Items[1].Text := LOpenDialog1.FileName;
     parsingcommands(menucmd);
   end;
   LOpenDialog1.Free;
@@ -2303,6 +2304,7 @@ begin
     menucmd := COMMANDS[93] + ' ' + LSaveDialog1.FileName;
     Memo1.Lines.Add(fullprompt + menucmd);
     parsingcommands(menucmd);
+    StatusBar1.Panels.Items[1].Text := LSaveDialog1.FileName;
   end;
   LSaveDialog1.Free;
 end;
@@ -2329,8 +2331,8 @@ begin
     Caption := rmampdot(MenuItem30.Caption);
     Top := formpositions[3, 0];
     Left := formpositions[3, 1];
-    if formpositions[3, 2] > 240 then Height := formpositions[1, 2];
-    if formpositions[3, 3] > 320 then Width := formpositions[1, 3];
+    if formpositions[3, 2] > 240 then Height := formpositions[3, 2];
+    if formpositions[3, 3] > 320 then Width := formpositions[3, 3];
     BorderStyle := bsSizeable;
   end;
   with LSynEdit1 do
@@ -2388,6 +2390,7 @@ procedure TForm1.MenuItem29Click(Sender: TObject);
 begin
   menucmd := COMMANDS[92];
   Memo1.Lines.Add(fullprompt + menucmd);
+  StatusBar1.Panels.Items[1].Text := '';
   parsingcommands(menucmd);
 end;
 
@@ -2730,9 +2733,13 @@ begin
   end;
   if Form.ShowModal = mrOk then
   begin
-    Form3.Show;
-    Form3.Caption := rmampdot(MenuItem54.Caption);
     frmsecn.device := LSpinEdit1.Value;
+    with Form3 do
+    begin
+      Show;
+      Caption := rmampdot(MenuItem54.Caption);
+      StatusBar1.Panels[0].Text := Form1.StatusBar1.Panels[0].Text;
+    end;
   end;
   FreeAndNil(Form);
 end;

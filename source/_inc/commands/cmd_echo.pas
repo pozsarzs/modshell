@@ -29,7 +29,8 @@ begin
   // CHECK LENGTH OF PARAMETERS
   if (length(p1) = 0) then
   begin
-    {$IFNDEF X} writeln(ECHO_ARG[echo]); {$ELSE} Form1.Memo1.Lines.Add(ECHO_ARG[echo]); {$ENDIF}
+    {$IFNDEF X}
+      writeln(ECHO_ARG[echo]); {$ELSE} Form1.Memo1.Lines.Add(ECHO_ARG[echo]); {$ENDIF}
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -60,5 +61,6 @@ begin
   {$ELSE}
     Form1.Memo1.Lines.Add(MSG28 + ECHO_ARG[echo]);
     Form1.StatusBar1.Panels[0].Text := 'Echo: ' + upcase(ECHO_ARG[echo]);
+    Form3.StatusBar1.Panels[0].Text := 'Echo: ' + upcase(ECHO_ARG[echo]);
   {$ENDIF}
 end;

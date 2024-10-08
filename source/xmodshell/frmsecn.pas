@@ -14,17 +14,21 @@
 }
 
 unit frmsecn;
-{$mode ObjFPC}{$H+}
+{$MODE OBJFPC}{$H+}{$MACRO ON}
 interface
 uses
   Classes,
   Controls,
-  Dialogs,
+  Dialogs, Menus,
   Forms,
-  Graphics, StdCtrls,
+  Graphics,
+  StdCtrls,
   SysUtils,
+  convert,
+  crt,
+  synaser,
   ucommon,
-  uconfig;
+  uconfig, ComCtrls;
 type
   { TLThread }
   TLThread = class(TThread)
@@ -35,13 +39,16 @@ type
     procedure Execute; override;
   public
     constructor Create(CreateSuspended: boolean);
+    function thr_serread(p1, p2: string; no_timeout_error: boolean): byte;
   end;
   { TForm3 }
   TForm3 = class(TForm)
     Memo1: TMemo;
+    StatusBar1: TStatusBar;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: char);
+    procedure FormShow(Sender: TObject);
   private
   public
   end;
@@ -49,28 +56,48 @@ var
   Form3: TForm3;
   device: byte;
 
+{$DEFINE X}
+
+{$I define.pas}
+
 implementation
 uses frmmain;
 
 {$R *.lfm}
+
+function boolisitconstant(s: string): boolean; forward;
+function boolisitvariable(s: string): boolean; forward;
+function intisitconstant(s: string): integer; forward;
+function intisitvariable(s: string): integer; forward;
+function isitconstant(s: string): string; forward;
+function isitvariable(s: string): string; forward;
+
+{$I checklck.pas}
+{$I serport.pas}
+{$I validity.pas}
+
+{$I cmd_cons.pas}
+{$I cmd_var.pas}
+{$I thr_serd.pas}
 
 { TLThread }
 
 // ADD TEXT TO MEMO1 FROM OTHER THREAD
 procedure TLThread.ShowStatus;
 begin
-  Form1.Memo1.Text := Form1.Memo1.Text + fStatusText;
+  Form3.Memo1.Text := Form3.Memo1.Text + fStatusText;
 end;
 
 // RUN A COMMAND ON NEW THREAD
 procedure TLThread.Execute;
 begin
+  exitcode := thr_serread('dev' + inttostr(device), '', true);
 end;
 
 // CREATE THREAD
 constructor TLThread.Create(CreateSuspended: boolean);
 begin
-  FreeOnTerminate := True;
+  FreeOnTerminate := true;
   inherited Create(CreateSuspended);
 end;
 
@@ -79,7 +106,38 @@ end;
 // SEND A CHAR
 procedure TForm3.FormKeyPress(Sender: TObject; var Key: char);
 begin
+  // new threads for I/O operation
+//  LThreadTX:= TLThread.Create(True);
+//  with LThreadTX do
+//  begin
+//    FreeOnTerminate := true;
+//    Start;
+//  end;
+end;
 
+procedure TForm3.FormShow(Sender: TObject);
+var
+  LThreadRX: TLThread;
+  begin
+    if dev[device].valid then
+      if dev[device].devtype = 1 then
+      begin
+        with StatusBar1.Panels do
+        begin
+          Items[1].Text := dev[device].device;
+          Items[2].Text := DEV_SPEED[dev[device].speed] + ' baud '+
+          inttostr(dev[device].databit) +
+          upcase(DEV_PARITY[dev[device].parity]) +
+          inttostr(dev[device].stopbit);
+        end;
+      end;
+    // new threads for I/O operation
+    LThreadRX := TLThread.Create(True);
+    with LThreadRX do
+    begin
+      FreeOnTerminate := true;
+      Start;
+    end;
 end;
 
 // CLOSE MINI SERIAL CONSOLE WINDOW
@@ -98,8 +156,6 @@ end;
 
 // SHOW MINI SERIAL CONSOLE WINDOW
 procedure TForm3.FormCreate(Sender: TObject);
-var
-  LThreadRX, LThreadTX: TLThread;
 begin
   // restore window size and position
   with Form3 do
@@ -112,19 +168,6 @@ begin
   // set colors
   Memo1.Font.Color := uconfig.guicolors[0];
   Memo1.Color := uconfig.guicolors[1];
-  // new threads for I/O operation
-  LThreadRX := TLThread.Create(True);
-  LThreadTX := TLThread.Create(True);
-  with LThreadRX do
-  begin
-    FreeOnTerminate := true;
-    Start;
-  end;
-  with LThreadTX do
-  begin
-    FreeOnTerminate := true;
-    Start;
-  end;
 end;
 
 end.

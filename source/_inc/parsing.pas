@@ -19,7 +19,9 @@ var
  a, b: byte;
  s: string;
  o: boolean;
+ f3active: boolean;
 begin
+  f3active := Form3.Active;
   if (length(command) > 0) then
     if (command[1] <> #58) and (command[1] <> #64) then
     begin
@@ -93,6 +95,7 @@ begin
                 // set pro? tcp IP_ADDRESS
                 // set con? dev? pro?
                 // set prj PROJECT_NAME
+                // set timeout TIMEOUT
              9: exitcode := cmd_date;
                 // date
             10: begin version(false); exitcode := 0; end;
@@ -100,7 +103,12 @@ begin
             11: exitcode := cmd_writereg(splitted[1], splitted[2], splitted[3], splitted[4]);
                 // writereg con? coil|hreg ADDRESS [COUNT]
             12: begin
-                  {$IFNDEF X} clrscr; {$ELSE} Form1.Memo1.Lines.Clear; {$ENDIF}
+                  {$IFNDEF X}
+                    clrscr;
+                  {$ELSE}
+                    if Form1.Active then Form1.Memo1.Lines.Clear;
+                    if f3active then Form3.Memo1.Lines.Clear;
+                  {$ENDIF}
                   exitcode := 0;
                 end;
                 // cls
@@ -206,7 +214,7 @@ begin
         vars[0].vvalue := inttostr(exitcode);
         {$IFDEF X}
           Form1.ComboBox1.Enabled := true;
-          Form1.ComboBox1.SetFocus;
+          if f3active then Form3.Memo1.SetFocus else Form1.ComboBox1.SetFocus;
         {$ENDIF}
       end else {$IFNDEF X} writeln(ERR00); {$ELSE} Form1.Memo1.Lines.Add(ERR00); {$ENDIF}
     end;

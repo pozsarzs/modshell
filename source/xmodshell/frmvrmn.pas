@@ -80,8 +80,6 @@ begin
     if formpositions[1, 2] > 200 then Height := formpositions[1, 2];
     if formpositions[1, 3] > 150 then Width := formpositions[1, 3];
   end;
-  // enable variable monitor
-  frmmain.varmon := true;
 end;
 
 end.

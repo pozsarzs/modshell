@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'SERREAD'
-function TLThread.thr_serread(p1, p2: string): byte;
+function TLThread.thr_serread(p1, p2: string; no_timeout_error: boolean): byte;
 var
   b: byte;
   i1: integer; // parameters other type
@@ -108,7 +108,8 @@ begin
             sendmessage('', true);
           end;
         end else
-          if wait < 6000 then inc(wait);
+          if not no_timeout_error then
+            if wait < 6000 then inc(wait);
       until (length(s) = 255) or (wait = timeout * 100);
       ser_close;
       if (uconfig.echo > 0) then sendmessage('', true);
