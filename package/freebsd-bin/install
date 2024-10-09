@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                       |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | install                                                                    |
 # | Installer script                                                           |
 # +----------------------------------------------------------------------------+
@@ -21,7 +21,7 @@ SYSDIRS="$LINKDIR/bin \
          $LINKDIR/man/man1 \
          $LINKDIR/share/applications \
          $LINKDIR/share/pixmaps"
-BINFILES="modshell"
+BINFILES="modshell xmodshell"
 README=$INSTDIR/README
 
 # installer

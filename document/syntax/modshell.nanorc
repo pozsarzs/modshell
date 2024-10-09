@@ -1,0 +1,48 @@
+## +---------------------------------------------------------------------------+
+## | ModShell 0.1 * Command-driven scriptable Modbus utility                   |
+## | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                 |
+## | modshell.nanorc                                                           |
+## | syntax highlighting file for Nano text editor                             |
+## +---------------------------------------------------------------------------+
+
+syntax "modshell"
+header "^#!.*/(env +)?modshell*( |$)"
+header "@modshell*"
+magic "ModShell script"
+comment "#"
+
+icolor brightcyan "\<(.*)\>"
+
+## group #1
+icolor brightblue "\<(con[0-7]|dev[0-7]|pro[0-7]|proj|timeout)\>"
+
+## group #2
+icolor brightwhite "\<(add|and|applog|ascii|avg|beep|bit|cd|chr|cls)\>"
+icolor brightwhite "\<(color|concat|const|conv|copyreg|copy|cos|cotan|cron|date)\>"
+icolor brightwhite "\<(dec|del|dir|div|do|dump|echo|edit|erasescr|exit)\>"
+icolor brightwhite "\<(exphis|expreg|exp|for|get|goto|help|idiv|if|imod)\>"
+icolor brightwhite "\<(impreg|inc|inrange|label|length|let|list|ln|loadcfg|loadreg)\>"
+icolor brightwhite "\<(loadscr|lowcase|mbgw|mbsrv|md|mkcrc|mklrc|mulinv|mul|not)\>"
+icolor brightwhite "\<(odd|ord|or|pause|pow2|pow|print|prop|rd|readreg)\>"
+icolor brightwhite "\<(ren|reset|rnd|roll|rolr|round|run|savecfg|savereg|savescr)\>"
+icolor brightwhite "\<(sercons|serread|serwrite|set|shl|shr|sin|sqrt|sqr|strdel)\>"
+icolor brightwhite "\<(strfind|strins|stritem|strrepl|sub|tan|then|to|type|upcase)\>"
+icolor brightwhite "\<(varmon|var|ver|writereg|xor)\>"
+
+## group #3
+icolor brightred "\<(bin|coil|csv|dec|dinp|hex|hreg|ini|ireg|net)\>"
+icolor brightred "\<(oct|off|on|rtu|ser|swap|tcp|xml)\>"
+
+## group #4
+color brightwhite "<" "<=" "=" ">=" ">" "<>"
+
+## strings
+color brightyellow "["][^"]*[^\\]["]"
+
+## comments
+icolor brightgreen "^#.*|[[:space:]]#.*$"
+
+## header
+icolor brightcyan "^#!/.*|[[:space:]]#.*$"
+icolor brightcyan "^@.*|[[:space:]]#.*$"
+icolor brightcyan "^:.*|[[:space:]]#.*$"

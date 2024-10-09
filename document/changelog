@@ -1,8 +1,14 @@
-modshell (0.1-alpha1) unstable; urgency=low
+modshell (0.1-alpha3) unstable; urgency=low
 
-  * Initial release.
+  * Next developer test release.
+  * New source code directory structure,
+  * new commands,
+  * new predefined constants,
+  * bug fixes,
+  * GUI (except DOS) and
+  * script syntax highlighting file for MCEdit and Nano.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>  Fri, 16 Jan 2024 21:12:00
+ -- Pozsár Zsolt <pozsarzs@gmail.com>  Mon, 30 Sep 2024 23:59:59
 
 modshell (0.1-alpha2) unstable; urgency=low
 
@@ -15,3 +21,9 @@ modshell (0.1-alpha2) unstable; urgency=low
   * Script syntax highlighting file for Micro.
 
  -- Pozsár Zsolt <pozsarzs@gmail.com>  Mon, 12 Feb 2024 00:00:00
+
+modshell (0.1-alpha1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Pozsár Zsolt <pozsarzs@gmail.com>  Fri, 16 Jan 2024 21:12:00

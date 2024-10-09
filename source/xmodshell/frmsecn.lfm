@@ -1,0 +1,51 @@
+object Form3: TForm3
+  Left = 428
+  Height = 354
+  Top = 199
+  Width = 515
+  Caption = 'Form3'
+  ClientHeight = 354
+  ClientWidth = 515
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  LCLVersion = '2.2.6.0'
+  object Memo1: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = StatusBar1
+    Left = 2
+    Height = 331
+    Top = 2
+    Width = 511
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Around = 2
+    Color = clNavy
+    Font.Color = clAqua
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssAutoBoth
+    TabOrder = 0
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 19
+    Top = 335
+    Width = 515
+    Panels = <    
+      item
+        Alignment = taCenter
+        Width = 100
+      end    
+      item
+        Width = 110
+      end    
+      item
+        Width = 110
+      end>
+    SimplePanel = False
+  end
+end

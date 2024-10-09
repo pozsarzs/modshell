@@ -616,19 +616,21 @@ ac_unique_file="source/modshell/"
 ac_default_prefix="/usr/local"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
-fpcargs
-vardir
-bprefix
 version
+vardir
 os
+lclunits
+lcldir
+fpcargs
 copyright
+bprefix
 architecture
+fpc
 iconv
 msgfmt
 unix2dos
 man
 rstconv
-fpc
 gmake
 make
 install
@@ -1687,7 +1689,7 @@ fi
 ac_aux_files="config.guess config.sub"
 
 # Locations in which to look for auxiliary files.
-ac_aux_dir_candidates="${srcdir}/config"
+ac_aux_dir_candidates="${srcdir}/autoconf"
 
 # Search for a directory containing all of the required auxiliary files,
 # $ac_aux_files, from the $PATH-style list $ac_aux_dir_candidates.
@@ -1849,6 +1851,7 @@ ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $
 ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
+lcldir=`find /usr/lib/lazarus -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
 
 
 
@@ -2200,7 +2203,6 @@ fi
 
 
 test "$make" == "no" && as_fn_error $? "Make utility not found!" "$LINENO" 5
-
 # Extract the first word of "gmake", so it can be a program name with args.
 set dummy gmake; ac_word=$2
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
@@ -2249,54 +2251,7 @@ fi
 
 test "$gmake" == "no" && { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: GNU make utility not found!" >&5
 printf "%s\n" "$as_me: WARNING: GNU make utility not found!" >&2;}
-
-# Extract the first word of "fpc", so it can be a program name with args.
-set dummy fpc; ac_word=$2
-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
-printf %s "checking for $ac_word... " >&6; }
-if test ${ac_cv_path_fpc+y}
-then :
-  printf %s "(cached) " >&6
-else $as_nop
-  case $fpc in
-  [\\/]* | ?:[\\/]*)
-  ac_cv_path_fpc="$fpc" # Let the user override the test with a path.
-  ;;
-  *)
-  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
-for as_dir in $PATH
-do
-  IFS=$as_save_IFS
-  case $as_dir in #(((
-    '') as_dir=./ ;;
-    */) ;;
-    *) as_dir=$as_dir/ ;;
-  esac
-    for ac_exec_ext in '' $ac_executable_extensions; do
-  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
-    ac_cv_path_fpc="$as_dir$ac_word$ac_exec_ext"
-    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
-    break 2
-  fi
-done
-  done
-IFS=$as_save_IFS
-
-  test -z "$ac_cv_path_fpc" && ac_cv_path_fpc="no"
-  ;;
-esac
-fi
-fpc=$ac_cv_path_fpc
-if test -n "$fpc"; then
-  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $fpc" >&5
-printf "%s\n" "$fpc" >&6; }
-else
-  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
-printf "%s\n" "no" >&6; }
-fi
-
-
-test "$fpc" == "no" && as_fn_error $? "Free Pascal compiler not found!" "$LINENO" 5
+test $gmake != "no" && make=$gmake
 
 # Extract the first word of "rstconv", so it can be a program name with args.
 set dummy rstconv; ac_word=$2
@@ -2542,6 +2497,82 @@ fi
 test "$iconv" == "no" && { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: Iconv text encoding converter tool not found!" >&5
 printf "%s\n" "$as_me: WARNING: Iconv text encoding converter tool not found!" >&2;}
 
+# Extract the first word of "fpc", so it can be a program name with args.
+set dummy fpc; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_path_fpc+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  case $fpc in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_fpc="$fpc" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_path_fpc="$as_dir$ac_word$ac_exec_ext"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_fpc" && ac_cv_path_fpc="no"
+  ;;
+esac
+fi
+fpc=$ac_cv_path_fpc
+if test -n "$fpc"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $fpc" >&5
+printf "%s\n" "$fpc" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+test "$fpc" == "no" && as_fn_error $? "Free Pascal compiler not found!" "$LINENO" 5
+
+as_ac_File=`printf "%s\n" "ac_cv_file_$lcldir/lclbase.lpk" | $as_tr_sh`
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $lcldir/lclbase.lpk" >&5
+printf %s "checking for $lcldir/lclbase.lpk... " >&6; }
+if eval test \${$as_ac_File+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  test "$cross_compiling" = yes &&
+  as_fn_error $? "cannot check for file existence when cross compiling" "$LINENO" 5
+if test -r "$lcldir/lclbase.lpk"; then
+  eval "$as_ac_File=yes"
+else
+  eval "$as_ac_File=no"
+fi
+fi
+eval ac_res=\$$as_ac_File
+	       { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $ac_res" >&5
+printf "%s\n" "$ac_res" >&6; }
+if eval test \"x\$"$as_ac_File"\" = x"yes"
+then :
+  lclunits="yes"
+else $as_nop
+  lclunits="no"
+fi
+
+test "$lclunits" == "no" && { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: LCL unit files not found!" >&5
+printf "%s\n" "$as_me: WARNING: LCL unit files not found!" >&2;}
+
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for document/VERSION" >&5
 printf %s "checking for document/VERSION... " >&6; }
 if test ${ac_cv_file_document_VERSION+y}
@@ -2595,15 +2626,10 @@ copyright=`cat document/copyright`
 os=`fpc -iSO`
 architecture=`fpc -iSP`
 
-if test $gmake != "no"
-then
-  make=$gmake
-fi
-
 
 test x"$prefix" == xNONE && prefix="$ac_default_prefix"
 
-if test $prefix == "/usr"
+if test "$prefix" == "/usr"
 then
   vardir="/var"
 else
@@ -2616,7 +2642,6 @@ test "$os" = "linux" && mandir="$datarootdir/man"
 bprefix="$prefix"
 test "$stagedir" != "" && prefix="$stagedir"
 test "$stagedir" != "" && mandir="$prefix/man"
-
 
 
 
@@ -3798,14 +3823,12 @@ fi
 
 
 echo "
-Summary
-=======
-    Target op. system	$os
-    Target processor	$architecture
-    Target directory	$prefix
-
-
-  Type '${make}' for compilation and then '${make} install'.
+Target op. system	$os
+Target processor	$architecture
+Target directory	$prefix
 "
-test "$stagedir" != "" && echo Install to FreeBSD stage directory: $prefix
+test "$lclunits" == "no" && echo "Compilation of XModShell disabled due to missing LCL units!"
+test "$stagedir" != "" && echo "Install to FreeBSD stage directory: $prefix"
+echo "
+Type '${make}' for compilation and then '${make} install'."
 

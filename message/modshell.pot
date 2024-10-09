@@ -63,7 +63,7 @@ msgid " baudrate:   "
 msgstr ""
 
 #: modshell:msg10
-msgid " settings:   "
+msgid " bits:       "
 msgstr ""
 
 #: modshell:msg11
@@ -191,6 +191,170 @@ msgstr ""
 
 #: modshell:msg41
 msgid "Edit:   [Ins][Del][Esc]"
+msgstr ""
+
+#: modshell:msg42
+msgid "all file|*"
+msgstr ""
+
+#: modshell:msg43
+msgid "batch file|*.bat|all file|*.*"
+msgstr ""
+
+#: modshell:msg44
+msgid "&Cancel"
+msgstr ""
+
+#: modshell:msg45
+msgid "&Set"
+msgstr ""
+
+#: modshell:msg46
+msgid "&Reset"
+msgstr ""
+
+#: modshell:msg47
+msgid "foreground"
+msgstr ""
+
+#: modshell:msg48
+msgid "background"
+msgstr ""
+
+#: modshell:msg49
+msgid "type"
+msgstr ""
+
+#: modshell:msg50
+msgid "device"
+msgstr ""
+
+#: modshell:msg51
+msgid "port/baudrate"
+msgstr ""
+
+#: modshell:msg52
+msgid "databits"
+msgstr ""
+
+#: modshell:msg53
+msgid "parity"
+msgstr ""
+
+#: modshell:msg54
+msgid "stopbit(s)"
+msgstr ""
+
+#: modshell:msg55
+msgid "protocol"
+msgstr ""
+
+#: modshell:msg56
+msgid "UID/IP address"
+msgstr ""
+
+#: modshell:msg57
+msgid "CSV file|*.csv|INI file|*.ini|XML file|*.xml"
+msgstr ""
+
+#: modshell:msg58
+msgid "INI file|*.ini|XML file|*.xml"
+msgstr ""
+
+#: modshell:msg59
+msgid "registers"
+msgstr ""
+
+#: modshell:msg60
+msgid "start address"
+msgstr ""
+
+#: modshell:msg61
+msgid "count"
+msgstr ""
+
+#: modshell:msg62
+msgid "&Export"
+msgstr ""
+
+#: modshell:msg63
+msgid "&Dump"
+msgstr ""
+
+#: modshell:msg64
+msgid "Use 'Project/Set console colors' on GUI version."
+msgstr ""
+
+#: modshell:msg65
+msgid "Use 'Script/Edit script' on GUI version."
+msgstr ""
+
+#: modshell:msg66
+msgid "from"
+msgstr ""
+
+#: modshell:msg67
+msgid "to"
+msgstr ""
+
+#: modshell:msg68
+msgid "number"
+msgstr ""
+
+#: modshell:msg69
+msgid "&Convert"
+msgstr ""
+
+#: modshell:msg70
+msgid "&Start"
+msgstr ""
+
+#: modshell:msg71
+msgid "New project name:"
+msgstr ""
+
+#: modshell:msg72
+msgid "name"
+msgstr ""
+
+#: modshell:msg73
+msgid "connection"
+msgstr ""
+
+#: modshell:msg74
+msgid "variable"
+msgstr ""
+
+#: modshell:msg75
+msgid "message"
+msgstr ""
+
+#: modshell:msg76
+msgid "&Write"
+msgstr ""
+
+#: modshell:msg77
+msgid "&Read"
+msgstr ""
+
+#: modshell:msg78
+msgid "Go on!"
+msgstr ""
+
+#: modshell:msg79
+msgid "Variable"
+msgstr ""
+
+#: modshell:msg80
+msgid "Value"
+msgstr ""
+
+#: modshell:msg81
+msgid "Use 'Utilities/Mini serial console' on GUI version."
+msgstr ""
+
+#: modshell:msg82
+msgid "timeout"
 msgstr ""
 
 #: modshell:msg94
@@ -369,6 +533,58 @@ msgstr ""
 msgid "Cannot save script to "
 msgstr ""
 
+#: modshell:err38
+msgid "Cannot run default webbrowser!"
+msgstr ""
+
+#: modshell:err39
+msgid "Cannot list directory!"
+msgstr ""
+
+#: modshell:err40
+msgid "Cannot change directory!"
+msgstr ""
+
+#: modshell:err41
+msgid "Cannot make directory!"
+msgstr ""
+
+#: modshell:err42
+msgid "Cannot remove directory!"
+msgstr ""
+
+#: modshell:err43
+msgid "Cannot erase file!"
+msgstr ""
+
+#: modshell:err44
+msgid "Cannot type file!"
+msgstr ""
+
+#: modshell:err45
+msgid "Cannot copy file!"
+msgstr ""
+
+#: modshell:err46
+msgid "Cannot rename file!"
+msgstr ""
+
+#: modshell:err47
+msgid "Cannot set connection timeout!"
+msgstr ""
+
+#: modshell:err48
+msgid "Operation error!"
+msgstr ""
+
+#: modshell:err49
+msgid "Locked device!"
+msgstr ""
+
+#: modshell:err50
+msgid "Cannot create console log file!"
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -406,7 +622,7 @@ msgid "ALT-T  reset device, protocol, connection or project name"
 msgstr ""
 
 #: modshell:des08
-msgid "ALT-S  set device, protocol, connection or project name"
+msgid "ALT-S  set device, protocol, connection, project name or timeout"
 msgstr ""
 
 #: modshell:des09
@@ -530,15 +746,15 @@ msgid "F9     query local echo status or enable/disable it"
 msgstr ""
 
 #: modshell:des39
-msgid "       load Modshell script from file"
+msgid "       load ModShell script from file"
 msgstr ""
 
 #: modshell:des40
-msgid "F12    run loaded Modshell script"
+msgid "F12    run loaded ModShell script"
 msgstr ""
 
 #: modshell:des41
-msgid "F11    list loaded Modshell script"
+msgid "F11    list loaded ModShell script"
 msgstr ""
 
 #: modshell:des42
@@ -749,9 +965,41 @@ msgstr ""
 msgid "       save loaded script to disc"
 msgstr ""
 
+#: modshell:des94
+msgid "       list directory content"
+msgstr ""
+
+#: modshell:des95
+msgid "       change directory or get name"
+msgstr ""
+
+#: modshell:des96
+msgid "       make directory"
+msgstr ""
+
+#: modshell:des97
+msgid "       remove directory"
+msgstr ""
+
+#: modshell:des98
+msgid "       remove file"
+msgstr ""
+
+#: modshell:des99
+msgid "       type file"
+msgstr ""
+
+#: modshell:des100
+msgid "       copy file"
+msgstr ""
+
+#: modshell:des101
+msgid "       rename file"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
-"copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
@@ -762,9 +1010,10 @@ msgstr ""
 
 #: modshell:usg02
 msgid ""
-"get dev?|pro?|con?|prj\n"
+"get dev?|pro?|con?|prj|timeout\n"
 "Notes:\n"
-"  - The '?' value can be 0-7."
+"  - The '?' value can be 0-7.\n"
+"  - The timeout value can be 1-60."
 msgstr ""
 
 #: modshell:usg03
@@ -786,7 +1035,7 @@ msgid ""
 msgstr ""
 
 #: modshell:usg06
-msgid "read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgid "readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
 msgstr ""
 
 #: modshell:usg07
@@ -804,8 +1053,10 @@ msgid ""
 "  set pro? tcp [$]IP_ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set prj [$]PROJECT_NAME\n"
+"  set timeout [$]TIME_OUT\n"
 "Notes:\n"
-"  - The '?' value can be 0-7."
+"  - The '?' value can be 0-7.\n"
+"  - The 'TIMEOUT' value is in ms."
 msgstr ""
 
 #: modshell:usg09
@@ -818,7 +1069,7 @@ msgstr ""
 
 #: modshell:usg11
 msgid ""
-"write con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
@@ -954,7 +1205,7 @@ msgid "loadscr [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg40
-msgid "run [-s]"
+msgid "run [-h] [-s]"
 msgstr ""
 
 #: modshell:usg41
@@ -1155,8 +1406,8 @@ msgstr ""
 
 #: modshell:usg88
 msgid ""
-"varmon [on|off]\n"
-"  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+"varmon on|off\n"
+"  varmon $VARIABLE on|off"
 msgstr ""
 
 #: modshell:usg89
@@ -1181,10 +1432,42 @@ msgid "edit [LINE_NUMBER]"
 msgstr ""
 
 #: modshell:usg92
-msgid "erase"
+msgid "erasescr"
 msgstr ""
 
 #: modshell:usg93
 msgid "savescr [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg94
+msgid "dir [[$]PATH_AND_DIRECTORYNAME]"
+msgstr ""
+
+#: modshell:usg95
+msgid "cd [[$]PATH_AND_DIRECTORYNAME]"
+msgstr ""
+
+#: modshell:usg96
+msgid "md [$]PATH_AND_DIRECTORYNAME"
+msgstr ""
+
+#: modshell:usg97
+msgid "rd [$]PATH_AND_DIRECTORYNAME"
+msgstr ""
+
+#: modshell:usg98
+msgid "del [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg99
+msgid "type [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg100
+msgid "copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg101
+msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
 msgstr ""
 

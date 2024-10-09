@@ -82,8 +82,8 @@ msgid " baudrate:   "
 msgstr " sebesség:   "
 
 #: modshell:msg10
-msgid " settings:   "
-msgstr " beállítások:   "
+msgid " bits:       "
+msgstr " bitek:      "
 
 #: modshell:msg11
 msgid " protocol:   "
@@ -215,6 +215,170 @@ msgstr "Mozgás:      [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]"
 msgid "Edit:   [Ins][Del][Esc]"
 msgstr "Szerkesztés: [Ins][Del][Esc]"
 
+#: modshell:msg42
+msgid "all file|*"
+msgstr "minden fájl|*"
+
+#: modshell:msg43
+msgid "batch file|*.bat|all file|*.*"
+msgstr "batch fájl|*.bat|minden fájl|*.*"
+
+#: modshell:msg44
+msgid "&Cancel"
+msgstr "&Mégsem"
+
+#: modshell:msg45
+msgid "&Set"
+msgstr "&Beállít"
+
+#: modshell:msg46
+msgid "&Reset"
+msgstr "&Töröl"
+
+#: modshell:msg47
+msgid "foreground"
+msgstr "elõtérszín"
+
+#: modshell:msg48
+msgid "background"
+msgstr "háttérszín"
+
+#: modshell:msg49
+msgid "type"
+msgstr "típus"
+
+#: modshell:msg50
+msgid "device"
+msgstr "eszköz"
+
+#: modshell:msg51
+msgid "port/baudrate"
+msgstr "port/sebesség"
+
+#: modshell:msg52
+msgid "databits"
+msgstr "adatbitek"
+
+#: modshell:msg53
+msgid "parity"
+msgstr "paritás"
+
+#: modshell:msg54
+msgid "stopbit(s)"
+msgstr "stopbit(ek)"
+
+#: modshell:msg55
+msgid "protocol"
+msgstr "protokoll"
+
+#: modshell:msg56
+msgid "UID/IP address"
+msgstr "UID/IP cím"
+
+#: modshell:msg57
+msgid "CSV file|*.csv|INI file|*.ini|XML file|*.xml"
+msgstr "CSV fájl|*.csv|INI fájl|*.ini|XML fájl|*.xml"
+
+#: modshell:msg58
+msgid "INI file|*.ini|XML file|*.xml"
+msgstr "INI fájl|*.ini|XML fájl|*.xml"
+
+#: modshell:msg59
+msgid "registers"
+msgstr "regiszterek"
+
+#: modshell:msg60
+msgid "start address"
+msgstr "kezdõcím"
+
+#: modshell:msg61
+msgid "count"
+msgstr "mennyiség"
+
+#: modshell:msg62
+msgid "&Export"
+msgstr "&Exportál"
+
+#: modshell:msg63
+msgid "&Dump"
+msgstr "&Kiírat"
+
+#: modshell:msg64
+msgid "Use 'Project/Set console colors' on GUI version."
+msgstr "Használja a Projekt/Konzol színek beállítása'-t a GUI változatnál."
+
+#: modshell:msg65
+msgid "Use 'Script/Edit script' on GUI version."
+msgstr "Használja a Szkript/Szkript szerkesztés'-t a GUI változatnál."
+
+#: modshell:msg66
+msgid "from"
+msgstr "ebbõl"
+
+#: modshell:msg67
+msgid "to"
+msgstr "ebbe"
+
+#: modshell:msg68
+msgid "number"
+msgstr "szám"
+
+#: modshell:msg69
+msgid "&Convert"
+msgstr "Át&alakít"
+
+#: modshell:msg70
+msgid "&Start"
+msgstr "In&dítás"
+
+#: modshell:msg71
+msgid "New project name:"
+msgstr "Új projekt név:"
+
+#: modshell:msg72
+msgid "name"
+msgstr "név"
+
+#: modshell:msg73
+msgid "connection"
+msgstr "kapcsolat"
+
+#: modshell:msg74
+msgid "variable"
+msgstr "változó"
+
+#: modshell:msg75
+msgid "message"
+msgstr "üzenet"
+
+#: modshell:msg76
+msgid "&Write"
+msgstr "Í&rás"
+
+#: modshell:msg77
+msgid "&Read"
+msgstr "Ol&vasás"
+
+#: modshell:msg78
+msgid "Go on!"
+msgstr "Indítás"
+
+#: modshell:msg79
+msgid "Variable"
+msgstr "Változó"
+
+#: modshell:msg80
+msgid "Value"
+msgstr "Érték"
+
+#: modshell:msg81
+msgid "Use 'Utilities/Mini serial console' on GUI version."
+msgstr "Használja az 'Eszközök/Mini soros konzol'-t a GUI változatnál."
+
+#: modshell:msg82
+msgid "timeout"
+msgstr "idõtúllépés"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -257,7 +421,7 @@ msgstr "A kapcsolat számának 0-7-nek kell lennie!"
 
 #: modshell:err04
 msgid "IP address is not valid!"
-msgstr "Az IP -cím nem érvényes!"
+msgstr "Az IP-cím nem érvényes!"
 
 #: modshell:err05
 msgid "Parameter(s) required!"
@@ -391,6 +555,58 @@ msgstr "Nem lehet írni a naplófájlt: "
 msgid "Cannot save script to "
 msgstr "Nem lehet menteni a szkriptet ebbe: "
 
+#: modshell:err38
+msgid "Cannot run default webbrowser!"
+msgstr "Nem tudom futtatni az alapértelmezés szerinti böngészõt!"
+
+#: modshell:err39
+msgid "Cannot list directory!"
+msgstr "A könyvtártartalom listázása nem sikerült!"
+
+#: modshell:err40
+msgid "Cannot change directory!"
+msgstr "Nem sikerült könyvtárt váltani!"
+
+#: modshell:err41
+msgid "Cannot make directory!"
+msgstr "A könyvtár létrehozása nem sikerült!"
+
+#: modshell:err42
+msgid "Cannot remove directory!"
+msgstr "A könyvtár törlése nem sikerült!"
+
+#: modshell:err43
+msgid "Cannot erase file!"
+msgstr "A fájl törlése nem sikerült!"
+
+#: modshell:err44
+msgid "Cannot type file!"
+msgstr "A fájl kiírása nem sikerült!"
+
+#: modshell:err45
+msgid "Cannot copy file!"
+msgstr "A fájl másolása nem sikerült!"
+
+#: modshell:err46
+msgid "Cannot rename file!"
+msgstr "A fájl átnevezése nem sikerült!"
+
+#: modshell:err47
+msgid "Cannot set connection timeout!"
+msgstr "Nem lehet beállítani az idõtúllépést!"
+
+#: modshell:err48
+msgid "Operation error!"
+msgstr "Mûvelet hiba!"
+
+#: modshell:err49
+msgid "Locked device!"
+msgstr "Zárolt eszköz!"
+
+#: modshell:err50
+msgid "Cannot create console log file!"
+msgstr "Nem lehet létrehozni a konzol naplófájlját!"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -428,8 +644,9 @@ msgid "ALT-T  reset device, protocol, connection or project name"
 msgstr "ALT-T  eszköz, protokoll, kapcsolat vagy projektnév törlése"
 
 #: modshell:des08
-msgid "ALT-S  set device, protocol, connection or project name"
-msgstr "ALT-S  eszköz, protokoll, kapcsolat vagy projektnév beállítása"
+msgid "ALT-S  set device, protocol, connection, project name or timeout"
+msgstr ""
+"ALT-S  eszköz, protokoll, kapcsolat, projektnév vagy idõtúllépés beállítása"
 
 #: modshell:des09
 msgid "       show system date and time"
@@ -552,15 +769,15 @@ msgid "F9     query local echo status or enable/disable it"
 msgstr "F9     visszahang állapot lekérése/beállítása"
 
 #: modshell:des39
-msgid "       load Modshell script from file"
-msgstr "       Modshell szkript betöltése fájlból"
+msgid "       load ModShell script from file"
+msgstr "       ModShell szkript betöltése fájlból"
 
 #: modshell:des40
-msgid "F12    run loaded Modshell script"
+msgid "F12    run loaded ModShell script"
 msgstr "F12    betöltött ModShell szkript futattása"
 
 #: modshell:des41
-msgid "F11    list loaded Modshell script"
+msgid "F11    list loaded ModShell script"
 msgstr "F11    betöltött ModShell szkript listázása"
 
 #: modshell:des42
@@ -771,13 +988,45 @@ msgstr "       a szkript törlése a pufferból"
 msgid "       save loaded script to disc"
 msgstr "       a betöltött szkript mentése lemezre"
 
+#: modshell:des94
+msgid "       list directory content"
+msgstr "       könyvtártartalom listázása"
+
+#: modshell:des95
+msgid "       change directory or get name"
+msgstr "       könyvtár váltása vagy könyvtárnév kiírása"
+
+#: modshell:des96
+msgid "       make directory"
+msgstr "       könyvtár létrehozása"
+
+#: modshell:des97
+msgid "       remove directory"
+msgstr "       könyvtár törlése"
+
+#: modshell:des98
+msgid "       remove file"
+msgstr "       fájl törlése"
+
+#: modshell:des99
+msgid "       type file"
+msgstr "       fájltartalom kiírása"
+
+#: modshell:des100
+msgid "       copy file"
+msgstr "       fájl másolása"
+
+#: modshell:des101
+msgid "       rename file"
+msgstr "       fájl átnevezése"
+
 #: modshell:usg00
 msgid ""
-"copy con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"copy con? dinp|coil con? coil [$]CÍM [[$]MENNYISÉG]\n"
+"copyreg con? dinp|coil con? coil [$]CÍM [[$]MENNYISÉG]\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -787,13 +1036,15 @@ msgstr "exit"
 
 #: modshell:usg02
 msgid ""
-"get dev?|pro?|con?|prj\n"
+"get dev?|pro?|con?|prj|timeout\n"
 "Notes:\n"
-"  - The '?' value can be 0-7."
+"  - The '?' value can be 0-7.\n"
+"  - The timeout value can be 1-60."
 msgstr ""
-"get dev?|pro?|con?|prj\n"
+"get dev?|pro?|con?|prj|timeout\n"
 "Megjegyzés:\n"
-"  - A '?' értéke 0-7 lehet."
+"  - A '?' értéke 0-7 lehet.\n"
+"  - A 'timeout' értéke 1-60 lehet."
 
 #: modshell:usg03
 msgid "help [[$]COMMAND]"
@@ -820,8 +1071,8 @@ msgstr ""
 "  print \"single\\ line\\ message\" [-n]"
 
 #: modshell:usg06
-msgid "read con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
-msgstr "read con? dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
+msgid "readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr "readreg con? dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
 
 #: modshell:usg07
 msgid ""
@@ -841,8 +1092,10 @@ msgid ""
 "  set pro? tcp [$]IP_ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set prj [$]PROJECT_NAME\n"
+"  set timeout [$]TIME_OUT\n"
 "Notes:\n"
-"  - The '?' value can be 0-7."
+"  - The '?' value can be 0-7.\n"
+"  - The 'TIMEOUT' value is in ms."
 msgstr ""
 "set dev? net [$]ESZKÖZ [$]PORT\n"
 "  set dev? ser [$]ESZKÖZ [$]BAUDRATE [$]ADATBIT [$]PARITÁS [$]STOPBIT\n"
@@ -850,8 +1103,10 @@ msgstr ""
 "  set pro? tcp [$]IP_CÍM\n"
 "  set con? dev? pro?\n"
 "  set prj [$]PROJEKNÉV\n"
+"  set timeout [$]IDÕTÚLLÉPÉS\n"
 "Megjegyzés:\n"
-"  - A '?' értéke 0-7 lehet."
+"  - A '?' értéke 0-7 lehet.\n"
+"  - A 'TIMEOUT' értéke ms-ban van."
 
 #: modshell:usg09
 msgid "date"
@@ -863,11 +1118,11 @@ msgstr "ver"
 
 #: modshell:usg11
 msgid ""
-"write con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"write con? coil|hreg [$]CÍM [[$]MENNYISÉG]\n"
+"writereg con? coil|hreg [$]CÍM [[$]MENNYISÉG]\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -923,7 +1178,7 @@ msgid ""
 msgstr ""
 "color [$]ELÕTÉRSZÍN [$]HÁTTÉRSZÍN [$]VÉTELSZÍN [$]ADÁSSZÍN [$]VÁLTMON\n"
 "\n"
-"  Színek: \\ 015\n"
+"  színek:\n"
 "      0: fekete  4: vörös           8: sötétszürke  12: világosvörös\n"
 "      1: kék     5: magenta:        9: világoskék   13: világosmagenta\n"
 "      2: zöld    6: barna          10: világoszöld  14: sárga\n"
@@ -1009,7 +1264,7 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 "serwrite dev? $ÜZENET\n"
-"  serwrite dev? \"MÜZENET\"\n"
+"  serwrite dev? \"ÜZENET\"\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -1022,8 +1277,8 @@ msgid "loadscr [$]PATH_AND_FILENAME"
 msgstr "loadscr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg40
-msgid "run [-s]"
-msgstr "run [-s]"
+msgid "run [-h] [-s]"
+msgstr "run [-h] [-s]"
 
 #: modshell:usg41
 msgid "list"
@@ -1231,11 +1486,11 @@ msgstr "strrepl $CÉL [$]RÉGI [$]ÚJ"
 
 #: modshell:usg88
 msgid ""
-"varmon [on|off]\n"
-"  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+"varmon on|off\n"
+"  varmon $VARIABLE on|off"
 msgstr ""
-"varmon [on|off]\n"
-"  varmon $VÁLTOZÓ1 [$VÁLTOZÓ2] [$VÁLTOZÓ3] [$VÁLTOZÓ4]"
+"varmon on|off\n"
+"  varmon $VÁLTOZÓ on|off"
 
 #: modshell:usg89
 msgid ""
@@ -1268,12 +1523,51 @@ msgid "edit [LINE_NUMBER]"
 msgstr "edit [SORSZÁM]"
 
 #: modshell:usg92
-msgid "erase"
-msgstr "erase"
+msgid "erasescr"
+msgstr "erasescr"
 
 #: modshell:usg93
 msgid "savescr [$]PATH_AND_FILENAME"
 msgstr "savescr [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg94
+msgid "dir [[$]PATH_AND_DIRECTORYNAME]"
+msgstr "dir [[$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV]"
+
+#: modshell:usg95
+msgid "cd [[$]PATH_AND_DIRECTORYNAME]"
+msgstr "cd [[$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV]"
+
+#: modshell:usg96
+msgid "md [$]PATH_AND_DIRECTORYNAME"
+msgstr "md [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg97
+msgid "rd [$]PATH_AND_DIRECTORYNAME"
+msgstr "rd [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg98
+msgid "del [$]PATH_AND_FILENAME"
+msgstr "del [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg99
+msgid "type [$]PATH_AND_FILENAME"
+msgstr "type [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg100
+msgid "copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr "copy [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: modshell:usg101
+msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr "ren [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#~ msgid ""
+#~ "varmon [on|off]\n"
+#~ "  varmon $VARIABLE1 [$VARIABLE2] [$VARIABLE3] [$VARIABLE4]"
+#~ msgstr ""
+#~ "varmon [on|off]\n"
+#~ "  varmon $VÁLTOZÓ1 [$VÁLTOZÓ2] [$VÁLTOZÓ3] [$VÁLTOZÓ4]"
 
 #~ msgid "       set foreground and background color in full screen mode"
 #~ msgstr "       elõtér- és a háttérszín beállítása (fullscreen)"

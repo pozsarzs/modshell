@@ -1,0 +1,157 @@
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | modshell.syntax                                                            |
+# | syntax highlighting file for MCEdit text editor                            |
+# +----------------------------------------------------------------------------+
+
+caseinsensitive
+context default brightcyan
+    # group #1
+    keyword whole con\{01234567\} brightblue
+    keyword whole dev\{01234567\} brightblue
+    keyword whole pro\{01234567\} brightblue
+    keyword whole proj brightblue
+    keyword whole timeout brightblue
+    # group #2
+    keyword whole add white
+    keyword whole applog white
+    keyword whole ascii\n white
+    keyword whole avg white
+    keyword whole beep white
+    keyword whole bit white
+    keyword whole cd white
+    keyword whole chr white
+    keyword whole cls white
+    keyword whole color white
+    keyword whole concat white
+    keyword whole const white
+    keyword whole conv white
+    keyword whole copyreg white
+    keyword whole copy white
+    keyword whole cos white
+    keyword whole cotan white
+    keyword whole cron white
+    keyword whole date white
+    keyword whole dec white
+    keyword whole del white
+    keyword whole dir white
+    keyword whole div white
+    keyword whole do white
+    keyword whole dump white
+    keyword whole echo white
+    keyword whole edit white
+    keyword whole erasescr white
+    keyword whole exit white
+    keyword whole exphis white
+    keyword whole expreg white
+    keyword whole exp white
+    keyword whole for white
+    keyword whole get white
+    keyword whole goto white
+    keyword whole help white
+    keyword whole idiv white
+    keyword whole if white
+    keyword whole imod white
+    keyword whole impreg white
+    keyword whole inc white
+    keyword whole inrange white
+    keyword whole label white
+    keyword whole length white
+    keyword whole let white
+    keyword whole list white
+    keyword whole ln white
+    keyword whole loadcfg white
+    keyword whole loadreg white
+    keyword whole loadscr white
+    keyword whole lowcase white
+    keyword whole mbgw white
+    keyword whole mbsrv white
+    keyword whole md white
+    keyword whole mkcrc white
+    keyword whole mklrc white
+    keyword whole mulinv white
+    keyword whole mul white
+    keyword whole not white
+    keyword whole odd white
+    keyword whole ord white
+    keyword whole or white
+    keyword whole pause white
+    keyword whole pow2 white
+    keyword whole pow white
+    keyword whole print white
+    keyword whole prop white
+    keyword whole rd white
+    keyword whole readreg white
+    keyword whole ren white
+    keyword whole reset white
+    keyword whole rnd white
+    keyword whole roll white
+    keyword whole rolr white
+    keyword whole round white
+    keyword whole run white
+    keyword whole savecfg white
+    keyword whole savereg white
+    keyword whole savescr white
+    keyword whole sercons white
+    keyword whole serread white
+    keyword whole serwrite white
+    keyword whole set white
+    keyword whole shl white
+    keyword whole shr white
+    keyword whole sin white
+    keyword whole sqrt white
+    keyword whole sqr white
+    keyword whole strdel white
+    keyword whole strfind white
+    keyword whole strins white
+    keyword whole stritem white
+    keyword whole strrepl white
+    keyword whole sub white
+    keyword whole tan white
+    keyword whole then white
+    keyword whole to white
+    keyword whole type white
+    keyword whole upcase white
+    keyword whole varmon white
+    keyword whole var white
+    keyword whole ver white
+    keyword whole writereg white
+    keyword whole xor white
+    # group #3
+    keyword whole ascii brightred
+    keyword whole bin brightred
+    keyword whole coil brightred
+    keyword whole csv brightred
+    keyword whole dec brightred
+    keyword whole dinp brightred
+    keyword whole hex brightred
+    keyword whole hreg brightred
+    keyword whole ini brightred
+    keyword whole ireg brightred
+    keyword whole net brightred
+    keyword whole oct brightred
+    keyword whole off brightred
+    keyword whole on brightred
+    keyword whole rtu brightred
+    keyword whole ser brightred
+    keyword whole swap brightred
+    keyword whole tcp brightred
+    keyword whole xml brightred
+    # group #4
+    keyword whole < white
+    keyword whole <= white
+    keyword whole = white
+    keyword whole >= white
+    keyword whole > white
+    keyword whole <> white
+    # start lines
+    keyword whole linestart #!\[\s\]*\n brightcyan black
+    keyword whole linestart :eof brightcyan black
+    keyword whole linestart @*\n brightcyan black
+    # comment sign
+    keyword whole # brightgreen
+# text
+context " " yellow
+# comment
+context exclusive # \n brightgreen

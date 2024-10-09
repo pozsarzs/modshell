@@ -1,6 +1,6 @@
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | Makefile                                                                   |
 # | Make file for source code                                                  |
 # +----------------------------------------------------------------------------+
@@ -9,11 +9,11 @@ include ../Makefile.global
 
 title="binary files  "
 removetargetdir=0
-sourcedir=lib/$(architecture)-$(os)
+sourcedir=_lib/$(architecture)-$(os)
+podir=_po
 targetdir=$(bindir)
 filemode=$(binmode)
-
-projectdirs="modshell"
+projectdirs=modshell xmodshell
 
 all:
 	@mkdir -p $(sourcedir)/
@@ -21,7 +21,10 @@ all:
 	  if [ -d $$x ]; \
 	  then \
 	    cd $$x; \
-	    $(fpc) $(fpcargs) $$x.pas; \
+	    if [ -f $$x.pas ]; then $(fpc) $(fpcargs) $$x.pas; fi; \
+            if [ $(lclunits) = yes ]; then \
+              if [ -f $$x.lpr ]; then $(fpc) $(fpcargs) $$x.lpr; fi; \
+            fi; \
 	    cd ..; \
 	    echo ""; \
 	  fi; \
@@ -29,13 +32,14 @@ all:
 	@if [ -f $(sourcedir)/$(name).rsj ]; \
 	  then \
 	    $(rstconv) -f po -p utf-8 -i $(sourcedir)/$(name).rsj  -o ../message/$(name).pot; \
-	fi
+	  fi
+	@if [ -f $(podir)/x$(name).pot ]; then mv $(podir)/x$(name).pot  ../message/; fi
 
 clean:
 	@for x in $(projectdirs); do \
 	  $(rm) $$x/config.pas; \
 	done
-	@$(rm) lib/$(architecture)-$(os)/*
+	@$(rm) $(sourcedir)/*
 
 install:
 	@echo -n "- Installing "$(title)"["

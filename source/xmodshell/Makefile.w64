@@ -1,0 +1,22 @@
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
+# | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
+# | Makefile                                                                   |
+# | Makefile for 64 bit Windows                                                |
+# +----------------------------------------------------------------------------+
+
+name = xmodshell
+architecture = x86_64
+os = win64
+outdir = ..\_lib\$(architecture)-$(os)
+fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Fi..\inc -Fi..\inc\* -fU..\modlcltranslator -Fu..\modsynhighlighterany -Fu..\ppu -Fu. -Fu..\convert -Fu..\synapse -Fu$(outdir) -FE$(outdir)
+
+all:
+	@if not exist ..\lib\nul md ..\lib
+	@if not exist $(outdir)\nul md $(outdir)
+	@ppcrossx64 $(fpflag) $(name).pas
+	@rstconv -f po -i $(outdir)\$(name).rsj  -o ..\..\message\$(name).pot
+	@copy $(outdir)\$(name).exe ..\..
+
+clean:
+	@erase $(outdir)\*.*

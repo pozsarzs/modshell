@@ -1,0 +1,32 @@
+67c67
+<   TCommentStyle = (csBashStyle, csAnsiStyle, csPasStyle, csCStyle, csAsmStyle, csBasStyle, csVBStyle);
+---
+>   TCommentStyle = (csAnsiStyle, csPasStyle, csCStyle, csAsmStyle, csBasStyle, csVBStyle);
+506c506
+< {procedure TSynAnySyn.AsciiCharProc;
+---
+> procedure TSynAnySyn.AsciiCharProc;
+520,539d519
+< }
+< 
+< procedure TSynAnySyn.AsciiCharProc;
+< begin
+<   if (csBashStyle in fComments) then
+<   begin
+<     fTokenID := tkComment;
+<     fRange := rsUnknown;
+<     inc(Run);
+<     while FLine[Run] <> #0 do
+<       begin
+<         fTokenID := tkComment;
+<         inc(Run);
+<       end;
+<   end else
+<   begin
+<     inc(Run);
+<     fTokenID := tkSymbol;
+<   end;
+< end;
+1135,1136d1114
+<     if hini.ReadBool('CommentStyle','bash',false) then
+<       HL.comments:=HL.Comments+[csBashStyle];

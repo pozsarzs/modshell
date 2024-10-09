@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                       |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | uninstall                                                                  |
 # | Uninstaller script                                                         |
 # +----------------------------------------------------------------------------+
@@ -12,7 +12,7 @@ SWV=`cat documents/VERSION`
 CR=`cat documents/copyright`
 INSTDIR=/opt/modshell
 LINKDIR=/usr/local
-BINFILES="modshell"
+BINFILES="modshell xmodshell"
 
 # uninstaller
 clear

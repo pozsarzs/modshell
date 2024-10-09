@@ -1,0 +1,2 @@
+file ..\*\\.(bat|)$ ModShell\sScript ^#!.\*([\s/]modshell|modshell.exe)
+include modshell.syntax

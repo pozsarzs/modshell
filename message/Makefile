@@ -1,6 +1,6 @@
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | Makefile                                                                   |
 # | Makefile for message files                                                 |
 # +----------------------------------------------------------------------------+
@@ -38,6 +38,14 @@ install:
 	    echo -n "#"; \
 	  fi; \
 	done
+	@for x in $(languages); do \
+	  if [ -f $$x/x$(name).mo ]; \
+	  then \
+	    $(install) -d $(targetdir)/$$x/LC_MESSAGES/; \
+	    $(install) -m $(filemode) $(sourcedir)/$$x/x$(name).mo $(targetdir)/$$x/LC_MESSAGES/; \
+	    echo -n "#"; \
+	  fi; \
+	done
 	@echo "]"
 
 uninstall:
@@ -46,6 +54,13 @@ uninstall:
 	  if [ -f $$x/$(name).mo ]; \
 	  then \
 	    $(rm) $(targetdir)/$$x/LC_MESSAGES/$(name).mo; \
+	    echo -n "#"; \
+	  fi; \
+	done  
+	@for x in $(languages); do \
+	  if [ -f $$x/x$(name).mo ]; \
+	  then \
+	    $(rm) $(targetdir)/$$x/LC_MESSAGES/x$(name).mo; \
 	    echo -n "#"; \
 	  fi; \
 	  if [ $(removetargetdir) -eq 1 ]; \

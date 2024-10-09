@@ -2,7 +2,7 @@
 @goto :eof
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | addition                                                                   |
 # | Example script * How to use variables?                                     |
 # +----------------------------------------------------------------------------+
@@ -14,7 +14,7 @@ print "-------------------------------------------------"
 const MIN 1
 const MAX 1000
 
-#variables
+# variables
 var value
 var half
 

@@ -1,0 +1,21 @@
+The images in this folder can be used in Lazarus applications as toolbar or button icons.
+
+The different sizes as required by LCL scaling for high-dpi screens can be used like this, for example:
+
+- 16x16, 24x24 and 32x32 pixels for "small" images, and
+- 24x24, 36x36 and 48x48 pixels for "medium" sized images, and
+- 32x32, 48x48 and 64x64 pixels for "large" images.
+
+The images were kindly provided by Roland Hahn (https://www.rhsoft.de/).
+
+License: Creative Commons CC0 1.0 Universal
+https://creativecommons.org/publicdomain/zero/1.0/
+(freely available, no restrictions in usage)
+
+Add_06_16.png,   Calculator_02_16.png, Cancel_04_16.png,  Clean_01_16.png,
+Code_01_16.png,  Color_02_16.png,      Comment_01_16.png, Connection_01_16.png,
+Edit_03_16.png,  Exit_02_16.png,       Export_03_16.png,  Export_05_16.png,
+Eye_01_16.png,   File_02_16.png,       File_03_16.png,    File_04_16.png,
+Font_26_16.png,  Forward_01_16.png,    Help_03_16.png,    Import_01_16.png,
+Info_01_16.png,  Refresh_03_16.png,    Save_03_16.png,    Time_07_16.png,
+Window_03_16.png

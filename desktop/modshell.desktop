@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=ModShell
+Name[hu]=ModShell
+Exec=modshell
+Icon=modshell
+GenericName=Command-driven scriptable Modbus utility
+GenericName[hu]=Parancsvezérelt szkriptelhető Modbus segédprogram
+Type=Application
+Categories=Science
+StartupNotify=true
+Terminal=true
+
