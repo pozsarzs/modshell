@@ -19,9 +19,9 @@ var
  a, b: byte;
  s: string;
  o: boolean;
- f3active: boolean;
+ {$IFDEF X} f3active: boolean; {$ENDIF}
 begin
-  f3active := Form3.Active;
+  {$IFDEF X} f3active := Form3.Active; {$ENDIF}
   if (length(command) > 0) then
     if (command[1] <> #58) and (command[1] <> #64) then
     begin

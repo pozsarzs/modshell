@@ -581,6 +581,10 @@ msgstr ""
 msgid "Locked device!"
 msgstr ""
 
+#: modshell:err50
+msgid "Cannot create console log file!"
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""

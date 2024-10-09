@@ -603,6 +603,10 @@ msgstr "Művelet hiba!"
 msgid "Locked device!"
 msgstr "Zárolt eszköz!"
 
+#: modshell:err50
+msgid "Cannot create console log file!"
+msgstr "Nem lehet létrehozni a konzol naplófájlját!"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"

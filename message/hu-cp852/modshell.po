@@ -603,6 +603,10 @@ msgstr "Mûvelet hiba!"
 msgid "Locked device!"
 msgstr "Z rolt eszk”z!"
 
+#: modshell:err50
+msgid "Cannot create console log file!"
+msgstr "Nem lehet l‚trehozni a konzol napl¢f jlj t!"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb termin l m‚ret 80x25!"

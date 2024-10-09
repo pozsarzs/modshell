@@ -99,6 +99,9 @@ Script editor
 Variable monitor
 ![variable monitor](document/picture/xmodshell-varmon.png)
 
+Mini serial console
+![mini serial console](document/picture/xmodshell-serialconsole.png)
+
 #### 2. Used external libraries
 
  - _Convert - Bin/Oct/Dec/Hex number converter_  
