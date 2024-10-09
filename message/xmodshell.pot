@@ -609,6 +609,10 @@ msgstr ""
 msgid "Locked device!"
 msgstr ""
 
+#: frmmain.err50
+msgid "Cannot create console log file!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -1555,6 +1559,7 @@ msgid "&Date and time"
 msgstr ""
 
 #: tform1.menuitem28.caption
+msgctxt "tform1.menuitem28.caption"
 msgid "S&wap echo mode"
 msgstr ""
 
@@ -1699,7 +1704,7 @@ msgid "&Set timeout"
 msgstr ""
 
 #: tform1.menuitem63.caption
-msgid "&Get timeout"
+msgid "&Show timeout"
 msgstr ""
 
 #: tform1.menuitem7.caption

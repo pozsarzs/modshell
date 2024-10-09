@@ -164,6 +164,7 @@ resourcestring
   ERR47 = 'Cannot set connection timeout!';
   ERR48 = 'Operation error!';
   ERR49 = 'Locked device!';
+  ERR50 = 'Cannot create console log file!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';

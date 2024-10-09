@@ -88,6 +88,7 @@ begin
   try
     rewrite(lf);
   except
+    writeln(ERR50);
   end;
   // PRIMARY MISSION
   if checklockfile(dev[i1].device, true) then exit;
@@ -108,7 +109,7 @@ begin
               write(lf, c);
             except
             end;
-            if c = #13 then {$IFNDEF X} write(EOL); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
+            if c = #13 then write(EOL);
             textcolor(uconfig.colors[0]);
           end else writeln(ERR27);
         end;
@@ -133,8 +134,8 @@ begin
       writeln(ERR18, dev[i1].device);
       result := 1;
     end;
-    try
-      closefile(lf);
-    except
-    end;
+  try
+    closefile(lf);
+  except
+  end;
 end;

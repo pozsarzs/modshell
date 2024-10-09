@@ -671,7 +671,7 @@ object Form1: TForm1
           OnClick = MenuItem62Click
         end
         object MenuItem63: TMenuItem
-          Caption = '&Get timeout'
+          Caption = '&Show timeout'
           ImageIndex = 7
           OnClick = MenuItem63Click
         end

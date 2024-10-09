@@ -18,17 +18,15 @@ unit frmsecn;
 interface
 uses
   Classes,
+  ComCtrls,
   Controls,
-  Dialogs, Menus,
+  Dialogs,
   Forms,
-  Graphics,
   StdCtrls,
   SysUtils,
-  convert,
-  crt,
   synaser,
   ucommon,
-  uconfig, ComCtrls;
+  uconfig;
 type
   { TLThread }
   TLThread = class(TThread)
@@ -39,7 +37,7 @@ type
     procedure Execute; override;
   public
     constructor Create(CreateSuspended: boolean);
-    function thr_serread(p1, p2: string; no_timeout_error: boolean): byte;
+    function thr_sercons(p1: byte): byte;
   end;
   { TForm3 }
   TForm3 = class(TForm)
@@ -55,8 +53,10 @@ type
 var
   Form3: TForm3;
   device: byte;
+  keyprd: boolean;
+  prdkey: char;
 
-{$DEFINE X}
+  {$DEFINE X}
 
 {$I define.pas}
 
@@ -65,20 +65,10 @@ uses frmmain;
 
 {$R *.lfm}
 
-function boolisitconstant(s: string): boolean; forward;
-function boolisitvariable(s: string): boolean; forward;
-function intisitconstant(s: string): integer; forward;
-function intisitvariable(s: string): integer; forward;
-function isitconstant(s: string): string; forward;
-function isitvariable(s: string): string; forward;
-
 {$I checklck.pas}
 {$I serport.pas}
-{$I validity.pas}
 
-{$I cmd_cons.pas}
-{$I cmd_var.pas}
-{$I thr_serd.pas}
+{$I thr_secn.pas}
 
 { TLThread }
 
@@ -91,7 +81,8 @@ end;
 // RUN A COMMAND ON NEW THREAD
 procedure TLThread.Execute;
 begin
-  exitcode := thr_serread('dev' + inttostr(device), '', true);
+  exitcode := thr_sercons(device);
+  Form3.Close;
 end;
 
 // CREATE THREAD
@@ -106,18 +97,13 @@ end;
 // SEND A CHAR
 procedure TForm3.FormKeyPress(Sender: TObject; var Key: char);
 begin
-  // new threads for I/O operation
-//  LThreadTX:= TLThread.Create(True);
-//  with LThreadTX do
-//  begin
-//    FreeOnTerminate := true;
-//    Start;
-//  end;
+  keyprd := true;
+  prdkey := Key;
 end;
 
 procedure TForm3.FormShow(Sender: TObject);
 var
-  LThreadRX: TLThread;
+  LThread1: TLThread;
   begin
     if dev[device].valid then
       if dev[device].devtype = 1 then
@@ -132,8 +118,8 @@ var
         end;
       end;
     // new threads for I/O operation
-    LThreadRX := TLThread.Create(True);
-    with LThreadRX do
+    LThread1 := TLThread.Create(True);
+    with LThread1 do
     begin
       FreeOnTerminate := true;
       Start;
@@ -151,12 +137,16 @@ begin
     formpositions[2, 2] := Height;
     formpositions[2, 3] := Width;
   end;
+  keyprd := true;
+  prdkey := #27;
+  sleep(3000);
   CanClose := true;
 end;
 
 // SHOW MINI SERIAL CONSOLE WINDOW
 procedure TForm3.FormCreate(Sender: TObject);
 begin
+  KeyPreview := true;
   // restore window size and position
   with Form3 do
   begin

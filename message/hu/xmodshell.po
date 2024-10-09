@@ -622,6 +622,10 @@ msgstr "Művelet hiba!"
 msgid "Locked device!"
 msgstr "Zárolt eszköz!"
 
+#: frmmain.err50
+msgid "Cannot create console log file!"
+msgstr "Nem lehet létrehozni a konzol naplófájlját!"
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -1643,6 +1647,7 @@ msgid "&Date and time"
 msgstr "&Dátum és idő"
 
 #: tform1.menuitem28.caption
+msgctxt "tform1.menuitem28.caption"
 msgid "S&wap echo mode"
 msgstr "Echo mód váltá&s"
 
@@ -1787,7 +1792,7 @@ msgid "&Set timeout"
 msgstr "Időtúllépés beállítá&sa"
 
 #: tform1.menuitem63.caption
-msgid "&Get timeout"
+msgid "&Show timeout"
 msgstr "Időtúllépés &mutatása"
 
 #: tform1.menuitem7.caption
@@ -1885,6 +1890,9 @@ msgstr "Változó monitor"
 #: tform3.caption
 msgid "Form3"
 msgstr "Form3"
+
+#~ msgid "&Get timeout"
+#~ msgstr "Időtúllépés &mutatása"
 
 #~ msgid "&Write data to remote register(s).."
 #~ msgstr "Távoli regiszter(e&k) írása.."
