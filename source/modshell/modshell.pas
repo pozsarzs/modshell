@@ -17,31 +17,30 @@
 program modshell;
 uses
   {$IFDEF GO32V2} protcom, {$ELSE} synaser, {$ENDIF}
-  {$IFDEF WINDOWS} windows, {$ENDIF}
   Classes,
   FileUtil,
   GetText,
   INIFiles,
-  convert,
+  Math,
+  Strings,
   SysUtils,
+  {$IFDEF WINDOWS} Windows, {$ENDIF}
+  convert,
   crt,
   dom,
   dos,
-  Math,
-  Strings,
   ucommon,
   uconfig,
   utranslt,
   xmlread,
   xmlwrite;
+
 {$I type.pas}
 {$I const.pas}
 {$I var.pas}
 {$I define.pas}
 
-{$IFNDEF GO32V2}
-  {$R *.res}
-{$ENDIF}
+{$IFNDEF GO32V2} {$R *.res} {$ENDIF}
 
 {$I resstrng.pas}
 
@@ -59,7 +58,7 @@ procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
-{$I checklck.pas}
+{$I lockfile.pas}
 {$I validity.pas}
 
 {$I ethernet.pas}
@@ -150,7 +149,7 @@ begin
         delay(SHOWTIMEDELAY);
       until keypressed;
       c := readkey;
-      // DETECT HOTKEYS
+      // detect hotkeys
       if c = #0 then
       begin
         repeat
@@ -158,7 +157,7 @@ begin
           delay(SHOWTIMEDELAY);
       until keypressed;
         c := readkey;
-        // ONLY INSERT
+        // only insert
         if c = #34 then
           begin command := COMMANDS[17]; c := #32; end;                    // ALT-C
         if c = #34 then
@@ -181,7 +180,7 @@ begin
           begin command := COMMANDS[8]; c := #32; end;                     // ALT-S
         if c = #17 then
           begin command := COMMANDS[11]; c := #32; end;                    // ALT-W
-        // INSERT AND RUN
+        // insert and run
         if c = #59 then
           begin command := COMMANDS[3]; c:=#13; end;                       // F1
         if c = #60 then
@@ -292,13 +291,13 @@ end;
 
 // -- MAIN PROGRAM -------------------------------------------------------------
 begin
-  // DETECT LANGUAGE
+  // detect language
   lang := getlang;
   translatemessages(LANG, BASENAME, '.mo');
-  // CHECK SIZE OF TERMINAL
+  // check size of terminal
   if not terminalsize(MINTERMX, MINTERMY) then quit(1, false, ERR99);
   randomize;
-  // PARSE COMMAND LINE PARAMETERS
+  // parse command line parameters
   appmode := 0;
   { appmode #0: simple command line
     appmode #1: show useable parameters

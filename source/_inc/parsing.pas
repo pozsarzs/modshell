@@ -25,13 +25,13 @@ begin
   if (length(command) > 0) then
     if (command[1] <> #58) and (command[1] <> #64) then
     begin
-      // REMOVE SPACE AND TAB FROM START OF LINE
+      // remove space and tab from start of line
       while (command[1] = #32) or (command[1] = #9) do
         delete(command, 1, 1);
-      // REMOVE SPACE AND TAB FROM END OF LINE
+      // remove space and tab from end of line
       while (command[length(command)] = #32) or (command[length(command)] = #9) do
         delete(command, length(command), 1);
-      // REMOVE EXTRA SPACE AND TAB FROM LINE
+      // remove extra space and tab from line
       for b := 1 to 255 do
       begin
         if b = length(command) then break;
@@ -43,7 +43,7 @@ begin
       for b := 1 to length(command) do
         if command[b] <> '@' then s := s + command[b];
       command := s;
-      // SPLIT COMMAND TO 8 SLICES
+      // split command to 8 slices
       for b := 0 to 7 do
         splitted[b] := '';
       for a := 1 to length(command) do
@@ -55,7 +55,7 @@ begin
           if (command[a] = #32) and (command[a - 1] <> #92)
             then break
             else splitted[b] := splitted[b] + command[a];
-      // PARSE COMMAND
+      // parse command
       o := false;
       if splitted[0][1] <> COMMENT then
       begin

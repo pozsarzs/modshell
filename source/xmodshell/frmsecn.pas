@@ -65,7 +65,7 @@ uses frmmain;
 
 {$R *.lfm}
 
-{$I checklck.pas}
+{$I lockfile.pas}
 {$I serport.pas}
 
 {$I thr_secn.pas}

@@ -1,5 +1,5 @@
 @echo off
-rem Build program for 32 bit Windows
+rem Build programs for 32 bit Windows
 
 cd modshell
 make -f Makefile.w32

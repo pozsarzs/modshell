@@ -27,7 +27,7 @@ const
   FUNCTION_CODE = $01;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
 begin
-  // CREATE TELEGRAM FOR REQUEST
+  // create telegram for request
   pdu := char(FUNCTION_CODE) +
          char(hi(address)) +
          char(lo(address)) +
@@ -39,11 +39,11 @@ begin
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
-  // CONNECT TO SERIAL PORT
+  // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
     {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
-    // TRANSMIT REQUEST
+    // transmit request
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
@@ -58,7 +58,7 @@ begin
       end;
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
-    // RECEIVE RESPONSE
+    // receive response
     tgm := '';
     repeat
       sleep(1);
@@ -79,9 +79,9 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-    // DISCONNECT SERIAL PORT
+    // disconnect serial port
     ser_close;
-    // PARSE RESPONSE
+    // parse response
     try
       if ord(tgm[1]) = prot[protocol].uid then
       begin
@@ -124,7 +124,7 @@ const
   FUNCTION_CODE = $02;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
 begin
-  // CREATE TELEGRAM FOR REQUEST
+  // create telegram for request
   pdu := char(FUNCTION_CODE) +
          char(hi(address)) +
          char(lo(address)) +
@@ -136,11 +136,11 @@ begin
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
-  // CONNECT TO SERIAL PORT
+  // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
     {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
-    // TRANSMIT REQUEST
+    // transmit request
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
@@ -155,7 +155,7 @@ begin
       end;
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
-    // RECEIVE RESPONSE
+    // receive response
     tgm := '';
     repeat
       sleep(1);
@@ -176,9 +176,9 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-    // DISCONNECT SERIAL PORT
+    // disconnect serial port
     ser_close;
-    // PARSE RESPONSE
+    // parse response
     try
       if ord(tgm[1]) = prot[protocol].uid then
       begin
@@ -221,7 +221,7 @@ const
   FUNCTION_CODE = $03;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
 begin
-  // CREATE TELEGRAM FOR REQUEST
+  // create telegram for request
   pdu := char(FUNCTION_CODE) +
          char(hi(address)) +
          char(lo(address)) +
@@ -233,11 +233,11 @@ begin
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
-  // CONNECT TO SERIAL PORT
+  // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
     {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
-    // TRANSMIT REQUEST
+    // transmit request
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
@@ -252,7 +252,7 @@ begin
       end;
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
-    // RECEIVE RESPONSE
+    // receive response
     tgm := '';
     repeat
       sleep(1);
@@ -273,9 +273,9 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-    // DISCONNECT SERIAL PORT
+    // disconnect serial port
     ser_close;
-    // PARSE RESPONSE
+    // parse response
     try
       if ord(tgm[1]) = prot[protocol].uid then
       begin
@@ -316,7 +316,7 @@ const
   FUNCTION_CODE = $02;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
 begin
-  // CREATE ASCII TELEGRAM FOR REQUEST
+  // create ascii telegram for request
   pdu := char(FUNCTION_CODE) +
          char(hi(address)) +
          char(lo(address)) +
@@ -328,11 +328,11 @@ begin
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
-  // CONNECT TO SERIAL PORT
+  // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
     {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
-    // TRANSMIT REQUEST
+    // transmit request
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
@@ -347,7 +347,7 @@ begin
       end;
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
-    // RECEIVE RESPONSE
+    // receive response
     tgm := '';
     repeat
       sleep(1);
@@ -368,9 +368,9 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-    // DISCONNECT SERIAL PORT
+    // disconnect serial port
     ser_close;
-    // PARSE RESPONSE
+    // parse response
     try
       if ord(tgm[1]) = prot[protocol].uid then
       begin
@@ -411,7 +411,7 @@ const
   FUNCTION_CODE = $0F;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
 begin
-  // CREATE TELEGRAM FOR REQUEST
+  // create telegram for request
   pdu := char(FUNCTION_CODE) +
          char(hi(address)) +
          char(lo(address)) +
@@ -433,11 +433,11 @@ begin
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
-  // CONNECT TO SERIAL PORT
+  // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
     {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
-    // TRANSMIT REQUEST
+    // transmit request
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
@@ -452,7 +452,7 @@ begin
       end;
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
-    // RECEIVE RESPONSE
+    // receive response
     tgm := '';
     repeat
       sleep(1);
@@ -473,9 +473,9 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-    // DISCONNECT SERIAL PORT
+    // disconnect serial port
     ser_close;
-    // PARSE RESPONSE
+    // parse response
     try
       if ord(tgm[1]) = prot[protocol].uid then
       begin
@@ -507,7 +507,7 @@ const
   FUNCTION_CODE = $10;
   FUNCTERR_CODE = FUNCTION_CODE + $80;
 begin
-  // CREATE TELEGRAM FOR REQUEST
+  // create telegram for request
   pdu := char(FUNCTION_CODE) +
          char(hi(address)) +
          char(lo(address)) +
@@ -522,11 +522,11 @@ begin
          char(lo(crc)) +
          char(hi(crc));
   tgm := adu;
-  // CONNECT TO SERIAL PORT
+  // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
   begin
     {$IFNDEF X} writeln(MSG31); {$ELSE} Form1.Memo1.Lines.Add(MSG31); {$ENDIF}
-    // TRANSMIT REQUEST
+    // transmit request
     if ser_canwrite then
     begin
       ser_sendstring(tgm);
@@ -541,7 +541,7 @@ begin
       end;
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
-    // RECEIVE RESPONSE
+    // receive response
     tgm := '';
     repeat
       sleep(1);
@@ -562,9 +562,9 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-    // DISCONNECT SERIAL PORT
+    // disconnect serial port
     ser_close;
-    // PARSE RESPONSE
+    // parse response
     try
       if ord(tgm[1]) = prot[protocol].uid then
       begin
@@ -604,10 +604,10 @@ const
   FUNCTION_CODES_ALL: array[0..5] of byte = ($01, $02, $03, $04, $0F, $10);
   FUNCTERR_CODE_OFFSET = $80;
 begin
-  // CONNECT TO SERIAL PORT
+  // connect to serial port
   if ser_open(dev[device1].device, dev[device1].speed, dev[device1].databit, dev[device1].parity, dev[device1].stopbit) then
   begin
-    // WAIT FOR REQUEST
+    // wait for request
     repeat
       if keypressed then
       begin
@@ -617,7 +617,7 @@ begin
     until ser_canread or (c = #27);
     if loop then
     begin
-      // RECEIVE REQUEST
+      // receive request
       tgm := '';
       repeat
         sleep(1);
@@ -637,7 +637,7 @@ begin
         if c = #27 then loop := false;
       until (c = #27) or (length(tgm) = 255) or ready;
       if uconfig.echo > 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-      // PARSE REQUEST
+      // parse request
       if length(tgm) >= 8 then
       begin
         uid := ord(tgm[1]);
@@ -668,12 +668,12 @@ begin
     if function_code = FUNCTION_CODES_ALL[4] then mbrtu_writecoil(protocol2, device2, address, count);
     if function_code = FUNCTION_CODES_ALL[5] then mbrtu_writehreg(protocol2, device2, address, count);
   end;
-  // CONNECT TO SERIAL PORT
+  // connect to serial port
   if ser_open(dev[device1].device, dev[device1].speed, dev[device1].databit, dev[device1].parity, dev[device1].stopbit) then
   begin
     if loop then
     begin
-      // CREATE TELEGRAM FOR RESPONSE
+      // create telegram for response
       if uid = prot[protocol1].uid then
       begin
         if error > 0 then pdu := char(FUNCTERR_CODE_OFFSET + error) else
@@ -748,7 +748,7 @@ begin
                char(lo(crc)) +
                char(hi(crc));
         tgm := adu;
-        // SEND ANSWER
+        // send answer
         if ser_canwrite then
         begin
           ser_sendstring(tgm);
@@ -765,7 +765,7 @@ begin
         end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
       end;
     end;
-    // DISCONNECT SERIAL PORT
+    // disconnect serial port
     ser_close;
   end else {$IFNDEF X} writeln(ERR18, dev[device1].device); {$ELSE} Form1.Memo1.Lines.Add(ERR18 + dev[device1].device); {$ENDIF}
   result := loop;

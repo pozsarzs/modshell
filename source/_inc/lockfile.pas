@@ -1,7 +1,7 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | checklck.pas                                                             | }
+{ | lockfile.pas                                                             | }
 { | check lock file of device                                                | }
 { +--------------------------------------------------------------------------+ }
 {
@@ -25,4 +25,19 @@ begin
   {$ENDIF}
   if result and message
     then {$IFNDEF X} writeln(ERR49); {$ELSE} Form1.Memo1.Lines.Add(ERR49); {$ENDIF}
+end;
+
+// REMOVE LOCK FILE
+function removelockfile(device: string; message: boolean): boolean;
+var
+  fn: string;
+begin
+  result := false;
+  {$IFDEF UNIX}
+    // example: /var/lock/LCK..ttyUSB1
+    fn := stringreplace(device, '/dev/', 'LCK..', [rfReplaceAll]);
+    result := DeleteFile(DIR_LOCK + SLASH + fn);
+    if result
+      then {$IFNDEF X} writeln(ERR43); {$ELSE} Form1.Memo1.Lines.Add(ERR43); {$ENDIF}
+  {$ENDIF}
 end;

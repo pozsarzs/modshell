@@ -30,7 +30,7 @@ begin
       readln(sf,s);
       if length(s) > 0 then
       begin
-        // REMOVE SPACE AND TAB FROM START OF LINE
+        // remove space and tab from start of line
         while (s[1] = #32) or (s[1] = #9) do
           delete(s, 1, 1);
         if s[1] <> COMMENT then
@@ -47,7 +47,7 @@ begin
   except
     quit(3, false, ERR22 + f + '!');
   end;
-  // PARSING SCRIPT
+  // parsing script
   scriptline := 0;
   repeat
     if length(sbuffer[scriptline]) > 0 then parsingcommands(sbuffer[scriptline]);

@@ -14,16 +14,18 @@
 }
 
 program xmodshell;
-{$MODE OBJFPC}{$h+}
+{$MODE OBJFPC}{$H+}
 uses
-  {$IFDEF UNIX} cthreads, cmem, {$ENDIF}
-  Interfaces, // this includes the LCL widgetset
+  Interfaces,
   Dialogs,
   Forms,
   ModLCLTranslator,
   crt,
+  {$IFDEF UNIX} cthreads, cmem, {$ENDIF}
   sysutils,
-  frmmain, frmvrmn, frmsecn;
+  frmmain,
+  frmsecn,
+  frmvrmn;
 var
   b: byte;
   fn: string;

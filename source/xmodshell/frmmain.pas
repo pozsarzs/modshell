@@ -250,7 +250,7 @@ procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
-{$I checklck.pas}
+{$I lockfile.pas}
 {$I validity.pas}
 
 {$I ethernet.pas}
@@ -399,7 +399,7 @@ end;
 procedure TForm1.MenuItem36Click(Sender: TObject);
 var
   exists: boolean = false;
-  fp,fn,fx, fpn: string;
+  fp, fn, fx, fpn: string;
   LSaveDialog1: TSaveDialog;
 begin
   LSaveDialog1 := TSaveDialog.Create(Self);

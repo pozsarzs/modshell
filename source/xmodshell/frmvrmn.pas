@@ -14,7 +14,7 @@
 }
 
 unit frmvrmn;
-{$mode ObjFPC}{$H+}
+{$MODE ObjFPC}{$H+}
 interface
 uses
   Classes,

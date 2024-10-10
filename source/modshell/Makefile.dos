@@ -9,12 +9,20 @@ name = modshell
 architecture = i386
 os = go32v2
 outdir = ..\_lib\$(architecture)-dos
-fpflag = -T$(os) -MObjFPC -Scgi -O1 -v0 -Fi..\inc -Fi..\inc\* -Fu..\ppu -Fu. -Fu..\convert -Fu..\synapse -Fu$(outdir) -FE$(outdir)
+fpcargs = -T$(os) -MObjFPC -Scgi -O1 -v0 \
+          -Fi..\_inc \
+          -Fi..\_inc\* \
+          -Fu. \
+          -Fu..\_ppu \
+          -Fu..\convert \
+          -Fu..\synapse \
+          -Fu$(outdir) \
+          -FE$(outdir)
 
 all:
 	@if not exist lib\nul mkdir lib
 	@if not exist $(outdir)\nul mkdir $(outdir)
-	@fpc $(fpflag) $(name).pas
+	@fpc $(fpcargs) $(name).pas
 	@rstconv -c cp852 -f po -i $(outdir)\$(name).rsj  -o $(outdir)\$(name).pot
 	@copy $(outdir)\$(name).exe ..\..
 

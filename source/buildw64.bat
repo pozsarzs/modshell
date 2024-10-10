@@ -1,5 +1,5 @@
 @echo off
-rem Build program for 64 bit Windows
+rem Build programs for 64 bit Windows
 
 cd modshell
 make -f Makefile.w64
