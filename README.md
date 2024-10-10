@@ -60,14 +60,20 @@ This test release is not yet suitable for work, although it is functional, but i
 ...that either will or won't.  
 
 in _v0.1-beta1:_  
- - [ ] Modbus/TCP communication;  
+ - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  
+ - [ ] chkdevlockfile/rmdevlockfile commands (only *nix versions);  
+ - [ ] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
  - [ ] device discovery script;  
  - [ ] syntax highlighting file for Vim/Neovim;  
  - [ ] syntax highlighting file for Scite.  
 
 in _v0.1-beta2:_  
- - [ ] Support for multi-dimensional arrays;
+ - [ ] Modbus/TCP communication on DOS (DOS version);  
+ - [ ] support for multi-dimensional arrays;  
  - [ ] graphical monitoring the change of values over time (only XModShell).  
+
+in _v0.1-beta3:_  
+ - [ ] implementation of additional Modbus functions.  
 
 #### 1. Screenshots
 
