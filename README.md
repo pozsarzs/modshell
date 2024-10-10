@@ -61,7 +61,7 @@ This test release is not yet suitable for work, although it is functional, but i
 
 in _v0.1-beta1:_  
  - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  
- - [ ] chkdevlockfile/rmdevlockfile commands (only *nix versions);  
+ - [ ] `chkdevlockfile`/`rmdevlockfile` commands (only *nix versions);  
  - [ ] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
  - [ ] device discovery script;  
  - [ ] syntax highlighting file for Vim/Neovim;  
@@ -102,10 +102,10 @@ Set device dialog
 Script editor  
 ![script editor](document/picture/xmodshell-edit.png)
 
-Variable monitor
+Variable monitor  
 ![variable monitor](document/picture/xmodshell-varmon.png)
 
-Mini serial console
+Mini serial console  
 ![mini serial console](document/picture/xmodshell-serialconsole.png)
 
 #### 2. Used external libraries
@@ -206,110 +206,110 @@ selected.
 
 **Already implemented commands:**
 
-|command |category      |hotkey  |description                                                          |
-|--------|--------------|--------|---------------------------------------------------------------------|
-|add     |arithmetic    |        |addition                                                             |
-|avg     |arithmetic    |        |average calculation                                                  |
-|conv    |arithmetic    |ALT-C   |convert numbers between BIN, DEC, HEX and OCT format                 |
-|cos     |arithmetic    |        |cosine function                                                      |
-|cotan   |arithmetic    |        |cotangent function                                                   |
-|dec     |arithmetic    |        |decrement integer                                                    |
-|div     |arithmetic    |        |division                                                             |
-|exp     |arithmetic    |        |natural exponential                                                  |
-|idiv    |arithmetic    |        |integer division                                                     |
-|imod    |arithmetic    |        |modulus division                                                     |
-|inc     |arithmetic    |        |increment integer                                                    |
-|inrange |arithmetic    |        |check the value is in the range                                      |
-|ln      |arithmetic    |        |natural logarithm                                                    |
-|mul     |arithmetic    |        |multiplication                                                       |
-|mulinv  |arithmetic    |        |multiplicative inverse                                               |
-|odd     |arithmetic    |        |odd or event                                                         |
-|pow     |arithmetic    |        |exponentiation                                                       |
-|pow2    |arithmetic    |        |exponentiation of two                                                |
-|prop    |arithmetic    |        |propotional value calculation (with zero and span)                   |
-|rnd     |arithmetic    |        |create random integer                                                |
-|round   |arithmetic    |        |round real number                                                    |
-|sin     |arithmetic    |        |sine function                                                        |
-|sqr     |arithmetic    |        |square                                                               |
-|sqrt    |arithmetic    |        |square root                                                          |
-|sub     |arithmetic    |        |substraction                                                         |
-|tan     |arithmetic    |        |tangent function                                                     |
-|copyreg |communication |        |copy one or more remote registers between two connections            |
-|mbgw    |communication |        |start internal Modbus gateway                                        |
-|mbsrv   |communication |        |start internal Modbus slave/server                                   |
-|readreg |communication |ALT-R   |read one or more remote registers                                    |
-|sercons |communication |F7      |serial console                                                       |
-|serread |communication |        |read a string from serial device                                     |
-|serwrite|communication |        |write a string from serial device                                    |
-|writereg|communication |ALT-W   |write data to one or more remote registers                           |
-|get     |configuration |ALT-G   |get device, protocol, connection, project name and connection timeout|
-|reset   |configuration |ALT-T   |reset device, protocol or connection or reset project name           |
-|set     |configuration |ALT-S   |set device, protocol, connection, project name and connection timeout|
-|applog  |file          |        |append a record to log file (LOG)                                    |
-|exphis  |file          |        |export command line history to file (TXT)                            |
-|expreg  |file          |ALT-E   |export one or more registers to file (CSV, INI, XML)                 |
-|impreg  |file          |ALT-I   |import one or more registers from file (INI, XML)                    |
-|loadcfg |file          |F3      |load settings of device, protocol and connection (?DT)               |
-|loadreg |file          |F5      |load all buffer registers from typed file (?DT)                      |
-|savecfg |file          |F2      |save settings of device, protocol and connection (?DT)               |
-|savereg |file          |F4      |save all registers to typed file (?DT)                               |
-|ascii   |general       |        |show ASCII table                                                     |
-|beep    |general       |        |make a beep with internal speaker                                    |
-|cls     |general       |F8      |clear screen                                                         |
-|color   |general       |        |set colors                                                           |
-|const   |general       |        |show all constant with theirs value or define a new one              |
-|cron    |general       |        |loaded script scheduled execution                                    |
-|date    |general       |        |show system date and time                                            |
-|echo    |general       |F9      |enable/hexadecimal/disable local echo for serial connections         |
-|exit    |general       |F10     |exit                                                                 |
-|goto    |general       |        |jump to specified label                                              |
-|for     |general       |        |loop iteration                                                       |
-|help    |general       |F1      |show description or usage of the commands                            |
-|if      |general       |        |selection statement                                                  |
-|label   |general       |        |define label (for goto command)                                      |
-|pause   |general       |        |waits for a keystroke or specified time                              |
-|print   |general       |ALT-P   |print message, value of the variable and register                    |
-|var     |general       |        |show all variable with theirs value or define a new one              |
-|varmon  |general       |ALT-M   |monitoring the value of variables                                    |
-|ver     |general       |        |show version and build information of this program                   |
-|and     |logic         |        |AND logical operations                                               |
-|bit     |logic         |        |value of the specified bit                                           |
-|not     |logic         |        |NOT logical operations                                               |
-|or      |logic         |        |OR logical operations                                                |
-|roll    |logic         |        |roll bit of integer to left                                          |
-|rolr    |logic         |        |roll bit of integer to right                                         |
-|shl     |logic         |        |bit shift to left                                                    |
-|shr     |logic         |        |bit shift to right                                                   |
-|xor     |logic         |        |XOR logical operations                                               |
-|dump    |register      |F6      |dump all registers in binary/hexadecimal format to a table           |
-|let     |register      |ALT-L   |set value of a variable or register                                  |
-|edit    |script        |        |edit loaded script with line editor                                  |
-|erasescr|script        |        |erase script from buffer                                             |
-|list    |script        |F11     |list loaded script                                                   |
-|loadscr |script        |        |load ModShell scriptfile from disc                                   |
-|run     |script        |F12     |run loaded script                                                    |
-|savescr |script        |        |save loaded script to disc                                           |
-|chr     |string        |        |convert byte to char                                                 |
-|concat  |string        |        |concatenate strings                                                  |
-|length  |string        |        |length of string                                                     |
-|lowcase |string        |        |conversion to lowercase                                              |
-|mkcrc   |string        |        |make CRC value                                                       |
-|mklrc   |string        |        |make LRC value                                                       |
-|ord     |string        |        |convert char to byte                                                 |
-|strdel  |string        |        |delete specified element(s) of the string                            |
-|strfind |string        |        |find specified element in the string                                 |
-|strins  |string        |        |insert element into string                                           |
-|stritem |string        |        |specified element of the string                                      |
-|strrepl |string        |        |replace element in the string                                        |
-|upcase  |string        |        |conversion to uppercase                                              | 
-|cd      |system        |        |change actual directory                                              |
-|copy    |system        |        |copy file                                                            |
-|dir     |system        |        |list directory content                                               |
-|del     |system        |        |remove file                                                          |
-|md      |system        |        |make directory                                                       |
-|ren     |system        |        |rename file                                                          |
-|rd      |system        |        |remove directory                                                     |
-|type    |system        |        |type file                                                            |
+|command   |category      |hotkey  |description                                                          |
+|:---:     |:---:         |:---:   |---------------------------------------------------------------------|
+|`add`     |arithmetic    |        |addition                                                             |
+|`avg`     |arithmetic    |        |average calculation                                                  |
+|`conv`    |arithmetic    |ALT-C   |convert numbers between BIN, DEC, HEX and OCT format                 |
+|`cos`     |arithmetic    |        |cosine function                                                      |
+|`cotan`   |arithmetic    |        |cotangent function                                                   |
+|`dec`     |arithmetic    |        |decrement integer                                                    |
+|`div`     |arithmetic    |        |division                                                             |
+|`exp`     |arithmetic    |        |natural exponential                                                  |
+|`idiv`    |arithmetic    |        |integer division                                                     |
+|`imod`    |arithmetic    |        |modulus division                                                     |
+|`inc`     |arithmetic    |        |increment integer                                                    |
+|`inrange` |arithmetic    |        |check the value is in the range                                      |
+|`ln`      |arithmetic    |        |natural logarithm                                                    |
+|`mul`     |arithmetic    |        |multiplication                                                       |
+|`mulinv`  |arithmetic    |        |multiplicative inverse                                               |
+|`odd`     |arithmetic    |        |odd or event                                                         |
+|`pow`     |arithmetic    |        |exponentiation                                                       |
+|`pow2`    |arithmetic    |        |exponentiation of two                                                |
+|`prop`    |arithmetic    |        |propotional value calculation (with zero and span)                   |
+|`rnd`     |arithmetic    |        |create random integer                                                |
+|`round`   |arithmetic    |        |round real number                                                    |
+|`sin`     |arithmetic    |        |sine function                                                        |
+|`sqr`     |arithmetic    |        |square                                                               |
+|`sqrt`    |arithmetic    |        |square root                                                          |
+|`sub`     |arithmetic    |        |substraction                                                         |
+|`tan`     |arithmetic    |        |tangent function                                                     |
+|`copyreg` |communication |        |copy one or more remote registers between two connections            |
+|`mbgw`    |communication |        |start internal Modbus gateway                                        |
+|`mbsrv`   |communication |        |start internal Modbus slave/server                                   |
+|`readreg` |communication |ALT-R   |read one or more remote registers                                    |
+|`sercons` |communication |F7      |serial console                                                       |
+|`serread` |communication |        |read a string from serial device                                     |
+|`serwrite`|communication |        |write a string from serial device                                    |
+|`writereg`|communication |ALT-W   |write data to one or more remote registers                           |
+|`get`     |configuration |ALT-G   |get device, protocol, connection, project name and connection timeout|
+|`reset`   |configuration |ALT-T   |reset device, protocol or connection or reset project name           |
+|`set`     |configuration |ALT-S   |set device, protocol, connection, project name and connection timeout|
+|`applog`  |file          |        |append a record to log file (LOG)                                    |
+|`exphis`  |file          |        |export command line history to file (TXT)                            |
+|`expreg`  |file          |ALT-E   |export one or more registers to file (CSV, INI, XML)                 |
+|`impreg`  |file          |ALT-I   |import one or more registers from file (INI, XML)                    |
+|`loadcfg` |file          |F3      |load settings of device, protocol and connection (?DT)               |
+|`loadreg` |file          |F5      |load all buffer registers from typed file (?DT)                      |
+|`savecfg` |file          |F2      |save settings of device, protocol and connection (?DT)               |
+|`savereg` |file          |F4      |save all registers to typed file (?DT)                               |
+|`ascii`   |general       |        |show ASCII table                                                     |
+|`beep`    |general       |        |make a beep with internal speaker                                    |
+|`cls`     |general       |F8      |clear screen                                                         |
+|`color`   |general       |        |set colors                                                           |
+|`const`   |general       |        |show all constant with theirs value or define a new one              |
+|`cron`    |general       |        |loaded script scheduled execution                                    |
+|`date`    |general       |        |show system date and time                                            |
+|`echo`    |general       |F9      |enable/hexadecimal/disable local echo for serial connections         |
+|`exit`    |general       |F10     |exit                                                                 |
+|`goto`    |general       |        |jump to specified label                                              |
+|`for`     |general       |        |loop iteration                                                       |
+|`help`    |general       |F1      |show description or usage of the commands                            |
+|`if`      |general       |        |selection statement                                                  |
+|`label`   |general       |        |define label (for goto command)                                      |
+|`pause`   |general       |        |waits for a keystroke or specified time                              |
+|`print`   |general       |ALT-P   |print message, value of the variable and register                    |
+|`var`     |general       |        |show all variable with theirs value or define a new one              |
+|`varmon`  |general       |ALT-M   |monitoring the value of variables                                    |
+|`ver`     |general       |        |show version and build information of this program                   |
+|`and`     |logic         |        |AND logical operations                                               |
+|`bit`     |logic         |        |value of the specified bit                                           |
+|`not`     |logic         |        |NOT logical operations                                               |
+|`or`      |logic         |        |OR logical operations                                                |
+|`roll`    |logic         |        |roll bit of integer to left                                          |
+|`rolr`    |logic         |        |roll bit of integer to right                                         |
+|`shl`     |logic         |        |bit shift to left                                                    |
+|`shr`     |logic         |        |bit shift to right                                                   |
+|`xor`     |logic         |        |XOR logical operations                                               |
+|`dump`    |register      |F6      |dump all registers in binary/hexadecimal format to a table           |
+|`let`     |register      |ALT-L   |set value of a variable or register                                  |
+|`edit`    |script        |        |edit loaded script with line editor                                  |
+|`erasescr`|script        |        |erase script from buffer                                             |
+|`list`    |script        |F11     |list loaded script                                                   |
+|`loadscr` |script        |        |load ModShell scriptfile from disc                                   |
+|`run`     |script        |F12     |run loaded script                                                    |
+|`savescr` |script        |        |save loaded script to disc                                           |
+|`chr`     |string        |        |convert byte to char                                                 |
+|`concat`  |string        |        |concatenate strings                                                  |
+|`length`  |string        |        |length of string                                                     |
+|`lowcase` |string        |        |conversion to lowercase                                              |
+|`mkcrc`   |string        |        |make CRC value                                                       |
+|`mklrc`   |string        |        |make LRC value                                                       |
+|`ord`     |string        |        |convert char to byte                                                 |
+|`strdel`  |string        |        |delete specified element(s) of the string                            |
+|`strfind` |string        |        |find specified element in the string                                 |
+|`strins`  |string        |        |insert element into string                                           |
+|`stritem` |string        |        |specified element of the string                                      |
+|`strrepl` |string        |        |replace element in the string                                        |
+|`upcase`  |string        |        |conversion to uppercase                                              | 
+|`cd`      |system        |        |change actual directory                                              |
+|`copy`    |system        |        |copy file                                                            |
+|`dir`     |system        |        |list directory content                                               |
+|`del`     |system        |        |remove file                                                          |
+|`md`      |system        |        |make directory                                                       |
+|`ren`     |system        |        |rename file                                                          |
+|`rd`      |system        |        |remove directory                                                     |
+|`type`    |system        |        |type file                                                            |
 
 (Commands with function keys (F?) are executed immediately, modifier keys
 (ALT-?) only make typing easier.)
@@ -347,10 +347,10 @@ questions, or suggest new features.
 **Precompiled binaries and installer packages for several OS and architecture**
 
 > [!TIP]
-> The download is done via http. Some browsers are not happy with this and may block it.
+> The download is done via HTTP. Some browsers are not happy with this and may block it.
 
 | name                                                                                                            | version    |OS               |arch.  | type  | note|
-|-----------------------------------------------------------------------------------------------------------------|------------|-----------------|-------|-------|-----|
+|-----------------------------------------------------------------------------------------------------------------|:---:       |:---:            |:---:  |:---:  |-----|
 | [source package](https://github.com/pozsarzs/modshell/archive/refs/heads/main.zip)                              | latest     |                 |       | zip   |from Github |
 | [source package](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha2.tar.gz)                   | v0.1-alpha2|                 |       | tar.gz|     |
 | [binary package](http://www.pozsarzs.hu/packages/software/modshell/dos/mdsh01a2.exe)                            | v0.1-alpha2| DOS             | i386  | exe   | SFX |
