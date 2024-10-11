@@ -1,13 +1,11 @@
-dnl # +------------------------------------------------------------------------+
-dnl # | ModShell 0.1 * Command-driven scriptable Modbus utility                |
-dnl # | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>              |
-dnl # | Makefile                                                               |
-dnl # | Makefile for Unix-like systems                                         |
-dnl # +------------------------------------------------------------------------+
-
+dnl +------------------------------------------------------------------------+
+dnl | ModShell 0.1 * Command-driven scriptable Modbus utility                |
+dnl | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>              |
+dnl | Makefile                                                               |
+dnl | Makefile for Unix-like systems                                         |
+dnl +------------------------------------------------------------------------+
 
 AC_INIT
-lcldir=`find /usr/lib/lazarus -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
 AC_CONFIG_SRCDIR([source/modshell/])
 AC_CONFIG_AUX_DIR(autoconf)
 AC_CANONICAL_TARGET
@@ -41,6 +39,12 @@ test "$iconv" == "no" && AC_MSG_WARN(Iconv text encoding converter tool not foun
 AC_PATH_PROG(fpc, fpc, no)
 test "$fpc" == "no" && AC_MSG_ERROR(Free Pascal compiler not found!)
 
+os=`fpc -iSO`
+architecture=`fpc -iSP`
+
+test "$os" = "linux" && lcldir=`find /usr/lib/lazarus -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
+test "$os" = "freebsd" && lcldir=`find /usr/local/share/lazarus*/ -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
+
 AC_CHECK_FILE($lcldir/lclbase.lpk, lclunits="yes", lclunits="no")
 test "$lclunits" == "no" && AC_MSG_WARN(LCL unit files not found!)
 
@@ -49,9 +53,6 @@ version=`cat document/VERSION`
 
 AC_CHECK_FILE(document/copyright, , AC_MSG_ERROR(copyright file not found!))
 copyright=`cat document/copyright`
-
-os=`fpc -iSO`
-architecture=`fpc -iSP`
 
 AC_PREFIX_DEFAULT("/usr/local")
 test x"$prefix" == xNONE && prefix="$ac_default_prefix"

@@ -7,7 +7,7 @@
       <Unit>
         <Filename Value="xmodshell.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="32" Y="19"/>
+        <CursorPos X="14" Y="19"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
       </Unit>
@@ -29,6 +29,7 @@
         <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos X="2" Y="7"/>
         <UsageCount Value="219"/>
@@ -41,10 +42,9 @@
         <ComponentName Value="Form3"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="106"/>
-        <CursorPos X="11" Y="106"/>
+        <TopLine Value="107"/>
+        <CursorPos X="44" Y="113"/>
         <UsageCount Value="209"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -147,12 +147,23 @@
       <Unit>
         <Filename Value="../_inc/commands/thr_secn.pas"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="4" Y="7"/>
-        <UsageCount Value="10"/>
+        <CursorPos X="2" Y="7"/>
+        <UsageCount Value="11"/>
         <Loaded Value="True"/>
       </Unit>
+      <Unit>
+        <Filename Value="../modlcltranslator/modlcltranslator.pas"/>
+        <UnitName Value="ModLCLTranslator"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="156"/>
+        <CursorPos X="4" Y="165"/>
+        <UsageCount Value="10"/>
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <Debugger>
+      <Backend Value="IDE"/>
+    </Debugger>
+    <JumpHistory HistoryIndex="28">
       <Position>
         <Filename Value="frmsecn.pas"/>
         <Caret Line="58" Column="12" TopLine="54"/>
@@ -239,10 +250,6 @@
       </Position>
       <Position>
         <Filename Value="frmsecn.pas"/>
-        <Caret Line="28" Column="13" TopLine="76"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
         <Caret Line="31" Column="13" TopLine="22"/>
       </Position>
       <Position>
@@ -271,7 +278,7 @@
       </Position>
       <Position>
         <Filename Value="frmsecn.pas"/>
-        <Caret Line="34" Column="46" TopLine="64"/>
+        <Caret Line="113" Column="44" TopLine="107"/>
       </Position>
     </JumpHistory>
     <RunParams>

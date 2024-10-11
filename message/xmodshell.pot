@@ -1559,7 +1559,6 @@ msgid "&Date and time"
 msgstr ""
 
 #: tform1.menuitem28.caption
-msgctxt "tform1.menuitem28.caption"
 msgid "S&wap echo mode"
 msgstr ""
 

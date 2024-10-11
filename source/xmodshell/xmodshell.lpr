@@ -16,12 +16,12 @@
 program xmodshell;
 {$MODE OBJFPC}{$H+}
 uses
+  {$IFDEF UNIX} cthreads, cmem, {$ENDIF}
   Interfaces,
   Dialogs,
   Forms,
   ModLCLTranslator,
   crt,
-  {$IFDEF UNIX} cthreads, cmem, {$ENDIF}
   sysutils,
   frmmain,
   frmsecn,
