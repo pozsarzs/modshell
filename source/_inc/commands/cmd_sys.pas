@@ -28,47 +28,36 @@
 // LIST DIRECTORY CONTENT
 function cmd_dir(p1: string): byte;
 var
-  {$IFNDEF UNIX} a: longint; {$ENDIF}
-  allfiles, alldirectories: TStringList;
+  SearchRec1: TSearchRec;
+  StringList1, StringList2: TStringList;
   i: integer;
-  s: string;
 begin
-  result := 0;
-  try
-    if length(p1) = 0 then s := GetCurrentDir else s := p1;
-    alldirectories := FindAllDirectories(s, false);
-    allfiles := FindAllFiles(s, '*;*.*', false);
-    alldirectories.sort;
-    allfiles.sort;
-    for i := 0 to alldirectories.Count - 1 do
-    begin
-      {$IFDEF UNIX}
-        if ExtractFileName(alldirectories[i])[1] <> '.' then
-          writeln(' [' + ExtractFileName(alldirectories[i]) + ']');
-      {$ELSE}
-        a := FileGetAttr(ExtractFileName(alldirectories[i]));
-        if (a and faHidden) = 0 then
-          writeln(' [' + ExtractFileName(alldirectories[i]) + ']');
-      {$ENDIF}
-    end;
-    for i := 0 to allfiles.Count - 1 do
-    begin
-      {$IFDEF UNIX}
-      if ExtractFileName(allfiles[i])[1] <> '.' then
-      writeln('  ' + ExtractFileName(allfiles[i]) + ' ');
-      {$ELSE}
-        a := FileGetAttr(ExtractFileName(allfiles[i]));
-        if (a and faHidden) = 0 then
-          writeln(' [' + ExtractFileName(allfiles[i]) + ']');
-      {$ENDIF}
-    end;
-  except
-    // Cannot list directory!
-    {$IFNDEF X} writeln(ERR39); {$ELSE} Form1.Memo1.Lines.Add(ERR39); {$ENDIF}
-    result := 1;
+  StringList1 := TStringList.Create;
+  StringList2 := TStringList.Create;
+  if SysUtils.FindFirst('*', faAnyFile, SearchRec1) = 0 then
+  begin
+    repeat
+      with SearchRec1 do
+      begin
+        if (Attr and faDirectory) = faDirectory
+          then StringList1.Add(' [' + Name + ']')
+          else StringList2.Add(' ' + Name); 
+      end;
+    until SysUtils.FindNext(SearchRec1) <> 0;
+    SysUtils.FindClose(SearchRec1);
   end;
-  alldirectories.Free;
-  allfiles.Free;
+  StringList1.Sort;
+  StringList2.Sort;
+  {$IFNDEF X}
+    for i:=0 to StringList1.Count - 1 do writeln(StringList1.Strings[i]);
+    for i:=0 to StringList2.Count - 1 do writeln(StringList2.Strings[i]);
+  {$ELSE}
+    for i:=0 to StringList1.Count - 1 do Form1.Memo1.Lines.Add(StringList1.Strings[i]);
+    for i:=0 to StringList2.Count - 1 do Form1.Memo1.Lines.Add(StringList2.Strings[i]);
+  {$ENDIF}
+  StringList1.Free;
+  StringList2.Free;
+  result := 0;
 end;
 
 // CHANGE DIRECTORY OR GET NAME
@@ -122,39 +111,39 @@ end;
 // TYPE FILE
 function cmd_type(p1: string): byte;
 var
-  f: text;
-  s: string;
+  StringList1: TStringList;
+  i: integer;
 begin
   result := 0;
+  StringList1 := TStringList.Create;
   try
-    assign(f, p1);
-    reset(f);
-    repeat
-      {$IFNDEF X}
-        readln(f, s);
-        writeln(s);
-      {$ELSE}
-        readln(f, s);
-        Form1.Memo1.Lines.Add(s);
-      {$ENDIF}
-    until eof(f);
-    close(f);
+    StringList1.LoadFromFile(p1);
+    for i := 0 to StringList1.Count - 1 do
+      {$IFNDEF X} writeln(StringList1.Strings[i]); {$ELSE} Form1.Memo1.Lines.Add(StringList1.Strings[i]); {$ENDIF}
   except
     // Cannot type file content!
     {$IFNDEF X} writeln(ERR44); {$ELSE} Form1.Memo1.Lines.Add(ERR44); {$ENDIF}
     result := 1;
   end;
+  StringList1.Free;
 end;
 
 // COPY FILE
 function cmd_copy(p1, p2: string): byte;
+var
+  MemoryStream1: TMemoryStream;
 begin
-  if not CopyFile(p1, p2) then
-  begin
+  result := 1;
+  MemoryStream1 := TMemoryStream.Create;
+  try
+    MemoryStream1.LoadFromFile(p1);
+    MemoryStream1.SaveToFile(p2); 
+    result := 0;
+  except
     // Cannot copy file!
     {$IFNDEF X} writeln(ERR45); {$ELSE} Form1.Memo1.Lines.Add(ERR45); {$ENDIF}
-    result := 1;
-  end else result := 0;
+  end;
+  MemoryStream1.Free
 end;
 
 // RENAME FILE
@@ -174,7 +163,7 @@ var
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
-  if (op >= 99) and (op <= 101) then
+  if (op >= 100) and (op <= 101) then
   begin
     if (length(p1) = 0) or (length(p2) = 0) then
     begin

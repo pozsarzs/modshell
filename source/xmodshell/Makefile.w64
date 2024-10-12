@@ -24,7 +24,6 @@ fpcargs = -T$(os) \
           -Fu../modsynhighlighterany \
           -Fu../synapse \
           -Fu$(lcldir)/../components/synedit/ \
-          -Fu$(lcldir)/../components/lazutils/lib/$(architecture)-$(os)/ \
           -Fu$(lcldir)/../packager/units/$(architecture)-$(os)/ \
           -Fu$(lcldir)/units/$(architecture)-$(os)/ \
           -Fu$(lcldir)/units/$(architecture)-$(os)/win32/ \

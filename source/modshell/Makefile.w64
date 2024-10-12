@@ -21,7 +21,6 @@ fpcargs = -T$(os) \
           -Fu../_ppu \
           -Fu../convert \
           -Fu../synapse \
-          -Fu$(lcldir)/../components/lazutils/lib/$(architecture)-$(os) \
           -Fu$(outdir) \
           -FE$(outdir)
 

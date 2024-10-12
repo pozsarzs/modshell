@@ -18,7 +18,6 @@ program modshell;
 uses
   {$IFDEF GO32V2} protcom, {$ELSE} synaser, {$ENDIF}
   Classes,
-  FileUtil,
   GetText,
   INIFiles,
   Math,

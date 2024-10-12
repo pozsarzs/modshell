@@ -8,23 +8,28 @@
 name = modshell
 architecture = i386
 os = go32v2
+lcldir = c:\lazarus\lcl
 outdir = ..\_lib\$(architecture)-dos
-fpcargs = -T$(os) -MObjFPC -Scgi -O1 -v0 \
-          -Fi..\_inc \
-          -Fi..\_inc\* \
+fpcargs = -T$(os) \
+          -MObjFPC \
+          -Scgi \
+          -O1 \
+          -v0 \
+          -Fi../_inc \
+          -Fi../_inc/* \
           -Fu. \
-          -Fu..\_ppu \
-          -Fu..\convert \
-          -Fu..\synapse \
+          -Fu../_ppu \
+          -Fu../convert \
+          -Fu../protcom \
           -Fu$(outdir) \
           -FE$(outdir)
 
 all:
-	@if not exist lib\nul mkdir lib
-	@if not exist $(outdir)\nul mkdir $(outdir)
-	@fpc $(fpcargs) $(name).pas
-	@rstconv -c cp852 -f po -i $(outdir)\$(name).rsj  -o $(outdir)\$(name).pot
+	@if not exist ..\_lib\nul md ..\_lib
+	@if not exist $(outdir)\nul md $(outdir)
+	@ppc386 $(fpcargs) $(name).pas
 	@copy $(outdir)\$(name).exe ..\..
 
 clean:
 	@erase $(outdir)\*.*
+

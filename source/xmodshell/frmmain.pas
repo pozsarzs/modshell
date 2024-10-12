@@ -38,7 +38,6 @@ uses
   crt,
   dom,
   dos,
-  fileutil,
   frmsecn,
   frmvrmn,
   gettext,
