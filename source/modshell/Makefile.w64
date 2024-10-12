@@ -8,22 +8,27 @@
 name = modshell
 architecture = x86_64
 os = win64
+lcldir = c:\lazarus\lcl
 outdir = ..\_lib\$(architecture)-$(os)
-fpcargs = -T$(os) -MObjFPC -Scgi -O1 -v0 \
-          -Fi..\_inc \
-          -Fi..\_inc\* \
+fpcargs = -T$(os) \
+          -MObjFPC \
+          -Scgi \
+          -O1 \
+          -v0 \
+          -Fi../_inc \
+          -Fi../_inc/* \
           -Fu. \
-          -Fu..\_ppu \
-          -Fu..\convert \
-          -Fu..\synapse \
+          -Fu../_ppu \
+          -Fu../convert \
+          -Fu../synapse \
+          -Fu$(lcldir)/../components/lazutils/lib/$(architecture)-$(os) \
           -Fu$(outdir) \
           -FE$(outdir)
 
 all:
-	@if not exist ..\lib\nul md ..\lib
+	@if not exist ..\_lib\nul md ..\_lib
 	@if not exist $(outdir)\nul md $(outdir)
-	@ppcrossx64 $(fpcargs) $(name).pas
-	@rstconv -f po -i $(outdir)\$(name).rsj  -o ..\..\message\$(name).pot
+	@ppcx64 $(fpcargs) $(name).pas
 	@copy $(outdir)\$(name).exe ..\..
 
 clean:

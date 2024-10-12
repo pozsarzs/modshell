@@ -1,39 +1,42 @@
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023 Pozsar Zsolt <pozsarzs@gmail.com>                       |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | Makefile                                                                   |
-# | Makefile for 32 bit Windows                                                |
+# | Makefile for 64 bit Windows                                                |
 # +----------------------------------------------------------------------------+
 
 name = xmodshell
 architecture = x86_64
+os = win64
 lcldir = c:\lazarus\lcl
-os = win32
-outdir = ..\_lib\$(architecture)-dos
-fpcargs = -T$(os) -MObjFPC -Scgi -O1 -v0 \
-          -Fi..\inc \
-          -Fi..\inc\* \
+outdir = ..\_lib\$(architecture)-$(os)
+fpcargs = -T$(os) \
+          -MObjFPC \
+          -Scgi \
+          -O1 \
+          -v0 \
+          -Fi../_inc \
+          -Fi../_inc/* \
           -Fu. \
-          -Fu..\convert \
-          -Fu..\modlcltranslator \
-          -Fu..\modsynhighlighterany \
-          -Fu..\ppu \
-          -Fu..\synapse \
+          -Fu../_ppu \
+          -Fu../convert \
+          -Fu../modlcltranslator \
+          -Fu../modsynhighlighterany \
+          -Fu../synapse \
           -Fu$(lcldir)/../components/synedit/ \
           -Fu$(lcldir)/../components/lazutils/lib/$(architecture)-$(os)/ \
           -Fu$(lcldir)/../packager/units/$(architecture)-$(os)/ \
           -Fu$(lcldir)/units/$(architecture)-$(os)/ \
-          -Fu$(lcldir)/units/$(architecture)-$(os)/$(os)/ \
+          -Fu$(lcldir)/units/$(architecture)-$(os)/win32/ \
           -Fu$(outdir) \
           -FE$(outdir) \
           -dLCL \
           -dLCLwin32
 
 all:
-	@if not exist ..\lib\nul md ..\lib
+	@if not exist ..\_lib\nul md ..\_lib
 	@if not exist $(outdir)\nul md $(outdir)
-	@fpc $(fpcargs) $(name).pas
-	@rstconv -f po -i $(outdir)\$(name).rsj  -o ..\..\message\$(name).pot
+	@ppcx64 $(fpcargs) $(name).lpr
 	@copy $(outdir)\$(name).exe ..\..
 
 clean:
