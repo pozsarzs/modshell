@@ -10,7 +10,7 @@ directory must be included in the PATH.
 1. On Unix-like systems
 -----------------------
 
-  Build:      $ ./configure
+  Build:      $ ./configure [cui=no] [gui=no] [stagedir=...]
               $ make
   Install:    # sudo make install
   Remove:     # make uninstall
@@ -19,13 +19,13 @@ directory must be included in the PATH.
 ~~~~~~~~~~~~~
 
   Build:      > cd source
-              > make -f Makefile.w??
+              > buildw??.bat [/nocui] [/nogui]
 
 3. On DOS
 ~~~~~~~~~
 
   Build:      > cd source
-              > make -f Makefile.dos
+              > builddos.bat
 
 --------------------------------------------------------------------------------
   ModShell * Copyright (C) 2023-2024 Pozsár Zsolt <pozsarzs@gmail.com>
