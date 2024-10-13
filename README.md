@@ -9,10 +9,9 @@
 **Command-driven scriptable Modbus utility**
 
 Copyright (C) 2023-2024 Pozsár Zsolt <pozsarzs@gmail.com>  
-Homepage: <http://www.pozsarzs.hu>  
-GitHub: <https://github.com/pozsarzs/modshell>  
-Online manual: <https://github.com/pozsarzs/modshell/wiki>  
-Project webpage: <https://pozsarzs.github.io/modshell>  
+
+ModShell is a utility built around a command interpreter, which with the connected peripherals
+communicates via various ports using the Modbus protocol.
 
 |features                |                                                                                            |
 |------------------------|--------------------------------------------------------------------------------------------|
@@ -90,23 +89,17 @@ Run example script on bash with ModShell interpreter
 
 **XModShell**
 
-Main screen with operation menu  
-![main screen with operation menu](document/picture/xmodshell-opmenu.png)
-
 Dump input registers  
 ![dump input registers](document/picture/xmodshell-dump.png)
 
-Set device dialog  
-![set device dialog](document/picture/xmodshell-setdev.png)
+Mini serial console  
+![mini serial console](document/picture/xmodshell-sercons.png)
 
 Script editor  
 ![script editor](document/picture/xmodshell-edit.png)
 
 Variable monitor  
 ![variable monitor](document/picture/xmodshell-varmon.png)
-
-Mini serial console  
-![mini serial console](document/picture/xmodshell-serialconsole.png)
 
 #### 2. Used external libraries
 
@@ -343,6 +336,13 @@ In the graphical version, the Online Wiki can be opened directly from the 'Help'
 If you find any bugs, please report them! I am also happy to accept pull
 requests from anyone. You can use the GitHub issue tracker to report bugs, ask
 questions, or suggest new features.
+
+**Links**
+
+- [Homepage](http://www.pozsarzs.hu)  
+- [GitHub repository](https://github.com/pozsarzs/modshell)  
+- [Project webpage on Github](https://pozsarzs.github.io/modshell)  
+- [Online manual on Github](https://github.com/pozsarzs/modshell/wiki)  
 
 **Precompiled binaries and installer packages for several OS and architecture**
 

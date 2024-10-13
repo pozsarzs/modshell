@@ -28,7 +28,7 @@ cd ..
 goto end
 
 :help
-echo Usage: "%0 [/?] [nocui] [nogui]"
+echo Usage: %0 [/?] [nocui] [nogui]
 goto end
 
 :end
