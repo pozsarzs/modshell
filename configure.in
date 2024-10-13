@@ -1,8 +1,8 @@
 dnl +------------------------------------------------------------------------+
 dnl | ModShell 0.1 * Command-driven scriptable Modbus utility                |
 dnl | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>              |
-dnl | Makefile                                                               |
-dnl | Makefile for Unix-like systems                                         |
+dnl | configure.in                                                           |
+dnl | Autoconf input file                                                    |
 dnl +------------------------------------------------------------------------+
 
 AC_INIT
@@ -10,43 +10,49 @@ AC_CONFIG_SRCDIR([source/modshell/])
 AC_CONFIG_AUX_DIR(autoconf)
 AC_CANONICAL_TARGET
 
+
+dnl -- SEARCH PROGRAMS --
 AC_PATH_PROG(ln, ln, no)
 AC_PATH_PROG(rm, rm, no)
 AC_PATH_PROG(rmdir, rmdir, no)
 AC_PATH_PROG(install, install, no)
 
 AC_PATH_PROG(make, make, no)
-test "$make" == "no" && AC_MSG_ERROR(Make utility not found!)
+if test "$make" == "no"; then AC_MSG_ERROR(Make utility not found!); fi
 AC_PATH_PROG(gmake, gmake, no)
-test "$gmake" == "no" && AC_MSG_WARN(GNU make utility not found!)
-test $gmake != "no" && make=$gmake
+if test "$gmake" == "no"; then AC_MSG_WARN(GNU make utility not found!); fi
+if test $gmake != "no"; then make=$gmake; fi
 
 AC_PATH_PROG(rstconv, rstconv, no)
-test "$rstconv" == "no" && AC_MSG_ERROR(Free Pascal resource string converter tool not found!)
+if test "$rstconv" == "no"; then AC_MSG_ERROR(Free Pascal resource string converter tool not found!); fi
 
 AC_PATH_PROG(man, man, no)
-test "$man" == "no" && AC_MSG_WARN(Manual pager not found!)
+if test "$man" == "no"; then AC_MSG_WARN(Manual pager not found!); fi
 
 AC_PATH_PROG(unix2dos, unix2dos, no)
-test "$unix2dos" == "no" && AC_MSG_WARN(Dos2unix text file format converter not found!)
+if test "$unix2dos" == "no"; then AC_MSG_WARN(Dos2unix text file format converter not found!); fi
 
 AC_PATH_PROG(msgfmt, msgfmt, no)
-test "$msgfmt" == "no" && AC_MSG_WARN(Msgfmt tool (GNU gettext utilities) not found!)
+if test "$msgfmt" == "no"; then AC_MSG_WARN(Msgfmt tool (GNU gettext utilities) not found!); fi
 
 AC_PATH_PROG(iconv, iconv, no)
-test "$iconv" == "no" && AC_MSG_WARN(Iconv text encoding converter tool not found!)
+if test "$iconv" == "no"; then AC_MSG_WARN(Iconv text encoding converter tool not found!); fi
 
 AC_PATH_PROG(fpc, fpc, no)
-test "$fpc" == "no" && AC_MSG_ERROR(Free Pascal compiler not found!)
+if test "$fpc" == "no"; then AC_MSG_ERROR(Free Pascal compiler not found!); fi
 
+
+dnl -- DETECT ARCHITECTURE AND OS --
 os=`fpc -iSO`
 architecture=`fpc -iSP`
 
-test "$os" = "linux" && lcldir=`find /usr/lib/lazarus -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
-test "$os" = "freebsd" && lcldir=`find /usr/local/share/lazarus*/ -type d -name lcl | grep lazarus | grep -v doc | grep -v test`
+
+dnl -- CHECK FILES AND DIRECTORIES --
+if test "$os" = "linux"; then lcldir=`find /usr/lib/lazarus -type d -name lcl | grep lazarus | grep -v doc | grep -v test`; fi
+if test "$os" = "freebsd"; then lcldir=`find /usr/local/share/lazarus*/ -type d -name lcl | grep lazarus | grep -v doc | grep -v test`; fi
 
 AC_CHECK_FILE($lcldir/lclbase.lpk, lclunits="yes", lclunits="no")
-test "$lclunits" == "no" && AC_MSG_WARN(LCL unit files not found!)
+if test "$lclunits" == "no"; then AC_MSG_WARN(LCL unit files not found!); fi
 
 AC_CHECK_FILE(document/VERSION, , AC_MSG_ERROR(VERSION file not found!))
 version=`cat document/VERSION`
@@ -55,26 +61,28 @@ AC_CHECK_FILE(document/copyright, , AC_MSG_ERROR(copyright file not found!))
 copyright=`cat document/copyright`
 
 AC_PREFIX_DEFAULT("/usr/local")
-test x"$prefix" == xNONE && prefix="$ac_default_prefix"
-
-if test "$prefix" == "/usr" 
-then
-  vardir="/var"
-else
-  vardir="/var/local"
-fi
-
+if test x"$prefix" == xNONE; then prefix="$ac_default_prefix"; fi
+if test "$prefix" == "/usr"; then vardir="/var"; else vardir="/var/local"; fi
 mandir="$prefix/man"
-test "$os" = "linux" && mandir="$datarootdir/man"
-
+if test "$os" = "linux"; then mandir="$datarootdir/man"; fi
 bprefix="$prefix"
-test "$stagedir" != "" && prefix="$stagedir"
-test "$stagedir" != "" && mandir="$prefix/man"
 
+
+dnl -- EVALUATION OF USER'S PARAMETERS --
+if test "$stagedir" != ""; then prefix="$stagedir"; fi
+if test "$stagedir" != ""; then mandir="$prefix/man"; fi
+
+if (test "$cui" = "") || (test $cui != "no"); then cui="yes"; fi
+if (test "$gui" = "") || (test $gui != "no"); then gui="yes"; fi
+if (test $lclunits = "no"); then gui="no"; fi
+
+dnl -- SUBSTITUTION IN FILES --
 AC_SUBST(architecture)
 AC_SUBST(bindir)
 AC_SUBST(bprefix)
 AC_SUBST(copyright)
+AC_SUBST(cui)
+AC_SUBST(gui)
 AC_SUBST(datarootdir)
 AC_SUBST(fpc)
 AC_SUBST(fpcargs)
@@ -96,16 +104,22 @@ AC_SUBST(sysconfdir)
 AC_SUBST(unix2dos)
 AC_SUBST(vardir)
 AC_SUBST(version)
-
 AC_CONFIG_FILES([Makefile.global])
-AC_OUTPUT
 
+dnl -- PRINT SUMMARY AND NOTES --
+AC_OUTPUT
 echo "
-Target op. system	$os
-Target processor	$architecture
-Target directory	$prefix
+Summary:
+  target op. system         $os
+  target processor          $architecture
+  target directory          $prefix
+  compilation ModShell      $cui
+  compilation XModShell     $gui
+
+Type '${make}' for compilation and then '${make} install'.
+
+Notes:
+  configure cui=no        disable compilation of ModShell
+  configure gui=no        disable compilation of XModShell
+  configure stagedir=...  install to FreeBSD stage directory
 "
-test "$lclunits" == "no" && echo "Compilation of XModShell disabled due to missing LCL units!"
-test "$stagedir" != "" && echo "Install to FreeBSD stage directory: $prefix"
-echo "
-Type '${make}' for compilation and then '${make} install'."

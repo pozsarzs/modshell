@@ -21,10 +21,12 @@ all:
 	  if [ -d $$x ]; \
 	  then \
 	    cd $$x; \
-	    if [ -f $$x.pas ]; then $(fpc) $(fpcargs) $$x.pas; fi; \
-            if [ $(lclunits) = yes ]; then \
+            if [ ! $(cui) = "no" ]; then \
+	      if [ -f $$x.pas ]; then $(fpc) $(fpcargs) $$x.pas; fi; \
+	    fi; \
+            if [ $(lclunits) = yes ] && [ ! $(gui) = no ]; then \
               if [ -f $$x.lpr ]; then $(fpc) $(fpcargs) $$x.lpr; fi; \
-            fi; \
+	    fi; \
 	    cd ..; \
 	    echo ""; \
 	  fi; \
