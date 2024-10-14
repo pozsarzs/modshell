@@ -48,7 +48,7 @@ var
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER
-  if (length(p1) = 0) or (length(p2) = 0) then
+  if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
     // Parameter(s) required!
     {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
@@ -61,7 +61,7 @@ begin
   if length(s[1]) = 0 then s[1] := p1;
   // CHECK P2 PARAMETER: IS IT A MESSAGE?
   s[2] := isitmessage(p2);
-  if length(s[2]) < 0 then
+  if length(s[2]) = 0 then
   begin
     // CHECK P2 PARAMETER: IS IT VARIABLE?
     if boolisitconstant(p2) then s[2] := isitconstant(p2);
@@ -73,10 +73,10 @@ begin
   if boolisitvariable(p3) then s[3] := isitvariable(p3);
   if length(s[3]) = 0 then s[3] := p3;
   i3 := strtointdef(s[3], -1);
-  if (i3 < 0) or (i3 > 7) then
+  if (i3 < 0) or (i3 > 4) then
   begin
-    // What is the 1st parameter?
-    {$IFNDEF X} writeln(NUM1 + MSG05 + ' 0-7'); {$ELSE} Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 0-7'); {$ENDIF}
+    // What is the 3rd parameter?
+    {$IFNDEF X} writeln(NUM3 + MSG05 + ' 0-4'); {$ELSE} Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 0-7'); {$ENDIF}
     result := 1;
     exit;
   end;

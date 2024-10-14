@@ -343,7 +343,7 @@ resourcestring
         '  serwrite dev? "MESSAGE"' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
-  USG38='echo [off|on|hex]';
+  USG38='echo [off|on|hex|swap]';
   USG39='loadscr [$]PATH_AND_FILENAME';
   USG40='run [-h] [-s]';
   USG41='list';
