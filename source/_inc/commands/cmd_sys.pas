@@ -31,6 +31,7 @@ var
   SearchRec1: TSearchRec;
   StringList1, StringList2: TStringList;
   i: integer;
+  line: integer;
 begin
   StringList1 := TStringList.Create;
   StringList2 := TStringList.Create;
@@ -48,15 +49,26 @@ begin
   end;
   StringList1.Sort;
   StringList2.Sort;
-  {$IFNDEF X}
-    for i:=0 to StringList1.Count - 1 do writeln(StringList1.Strings[i]);
-    for i:=0 to StringList2.Count - 1 do writeln(StringList2.Strings[i]);
-  {$ELSE}
-    for i:=0 to StringList1.Count - 1 do Form1.Memo1.Lines.Add(StringList1.Strings[i]);
-    for i:=0 to StringList2.Count - 1 do Form1.Memo1.Lines.Add(StringList2.Strings[i]);
-  {$ENDIF}
-  StringList1.Free;
+  for i := 0 to StringList2.Count - 1 do
+    StringList1.Add(StringList2.Strings[i]);
   StringList2.Free;
+  {$IFNDEF X}
+    line := 0;
+  {$ENDIF}
+  for i := 0 to StringList1.Count - 1 do
+  {$IFNDEF X}
+    begin
+      writeln(StringList1.Strings[i]);
+      inc(line);
+      if line >= (termheight - 6) then
+      begin
+        write(MSG23); readkey;
+        write(#13); clreol;
+        line := 0;
+      end;
+    end;
+  {$ELSE} Form1.Memo1.Lines.Add(StringList1.Strings[i]); {$ENDIF}
+  StringList1.Free;
   result := 0;
 end;
 
