@@ -113,13 +113,28 @@ function cmd_type(p1: string): byte;
 var
   StringList1: TStringList;
   i: integer;
+  line: byte;
 begin
   result := 0;
   StringList1 := TStringList.Create;
   try
     StringList1.LoadFromFile(p1);
+    {$IFNDEF X}
+      line := 0;
+    {$ENDIF}
     for i := 0 to StringList1.Count - 1 do
-      {$IFNDEF X} writeln(StringList1.Strings[i]); {$ELSE} Form1.Memo1.Lines.Add(StringList1.Strings[i]); {$ENDIF}
+    {$IFNDEF X}
+      begin
+        writeln(StringList1.Strings[i]);
+        inc(line);
+        if line >= (termheight - 6) then
+        begin
+          write(MSG23); readkey;
+          write(#13); clreol;
+          line := 0;
+        end;
+      end;
+    {$ELSE} Form1.Memo1.Lines.Add(StringList1.Strings[i]); {$ENDIF}
   except
     // Cannot type file content!
     {$IFNDEF X} writeln(ERR44); {$ELSE} Form1.Memo1.Lines.Add(ERR44); {$ENDIF}

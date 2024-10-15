@@ -154,14 +154,14 @@ begin
         repeat
           if appmode = 3 then showtime(colors[0], colors[1]);
           delay(SHOWTIMEDELAY);
-      until keypressed;
+        until keypressed;
         c := readkey;
         // only insert
-        if c = #34 then
+        if c = #46 then
           begin command := COMMANDS[17]; c := #32; end;                    // ALT-C
-        if c = #34 then
+        if c = #18 then
           begin command := COMMANDS[15]; c := #32; end;                    // ALT-E
-        if c = #34 then
+        if c = #23 then
           begin command := COMMANDS[22]; c := #32; end;                    // ALT-I
         if c = #34 then
           begin command := COMMANDS[2]; c := #32; end;                     // ALT-G
@@ -216,15 +216,15 @@ begin
             inc(uconfig.histitem);
             command := uconfig.histbuff[uconfig.histitem];
           end;
+      end else
+      begin
+        if c = #8 then delete(command, length(command), 1);                  // BACKSPACE
+        if c = #9 then c := #32;                                             // TAB
+        if c = #27 then command := '';                                       // ESC
+        if (c <> #8) and (c <> #13) and (c <> #27) then command := command + c;
       end;
-      if c = #8 then delete(command, length(command), 1);                  // BACKSPACE
-      if c = #9 then c := #32;                                             // TAB
-      if c = #27 then command := '';                                       // ESC
-      if (c <> #8) and (c <> #13) and (c <> #27) and
-         (c <> #72) and (c <> #75) and (c <> #77) and (c <> #80)
-      then command := command + c;
       xywrite(1, wherey, true, fullprompt + command);
-    until (c = #13);                                                       // ENTER
+    until (c = #13);                                                         // ENTER
     if length(command) > 0 then
     begin
       if uconfig.histlast < 255 then
@@ -318,11 +318,14 @@ begin
   end;
   loadconfiguration(BASENAME, '.ini');
   setdefaultconstants;
+  originaldirectory := getcurrentdir;
+  setcurrentdir(getuserdir + PRGNAME);  
   case appmode of
     0: simplecommandline;
     3: fullscreencommandline;
     4: interpreter(paramstr(2));
   end;
   saveconfiguration(BASENAME, '.ini');
+  setcurrentdir(originaldirectory);
   quit(0, false, '');
 end.

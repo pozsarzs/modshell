@@ -3206,6 +3206,7 @@ begin
     formpositions[2, 3] := Width;
   end;
   saveconfiguration(BASENAME,'.ini');
+  setcurrentdir(originaldirectory);
   CanClose := true;
 end;
 
@@ -3230,6 +3231,8 @@ begin
   fp := getuserdir + PRGNAME + SLASH + proj;
   createdir(fp);
   // restore main window size and position and set title
+  originaldirectory := getcurrentdir;
+  setcurrentdir(getuserdir + PRGNAME);
   with Form1 do
   begin
     Top := formpositions[0, 0];

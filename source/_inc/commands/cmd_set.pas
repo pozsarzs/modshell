@@ -375,8 +375,9 @@ var
     s: string = '';
   begin
     s := NUM1 + MSG05;
-    for b := 0 to 4 do  s := s + ' ' + PREFIX[b] + '[0-7]';
+    for b := 0 to 2 do  s := s + ' ' + PREFIX[b] + '[0-7]';
     s := s + ' ' + PREFIX[3];
+    s := s + ' ' + PREFIX[4];
     // What is the 1st parameter?
     {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
   end;

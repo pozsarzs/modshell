@@ -75,6 +75,7 @@ begin
         // What is the 1st parameter?
         s := NUM1 + MSG05;
         for x := 0 to 3 do s := s + ' ' + REG_TYPE[x];
+        s := s + MSG83;
         {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
         result := 1;
         exit;
@@ -116,6 +117,7 @@ begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
     for x := 0 to 3 do s := s + ' ' + REG_TYPE[x];
+    s := s + MSG83;
     {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;

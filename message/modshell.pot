@@ -357,6 +357,10 @@ msgstr ""
 msgid "timeout"
 msgstr ""
 
+#: modshell:msg83
+msgid " or a variable"
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""
@@ -594,7 +598,7 @@ msgid "       copy one or more remote reg. between two connections"
 msgstr ""
 
 #: modshell:des01
-msgid "F10    exit"
+msgid "F10    exit from program"
 msgstr ""
 
 #: modshell:des02
@@ -1197,7 +1201,7 @@ msgid ""
 msgstr ""
 
 #: modshell:usg38
-msgid "echo [off|on|hex]"
+msgid "echo [off|on|hex|swap]"
 msgstr ""
 
 #: modshell:usg39
@@ -1225,7 +1229,7 @@ msgid "cotan $TARGET [$]VALUE"
 msgstr ""
 
 #: modshell:usg45
-msgid "dec $TARGET [$]VALUE"
+msgid "dec $VARIABLE"
 msgstr ""
 
 #: modshell:usg46
@@ -1241,7 +1245,7 @@ msgid "imod $TARGET [$]VALUE1 [$]VALUE2"
 msgstr ""
 
 #: modshell:usg49
-msgid "inc $TARGET [$]VALUE"
+msgid "inc $VARIABLE"
 msgstr ""
 
 #: modshell:usg50

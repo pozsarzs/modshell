@@ -107,6 +107,7 @@ resourcestring
   MSG80 = 'Value';
   MSG81 = 'Use ''Utilities/Mini serial console'' on GUI version.';
   MSG82 = 'timeout';
+  MSG83 = ' or a variable';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -168,7 +169,7 @@ resourcestring
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
-  DES01='F10    exit';
+  DES01='F10    exit from program';
   DES02='ALT-G  show device, protocol, connection or project name';
   DES03='F1     show description or usage of the commands';
   DES04='ALT-L  set value of a variable or a register';
@@ -350,11 +351,11 @@ resourcestring
   USG42='round $TARGET [$]VALUE [$]DEC_PLACES';
   USG43='cos $TARGET [$]VALUE';
   USG44='cotan $TARGET [$]VALUE';
-  USG45='dec $TARGET [$]VALUE';
+  USG45='dec $VARIABLE';
   USG46='exp $TARGET [$]VALUE';
   USG47='idiv $TARGET [$]VALUE1 [$]VALUE2';
   USG48='imod $TARGET [$]VALUE1 [$]VALUE2';
-  USG49='inc $TARGET [$]VALUE';
+  USG49='inc $VARIABLE';
   USG50='ln $TARGET [$]VALUE';
   USG51='mulinv $TARGET [$]VALUE';
   USG52='odd $TARGET [$]VALUE';
