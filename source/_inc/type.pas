@@ -41,8 +41,7 @@ type
     vreadonly: boolean;    // variable or constant
     vmonitored: boolean;   // it is monitored?
   end;
-  type
-    tcron = record
+  tcron = record
      cenable: boolean;     // enable/disable this record
      chour: byte;          // hour(s)
      cminute: byte;        // minutes(s)

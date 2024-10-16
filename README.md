@@ -309,19 +309,22 @@ selected.
 
 **Predefined constants**
 
-|name  |value                              |
-|------|-----------------------------------|
-|$?    |exit value of the commands         |
-|$PI   |value of Pi (3.1415926535897932385)|
-|$EULER|value of e  (2.7182818284590452354)|
-|$B1   |1200 (baud)                        |
-|$B2   |2400 (baud)                        |
-|$B4   |4800 (baud)                        |
-|$B9   |9600 (baud)                        |
-|$B19  |19200 (baud)                       |
-|$B38  |38400 (baud)                       |
-|$B57  |57600 (baud)                       |
-|$B115 |115200 (baud)                      |
+|name    |value                              |
+|--------|-----------------------------------|
+|$?      |exit value of the commands         |
+|$B1     |1200 (baud)                        |
+|$B2     |2400 (baud)                        |
+|$B4     |4800 (baud)                        |
+|$B9     |9600 (baud)                        |
+|$B19    |19200 (baud)                       |
+|$B38    |38400 (baud)                       |
+|$B57    |57600 (baud)                       |
+|$B115   |115200 (baud                       |
+|$EULER  |value of e  (2.7182818284590452354)|
+|$HOME   |user's home directory              |
+|$PI     |value of Pi (3.1415926535897932385)|
+|$PRJDIR |directory of the actual project    |
+|$PRJNAME|name of the actual project         |
 
 **Documentation and Help**
 

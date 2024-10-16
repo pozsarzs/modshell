@@ -60,6 +60,6 @@ const
   FILE_TYPE: array[0..2] of string = ('csv','ini','xml');
   PROT_TYPE: array[0..2] of string = ('ascii','rtu','tcp');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');
-  PREFIX: array[0..4] of string = ('dev','pro','con','prj','timeout');
+  PREFIX: array[0..4] of string = ('dev','pro','con','project','timeout');
   ECHO_ARG: array[0..3] of string = ('off','on','hex','swap');
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');

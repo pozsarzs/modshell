@@ -41,10 +41,8 @@ begin
     exit;
   end;
   // SET LOG FILE
-  fp := getuserdir + PRGNAME;
-  createdir(fp);
-  fp := getuserdir + PRGNAME + SLASH + proj;
-  createdir(fp);
+  fp := vars[13].vname;
+  ForceDirectories(fp);
   fpn := fp + SLASH + 'console.log';
   assignfile(lf, fpn);
   try

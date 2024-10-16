@@ -74,15 +74,9 @@ begin
     exit;
   end;
   // SET LOG FILE
-  {$IFDEF GO32V2}
-    fp := getexedir + proj;
-    createdir(fp);
-  {$ELSE}
-    fp := getuserdir + PRGNAME;
-    createdir(fp);
-    fp := getuserdir + PRGNAME + SLASH + proj;
-    createdir(fp);
-  {$ENDIF}
+  fp := vars[13].vname;
+  ForceDirectories(fp);
+  fp := fp + SLASH;
   fpn := fp + SLASH + 'console.log';
   assignfile(lf, fpn);
   try

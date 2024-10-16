@@ -14,8 +14,8 @@
 }
 {
   p0    p1
-  ------------------------
-  reset dev?|pro?|con?|prj
+  ----------------------------
+  reset dev?|pro?|con?|project
 }
 
 // COMMAND 'RESET'
@@ -52,7 +52,12 @@ begin
   // check p1 parameter
   if p1 = PREFIX[3] then
   begin
-    proj := 'default';
+    vars[12].vname := 'default';
+    {$IFDEF GO32V2}
+      vars[13].vname := getexedir + vars[12].vname;
+    {$ELSE}
+      vars[13].vname := vars[11].vname + PRGNAME + SLASH + vars[12].vname;
+    {$ENDIF}
     exit;
   end;
   s := p1;

@@ -29,7 +29,6 @@
         <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos X="2" Y="7"/>
         <UsageCount Value="219"/>
@@ -159,11 +158,21 @@
         <CursorPos X="4" Y="165"/>
         <UsageCount Value="10"/>
       </Unit>
+      <Unit>
+        <Filename Value="../modsynhighlighterany/modsynhighlighterany.pas"/>
+        <UnitName Value="MODSynHighlighterAny"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="50"/>
+        <CursorPos X="3" Y="61"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
     </Units>
     <Debugger>
       <Backend Value="IDE"/>
     </Debugger>
-    <JumpHistory HistoryIndex="28">
+    <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="frmsecn.pas"/>
         <Caret Line="58" Column="12" TopLine="54"/>
@@ -279,6 +288,10 @@
       <Position>
         <Filename Value="frmsecn.pas"/>
         <Caret Line="113" Column="44" TopLine="107"/>
+      </Position>
+      <Position>
+        <Filename Value="frmvrmn.pas"/>
+        <Caret Line="7" Column="2"/>
       </Position>
     </JumpHistory>
     <RunParams>

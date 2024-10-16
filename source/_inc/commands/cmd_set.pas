@@ -20,7 +20,7 @@
   set pro?    ascii|rtu      [$]UID
   set pro?    tcp            [$]IP_ADDRESS
   set con?    dev?           pro?
-  set prj     [$]PROJECTNAME
+  set project [$]PROJECTNAME
   set timeout [$]TIMEOUT
 }
 
@@ -308,7 +308,7 @@ var
   end;
 
   // SET NAME OF THE PROJECT
-  procedure cmd_set_prj(p2: string);
+  procedure cmd_set_project(p2: string);
   var
     b, bb: byte;
     s2: string; // parameter in other type
@@ -340,7 +340,15 @@ var
       // Illegal character in the project name!
       {$IFNDEF X} writeln(ERR14); {$ELSE} Form1.Memo1.Lines.Add(ERR14); {$ENDIF}
       error := 1;
-    end else proj := s;
+    end else
+    begin
+      vars[12].vname := s;
+      {$IFDEF GO32V2}
+        vars[13].vname := getexedir + vars[12].vname;
+      {$ELSE}
+        vars[13].vname := vars[11].vname + PRGNAME + SLASH + vars[12].vname;
+      {$ENDIF}
+    end;
   end;
 
   // SET CONNECTION TIMEOUT
@@ -395,7 +403,7 @@ begin
   // CHECK P1 PARAMETER
   if p1 = PREFIX[3] then
   begin
-    cmd_set_prj(p2);
+    cmd_set_project(p2);
     result := 1;
     exit;
   end;

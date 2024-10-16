@@ -31,12 +31,12 @@ var
   SearchRec1: TSearchRec;
   StringList1, StringList2: TStringList;
   i: integer;
-  line: integer;
+  {$IFNDEF X} line: integer; {$ENDIF}
   s1: string; // parameter in other format
 begin
   if length(p1) > 0 then
     if (p1 <> SLASH) then
-      s1 := p1 + SLASH + '*' else s1 := p1
+      s1 := p1 + SLASH + '*' else s1 := p1 + '*'
   else s1 := '*';
   StringList1 := TStringList.Create;
   StringList2 := TStringList.Create;
@@ -130,7 +130,7 @@ function cmd_type(p1: string): byte;
 var
   StringList1: TStringList;
   i: integer;
-  line: byte;
+  {$IFNDEF X} line: integer; {$ENDIF}
 begin
   result := 0;
   StringList1 := TStringList.Create;

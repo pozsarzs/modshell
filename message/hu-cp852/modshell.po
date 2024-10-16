@@ -379,6 +379,10 @@ msgstr "Haszn†lja az 'Eszkîzîk/Mini soros konzol'-t a GUI v†ltozatn†l."
 msgid "timeout"
 msgstr "idãt£llÇpÇs"
 
+#: modshell:msg83
+msgid " or a variable"
+msgstr " vagy v†ltoz¢"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Ford°t†s ideje: "
@@ -616,8 +620,8 @@ msgid "       copy one or more remote reg. between two connections"
 msgstr "       egy vagy tîbb t†voli regiszter m†sol†sa kÇt kapcsolat kîzîtt"
 
 #: modshell:des01
-msgid "F10    exit"
-msgstr "F10    kilÇpÇs"
+msgid "F10    exit from program"
+msgstr "F10    kilÇpÇs a programb¢l"
 
 #: modshell:des02
 msgid "ALT-G  show device, protocol, connection or project name"
@@ -1036,12 +1040,12 @@ msgstr "exit"
 
 #: modshell:usg02
 msgid ""
-"get dev?|pro?|con?|prj|timeout\n"
+"get dev?|pro?|con?|project|timeout\n"
 "Notes:\n"
 "  - The '?' value can be 0-7.\n"
 "  - The timeout value can be 1-60."
 msgstr ""
-"get dev?|pro?|con?|prj|timeout\n"
+"get dev?|pro?|con?|project|timeout\n"
 "MegjegyzÇs:\n"
 "  - A '?' ÇrtÇke 0-7 lehet.\n"
 "  - A 'timeout' ÇrtÇke 1-60 lehet."
@@ -1076,11 +1080,11 @@ msgstr "readreg con? dinp|coil|ireg|hreg [$]C÷M [[$]MENNYISêG]"
 
 #: modshell:usg07
 msgid ""
-"reset dev?|pro?|con?|prj\n"
+"reset dev?|pro?|con?|project\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"reset dev?|pro?|con?|prj\n"
+"reset dev?|pro?|con?|project\n"
 "MegjegyzÇs:\n"
 "  - A '?' ÇrtÇke 0-7 lehet."
 
@@ -1091,7 +1095,7 @@ msgid ""
 "  set pro? ascii|rtu [$]UID\n"
 "  set pro? tcp [$]IP_ADDRESS\n"
 "  set con? dev? pro?\n"
-"  set prj [$]PROJECT_NAME\n"
+"  set project [$]PROJECT_NAME\n"
 "  set timeout [$]TIME_OUT\n"
 "Notes:\n"
 "  - The '?' value can be 0-7.\n"
@@ -1102,7 +1106,7 @@ msgstr ""
 "  set pro? ascii|rtu [$]UID\n"
 "  set pro? tcp [$]IP_C÷M\n"
 "  set con? dev? pro?\n"
-"  set prj [$]PROJEKNêV\n"
+"  set project [$]PROJEKNêV\n"
 "  set timeout [$]IDäTÈLLêPêS\n"
 "MegjegyzÇs:\n"
 "  - A '?' ÇrtÇke 0-7 lehet.\n"
@@ -1269,8 +1273,8 @@ msgstr ""
 "  - A '?' ÇrtÇke 0-7 lehet."
 
 #: modshell:usg38
-msgid "echo [off|on|hex]"
-msgstr "echo [off|on|hex]"
+msgid "echo [off|on|hex|swap]"
+msgstr "echo [off|on|hex|swap]"
 
 #: modshell:usg39
 msgid "loadscr [$]PATH_AND_FILENAME"
@@ -1297,8 +1301,8 @@ msgid "cotan $TARGET [$]VALUE"
 msgstr "cotan $CêL [$]êRTêK"
 
 #: modshell:usg45
-msgid "dec $TARGET [$]VALUE"
-msgstr "dec $CêL [$]êRTêK"
+msgid "dec $VARIABLE"
+msgstr "dec $VµLTOZ‡"
 
 #: modshell:usg46
 msgid "exp $TARGET [$]VALUE"
@@ -1313,8 +1317,8 @@ msgid "imod $TARGET [$]VALUE1 [$]VALUE2"
 msgstr "imod $CêL [$]êRTêK1 [$]êRTêK2"
 
 #: modshell:usg49
-msgid "inc $TARGET [$]VALUE"
-msgstr "inc $CêL [$]êRTêK"
+msgid "inc $VARIABLE"
+msgstr "inc $VµLTOZ‡"
 
 #: modshell:usg50
 msgid "ln $TARGET [$]VALUE"

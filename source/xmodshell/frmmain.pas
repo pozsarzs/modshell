@@ -382,7 +382,7 @@ begin
     DefaultExt := '';
     Filter := MSG42;
     FilterIndex := 0;
-    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    InitialDir := vars[13].vname;
     Title := rmampdot(MenuItem37.Caption);
   end;
   if LOpenDialog1.Execute then
@@ -407,7 +407,7 @@ begin
     DefaultExt := '';
     Filter := MSG42;
     FilterIndex := 0;
-    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    InitialDir := vars[13].vname;
     Title := rmampdot(MenuItem36.Caption);
   end;
   if LSaveDialog1.Execute then
@@ -438,10 +438,10 @@ end;
 // RUN COMMAND 'set prj ...' WITH InputBox
 procedure TForm1.MenuItem38Click(Sender: TObject);
 begin
-  menucmd := COMMANDS[8] + ' prj ' + InputBox(rmampdot(MenuItem38.Caption), MSG71, proj);
+  menucmd := COMMANDS[8] + ' prj ' + InputBox(rmampdot(MenuItem38.Caption), MSG71, vars[12].vname);
   Memo1.Lines.Add(fullprompt + menucmd);
   parsingcommands(menucmd);
-  Form1.Caption := 'X' + PRGNAME + ' | ' + proj;
+  Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vname;
   Label1.Caption := fullprompt;
 end;
 
@@ -451,7 +451,7 @@ begin
   menucmd := COMMANDS[7] + ' prj';
   Memo1.Lines.Add(fullprompt + menucmd);
   parsingcommands(menucmd);
-  Form1.Caption := 'X' + PRGNAME + ' | ' + proj;
+  Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vname;
   Label1.Caption := fullprompt;
 end;
 
@@ -1859,7 +1859,7 @@ begin
   with LOpenDialog1 do
   begin
     Title := rmampdot(MenuItem13.Caption);
-    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    InitialDir := vars[13].vname;
     Filter := MSG42;
     DefaultExt := '';
     FilterIndex := 0;
@@ -1884,7 +1884,7 @@ begin
   with LSaveDialog1 do
   begin
     Title := rmampdot(MenuItem14.Caption);
-    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    InitialDir := vars[13].vname;
     Filter := MSG42;
     DefaultExt := '';
     FilterIndex := 0;
@@ -1922,7 +1922,7 @@ begin
   with LOpenDialog1 do
   begin
     Title := rmampdot(MenuItem32.Caption);
-    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    InitialDir := vars[13].vname;
     Filter := MSG58;
     DefaultExt := 'xml';
     FilterIndex := 2;
@@ -2090,7 +2090,7 @@ begin
       with LSaveDialog1 do
       begin
         Title := rmampdot(MenuItem14.Caption);
-        InitialDir := getuserdir + PRGNAME + SLASH + proj;
+        InitialDir := vars[13].vname;
         Filter := MSG57;
         DefaultExt := 'xml';
         FilterIndex := 3;
@@ -2253,7 +2253,7 @@ begin
   with LOpenDialog1 do
   begin
     Title := rmampdot(MenuItem10.Caption);
-    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    InitialDir := vars[13].vname;
     {$IFDEF WINDOWS}
       Filter := MSG43;
       DefaultExt := 'bat';
@@ -2282,7 +2282,7 @@ begin
   with LSaveDialog1 do
   begin
     Title := rmampdot(MenuItem11.Caption);
-    InitialDir := getuserdir + PRGNAME + SLASH + proj;
+    InitialDir := vars[13].vname;
     {$IFDEF WINDOWS}
       Filter := MSG43;
       DefaultExt := 'bat';
@@ -3205,7 +3205,10 @@ begin
     formpositions[2, 2] := Height;
     formpositions[2, 3] := Width;
   end;
+  // save configuration
+  uconfig.lastproject := vars[12].vname;
   saveconfiguration(BASENAME,'.ini');
+  // restore directory
   setcurrentdir(originaldirectory);
   CanClose := true;
 end;
@@ -3222,24 +3225,31 @@ var
   b: byte;
 begin
   randomize;
-  // general settings
+  // detect language
   lang := getlang;
+  // set default constants
   loadconfiguration(BASENAME,'.ini');
-  // create user's directory
-  fp := getuserdir + PRGNAME;
-  createdir(fp);
-  fp := getuserdir + PRGNAME + SLASH + proj;
-  createdir(fp);
-  // restore main window size and position and set title
+  vars[12].vname := uconfig.lastproject;
+  setdefaultconstants;
+  vars[11].vname := getuserdir;
+  if length(vars[12].vname) = 0 then vars[12].vname := 'default';
+  {$IFDEF GO32V2}
+    vars[13].vname := getexedir + vars[12].vname;
+  {$ELSE}
+    vars[13].vname := vars[11].vname + PRGNAME + SLASH + vars[12].vname;
+  {$ENDIF}
+  // make, store and set directories
+  ForceDirectories(vars[13].vname);
   originaldirectory := getcurrentdir;
   setcurrentdir(getuserdir + PRGNAME);
+  // restore main window size and position and set title
   with Form1 do
   begin
     Top := formpositions[0, 0];
     Left := formpositions[0, 1];
     if formpositions[0, 2] > 150 then Height := formpositions[0, 2];
     if formpositions[0, 3] > 200 then Width := formpositions[0, 3];
-    Caption := 'X' + PRGNAME + ' | ' + proj;
+    Caption := 'X' + PRGNAME + ' | ' + vars[12].vname;
   end;
   // set textcaptions and hints
   Label1.Caption := fullprompt;
@@ -3264,8 +3274,6 @@ begin
   // restore history
   for b := 0 to 255 do
     if length(histbuff[b]) > 0 then ComboBox1.Items.Add(histbuff[b]);
-  // set default constants
-  setdefaultconstants;
   // set syntax highlightning for the script editor
   LSynAnySyn1 := TSynAnySyn.Create(Form1);
   with LSynAnySyn1 do

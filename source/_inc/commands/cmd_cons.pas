@@ -53,6 +53,27 @@ begin
       vreadonly := true;
       vmonitored := false;
     end;
+  with vars[11] do
+  begin
+    vname := 'home';
+    vvalue := getuserdir;
+    vreadonly := true;
+    vmonitored := false;
+  end;
+  with vars[12] do
+  begin
+    vname := 'prjname';
+    vvalue := '';
+    vreadonly := true;
+    vmonitored := false;
+  end;
+  with vars[13] do
+  begin
+    vname := 'prjdir';
+    vvalue := '';
+    vreadonly := true;
+    vmonitored := false;
+  end;
 end;
 
 // CLEAR ALL VARIABLES AND SET PREDEFINED ONES

@@ -6,7 +6,7 @@ msgid "       copy one or more remote reg. between two connections"
 msgstr ""
 
 #: frmmain.des01
-msgid "F10    exit"
+msgid "F10    exit from program"
 msgstr ""
 
 #: frmmain.des02
@@ -948,6 +948,10 @@ msgstr ""
 msgid "timeout"
 msgstr ""
 
+#: frmmain.msg83
+msgid " or a variable"
+msgstr ""
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr ""
@@ -1013,7 +1017,7 @@ msgstr ""
 
 #: frmmain.usg02
 msgid ""
-"get dev?|pro?|con?|prj|timeout\n"
+"get dev?|pro?|con?|project|timeout\n"
 "Notes:\n"
 "  - The '?' value can be 0-7.\n"
 "  - The timeout value can be 1-60."
@@ -1043,7 +1047,7 @@ msgstr ""
 
 #: frmmain.usg07
 msgid ""
-"reset dev?|pro?|con?|prj\n"
+"reset dev?|pro?|con?|project\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
@@ -1055,7 +1059,7 @@ msgid ""
 "  set pro? ascii|rtu [$]UID\n"
 "  set pro? tcp [$]IP_ADDRESS\n"
 "  set con? dev? pro?\n"
-"  set prj [$]PROJECT_NAME\n"
+"  set project [$]PROJECT_NAME\n"
 "  set timeout [$]TIME_OUT\n"
 "Notes:\n"
 "  - The '?' value can be 0-7.\n"
@@ -1208,7 +1212,7 @@ msgid ""
 msgstr ""
 
 #: frmmain.usg38
-msgid "echo [off|on|hex]"
+msgid "echo [off|on|hex|swap]"
 msgstr ""
 
 #: frmmain.usg39
@@ -1236,7 +1240,7 @@ msgid "cotan $TARGET [$]VALUE"
 msgstr ""
 
 #: frmmain.usg45
-msgid "dec $TARGET [$]VALUE"
+msgid "dec $VARIABLE"
 msgstr ""
 
 #: frmmain.usg46
@@ -1252,7 +1256,7 @@ msgid "imod $TARGET [$]VALUE1 [$]VALUE2"
 msgstr ""
 
 #: frmmain.usg49
-msgid "inc $TARGET [$]VALUE"
+msgid "inc $VARIABLE"
 msgstr ""
 
 #: frmmain.usg50

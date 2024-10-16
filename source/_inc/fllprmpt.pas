@@ -16,5 +16,5 @@
 // INSERT PROJECT NAME INTO PROMPT
 function fullprompt: string;
 begin
-  result := stringreplace(PROMPT, '_' , proj, [rfReplaceAll]);
+  result := stringreplace(PROMPT, '_' , vars[12].vname, [rfReplaceAll]);
 end;

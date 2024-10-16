@@ -91,12 +91,6 @@ hexadecimal viewing can be selected.
 \fB$?\fP
 Exit value of the commands.
 .TP
-\fB$PI\fP
-Value of Pi (3.1415926535897932385).
-.TP
-\fB$EULER\fP
-Value of e  (2.7182818284590452354).
-.TP
 \fB$B1\fP
 1200 (baud).
 .TP
@@ -120,6 +114,21 @@ Value of e  (2.7182818284590452354).
 .TP
 \fB$B115\fP
 115200 (baud).
+.TP
+\fB$PI\fP
+Value of Pi (3.1415926535897932385).
+.TP
+\fB$EULER\fP
+Value of e  (2.7182818284590452354).
+.TP
+\fB$HOME\fP
+User's home directory.
+.TP
+\fB$PRJDIR\fP
+Directory of the actual project.
+.TP
+\fB$PRJNAME\fP
+Name of the actual project.
 .SH BUILTIN COMMANDS
 Notes:
   - register: local buffer register;
@@ -271,14 +280,14 @@ between 1-9999.
 
 .SS Configuration commands
 .TP
-\fBget\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP|\fItimeout\fP
+\fBget\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIproject\fP|\fItimeout\fP
 Gets configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
-(\fIcon?\fP), or project name (\fIprj\fP) or connection timeout (\fItimeout\fP) in s.
+(\fIcon?\fP), or project name (\fIproject\fP) or connection timeout (\fItimeout\fP) in s.
 ? number must be 0-7, timeout must be 1-60.
 .TP
-\fBreset\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIprj\fP
+\fBreset\fP \fIdev?\fP|\fIpro?\fP|\fIcon?\fP|\fIproject\fP
 Resets configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
-(\fIcon?\fP), or reset project name (\fIprj\fP). ? number must be 0-7.
+(\fIcon?\fP), or reset project name (\fIproject\fP). ? number must be 0-7.
 .TP
 \fBset\fP \fIdev?\fP \fInet\fP \fI[$]DEVICE\fP \fI[$]PORT\fP
 Sets device (\fIdev?\fP) to ethernet (\fInet\fP) device. Device number must be
@@ -305,7 +314,7 @@ Sets protocol (\fIpro?\fP) to Modbus/TCP (\fItcp\fP). Address of remote device
 Assigns a device (\fIdev?\fP) and a protocol (\fIpro?\fP) to a connection
 (\fIcon?\fP). ? number must be 0-7.
 .TP
-\fBset\fP \fIprj\fP [$]PROJECT_NAME
+\fBset\fP \fIproject\fP [$]PROJECT_NAME
 Sets the project name. The name cannot contain spaces or special characters.
 The project directory will also be created with this name.
 .TP
@@ -654,7 +663,7 @@ Write data from to coil address value of the $c of the connection #2.
 \fBget\fP dev2
 Get configuration of a device #2.
 .TP
-\fBreset\fP prj
+\fBreset\fP project
 Reset project name (project name will be 'default').
 .TP
 \fBset\fP dev0 net /dev/enp0s7 502
@@ -684,7 +693,7 @@ Set protocol #2 to Modbus/TCP with IP address of server.
 \fBset\fP con0 dev0 pro2
 Assigns a device #0 and protocol #2 to connection #0.
 .TP
-\fBset\fP prj temp_meter
+\fBset\fP project temp_meter
 Set the project name to 'temp_meter'.
 .TP
 \fBset\fP timeout 1000

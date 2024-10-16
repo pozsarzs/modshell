@@ -14,8 +14,8 @@
 }
 {
   p0  p1
-  ------------------------------
-  get dev?|pro?|con?|prj|timeout
+  ----------------------------------
+  get dev?|pro?|con?|project|timeout
 }
 
 // COMMAND 'GET'
@@ -146,7 +146,7 @@ begin
   // CHECK P1 PARAMETERS
   if p1 = PREFIX[3] then
   begin
-    {$IFNDEF X} writeln(proj); {$ELSE} Form1.Memo1.Lines.Add(proj); {$ENDIF}
+    {$IFNDEF X} writeln(vars[12].vname); {$ELSE} Form1.Memo1.Lines.Add(vars[12].vname); {$ENDIF}
     result := 0;
     exit;
   end;

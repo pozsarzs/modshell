@@ -56,15 +56,8 @@ begin
   fx := extractfileext(s1);
   if length(fp) = 0 then
   begin
-    {$IFDEF GO32V2}
-      fp := getexedir + proj;
-      createdir(fp);
-    {$ELSE}
-      fp := getuserdir + PRGNAME;
-      createdir(fp);
-      fp := getuserdir + PRGNAME + SLASH + proj;
-      createdir(fp);
-    {$ENDIF}
+    fp := vars[13].vname;
+    ForceDirectories(fp);
     fp := fp + SLASH;
   end;
   fpn := fp + fn;

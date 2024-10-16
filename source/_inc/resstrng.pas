@@ -275,7 +275,7 @@ resourcestring
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG01='exit';
-  USG02='get dev?|pro?|con?|prj|timeout' + EOL +
+  USG02='get dev?|pro?|con?|project|timeout' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.' + EOL +
         '  - The timeout value can be 1-60.';
@@ -287,7 +287,7 @@ resourcestring
         '  print $VARIABLE [-n]' + EOL +
         '  print "single\ line\ message" [-n]';
   USG06='readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
-  USG07='reset dev?|pro?|con?|prj' + EOL +
+  USG07='reset dev?|pro?|con?|project' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG08='set dev? net [$]DEVICE [$]PORT' + EOL +
@@ -295,7 +295,7 @@ resourcestring
         '  set pro? ascii|rtu [$]UID' + EOL +
         '  set pro? tcp [$]IP_ADDRESS' + EOL +
         '  set con? dev? pro?' + EOL +
-        '  set prj [$]PROJECT_NAME' + EOL +
+        '  set project [$]PROJECT_NAME' + EOL +
         '  set timeout [$]TIME_OUT' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.' + EOL +

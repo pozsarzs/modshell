@@ -24,7 +24,7 @@ var
   sbuffer: array[0..SCRBUFFSIZE - 1] of string;
   // variables and constats
   vars: array[0..VARBUFFSIZE-1] of tvariable;
-  {$IFDEF GO32V2} proj: string[8] = 'default'; {$ELSE} proj: string[16] = 'default'; {$ENDIF}
+  //{$IFDEF GO32V2} proj: string[8] = 'default'; {$ELSE} proj: string[16] = 'default'; {$ENDIF}
   // SETTINGS - DEVICE, PROJECT NAME, PROTOCOL, CONNECTION
   dev: array[0..7] of tdevice;
   prot: array[0..7] of tprotocol;
