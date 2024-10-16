@@ -25,12 +25,12 @@ var
   ini: TINIFile;
   fpn, fp, fn, fx: string;
   ft: byte;
-  childnode: tdomnode; 
+  childnode: TDOMNode; 
   rt: byte; // register type
   s: string;
   s1: string; // parameters in other type
   valid: boolean = false;
-  xml: txmldocument;
+  xml: TXMLDocument;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS

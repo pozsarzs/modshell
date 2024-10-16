@@ -32,10 +32,15 @@ var
   StringList1, StringList2: TStringList;
   i: integer;
   line: integer;
+  s1: string; // parameter in other format
 begin
+  if length(p1) > 0 then
+    if (p1 <> SLASH) then
+      s1 := p1 + SLASH + '*' else s1 := p1
+  else s1 := '*';
   StringList1 := TStringList.Create;
   StringList2 := TStringList.Create;
-  if SysUtils.FindFirst('*', faAnyFile, SearchRec1) = 0 then
+  if SysUtils.FindFirst(s1, faAnyFile, SearchRec1) = 0 then
   begin
     repeat
       with SearchRec1 do
@@ -112,7 +117,7 @@ end;
 // ERASE FILE
 function cmd_del(p1: string): byte;
 begin
-  if not DeleteFile(p1) then
+  if not SysUtils.DeleteFile(p1) then
   begin
     // Cannot remove file!
     {$IFNDEF X} writeln(ERR43); {$ELSE} Form1.Memo1.Lines.Add(ERR43); {$ENDIF}

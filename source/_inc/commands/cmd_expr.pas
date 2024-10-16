@@ -28,13 +28,13 @@ var
   ini: tinifile;
   fpn, fp, fn, fx: string;
   ft: byte;
-  rootnode, parentnode, itemnode: tdomnode; 
+  rootnode, parentnode, itemnode: TDOMNode; 
   rt: byte; // register type
   s: string;
   s1, s3, s4: string; // parameters in other type
   tf: textfile;
   valid: boolean = false;
-  xml: txmldocument;
+  xml: TXMLDocument;
 const
   PREFIX: string = 'addr';
 begin

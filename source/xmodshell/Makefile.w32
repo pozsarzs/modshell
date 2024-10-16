@@ -23,6 +23,7 @@ fpcargs = -T$(os) \
           -Fu../modlcltranslator \
           -Fu../modsynhighlighterany \
           -Fu../synapse \
+          -Fu$(lcldir)/../components/lazutils/lib/$(architecture)-$(os)/ \
           -Fu$(lcldir)/../components/synedit/ \
           -Fu$(lcldir)/../packager/units/$(architecture)-$(os)/ \
           -Fu$(lcldir)/units/$(architecture)-$(os)/ \
