@@ -41,7 +41,7 @@ begin
     exit;
   end;
   // SET LOG FILE
-  fp := vars[13].vname;
+  fp := vars[13].vvalue;
   ForceDirectories(fp);
   fpn := fp + SLASH + 'console.log';
   assignfile(lf, fpn);

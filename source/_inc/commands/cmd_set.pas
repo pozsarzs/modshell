@@ -342,11 +342,11 @@ var
       error := 1;
     end else
     begin
-      vars[12].vname := s;
+      vars[12].vvalue := s;
       {$IFDEF GO32V2}
-        vars[13].vname := getexedir + vars[12].vname;
+        vars[13].vvalue := getexedir + vars[12].vvalue;
       {$ELSE}
-        vars[13].vname := vars[11].vname + PRGNAME + SLASH + vars[12].vname;
+        vars[13].vvalue := vars[11].vvalue + PRGNAME + SLASH + vars[12].vvalue;
       {$ENDIF}
     end;
   end;

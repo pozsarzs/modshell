@@ -382,7 +382,7 @@ begin
     DefaultExt := '';
     Filter := MSG42;
     FilterIndex := 0;
-    InitialDir := vars[13].vname;
+    InitialDir := vars[13].vvalue;
     Title := rmampdot(MenuItem37.Caption);
   end;
   if LOpenDialog1.Execute then
@@ -407,7 +407,7 @@ begin
     DefaultExt := '';
     Filter := MSG42;
     FilterIndex := 0;
-    InitialDir := vars[13].vname;
+    InitialDir := vars[13].vvalue;
     Title := rmampdot(MenuItem36.Caption);
   end;
   if LSaveDialog1.Execute then
@@ -438,10 +438,10 @@ end;
 // RUN COMMAND 'set prj ...' WITH InputBox
 procedure TForm1.MenuItem38Click(Sender: TObject);
 begin
-  menucmd := COMMANDS[8] + ' prj ' + InputBox(rmampdot(MenuItem38.Caption), MSG71, vars[12].vname);
+  menucmd := COMMANDS[8] + ' prj ' + InputBox(rmampdot(MenuItem38.Caption), MSG71, vars[12].vvalue);
   Memo1.Lines.Add(fullprompt + menucmd);
   parsingcommands(menucmd);
-  Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vname;
+  Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vvalue;
   Label1.Caption := fullprompt;
 end;
 
@@ -451,7 +451,7 @@ begin
   menucmd := COMMANDS[7] + ' prj';
   Memo1.Lines.Add(fullprompt + menucmd);
   parsingcommands(menucmd);
-  Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vname;
+  Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vvalue;
   Label1.Caption := fullprompt;
 end;
 
@@ -1859,7 +1859,7 @@ begin
   with LOpenDialog1 do
   begin
     Title := rmampdot(MenuItem13.Caption);
-    InitialDir := vars[13].vname;
+    InitialDir := vars[13].vvalue;
     Filter := MSG42;
     DefaultExt := '';
     FilterIndex := 0;
@@ -1884,7 +1884,7 @@ begin
   with LSaveDialog1 do
   begin
     Title := rmampdot(MenuItem14.Caption);
-    InitialDir := vars[13].vname;
+    InitialDir := vars[13].vvalue;
     Filter := MSG42;
     DefaultExt := '';
     FilterIndex := 0;
@@ -1922,7 +1922,7 @@ begin
   with LOpenDialog1 do
   begin
     Title := rmampdot(MenuItem32.Caption);
-    InitialDir := vars[13].vname;
+    InitialDir := vars[13].vvalue;
     Filter := MSG58;
     DefaultExt := 'xml';
     FilterIndex := 2;
@@ -2090,7 +2090,7 @@ begin
       with LSaveDialog1 do
       begin
         Title := rmampdot(MenuItem14.Caption);
-        InitialDir := vars[13].vname;
+        InitialDir := vars[13].vvalue;
         Filter := MSG57;
         DefaultExt := 'xml';
         FilterIndex := 3;
@@ -2253,7 +2253,7 @@ begin
   with LOpenDialog1 do
   begin
     Title := rmampdot(MenuItem10.Caption);
-    InitialDir := vars[13].vname;
+    InitialDir := vars[13].vvalue;
     {$IFDEF WINDOWS}
       Filter := MSG43;
       DefaultExt := 'bat';
@@ -2282,7 +2282,7 @@ begin
   with LSaveDialog1 do
   begin
     Title := rmampdot(MenuItem11.Caption);
-    InitialDir := vars[13].vname;
+    InitialDir := vars[13].vvalue;
     {$IFDEF WINDOWS}
       Filter := MSG43;
       DefaultExt := 'bat';
@@ -3206,7 +3206,7 @@ begin
     formpositions[2, 3] := Width;
   end;
   // save configuration
-  uconfig.lastproject := vars[12].vname;
+  uconfig.lastproject := vars[12].vvalue;
   saveconfiguration(BASENAME,'.ini');
   // restore directory
   setcurrentdir(originaldirectory);
@@ -3229,17 +3229,17 @@ begin
   lang := getlang;
   // set default constants
   loadconfiguration(BASENAME,'.ini');
-  vars[12].vname := uconfig.lastproject;
+  vars[12].vvalue := uconfig.lastproject;
   setdefaultconstants;
-  vars[11].vname := getuserdir;
-  if length(vars[12].vname) = 0 then vars[12].vname := 'default';
+  vars[11].vvalue := getuserdir;
+  if length(vars[12].vvalue) = 0 then vars[12].vvalue := 'default';
   {$IFDEF GO32V2}
-    vars[13].vname := getexedir + vars[12].vname;
+    vars[13].vvalue := getexedir + vars[12].vvalue;
   {$ELSE}
-    vars[13].vname := vars[11].vname + PRGNAME + SLASH + vars[12].vname;
+    vars[13].vvalue := vars[11].vvalue + PRGNAME + SLASH + vars[12].vvalue;
   {$ENDIF}
   // make, store and set directories
-  ForceDirectories(vars[13].vname);
+  ForceDirectories(vars[13].vvalue);
   originaldirectory := getcurrentdir;
   setcurrentdir(getuserdir + PRGNAME);
   // restore main window size and position and set title
@@ -3249,7 +3249,7 @@ begin
     Left := formpositions[0, 1];
     if formpositions[0, 2] > 150 then Height := formpositions[0, 2];
     if formpositions[0, 3] > 200 then Width := formpositions[0, 3];
-    Caption := 'X' + PRGNAME + ' | ' + vars[12].vname;
+    Caption := 'X' + PRGNAME + ' | ' + vars[12].vvalue;
   end;
   // set textcaptions and hints
   Label1.Caption := fullprompt;

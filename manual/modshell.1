@@ -145,8 +145,8 @@ and the result is placed in \fI$TARGET\fP.
 \fBavg\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP \fI[[$]VALUE3...6]\fP
 Calculates average of 2-5 numbers and the result is placed in \fI$TARGET\fP.
 .TP
-\fBconv\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fI[$]VALUE\fP
-Converts numbers between binary, decimal, hexadecimal and octal numeral system.
+\fBconv\fP \fI$TARGET\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fI[$]VALUE\fP
+Converts numbers between binary, decimal, hexadecimal and octal numeral system. Result is placed in \fI$TARGET\fP variable.
 \fIVALUE\fP must be between 0 and 65535
 .TP
 \fBcos\fP \fI$TARGET\fP \fI[$]VALUE\fP
@@ -392,8 +392,8 @@ Adds new record to crontable. \fIrec_num\fP may be 1-4.
 \fBcron\fP [\fI-r rec_num\fP]
 Shows all or removes specified record from the crontable. \fIrec_num\fP may be 1-4.
 .TP
-\fBdate\fP
-Shows system date and time.
+\fBdate\fP [\fI$TARGET\fP]
+Shows or write into \fI$TARGET\fP variable system date and time.
 .TP
 \fBecho\fP [\fIoff\fP|\fIon\fP|\fIhex\fP]
 Queries local echo status or enable/disable it for serial connections.
@@ -605,11 +605,11 @@ Renames \fI[$]PATH_AND_FILENAME\fP file to \fI[$]NEW_PATH_AND_FILENAME\fP.
 \fBadd\fP $result 12 13
 Adds 12 and 13, and the result is placed in $result.
 .TP
-\fBconv\fP bin hex 1011000010110100
-Convert 45236 in binary to hex (result: B0B4).
+\fBconv\fP $result bin hex 1011000010110100
+Convert 45236 in binary to hexadecimal, result placed in $result (B0B4).
 .TP
-\fBconv\fP hex dec $I
-Convert value of the $I in hexadecimal to decimal.
+\fBconv\fP $result hex dec $i
+Convert value of the $i in hexadecimal to decimal. Result placed in $result.
 .TP
 \fBround\fP $result 12.01023 2
 Round 12.01023 to decimal places, and the result (12.01)

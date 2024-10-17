@@ -183,15 +183,15 @@ begin
         if c = #59 then
           begin command := COMMANDS[3]; c:=#13; end;                         // F1
         if c = #60 then
-          begin command := COMMANDS[13] + #32 + vars[12].vname; c:=#13; end; // F2
+          begin command := COMMANDS[13] + #32 + vars[12].vvalue; c:=#13; end; // F2
         if c = #61 then
-          begin command := COMMANDS[14] + #32 + vars[12].vname; c:=#13; end; // F3
+          begin command := COMMANDS[14] + #32 + vars[12].vvalue; c:=#13; end; // F3
         if c = #62 then
-          begin command := COMMANDS[18] + #32 + vars[12].vname; c:=#13; end; // F4
+          begin command := COMMANDS[18] + #32 + vars[12].vvalue; c:=#13; end; // F4
         if c = #63 then
-          begin command := COMMANDS[19] + #32 + vars[12].vname; c:=#13; end; // F5
+          begin command := COMMANDS[19] + #32 + vars[12].vvalue; c:=#13; end; // F5
         if c = #64 then
-          begin command := COMMANDS[33] + #32 + vars[12].vname; c:=#13; end; // F6
+          begin command := COMMANDS[33] + #32 + vars[12].vvalue; c:=#13; end; // F6
         if c = #65 then
           begin command := COMMANDS[35]; c:=#13; end;                        // F7
         if c = #66 then
@@ -318,20 +318,20 @@ begin
   end;
   // load configuration
   loadconfiguration(BASENAME, '.ini');
-  vars[12].vname := uconfig.lastproject;
+  vars[12].vvalue := uconfig.lastproject;
   // set default constants
   setdefaultconstants;
-  vars[11].vname := getuserdir;
-  if length(vars[12].vname) = 0 then vars[12].vname := 'default';
+  vars[11].vvalue := getuserdir;
+  if length(vars[12].vvalue) = 0 then vars[12].vvalue := 'default';
   {$IFDEF GO32V2}
-    vars[13].vname := getexedir + vars[12].vname;
+    vars[13].vvalue := getexedir + vars[12].vvalue;
   {$ELSE}
-    vars[13].vname := vars[11].vname + PRGNAME + SLASH + vars[12].vname;
+    vars[13].vvalue := vars[11].vvalue + PRGNAME + SLASH + vars[12].vvalue;
   {$ENDIF}
   // make, store and set directories
-  ForceDirectories(vars[13].vname);
+  ForceDirectories(vars[13].vvalue);
   originaldirectory := getcurrentdir;
-  setcurrentdir(vars[11].vname + PRGNAME);  
+  setcurrentdir(vars[11].vvalue + PRGNAME);  
   // run main function
   case appmode of
     0: simplecommandline;
@@ -339,7 +339,7 @@ begin
     4: interpreter(paramstr(2));
   end;
   // save configuration
-  uconfig.lastproject := vars[12].vname;
+  uconfig.lastproject := vars[12].vvalue;
   saveconfiguration(BASENAME, '.ini');
   // restore directory
   setcurrentdir(originaldirectory);

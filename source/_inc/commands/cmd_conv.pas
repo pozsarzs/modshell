@@ -13,22 +13,22 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0   p1              p2              p3
-  ---------------------------------------------
-  conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
+  p0   p1      p2              p3              p4
+  -----------------------------------------------------
+  conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
 }
 
 // COMMAND 'CONV'
-function cmd_conv(p1, p2, p3: string): byte;
+function cmd_conv(p1, p2, p3, p4: string): byte;
 var
   ns1, ns2: byte; // numerical system
   s: string;
-  s3: string; // parameter in other type
+  s4: string; // parameter in other type
   valid: boolean = false;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
-  if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
+  if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0)then
   begin
     // Parameter(s) required!
     {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
@@ -36,8 +36,16 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
+  if not boolisitvariable(p1) then
+  begin
+    // No such variable!
+    {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
+    result := 1;
+    exit;
+  end;
+  // CHECK P2 PARAMETER
   for ns1 := 0 to 3 do
-    if NUM_SYS[ns1] = p1 then
+    if NUM_SYS[ns1] = p2 then
     begin
       valid := true;
       break;
@@ -52,9 +60,9 @@ begin
     exit;
   end;
   valid := false;
-  // CHECK P2 PARAMETER
+  // CHECK P3 PARAMETER
   for ns2 := 0 to 3 do
-    if NUM_SYS[ns2] = p2 then
+    if NUM_SYS[ns2] = p3 then
     begin
       valid := true;
       break;
@@ -68,14 +76,14 @@ begin
     result := 1;
     exit;
   end;
-  // CHECK P3 PARAMETER
-  if boolisitconstant(p3) then s3 := isitconstant(p3);
-  if boolisitvariable(p3) then s3 := isitvariable(p3);
-  if length(s3) = 0 then s3 := p3;
+  // CHECK P4 PARAMETER
+  if boolisitconstant(p4) then s4 := isitconstant(p4);
+  if boolisitvariable(p4) then s4 := isitvariable(p4);
+  if length(s4) = 0 then s4 := p4;
   case ns1 of
     0: begin
-         s := BinToDez(s3);
-         if DezToBin(s) <> s3 then
+         s := BinToDez(s4);
+         if DezToBin(s) <> s4 then
          begin
            // What is the 3rd parameter?
            {$IFNDEF X}
@@ -87,29 +95,29 @@ begin
            exit;
          end;
        end;
-    1: if (strtointdef(s3, -1) < 0 ) or (strtointdef(p3, -1) > 65535) then
+    1: if (strtointdef(s4, -1) < 0 ) or (strtointdef(p4, -1) > 65535) then
        begin
-         // What is the 3rd parameter?
-         {$IFNDEF X} writeln(NUM3 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-655535'); {$ENDIF}
+         // What is the 4rd parameter?
+         {$IFNDEF X} writeln(NUM4 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-655535'); {$ENDIF}
          result := 1;
          exit;
        end;
     2: begin
-         s := HexToDez(s3);
-         if DezToHex(s) <> uppercase(s3) then
+         s := HexToDez(s4);
+         if DezToHex(s) <> uppercase(s4) then
          begin
-           // What is the 3rd parameter?
-           {$IFNDEF X} writeln(NUM3 + MSG05 + ' 0-FFFF'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-FFFF'); {$ENDIF}
+           // What is the 4rd parameter?
+           {$IFNDEF X} writeln(NUM4 + MSG05 + ' 0-FFFF'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-FFFF'); {$ENDIF}
            result := 1;
            exit;
          end;
        end;
     3: begin
-         s := OktToDez(s3);
-         if DezToOkt(s) <> s3 then
+         s := OktToDez(s4);
+         if DezToOkt(s) <> s4 then
          begin
-           // What is the 3rd parameter?
-           {$IFNDEF X}  writeln(NUM3 + MSG05 + ' 0-0-177777'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-0-177777'); {$ENDIF}
+           // What is the 4d parameter?
+           {$IFNDEF X}  writeln(NUM4 + MSG05 + ' 0-0-177777'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-0-177777'); {$ENDIF}
            result := 1;
            exit;
          end;
@@ -129,22 +137,22 @@ begin
   }
   b := 10 * ns1 + ns2;
   case b of
-    0: s := s3;
-    1: s := BinToDez(s3);
-    2: s := BinToHex(s3);
-    3: s := BinToOkt(s3);
-    10: s := DezToBin(s3);
-    11: s := s3;
-    12: s := DezToHex(s3);
-    13: s := DezToOkt(s3);
-    20: s := HexToBin(s3);
-    21: s := HexToDez(s3);
-    22: s := s3;
-    23: s := HexToOkt(s3);
-    30: s := OktToBin(s3);
-    31: s := OktToDez(s3);
-    32: s := OktToHex(s3);
-    33: s := s3;
+    0: s := s4;
+    1: s := BinToDez(s4);
+    2: s := BinToHex(s4);
+    3: s := BinToOkt(s4);
+    10: s := DezToBin(s4);
+    11: s := s4;
+    12: s := DezToHex(s4);
+    13: s := DezToOkt(s4);
+    20: s := HexToBin(s4);
+    21: s := HexToDez(s4);
+    22: s := s4;
+    23: s := HexToOkt(s4);
+    30: s := OktToBin(s4);
+    31: s := OktToDez(s4);
+    32: s := OktToHex(s4);
+    33: s := s4;
   end;
-  {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+  vars[intisitvariable(p1)].vvalue := s;
 end;

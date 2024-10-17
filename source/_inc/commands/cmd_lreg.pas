@@ -44,7 +44,7 @@ begin
   fx := extractfileext(s1);
   if length(fp) = 0 then
   begin
-    fp := vars[13].vname;
+    fp := vars[13].vvalue;
     ForceDirectories(fp);
     fp := fp + SLASH;
   end;

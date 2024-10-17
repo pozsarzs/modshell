@@ -96,8 +96,8 @@ begin
                 // set con? dev? pro?
                 // set prj PROJECT_NAME
                 // set timeout TIMEOUT
-             9: exitcode := cmd_date;
-                // date
+             9: exitcode := cmd_date(splitted[1]);
+                // date [$TARGET]
             10: begin version(false); exitcode := 0; end;
                 // ver
             11: exitcode := cmd_writereg(splitted[1], splitted[2], splitted[3], splitted[4]);
@@ -120,8 +120,8 @@ begin
                 // expreg FILENAME dinp|coil|ireg|hreg ADDRESS [COUNT]
             16: exitcode := cmd_exphis(splitted[1]);
                 // exphis FILENAME
-            17: exitcode := cmd_conv(splitted[1], splitted[2], splitted[3]);
-                // conv bin|dec|hex|oct bin|dec|hex|oct VALUE
+            17: exitcode := cmd_conv(splitted[1], splitted[2], splitted[3], splitted[4]);
+                // conv bin|dec|hex|oct bin|dec|hex|oct [$TARGET] [$]VALUE
             18: exitcode := cmd_savereg(splitted[1]);
                 // savereg PATH_AND_FILENAME
             19: exitcode := cmd_loadreg(splitted[1]);
@@ -202,7 +202,7 @@ begin
             if (b >= 29) and (b <= 32) then exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
             if (b >= 42) and (b <= 57) then exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
             if b = 68 then exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
-            if b = 78 then exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
+            if b = 75 then exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3], splitted[4]);
             // string handler functions
             if (b >= 60) and (b <= 65) then exitcode := cmd_string(b, splitted[1], splitted[2], splitted[3]);
             if (b >= 76) and (b <= 77) then exitcode := cmd_string(b, splitted[1], splitted[2], splitted[3]);

@@ -108,6 +108,7 @@ resourcestring
   MSG81 = 'Use ''Utilities/Mini serial console'' on GUI version.';
   MSG82 = 'timeout';
   MSG83 = ' or a variable';
+  MSG84 = ' or "text"';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -300,7 +301,7 @@ resourcestring
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.' + EOL +
         '  - The ''TIMEOUT'' value is in ms.';
-  USG09='date';
+  USG09='date [$TARGET]';
   USG10='ver';
   USG11='writereg con? coil|hreg [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -310,12 +311,12 @@ resourcestring
   USG14='loadcfg [$]PATH_AND_FILENAME';
   USG15='expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
   USG16='exphis [$]PATH_AND_FILENAME';
-  USG17='conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE';
+  USG17='conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE';
   USG18='savereg [$]PATH_AND_FILENAME';
   USG19='loadreg [$]PATH_AND_FILENAME';
   USG20='var' + EOL +
         '  var NAME [[$]VALUE]';
-  USG21='color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VARMON' + EOL +
+  USG21='color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON' + EOL +
         '  colors:' + EOL +
         '      0: black  4: red         8: darkgray    12: lightred' + EOL +
         '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + EOL +

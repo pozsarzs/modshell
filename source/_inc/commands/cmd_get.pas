@@ -146,7 +146,7 @@ begin
   // CHECK P1 PARAMETERS
   if p1 = PREFIX[3] then
   begin
-    {$IFNDEF X} writeln(vars[12].vname); {$ELSE} Form1.Memo1.Lines.Add(vars[12].vname); {$ENDIF}
+    {$IFNDEF X} writeln(vars[12].vvalue); {$ELSE} Form1.Memo1.Lines.Add(vars[12].vvalue); {$ENDIF}
     result := 0;
     exit;
   end;

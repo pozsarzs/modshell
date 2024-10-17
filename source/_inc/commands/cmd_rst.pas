@@ -52,11 +52,11 @@ begin
   // check p1 parameter
   if p1 = PREFIX[3] then
   begin
-    vars[12].vname := 'default';
+    vars[12].vvalue := 'default';
     {$IFDEF GO32V2}
-      vars[13].vname := getexedir + vars[12].vname;
+      vars[13].vvalue := getexedir + vars[12].vvalue;
     {$ELSE}
-      vars[13].vname := vars[11].vname + PRGNAME + SLASH + vars[12].vname;
+      vars[13].vvalue := vars[11].vvalue + PRGNAME + SLASH + vars[12].vvalue;
     {$ENDIF}
     exit;
   end;

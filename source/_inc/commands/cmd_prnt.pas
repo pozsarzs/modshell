@@ -76,7 +76,7 @@ begin
     result := 1;
     exit;
   end;
-  // CHECK P1 PARAMETER
+  // CHECK P1 PARAMETER IS IT A REGISTER?
   for rt := 0 to 3 do
     if REG_TYPE[rt] = p1 then
     begin
@@ -88,15 +88,19 @@ begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
     for i := 0 to 3 do s := s + ' ' + REG_TYPE[i];
+    s := s + MSG83 + MSG84 + '.';
     {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
   // CHECK P2 PARAMETER
-  if boolisitconstant(p2) then s2 := isitconstant(p2);
-  if boolisitvariable(p2) then s2 := isitvariable(p2);
-  if length(s2) = 0 then s2 := p2;
-  i2 := strtointdef(s2, -1); // start address
+  if length(p2) = 0 then i2 := 1 else
+  begin
+    if boolisitconstant(p2) then s2 := isitconstant(p2);
+    if boolisitvariable(p2) then s2 := isitvariable(p2);
+    if length(s2) = 0 then s2 := p2;
+    i2 := strtointdef(s2, 1); // start address
+  end;
   if (i2 < 1 ) or (i2 > 9999) then
   begin
     // What is the 2nd parameter?
@@ -107,8 +111,8 @@ begin
   // CHECK P3 PARAMETER
   if length(p3) = 0 then i3 := 1 else
   begin
-  if boolisitconstant(p3) then s3 := isitconstant(p3);
-  if boolisitvariable(p3) then s3 := isitvariable(p3);
+    if boolisitconstant(p3) then s3 := isitconstant(p3);
+    if boolisitvariable(p3) then s3 := isitvariable(p3);
     if length(s3) = 0 then s3 := p3;
     i3 := strtointdef(s3, 1); // count
   end;
