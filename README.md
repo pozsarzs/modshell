@@ -43,6 +43,16 @@ communicates via various ports using the Modbus protocol.
 
 **Releases**  
 
+_v0.1-beta1:_  
+The next release will be with the following changes:  
+ - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  
+ - [ ] `chkdevlockfile`/`rmdevlockfile` commands (only *nix versions);  
+ - [ ] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
+ - [ ] device discovery script;  
+ - [ ] syntax highlighting file for Vim/Neovim;  
+ - [ ] syntax highlighting file for Scite. 
+
+
 _v0.1-alpha3:_  
 The next release with the following changes:  
 New source code directory structure, bug fixes, 8 new commands in system category (total: 102), GUI (FreeBSD, Linux and Windows), script syntax highlighting file for MCEdit and Nano and windows size and position saving and restoring.  
@@ -58,16 +68,8 @@ This test release is not yet suitable for work, although it is functional, but i
 
 ...that either will or won't.  
 
-in _v0.1-beta1:_  
- - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  
- - [ ] `chkdevlockfile`/`rmdevlockfile` commands (only *nix versions);  
- - [ ] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
- - [ ] device discovery script;  
- - [ ] syntax highlighting file for Vim/Neovim;  
- - [ ] syntax highlighting file for Scite.  
-
 in _v0.1-beta2:_  
- - [ ] Modbus/TCP communication on DOS (DOS version);  
+ - [ ] Modbus/TCP communication (DOS version);  
  - [ ] support for multi-dimensional arrays;  
  - [ ] graphical monitoring the change of values over time (only XModShell).  
 
