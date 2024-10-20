@@ -8,8 +8,8 @@ modshell (0.1-alpha3) unstable; urgency=low
   * GUI (except DOS) and
   * script syntax highlighting file for MCEdit and Nano.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>  Mon, 30 Sep 2024 23:59:59
-
+ -- Pozsár Zsolt <pozsarzs@gmail.com>  Sun, 20 Oct 2024 09:37:44
+ 
 modshell (0.1-alpha2) unstable; urgency=low
 
   * Next developer test release.

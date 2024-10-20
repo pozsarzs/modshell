@@ -361,7 +361,7 @@ msgstr "Ol&vas†s"
 
 #: modshell:msg78
 msgid "Go on!"
-msgstr "Ind°t†s"
+msgstr "Tov†bb!"
 
 #: modshell:msg79
 msgid "Variable"
@@ -382,6 +382,10 @@ msgstr "idãt£llÇpÇs"
 #: modshell:msg83
 msgid " or a variable"
 msgstr " vagy v†ltoz¢"
+
+#: modshell:msg84
+msgid " or \"text\""
+msgstr " vagy \"szîveg\""
 
 #: modshell:msg94
 msgid "Build date:  "
@@ -1113,8 +1117,8 @@ msgstr ""
 "  - A 'TIMEOUT' ÇrtÇke ms-ban van."
 
 #: modshell:usg09
-msgid "date"
-msgstr "date"
+msgid "date [$TARGET]"
+msgstr "date [$CêL]"
 
 #: modshell:usg10
 msgid "ver"
@@ -1152,8 +1156,8 @@ msgid "exphis [$]PATH_AND_FILENAME"
 msgstr "exphis [$]ELêRêSI_ÈT_êS_FµJLNêV"
 
 #: modshell:usg17
-msgid "conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
-msgstr "conv bin|dec|hex|oct bin|dec|hex|oct [$]êRTêK"
+msgid "conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
+msgstr "conv $CêL bin|dec|hex|oct bin|dec|hex|oct [$]êRTêK"
 
 #: modshell:usg18
 msgid "savereg [$]PATH_AND_FILENAME"
@@ -1173,15 +1177,14 @@ msgstr ""
 
 #: modshell:usg21
 msgid ""
-"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VARMON\n"
+"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON\n"
 "  colors:\n"
 "      0: black  4: red         8: darkgray    12: lightred\n"
 "      1: blue   5: magenta:    9: lightblue   13: lightmagenta\n"
 "      2: green  6: brown      10: lightgreen  14: yellow\n"
 "      3: cyan   7: lightgray  11: lightcyan   15: white"
 msgstr ""
-"color [$]ELäTêRSZ÷N [$]HµTTêRSZ÷N [$]VêTELSZ÷N [$]ADµSSZ÷N [$]VµLTMON\n"
-"\n"
+"color [$]ELäTêRSZ÷N [$]HµTTêRSZ÷N [$]VêTELSZ÷N [$]ADµSSZ÷N [$]VµLT_MON\n"
 "  sz°nek:\n"
 "      0: fekete  4: vîrîs           8: sîtÇtszÅrke  12: vil†gosvîrîs\n"
 "      1: kÇk     5: magenta:        9: vil†goskÇk   13: vil†gosmagenta\n"
@@ -1565,6 +1568,9 @@ msgstr "copy [$]ELêRêSI_ÈT_êS_FµJLNêV [$]ELêRêSI_ÈT_êS_FµJLNêV"
 #: modshell:usg101
 msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
 msgstr "ren [$]ELêRêSI_ÈT_êS_FµJLNêV [$]ELêRêSI_ÈT_êS_FµJLNêV"
+
+#~ msgid "date"
+#~ msgstr "date"
 
 #~ msgid ""
 #~ "varmon [on|off]\n"

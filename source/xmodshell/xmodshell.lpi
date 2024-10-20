@@ -10,6 +10,7 @@
       <UseXPManifest Value="True"/>
       <XPManifest>
         <DpiAware Value="True"/>
+        <ExecutionLevel Value="requireAdministrator"/>
         <TextName Value="Pozsar_Zsolt.ModShell.ModShell"/>
         <TextDesc Value="Command-driven scriptable Modbus utility with GUI"/>
       </XPManifest>

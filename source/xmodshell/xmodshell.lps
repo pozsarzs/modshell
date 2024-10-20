@@ -7,7 +7,7 @@
       <Unit>
         <Filename Value="xmodshell.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="14" Y="19"/>
+        <CursorPos Y="15"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
       </Unit>
@@ -17,7 +17,7 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="1"/>
         <CursorPos Y="15"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
@@ -29,8 +29,9 @@
         <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
-        <CursorPos X="2" Y="7"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <CursorPos Y="15"/>
         <UsageCount Value="219"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -41,9 +42,8 @@
         <ComponentName Value="Form3"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="107"/>
-        <CursorPos X="44" Y="113"/>
+        <EditorIndex Value="2"/>
+        <CursorPos Y="15"/>
         <UsageCount Value="209"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -65,9 +65,9 @@
       <Unit>
         <Filename Value="../_inc/parsing.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="164"/>
-        <CursorPos X="39" Y="176"/>
-        <UsageCount Value="6"/>
+        <TopLine Value="201"/>
+        <CursorPos Y="222"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/cmd_secn.pas"/>
@@ -145,10 +145,9 @@
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/thr_secn.pas"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="2" Y="7"/>
         <UsageCount Value="11"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../modlcltranslator/modlcltranslator.pas"/>
@@ -161,137 +160,67 @@
       <Unit>
         <Filename Value="../modsynhighlighterany/modsynhighlighterany.pas"/>
         <UnitName Value="MODSynHighlighterAny"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="50"/>
         <CursorPos X="3" Y="61"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../_inc/fllprmpt.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="20"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/lib/lazarus/2.2.6/lcl/include/control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3462"/>
+        <CursorPos Y="3477"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/lib/lazarus/2.2.6/components/lazutils/lazmethodlist.pas"/>
+        <UnitName Value="LazMethodList"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="317"/>
+        <CursorPos Y="335"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/lib/lazarus/2.2.6/lcl/include/menuitem.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="290"/>
+        <CursorPos Y="301"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/lib/lazarus/2.2.6/lcl/lclmessageglue.pas"/>
+        <UnitName Value="LCLMessageGlue"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="109"/>
+        <CursorPos Y="123"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/lib/lazarus/2.2.6/lcl/interfaces/gtk2/gtk2proc.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3768"/>
+        <CursorPos Y="3780"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/lib/lazarus/2.2.6/lcl/interfaces/gtk2/gtk2wsmenus.pp"/>
+        <UnitName Value="Gtk2WSMenus"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="131"/>
+        <CursorPos Y="142"/>
+        <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <Debugger>
-      <Backend Value="IDE"/>
-    </Debugger>
-    <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="58" Column="12" TopLine="54"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="137" Column="28" TopLine="126"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="185" TopLine="171"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="173" Column="13" TopLine="163"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="137" Column="20" TopLine="123"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="138" Column="11" TopLine="91"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="160" Column="29" TopLine="146"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="233" TopLine="225"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="160" Column="7" TopLine="150"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="188" Column="23" TopLine="169"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="139" Column="22" TopLine="131"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="230" Column="13" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="175" Column="3" TopLine="165"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="232" Column="15" TopLine="212"/>
-      </Position>
+    <JumpHistory>
       <Position>
         <Filename Value="frmmain.pas"/>
-        <Caret Line="51" Column="3" TopLine="49"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="64" Column="21" TopLine="49"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="65" Column="21" TopLine="49"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="315" Column="12" TopLine="297"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="349" Column="30" TopLine="331"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="42" Column="34" TopLine="32"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="96" Column="24" TopLine="77"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="31" Column="13" TopLine="22"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="24" Column="3" TopLine="18"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="28" TopLine="13"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="52" Column="9" TopLine="36"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="75" TopLine="64"/>
-      </Position>
-      <Position>
-        <Filename Value="xmodshell.lpr"/>
-        <Caret Line="19" Column="32"/>
-      </Position>
-      <Position>
-        <Filename Value="../_inc/commands/thr_secn.pas"/>
-        <Caret Line="7" Column="4"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="113" Column="44" TopLine="107"/>
-      </Position>
-      <Position>
-        <Filename Value="frmvrmn.pas"/>
-        <Caret Line="7" Column="2"/>
+        <Caret Line="2402" TopLine="2395"/>
       </Position>
     </JumpHistory>
     <RunParams>

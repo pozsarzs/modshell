@@ -952,6 +952,10 @@ msgstr ""
 msgid " or a variable"
 msgstr ""
 
+#: frmmain.msg84
+msgid " or \"text\""
+msgstr ""
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr ""
@@ -1067,7 +1071,7 @@ msgid ""
 msgstr ""
 
 #: frmmain.usg09
-msgid "date"
+msgid "date [$TARGET]"
 msgstr ""
 
 #: frmmain.usg10
@@ -1110,7 +1114,7 @@ msgid "exphis [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: frmmain.usg17
-msgid "conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
+msgid "conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
 msgstr ""
 
 #: frmmain.usg18
@@ -1129,7 +1133,7 @@ msgstr ""
 
 #: frmmain.usg21
 msgid ""
-"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VARMON\n"
+"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON\n"
 "  colors:\n"
 "      0: black  4: red         8: darkgray    12: lightred\n"
 "      1: blue   5: magenta:    9: lightblue   13: lightmagenta\n"
