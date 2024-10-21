@@ -209,7 +209,9 @@ begin
             if (b >= 83) and (b <= 87) then exitcode := cmd_string(b, splitted[1], splitted[2], splitted[3]);
             // directory and file handler functions
             if (b >= 94) and (b <= 101) then exitcode := cmd_sys(b, splitted[1], splitted[2]);
-          end;
+            // lock file handler functions
+            if (b >= 102) and (b <= 103) then exitcode := cmd_devlock(b, splitted[1]);
+           end;
         end;
         vars[0].vvalue := inttostr(exitcode);
         {$IFDEF X}
