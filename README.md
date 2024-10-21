@@ -321,7 +321,7 @@ selected.
 |$B19    |19200 (baud)                       |
 |$B38    |38400 (baud)                       |
 |$B57    |57600 (baud)                       |
-|$B115   |115200 (baud                       |
+|$B115   |115200 (baud)                      |
 |$EULER  |value of e  (2.7182818284590452354)|
 |$HOME   |user's home directory              |
 |$PI     |value of Pi (3.1415926535897932385)|
