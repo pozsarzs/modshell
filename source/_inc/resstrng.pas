@@ -272,8 +272,9 @@ resourcestring
   DES99='       type file';
   DES100='       copy file';
   DES101='       rename file';
-  DES102='       check lock file of the device';
-  DES103='       remove lock file of the device';
+  DES102='       exists file';
+  DES103='       check lock file of the device';
+  DES104='       remove lock file of the device';
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -425,5 +426,6 @@ resourcestring
   USG99='type [$]PATH_AND_FILENAME';
   USG100='copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME';
   USG101='ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME';
-  USG102='chkdevlock [$]DEVICE';
-  USG103='rmdevlock [$]DEVICE';
+  USG102='exist [$]PATH_AND_FILENAME';
+  USG103='chkdevlock [$]DEVICE';
+  USG104='rmdevlock [$]DEVICE';

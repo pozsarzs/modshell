@@ -13,16 +13,17 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0   p1
-  --------------------------------------------------
-  dir  [[$]PATH_AND_DIRECTORYNAME]
-  cd   [[$]PATH_AND_DIRECTORYNAME]
-  md   [$]PATH_AND_DIRECTORYNAME
-  rd   [$]PATH_AND_DIRECTORYNAME
-  del  [$]PATH_AND_FILENAME
-  type [$]PATH_AND_FILENAME
-  copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME
-  ren  [$]PATH_AND_FILENAME [$]NEW_FILENAME
+  p0    p1
+  ---------------------------------------------------
+  cd    [[$]PATH_AND_DIRECTORYNAME]
+  copy  [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME
+  del   [$]PATH_AND_FILENAME
+  dir   [[$]PATH_AND_DIRECTORYNAME]
+  exist [$]PATH_AND_FILENAME
+  md    [$]PATH_AND_DIRECTORYNAME
+  rd    [$]PATH_AND_DIRECTORYNAME
+  ren   [$]PATH_AND_FILENAME [$]NEW_FILENAME
+  type  [$]PATH_AND_FILENAME
 }
 
 // LIST DIRECTORY CONTENT
@@ -189,6 +190,13 @@ begin
   end else result := 0;
 end;
 
+// EXIST  FILE
+function cmd_exist(p1: string): byte;
+begin
+  result := SysUtils.FileExists(p1);
+end;
+
+
 function cmd_sys(op: byte; p1, p2: string): byte;
 var
   s1, s2: string; // parameters in other type
@@ -206,7 +214,7 @@ begin
     end;
   end else
   begin
-    if (length(p1) = 0) and (op >= 96)  then
+    if (length(p1) = 0) and (op >= 96))  then
     begin
       // Parameter(s) required!
       {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
@@ -238,5 +246,6 @@ begin
      99: result := cmd_type(s1);
     100: result := cmd_copy(s1, s2);
     101: result := cmd_ren(s1, s2);
+    102: result := cmd_exists(s1);
   end;
 end;
