@@ -76,7 +76,7 @@ begin
   end;
 end;
 
-// CLEAR ALL VARIABLES AND SET PREDEFINED ONES
+// CLEAR ALL CONSTANTS AND SET PREDEFINED ONES
 procedure clearallconstants;
 var
   i: byte;
@@ -92,7 +92,7 @@ begin
   setdefaultconstants;
 end;
 
-// IF S IS A CONSTANT, IT RETURNS theirs number
+// IF S IS A CONSTANT, IT RETURNS THEIRS NUMBER
 function intisitconstant(s: string): integer;
 var
   i: integer;
@@ -122,7 +122,7 @@ begin
   end;
 end;
 
-// IF S IS A CONSTANT, IT RETURNS ITS VALUE
+// IF IT IS A CONSTANT, IT RETURNS ITS VALUE
 function isitconstant(s: string): string;
 var
   i: integer;
@@ -137,7 +137,7 @@ begin
   end;
 end;
 
-// COMMAND 'CONST'
+// COMMAND 'const'
 function cmd_const(p1, p2: string): byte;
 var
   b, bb: byte;

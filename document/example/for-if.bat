@@ -3,7 +3,7 @@
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
-# | addition                                                                   |
+# | for-if.bat                                                                 |
 # | Example script * How to use variables?                                     |
 # +----------------------------------------------------------------------------+
 

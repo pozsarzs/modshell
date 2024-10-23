@@ -365,6 +365,10 @@ msgstr ""
 msgid " or \"text\""
 msgstr ""
 
+#: modshell:msg85
+msgid "Cannot use it on this operation system!"
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""
@@ -1005,6 +1009,18 @@ msgstr ""
 msgid "       rename file"
 msgstr ""
 
+#: modshell:des102
+msgid "       existence of a file or directory"
+msgstr ""
+
+#: modshell:des103
+msgid "       check device lock file"
+msgstr ""
+
+#: modshell:des104
+msgid "       remove device lock file"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
@@ -1477,5 +1493,17 @@ msgstr ""
 
 #: modshell:usg101
 msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg102
+msgid "exist [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: modshell:usg103
+msgid "chkdevlock [$]DEVICE"
+msgstr ""
+
+#: modshell:usg104
+msgid "rmdevlock [$]DEVICE"
 msgstr ""
 

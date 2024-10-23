@@ -272,9 +272,9 @@ resourcestring
   DES99='       type file';
   DES100='       copy file';
   DES101='       rename file';
-  DES102='       exists file';
-  DES103='       check lock file of the device';
-  DES104='       remove lock file of the device';
+  DES102='       existence of a file or directory';
+  DES103='       check device lock file';
+  DES104='       remove device lock file';
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +

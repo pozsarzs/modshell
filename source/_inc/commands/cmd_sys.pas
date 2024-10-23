@@ -193,7 +193,7 @@ end;
 // EXIST  FILE
 function cmd_exist(p1: string): byte;
 begin
-  result := SysUtils.FileExists(p1);
+  result := booltoint(SysUtils.FileExists(p1));
 end;
 
 
@@ -214,7 +214,7 @@ begin
     end;
   end else
   begin
-    if (length(p1) = 0) and (op >= 96))  then
+    if (length(p1) = 0) and (op >= 96) then
     begin
       // Parameter(s) required!
       {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
@@ -246,6 +246,6 @@ begin
      99: result := cmd_type(s1);
     100: result := cmd_copy(s1, s2);
     101: result := cmd_ren(s1, s2);
-    102: result := cmd_exists(s1);
+    102: result := cmd_exist(s1);
   end;
 end;

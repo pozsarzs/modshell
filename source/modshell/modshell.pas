@@ -69,8 +69,10 @@ procedure version(h: boolean); forward;
 {$I modbus.pas}
 
 {$I cmd_aplg.pas}
+{$I cmd_arr.pas}
 {$I cmd_asci.pas}
 {$I cmd_avg.pas}
+{$I cmd_carr.pas}
 {$I cmd_colr.pas}
 {$I cmd_cons.pas}
 {$I cmd_conv.pas}
@@ -94,6 +96,7 @@ procedure version(h: boolean); forward;
 {$I cmd_lcfg.pas}
 {$I cmd_let.pas}
 {$I cmd_list.pas}
+{$I cmd_lock.pas}
 {$I cmd_logc.pas}
 {$I cmd_lreg.pas}
 {$I cmd_lscr.pas}
@@ -115,6 +118,7 @@ procedure version(h: boolean); forward;
 {$I cmd_str.pas}
 {$I cmd_sys.pas}
 {$I cmd_var.pas}
+{$I cmd_varr.pas}
 {$I cmd_vrmn.pas}
 {$I cmd_whvr.pas}
 {$I cmd_wrte.pas}

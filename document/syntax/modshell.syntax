@@ -16,11 +16,17 @@ context default brightcyan
     # group #2
     keyword whole add white
     keyword whole applog white
+    keyword whole arrclear white
+    keyword whole arrcopy white
+    keyword whole arrfill white
+    keyword whole arrsize white
     keyword whole ascii\n white
     keyword whole avg white
     keyword whole beep white
     keyword whole bit white
+    keyword whole carr white
     keyword whole cd white
+    keyword whole chkdevlock white
     keyword whole chr white
     keyword whole cls white
     keyword whole color white
@@ -42,6 +48,7 @@ context default brightcyan
     keyword whole echo white
     keyword whole edit white
     keyword whole erasescr white
+    keyword whole exist white
     keyword whole exit white
     keyword whole exphis white
     keyword whole expreg white
@@ -85,6 +92,7 @@ context default brightcyan
     keyword whole readreg white
     keyword whole ren white
     keyword whole reset white
+    keyword whole rmdevlock white
     keyword whole rnd white
     keyword whole roll white
     keyword whole rolr white
@@ -114,6 +122,7 @@ context default brightcyan
     keyword whole type white
     keyword whole upcase white
     keyword whole varmon white
+    keyword whole varr white
     keyword whole var white
     keyword whole ver white
     keyword whole writereg white

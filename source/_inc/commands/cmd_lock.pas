@@ -23,19 +23,19 @@
 // COMMAND 'chkdevlock'
 function cmd_chkdevlock(p1: string): byte;
 begin
-  result := checklockfile(p1, false);
+  result := booltoint(not checklockfile(p1, false));
 end;
 
 // COMMAND 'rmdevlock'
-function cmd_chkdevlock(p1: string): byte;
+function cmd_rmdevlock(p1: string): byte;
 begin
-  result := removelockfile(p1, false);
+  result := booltoint(not removelockfile(p1, false));
 end;
 
 // lock file handler functions
 function cmd_devlock(op: byte; p1: string): byte;
 var
-  s1, s2: string; // parameters in other type
+  s1: string; // parameters in other type
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -55,7 +55,7 @@ begin
   end;
   // PRIMARY MISSION
   case op of
-     103: result := chkdevlock(s1);
-     104: result := rmdevlock(s1);
+     103: result := cmd_chkdevlock(s1);
+     104: result := cmd_rmdevlock(s1);
   end;
 end;

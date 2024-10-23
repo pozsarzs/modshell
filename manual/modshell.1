@@ -41,8 +41,8 @@ connections. In all cases, the data is sent to or read from the internal buffer.
 The size of the buffer is suitable for storing 2*9999 logical and word values of
 the same size. One hundred and twenty-eight variables or constants can be created
 in the program, to which we can assign a value of any type (eg.: message, boolean
-or integer register value, etc.) Variables can be used to perform logical and basic
-mathematical operations, and can be used to pass values to commands.
+or integer register value, etc.) Variables and constants can be used to perform
+logical and basic mathematical operations, and can be used to pass values to commands.
 .SS Projects
 In the program, you can create projects for easier management of settings and
 data. The name of the current project is shown in the prompt. The project
@@ -131,9 +131,10 @@ Directory of the actual project.
 Name of the actual project.
 .SH BUILTIN COMMANDS
 Notes:
-  - register: local buffer register;
-  - remote register: register of the connected device;
-  - The '$' sign indicates a variable not a direct value.
+  - register: local buffer register
+  - remote register: register of the connected device
+  - The '$' sign indicates value of a variable or constant not a direct value.
+  - The symbol '[x]' indicates the element number of a variable or constant array.
   - The exit value of the commands is in the '$?' constant.
 
 .SS Arithmetical commands
@@ -362,11 +363,29 @@ Saves all registers to four typed files.
 
 .SS General commands
 .TP
+\fBarrclear\fP \fIARRAY\fP
+  Clears content of an array.
+.TP
+\fBarrcopy\fP \fITARGET\fP \fISOURCE\fP \fI[$]COUNT\fP
+  Copies elements of an array to an another one.
+.TP
+\fBarrfill\fP \fIARRAY\fP \fI[$]DATA\fP
+  Fills an array with \fI[$]DATA\fP.
+.TP
+\fBarrsize\fP \fIARRAY\fP \fI[[$]SIZE]\fP
+  Gets or sets size of an array.
+.TP
 \fBascii\fP \fI[dec|hex]\fP
 Shows ASCII table (0-127 characters) with decimal or hexadecimal numbers.
 .TP
 \fBbeep\fP
 Make a beep.
+.TP
+\fBcarr\fP \fIARRAY\fP
+  Prints values of the \fIARRAY\fP constant array.
+.TP
+\fBcarr\fP \fIARRAY\fP \fISIZE\fP
+  Defines new \fISIZE\fP size \fIARRAY\fP constant array.
 .TP
 \fBcls\fP
 Clears screen.
@@ -418,6 +437,9 @@ Selection statement (only in script). \fBRELATIONAL_SIGN\fP: < <= = >= >.
 \fBlabel\fP \fILABEL\fP
 Define label (only in script).
 .TP
+\fBlet\fP \fI$VARIABLE\fP \fI[$]VALUE\fP
+Sets value of a variable \fI$VARIABLE\fP to value \fI[$]VALUE\fP.
+.TP
 \fBpause\fP \fI[[$]TIME]\fP
 Waits for a keystroke or specified time.
 .TP
@@ -440,6 +462,12 @@ Prints all defined variables with their values.
 \fBvar\fP \fIVARIABLE\fP [\fI[$]VALUE\fP]
 Defines new variable (\fVARIABLE\fP) and assign value (\fIVALUE\fP).
 Use a backslash before a space.
+.TP
+\fBvarr\fP \fIARRAY\fP
+  Prints values of the \fIARRAY\fP variable array.
+.TP
+\fBvarr\fP \fIARRAY\fP \fISIZE\fP
+  Defines new \fISIZE\fP size \fIARRAY\fP variable array.
 .TP
 \fBvarmon\fP \fIoff\fP|\fIon\fP
 Enable/disable variable monitor.
@@ -501,9 +529,6 @@ Sets value of a register. Register start address must be between 1-9999.
 If register type is discrete input (\fIdinp\fP) and coil
 (\fIcoil\fP), \fIVALUE\fP must be 0/1, l/h or false/true. If it is input register
 (\fIireg\fP) or holding register (\fIhreg\fP), \fIVALUE\fP must be 0-65535.
-.TP
-\fBlet\fP \fI$VARIABLE\fP \fI[$]VALUE\fP
-Sets value of a variable \fI$VARIABLE\fP to value \fI[$]VALUE\fP.
 .TP
 \fBlet\fP \fI$VARIABLE\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP
 Sets value of a variable \fI$VARIABLE\fP from register content. Register start address
@@ -584,21 +609,33 @@ Gets name of the actual directory.
 .TP
 \fBcd\fP \fI[[$]PATH_AND_DIRECTORYNAME]\fP
 Changes actual directory to \fI[[$]PATH_AND_DIRECTORYNAME]\fP.
-.TP\fBmd\fP \fI[$]PATH_AND_DIRECTORYNAME\fP
-Makes a directory.
-.TP\fBrd\fP \fI[$]PATH_AND_DIRECTORYNAME\fP
-Removes \fI[$]PATH_AND_DIRECTORYNAME\fP directory if empty.
-.TP\fBdel\fP \fI[$]PATH_AND_FILENAME\fP
+.TP
+\fBchkdevlock\fP \fI[$]DEVICE\fP
+Check \fI[$]DEVICE\fP device lock file.
+.TP
+\fBcopy\fP \fI[$]PATH_AND_FILENAME\fP \fI[$]NEW_PATH_AND_FILENAME\fP
+Copies \fI[$]PATH_AND_FILENAME\fP file to \fI[$]NEW_PATH_AND_FILENAME\fP.
+.TP
+\fBdel\fP \fI[$]PATH_AND_FILENAME\fP
 Removes \fI[$]PATH_AND_FILENAME\fP file.
 .TP
-\fBtype\fP \fI[$]PATH_AND_FILENAME\fP
-Lists content \fI[$]PATH_AND_FILENAME\fP file.
+\fBexist\fP \fI[$]PATH_AND_FILENAME\fP
+Existence of \fI[$]PATH_AND_FILENAME\fP file or directory.
 .TP
-\fBrcopy\fP \fI[$]PATH_AND_FILENAME\fP \fI[$]NEW_PATH_AND_FILENAME\fP
-Copies \fI[$]PATH_AND_FILENAME\fP file to \fI[$]NEW_PATH_AND_FILENAME\fP.
+\fBmd\fP \fI[$]PATH_AND_DIRECTORYNAME\fP
+Makes a directory.
+.TP
+\fBrd\fP \fI[$]PATH_AND_DIRECTORYNAME\fP
+Removes \fI[$]PATH_AND_DIRECTORYNAME\fP directory if empty.
 .TP
 \fBren\fP \fI[$]PATH_AND_FILENAME\fP \fI[$]NEW_PATH_AND_FILENAME\fP
 Renames \fI[$]PATH_AND_FILENAME\fP file to \fI[$]NEW_PATH_AND_FILENAME\fP.
+.TP
+\fBrmdevlock\fP \fI[$]DEVICE\fP
+Remove \fI[$]DEVICE\fP device lock file.
+.TP
+\fBtype\fP \fI[$]PATH_AND_FILENAME\fP
+Lists content \fI[$]PATH_AND_FILENAME\fP file.
 .SH EXAMPLES
 .SS Arithmetical commands
 .TP
@@ -751,6 +788,12 @@ Show short description of the useable commands.
 \fBhelp\fP set
 Show usage of help command.
 .TP
+\fBlet\fP $a 10
+Set $a variable to 10.
+.TP
+\fBlet\fP $a $b
+Set $a variable to value of $b.
+.TP
 \fBpause\fP
 Wait for a key press.
 .TP
@@ -815,12 +858,6 @@ Set value of the input register (address value of the $a) to value of the $b.
 .TP
 \fBlet\fP $a ireg 100
 Set $a to input register address 100.
-.TP
-\fBlet\fP $a 10
-Set $a variable to 10.
-.TP
-\fBlet\fP $a $b
-Set $a variable to value of $b.
 .TP
 \fBprint\fP ireg 10 10
 Print value of the input register address 10 to 20.
