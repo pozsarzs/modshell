@@ -168,6 +168,7 @@ resourcestring
   ERR48 = 'Operation error!';
   ERR49 = 'Locked device!';
   ERR50 = 'Cannot create console log file!';
+  ERR51 = 'The value of the constant can only be set once!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
@@ -275,6 +276,12 @@ resourcestring
   DES102='       existence of a file or directory';
   DES103='       check device lock file';
   DES104='       remove device lock file';
+  DES105='       show all constants array with theirs value or define a new one';
+  DES106='       show all variable array with theirs value or define a new one';
+  DES107='       clear content of an array';
+  DES108='       copy elements of an array to an another one';
+  DES109='       fill an array with a character';
+  DES110='       get or set size of an array';
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -378,7 +385,7 @@ resourcestring
   USG64='chr $TARGET [$]VALUE';
   USG65='ord $TARGET [$]VALUE';
   USG66='const' + EOL +
-        '  const NAME [$]VALUE';
+        '  const NAME [[$]VALUE]';
   USG67='bit $TARGET [$]VALUE1 [$]VALUE2';
   USG68='pow $TARGET [$]BASE [$]EXPONENT';
   USG69='goto LABEL';
@@ -429,3 +436,11 @@ resourcestring
   USG102='exist [$]PATH_AND_FILENAME';
   USG103='chkdevlock [$]DEVICE';
   USG104='rmdevlock [$]DEVICE';
+  USG105='carr ARRAY' + EOL +
+         '  carr ARRAY SIZE';
+  USG106='varr ARRAY' + EOL +
+         '  varr ARRAY SIZE';
+  USG107='arrclear ARRAY';
+  USG108='arrcopy TARGET SOURCE [$]COUNT';
+  USG109='arrfill ARRAY [$]DATA';
+  USG110='arrsize ARRAY [[$]SIZE]';

@@ -16,7 +16,7 @@
   p0    p1   p2
   -------------------
   const
-  const NAME [$]VALUE
+  const NAME [[$]VALUE]
 }
 
 // SET PREDEFINED CONSTANTS
@@ -92,7 +92,7 @@ begin
   setdefaultconstants;
 end;
 
-// IF S IS A CONSTANT, IT RETURNS THEIRS NUMBER
+// IF IT IS A CONSTANT, IT RETURNS THEIRS NUMBER
 function intisitconstant(s: string): integer;
 var
   i: integer;
@@ -107,7 +107,7 @@ begin
   end;
 end;
 
-// IF S IS A CONSTANT, IT RETURNS TRUE
+// IF IT IS A CONSTANT, IT RETURNS TRUE
 function boolisitconstant(s: string): boolean;
 var
   i: integer;
@@ -142,12 +142,13 @@ function cmd_const(p1, p2: string): byte;
 var
   b, bb: byte;
   l: byte;
-  {$IFNDEF X} line: byte; {$ELSE} s: string; {$ENDIF}
+  {$IFNDEF X} line: integer; {$ENDIF}
+  {$IFDEF X} s: string; {$ENDIF}
   s1, s2: string; // parameters in other type
   valid: boolean = true;
 begin
   result := 0;
-  // CHECK LENGTH OF PARAMETERS
+  // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
     {$IFNDEF X} line := 0; {$ENDIF}
@@ -175,13 +176,6 @@ begin
       end;        
     exit;
   end;
-  if (length(p1) > 0) and (length(p2) = 0) then
-  begin
-    // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
-    result := 1;
-    exit;
-  end;
   // SEARCH ILLEGAL CHARACTERS IN P1
   s1 := p1;
   for b := 1 to length(s1) do
@@ -199,8 +193,8 @@ begin
     for bb := 123 to 255 do
       if s1[b] = chr(bb) then valid := false;
   end;
-  // Illegal character in the constant name!
   if not valid then
+    // Illegal character in the constant name!
     {$IFNDEF X} writeln(ERR33) {$ELSE} Form1.Memo1.Lines.Add(ERR33) {$ENDIF} else
   begin
     // COMPARING EXISTING NAMES WITH THE NEW ONE

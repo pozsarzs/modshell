@@ -1,6 +1,4 @@
-ModShell        Interpreter futási módban rossz helyen keresi a szkriptet.
 XModShell       Le kell ellenőrizni az Shift-? gyorsgombos parancsok hívását.
 Közös           A carr varr arrclear arrcopy arrfill arrsize parancsok a resourcestringben
                 és helpben nem szerepelnek, a többi parancs még nem használja és a
                 függvényeik sincsenek kidolgozva.
-

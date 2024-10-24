@@ -33,7 +33,7 @@ begin
     end;
 end;
 
-// IF S IS A VARIABLE, IT RETURNS theirs number
+// IF IT IS A VARIABLE, IT RETURNS THEIRS NUMBER
 function intisitvariable(s: string): integer;
 var
   i: integer;
@@ -48,7 +48,7 @@ begin
   end;
 end;
 
-// IF S IS A VARIABLE, IT RETURNS TRUE
+// IF IT IS A VARIABLE, IT RETURNS TRUE
 function boolisitvariable(s: string): boolean;
 var
   i: integer;
@@ -63,7 +63,7 @@ begin
   end;
 end;
 
-// IF S IS A VARIABLE, IT RETURNS ITS VALUE
+// IF IT IS A VARIABLE, IT RETURNS ITS VALUE
 function isitvariable(s: string): string;
 var
   i: integer;
@@ -78,14 +78,14 @@ begin
   end;
 end;
 
-// COMMAND 'VAR'
+// COMMAND 'var'
 function cmd_var(p1, p2: string): byte;
 var
   b, bb: byte;
   l: byte;
   {$IFNDEF X} line: integer; {$ENDIF}
   {$IFDEF X} s: string; {$ENDIF}
-  s1, s2: string;      // parameters in other type
+  s1, s2: string; // parameters in other type
   valid: boolean = true;
 begin
   result := 0;
@@ -145,7 +145,7 @@ begin
     if not valid then
     begin
       // There is already a variable or a constant with that name.
-      {$IFNDEF X} writeln(ERR17); {$ELSE}  Form1.Memo1.Lines.Add(ERR17); {$ENDIF}
+      {$IFNDEF X} writeln(ERR17); {$ELSE} Form1.Memo1.Lines.Add(ERR17); {$ENDIF}
       result := 1;
       exit;
     end;
@@ -162,13 +162,13 @@ begin
       // Cannot define more variable!
       {$IFNDEF X} writeln(ERR16); {$ELSE} Form1.Memo1.Lines.Add(ERR16); {$ENDIF}
       result := 1;
-    exit;
+      exit;
     end;
     // CHECK P2 PARAMETER
     if (length(p2) > 0) then
     begin
-      if boolisitvariable(p2) then s2 := isitvariable(p2);
       if boolisitconstant(p2) then s2 := isitconstant(p2);
+      if boolisitvariable(p2) then s2 := isitvariable(p2);
       if length(s2) = 0 then s2 := p2;
     end;
     // CHANGE '\ ' TO SPACE IN P2

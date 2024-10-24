@@ -334,8 +334,11 @@ begin
   {$ENDIF}
   // make, store and set directories
   ForceDirectories(vars[13].vvalue);
-  originaldirectory := getcurrentdir;
-  setcurrentdir(vars[11].vvalue + PRGNAME);  
+  if appmode <> 4 then
+  begin
+    originaldirectory := getcurrentdir;
+    setcurrentdir(vars[11].vvalue + PRGNAME);
+  end;
   // run main function
   case appmode of
     0: simplecommandline;
@@ -346,6 +349,6 @@ begin
   uconfig.lastproject := vars[12].vvalue;
   saveconfiguration(BASENAME, '.ini');
   // restore directory
-  setcurrentdir(originaldirectory);
+  if appmode <> 4 then setcurrentdir(originaldirectory);
   quit(0, false, '');
 end.

@@ -39,7 +39,7 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  if boolisitvariable(p1) then  // if p1 is a variable
+  if boolisitvariable(p1) or boolisitconstant(p1) then  // if p1 is a variable or constant
   begin
     for rt := 0 to 3 do
       if REG_TYPE[rt] = p2 then
@@ -57,7 +57,11 @@ begin
       // CHANGE '\ ' TO SPACE IN P2
       s2 := stringreplace(s2, #92+#32, #32, [rfReplaceAll]);
       // PRIMARY MISSION
-      vars[intisitvariable(p1)].vvalue := s2;
+      if boolisitvariable(p1) then vars[intisitvariable(p1)].vvalue := s2;
+      if boolisitconstant(p1) then
+        if length(vars[intisitconstant(p1)].vvalue) = 0
+          then vars[intisitconstant(p1)].vvalue := s2
+          else {$IFNDEF X} writeln(ERR51); {$ELSE} Form1.Memo1.Lines.Add(ERR51); {$ENDIF}
       exit;
     end else
     begin
