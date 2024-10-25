@@ -82,6 +82,8 @@ begin
   // CHECK P3 PARAMETER
   if boolisitconstant(p3) then s3 := isitconstant(p3);
   if boolisitvariable(p3) then s3 := isitvariable(p3);
+  if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+  if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
   if length(s3) = 0 then s3 := p3;
   i3 := strtointdef(s3, -1);
   if (i3 < 1 ) or (i3 > 9999) then
@@ -94,6 +96,8 @@ begin
   // CHECK P4 PARAMETER
   if boolisitconstant(p4) then s4 := isitconstant(p4);
   if boolisitvariable(p4) then s4 := isitvariable(p4);
+  if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
+  if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
   if length(s4) = 0 then s4 := p4;
   if length(s4) > 0 then
   begin

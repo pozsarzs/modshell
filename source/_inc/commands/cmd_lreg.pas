@@ -37,7 +37,10 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  s1 := isitvariable(p1);
+  if boolisitconstant(p1) then s1 := isitconstant(p1);
+  if boolisitvariable(p1) then s1 := isitvariable(p1);
+  if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
+  if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
   if length(s1) = 0 then s1 := p1;
   fp := extractfilepath(s1);
   fn := extractfilename(s1);

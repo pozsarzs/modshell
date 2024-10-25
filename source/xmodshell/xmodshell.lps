@@ -7,7 +7,8 @@
       <Unit>
         <Filename Value="xmodshell.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos Y="15"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="3" Y="7"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
       </Unit>
@@ -29,7 +30,6 @@
         <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos Y="15"/>
         <UsageCount Value="219"/>
@@ -217,10 +217,14 @@
         <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <JumpHistory>
+    <JumpHistory HistoryIndex="1">
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="2402" TopLine="2395"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="15"/>
       </Position>
     </JumpHistory>
     <RunParams>

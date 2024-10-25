@@ -40,6 +40,7 @@ begin
   end;
   // CHECK P1 PARAMETER
   if boolisitvariable(p1) then s1 := isitvariable(p1);
+  if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
   if length(s1) = 0 then s1 := p1;
   i1 := strtointdef(s1, -1);
   if (i1 < 0) or (i1 > 65535) then
@@ -68,6 +69,8 @@ begin
   // CHECK P3 PARAMETER
   if boolisitconstant(p3) then s3 := isitconstant(p3);
   if boolisitvariable(p3) then s3 := isitvariable(p3);
+  if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+  if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
   if length(s3) = 0 then s3 := p3;
   i3 := strtointdef(s3, -1);
   if (i3 < 0) or (i3 > 65535) then

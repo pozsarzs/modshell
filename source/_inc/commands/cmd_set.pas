@@ -71,6 +71,8 @@ var
       // CHECK P4 PARAMETER
       if boolisitconstant(p4) then s4 := isitconstant(p4);
       if boolisitvariable(p4) then s4 := isitvariable(p4);
+      if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
+      if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
       if length(s4) = 0 then s4 := p4;
       if (strtointdef(s4, -1) < 0 ) or (strtointdef(s4, -1) > 65535) then
       begin
@@ -101,6 +103,8 @@ var
       // CHECK P4 PARAMETER
       if boolisitconstant(p4) then s4 := isitconstant(p4);
       if boolisitvariable(p4) then s4 := isitvariable(p4);
+      if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
+      if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
       if length(s4) = 0 then s4 := p4;
       for i4 := 0 to 7 do
         if DEV_SPEED[i4] = p4 then
@@ -120,6 +124,8 @@ var
       // CHECK P5 PARAMETER
       if boolisitconstant(p5) then s5 := isitconstant(p5);
       if boolisitvariable(p5) then s5 := isitvariable(p5);
+      if boolisitconstantarray(p5) then s5 := isitconstantarray(p5);
+      if boolisitvariablearray(p5) then s5 := isitvariablearray(p5);
       if length(s5) = 0 then s5 := p5;
       if (strtointdef(s5, -1) < 7 ) or (strtointdef(s5, -1) > 8) then
       begin
@@ -131,6 +137,8 @@ var
       // CHECK P6 PARAMETER
       if boolisitconstant(p6) then s6 := isitconstant(p6);
       if boolisitvariable(p6) then s6 := isitvariable(p6);
+      if boolisitconstantarray(p6) then s6 := isitconstantarray(p6);
+      if boolisitvariablearray(p6) then s6 := isitvariablearray(p6);
       if length(s6) = 0 then s6 := p6;
       for i6 := 0 to 2 do
         if DEV_PARITY[i6] = s6 then
@@ -150,6 +158,8 @@ var
       // CHECK P7 PARAMETER
       if boolisitconstant(p7) then s7 := isitconstant(p7);
       if boolisitvariable(p7) then s7 := isitvariable(p7);
+      if boolisitconstantarray(p7) then s7 := isitconstantarray(p7);
+      if boolisitvariablearray(p7) then s7 := isitvariablearray(p7);
       if length(s7) = 0 then s7 := p7;
       if (strtointdef(s7, -1) < 1 ) or (strtointdef(s7, -1) > 2) then
       begin
@@ -210,6 +220,8 @@ var
     begin
       if boolisitconstant(p3) then s3 := isitconstant(p3);
       if boolisitvariable(p3) then s3 := isitvariable(p3);
+      if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+      if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
       if length(s3) = 0 then s3 := p3;
       if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 247) then
       begin
@@ -318,6 +330,8 @@ var
     // SEARCH ILLEGAL CHARACTERS
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
+    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
     if length(s2) = 0 then s2 := p2;
     s := s2;
     for b := 1 to length(s) do
@@ -359,6 +373,8 @@ var
     // SEARCH ILLEGAL CHARACTERS
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
+    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
     if length(s2) = 0 then s2 := p2;
     if (strtointdef(s2, -1) < 1 ) or (strtointdef(s2, -1) > 60) then
     begin

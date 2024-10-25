@@ -162,30 +162,34 @@ begin
         c := readkey;
         // only insert
         if c = #46 then
-          begin command := COMMANDS[17]; c := #32; end;                      // ALT-C
+          begin command := COMMANDS[17]; c := #32; end;                       // ALT-C
         if c = #18 then
-          begin command := COMMANDS[15]; c := #32; end;                      // ALT-E
+          begin command := COMMANDS[15]; c := #32; end;                       // ALT-E
         if c = #23 then
-          begin command := COMMANDS[22]; c := #32; end;                      // ALT-I
+          begin command := COMMANDS[22]; c := #32; end;                       // ALT-I
         if c = #34 then
-          begin command := COMMANDS[2]; c := #32; end;                       // ALT-G
+          begin command := COMMANDS[2]; c := #32; end;                        // ALT-G
         if c = #38 then
-          begin command := COMMANDS[4]; c := #32; end;                       // ALT-L
+          begin command := COMMANDS[4]; c := #32; end;                        // ALT-L
         if c = #50 then
-          begin command := COMMANDS[88]; c := #32; end;                      // ALT-M
+          begin command := COMMANDS[88]; c := #32; end;                       // ALT-M
         if c = #25 then
-          begin command := COMMANDS[5]; c := #32; end;                       // ALT-P
+          begin command := COMMANDS[5]; c := #32; end;                        // ALT-P
         if c = #19 then
-          begin command := COMMANDS[6]; c := #32; end;                       // ALT-R
+          begin command := COMMANDS[6]; c := #32; end;                        // ALT-R
         if c = #20 then
-          begin command := COMMANDS[7]; c := #32; end;                       // ALT-T
+          begin command := COMMANDS[7]; c := #32; end;                        // ALT-T
         if c = #31 then
-          begin command := COMMANDS[8]; c := #32; end;                       // ALT-S
+          begin command := COMMANDS[8]; c := #32; end;                        // ALT-S
         if c = #17 then
-          begin command := COMMANDS[11]; c := #32; end;                      // ALT-W
+          begin command := COMMANDS[11]; c := #32; end;                       // ALT-W
+        if c = #86 then
+          begin command := COMMANDS[39]; c := #32; end;                       // SHIFT-F3
+        if c = #87 then
+          begin command := COMMANDS[91]; c := #32; end;                       // SHIFT-F4
         // insert and run
         if c = #59 then
-          begin command := COMMANDS[3]; c:=#13; end;                         // F1
+          begin command := COMMANDS[3]; c:=#13; end;                          // F1
         if c = #60 then
           begin command := COMMANDS[13] + #32 + vars[12].vvalue; c:=#13; end; // F2
         if c = #61 then
@@ -197,24 +201,28 @@ begin
         if c = #64 then
           begin command := COMMANDS[33] + #32 + vars[12].vvalue; c:=#13; end; // F6
         if c = #65 then
-          begin command := COMMANDS[35]; c:=#13; end;                        // F7
+          begin command := COMMANDS[35]; c:=#13; end;                         // F7
         if c = #66 then
-          begin command := COMMANDS[12]; c:=#13; end;                        // F8
+          begin command := COMMANDS[12]; c:=#13; end;                         // F8
         if c = #67 then
-          begin command := COMMANDS[38] + #32 + ECHO_ARG[3]; c:=#13; end;    // F9
+          begin command := COMMANDS[38] + #32 + ECHO_ARG[3]; c:=#13; end;     // F9
         if c = #68 then
-          begin command := COMMANDS[1]; c:=#13; end;                         // F10
+          begin command := COMMANDS[1]; c:=#13; end;                          // F10
         if c = #133 then
-          begin command := COMMANDS[41]; c:=#13; end;                        // F11
+          begin command := COMMANDS[41]; c:=#13; end;                         // F11
         if c = #134 then
-          begin command := COMMANDS[40]; c:=#13; end;                        // F12
-        if c = #72 then                                                      // UP
+          begin command := COMMANDS[40]; c:=#13; end;                         // F12
+        if c = #85 then
+          begin command := COMMANDS[93]; c := #32; end;                       // SHIFT-F2
+        if c = #91 then
+          begin command := COMMANDS[92]; c := #32; end;                       // SHIFT-F8
+        if c = #72 then                                                       // UP
           if uconfig.histitem > 0 then
           begin
             command := uconfig.histbuff[uconfig.histitem];
             dec(uconfig.histitem);
           end;
-        if c = #80 then                                                      // DOWN
+        if c = #80 then                                                       // DOWN
           if (uconfig.histitem < 255) and (length(uconfig.histbuff[uconfig.histitem + 1]) > 0) then
           begin
             inc(uconfig.histitem);
@@ -222,13 +230,13 @@ begin
           end;
       end else
       begin
-        if c = #8 then delete(command, length(command), 1);                  // BACKSPACE
-        if c = #9 then c := #32;                                             // TAB
-        if c = #27 then command := '';                                       // ESC
+        if c = #8 then delete(command, length(command), 1);                   // BACKSPACE
+        if c = #9 then c := #32;                                              // TAB
+        if c = #27 then command := '';                                        // ESC
         if (c <> #8) and (c <> #13) and (c <> #27) then command := command + c;
       end;
       xywrite(1, wherey, true, fullprompt + command);
-    until (c = #13);                                                         // ENTER
+    until (c = #13);                                                          // ENTER
     if length(command) > 0 then
     begin
       if uconfig.histlast < 255 then

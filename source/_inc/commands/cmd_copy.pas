@@ -122,6 +122,8 @@ begin
   // CHECK P5 PARAMETER
   if boolisitconstant(p5) then s5 := isitconstant(p5);
   if boolisitvariable(p5) then s5 := isitvariable(p5);
+  if boolisitconstantarray(p5) then s5 := isitconstantarray(p5);
+  if boolisitvariablearray(p5) then s5 := isitvariablearray(p5);
   if length(s5) = 0 then s5 := p5;
   i5 := strtointdef(s5, -1);
   if (i5 < 1) or (i5 > 9999) then
@@ -136,6 +138,8 @@ begin
   begin
   if boolisitconstant(p6) then s6 := isitconstant(p6);
   if boolisitvariable(p6) then s6 := isitvariable(p6);
+  if boolisitconstantarray(p6) then s6 := isitconstantarray(p6);
+  if boolisitvariablearray(p6) then s6 := isitvariablearray(p6);
     if length(s6) = 0 then s6 := p6;
     i6 := strtointdef(s6, -1);
     if (i6 < 1 ) or (i6 > 125) then

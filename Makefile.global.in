@@ -48,12 +48,8 @@ fpcargs		= -T@os@ \
                   -ve \
                   -Fi../_inc/ \
                   -Fi../_inc/* \
+                  -Fu../_ext/* \
                   -Fu../_ppu/ \
-                  -Fu../convert/ \
-                  -Fu../modlcltranslator/ \
-                  -Fu../modsynhighlighterany/ \
-                  -Fu../protcom/ \
-                  -Fu../synapse/ \
                   -Fu. \
                   -Fu../_lib/@architecture@-@os@/ \
                   -Fu@lcldir@/../components/synedit/ \

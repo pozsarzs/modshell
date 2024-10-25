@@ -193,6 +193,7 @@ begin
   begin
     // CHECK P1 PARAMETER
     s1 := isitvariable(p1);
+    s1 := isitvariablearray(p1);
     if length(s1) = 0 then s1 := p1;
     valid := false;
     for b := 0 to COMMARRSIZE - 2 do

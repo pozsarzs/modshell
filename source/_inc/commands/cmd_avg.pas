@@ -35,7 +35,7 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  if not boolisitvariable(p1) then
+  if (not boolisitvariable(p1)) or (not boolisitvariablearray(p1)) then
   begin
     // No such variable!
     {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
@@ -45,16 +45,22 @@ begin
   // CHECK P2 PARAMETER
   if boolisitconstant(p2) then s[2] := isitconstant(p2);
   if boolisitvariable(p2) then s[2] := isitvariable(p2);
+  if boolisitconstantarray(p2) then s[2] := isitconstantarray(p2);
+  if boolisitvariablearray(p2) then s[2] := isitvariablearray(p2);
   if length(s[2]) = 0 then s[2] := p2;
   // CHECK P3 PARAMETER
   if boolisitconstant(p3) then s[3] := isitconstant(p3);
   if boolisitvariable(p3) then s[3] := isitvariable(p3);
+  if boolisitconstantarray(p3) then s[3] := isitconstantarray(p3);
+  if boolisitvariablearray(p3) then s[3] := isitvariablearray(p3);
   if length(s[3]) = 0 then s[3] := p3;
   // CHECK P4 PARAMETER
   if length(p4) > 0 then
   begin
     if boolisitconstant(p4) then s[4] := isitconstant(p4);
     if boolisitvariable(p4) then s[4] := isitvariable(p4);
+    if boolisitconstantarray(p4) then s[4] := isitconstantarray(p4);
+    if boolisitvariablearray(p4) then s[4] := isitvariablearray(p4);
     if length(s[4]) = 0 then s[4] := p4;
     inc(count);
   end;
@@ -63,6 +69,8 @@ begin
   begin
     if boolisitconstant(p5) then s[5] := isitconstant(p5);
     if boolisitvariable(p5) then s[5] := isitvariable(p5);
+    if boolisitconstantarray(p5) then s[5] := isitconstantarray(p5);
+    if boolisitvariablearray(p5) then s[5] := isitvariablearray(p5);
     if length(s[5]) = 0 then s[5] := p5;
     inc(count);
   end;
@@ -71,6 +79,8 @@ begin
   begin
     if boolisitconstant(p6) then s[6] := isitconstant(p6);
     if boolisitvariable(p6) then s[6] := isitvariable(p6);
+    if boolisitconstantarray(p6) then s[6] := isitconstantarray(p6);
+    if boolisitvariablearray(p6) then s[6] := isitvariablearray(p6);
     if length(s[6]) = 0 then s[6] := p6;
     inc(count);
   end;
@@ -78,7 +88,9 @@ begin
   try
     for b := 2 to count + 1 do
       f := f + strtofloatdef(s[b], 0);
-    vars[intisitvariable(p1)].vvalue := floattostr(f / count);
+    if boolisitvariable(p1)
+      then vars[intisitvariable(p1)].vvalue := floattostr(f / count)
+      else vars[intisitvariablearray(p1)].vvalue := floattostr(f / count);
   except
     // Calculating error!
     {$IFNDEF X} writeln(ERR20); {$ELSE} Form1.Memo1.Lines.Add(ERR20); {$ENDIF}

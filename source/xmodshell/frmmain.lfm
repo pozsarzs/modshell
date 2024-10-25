@@ -729,11 +729,13 @@ object Form1: TForm1
       object MenuItem10: TMenuItem
         Caption = '&Load script..'
         ImageIndex = 1
+        ShortCut = 8306
         OnClick = MenuItem10Click
       end
       object MenuItem11: TMenuItem
         Caption = '&Save script..'
         ImageIndex = 2
+        ShortCut = 8305
         OnClick = MenuItem11Click
       end
       object Separator6: TMenuItem
@@ -748,11 +750,13 @@ object Form1: TForm1
       object MenuItem30: TMenuItem
         Caption = 'E&dit script'
         ImageIndex = 18
+        ShortCut = 8307
         OnClick = MenuItem30Click
       end
       object MenuItem29: TMenuItem
         Caption = 'E&rase script'
         ImageIndex = 6
+        ShortCut = 8311
         OnClick = MenuItem29Click
       end
       object Separator3: TMenuItem

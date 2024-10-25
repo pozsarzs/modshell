@@ -40,6 +40,8 @@ begin
   // CHECK P1 PARAMETER
   if boolisitconstant(p1) then s1 := isitconstant(p1);
   if boolisitvariable(p1) then s1 := isitvariable(p1);
+  if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
+  if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
   if length(s1) = 0 then s1 := p1;
   i1 := strtointdef(s1, -1);
   if (i1 < 0) or (i1 > 15) then
@@ -52,6 +54,8 @@ begin
   // CHECK P2 PARAMETER
   if boolisitconstant(p2) then s2 := isitconstant(p2);
   if boolisitvariable(p2) then s2 := isitvariable(p2);
+  if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+  if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
   i2 := strtointdef(s2, -1);
   if (i2 < 0) or (i2 > 15) then
   begin
@@ -63,6 +67,8 @@ begin
   // CHECK P3 PARAMETER
   if boolisitconstant(p3) then s3 := isitconstant(p3);
   if boolisitvariable(p3) then s3 := isitvariable(p3);
+  if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+  if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
   if length(s3) = 0 then s3 := p3;
   i3 := strtointdef(s3, -1);
   if (i3 < 0) or (i3 > 15) then
@@ -75,6 +81,8 @@ begin
   // CHECK P4 PARAMETER
   if boolisitconstant(p4) then s4 := isitconstant(p4);
   if boolisitvariable(p4) then s4 := isitvariable(p4);
+  if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
+  if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
   if length(s4) = 0 then s4 := p4;
   i4 := strtointdef(s4, -1);
   if (i4 < 0) or (i4 > 15) then
@@ -87,6 +95,8 @@ begin
   // CHECK P5 PARAMETER
   if boolisitconstant(p5) then s5 := isitconstant(p5);
   if boolisitvariable(p5) then s5 := isitvariable(p5);
+  if boolisitconstantarray(p5) then s5 := isitconstantarray(p5);
+  if boolisitvariablearray(p5) then s5 := isitvariablearray(p5);
   if length(s5) = 0 then s5 := p5;
   i5 := strtointdef(s5, -1);
   if (i5 < 0) or (i5 > 15) then

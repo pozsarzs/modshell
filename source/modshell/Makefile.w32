@@ -19,8 +19,7 @@ fpcargs = -T$(os) \
           -Fi../_inc/* \
           -Fu. \
           -Fu../_ppu \
-          -Fu../convert \
-          -Fu../synapse \
+          -Fu../_ext/* \
           -Fu$(outdir) \
           -FE$(outdir)
 

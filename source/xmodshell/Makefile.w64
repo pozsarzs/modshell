@@ -19,10 +19,7 @@ fpcargs = -T$(os) \
           -Fi../_inc/* \
           -Fu. \
           -Fu../_ppu \
-          -Fu../convert \
-          -Fu../modlcltranslator \
-          -Fu../modsynhighlighterany \
-          -Fu../synapse \
+          -Fu../_ext/* \
           -Fu$(lcldir)/../components/lazutils/lib/$(architecture)-$(os)/ \
           -Fu$(lcldir)/../components/synedit/ \
           -Fu$(lcldir)/../packager/units/$(architecture)-$(os)/ \

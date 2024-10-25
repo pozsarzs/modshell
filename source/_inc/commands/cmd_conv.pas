@@ -36,7 +36,7 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  if not boolisitvariable(p1) then
+  if (not boolisitvariable(p1)) or (not boolisitvariablearray(p1)) then
   begin
     // No such variable!
     {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
@@ -79,6 +79,8 @@ begin
   // CHECK P4 PARAMETER
   if boolisitconstant(p4) then s4 := isitconstant(p4);
   if boolisitvariable(p4) then s4 := isitvariable(p4);
+  if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
+  if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
   if length(s4) = 0 then s4 := p4;
   case ns1 of
     0: begin
@@ -154,5 +156,7 @@ begin
     32: s := OktToHex(s4);
     33: s := s4;
   end;
-  vars[intisitvariable(p1)].vvalue := s;
+  if boolisitvariable(p1)
+    then vars[intisitvariable(p1)].vvalue := s
+    else vars[intisitvariablearray(p1)].vvalue := s;
 end;

@@ -32,13 +32,15 @@ begin
     then {$IFNDEF X} writeln(dt) {$ELSE} Form1.Memo1.Lines.Add(dt) {$ENDIF} else
     begin
       // CHECK P1 PARAMETER
-      if not boolisitvariable(p1) then
+      if (not boolisitvariable(p1)) or (not boolisitvariablearray(p1)) then
       begin
         // No such variable!
         {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
         result := 1;
         exit;
       end;
-      vars[intisitvariable(p1)].vvalue := dt;
+      if boolisitvariable(p1)
+        then vars[intisitvariable(p1)].vvalue := dt
+        else vars[intisitvariablearray(p1)].vvalue := dt;
     end;
 end;

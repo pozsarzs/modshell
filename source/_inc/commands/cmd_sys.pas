@@ -227,6 +227,8 @@ begin
   begin
     if boolisitconstant(p1) then s1 := isitconstant(p1);
     if boolisitvariable(p1) then s1 := isitvariable(p1);
+    if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
+    if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
     if length(s1) = 0 then s1 := p1;
   end;
   // CHECK P2 PARAMETER
@@ -234,6 +236,8 @@ begin
   begin
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
+    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
     if length(s2) = 0 then s2 := p2;
   end;
   // PRIMARY MISSION

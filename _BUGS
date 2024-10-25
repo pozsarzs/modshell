@@ -1,4 +1,59 @@
-XModShell       Le kell ellenőrizni az Shift-? gyorsgombos parancsok hívását.
-Közös           A carr varr arrclear arrcopy arrfill arrsize parancsok a resourcestringben
-                és helpben nem szerepelnek, a többi parancs még nem használja és a
-                függvényeik sincsenek kidolgozva.
+Közös           A carr varr arrclear arrcopy arrfill arrsize parancsok nincsenek kidolgozva.
+Közös           Parancsok felkészítése a tömbhasználatra:
+
++ cmd_aplg.pas
++ cmd_asci.pas
++ cmd_avg.pas
++ cmd_colr.pas
++ cmd_cons.pas
++ cmd_conv.pas
++ cmd_copy.pas
++ cmd_cron.pas
++ cmd_date.pas
++ cmd_dump.pas
++ cmd_echo.pas
++ cmd_edit.pas
++ cmd_eras.pas
++ cmd_exph.pas
++ cmd_expr.pas
++ cmd_for.pas
++ cmd_get.pas
++ cmd_goto.pas
++ cmd_gw.pas
++ cmd_help.pas
++ cmd_if.pas
++ cmd_impr.pas
++ cmd_labl.pas
++ cmd_lcfg.pas
+cmd_let.pas
++ cmd_list.pas
++ cmd_lock.pas
+cmd_logc.pas
++ cmd_lreg.pas
++ cmd_lscr.pas
+cmd_math.pas
++ cmd_paus.pas
++ cmd_prnt.pas
+cmd_prop.pas
++ cmd_read.pas
++ cmd_rst.pas
++ cmd_run.pas
++ cmd_scfg.pas
++ cmd_secn.pas
+cmd_serd.pas
++ cmd_set.pas
++ cmd_sewr.pas
++ cmd_sreg.pas
++ cmd_srv.pas
++ cmd_sscr.pas
+cmd_str.pas
++ cmd_sys.pas
++ cmd_var.pas
+cmd_varr.pas
++ cmd_vrmn.pas
++ cmd_whvr.pas
++ cmd_wrte.pas
++ thr_secn.pas
+thr_serd.pas
++ thr_sewr.pas
+                

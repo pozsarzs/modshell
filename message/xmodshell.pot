@@ -53,8 +53,44 @@ msgstr ""
 msgid "       rename file"
 msgstr ""
 
+#: frmmain.des102
+msgid "       existence of a file or directory"
+msgstr ""
+
+#: frmmain.des103
+msgid "       check device lock file"
+msgstr ""
+
+#: frmmain.des104
+msgid "       remove device lock file"
+msgstr ""
+
+#: frmmain.des105
+msgid "       show all constants array with theirs value or define a new one"
+msgstr ""
+
+#: frmmain.des106
+msgid "       show all variable array with theirs value or define a new one"
+msgstr ""
+
+#: frmmain.des107
+msgid "       clear content of an array"
+msgstr ""
+
+#: frmmain.des108
+msgid "       copy elements of an array to an another one"
+msgstr ""
+
+#: frmmain.des109
+msgid "       fill an array with a character"
+msgstr ""
+
 #: frmmain.des11
 msgid "ALT-W  write data from buffer to one or more remote registers"
+msgstr ""
+
+#: frmmain.des110
+msgid "       get or set size of an array"
 msgstr ""
 
 #: frmmain.des12
@@ -613,6 +649,10 @@ msgstr ""
 msgid "Cannot create console log file!"
 msgstr ""
 
+#: frmmain.err51
+msgid "The value of the constant can only be set once!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -956,6 +996,10 @@ msgstr ""
 msgid " or \"text\""
 msgstr ""
 
+#: frmmain.msg85
+msgid "Cannot use it on this operation system!"
+msgstr ""
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr ""
@@ -1086,11 +1130,51 @@ msgstr ""
 msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
 msgstr ""
 
+#: frmmain.usg102
+msgid "exist [$]PATH_AND_FILENAME"
+msgstr ""
+
+#: frmmain.usg103
+msgid "chkdevlock [$]DEVICE"
+msgstr ""
+
+#: frmmain.usg104
+msgid "rmdevlock [$]DEVICE"
+msgstr ""
+
+#: frmmain.usg105
+msgid ""
+"carr ARRAY\n"
+"  carr ARRAY SIZE"
+msgstr ""
+
+#: frmmain.usg106
+msgid ""
+"varr ARRAY\n"
+"  varr ARRAY SIZE"
+msgstr ""
+
+#: frmmain.usg107
+msgid "arrclear ARRAY"
+msgstr ""
+
+#: frmmain.usg108
+msgid "arrcopy TARGET SOURCE [$]COUNT"
+msgstr ""
+
+#: frmmain.usg109
+msgid "arrfill ARRAY [$]DATA"
+msgstr ""
+
 #: frmmain.usg11
 msgid ""
 "writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg110
+msgid "arrsize ARRAY [[$]SIZE]"
 msgstr ""
 
 #: frmmain.usg12
@@ -1330,7 +1414,7 @@ msgstr ""
 #: frmmain.usg66
 msgid ""
 "const\n"
-"  const NAME [$]VALUE"
+"  const NAME [[$]VALUE]"
 msgstr ""
 
 #: frmmain.usg67

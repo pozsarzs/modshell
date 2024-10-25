@@ -1,0 +1,19 @@
+ + convert               Modificated number converter unit,
+                         Copyright (C) 1993 by Tom Wellige,
+                         Licence: Public Domain.
+
+ + modlcltranslator      Modificated LCLTranslator unit,
+                         Copyright (C) 2004 V.I.Volchenko and Lazarus Developers Team,
+                         Licence: GNU GPL v2.0 or later.
+
+ + modsynhighlighterany  Modificated SynHighlighterAny unit,
+                         Copyright (C) 1999 Martin Waldenburg,
+                         Licence: Mozilla Public License v1.1 or GNU GPL v2.0 or later.
+
+ + protcom               Protected mode serial port handler unit for DOS,
+                         Copyright (C) 2024 Pozsar Zsolt,
+                         Licence: Creative Common Zero Universal v1.0.
+
+ + synapse               TCP/IP and serial library for FreePascal,
+                         Copyright (C) 1999-2012 Lukas Gebauer,
+                         Licence: modified BSD style license.

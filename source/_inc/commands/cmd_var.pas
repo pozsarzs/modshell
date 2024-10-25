@@ -169,6 +169,8 @@ begin
     begin
       if boolisitconstant(p2) then s2 := isitconstant(p2);
       if boolisitvariable(p2) then s2 := isitvariable(p2);
+      if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+      if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
       if length(s2) = 0 then s2 := p2;
     end;
     // CHANGE '\ ' TO SPACE IN P2
