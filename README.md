@@ -46,11 +46,12 @@ communicates via various ports using the Modbus protocol.
 
 _v0.1-beta1:_  
 The next release will be with the following changes:  
- - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  
+ - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);
+ - [ ] support DCOM protocol;  
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
  - [x] `exist` command;
  - [ ] device discovery script;  
- - [ ] support for arrays;  
+ - [ ] support for variable and constant arrays;  
  - [ ] syntax highlighting file for Vim/Neovim;  
  - [ ] syntax highlighting file for Scite. 
 
@@ -291,12 +292,12 @@ selected.
 |`xor`       |logic         |        |XOR logical operations                                               |
 |`dump`      |register      |F6      |dump all registers in binary/hexadecimal format to a table           |
 |`let`       |register      |ALT-L   |set value of a register                                              |
-|`edit`      |script        |        |edit loaded script with line editor                                  |
-|`erasescr`  |script        |        |erase script from buffer                                             |
+|`edit`      |script        |SHIFT-F4|edit loaded script with line editor                                  |
+|`erasescr`  |script        |SHIFT-F8|erase script from buffer                                             |
 |`list`      |script        |F11     |list loaded script                                                   |
-|`loadscr`   |script        |        |load ModShell scriptfile from disc                                   |
+|`loadscr`   |script        |SHIFT-F3|load ModShell scriptfile from disc                                   |
 |`run`       |script        |F12     |run loaded script                                                    |
-|`savescr`   |script        |        |save loaded script to disc                                           |
+|`savescr`   |script        |SHIFT-F2|save loaded script to disc                                           |
 |`chr`       |string        |        |convert byte to char                                                 |
 |`concat`    |string        |        |concatenate strings                                                  |
 |`length`    |string        |        |length of string                                                     |

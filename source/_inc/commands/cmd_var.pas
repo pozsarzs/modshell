@@ -24,7 +24,7 @@ procedure clearallvariables;
 var
   i: byte;
 begin
-  for i := 0 to VARBUFFSIZE-1 do
+  for i := 0 to VARBUFFSIZE - 1 do
     if vars[i].vreadonly = false then
     begin
       vars[i].vname := '';
@@ -42,7 +42,7 @@ begin
   if (s[1] = #36) then
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
-    for i := 0 to VARBUFFSIZE-1 do
+    for i := 0 to VARBUFFSIZE - 1 do
       if (vars[i].vname = lowercase(s)) and not vars[i].vreadonly
       then result := i;
   end;
@@ -57,7 +57,7 @@ begin
   if (s[1] = #36) then
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
-    for i := 0 to VARBUFFSIZE-1 do
+    for i := 0 to VARBUFFSIZE - 1 do
       if (vars[i].vname = lowercase(s)) and not vars[i].vreadonly
       then result := true;
   end;
@@ -72,7 +72,7 @@ begin
   if (s[1] = #36) then
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
-    for i := 0 to VARBUFFSIZE-1 do
+    for i := 0 to VARBUFFSIZE - 1 do
       if (vars[i].vname = lowercase(s)) and not vars[i].vreadonly
       then result := stringreplace(vars[i].vvalue, #92 + #32 , #32, [rfReplaceAll]);
   end;
@@ -93,7 +93,7 @@ begin
   if (length(p1) = 0) then
   begin
     {$IFNDEF X} line := 0; {$ENDIF}
-    for l := 0 to VARBUFFSIZE-1 do
+    for l := 0 to VARBUFFSIZE - 1 do
       if (length(vars[l].vname) > 0) and not vars[l].vreadonly then
       begin
         {$IFNDEF X}
@@ -140,7 +140,7 @@ begin
   begin
     // COMPARING EXISTING NAMES WITH THE NEW ONE
     valid := true;
-    for l := 0 to VARBUFFSIZE-1 do
+    for l := 0 to VARBUFFSIZE - 1 do
       if vars[l].vname = lowercase(p1) then valid := false;
     if not valid then
     begin
@@ -151,7 +151,7 @@ begin
     end;
     // CHECK EMPTY SPACE IN VARIABLE TABLE
     valid := false;
-    for l := 0 to VARBUFFSIZE-1 do
+    for l := 0 to VARBUFFSIZE - 1 do
       if length(vars[l].vname) = 0 then
       begin
         valid := true;
