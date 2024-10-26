@@ -66,7 +66,7 @@ begin
       exit;
     end;
   // CHECK P1 PARAMETER
-  if not boolisitvariable(p1) then
+  if (not boolisitvariable(p1)) or (not boolisitvariablearray(p1)) then
   begin
     // No such variable!
     {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
@@ -76,31 +76,55 @@ begin
   // CHECK P2 PARAMETER
   if boolisitconstant(p2) then s2 := isitconstant(p2);
   if boolisitvariable(p2) then s2 := isitvariable(p2);
+  if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+  if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
   if length(s2) = 0 then s2 := p2;
   // CHECK P3 PARAMETER
   if op = 63 then
   begin
     if boolisitconstant(p3) then s3 := isitconstant(p3);
     if boolisitvariable(p3) then s3 := isitvariable(p3);
+    if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+    if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
     if length(s3) = 0 then s3 := p3;
   end;
   // PRIMARY MISSION
   try
-    case op of
-      60: vars[intisitvariable(p1)].vvalue := uppercase(s2);
-      61: vars[intisitvariable(p1)].vvalue := inttostr(length(s2));
-      62: vars[intisitvariable(p1)].vvalue := lowercase(s2);
-      63: vars[intisitvariable(p1)].vvalue := s2[strtointdef(s3, 0)];
-      64: vars[intisitvariable(p1)].vvalue := chr(strtointdef(s2, 0));
-      65: vars[intisitvariable(p1)].vvalue := inttostr(ord(s2[1]));
-      76: vars[intisitvariable(p1)].vvalue := inttostr(lrc(s2));
-      77: vars[intisitvariable(p1)].vvalue := inttostr(crc16(s2));
-      83: vars[intisitvariable(p1)].vvalue := concat(s2, s3);
-      84: delete(vars[intisitvariable(p1)].vvalue, strtointdef(s2, 0), strtointdef(s3, 0));
-      85: vars[intisitvariable(p1)].vvalue := inttostr(pos(s2, vars[intisitvariable(p1)].vvalue));
-      86: insert(s3, vars[intisitvariable(p1)].vvalue, strtointdef(s2, 0));
-      87: vars[intisitvariable(p1)].vvalue := stringreplace(vars[intisitvariable(p1)].vvalue, s2, s3, [rfReplaceAll]);
-    end;
+    if boolisitvariable(p1)
+      then
+        case op of
+          60: vars[intisitvariable(p1)].vvalue := uppercase(s2);
+          61: vars[intisitvariable(p1)].vvalue := inttostr(length(s2));
+          62: vars[intisitvariable(p1)].vvalue := lowercase(s2);
+          63: vars[intisitvariable(p1)].vvalue := s2[strtointdef(s3, 0)];
+          64: vars[intisitvariable(p1)].vvalue := chr(strtointdef(s2, 0));
+          65: vars[intisitvariable(p1)].vvalue := inttostr(ord(s2[1]));
+          76: vars[intisitvariable(p1)].vvalue := inttostr(lrc(s2));
+          77: vars[intisitvariable(p1)].vvalue := inttostr(crc16(s2));
+          83: vars[intisitvariable(p1)].vvalue := concat(s2, s3);
+          84: delete(vars[intisitvariable(p1)].vvalue, strtointdef(s2, 0), strtointdef(s3, 0));
+          85: vars[intisitvariable(p1)].vvalue := inttostr(pos(s2, vars[intisitvariable(p1)].vvalue));
+          86: insert(s3, vars[intisitvariable(p1)].vvalue, strtointdef(s2, 0));
+          87: vars[intisitvariable(p1)].vvalue := stringreplace(vars[intisitvariable(p1)].vvalue, s2, s3, [rfReplaceAll]);
+        else          
+        end
+      else
+        case op of
+          60: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := uppercase(s2);
+          61: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(length(s2));
+          62: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := lowercase(s2);
+          63: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := s2[strtointdef(s3, 0)];
+          64: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := chr(strtointdef(s2, 0));
+          65: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(ord(s2[1]));
+          76: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(lrc(s2));
+          77: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(crc16(s2));
+          83: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := concat(s2, s3);
+          84: delete(arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)], strtointdef(s2, 0), strtointdef(s3, 0));
+          85: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(pos(s2, arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)]));
+          86: insert(s3, arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)], strtointdef(s2, 0));
+          87: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := stringreplace(arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)], s2, s3, [rfReplaceAll]);
+        else          
+        end;
   except
     // Operating error
     {$IFNDEF X} writeln(ERR48); {$ELSE} Form1.Memo1.Lines.Add(ERR48); {$ENDIF}

@@ -73,7 +73,7 @@ begin
   // CHECK P2 PARAMETER
   if length(p2) > 0 then
   begin
-    if not boolisitvariable(p2) then
+    if (not boolisitvariable(p2)) or (not boolisitvariablearray(p2)) then
     begin
       // No such variable!
       {$IFNDEF X} writeln(ERR19 + p2); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p2); {$ENDIF}
@@ -119,7 +119,10 @@ begin
       if (uconfig.echo > 0)
         then {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Lines.Add(''); {$ENDIF}      
       if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-      if length(p2) > 0 then vars[intisitvariable(p2)].vvalue := s;
+      if length(p2) > 0 then
+        if boolisitvariable(p2)
+          then vars[intisitvariable(p2)].vvalue := s
+          else arrays[intisitvariablearray(p2)].aitems[intisitvariablearrayelement(p1)] := s;
     end else
     begin
       // Cannot initialize serial port!

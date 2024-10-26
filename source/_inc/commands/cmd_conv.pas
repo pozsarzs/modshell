@@ -158,5 +158,5 @@ begin
   end;
   if boolisitvariable(p1)
     then vars[intisitvariable(p1)].vvalue := s
-    else vars[intisitvariablearray(p1)].vvalue := s;
+    else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := s;
 end;

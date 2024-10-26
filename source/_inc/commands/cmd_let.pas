@@ -17,6 +17,9 @@
   ------------------------------------------------------
   let dinp|coil|ireg|hreg [$]ADDRESS          [$]VALUE
   let $VARIABLE           [$]VALUE
+  let $CONSTANT           [$]VALUE
+  let $VARARRAY[NUM]      [$]VALUE
+  let $CONSTARRAY[NUM]    [$]VALUE
   let $VARIABLE           dinp|coil|ireg|hreg [$]ADDRESS
 }
 
@@ -39,7 +42,10 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  if boolisitvariable(p1) or boolisitconstant(p1) then  // if p1 is a variable or constant
+  if boolisitvariable(p1) or
+     boolisitconstant(p1) or
+     boolisitvariablearray(p1) or
+     boolisitconstantarray(p1) then  // if p1 is a variable or constant or array
   begin
     for rt := 0 to 3 do
       if REG_TYPE[rt] = p2 then
@@ -53,14 +59,21 @@ begin
       // CHECK P2 PARAMETER
       if boolisitconstant(p2) then s2 := isitconstant(p2);
       if boolisitvariable(p2) then s2 := isitvariable(p2);
+      if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+      if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
       if length(s2) = 0 then s2 := p2;
       // CHANGE '\ ' TO SPACE IN P2
       s2 := stringreplace(s2, #92+#32, #32, [rfReplaceAll]);
       // PRIMARY MISSION
       if boolisitvariable(p1) then vars[intisitvariable(p1)].vvalue := s2;
+      if boolisitvariablearray(p1) then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := s2;
       if boolisitconstant(p1) then
         if length(vars[intisitconstant(p1)].vvalue) = 0
           then vars[intisitconstant(p1)].vvalue := s2
+          else {$IFNDEF X} writeln(ERR51); {$ELSE} Form1.Memo1.Lines.Add(ERR51); {$ENDIF}
+      if boolisitconstantarray(p1) then
+        if length(arrays[intisitconstant(p1)].aitems[intisitconstantarrayelement(p1)]) = 0
+          then arrays[intisitconstantarray(p1)].aitems[intisitconstantarrayelement(p1)] := s2
           else {$IFNDEF X} writeln(ERR51); {$ELSE} Form1.Memo1.Lines.Add(ERR51); {$ENDIF}
       exit;
     end else
@@ -87,6 +100,8 @@ begin
       // CHECK P3 PARAMETER
       if boolisitconstant(p3) then s3 := isitconstant(p3);
       if boolisitvariable(p3) then s3 := isitvariable(p3);
+      if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+      if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
       if length(s3) = 0 then s3 := p3;
       // CHANGE '\ ' TO SPACE IN P2
       s3 := stringreplace(s3, #92+#32, #32, [rfReplaceAll]);
@@ -102,8 +117,12 @@ begin
       case rt of
         0: if dinp[strtoint(s3)] then vars[intisitvariable(p1)].vvalue := '1' else vars[intisitvariable(p1)].vvalue := '0';
         1: if coil[strtoint(s3)] then vars[intisitvariable(p1)].vvalue := '1' else vars[intisitvariable(p1)].vvalue := '0';
-        2: vars[intisitvariable(p1)].vvalue := inttostr(ireg[strtoint(s3)]);
-        3: vars[intisitvariable(p1)].vvalue := inttostr(hreg[strtoint(s3)]);
+        2: if boolisitvariable(p1)
+             then vars[intisitvariable(p1)].vvalue := inttostr(ireg[strtoint(s3)])
+             else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(ireg[strtoint(s3)]);
+        3: if boolisitvariable(p1)
+             then vars[intisitvariable(p1)].vvalue := inttostr(hreg[strtoint(s3)])
+             else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(hreg[strtoint(s3)]);
       end;
       exit;
     end;  
@@ -129,6 +148,8 @@ begin
   // CHECK P2 PARAMETER
   if boolisitconstant(p2) then s2 := isitconstant(p2);
   if boolisitvariable(p2) then s2 := isitvariable(p2);
+  if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+  if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
   if length(s2) = 0 then s2 := p2;
   if (strtointdef(s2, -1) < 1 ) or (strtointdef(s2, -1) > 9999) then
   begin
@@ -140,6 +161,8 @@ begin
   // CHECK P3 PARAMETER
   if boolisitconstant(p3) then s3 := isitconstant(p3);
   if boolisitvariable(p3) then s3 := isitvariable(p3);
+  if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+  if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
   if length(s3) = 0 then s3 := p3;
   if rt > 1 then
     if (strtointdef(s3, -1) < 0 ) or (strtointdef(s3, -1) > 65535) then

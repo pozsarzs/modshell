@@ -41,6 +41,6 @@ begin
       end;
       if boolisitvariable(p1)
         then vars[intisitvariable(p1)].vvalue := dt
-        else vars[intisitvariablearray(p1)].vvalue := dt;
+        else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := dt;
     end;
 end;

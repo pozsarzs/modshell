@@ -90,7 +90,7 @@ begin
       f := f + strtofloatdef(s[b], 0);
     if boolisitvariable(p1)
       then vars[intisitvariable(p1)].vvalue := floattostr(f / count)
-      else vars[intisitvariablearray(p1)].vvalue := floattostr(f / count);
+      else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(f / count);
   except
     // Calculating error!
     {$IFNDEF X} writeln(ERR20); {$ELSE} Form1.Memo1.Lines.Add(ERR20); {$ENDIF}

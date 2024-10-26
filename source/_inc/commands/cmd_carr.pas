@@ -43,6 +43,12 @@ begin
   result := '';
 end;
 
+// IF IT IS A CONSTANT ARRAY, IT RETURNS THEIRS ELEMENT NUMBER
+function intisitconstantarrayelement(s: string): integer;
+begin
+  result := 0;
+end;
+
 // COMMAND 'CARR'
 function cmd_carr(p1, p2: string): byte;
 begin

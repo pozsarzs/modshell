@@ -43,6 +43,12 @@ begin
   result := '';
 end;
 
+// IF IT IS A VARIABLE ARRAY, IT RETURNS THEIRS ELEMENT NUMBER
+function intisitvariablearrayelement(s: string): integer;
+begin
+  result := 0;
+end;
+
 // COMMAND 'varr'
 function cmd_varr(p1, p2: string): byte;
 begin

@@ -70,7 +70,7 @@ begin
       exit;
     end;
   // CHECK P1 PARAMETER
-  if not boolisitvariable(p1) then
+  if (not boolisitvariable(p1)) or (not boolisitvariablearray(p1)) then
   begin
     // No such variable!
     {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
@@ -80,27 +80,47 @@ begin
   // CHECK P2 PARAMETER
   if boolisitconstant(p2) then s2 := isitconstant(p2);
   if boolisitvariable(p2) then s2 := isitvariable(p2);
+  if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+  if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
   if length(s2) = 0 then s2 := p2;
   // CHECK P3 PARAMETER
   if op <> 25 then
   begin
     if boolisitconstant(p3) then s3 := isitconstant(p3);
     if boolisitvariable(p3) then s3 := isitvariable(p3);
+    if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+    if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
     if length(s3) = 0 then s3 := p3;
   end;
   // PRIMARY MISSION
   try
-    case op of
-      23: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) and strtointdef(s3, 0));
-      24: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) or strtointdef(s3, 0));
-      25: vars[intisitvariable(p1)].vvalue := inttostr(not strtointdef(s2, 0));
-      26: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) xor strtointdef(s3, 0));
-      27: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) shl strtointdef(s3, 0));
-      28: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) shr strtointdef(s3, 0));
-      60: vars[intisitvariable(p1)].vvalue := inttostr(rolword(strtointdef(s2, 0), strtointdef(s3, 0)));
-      61: vars[intisitvariable(p1)].vvalue := inttostr(rorword(strtointdef(s2, 0), strtointdef(s3, 0)));
-      67: vars[intisitvariable(p1)].vvalue := inttostr(bit(strtointdef(s2, 0), strtointdef(s3, 0)));
-    end;
+    if boolisitvariable(p1)
+      then
+        case op of
+          23: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) and strtointdef(s3, 0));
+          24: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) or strtointdef(s3, 0));
+          25: vars[intisitvariable(p1)].vvalue := inttostr(not strtointdef(s2, 0));
+          26: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) xor strtointdef(s3, 0));
+          27: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) shl strtointdef(s3, 0));
+          28: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) shr strtointdef(s3, 0));
+          60: vars[intisitvariable(p1)].vvalue := inttostr(rolword(strtointdef(s2, 0), strtointdef(s3, 0)));
+          61: vars[intisitvariable(p1)].vvalue := inttostr(rorword(strtointdef(s2, 0), strtointdef(s3, 0)));
+          67: vars[intisitvariable(p1)].vvalue := inttostr(bit(strtointdef(s2, 0), strtointdef(s3, 0)));
+        else
+        end
+      else
+        case op of
+          23: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s2, 0) and strtointdef(s3, 0));
+          24: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s2, 0) or strtointdef(s3, 0));
+          25: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(not strtointdef(s2, 0));
+          26: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s2, 0) xor strtointdef(s3, 0));
+          27: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s2, 0) shl strtointdef(s3, 0));
+          28: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s2, 0) shr strtointdef(s3, 0));
+          60: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(rolword(strtointdef(s2, 0), strtointdef(s3, 0)));
+          61: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(rorword(strtointdef(s2, 0), strtointdef(s3, 0)));
+          67: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(bit(strtointdef(s2, 0), strtointdef(s3, 0)));
+        else
+        end;
   except
     // Calculating error!
     {$IFNDEF X} writeln(ERR20); {$ELSE} Form1.Memo1.Lines.Add(ERR20); {$ENDIF}

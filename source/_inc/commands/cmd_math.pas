@@ -81,7 +81,7 @@ begin
       exit;
     end;
   // CHECK P1 PARAMETER
-  if not boolisitvariable(p1) then
+  if (not boolisitvariable(p1)) or (not boolisitvariablearray(p1)) then
   begin
     // No such variable!
     {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
@@ -93,6 +93,8 @@ begin
   begin
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
+    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
     if length(s2) = 0 then s2 := p2;
   end;
   // CHECK P3 PARAMETER
@@ -100,6 +102,8 @@ begin
   begin
     if boolisitconstant(p3) then s3 := isitconstant(p3);
     if boolisitvariable(p3) then s3 := isitvariable(p3);
+    if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+    if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
     if length(s3) = 0 then s3 := p3;
   end;
   // CHECK P4 PARAMETER
@@ -107,38 +111,73 @@ begin
   begin
     if boolisitconstant(p4) then s4 := isitconstant(p4);
     if boolisitvariable(p4) then s4 := isitvariable(p4);
+    if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
+    if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
     if length(s4) = 0 then s4 := p4;
   end;
   // PRIMARY MISSION
   try
-    case op of
-      29: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) + strtofloatdef(s3, 0));
-      30: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) - strtofloatdef(s3, 0));
-      31: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) * strtofloatdef(s3, 1));
-      32: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) / strtofloatdef(s3, 1));
-      42: vars[intisitvariable(p1)].vvalue := floattostr(round2(strtofloatdef(s2, 0), strtointdef(s3, 0)));
-      43: vars[intisitvariable(p1)].vvalue := floattostr(cos(strtofloatdef(s2, 0)));
-      44: vars[intisitvariable(p1)].vvalue := floattostr(cot(strtofloatdef(s2, 0)));
-      45: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s1, 0) - 1);
-      46: vars[intisitvariable(p1)].vvalue := floattostr(exp(strtofloatdef(s2, 0)));
-      47: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) div strtointdef(s3, 1));
-      48: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) mod strtointdef(s3, 1));
-      49: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s1, 0) + 1);
-      50: vars[intisitvariable(p1)].vvalue := floattostr(ln(strtofloatdef(s2, 0)));
-      51: if strtofloatdef(s2, 0) > 0 then vars[intisitvariable(p1)].vvalue := floattostr(1 / (strtofloatdef(s2, 0)));
-      52: if odd(strtointdef(s2, 0)) then vars[intisitvariable(p1)].vvalue := '1' else vars[intisitvariable(p1)].vvalue := '0';
-      53: vars[intisitvariable(p1)].vvalue := inttostr(random(strtointdef(s2, 1)));
-      54: vars[intisitvariable(p1)].vvalue := floattostr(tan(strtofloatdef(s2, 0)));
-      55: vars[intisitvariable(p1)].vvalue := floattostr(sin(strtofloatdef(s2, 0)));
-      56: vars[intisitvariable(p1)].vvalue := floattostr(sqr(strtofloatdef(s2, 0)));
-      57: vars[intisitvariable(p1)].vvalue := floattostr(sqrt(strtofloatdef(s2, 0)));
-      68: vars[intisitvariable(p1)].vvalue := floattostr(power(strtofloatdef(s2, 0), strtofloatdef(s3, 0)));
-      75: if ((strtofloatdef(s4, 0)) >= (strtofloatdef(s2, 0))) and 
-             ((strtofloatdef(s4, 0)) <= (strtofloatdef(s3, 0)))
-          then vars[intisitvariable(p1)].vvalue := '1'
-          else vars[intisitvariable(p1)].vvalue := '0';
-      78: vars[intisitvariable(p1)].vvalue := floattostr(powerof2(strtointdef(s2, 0)));
-    end;
+    if boolisitvariable(p1)
+      then
+        case op of
+          29: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) + strtofloatdef(s3, 0));
+          30: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) - strtofloatdef(s3, 0));
+          31: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) * strtofloatdef(s3, 1));
+          32: vars[intisitvariable(p1)].vvalue := floattostr(strtofloatdef(s2, 0) / strtofloatdef(s3, 1));
+          42: vars[intisitvariable(p1)].vvalue := floattostr(round2(strtofloatdef(s2, 0), strtointdef(s3, 0)));
+          43: vars[intisitvariable(p1)].vvalue := floattostr(cos(strtofloatdef(s2, 0)));
+          44: vars[intisitvariable(p1)].vvalue := floattostr(cot(strtofloatdef(s2, 0)));
+          45: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s1, 0) - 1);
+          46: vars[intisitvariable(p1)].vvalue := floattostr(exp(strtofloatdef(s2, 0)));
+          47: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) div strtointdef(s3, 1));
+          48: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) mod strtointdef(s3, 1));
+          49: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s1, 0) + 1);
+          50: vars[intisitvariable(p1)].vvalue := floattostr(ln(strtofloatdef(s2, 0)));
+          51: if strtofloatdef(s2, 0) > 0 then vars[intisitvariable(p1)].vvalue := floattostr(1 / (strtofloatdef(s2, 0)));
+          52: if odd(strtointdef(s2, 0)) then vars[intisitvariable(p1)].vvalue := '1' else vars[intisitvariable(p1)].vvalue := '0';
+          53: vars[intisitvariable(p1)].vvalue := inttostr(random(strtointdef(s2, 1)));
+          54: vars[intisitvariable(p1)].vvalue := floattostr(tan(strtofloatdef(s2, 0)));
+          55: vars[intisitvariable(p1)].vvalue := floattostr(sin(strtofloatdef(s2, 0)));
+          56: vars[intisitvariable(p1)].vvalue := floattostr(sqr(strtofloatdef(s2, 0)));
+          57: vars[intisitvariable(p1)].vvalue := floattostr(sqrt(strtofloatdef(s2, 0)));
+          68: vars[intisitvariable(p1)].vvalue := floattostr(power(strtofloatdef(s2, 0), strtofloatdef(s3, 0)));
+          75: if ((strtofloatdef(s4, 0)) >= (strtofloatdef(s2, 0))) and 
+                 ((strtofloatdef(s4, 0)) <= (strtofloatdef(s3, 0)))
+              then vars[intisitvariable(p1)].vvalue := '1'
+              else vars[intisitvariable(p1)].vvalue := '0';
+          78: vars[intisitvariable(p1)].vvalue := floattostr(powerof2(strtointdef(s2, 0)));
+        else
+        end
+      else
+        case op of
+          29: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(strtofloatdef(s2, 0) + strtofloatdef(s3, 0));
+          30: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(strtofloatdef(s2, 0) - strtofloatdef(s3, 0));
+          31: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(strtofloatdef(s2, 0) * strtofloatdef(s3, 1));
+          32: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(strtofloatdef(s2, 0) / strtofloatdef(s3, 1));
+          42: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(round2(strtofloatdef(s2, 0), strtointdef(s3, 0)));
+          43: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(cos(strtofloatdef(s2, 0)));
+          44: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(cot(strtofloatdef(s2, 0)));
+          45: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s1, 0) - 1);
+          46: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(exp(strtofloatdef(s2, 0)));
+          47: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s2, 0) div strtointdef(s3, 1));
+          48: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s2, 0) mod strtointdef(s3, 1));
+          49: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s1, 0) + 1);
+          50: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(ln(strtofloatdef(s2, 0)));
+          51: if strtofloatdef(s2, 0) > 0 then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(1 / (strtofloatdef(s2, 0)));
+          52: if odd(strtointdef(s2, 0)) then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := '1' else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := '0';
+          53: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(random(strtointdef(s2, 1)));
+          54: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(tan(strtofloatdef(s2, 0)));
+          55: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(sin(strtofloatdef(s2, 0)));
+          56: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(sqr(strtofloatdef(s2, 0)));
+          57: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(sqrt(strtofloatdef(s2, 0)));
+          68: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(power(strtofloatdef(s2, 0), strtofloatdef(s3, 0)));
+          75: if ((strtofloatdef(s4, 0)) >= (strtofloatdef(s2, 0))) and 
+                 ((strtofloatdef(s4, 0)) <= (strtofloatdef(s3, 0)))
+              then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := '1'
+              else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := '0';
+          78: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(powerof2(strtointdef(s2, 0)));
+        else
+        end;
   except
     // Calculating error!
     {$IFNDEF X} writeln(ERR20); {$ELSE} Form1.Memo1.Lines.Add(ERR20); {$ENDIF}

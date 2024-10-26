@@ -235,13 +235,21 @@ implementation
 
 {$R *.lfm}
 
+function boolisitconstantarray(s: string): boolean; forward;
 function boolisitconstant(s: string): boolean; forward;
+function boolisitvariablearray(s: string): boolean; forward;
 function boolisitvariable(s: string): boolean; forward;
 function cmd_run(p1, p2: string): byte; forward;
+function intisitconstantarrayelement(s: string): integer; forward;
+function intisitconstantarray(s: string): integer; forward;
 function intisitconstant(s: string): integer; forward;
+function intisitvariablearrayelement(s: string): integer; forward;
+function intisitvariablearray(s: string): integer; forward;
 function intisitvariable(s: string): integer; forward;
+function isitconstantarray(s: string): string; forward;
 function isitconstant(s: string): string; forward;
 function isitmessage(s: string): string; forward;
+function isitvariablearray(s: string): string; forward;
 function isitvariable(s: string): string; forward;
 procedure clearallconstants; forward;
 procedure clearallvariables; forward;
