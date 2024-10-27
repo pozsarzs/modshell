@@ -25,7 +25,7 @@ communicates via various ports using the Modbus protocol.
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                                                       |
 |variables               |max. 128 variables or constants (stored as string)                                          |
 |arrays                  |max. 16 dynamic size array of variables or constants (elements stored as string)            |
-|built-in commands       |111 commands in 10 categories                                                               |
+|built-in commands       |110 commands in 10 categories                                                               |
 |load from file          |registers, script, settings                                                                 |
 |save to file            |command history, console traffic, registers, communication settings, user log with timestamp|
 |auto save to file       |general settings and console traffic                                                        |
@@ -256,9 +256,8 @@ selected.
 |`savecfg`   |file          |F2      |save settings of device, protocol and connection (?DT)               |
 |`savereg`   |file          |F4      |save all registers to typed file (?DT)                               |
 |`arrclear`  |general       |        |clear content of an array                                            |
-|`arrcopy`   |general       |        |copy elements of an array to an another one                          |
 |`arrfill`   |general       |        |fill an array with a character                                       |
-|`arrsize`   |general       |        |get or set size of an array                                          |
+|`arrsize`   |general       |        |set size of an array                                                 |
 |`ascii`     |general       |        |show ASCII table                                                     |
 |`beep`      |general       |        |make a beep with internal speaker                                    |
 |`carr`      |general       |        |show all constants array with theirs value or define a new one       |

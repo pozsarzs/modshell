@@ -81,7 +81,8 @@ begin
       exit;
     end;
   // CHECK P1 PARAMETER
-  if (not boolisitvariable(p1)) or (not boolisitvariablearray(p1)) then
+  if (not boolisitvariable(p1)) or
+     (not boolisitvariablearray(p1)) then
   begin
     // No such variable!
     {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}

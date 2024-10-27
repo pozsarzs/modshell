@@ -25,11 +25,14 @@ var
   i: byte;
 begin
   for i := 0 to VARBUFFSIZE - 1 do
-    if vars[i].vreadonly = false then
+    with vars[i] do
     begin
-      vars[i].vname := '';
-      vars[i].vvalue := '';
-      vars[i].vmonitored := false;
+      if not vreadonly then
+      begin
+        vname := '';
+        vvalue := '';
+        vmonitored := false;
+      end;
     end;
 end;
 
@@ -44,7 +47,7 @@ begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
     for i := 0 to VARBUFFSIZE - 1 do
       if (vars[i].vname = lowercase(s)) and not vars[i].vreadonly
-      then result := i;
+        then result := i;
   end;
 end;
 
@@ -59,7 +62,7 @@ begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
     for i := 0 to VARBUFFSIZE - 1 do
       if (vars[i].vname = lowercase(s)) and not vars[i].vreadonly
-      then result := true;
+        then result := true;
   end;
 end;
 
@@ -74,7 +77,7 @@ begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
     for i := 0 to VARBUFFSIZE - 1 do
       if (vars[i].vname = lowercase(s)) and not vars[i].vreadonly
-      then result := stringreplace(vars[i].vvalue, #92 + #32 , #32, [rfReplaceAll]);
+        then result := stringreplace(vars[i].vvalue, #92 + #32 , #32, [rfReplaceAll]);
   end;
 end;
 
@@ -176,9 +179,12 @@ begin
     // CHANGE '\ ' TO SPACE IN P2
     s2 := stringreplace(s2, #92 + #32, #32, [rfReplaceAll]);
     // PRIMARY MISSION
-    vars[l].vname := lowercase(s1);
-    vars[l].vvalue := s2;
-    vars[l].vreadonly := false;
-    vars[l].vmonitored := false;
+    with vars[l] do
+    begin
+      vname := lowercase(s1);
+      vvalue := s2;
+      vreadonly := false;
+      vmonitored := false;
+    end;
   end;
 end;

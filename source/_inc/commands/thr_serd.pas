@@ -75,7 +75,8 @@ begin
   // CHECK P2 PARAMETER
   if length(p2) > 0 then
   begin
-    if (not boolisitvariable(p2)) or (not boolisitvariablearray(p2)) then
+    if (not boolisitvariable(p2)) or
+       (not boolisitvariablearray(p2)) then
     begin
       // No such variable!
       sendmessage(ERR19 + p2, true);

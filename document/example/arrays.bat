@@ -25,7 +25,7 @@ print "Elements of the EMPTY array:"
 for $i 0 to 9 do print $empty[$i]
 
 print "Copy NUMS -> EMPTY..."
-copyarr NUMS EMPTY 10
+for $i 0 to 9 do let $empty[$i] $nums[$i]
 
 print "Elements of the EMPTY array:"
 for $i 0 to 9 do print $empty[$i]

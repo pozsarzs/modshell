@@ -1,7 +1,6 @@
 KNOWN BUT NOT FIXED BUGS DURING DEVELOPMENT
 --------------------------------------------------------------------------------
-B       Commands carr; varr; arrclear; arrcopy; arrfill and arrsize are not
-        written.
+B       Commands carr; varr are not written.
 --------------------------------------------------------------------------------
 Note:
   M: ModShell

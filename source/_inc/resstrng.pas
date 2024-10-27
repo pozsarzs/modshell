@@ -169,6 +169,7 @@ resourcestring
   ERR49 = 'Locked device!';
   ERR50 = 'Cannot create console log file!';
   ERR51 = 'The value of the constant can only be set once!';
+  ERR52 = 'No such array: ';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
@@ -279,9 +280,8 @@ resourcestring
   DES105='       show all constants array with theirs value or define a new one';
   DES106='       show all variable array with theirs value or define a new one';
   DES107='       clear content of an array';
-  DES108='       copy elements of an array to an another one';
-  DES109='       fill an array with a character';
-  DES110='       get or set size of an array';
+  DES108='       fill an array with a character';
+  DES109='       set size of an array';
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -441,6 +441,5 @@ resourcestring
   USG106='varr ARRAY' + EOL +
          '  varr ARRAY SIZE';
   USG107='arrclear ARRAY';
-  USG108='arrcopy TARGET SOURCE [$]COUNT';
-  USG109='arrfill ARRAY [$]DATA';
-  USG110='arrsize ARRAY [[$]SIZE]';
+  USG108='arrfill ARRAY [$]DATA';
+  USG109='arrsize ARRAY [[$]SIZE]';

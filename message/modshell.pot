@@ -601,6 +601,10 @@ msgstr ""
 msgid "The value of the constant can only be set once!"
 msgstr ""
 
+#: modshell:err52
+msgid "No such array: "
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -1038,15 +1042,11 @@ msgid "       clear content of an array"
 msgstr ""
 
 #: modshell:des108
-msgid "       copy elements of an array to an another one"
-msgstr ""
-
-#: modshell:des109
 msgid "       fill an array with a character"
 msgstr ""
 
-#: modshell:des110
-msgid "       get or set size of an array"
+#: modshell:des109
+msgid "       set size of an array"
 msgstr ""
 
 #: modshell:usg00
@@ -1552,14 +1552,10 @@ msgid "arrclear ARRAY"
 msgstr ""
 
 #: modshell:usg108
-msgid "arrcopy TARGET SOURCE [$]COUNT"
-msgstr ""
-
-#: modshell:usg109
 msgid "arrfill ARRAY [$]DATA"
 msgstr ""
 
-#: modshell:usg110
+#: modshell:usg109
 msgid "arrsize ARRAY [[$]SIZE]"
 msgstr ""
 

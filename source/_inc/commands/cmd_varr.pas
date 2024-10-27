@@ -22,7 +22,16 @@
 
 // CLEAR ALL VARIABLE ARRAYS
 procedure clearallvariablearrays;
+var
+  i: integer;
 begin
+  for i := 0 to ARRBUFFSIZE - 1 do
+    if arrays[i].areadonly = false then
+    begin
+      arrays[i].aname := '';
+      setlength(arrays[i].aitems, 0);
+      arrays[i].amonitored := false;
+    end;
 end;
 
 // IF IT IS A VARIABLE ARRAY, IT RETURNS THEIRS NUMBER
@@ -58,8 +67,7 @@ end;
 // IF IT IS A VARIABLE ARRAY, RETURNS ITS VALUE
 function isitvariablearray(s: string): string;
 var
-  i: integer;
-  idx: integer;
+  i, idx: integer;
 begin
   result := '';
   if (s[1] = #36) then
@@ -73,9 +81,19 @@ begin
 end;
 
 // IF IT IS A VARIABLE ARRAY, IT RETURNS THEIRS ELEMENT NUMBER
-function intisitvariablearrayelement(s: string): byte;
+function intisitvariablearrayelement(s: string): integer;
+var
+  i, idx: integer;
 begin
   result := 0;
+  if (s[1] = #36) then
+  begin
+    idx := arrayindex(s);
+    s := stringreplace(removearrayindex(s), #36 , '', [rfReplaceAll]);
+    for i := 0 to ARRBUFFSIZE - 1 do
+      if (arrays[i].aname = lowercase(s)) and not arrays[i].areadonly
+      then result := idx;
+  end;
 end;
 
 // COMMAND 'varr'

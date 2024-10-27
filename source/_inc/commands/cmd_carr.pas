@@ -22,7 +22,16 @@
 
 // CLEAR ALL CONSTANT ARRAYS
 procedure clearallconstantarrays;
+var
+  i: integer;
 begin
+  for i := 0 to ARRBUFFSIZE - 1 do
+    if arrays[i].areadonly = true then
+    begin
+      arrays[i].aname := '';
+      setlength(arrays[i].aitems, 0);
+      arrays[i].amonitored := false;
+    end;
 end;
 
 // IF IT IS A CONSTANT ARRAY, IT RETURNS THEIRS NUMBER
@@ -58,8 +67,7 @@ end;
 // IF IT IS A CONSTANT ARRAY, RETURNS ITS VALUE
 function isitconstantarray(s: string): string;
 var
-  i: integer;
-  idx: integer;
+  i, idx: integer;
 begin
   result := '';
   if (s[1] = #36) then
@@ -73,9 +81,19 @@ begin
 end;
 
 // IF IT IS A CONSTANT ARRAY, IT RETURNS THEIRS ELEMENT NUMBER
-function intisitconstantarrayelement(s: string): byte;
+function intisitconstantarrayelement(s: string): integer;
+var
+  i, idx: integer;
 begin
   result := 0;
+  if (s[1] = #36) then
+  begin
+    idx := arrayindex(s);
+    s := stringreplace(removearrayindex(s), #36 , '', [rfReplaceAll]);
+    for i := 0 to ARRBUFFSIZE - 1 do
+      if (arrays[i].aname = lowercase(s)) and arrays[i].areadonly
+      then result := idx;
+  end;
 end;
 
 // COMMAND 'CARR'

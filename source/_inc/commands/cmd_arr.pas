@@ -13,16 +13,15 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0       p1     p2      p3
-  --------------------------------
+  p0       p1     p2
+  -----------------------
   arrclear ARRAY
-  arrcopy  TARGET SOURCE  [$]COUNT
   arrfill  ARRAY  [$]CHAR
   arrsize  ARRAY  [$]SIZE
 }
 
 // RETURN WITH ARRAY INDEX
-function arrayindex(s: string): byte;
+function arrayindex(s: string): integer;
 var
   b: byte;
   idx: string = '';
@@ -46,17 +45,61 @@ end;
 
 // ARRAY HANDLER COMMANDS
 function cmd_arr(op: byte; p1, p2, p3: string): byte;
+var
+  i: integer;
+  s2: string; // parameter in other format
 begin
-
-
+  result := 0;
+  // CHECK LENGTH OF PARAMETERS
+  if length(p1) = 0 then
+  begin
+    // Parameter(s) required!
+    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    result := 1;
+    exit;
+  end;
+  if op >= 108 then
+    if (length(p1) = 0) or (length(p2) = 0) then
+    begin
+      // Parameter(s) required!
+      {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+      result := 1;
+      exit;
+    end;
+  // CHECK P1 PARAMETER
+  if (not boolisitvariablearray(p1)) or
+     (not boolisitconstantarray(p1)) then
+  begin
+    // No such array!
+    {$IFNDEF X} writeln(ERR52 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR52 + p1); {$ENDIF}
+    result := 1;
+    exit;
+  end;
+  // CHECK P2 PARAMETER
+  if op >= 108 then
+  begin
+    if boolisitconstant(p2) then s2 := isitconstant(p2);
+    if boolisitvariable(p2) then s2 := isitvariable(p2);
+    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    if length(s2) = 0 then s2 := p2;
+  end;
   // PRIMARY MISSION
   try
-{    case op of
-      107: ;
-      108: ;
-      109: ;
-      110: ;
-    end;}
+    case op of
+      107: if boolisitvariablearray(p1)
+             then setlength(arrays[intisitvariablearray(p1)].aitems, 0)
+             else setlength(arrays[intisitconstantarray(p1)].aitems, 0);
+      108: for i := 0 to length(arrays[intisitvariablearray(p1)].aitems) do
+             if boolisitvariablearray(p1)
+               then arrays[intisitvariablearray(p1)].aitems[i] := p2
+               else
+                 if length(arrays[intisitconstantarray(p1)].aitems[i]) = 0
+                   then arrays[intisitconstantarray(p1)].aitems[i] := p2;
+      109: if boolisitvariablearray(p1)
+             then setlength(arrays[intisitvariablearray(p1)].aitems, strtoint(s2))
+             else setlength(arrays[intisitconstantarray(p1)].aitems, strtoint(s2));
+    end;
   except
     // Operating error
     {$IFNDEF X} writeln(ERR48); {$ELSE} Form1.Memo1.Lines.Add(ERR48); {$ENDIF}

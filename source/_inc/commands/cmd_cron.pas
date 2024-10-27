@@ -32,7 +32,7 @@ begin
         if (chour = h) or (chour = 255) then
           if (cminute = m) or (cminute = 255) then
             if s = 0 then
-              if scriptisloaded then cmd_run('','');
+              if scriptisloaded then cmd_run('', '');
 end;
 
 // COMMAND 'CRON'
@@ -63,9 +63,9 @@ begin
           s := ' ';  write(s);
           gotoxy(length(s) + 2 + length(MSG34) div 2, wherey); write(inttostr(b));
           s := s + MSG34; gotoxy(length(s) + 4 + length(MSG35) div 2, wherey);
-          if chour = 255 then  write('*') else write(chour);
+          if chour = 255 then write('*') else write(chour);
           s := s + MSG35; gotoxy(length(s) + 6 + length(MSG36) div 2, wherey);
-          if cminute = 255 then  write('*') else write(cminute);
+          if cminute = 255 then write('*') else write(cminute);
           s := s + MSG36; gotoxy(length(s) + 8 + length(MSG37) div 2 , wherey);
           if cenable then  writeln('+') else writeln('-');
         end;
