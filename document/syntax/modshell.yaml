@@ -14,7 +14,7 @@ rules:
   - special: "\\b(con[0-7]|dev[0-7]|pro[0-7]|proj|timeout)\\b"
 
   ## group #2
-  - statement: "\\b(add|and|applog|arrclear|arrcopy|arrfill|arrsize|ascii|avg)\\b"
+  - statement: "\\b(add|and|applog|arrclear|arrfill|arrsize|ascii|avg)\\b"
   - statement: "\\b(beep|bit)\\b"
   - statement: "\\b(cd|chkdevlock|chr|cls|carr|color|concat|const|conv|copyreg|copy|cos|cotan|cron)\\b"
   - statement: "\\b(date|dec|del|dir|div|do|dump)\\b"

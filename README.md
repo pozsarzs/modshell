@@ -39,7 +39,7 @@ communicates via various ports using the Modbus protocol.
 |                        |internal server for remote access to own registers                                          |
 |                        |gateway to access devices using other ports or protocols                                    |
 |script size             |max. 1024 line                                                                              |
-|example scripts         |7 scripts (shellscript and batch file versions)                                             |
+|example scripts         |8 scripts (shellscript and batch file versions)                                             |
 |script syntax plugins   |for MCEdit, Micro and Nano                                                                  |
 
 **Releases**  
@@ -47,12 +47,10 @@ communicates via various ports using the Modbus protocol.
 _v0.1-beta1:_  
 The next release will be with the following changes:  
  - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);
- - [ ] support DCOM protocol;  
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
  - [x] `exist` command;
- - [ ] device discovery script;  
  - [x] support for variable and constant arrays;  
- - [ ] syntax highlighting file for Vim/Neovim;  
+ - [x] syntax highlighting file for Vim/Neovim;  
  - [ ] syntax highlighting file for Scite. 
 
 
@@ -78,6 +76,7 @@ in _v0.1-beta2:_
 
 in _v0.1-beta3:_  
  - [ ] implementation of additional Modbus functions.  
+ - [ ] support DCOM protocol;  
 
 #### 1. Screenshots
 

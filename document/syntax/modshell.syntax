@@ -17,7 +17,6 @@ context default brightcyan
     keyword whole add white
     keyword whole applog white
     keyword whole arrclear white
-    keyword whole arrcopy white
     keyword whole arrfill white
     keyword whole arrsize white
     keyword whole ascii\n white

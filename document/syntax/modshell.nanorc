@@ -17,7 +17,7 @@ icolor brightcyan "\<(.*)\>"
 icolor brightblue "\<(con[0-7]|dev[0-7]|pro[0-7]|proj|timeout)\>"
 
 ## group #2
-icolor brightwhite "\<(add|and|applog|arrclear|arrcopy|arrfill|arrsize|ascii|avg)\>"
+icolor brightwhite "\<(add|and|applog|arrclear|arrfill|arrsize|ascii|avg)\>"
 icolor brightwhite "\<(beep|bit)\>"
 icolor brightwhite "\<(cd|chkdevlock|chr|cls|carr|color|concat|const|conv|copyreg|copy|cos|cotan|cron)\>"
 icolor brightwhite "\<(date|dec|del|dir|div|do|dump)\>"
