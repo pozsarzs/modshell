@@ -170,6 +170,7 @@ resourcestring
   ERR50 = 'Cannot create console log file!';
   ERR51 = 'The value of the constant can only be set once!';
   ERR52 = 'No such array: ';
+  ERR53 = 'Cannot define more array!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='       copy one or more remote reg. between two connections';
@@ -277,8 +278,8 @@ resourcestring
   DES102='       existence of a file or directory';
   DES103='       check device lock file';
   DES104='       remove device lock file';
-  DES105='       show all constants array with theirs value or define a new one';
-  DES106='       show all variable array with theirs value or define a new one';
+  DES105='       show all constants array with their value or define a new one';
+  DES106='       show all variable array with their value or define a new one';
   DES107='       clear content of an array';
   DES108='       fill an array with a character';
   DES109='       set size of an array';
@@ -436,10 +437,12 @@ resourcestring
   USG102='exist [$]PATH_AND_FILENAME';
   USG103='chkdevlock [$]DEVICE';
   USG104='rmdevlock [$]DEVICE';
-  USG105='carr ARRAY' + EOL +
+  USG105='carr' + EOL +
+         '  carr ARRAY' + EOL +
          '  carr ARRAY SIZE';
-  USG106='varr ARRAY' + EOL +
+  USG106='varr' + EOL +
+         '  varr ARRAY' + EOL +
          '  varr ARRAY SIZE';
   USG107='arrclear ARRAY';
   USG108='arrfill ARRAY [$]DATA';
-  USG109='arrsize ARRAY [[$]SIZE]';
+  USG109='arrsize ARRAY [$]SIZE';

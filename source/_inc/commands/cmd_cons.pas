@@ -202,6 +202,8 @@ begin
   begin
     // COMPARING EXISTING NAMES WITH THE NEW ONE
     valid := true;
+    for l := 0 to ARRBUFFSIZE - 1 do
+      if arrays[l].aname = lowercase(p1) then valid := false;
     for l := 0 to VARBUFFSIZE - 1 do
       if vars[l].vname = lowercase(p1) then valid := false;
     if not valid then

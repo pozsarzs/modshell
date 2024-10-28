@@ -66,11 +66,11 @@ msgid "       remove device lock file"
 msgstr ""
 
 #: frmmain.des105
-msgid "       show all constants array with theirs value or define a new one"
+msgid "       show all constants array with their value or define a new one"
 msgstr ""
 
 #: frmmain.des106
-msgid "       show all variable array with theirs value or define a new one"
+msgid "       show all variable array with their value or define a new one"
 msgstr ""
 
 #: frmmain.des107
@@ -78,19 +78,15 @@ msgid "       clear content of an array"
 msgstr ""
 
 #: frmmain.des108
-msgid "       copy elements of an array to an another one"
+msgid "       fill an array with a character"
 msgstr ""
 
 #: frmmain.des109
-msgid "       fill an array with a character"
+msgid "       set size of an array"
 msgstr ""
 
 #: frmmain.des11
 msgid "ALT-W  write data from buffer to one or more remote registers"
-msgstr ""
-
-#: frmmain.des110
-msgid "       get or set size of an array"
 msgstr ""
 
 #: frmmain.des12
@@ -653,6 +649,14 @@ msgstr ""
 msgid "The value of the constant can only be set once!"
 msgstr ""
 
+#: frmmain.err52
+msgid "No such array: "
+msgstr ""
+
+#: frmmain.err53
+msgid "Cannot define more array!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -1144,13 +1148,15 @@ msgstr ""
 
 #: frmmain.usg105
 msgid ""
-"carr ARRAY\n"
+"carr\n"
+"  carr ARRAY\n"
 "  carr ARRAY SIZE"
 msgstr ""
 
 #: frmmain.usg106
 msgid ""
-"varr ARRAY\n"
+"varr\n"
+"  varr ARRAY\n"
 "  varr ARRAY SIZE"
 msgstr ""
 
@@ -1159,11 +1165,11 @@ msgid "arrclear ARRAY"
 msgstr ""
 
 #: frmmain.usg108
-msgid "arrcopy TARGET SOURCE [$]COUNT"
+msgid "arrfill ARRAY [$]DATA"
 msgstr ""
 
 #: frmmain.usg109
-msgid "arrfill ARRAY [$]DATA"
+msgid "arrsize ARRAY [$]SIZE"
 msgstr ""
 
 #: frmmain.usg11
@@ -1171,10 +1177,6 @@ msgid ""
 "writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
-msgstr ""
-
-#: frmmain.usg110
-msgid "arrsize ARRAY [[$]SIZE]"
 msgstr ""
 
 #: frmmain.usg12

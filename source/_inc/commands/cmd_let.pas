@@ -90,7 +90,7 @@ begin
       if not valid then
       begin
         // What is the 1st parameter?
-        s := NUM1 + MSG05;
+        s := NUM2 + MSG05;
         for x := 0 to 3 do s := s + ' ' + REG_TYPE[x];
         s := s + MSG83;
         {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
@@ -109,7 +109,7 @@ begin
       if (strtointdef(s3, -1) < 1 ) or (strtointdef(s3, -1) > 9999) then
       begin
         // What is the 2nd parameter?
-        {$IFNDEF X} writeln(NUM2 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999'); {$ENDIF}
+        {$IFNDEF X} writeln(NUM3 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999'); {$ENDIF}
         result := 1;
         exit;
       end;

@@ -13,11 +13,11 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0       p1     p2
-  -----------------------
+  p0       p1    p2
+  ----------------------
   arrclear ARRAY
-  arrfill  ARRAY  [$]CHAR
-  arrsize  ARRAY  [$]SIZE
+  arrfill  ARRAY [$]DATA
+  arrsize  ARRAY [$]SIZE
 }
 
 // RETURN WITH ARRAY INDEX
@@ -26,10 +26,12 @@ var
   b: byte;
   idx: string = '';
 begin
-  for b := 0 to length(s) do
+  for b := 1 to length(s) do
     if s[b] = '[' then break;
   for b := b + 1 to length(s) do
     if s[b] <> ']' then  idx := idx + s[b] else break;
+  if boolisitconstant(idx) then idx := isitconstant(idx);
+  if boolisitvariable(idx) then idx := isitvariable(idx);
   result := strtointdef(idx, 0);
 end;
 
@@ -39,15 +41,17 @@ var
   b: byte;
 begin
   result := '';
-  for b := 0 to length(s) do
-   if s[b] <> '[' then result := result + s[b] else break;
+  for b := 1 to length(s) do
+    if s[b] <> '[' then result := result + s[b] else break;
 end;
 
 // ARRAY HANDLER COMMANDS
-function cmd_arr(op: byte; p1, p2, p3: string): byte;
+function cmd_arr(op: byte; p1, p2: string): byte;
 var
+  b, bb: byte;
+  valid: boolean;
   i: integer;
-  s2: string; // parameter in other format
+  s1,s2: string; // parameter in other format
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -66,6 +70,30 @@ begin
       result := 1;
       exit;
     end;
+  // SEARCH ILLEGAL CHARACTERS IN P1
+  s1 := p1;
+  valid := true;
+  for b := 1 to length(s1) do
+  begin
+    for bb := 0 to 44 do
+      if s1[b] = chr(bb) then valid := false;
+    for bb := 46 to 47 do
+      if s1[b] = chr(bb) then valid := false;
+    for bb := 58 to 64 do
+      if s1[b] = chr(bb) then valid := false;
+    for bb := 91 to 94 do
+      if s1[b] = chr(bb) then valid := false;
+    for bb := 96 to 96 do
+      if s1[b] = chr(bb) then valid := false;
+    for bb := 123 to 255 do
+      if s1[b] = chr(bb) then valid := false;
+  end;
+  if not valid then
+  begin
+    // Illegal character in the variable name!
+    {$IFNDEF X} writeln(ERR15); {$ELSE} Form1.Memo1.Lines.Add(ERR15); {$ENDIF}
+    exit;
+  end; 
   // CHECK P1 PARAMETER
   if (not boolisitvariablearray(p1)) or
      (not boolisitconstantarray(p1)) then

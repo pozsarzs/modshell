@@ -216,8 +216,16 @@
         <CursorPos Y="142"/>
         <UsageCount Value="10"/>
       </Unit>
+      <Unit>
+        <Filename Value="../_ext/modsynhighlighterany/modsynhighlighterany.pas"/>
+        <UnitName Value="MODSynHighlighterAny"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="50"/>
+        <CursorPos X="3" Y="61"/>
+        <UsageCount Value="10"/>
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="1">
+    <JumpHistory HistoryIndex="2">
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="2402" TopLine="2395"/>
@@ -225,6 +233,10 @@
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="15"/>
+      </Position>
+      <Position>
+        <Filename Value="xmodshell.lpr"/>
+        <Caret Line="7" Column="3"/>
       </Position>
     </JumpHistory>
     <RunParams>

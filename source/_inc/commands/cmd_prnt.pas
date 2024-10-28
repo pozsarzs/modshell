@@ -33,7 +33,7 @@ var
   valid: boolean = false;
 begin
   result := 0;
-  // SEARCH -N IN ALL PARAMETERS
+  // SEARCH -n IN ALL PARAMETERS
   if ((length(p1) > 0) and (p1 = N)) or
      ((length(p2) > 0) and (p2 = N)) or
      ((length(p3) > 0) and (p3 = N)) or

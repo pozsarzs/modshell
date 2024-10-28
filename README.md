@@ -51,7 +51,7 @@ The next release will be with the following changes:
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
  - [x] `exist` command;
  - [ ] device discovery script;  
- - [ ] support for variable and constant arrays;  
+ - [x] support for variable and constant arrays;  
  - [ ] syntax highlighting file for Vim/Neovim;  
  - [ ] syntax highlighting file for Scite. 
 
@@ -260,7 +260,7 @@ selected.
 |`arrsize`   |general       |        |set size of an array                                                 |
 |`ascii`     |general       |        |show ASCII table                                                     |
 |`beep`      |general       |        |make a beep with internal speaker                                    |
-|`carr`      |general       |        |show all constants array with theirs value or define a new one       |
+|`carr`      |general       |        |show all constants array with theirs size or define a new one        |
 |`cls`       |general       |F8      |clear screen                                                         |
 |`color`     |general       |        |set colors                                                           |
 |`const`     |general       |        |show all constant with theirs value or define a new one              |
@@ -277,7 +277,7 @@ selected.
 |`pause`     |general       |        |waits for a keystroke or specified time                              |
 |`print`     |general       |ALT-P   |print message, value of the variable and register                    |
 |`var`       |general       |        |show all variable with theirs value or define a new one              |
-|`varr`      |general       |        |show all variable array with theirs value or define a new one        |
+|`varr`      |general       |        |show all variable array with theirs size or define a new one         |
 |`varmon`    |general       |ALT-M   |monitoring the value of variables                                    |
 |`ver`       |general       |        |show version and build information of this program                   |
 |`and`       |logic         |        |AND logical operations                                               |

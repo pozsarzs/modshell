@@ -387,6 +387,10 @@ msgstr " vagy v ltoz¢"
 msgid " or \"text\""
 msgstr " vagy \"sz”veg\""
 
+#: modshell:msg85
+msgid "Cannot use it on this operation system!"
+msgstr "Ezen az oper ci¢s rendszeren ez nem haszn lhat¢!"
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Ford¡t s ideje: "
@@ -614,6 +618,18 @@ msgstr "Z rolt eszk”z!"
 #: modshell:err50
 msgid "Cannot create console log file!"
 msgstr "Nem lehet l‚trehozni a konzol napl¢f jlj t!"
+
+#: modshell:err51
+msgid "The value of the constant can only be set once!"
+msgstr "Az  lland¢ ‚rt‚ke csak egyszer  ll¡that¢ be!"
+
+#: modshell:err52
+msgid "No such array: "
+msgstr "Nincs ilyen t”mb: "
+
+#: modshell:err53
+msgid "Cannot define more array!"
+msgstr "Nem lehet l‚trehozni t”bb t”mb”t!"
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
@@ -1028,6 +1044,40 @@ msgstr "       f jl m sol sa"
 msgid "       rename file"
 msgstr "       f jl  tnevez‚se"
 
+#: modshell:des102
+msgid "       existence of a file or directory"
+msgstr "       f jl vagy k”nyvt r megl‚t‚nek ellen‹rz‚se"
+
+#: modshell:des103
+msgid "       check device lock file"
+msgstr "       eszk”z z rol¢f jl f jl ellen‹rz‚se"
+
+#: modshell:des104
+msgid "       remove device lock file"
+msgstr "       eszk”z z rol¢f jl f jl t”rl‚se"
+
+#: modshell:des105
+msgid "       show all constants array with their value or define a new one"
+msgstr ""
+"       az ”sszes  lland¢ t”mb ki¡r sa a m‚ret‚vel egytt vagy £j l‚trehoz sa"
+
+#: modshell:des106
+msgid "       show all variable array with their value or define a new one"
+msgstr ""
+"       az ”sszes v ltoz¢ t”mb ki¡r sa a m‚ret‚vel egytt vagy £j l‚trehoz sa"
+
+#: modshell:des107
+msgid "       clear content of an array"
+msgstr "       t”mb tartalm nak t”rl‚se"
+
+#: modshell:des108
+msgid "       fill an array with a character"
+msgstr "       t”mb felt”lt‚se adattal"
+
+#: modshell:des109
+msgid "       set size of an array"
+msgstr "       t”mbm‚ret be ll¡t sa"
+
 #: modshell:usg00
 msgid ""
 "copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
@@ -1390,7 +1440,7 @@ msgstr "ord $CL [$]RTK"
 #: modshell:usg66
 msgid ""
 "const\n"
-"  const NAME [$]VALUE"
+"  const NAME [[$]VALUE]"
 msgstr ""
 "const\n"
 "  const NAME [[$]RTK]"
@@ -1568,6 +1618,50 @@ msgstr "copy [$]ELRSI_éT_S_FµJLNV [$]ELRSI_éT_S_FµJLNV"
 #: modshell:usg101
 msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
 msgstr "ren [$]ELRSI_éT_S_FµJLNV [$]ELRSI_éT_S_FµJLNV"
+
+#: modshell:usg102
+msgid "exist [$]PATH_AND_FILENAME"
+msgstr "exist [$]ELRSI_éT_S_FµJLNV"
+
+#: modshell:usg103
+msgid "chkdevlock [$]DEVICE"
+msgstr "chkdevlock [$]ESZK™Z"
+
+#: modshell:usg104
+msgid "rmdevlock [$]DEVICE"
+msgstr "rmdevlock [$]ESZK™Z"
+
+#: modshell:usg105
+msgid ""
+"carr\n"
+"  carr ARRAY\n"
+"  carr ARRAY SIZE"
+msgstr ""
+"carr\n"
+"  carr T™MB\n"
+"  carr T™MB MRET"
+
+#: modshell:usg106
+msgid ""
+"varr\n"
+"  varr ARRAY\n"
+"  varr ARRAY SIZE"
+msgstr ""
+"varr\n"
+"  varr T™MB\n"
+"  varr T™MB MRET"
+
+#: modshell:usg107
+msgid "arrclear ARRAY"
+msgstr "arrclear T™MB"
+
+#: modshell:usg108
+msgid "arrfill ARRAY [$]DATA"
+msgstr "arrfill T™MB [$]ADAT"
+
+#: modshell:usg109
+msgid "arrsize ARRAY [$]SIZE"
+msgstr "arrsize T™MB [$]MRET"
 
 #~ msgid "date"
 #~ msgstr "date"

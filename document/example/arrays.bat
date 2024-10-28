@@ -10,24 +10,26 @@
 print "Example\ script\ -\ How\ to\ use\ arrays"
 print "----------------------------------"
 
-# constants
-carr NUMS 10
-for $i 0 to 9 do let $nums[$i] $i
-
 # variables
 var i
-varr EMPTY 10
+varr empty 10
+varr nums 10
+varr
 
-print "Elements of the NUMS array:"
+for $i 0 to 9 do let $nums[$i] $i
+for $i 0 to 9 do let $empty[$i] 0
+
+print "\ "
+print "Elements\ of\ the\ NUMS\ array:"
 for $i 0 to 9 do print $nums[$i]
 
-print "Elements of the EMPTY array:"
+print "Elements\ of\ the\ EMPTY\ array:"
 for $i 0 to 9 do print $empty[$i]
 
-print "Copy NUMS -> EMPTY..."
+print "Copy\ NUMS\ ->\ EMPTY..."
 for $i 0 to 9 do let $empty[$i] $nums[$i]
 
-print "Elements of the EMPTY array:"
+print "Elements\ of\ the\ EMPTY\ array:"
 for $i 0 to 9 do print $empty[$i]
 
 :eof

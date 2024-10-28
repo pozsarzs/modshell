@@ -605,6 +605,10 @@ msgstr ""
 msgid "No such array: "
 msgstr ""
 
+#: modshell:err53
+msgid "Cannot define more array!"
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -1030,11 +1034,11 @@ msgid "       remove device lock file"
 msgstr ""
 
 #: modshell:des105
-msgid "       show all constants array with theirs value or define a new one"
+msgid "       show all constants array with their value or define a new one"
 msgstr ""
 
 #: modshell:des106
-msgid "       show all variable array with theirs value or define a new one"
+msgid "       show all variable array with their value or define a new one"
 msgstr ""
 
 #: modshell:des107
@@ -1537,13 +1541,15 @@ msgstr ""
 
 #: modshell:usg105
 msgid ""
-"carr ARRAY\n"
+"carr\n"
+"  carr ARRAY\n"
 "  carr ARRAY SIZE"
 msgstr ""
 
 #: modshell:usg106
 msgid ""
-"varr ARRAY\n"
+"varr\n"
+"  varr ARRAY\n"
 "  varr ARRAY SIZE"
 msgstr ""
 
@@ -1556,6 +1562,6 @@ msgid "arrfill ARRAY [$]DATA"
 msgstr ""
 
 #: modshell:usg109
-msgid "arrsize ARRAY [[$]SIZE]"
+msgid "arrsize ARRAY [$]SIZE"
 msgstr ""
 

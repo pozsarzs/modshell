@@ -191,6 +191,14 @@ begin
                 // erasescr
             93: exitcode := cmd_savescr(splitted[1]);
                 // savescr [$]PATH_AND_FILENAME
+            105: exitcode := cmd_carr(splitted[1], splitted[2]);
+                // carr
+                // carr NAME
+                // carr NAME SIZE
+            106: exitcode := cmd_varr(splitted[1], splitted[2]);
+                // varr
+                // varr NAME
+                // varr NAME SIZE
             COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
           else
           begin
@@ -212,7 +220,7 @@ begin
             // lock file handler functions
             if (b >= 103) and (b <= 104) then exitcode := cmd_devlock(b, splitted[1]);
             // array handler functions
-            if (b >= 105) and (b <= 109) then exitcode := cmd_arr(b, splitted[1], splitted[2], splitted[3]);
+            if (b >= 107) and (b <= 109) then exitcode := cmd_arr(b, splitted[1], splitted[2]);
            end;
         end;
         vars[0].vvalue := inttostr(exitcode);

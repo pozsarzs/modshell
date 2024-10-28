@@ -66,6 +66,40 @@ msgstr "       fájl másolása"
 msgid "       rename file"
 msgstr "       fájl átnevezése"
 
+#: frmmain.des102
+msgid "       existence of a file or directory"
+msgstr "       fájl vagy könyvtár meglétének ellenőrzése"
+
+#: frmmain.des103
+msgid "       check device lock file"
+msgstr "       eszköz zárolófájl fájl ellenőrzése"
+
+#: frmmain.des104
+msgid "       remove device lock file"
+msgstr "       eszköz zárolófájl fájl törlése"
+
+#: frmmain.des105
+msgid "       show all constants array with their value or define a new one"
+msgstr ""
+"       az összes állandó tömb kiírása a méretével együtt vagy új létrehozása"
+
+#: frmmain.des106
+msgid "       show all variable array with their value or define a new one"
+msgstr ""
+"       az összes változó tömb kiírása a méretével együtt vagy új létrehozása"
+
+#: frmmain.des107
+msgid "       clear content of an array"
+msgstr "       tömb tartalmának törlése"
+
+#: frmmain.des108
+msgid "       fill an array with a character"
+msgstr "       tömb feltöltése adattal"
+
+#: frmmain.des109
+msgid "       set size of an array"
+msgstr "       tömbméret beállítása"
+
 #: frmmain.des11
 msgid "ALT-W  write data from buffer to one or more remote registers"
 msgstr "ALT-W  adat írása egy vagy több pufferből a távoli regiszterbe"
@@ -626,6 +660,18 @@ msgstr "Zárolt eszköz!"
 msgid "Cannot create console log file!"
 msgstr "Nem lehet létrehozni a konzol naplófájlját!"
 
+#: frmmain.err51
+msgid "The value of the constant can only be set once!"
+msgstr "Az állandó értéke csak egyszer állítható be!"
+
+#: frmmain.err52
+msgid "No such array: "
+msgstr "Nincs ilyen tömb: "
+
+#: frmmain.err53
+msgid "Cannot define more array!"
+msgstr "Nem lehet létrehozni több tömböt!"
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -976,6 +1022,10 @@ msgstr " vagy változó"
 msgid " or \"text\""
 msgstr " vagy \"szöveg\""
 
+#: frmmain.msg85
+msgid "Cannot use it on this operation system!"
+msgstr "Ezen az operációs rendszeren ez nem használható!"
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -1131,6 +1181,50 @@ msgstr "copy [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 #: frmmain.usg101
 msgid "ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME"
 msgstr "ren [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg102
+msgid "exist [$]PATH_AND_FILENAME"
+msgstr "exist [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
+
+#: frmmain.usg103
+msgid "chkdevlock [$]DEVICE"
+msgstr "chkdevlock [$]ESZKÖZ"
+
+#: frmmain.usg104
+msgid "rmdevlock [$]DEVICE"
+msgstr "rmdevlock [$]ESZKÖZ"
+
+#: frmmain.usg105
+msgid ""
+"carr\n"
+"  carr ARRAY\n"
+"  carr ARRAY SIZE"
+msgstr ""
+"carr\n"
+"  carr TÖMB\n"
+"  carr TÖMB MÉRET"
+
+#: frmmain.usg106
+msgid ""
+"varr\n"
+"  varr ARRAY\n"
+"  varr ARRAY SIZE"
+msgstr ""
+"varr\n"
+"  varr TÖMB\n"
+"  varr TÖMB MÉRET"
+
+#: frmmain.usg107
+msgid "arrclear ARRAY"
+msgstr "arrclear TÖMB"
+
+#: frmmain.usg108
+msgid "arrfill ARRAY [$]DATA"
+msgstr "arrfill TÖMB [$]ADAT"
+
+#: frmmain.usg109
+msgid "arrsize ARRAY [$]SIZE"
+msgstr "arrsize TÖMB [$]MÉRET"
 
 #: frmmain.usg11
 msgid ""
@@ -1398,7 +1492,7 @@ msgstr "ord $CÉL [$]ÉRTÉK"
 #: frmmain.usg66
 msgid ""
 "const\n"
-"  const NAME [$]VALUE"
+"  const NAME [[$]VALUE]"
 msgstr ""
 "const\n"
 "  const NAME [[$]ÉRTÉK]"
