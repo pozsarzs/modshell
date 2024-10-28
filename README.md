@@ -40,7 +40,7 @@ communicates via various ports using the Modbus protocol.
 |                        |gateway to access devices using other ports or protocols                                    |
 |script size             |max. 1024 line                                                                              |
 |example scripts         |8 scripts (shellscript and batch file versions)                                             |
-|script syntax plugins   |for MCEdit, Micro and Nano                                                                  |
+|script syntax plugins   |for MCEdit, Micro, Nano, NeoVim and Vim                                                     |
 
 **Releases**  
 

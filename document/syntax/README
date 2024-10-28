@@ -3,13 +3,14 @@ Syntax highlighting
 
 Files
 ~~~~~
-  Editor Filename         Target file or directory
-  ------------------------------------------------------------------------------
-  MCEdit Syntax           insert file content to top of ~/.local/share/mc/Syntax
-  MCEdit modshell.syntax  copy file into ~/.local/share/mc/Syntax/
-  Micro  modshell.yaml    copy file into ~/.config/micro/syntax/
-  Nano   modshell.nanorc  copy file into /usr/share/nano/
-  VIM    modshell.vim     copy file into ~/.config/vim/syntax/
+  Editor   Filename         Target file or directory
+  --------------------------------------------------------------------------------
+  MCEdit   Syntax           insert file content to top of ~/.local/share/mc/Syntax
+  MCEdit   modshell.syntax  copy file into ~/.local/share/mc/Syntax/
+  Micro    modshell.yaml    copy file into ~/.config/micro/syntax/
+  Nano     modshell.nanorc  copy file into /usr/share/nano/
+  (Neo)Vim modshell.vim     copy file into ~/.config/vim/syntax/
+  (Neo)Vim scripts.vim      copy file into ~/.config/vim/
   
 Synopsis
 ~~~~~~~~
