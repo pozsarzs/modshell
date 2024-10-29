@@ -32,7 +32,7 @@ begin
     then {$IFNDEF X} writeln(dt) {$ELSE} Form1.Memo1.Lines.Add(dt) {$ENDIF} else
     begin
       // CHECK P1 PARAMETER
-      if (not boolisitvariable(p1)) or
+      if (not boolisitvariable(p1)) and
          (not boolisitvariablearray(p1)) then
       begin
         // No such variable!

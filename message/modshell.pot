@@ -614,443 +614,443 @@ msgid "Minimal terminal size is 80x25!"
 msgstr ""
 
 #: modshell:des00
-msgid "       copy one or more remote reg. between two connections"
+msgid "         copy one or more remote reg. between two connections"
 msgstr ""
 
 #: modshell:des01
-msgid "F10    exit from program"
+msgid "F10      exit from program"
 msgstr ""
 
 #: modshell:des02
-msgid "ALT-G  show device, protocol, connection or project name"
+msgid "ALT-G    show device, protocol, connection or project name"
 msgstr ""
 
 #: modshell:des03
-msgid "F1     show description or usage of the commands"
+msgid "F1       show description or usage of the commands"
 msgstr ""
 
 #: modshell:des04
-msgid "ALT-L  set value of a variable or a register"
+msgid "ALT-L    set value of a variable or a register"
 msgstr ""
 
 #: modshell:des05
-msgid "ALT-P  print message, value of the variable and register"
+msgid "ALT-P    print message, value of the variable and register"
 msgstr ""
 
 #: modshell:des06
-msgid "ALT-R  read one or more remote registers to buffer"
+msgid "ALT-R    read one or more remote registers to buffer"
 msgstr ""
 
 #: modshell:des07
-msgid "ALT-T  reset device, protocol, connection or project name"
+msgid "ALT-T    reset device, protocol, connection or project name"
 msgstr ""
 
 #: modshell:des08
-msgid "ALT-S  set device, protocol, connection, project name or timeout"
+msgid "ALT-S    set device, protocol, connection, project name or timeout"
 msgstr ""
 
 #: modshell:des09
-msgid "       show system date and time"
+msgid "         show system date and time"
 msgstr ""
 
 #: modshell:des10
-msgid "       show version and build information of this program"
+msgid "         show version and build information of this program"
 msgstr ""
 
 #: modshell:des11
-msgid "ALT-W  write data from buffer to one or more remote registers"
+msgid "ALT-W    write data from buffer to one or more remote registers"
 msgstr ""
 
 #: modshell:des12
-msgid "F8     clear screen"
+msgid "F8       clear screen"
 msgstr ""
 
 #: modshell:des13
-msgid "F2     save settings of device, protocol and connection"
+msgid "F2       save settings of device, protocol and connection"
 msgstr ""
 
 #: modshell:des14
-msgid "F3     load settings of device, protocol and connection"
+msgid "F3       load settings of device, protocol and connection"
 msgstr ""
 
 #: modshell:des15
-msgid "ALT-E  export value of the one or more registers"
+msgid "ALT-E    export value of the one or more registers"
 msgstr ""
 
 #: modshell:des16
-msgid "       export command line history to make a script easily"
+msgid "         export command line history to make a script easily"
 msgstr ""
 
 #: modshell:des17
-msgid "ALT-C  convert value between different numeral systems"
+msgid "ALT-C    convert value between different numeral systems"
 msgstr ""
 
 #: modshell:des18
-msgid "F4     save all registers"
+msgid "F4       save all registers"
 msgstr ""
 
 #: modshell:des19
-msgid "F5     load all registers"
+msgid "F5       load all registers"
 msgstr ""
 
 #: modshell:des20
-msgid "       list all variable with value or define a new one"
+msgid "         list all variable with value or define a new one"
 msgstr ""
 
 #: modshell:des21
-msgid "       set colors"
+msgid "         set colors"
 msgstr ""
 
 #: modshell:des22
-msgid "ALT-I  import value of the one or more registers"
+msgid "ALT-I    import value of the one or more registers"
 msgstr ""
 
 #: modshell:des23
-msgid "       AND logical operations"
+msgid "         AND logical operations"
 msgstr ""
 
 #: modshell:des24
-msgid "       OR logical operations"
+msgid "         OR logical operations"
 msgstr ""
 
 #: modshell:des25
-msgid "       NOT logical operations"
+msgid "         NOT logical operations"
 msgstr ""
 
 #: modshell:des26
-msgid "       XOR logical operations"
+msgid "         XOR logical operations"
 msgstr ""
 
 #: modshell:des27
-msgid "       bit shift to left"
+msgid "         bit shift to left"
 msgstr ""
 
 #: modshell:des28
-msgid "       bit shift to right"
+msgid "         bit shift to right"
 msgstr ""
 
 #: modshell:des29
-msgid "       addition mathematical operation"
+msgid "         addition mathematical operation"
 msgstr ""
 
 #: modshell:des30
-msgid "       substraction mathematical operation"
+msgid "         substraction mathematical operation"
 msgstr ""
 
 #: modshell:des31
-msgid "       multiplication mathematical operation"
+msgid "         multiplication mathematical operation"
 msgstr ""
 
 #: modshell:des32
-msgid "       division mathematical operation"
+msgid "         division mathematical operation"
 msgstr ""
 
 #: modshell:des33
-msgid "F6     dump all registers in binary/hexadecimal format to a table"
+msgid "F6       dump all registers in binary/hexadecimal format to a table"
 msgstr ""
 
 #: modshell:des34
-msgid "       wait for a keystroke or specified time"
+msgid "         wait for a keystroke or specified time"
 msgstr ""
 
 #: modshell:des35
-msgid "F7     open a simple serial console"
+msgid "F7       open a simple serial console"
 msgstr ""
 
 #: modshell:des36
-msgid "       read string from serial device"
+msgid "         read string from serial device"
 msgstr ""
 
 #: modshell:des37
-msgid "       write string to serial device"
+msgid "         write string to serial device"
 msgstr ""
 
 #: modshell:des38
-msgid "F9     query local echo status or enable/disable it"
+msgid "F9       query local echo status or enable/disable it"
 msgstr ""
 
 #: modshell:des39
-msgid "       load ModShell script from file"
+msgid "SHIFT-F3 load ModShell script from file"
 msgstr ""
 
 #: modshell:des40
-msgid "F12    run loaded ModShell script"
+msgid "F12      run loaded ModShell script"
 msgstr ""
 
 #: modshell:des41
-msgid "F11    list loaded ModShell script"
+msgid "F11      list loaded ModShell script"
 msgstr ""
 
 #: modshell:des42
-msgid "       round real number"
+msgid "         round real number"
 msgstr ""
 
 #: modshell:des43
-msgid "       cosine function"
+msgid "         cosine function"
 msgstr ""
 
 #: modshell:des44
-msgid "       cotangent function"
+msgid "         cotangent function"
 msgstr ""
 
 #: modshell:des45
-msgid "       decrement integer"
+msgid "         decrement integer"
 msgstr ""
 
 #: modshell:des46
-msgid "       natural exponential"
+msgid "         natural exponential"
 msgstr ""
 
 #: modshell:des47
-msgid "       integer division"
+msgid "         integer division"
 msgstr ""
 
 #: modshell:des48
-msgid "       modulus division"
+msgid "         modulus division"
 msgstr ""
 
 #: modshell:des49
-msgid "       increment integer"
+msgid "         increment integer"
 msgstr ""
 
 #: modshell:des50
-msgid "       natural logarithm"
+msgid "         natural logarithm"
 msgstr ""
 
 #: modshell:des51
-msgid "       multiplicative inverse"
+msgid "         multiplicative inverse"
 msgstr ""
 
 #: modshell:des52
-msgid "       odd or event"
+msgid "         odd or event"
 msgstr ""
 
 #: modshell:des53
-msgid "       create random integer"
+msgid "         create random integer"
 msgstr ""
 
 #: modshell:des54
-msgid "       tangent function"
+msgid "         tangent function"
 msgstr ""
 
 #: modshell:des55
-msgid "       sine function"
+msgid "         sine function"
 msgstr ""
 
 #: modshell:des56
-msgid "       square"
+msgid "         square"
 msgstr ""
 
 #: modshell:des57
-msgid "       square root"
+msgid "         square root"
 msgstr ""
 
 #: modshell:des58
-msgid "       roll bit of integer to left"
+msgid "         roll bit of integer to left"
 msgstr ""
 
 #: modshell:des59
-msgid "       roll bit of integer to right"
+msgid "         roll bit of integer to right"
 msgstr ""
 
 #: modshell:des60
-msgid "       conversion to uppercase"
+msgid "         conversion to uppercase"
 msgstr ""
 
 #: modshell:des61
-msgid "       length of string"
+msgid "         length of string"
 msgstr ""
 
 #: modshell:des62
-msgid "       conversion to lowercase"
+msgid "         conversion to lowercase"
 msgstr ""
 
 #: modshell:des63
-msgid "       specified element of the string"
+msgid "         specified element of the string"
 msgstr ""
 
 #: modshell:des64
-msgid "       convert byte to char"
+msgid "         convert byte to char"
 msgstr ""
 
 #: modshell:des65
-msgid "       convert char to byte"
+msgid "         convert char to byte"
 msgstr ""
 
 #: modshell:des66
-msgid "       list all constant with value or define a new one"
+msgid "         list all constant with value or define a new one"
 msgstr ""
 
 #: modshell:des67
-msgid "       value of the specified bit"
+msgid "         value of the specified bit"
 msgstr ""
 
 #: modshell:des68
-msgid "       exponentiation"
+msgid "         exponentiation"
 msgstr ""
 
 #: modshell:des69
-msgid "       jump to specified label (only in script)"
+msgid "         jump to specified label (only in script)"
 msgstr ""
 
 #: modshell:des70
-msgid "       selection statement"
+msgid "         selection statement"
 msgstr ""
 
 #: modshell:des71
-msgid "       loop iteration"
+msgid "         loop iteration"
 msgstr ""
 
 #: modshell:des72
-msgid "       define label (only in script)"
+msgid "         define label (only in script)"
 msgstr ""
 
 #: modshell:des73
-msgid "       start internal Modbus slave/server"
+msgid "         start internal Modbus slave/server"
 msgstr ""
 
 #: modshell:des74
-msgid "       start internal Modbus gateway"
+msgid "         start internal Modbus gateway"
 msgstr ""
 
 #: modshell:des75
-msgid "       check the value is in the range"
+msgid "         check the value is in the range"
 msgstr ""
 
 #: modshell:des76
-msgid "       make LRC"
+msgid "         make LRC"
 msgstr ""
 
 #: modshell:des77
-msgid "       make CRC"
+msgid "         make CRC"
 msgstr ""
 
 #: modshell:des78
-msgid "       exponentiation of two"
+msgid "         exponentiation of two"
 msgstr ""
 
 #: modshell:des79
-msgid "       show ASCII table"
+msgid "         show ASCII table"
 msgstr ""
 
 #: modshell:des80
-msgid "       make a beep sound with internal speaker"
+msgid "         make a beep sound with internal speaker"
 msgstr ""
 
 #: modshell:des81
-msgid "       calculate average"
+msgid "         calculate average"
 msgstr ""
 
 #: modshell:des82
-msgid "       propotional value calculation (with zero and span)"
+msgid "         propotional value calculation (with zero and span)"
 msgstr ""
 
 #: modshell:des83
-msgid "       concatenate strings"
+msgid "         concatenate strings"
 msgstr ""
 
 #: modshell:des84
-msgid "       delete specified element(s) of the string"
+msgid "         delete specified element(s) of the string"
 msgstr ""
 
 #: modshell:des85
-msgid "       find specified element(s) in the string"
+msgid "         find specified element(s) in the string"
 msgstr ""
 
 #: modshell:des86
-msgid "       insert element(s) into string"
+msgid "         insert element(s) into string"
 msgstr ""
 
 #: modshell:des87
-msgid "       replace element(s) in the string"
+msgid "         replace element(s) in the string"
 msgstr ""
 
 #: modshell:des88
-msgid "ALT-M  monitoring the value of variables"
+msgid "ALT-M    monitoring the value of variables"
 msgstr ""
 
 #: modshell:des89
-msgid "       append a record to log file"
+msgid "         append a record to log file"
 msgstr ""
 
 #: modshell:des90
-msgid "       loaded script scheduled execution"
+msgid "         loaded script scheduled execution"
 msgstr ""
 
 #: modshell:des91
-msgid "       edit loaded script with line editor"
+msgid "SHIFT-F4 edit loaded script with line editor"
 msgstr ""
 
 #: modshell:des92
-msgid "       erase script from buffer"
+msgid "SHIFT-F8 erase script from buffer"
 msgstr ""
 
 #: modshell:des93
-msgid "       save loaded script to disc"
+msgid "SHIFT-F2 save loaded script to disc"
 msgstr ""
 
 #: modshell:des94
-msgid "       list directory content"
+msgid "         list directory content"
 msgstr ""
 
 #: modshell:des95
-msgid "       change directory or get name"
+msgid "         change directory or get name"
 msgstr ""
 
 #: modshell:des96
-msgid "       make directory"
+msgid "         make directory"
 msgstr ""
 
 #: modshell:des97
-msgid "       remove directory"
+msgid "         remove directory"
 msgstr ""
 
 #: modshell:des98
-msgid "       remove file"
+msgid "         remove file"
 msgstr ""
 
 #: modshell:des99
-msgid "       type file"
+msgid "         type file"
 msgstr ""
 
 #: modshell:des100
-msgid "       copy file"
+msgid "         copy file"
 msgstr ""
 
 #: modshell:des101
-msgid "       rename file"
+msgid "         rename file"
 msgstr ""
 
 #: modshell:des102
-msgid "       existence of a file or directory"
+msgid "         existence of a file or directory"
 msgstr ""
 
 #: modshell:des103
-msgid "       check device lock file"
+msgid "         check device lock file"
 msgstr ""
 
 #: modshell:des104
-msgid "       remove device lock file"
+msgid "         remove device lock file"
 msgstr ""
 
 #: modshell:des105
-msgid "       show all constants array with their value or define a new one"
+msgid "         show all constants array with their value or define a new one"
 msgstr ""
 
 #: modshell:des106
-msgid "       show all variable array with their value or define a new one"
+msgid "         show all variable array with their value or define a new one"
 msgstr ""
 
 #: modshell:des107
-msgid "       clear content of an array"
+msgid "         clear content of an array"
 msgstr ""
 
 #: modshell:des108
-msgid "       fill an array with a character"
+msgid "         fill an array with a character"
 msgstr ""
 
 #: modshell:des109
-msgid "       set size of an array"
+msgid "         set size of an array"
 msgstr ""
 
 #: modshell:usg00

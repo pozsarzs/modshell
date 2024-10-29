@@ -2,443 +2,443 @@ msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: frmmain.des00
-msgid "       copy one or more remote reg. between two connections"
+msgid "         copy one or more remote reg. between two connections"
 msgstr ""
 
 #: frmmain.des01
-msgid "F10    exit from program"
+msgid "F10      exit from program"
 msgstr ""
 
 #: frmmain.des02
-msgid "ALT-G  show device, protocol, connection or project name"
+msgid "ALT-G    show device, protocol, connection or project name"
 msgstr ""
 
 #: frmmain.des03
-msgid "F1     show description or usage of the commands"
+msgid "F1       show description or usage of the commands"
 msgstr ""
 
 #: frmmain.des04
-msgid "ALT-L  set value of a variable or a register"
+msgid "ALT-L    set value of a variable or a register"
 msgstr ""
 
 #: frmmain.des05
-msgid "ALT-P  print message, value of the variable and register"
+msgid "ALT-P    print message, value of the variable and register"
 msgstr ""
 
 #: frmmain.des06
-msgid "ALT-R  read one or more remote registers to buffer"
+msgid "ALT-R    read one or more remote registers to buffer"
 msgstr ""
 
 #: frmmain.des07
-msgid "ALT-T  reset device, protocol, connection or project name"
+msgid "ALT-T    reset device, protocol, connection or project name"
 msgstr ""
 
 #: frmmain.des08
-msgid "ALT-S  set device, protocol, connection, project name or timeout"
+msgid "ALT-S    set device, protocol, connection, project name or timeout"
 msgstr ""
 
 #: frmmain.des09
-msgid "       show system date and time"
+msgid "         show system date and time"
 msgstr ""
 
 #: frmmain.des10
-msgid "       show version and build information of this program"
+msgid "         show version and build information of this program"
 msgstr ""
 
 #: frmmain.des100
-msgid "       copy file"
+msgid "         copy file"
 msgstr ""
 
 #: frmmain.des101
-msgid "       rename file"
+msgid "         rename file"
 msgstr ""
 
 #: frmmain.des102
-msgid "       existence of a file or directory"
+msgid "         existence of a file or directory"
 msgstr ""
 
 #: frmmain.des103
-msgid "       check device lock file"
+msgid "         check device lock file"
 msgstr ""
 
 #: frmmain.des104
-msgid "       remove device lock file"
+msgid "         remove device lock file"
 msgstr ""
 
 #: frmmain.des105
-msgid "       show all constants array with their value or define a new one"
+msgid "         show all constants array with their value or define a new one"
 msgstr ""
 
 #: frmmain.des106
-msgid "       show all variable array with their value or define a new one"
+msgid "         show all variable array with their value or define a new one"
 msgstr ""
 
 #: frmmain.des107
-msgid "       clear content of an array"
+msgid "         clear content of an array"
 msgstr ""
 
 #: frmmain.des108
-msgid "       fill an array with a character"
+msgid "         fill an array with a character"
 msgstr ""
 
 #: frmmain.des109
-msgid "       set size of an array"
+msgid "         set size of an array"
 msgstr ""
 
 #: frmmain.des11
-msgid "ALT-W  write data from buffer to one or more remote registers"
+msgid "ALT-W    write data from buffer to one or more remote registers"
 msgstr ""
 
 #: frmmain.des12
-msgid "F8     clear screen"
+msgid "F8       clear screen"
 msgstr ""
 
 #: frmmain.des13
-msgid "F2     save settings of device, protocol and connection"
+msgid "F2       save settings of device, protocol and connection"
 msgstr ""
 
 #: frmmain.des14
-msgid "F3     load settings of device, protocol and connection"
+msgid "F3       load settings of device, protocol and connection"
 msgstr ""
 
 #: frmmain.des15
-msgid "ALT-E  export value of the one or more registers"
+msgid "ALT-E    export value of the one or more registers"
 msgstr ""
 
 #: frmmain.des16
-msgid "       export command line history to make a script easily"
+msgid "         export command line history to make a script easily"
 msgstr ""
 
 #: frmmain.des17
-msgid "ALT-C  convert value between different numeral systems"
+msgid "ALT-C    convert value between different numeral systems"
 msgstr ""
 
 #: frmmain.des18
-msgid "F4     save all registers"
+msgid "F4       save all registers"
 msgstr ""
 
 #: frmmain.des19
-msgid "F5     load all registers"
+msgid "F5       load all registers"
 msgstr ""
 
 #: frmmain.des20
-msgid "       list all variable with value or define a new one"
+msgid "         list all variable with value or define a new one"
 msgstr ""
 
 #: frmmain.des21
-msgid "       set colors"
+msgid "         set colors"
 msgstr ""
 
 #: frmmain.des22
-msgid "ALT-I  import value of the one or more registers"
+msgid "ALT-I    import value of the one or more registers"
 msgstr ""
 
 #: frmmain.des23
-msgid "       AND logical operations"
+msgid "         AND logical operations"
 msgstr ""
 
 #: frmmain.des24
-msgid "       OR logical operations"
+msgid "         OR logical operations"
 msgstr ""
 
 #: frmmain.des25
-msgid "       NOT logical operations"
+msgid "         NOT logical operations"
 msgstr ""
 
 #: frmmain.des26
-msgid "       XOR logical operations"
+msgid "         XOR logical operations"
 msgstr ""
 
 #: frmmain.des27
-msgid "       bit shift to left"
+msgid "         bit shift to left"
 msgstr ""
 
 #: frmmain.des28
-msgid "       bit shift to right"
+msgid "         bit shift to right"
 msgstr ""
 
 #: frmmain.des29
-msgid "       addition mathematical operation"
+msgid "         addition mathematical operation"
 msgstr ""
 
 #: frmmain.des30
-msgid "       substraction mathematical operation"
+msgid "         substraction mathematical operation"
 msgstr ""
 
 #: frmmain.des31
-msgid "       multiplication mathematical operation"
+msgid "         multiplication mathematical operation"
 msgstr ""
 
 #: frmmain.des32
-msgid "       division mathematical operation"
+msgid "         division mathematical operation"
 msgstr ""
 
 #: frmmain.des33
-msgid "F6     dump all registers in binary/hexadecimal format to a table"
+msgid "F6       dump all registers in binary/hexadecimal format to a table"
 msgstr ""
 
 #: frmmain.des34
-msgid "       wait for a keystroke or specified time"
+msgid "         wait for a keystroke or specified time"
 msgstr ""
 
 #: frmmain.des35
-msgid "F7     open a simple serial console"
+msgid "F7       open a simple serial console"
 msgstr ""
 
 #: frmmain.des36
-msgid "       read string from serial device"
+msgid "         read string from serial device"
 msgstr ""
 
 #: frmmain.des37
-msgid "       write string to serial device"
+msgid "         write string to serial device"
 msgstr ""
 
 #: frmmain.des38
-msgid "F9     query local echo status or enable/disable it"
+msgid "F9       query local echo status or enable/disable it"
 msgstr ""
 
 #: frmmain.des39
-msgid "       load ModShell script from file"
+msgid "SHIFT-F3 load ModShell script from file"
 msgstr ""
 
 #: frmmain.des40
-msgid "F12    run loaded ModShell script"
+msgid "F12      run loaded ModShell script"
 msgstr ""
 
 #: frmmain.des41
-msgid "F11    list loaded ModShell script"
+msgid "F11      list loaded ModShell script"
 msgstr ""
 
 #: frmmain.des42
-msgid "       round real number"
+msgid "         round real number"
 msgstr ""
 
 #: frmmain.des43
-msgid "       cosine function"
+msgid "         cosine function"
 msgstr ""
 
 #: frmmain.des44
-msgid "       cotangent function"
+msgid "         cotangent function"
 msgstr ""
 
 #: frmmain.des45
-msgid "       decrement integer"
+msgid "         decrement integer"
 msgstr ""
 
 #: frmmain.des46
-msgid "       natural exponential"
+msgid "         natural exponential"
 msgstr ""
 
 #: frmmain.des47
-msgid "       integer division"
+msgid "         integer division"
 msgstr ""
 
 #: frmmain.des48
-msgid "       modulus division"
+msgid "         modulus division"
 msgstr ""
 
 #: frmmain.des49
-msgid "       increment integer"
+msgid "         increment integer"
 msgstr ""
 
 #: frmmain.des50
-msgid "       natural logarithm"
+msgid "         natural logarithm"
 msgstr ""
 
 #: frmmain.des51
-msgid "       multiplicative inverse"
+msgid "         multiplicative inverse"
 msgstr ""
 
 #: frmmain.des52
-msgid "       odd or event"
+msgid "         odd or event"
 msgstr ""
 
 #: frmmain.des53
-msgid "       create random integer"
+msgid "         create random integer"
 msgstr ""
 
 #: frmmain.des54
-msgid "       tangent function"
+msgid "         tangent function"
 msgstr ""
 
 #: frmmain.des55
-msgid "       sine function"
+msgid "         sine function"
 msgstr ""
 
 #: frmmain.des56
-msgid "       square"
+msgid "         square"
 msgstr ""
 
 #: frmmain.des57
-msgid "       square root"
+msgid "         square root"
 msgstr ""
 
 #: frmmain.des58
-msgid "       roll bit of integer to left"
+msgid "         roll bit of integer to left"
 msgstr ""
 
 #: frmmain.des59
-msgid "       roll bit of integer to right"
+msgid "         roll bit of integer to right"
 msgstr ""
 
 #: frmmain.des60
-msgid "       conversion to uppercase"
+msgid "         conversion to uppercase"
 msgstr ""
 
 #: frmmain.des61
-msgid "       length of string"
+msgid "         length of string"
 msgstr ""
 
 #: frmmain.des62
-msgid "       conversion to lowercase"
+msgid "         conversion to lowercase"
 msgstr ""
 
 #: frmmain.des63
-msgid "       specified element of the string"
+msgid "         specified element of the string"
 msgstr ""
 
 #: frmmain.des64
-msgid "       convert byte to char"
+msgid "         convert byte to char"
 msgstr ""
 
 #: frmmain.des65
-msgid "       convert char to byte"
+msgid "         convert char to byte"
 msgstr ""
 
 #: frmmain.des66
-msgid "       list all constant with value or define a new one"
+msgid "         list all constant with value or define a new one"
 msgstr ""
 
 #: frmmain.des67
-msgid "       value of the specified bit"
+msgid "         value of the specified bit"
 msgstr ""
 
 #: frmmain.des68
-msgid "       exponentiation"
+msgid "         exponentiation"
 msgstr ""
 
 #: frmmain.des69
-msgid "       jump to specified label (only in script)"
+msgid "         jump to specified label (only in script)"
 msgstr ""
 
 #: frmmain.des70
-msgid "       selection statement"
+msgid "         selection statement"
 msgstr ""
 
 #: frmmain.des71
-msgid "       loop iteration"
+msgid "         loop iteration"
 msgstr ""
 
 #: frmmain.des72
-msgid "       define label (only in script)"
+msgid "         define label (only in script)"
 msgstr ""
 
 #: frmmain.des73
-msgid "       start internal Modbus slave/server"
+msgid "         start internal Modbus slave/server"
 msgstr ""
 
 #: frmmain.des74
-msgid "       start internal Modbus gateway"
+msgid "         start internal Modbus gateway"
 msgstr ""
 
 #: frmmain.des75
-msgid "       check the value is in the range"
+msgid "         check the value is in the range"
 msgstr ""
 
 #: frmmain.des76
-msgid "       make LRC"
+msgid "         make LRC"
 msgstr ""
 
 #: frmmain.des77
-msgid "       make CRC"
+msgid "         make CRC"
 msgstr ""
 
 #: frmmain.des78
-msgid "       exponentiation of two"
+msgid "         exponentiation of two"
 msgstr ""
 
 #: frmmain.des79
-msgid "       show ASCII table"
+msgid "         show ASCII table"
 msgstr ""
 
 #: frmmain.des80
-msgid "       make a beep sound with internal speaker"
+msgid "         make a beep sound with internal speaker"
 msgstr ""
 
 #: frmmain.des81
-msgid "       calculate average"
+msgid "         calculate average"
 msgstr ""
 
 #: frmmain.des82
-msgid "       propotional value calculation (with zero and span)"
+msgid "         propotional value calculation (with zero and span)"
 msgstr ""
 
 #: frmmain.des83
-msgid "       concatenate strings"
+msgid "         concatenate strings"
 msgstr ""
 
 #: frmmain.des84
-msgid "       delete specified element(s) of the string"
+msgid "         delete specified element(s) of the string"
 msgstr ""
 
 #: frmmain.des85
-msgid "       find specified element(s) in the string"
+msgid "         find specified element(s) in the string"
 msgstr ""
 
 #: frmmain.des86
-msgid "       insert element(s) into string"
+msgid "         insert element(s) into string"
 msgstr ""
 
 #: frmmain.des87
-msgid "       replace element(s) in the string"
+msgid "         replace element(s) in the string"
 msgstr ""
 
 #: frmmain.des88
-msgid "ALT-M  monitoring the value of variables"
+msgid "ALT-M    monitoring the value of variables"
 msgstr ""
 
 #: frmmain.des89
-msgid "       append a record to log file"
+msgid "         append a record to log file"
 msgstr ""
 
 #: frmmain.des90
-msgid "       loaded script scheduled execution"
+msgid "         loaded script scheduled execution"
 msgstr ""
 
 #: frmmain.des91
-msgid "       edit loaded script with line editor"
+msgid "SHIFT-F4 edit loaded script with line editor"
 msgstr ""
 
 #: frmmain.des92
-msgid "       erase script from buffer"
+msgid "SHIFT-F8 erase script from buffer"
 msgstr ""
 
 #: frmmain.des93
-msgid "       save loaded script to disc"
+msgid "SHIFT-F2 save loaded script to disc"
 msgstr ""
 
 #: frmmain.des94
-msgid "       list directory content"
+msgid "         list directory content"
 msgstr ""
 
 #: frmmain.des95
-msgid "       change directory or get name"
+msgid "         change directory or get name"
 msgstr ""
 
 #: frmmain.des96
-msgid "       make directory"
+msgid "         make directory"
 msgstr ""
 
 #: frmmain.des97
-msgid "       remove directory"
+msgid "         remove directory"
 msgstr ""
 
 #: frmmain.des98
-msgid "       remove file"
+msgid "         remove file"
 msgstr ""
 
 #: frmmain.des99
-msgid "       type file"
+msgid "         type file"
 msgstr ""
 
 #: frmmain.err00

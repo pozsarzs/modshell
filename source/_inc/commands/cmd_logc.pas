@@ -70,7 +70,7 @@ begin
       exit;
     end;
   // CHECK P1 PARAMETER
-  if (not boolisitvariable(p1)) or
+  if (not boolisitvariable(p1)) and
      (not boolisitvariablearray(p1)) then
   begin
     // No such variable!

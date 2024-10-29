@@ -636,447 +636,445 @@ msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
 
 #: modshell:des00
-msgid "       copy one or more remote reg. between two connections"
-msgstr "       egy vagy több távoli regiszter másolása két kapcsolat között"
+msgid "         copy one or more remote reg. between two connections"
+msgstr "         egy vagy több távoli regiszter másolása két kapcsolat között"
 
 #: modshell:des01
-msgid "F10    exit from program"
-msgstr "F10    kilépés a programból"
+msgid "F10      exit from program"
+msgstr "F10      kilépés a programból"
 
 #: modshell:des02
-msgid "ALT-G  show device, protocol, connection or project name"
-msgstr "ALT-G  eszköz, protokoll, kapcsolat vagy projektnév kiírása"
+msgid "ALT-G    show device, protocol, connection or project name"
+msgstr "ALT-G    eszköz, protokoll, kapcsolat vagy projektnév kiírása"
 
 #: modshell:des03
-msgid "F1     show description or usage of the commands"
-msgstr "F1     parancs leírás vagy használat megjelenítése"
+msgid "F1       show description or usage of the commands"
+msgstr "F1       parancs leírás vagy használat megjelenítése"
 
 #: modshell:des04
-msgid "ALT-L  set value of a variable or a register"
-msgstr "ALT-L  regisztertartalom beállítása"
+msgid "ALT-L    set value of a variable or a register"
+msgstr "ALT-L    regisztertartalom beállítása"
 
 #: modshell:des05
-msgid "ALT-P  print message, value of the variable and register"
-msgstr "ALT-P  üzenet, a változó vagy regisztertartalom kiírása"
+msgid "ALT-P    print message, value of the variable and register"
+msgstr "ALT-P    üzenet, a változó vagy regisztertartalom kiírása"
 
 #: modshell:des06
-msgid "ALT-R  read one or more remote registers to buffer"
-msgstr "ALT-R  adat olvasása távoli regiszterből a pufferbe"
+msgid "ALT-R    read one or more remote registers to buffer"
+msgstr "ALT-R    adat olvasása távoli regiszterből a pufferbe"
 
 #: modshell:des07
-msgid "ALT-T  reset device, protocol, connection or project name"
-msgstr "ALT-T  eszköz, protokoll, kapcsolat vagy projektnév törlése"
+msgid "ALT-T    reset device, protocol, connection or project name"
+msgstr "ALT-T    eszköz, protokoll, kapcsolat vagy projektnév törlése"
 
 #: modshell:des08
-msgid "ALT-S  set device, protocol, connection, project name or timeout"
+msgid "ALT-S    set device, protocol, connection, project name or timeout"
 msgstr ""
-"ALT-S  eszköz, protokoll, kapcsolat, projektnév vagy időtúllépés beállítása"
+"ALT-S    eszköz, protokoll, kapcsolat, projektnév vagy időtúllépés beállítása"
 
 #: modshell:des09
-msgid "       show system date and time"
-msgstr "       dátum és idő megjelenítése"
+msgid "         show system date and time"
+msgstr "         dátum és idő megjelenítése"
 
 #: modshell:des10
-msgid "       show version and build information of this program"
-msgstr "       változat és fordítási információk a programról"
+msgid "         show version and build information of this program"
+msgstr "         változat és fordítási információk a programról"
 
 #: modshell:des11
-msgid "ALT-W  write data from buffer to one or more remote registers"
-msgstr "ALT-W  adat írása egy vagy több pufferből a távoli regiszterbe"
+msgid "ALT-W    write data from buffer to one or more remote registers"
+msgstr "ALT-W    adat írása egy vagy több pufferből a távoli regiszterbe"
 
 #: modshell:des12
-msgid "F8     clear screen"
-msgstr "F8     képernyőtörlés"
+msgid "F8       clear screen"
+msgstr "F8       képernyőtörlés"
 
 #: modshell:des13
-msgid "F2     save settings of device, protocol and connection"
-msgstr "F2     eszköz-, protokoll- és kapcsolatbeállítások mentése"
+msgid "F2       save settings of device, protocol and connection"
+msgstr "F2       eszköz-, protokoll- és kapcsolatbeállítások mentése"
 
 #: modshell:des14
-msgid "F3     load settings of device, protocol and connection"
-msgstr "F3     eszköz-, protokoll- és kapcsolatbeállítások betöltése"
+msgid "F3       load settings of device, protocol and connection"
+msgstr "F3       eszköz-, protokoll- és kapcsolatbeállítások betöltése"
 
 #: modshell:des15
-msgid "ALT-E  export value of the one or more registers"
-msgstr "ALT-E  egy vagy több regisztertartalom exportálása"
+msgid "ALT-E    export value of the one or more registers"
+msgstr "ALT-E    egy vagy több regisztertartalom exportálása"
 
 #: modshell:des16
-msgid "       export command line history to make a script easily"
-msgstr "       parancssori előzmények exportálása"
+msgid "         export command line history to make a script easily"
+msgstr "         parancssori előzmények exportálása"
 
 #: modshell:des17
-msgid "ALT-C  convert value between different numeral systems"
-msgstr "ALT-C  konvertálás a különböző számrendszerek között"
+msgid "ALT-C    convert value between different numeral systems"
+msgstr "ALT-C    konvertálás a különböző számrendszerek között"
 
 #: modshell:des18
-msgid "F4     save all registers"
-msgstr "F4     összes regisztertartalom mentése"
+msgid "F4       save all registers"
+msgstr "F4       összes regisztertartalom mentése"
 
 #: modshell:des19
-msgid "F5     load all registers"
-msgstr "F5     összes regisztertartalom betöltése"
+msgid "F5       load all registers"
+msgstr "F5       összes regisztertartalom betöltése"
 
 #: modshell:des20
-msgid "       list all variable with value or define a new one"
-msgstr "       az összes változó kiírása vagy új létrehozása"
+msgid "         list all variable with value or define a new one"
+msgstr "         az összes változó kiírása vagy új létrehozása"
 
 #: modshell:des21
-msgid "       set colors"
-msgstr "       színek beállítása"
+msgid "         set colors"
+msgstr "         színek beállítása"
 
 #: modshell:des22
-msgid "ALT-I  import value of the one or more registers"
-msgstr "ALT-I  egy vagy több regisztertartalom importálása"
+msgid "ALT-I    import value of the one or more registers"
+msgstr "ALT-I    egy vagy több regisztertartalom importálása"
 
 #: modshell:des23
-msgid "       AND logical operations"
-msgstr "       ÉS logikai művelet"
+msgid "         AND logical operations"
+msgstr "         ÉS logikai művelet"
 
 #: modshell:des24
-msgid "       OR logical operations"
-msgstr "       VAGY logikai művelet"
+msgid "         OR logical operations"
+msgstr "         VAGY logikai művelet"
 
 #: modshell:des25
-msgid "       NOT logical operations"
-msgstr "       NOT logikai művelet"
+msgid "         NOT logical operations"
+msgstr "         NOT logikai művelet"
 
 #: modshell:des26
-msgid "       XOR logical operations"
-msgstr "       XOR logikai művelet"
+msgid "         XOR logical operations"
+msgstr "         XOR logikai művelet"
 
 #: modshell:des27
-msgid "       bit shift to left"
-msgstr "       biteltolás balra"
+msgid "         bit shift to left"
+msgstr "         biteltolás balra"
 
 #: modshell:des28
-msgid "       bit shift to right"
-msgstr "       biteltolás jobbra"
+msgid "         bit shift to right"
+msgstr "         biteltolás jobbra"
 
 #: modshell:des29
-msgid "       addition mathematical operation"
-msgstr "       összeadás matematikai művelet"
+msgid "         addition mathematical operation"
+msgstr "         összeadás matematikai művelet"
 
 #: modshell:des30
-msgid "       substraction mathematical operation"
-msgstr "       kivonás matematikai művelet"
+msgid "         substraction mathematical operation"
+msgstr "         kivonás matematikai művelet"
 
 #: modshell:des31
-msgid "       multiplication mathematical operation"
-msgstr "       szorzás matematikai művelet"
+msgid "         multiplication mathematical operation"
+msgstr "         szorzás matematikai művelet"
 
 #: modshell:des32
-msgid "       division mathematical operation"
-msgstr "       osztás matematikai művelet"
+msgid "         division mathematical operation"
+msgstr "         osztás matematikai művelet"
 
 #: modshell:des33
-msgid "F6     dump all registers in binary/hexadecimal format to a table"
-msgstr "F6     táblázatos regiszterkiírás bin. vagy hexadec. formában"
+msgid "F6       dump all registers in binary/hexadecimal format to a table"
+msgstr "F6       táblázatos regiszterkiírás bin. vagy hexadec. formában"
 
 #: modshell:des34
-msgid "       wait for a keystroke or specified time"
-msgstr "       várakozás billentyűleütésre vagy idő leteltére"
+msgid "         wait for a keystroke or specified time"
+msgstr "         várakozás billentyűleütésre vagy idő leteltére"
 
 #: modshell:des35
-msgid "F7     open a simple serial console"
-msgstr "F7     egyszerű soros konzol"
+msgid "F7       open a simple serial console"
+msgstr "F7       egyszerű soros konzol"
 
 #: modshell:des36
-msgid "       read string from serial device"
-msgstr "       string olvasása soros portról"
+msgid "         read string from serial device"
+msgstr "         string olvasása soros portról"
 
 #: modshell:des37
-msgid "       write string to serial device"
-msgstr "       string írása soros portra"
+msgid "         write string to serial device"
+msgstr "         string írása soros portra"
 
 #: modshell:des38
-msgid "F9     query local echo status or enable/disable it"
-msgstr "F9     visszahang állapot lekérése/beállítása"
+msgid "F9       query local echo status or enable/disable it"
+msgstr "F9       visszahang állapot lekérése/beállítása"
 
 #: modshell:des39
-msgid "       load ModShell script from file"
-msgstr "       ModShell szkript betöltése fájlból"
+msgid "SHIFT-F3 load ModShell script from file"
+msgstr "SHIFT-F3 ModShell szkript betöltése fájlból"
 
 #: modshell:des40
-msgid "F12    run loaded ModShell script"
-msgstr "F12    betöltött ModShell szkript futattása"
+msgid "F12      run loaded ModShell script"
+msgstr "F12      betöltött ModShell szkript futattása"
 
 #: modshell:des41
-msgid "F11    list loaded ModShell script"
-msgstr "F11    betöltött ModShell szkript listázása"
+msgid "F11      list loaded ModShell script"
+msgstr "F11      betöltött ModShell szkript listázása"
 
 #: modshell:des42
-msgid "       round real number"
-msgstr "       természetes szám kerekítése"
+msgid "         round real number"
+msgstr "         természetes szám kerekítése"
 
 #: modshell:des43
-msgid "       cosine function"
-msgstr "       koszinusz függvény"
+msgid "         cosine function"
+msgstr "         koszinusz függvény"
 
 #: modshell:des44
-msgid "       cotangent function"
-msgstr "       kotangens függvény"
+msgid "         cotangent function"
+msgstr "         kotangens függvény"
 
 #: modshell:des45
-msgid "       decrement integer"
-msgstr "       egész szám csökkentése eggyel"
+msgid "         decrement integer"
+msgstr "         egész szám csökkentése eggyel"
 
 #: modshell:des46
-msgid "       natural exponential"
-msgstr "       természetes exponenciális függvény"
+msgid "         natural exponential"
+msgstr "         természetes exponenciális függvény"
 
 #: modshell:des47
-msgid "       integer division"
-msgstr "       egész osztás"
+msgid "         integer division"
+msgstr "         egész osztás"
 
 #: modshell:des48
-msgid "       modulus division"
-msgstr "       modulusz osztás"
+msgid "         modulus division"
+msgstr "         modulusz osztás"
 
 #: modshell:des49
-msgid "       increment integer"
-msgstr "       egész szám növelése eggyel"
+msgid "         increment integer"
+msgstr "         egész szám növelése eggyel"
 
 #: modshell:des50
-msgid "       natural logarithm"
-msgstr "       természetes alapú logaritmus"
+msgid "         natural logarithm"
+msgstr "         természetes alapú logaritmus"
 
 #: modshell:des51
-msgid "       multiplicative inverse"
-msgstr "       reciprokérték"
+msgid "         multiplicative inverse"
+msgstr "         reciprokérték"
 
 #: modshell:des52
-msgid "       odd or event"
-msgstr "       páros vagy páratlan"
+msgid "         odd or event"
+msgstr "         páros vagy páratlan"
 
 #: modshell:des53
-msgid "       create random integer"
-msgstr "       véletlen egész szám képzése"
+msgid "         create random integer"
+msgstr "         véletlen egész szám képzése"
 
 #: modshell:des54
-msgid "       tangent function"
-msgstr "       tangens függvény"
+msgid "         tangent function"
+msgstr "         tangens függvény"
 
 #: modshell:des55
-msgid "       sine function"
-msgstr "       szinusz függvény"
+msgid "         sine function"
+msgstr "         szinusz függvény"
 
 #: modshell:des56
-msgid "       square"
-msgstr "       négyzetreemelés"
+msgid "         square"
+msgstr "         négyzetreemelés"
 
 #: modshell:des57
-msgid "       square root"
-msgstr "       négyzetgyökvonás"
+msgid "         square root"
+msgstr "         négyzetgyökvonás"
 
 #: modshell:des58
-msgid "       roll bit of integer to left"
-msgstr "       bitgörgetés balra"
+msgid "         roll bit of integer to left"
+msgstr "         bitgörgetés balra"
 
 #: modshell:des59
-msgid "       roll bit of integer to right"
-msgstr "       bitgörgetés jobbra"
+msgid "         roll bit of integer to right"
+msgstr "         bitgörgetés jobbra"
 
 #: modshell:des60
-msgid "       conversion to uppercase"
-msgstr "       átalakítás nagybetűssé"
+msgid "         conversion to uppercase"
+msgstr "         átalakítás nagybetűssé"
 
 #: modshell:des61
-msgid "       length of string"
-msgstr "       karakterlánc hossza"
+msgid "         length of string"
+msgstr "         karakterlánc hossza"
 
 #: modshell:des62
-msgid "       conversion to lowercase"
-msgstr "       átalakítás kisbetűssé"
+msgid "         conversion to lowercase"
+msgstr "         átalakítás kisbetűssé"
 
 #: modshell:des63
-msgid "       specified element of the string"
-msgstr "       a karakterlánc megadott eleme"
+msgid "         specified element of the string"
+msgstr "         a karakterlánc megadott eleme"
 
 #: modshell:des64
-msgid "       convert byte to char"
-msgstr "       bájt karakterré alakítása"
+msgid "         convert byte to char"
+msgstr "         bájt karakterré alakítása"
 
 #: modshell:des65
-msgid "       convert char to byte"
-msgstr "       karakter bájttá alakítása"
+msgid "         convert char to byte"
+msgstr "         karakter bájttá alakítása"
 
 #: modshell:des66
-msgid "       list all constant with value or define a new one"
-msgstr "       az összes állandó kiírása vagy új létrehozása"
+msgid "         list all constant with value or define a new one"
+msgstr "         az összes állandó kiírása vagy új létrehozása"
 
 #: modshell:des67
-msgid "       value of the specified bit"
-msgstr "       megadott bit értéke"
+msgid "         value of the specified bit"
+msgstr "         megadott bit értéke"
 
 #: modshell:des68
-msgid "       exponentiation"
-msgstr "       hatványozás"
+msgid "         exponentiation"
+msgstr "         hatványozás"
 
 #: modshell:des69
-msgid "       jump to specified label (only in script)"
-msgstr "       ugrás a megadott címkére (csak szkripteknél)"
+msgid "         jump to specified label (only in script)"
+msgstr "         ugrás a megadott címkére (csak szkripteknél)"
 
 #: modshell:des70
-msgid "       selection statement"
-msgstr "       elágazás"
+msgid "         selection statement"
+msgstr "         elágazás"
 
 #: modshell:des71
-msgid "       loop iteration"
-msgstr "       számláló hurok"
+msgid "         loop iteration"
+msgstr "         számláló hurok"
 
 #: modshell:des72
-msgid "       define label (only in script)"
-msgstr "       címke létrehozása (csak szkripteknél)"
+msgid "         define label (only in script)"
+msgstr "         címke létrehozása (csak szkripteknél)"
 
 #: modshell:des73
-msgid "       start internal Modbus slave/server"
-msgstr "       start belső Modbus szolga/szerver"
+msgid "         start internal Modbus slave/server"
+msgstr "         start belső Modbus szolga/szerver"
 
 #: modshell:des74
-msgid "       start internal Modbus gateway"
-msgstr "       start belső Modbus átjáró"
+msgid "         start internal Modbus gateway"
+msgstr "         start belső Modbus átjáró"
 
 #: modshell:des75
-msgid "       check the value is in the range"
-msgstr "       értéktartományba tartozás ellenőrzése"
+msgid "         check the value is in the range"
+msgstr "         értéktartományba tartozás ellenőrzése"
 
 #: modshell:des76
-msgid "       make LRC"
-msgstr "       LRC képzése"
+msgid "         make LRC"
+msgstr "         LRC képzése"
 
 #: modshell:des77
-msgid "       make CRC"
-msgstr "       CRC képzése"
+msgid "         make CRC"
+msgstr "         CRC képzése"
 
 #: modshell:des78
-msgid "       exponentiation of two"
-msgstr "       a kettő hatványai"
+msgid "         exponentiation of two"
+msgstr "         a kettő hatványai"
 
 #: modshell:des79
-msgid "       show ASCII table"
-msgstr "       ASCII tábla mutatás"
+msgid "         show ASCII table"
+msgstr "         ASCII tábla mutatás"
 
 #: modshell:des80
-msgid "       make a beep sound with internal speaker"
-msgstr "       hangjelzés a belső hangszóróval"
+msgid "         make a beep sound with internal speaker"
+msgstr "         hangjelzés a belső hangszóróval"
 
 #: modshell:des81
-msgid "       calculate average"
-msgstr "       átlagszámítás"
+msgid "         calculate average"
+msgstr "         átlagszámítás"
 
 #: modshell:des82
-msgid "       propotional value calculation (with zero and span)"
-msgstr "       arányos érték számítás (kezdeti és végértékkel)"
+msgid "         propotional value calculation (with zero and span)"
+msgstr "         arányos érték számítás (kezdeti és végértékkel)"
 
 #: modshell:des83
-msgid "       concatenate strings"
-msgstr "       karakterláncok összefűzése"
+msgid "         concatenate strings"
+msgstr "         karakterláncok összefűzése"
 
 #: modshell:des84
-msgid "       delete specified element(s) of the string"
-msgstr "       a karakterlánc megadott elemének törlése"
+msgid "         delete specified element(s) of the string"
+msgstr "         a karakterlánc megadott elemének törlése"
 
 #: modshell:des85
-msgid "       find specified element(s) in the string"
-msgstr "       keresés a karakterláncban"
+msgid "         find specified element(s) in the string"
+msgstr "         keresés a karakterláncban"
 
 #: modshell:des86
-msgid "       insert element(s) into string"
-msgstr "       beszúrás a karakterláncba"
+msgid "         insert element(s) into string"
+msgstr "         beszúrás a karakterláncba"
 
 #: modshell:des87
-msgid "       replace element(s) in the string"
-msgstr "       a karakterlánc megadott elemének cseréje"
+msgid "         replace element(s) in the string"
+msgstr "         a karakterlánc megadott elemének cseréje"
 
 #: modshell:des88
-msgid "ALT-M  monitoring the value of variables"
-msgstr "ALT-M  változóértékek megfigyelése"
+msgid "ALT-M    monitoring the value of variables"
+msgstr "ALT-M    változóértékek megfigyelése"
 
 #: modshell:des89
-msgid "       append a record to log file"
-msgstr "       egy bejegyzés hozzáfűzése a naplófájlhoz"
+msgid "         append a record to log file"
+msgstr "         egy bejegyzés hozzáfűzése a naplófájlhoz"
 
 #: modshell:des90
-msgid "       loaded script scheduled execution"
-msgstr "       a betöltött szkript ütemezett futattása"
+msgid "         loaded script scheduled execution"
+msgstr "         a betöltött szkript ütemezett futattása"
 
 #: modshell:des91
-msgid "       edit loaded script with line editor"
-msgstr "       a betöltött szkript szerkesztése sorszerkesztővel"
+msgid "SHIFT-F4 edit loaded script with line editor"
+msgstr "SHIFT-F4 a betöltött szkript szerkesztése sorszerkesztővel"
 
 #: modshell:des92
-msgid "       erase script from buffer"
-msgstr "       a szkript törlése a pufferból"
+msgid "SHIFT-F8 erase script from buffer"
+msgstr "SHIFT-F8 a szkript törlése a pufferból"
 
 #: modshell:des93
-msgid "       save loaded script to disc"
-msgstr "       a betöltött szkript mentése lemezre"
+msgid "SHIFT-F2 save loaded script to disc"
+msgstr "SHIFT-F2 a betöltött szkript mentése lemezre"
 
 #: modshell:des94
-msgid "       list directory content"
-msgstr "       könyvtártartalom listázása"
+msgid "         list directory content"
+msgstr "         könyvtártartalom listázása"
 
 #: modshell:des95
-msgid "       change directory or get name"
-msgstr "       könyvtár váltása vagy könyvtárnév kiírása"
+msgid "         change directory or get name"
+msgstr "         könyvtár váltása vagy könyvtárnév kiírása"
 
 #: modshell:des96
-msgid "       make directory"
-msgstr "       könyvtár létrehozása"
+msgid "         make directory"
+msgstr "         könyvtár létrehozása"
 
 #: modshell:des97
-msgid "       remove directory"
-msgstr "       könyvtár törlése"
+msgid "         remove directory"
+msgstr "         könyvtár törlése"
 
 #: modshell:des98
-msgid "       remove file"
-msgstr "       fájl törlése"
+msgid "         remove file"
+msgstr "         fájl törlése"
 
 #: modshell:des99
-msgid "       type file"
-msgstr "       fájltartalom kiírása"
+msgid "         type file"
+msgstr "         fájltartalom kiírása"
 
 #: modshell:des100
-msgid "       copy file"
-msgstr "       fájl másolása"
+msgid "         copy file"
+msgstr "         fájl másolása"
 
 #: modshell:des101
-msgid "       rename file"
-msgstr "       fájl átnevezése"
+msgid "         rename file"
+msgstr "         fájl átnevezése"
 
 #: modshell:des102
-msgid "       existence of a file or directory"
-msgstr "       fájl vagy könyvtár meglétének ellenőrzése"
+msgid "         existence of a file or directory"
+msgstr "         fájl vagy könyvtár meglétének ellenőrzése"
 
 #: modshell:des103
-msgid "       check device lock file"
-msgstr "       eszköz zárolófájl fájl ellenőrzése"
+msgid "         check device lock file"
+msgstr "         eszköz zárolófájl fájl ellenőrzése"
 
 #: modshell:des104
-msgid "       remove device lock file"
-msgstr "       eszköz zárolófájl fájl törlése"
+msgid "         remove device lock file"
+msgstr "         eszköz zárolófájl fájl törlése"
 
 #: modshell:des105
-msgid "       show all constants array with their value or define a new one"
-msgstr ""
-"       az összes állandó tömb kiírása a méretével együtt vagy új létrehozása"
+msgid "         show all constants array with their value or define a new one"
+msgstr "         az összes állandó tömb kiírása a méretével vagy új létrehozása"
 
 #: modshell:des106
-msgid "       show all variable array with their value or define a new one"
-msgstr ""
-"       az összes változó tömb kiírása a méretével együtt vagy új létrehozása"
+msgid "         show all variable array with their value or define a new one"
+msgstr "         az összes változó tömb kiírása a méretével vagy új létrehozása"
 
 #: modshell:des107
-msgid "       clear content of an array"
-msgstr "       tömb tartalmának törlése"
+msgid "         clear content of an array"
+msgstr "         tömb tartalmának törlése"
 
 #: modshell:des108
-msgid "       fill an array with a character"
-msgstr "       tömb feltöltése adattal"
+msgid "         fill an array with a character"
+msgstr "         tömb feltöltése adattal"
 
 #: modshell:des109
-msgid "       set size of an array"
-msgstr "       tömbméret beállítása"
+msgid "         set size of an array"
+msgstr "        tömbméret beállítása"
 
 #: modshell:usg00
 msgid ""

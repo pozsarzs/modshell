@@ -75,7 +75,7 @@ begin
   // CHECK P2 PARAMETER
   if length(p2) > 0 then
   begin
-    if (not boolisitvariable(p2)) or
+    if (not boolisitvariable(p2)) and
        (not boolisitvariablearray(p2)) then
     begin
       // No such variable!

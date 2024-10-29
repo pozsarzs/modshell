@@ -26,12 +26,15 @@ var
   b: byte;
   idx: string = '';
 begin
+  try
   for b := 1 to length(s) do
     if s[b] = '[' then break;
   for b := b + 1 to length(s) do
     if s[b] <> ']' then  idx := idx + s[b] else break;
   if boolisitconstant(idx) then idx := isitconstant(idx);
   if boolisitvariable(idx) then idx := isitvariable(idx);
+  except
+  end;
   result := strtointdef(idx, 0);
 end;
 
@@ -95,7 +98,7 @@ begin
     exit;
   end; 
   // CHECK P1 PARAMETER
-  if (not boolisitvariablearray(p1)) or
+  if (not boolisitvariablearray(p1)) and
      (not boolisitconstantarray(p1)) then
   begin
     // No such array!

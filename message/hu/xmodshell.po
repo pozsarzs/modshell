@@ -14,447 +14,445 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: frmmain.des00
-msgid "       copy one or more remote reg. between two connections"
-msgstr "       egy vagy több távoli regiszter másolása két kapcsolat között"
+msgid "         copy one or more remote reg. between two connections"
+msgstr "         egy vagy több távoli regiszter másolása két kapcsolat között"
 
 #: frmmain.des01
-msgid "F10    exit from program"
-msgstr "F10    kilépés a programból"
+msgid "F10      exit from program"
+msgstr "F10      kilépés a programból"
 
 #: frmmain.des02
-msgid "ALT-G  show device, protocol, connection or project name"
-msgstr "ALT-G  eszköz, protokoll, kapcsolat vagy projektnév kiírása"
+msgid "ALT-G    show device, protocol, connection or project name"
+msgstr "ALT-G    eszköz, protokoll, kapcsolat vagy projektnév kiírása"
 
 #: frmmain.des03
-msgid "F1     show description or usage of the commands"
-msgstr "F1     parancs leírás vagy használat megjelenítése"
+msgid "F1       show description or usage of the commands"
+msgstr "F1       parancs leírás vagy használat megjelenítése"
 
 #: frmmain.des04
-msgid "ALT-L  set value of a variable or a register"
-msgstr "ALT-L  regisztertartalom beállítása"
+msgid "ALT-L    set value of a variable or a register"
+msgstr "ALT-L    regisztertartalom beállítása"
 
 #: frmmain.des05
-msgid "ALT-P  print message, value of the variable and register"
-msgstr "ALT-P  üzenet, a változó vagy regisztertartalom kiírása"
+msgid "ALT-P    print message, value of the variable and register"
+msgstr "ALT-P    üzenet, a változó vagy regisztertartalom kiírása"
 
 #: frmmain.des06
-msgid "ALT-R  read one or more remote registers to buffer"
-msgstr "ALT-R  adat olvasása távoli regiszterből a pufferbe"
+msgid "ALT-R    read one or more remote registers to buffer"
+msgstr "ALT-R    adat olvasása távoli regiszterből a pufferbe"
 
 #: frmmain.des07
-msgid "ALT-T  reset device, protocol, connection or project name"
-msgstr "ALT-T  eszköz, protokoll, kapcsolat vagy projektnév törlése"
+msgid "ALT-T    reset device, protocol, connection or project name"
+msgstr "ALT-T    eszköz, protokoll, kapcsolat vagy projektnév törlése"
 
 #: frmmain.des08
-msgid "ALT-S  set device, protocol, connection, project name or timeout"
+msgid "ALT-S    set device, protocol, connection, project name or timeout"
 msgstr ""
-"ALT-S  eszköz, protokoll, kapcsolat, projektnév vagy időtúllépés beállítása"
+"ALT-S    eszköz, protokoll, kapcsolat, projektnév vagy időtúllépés beállítása"
 
 #: frmmain.des09
-msgid "       show system date and time"
-msgstr "       dátum és idő megjelenítése"
+msgid "         show system date and time"
+msgstr "         dátum és idő megjelenítése"
 
 #: frmmain.des10
-msgid "       show version and build information of this program"
-msgstr "       változat és fordítási információk a programról"
+msgid "         show version and build information of this program"
+msgstr "         változat és fordítási információk a programról"
 
 #: frmmain.des100
-msgid "       copy file"
-msgstr "       fájl másolása"
+msgid "         copy file"
+msgstr "         fájl másolása"
 
 #: frmmain.des101
-msgid "       rename file"
-msgstr "       fájl átnevezése"
+msgid "         rename file"
+msgstr "         fájl átnevezése"
 
 #: frmmain.des102
-msgid "       existence of a file or directory"
-msgstr "       fájl vagy könyvtár meglétének ellenőrzése"
+msgid "         existence of a file or directory"
+msgstr "         fájl vagy könyvtár meglétének ellenőrzése"
 
 #: frmmain.des103
-msgid "       check device lock file"
-msgstr "       eszköz zárolófájl fájl ellenőrzése"
+msgid "         check device lock file"
+msgstr "         eszköz zárolófájl fájl ellenőrzése"
 
 #: frmmain.des104
-msgid "       remove device lock file"
-msgstr "       eszköz zárolófájl fájl törlése"
+msgid "         remove device lock file"
+msgstr "         eszköz zárolófájl fájl törlése"
 
 #: frmmain.des105
-msgid "       show all constants array with their value or define a new one"
-msgstr ""
-"       az összes állandó tömb kiírása a méretével együtt vagy új létrehozása"
+msgid "         show all constants array with their value or define a new one"
+msgstr "         az összes állandó tömb kiírása a méretével vagy új létrehozása"
 
 #: frmmain.des106
-msgid "       show all variable array with their value or define a new one"
-msgstr ""
-"       az összes változó tömb kiírása a méretével együtt vagy új létrehozása"
+msgid "         show all variable array with their value or define a new one"
+msgstr "         az összes változó tömb kiírása a méretével vagy új létrehozása"
 
 #: frmmain.des107
-msgid "       clear content of an array"
-msgstr "       tömb tartalmának törlése"
+msgid "         clear content of an array"
+msgstr "         tömb tartalmának törlése"
 
 #: frmmain.des108
-msgid "       fill an array with a character"
-msgstr "       tömb feltöltése adattal"
+msgid "         fill an array with a character"
+msgstr "         tömb feltöltése adattal"
 
 #: frmmain.des109
-msgid "       set size of an array"
-msgstr "       tömbméret beállítása"
+msgid "         set size of an array"
+msgstr "        tömbméret beállítása"
 
 #: frmmain.des11
-msgid "ALT-W  write data from buffer to one or more remote registers"
-msgstr "ALT-W  adat írása egy vagy több pufferből a távoli regiszterbe"
+msgid "ALT-W    write data from buffer to one or more remote registers"
+msgstr "ALT-W    adat írása egy vagy több pufferből a távoli regiszterbe"
 
 #: frmmain.des12
-msgid "F8     clear screen"
-msgstr "F8     képernyőtörlés"
+msgid "F8       clear screen"
+msgstr "F8       képernyőtörlés"
 
 #: frmmain.des13
-msgid "F2     save settings of device, protocol and connection"
-msgstr "F2     eszköz-, protokoll- és kapcsolatbeállítások mentése"
+msgid "F2       save settings of device, protocol and connection"
+msgstr "F2       eszköz-, protokoll- és kapcsolatbeállítások mentése"
 
 #: frmmain.des14
-msgid "F3     load settings of device, protocol and connection"
-msgstr "F3     eszköz-, protokoll- és kapcsolatbeállítások betöltése"
+msgid "F3       load settings of device, protocol and connection"
+msgstr "F3       eszköz-, protokoll- és kapcsolatbeállítások betöltése"
 
 #: frmmain.des15
-msgid "ALT-E  export value of the one or more registers"
-msgstr "ALT-E  egy vagy több regisztertartalom exportálása"
+msgid "ALT-E    export value of the one or more registers"
+msgstr "ALT-E    egy vagy több regisztertartalom exportálása"
 
 #: frmmain.des16
-msgid "       export command line history to make a script easily"
-msgstr "       parancssori előzmények exportálása"
+msgid "         export command line history to make a script easily"
+msgstr "         parancssori előzmények exportálása"
 
 #: frmmain.des17
-msgid "ALT-C  convert value between different numeral systems"
-msgstr "ALT-C  konvertálás a különböző számrendszerek között"
+msgid "ALT-C    convert value between different numeral systems"
+msgstr "ALT-C    konvertálás a különböző számrendszerek között"
 
 #: frmmain.des18
-msgid "F4     save all registers"
-msgstr "F4     összes regisztertartalom mentése"
+msgid "F4       save all registers"
+msgstr "F4       összes regisztertartalom mentése"
 
 #: frmmain.des19
-msgid "F5     load all registers"
-msgstr "F5     összes regisztertartalom betöltése"
+msgid "F5       load all registers"
+msgstr "F5       összes regisztertartalom betöltése"
 
 #: frmmain.des20
-msgid "       list all variable with value or define a new one"
-msgstr "       az összes változó kiírása vagy új létrehozása"
+msgid "         list all variable with value or define a new one"
+msgstr "         az összes változó kiírása vagy új létrehozása"
 
 #: frmmain.des21
-msgid "       set colors"
-msgstr "       színek beállítása"
+msgid "         set colors"
+msgstr "         színek beállítása"
 
 #: frmmain.des22
-msgid "ALT-I  import value of the one or more registers"
-msgstr "ALT-I  egy vagy több regisztertartalom importálása"
+msgid "ALT-I    import value of the one or more registers"
+msgstr "ALT-I    egy vagy több regisztertartalom importálása"
 
 #: frmmain.des23
-msgid "       AND logical operations"
-msgstr "       ÉS logikai művelet"
+msgid "         AND logical operations"
+msgstr "         ÉS logikai művelet"
 
 #: frmmain.des24
-msgid "       OR logical operations"
-msgstr "       VAGY logikai művelet"
+msgid "         OR logical operations"
+msgstr "         VAGY logikai művelet"
 
 #: frmmain.des25
-msgid "       NOT logical operations"
-msgstr "       NOT logikai művelet"
+msgid "         NOT logical operations"
+msgstr "         NOT logikai művelet"
 
 #: frmmain.des26
-msgid "       XOR logical operations"
-msgstr "       XOR logikai művelet"
+msgid "         XOR logical operations"
+msgstr "         XOR logikai művelet"
 
 #: frmmain.des27
-msgid "       bit shift to left"
-msgstr "       biteltolás balra"
+msgid "         bit shift to left"
+msgstr "         biteltolás balra"
 
 #: frmmain.des28
-msgid "       bit shift to right"
-msgstr "       biteltolás jobbra"
+msgid "         bit shift to right"
+msgstr "         biteltolás jobbra"
 
 #: frmmain.des29
-msgid "       addition mathematical operation"
-msgstr "       összeadás matematikai művelet"
+msgid "         addition mathematical operation"
+msgstr "         összeadás matematikai művelet"
 
 #: frmmain.des30
-msgid "       substraction mathematical operation"
-msgstr "       kivonás matematikai művelet"
+msgid "         substraction mathematical operation"
+msgstr "         kivonás matematikai művelet"
 
 #: frmmain.des31
-msgid "       multiplication mathematical operation"
-msgstr "       szorzás matematikai művelet"
+msgid "         multiplication mathematical operation"
+msgstr "         szorzás matematikai művelet"
 
 #: frmmain.des32
-msgid "       division mathematical operation"
-msgstr "       osztás matematikai művelet"
+msgid "         division mathematical operation"
+msgstr "         osztás matematikai művelet"
 
 #: frmmain.des33
-msgid "F6     dump all registers in binary/hexadecimal format to a table"
-msgstr "F6     táblázatos regiszterkiírás bin. vagy hexadec. formában"
+msgid "F6       dump all registers in binary/hexadecimal format to a table"
+msgstr "F6       táblázatos regiszterkiírás bin. vagy hexadec. formában"
 
 #: frmmain.des34
-msgid "       wait for a keystroke or specified time"
-msgstr "       várakozás billentyűleütésre vagy idő leteltére"
+msgid "         wait for a keystroke or specified time"
+msgstr "         várakozás billentyűleütésre vagy idő leteltére"
 
 #: frmmain.des35
-msgid "F7     open a simple serial console"
-msgstr "F7     egyszerű soros konzol"
+msgid "F7       open a simple serial console"
+msgstr "F7       egyszerű soros konzol"
 
 #: frmmain.des36
-msgid "       read string from serial device"
-msgstr "       string olvasása soros portról"
+msgid "         read string from serial device"
+msgstr "         string olvasása soros portról"
 
 #: frmmain.des37
-msgid "       write string to serial device"
-msgstr "       string írása soros portra"
+msgid "         write string to serial device"
+msgstr "         string írása soros portra"
 
 #: frmmain.des38
-msgid "F9     query local echo status or enable/disable it"
-msgstr "F9     visszahang állapot lekérése/beállítása"
+msgid "F9       query local echo status or enable/disable it"
+msgstr "F9       visszahang állapot lekérése/beállítása"
 
 #: frmmain.des39
-msgid "       load ModShell script from file"
-msgstr "       ModShell szkript betöltése fájlból"
+msgid "SHIFT-F3 load ModShell script from file"
+msgstr "SHIFT-F3 ModShell szkript betöltése fájlból"
 
 #: frmmain.des40
-msgid "F12    run loaded ModShell script"
-msgstr "F12    betöltött ModShell szkript futattása"
+msgid "F12      run loaded ModShell script"
+msgstr "F12      betöltött ModShell szkript futattása"
 
 #: frmmain.des41
-msgid "F11    list loaded ModShell script"
-msgstr "F11    betöltött ModShell szkript listázása"
+msgid "F11      list loaded ModShell script"
+msgstr "F11      betöltött ModShell szkript listázása"
 
 #: frmmain.des42
-msgid "       round real number"
-msgstr "       természetes szám kerekítése"
+msgid "         round real number"
+msgstr "         természetes szám kerekítése"
 
 #: frmmain.des43
-msgid "       cosine function"
-msgstr "       koszinusz függvény"
+msgid "         cosine function"
+msgstr "         koszinusz függvény"
 
 #: frmmain.des44
-msgid "       cotangent function"
-msgstr "       kotangens függvény"
+msgid "         cotangent function"
+msgstr "         kotangens függvény"
 
 #: frmmain.des45
-msgid "       decrement integer"
-msgstr "       egész szám csökkentése eggyel"
+msgid "         decrement integer"
+msgstr "         egész szám csökkentése eggyel"
 
 #: frmmain.des46
-msgid "       natural exponential"
-msgstr "       természetes exponenciális függvény"
+msgid "         natural exponential"
+msgstr "         természetes exponenciális függvény"
 
 #: frmmain.des47
-msgid "       integer division"
-msgstr "       egész osztás"
+msgid "         integer division"
+msgstr "         egész osztás"
 
 #: frmmain.des48
-msgid "       modulus division"
-msgstr "       modulusz osztás"
+msgid "         modulus division"
+msgstr "         modulusz osztás"
 
 #: frmmain.des49
-msgid "       increment integer"
-msgstr "       egész szám növelése eggyel"
+msgid "         increment integer"
+msgstr "         egész szám növelése eggyel"
 
 #: frmmain.des50
-msgid "       natural logarithm"
-msgstr "       természetes alapú logaritmus"
+msgid "         natural logarithm"
+msgstr "         természetes alapú logaritmus"
 
 #: frmmain.des51
-msgid "       multiplicative inverse"
-msgstr "       reciprokérték"
+msgid "         multiplicative inverse"
+msgstr "         reciprokérték"
 
 #: frmmain.des52
-msgid "       odd or event"
-msgstr "       páros vagy páratlan"
+msgid "         odd or event"
+msgstr "         páros vagy páratlan"
 
 #: frmmain.des53
-msgid "       create random integer"
-msgstr "       véletlen egész szám képzése"
+msgid "         create random integer"
+msgstr "         véletlen egész szám képzése"
 
 #: frmmain.des54
-msgid "       tangent function"
-msgstr "       tangens függvény"
+msgid "         tangent function"
+msgstr "         tangens függvény"
 
 #: frmmain.des55
-msgid "       sine function"
-msgstr "       szinusz függvény"
+msgid "         sine function"
+msgstr "         szinusz függvény"
 
 #: frmmain.des56
-msgid "       square"
-msgstr "       négyzetreemelés"
+msgid "         square"
+msgstr "         négyzetreemelés"
 
 #: frmmain.des57
-msgid "       square root"
-msgstr "       négyzetgyökvonás"
+msgid "         square root"
+msgstr "         négyzetgyökvonás"
 
 #: frmmain.des58
-msgid "       roll bit of integer to left"
-msgstr "       bitgörgetés balra"
+msgid "         roll bit of integer to left"
+msgstr "         bitgörgetés balra"
 
 #: frmmain.des59
-msgid "       roll bit of integer to right"
-msgstr "       bitgörgetés jobbra"
+msgid "         roll bit of integer to right"
+msgstr "         bitgörgetés jobbra"
 
 #: frmmain.des60
-msgid "       conversion to uppercase"
-msgstr "       átalakítás nagybetűssé"
+msgid "         conversion to uppercase"
+msgstr "         átalakítás nagybetűssé"
 
 #: frmmain.des61
-msgid "       length of string"
-msgstr "       karakterlánc hossza"
+msgid "         length of string"
+msgstr "         karakterlánc hossza"
 
 #: frmmain.des62
-msgid "       conversion to lowercase"
-msgstr "       átalakítás kisbetűssé"
+msgid "         conversion to lowercase"
+msgstr "         átalakítás kisbetűssé"
 
 #: frmmain.des63
-msgid "       specified element of the string"
-msgstr "       a karakterlánc megadott eleme"
+msgid "         specified element of the string"
+msgstr "         a karakterlánc megadott eleme"
 
 #: frmmain.des64
-msgid "       convert byte to char"
-msgstr "       bájt karakterré alakítása"
+msgid "         convert byte to char"
+msgstr "         bájt karakterré alakítása"
 
 #: frmmain.des65
-msgid "       convert char to byte"
-msgstr "       karakter bájttá alakítása"
+msgid "         convert char to byte"
+msgstr "         karakter bájttá alakítása"
 
 #: frmmain.des66
-msgid "       list all constant with value or define a new one"
-msgstr "       az összes állandó kiírása vagy új létrehozása"
+msgid "         list all constant with value or define a new one"
+msgstr "         az összes állandó kiírása vagy új létrehozása"
 
 #: frmmain.des67
-msgid "       value of the specified bit"
-msgstr "       megadott bit értéke"
+msgid "         value of the specified bit"
+msgstr "         megadott bit értéke"
 
 #: frmmain.des68
-msgid "       exponentiation"
-msgstr "       hatványozás"
+msgid "         exponentiation"
+msgstr "         hatványozás"
 
 #: frmmain.des69
-msgid "       jump to specified label (only in script)"
-msgstr "       ugrás a megadott címkére (csak szkripteknél)"
+msgid "         jump to specified label (only in script)"
+msgstr "         ugrás a megadott címkére (csak szkripteknél)"
 
 #: frmmain.des70
-msgid "       selection statement"
-msgstr "       elágazás"
+msgid "         selection statement"
+msgstr "         elágazás"
 
 #: frmmain.des71
-msgid "       loop iteration"
-msgstr "       számláló hurok"
+msgid "         loop iteration"
+msgstr "         számláló hurok"
 
 #: frmmain.des72
-msgid "       define label (only in script)"
-msgstr "       címke létrehozása (csak szkripteknél)"
+msgid "         define label (only in script)"
+msgstr "         címke létrehozása (csak szkripteknél)"
 
 #: frmmain.des73
-msgid "       start internal Modbus slave/server"
-msgstr "       start belső Modbus szolga/szerver"
+msgid "         start internal Modbus slave/server"
+msgstr "         start belső Modbus szolga/szerver"
 
 #: frmmain.des74
-msgid "       start internal Modbus gateway"
-msgstr "       start belső Modbus átjáró"
+msgid "         start internal Modbus gateway"
+msgstr "         start belső Modbus átjáró"
 
 #: frmmain.des75
-msgid "       check the value is in the range"
-msgstr "       értéktartományba tartozás ellenőrzése"
+msgid "         check the value is in the range"
+msgstr "         értéktartományba tartozás ellenőrzése"
 
 #: frmmain.des76
-msgid "       make LRC"
-msgstr "       LRC képzése"
+msgid "         make LRC"
+msgstr "         LRC képzése"
 
 #: frmmain.des77
-msgid "       make CRC"
-msgstr "       CRC képzése"
+msgid "         make CRC"
+msgstr "         CRC képzése"
 
 #: frmmain.des78
-msgid "       exponentiation of two"
-msgstr "       a kettő hatványai"
+msgid "         exponentiation of two"
+msgstr "         a kettő hatványai"
 
 #: frmmain.des79
-msgid "       show ASCII table"
-msgstr "       ASCII tábla mutatás"
+msgid "         show ASCII table"
+msgstr "         ASCII tábla mutatás"
 
 #: frmmain.des80
-msgid "       make a beep sound with internal speaker"
-msgstr "       hangjelzés a belső hangszóróval"
+msgid "         make a beep sound with internal speaker"
+msgstr "         hangjelzés a belső hangszóróval"
 
 #: frmmain.des81
-msgid "       calculate average"
-msgstr "       átlagszámítás"
+msgid "         calculate average"
+msgstr "         átlagszámítás"
 
 #: frmmain.des82
-msgid "       propotional value calculation (with zero and span)"
-msgstr "       arányos érték számítás (kezdeti és végértékkel)"
+msgid "         propotional value calculation (with zero and span)"
+msgstr "         arányos érték számítás (kezdeti és végértékkel)"
 
 #: frmmain.des83
-msgid "       concatenate strings"
-msgstr "       karakterláncok összefűzése"
+msgid "         concatenate strings"
+msgstr "         karakterláncok összefűzése"
 
 #: frmmain.des84
-msgid "       delete specified element(s) of the string"
-msgstr "       a karakterlánc megadott elemének törlése"
+msgid "         delete specified element(s) of the string"
+msgstr "         a karakterlánc megadott elemének törlése"
 
 #: frmmain.des85
-msgid "       find specified element(s) in the string"
-msgstr "       keresés a karakterláncban"
+msgid "         find specified element(s) in the string"
+msgstr "         keresés a karakterláncban"
 
 #: frmmain.des86
-msgid "       insert element(s) into string"
-msgstr "       beszúrás a karakterláncba"
+msgid "         insert element(s) into string"
+msgstr "         beszúrás a karakterláncba"
 
 #: frmmain.des87
-msgid "       replace element(s) in the string"
-msgstr "       a karakterlánc megadott elemének cseréje"
+msgid "         replace element(s) in the string"
+msgstr "         a karakterlánc megadott elemének cseréje"
 
 #: frmmain.des88
-msgid "ALT-M  monitoring the value of variables"
-msgstr "ALT-M  változóértékek megfigyelése"
+msgid "ALT-M    monitoring the value of variables"
+msgstr "ALT-M    változóértékek megfigyelése"
 
 #: frmmain.des89
-msgid "       append a record to log file"
-msgstr "       egy bejegyzés hozzáfűzése a naplófájlhoz"
+msgid "         append a record to log file"
+msgstr "         egy bejegyzés hozzáfűzése a naplófájlhoz"
 
 #: frmmain.des90
-msgid "       loaded script scheduled execution"
-msgstr "       a betöltött szkript ütemezett futattása"
+msgid "         loaded script scheduled execution"
+msgstr "         a betöltött szkript ütemezett futattása"
 
 #: frmmain.des91
-msgid "       edit loaded script with line editor"
-msgstr "       a betöltött szkript szerkesztése sorszerkesztővel"
+msgid "SHIFT-F4 edit loaded script with line editor"
+msgstr "SHIFT-F4 a betöltött szkript szerkesztése sorszerkesztővel"
 
 #: frmmain.des92
-msgid "       erase script from buffer"
-msgstr "       a szkript törlése a pufferból"
+msgid "SHIFT-F8 erase script from buffer"
+msgstr "SHIFT-F8 a szkript törlése a pufferból"
 
 #: frmmain.des93
-msgid "       save loaded script to disc"
-msgstr "       a betöltött szkript mentése lemezre"
+msgid "SHIFT-F2 save loaded script to disc"
+msgstr "SHIFT-F2 a betöltött szkript mentése lemezre"
 
 #: frmmain.des94
-msgid "       list directory content"
-msgstr "       könyvtártartalom listázása"
+msgid "         list directory content"
+msgstr "         könyvtártartalom listázása"
 
 #: frmmain.des95
-msgid "       change directory or get name"
-msgstr "       könyvtár váltása vagy könyvtárnév kiírása"
+msgid "         change directory or get name"
+msgstr "         könyvtár váltása vagy könyvtárnév kiírása"
 
 #: frmmain.des96
-msgid "       make directory"
-msgstr "       könyvtár létrehozása"
+msgid "         make directory"
+msgstr "         könyvtár létrehozása"
 
 #: frmmain.des97
-msgid "       remove directory"
-msgstr "       könyvtár törlése"
+msgid "         remove directory"
+msgstr "         könyvtár törlése"
 
 #: frmmain.des98
-msgid "       remove file"
-msgstr "       fájl törlése"
+msgid "         remove file"
+msgstr "         fájl törlése"
 
 #: frmmain.des99
-msgid "       type file"
-msgstr "       fájltartalom kiírása"
+msgid "         type file"
+msgstr "         fájltartalom kiírása"
 
 #: frmmain.err00
 msgid "No such command!"

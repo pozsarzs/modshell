@@ -53,7 +53,7 @@ begin
     for b := 0 to COMMARRSIZE - 2 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
-      for bb := 0 to 6 - length(COMMANDS[b]) + 2 do
+      for bb := 0 to 8 - length(COMMANDS[b]) + 2 do
         buffer[b] := buffer[b] + ' ';
       case b of
          0: buffer[b] := buffer[b] + DES00;
@@ -191,8 +191,10 @@ begin
   end else
   begin
     // CHECK P1 PARAMETER
-    s1 := isitvariable(p1);
-    s1 := isitvariablearray(p1);
+  if boolisitconstant(p1) then s1 := isitconstant(p1);
+  if boolisitvariable(p1) then s1 := isitvariable(p1);
+  if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
+  if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
     if length(s1) = 0 then s1 := p1;
     valid := false;
     for b := 0 to COMMARRSIZE - 2 do
