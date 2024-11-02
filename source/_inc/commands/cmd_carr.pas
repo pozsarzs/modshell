@@ -40,7 +40,7 @@ var
   i: integer;
 begin
   result := 0;  
-  if (s[1] = #36) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
+  if (s[1] = #36) and (length(s) > 1) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
   s := removearrayindex(s);
   for i := 0 to ARRBUFFSIZE - 1 do
     if (arrays[i].aname = lowercase(s)) and arrays[i].areadonly
@@ -53,7 +53,7 @@ var
   i: integer;
 begin
   result := false;
-  if (s[1] = #36) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
+  if (s[1] = #36) and (length(s) > 1) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
   s := removearrayindex(s);
   for i := 0 to ARRBUFFSIZE - 1 do
     if (arrays[i].aname = lowercase(s)) and arrays[i].areadonly
@@ -67,7 +67,7 @@ var
 begin
   result := '';
   idx := arrayindex(s);
-  if (s[1] = #36) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
+  if (s[1] = #36) and (length(s) > 1) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
   s := removearrayindex(s);
   for i := 0 to ARRBUFFSIZE - 1 do
     if (arrays[i].aname = lowercase(s)) and arrays[i].areadonly
@@ -81,7 +81,7 @@ var
 begin
   result := 0;
   idx := arrayindex(s);
-  if (s[1] = #36) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
+  if (s[1] = #36) and (length(s) > 1) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
   s := removearrayindex(s);
   for i := 0 to ARRBUFFSIZE - 1 do
     if (arrays[i].aname = lowercase(s)) and arrays[i].areadonly

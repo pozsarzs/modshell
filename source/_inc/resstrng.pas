@@ -284,8 +284,9 @@ resourcestring
   DES106='         show all variable array with their value or define a new one';
   DES107='         clear content of an array';
   DES108='         fill an array with a character';
-  DES109='         set size of an array';
-  DES110='         read/write data from/to remote device with DCON protocol';
+  DES109='         get size of an array';
+  DES110='         set size of an array';
+  DES111='         read/write data from/to remote device with DCON protocol';
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -298,6 +299,7 @@ resourcestring
   USG03='help [[$]COMMAND]';
   USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + EOL +
         '  let $VARIABLE [$]VALUE' + EOL +
+        '  let $VARIABLE nul' + EOL +
         '  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS';
   USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]' + EOL +
         '  print $VARIABLE [-n]' + EOL +
@@ -449,7 +451,8 @@ resourcestring
          '  varr ARRAY SIZE';
   USG107='arrclear ARRAY';
   USG108='arrfill ARRAY [$]DATA';
-  USG109='arrsize ARRAY [$]SIZE';
-  USG110='dcon con? $TXARRAY $RXARRAY' + EOL +
+  USG109='getarrsize ARRAY $TARGET';
+  USG110='setarrsize ARRAY [$]SIZE';
+  USG111='dcon con? $TXARRAY $RXARRAY' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';

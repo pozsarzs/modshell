@@ -25,7 +25,7 @@ communicates via various ports using the Modbus and DCON protocol.
 |running modes           |normal or interpreter                                                                       |
 |variables               |max. 128 variables or constants (stored as string)                                          |
 |arrays                  |max. 16 dynamic size array of variables or constants (elements stored as string)            |
-|built-in commands       |110 commands in 10 categories                                                               |
+|built-in commands       |111 commands in 10 categories                                                               |
 |load from file          |registers, script, settings                                                                 |
 |save to file            |command history, console traffic, registers, communication settings, user log with timestamp|
 |auto save to file       |general settings and console traffic                                                        |
@@ -267,7 +267,6 @@ protocol via a serial port.
 |`savereg`   |file          |F4      |save all registers to typed file (?DT)                               |
 |`arrclear`  |general       |        |clear content of an array                                            |
 |`arrfill`   |general       |        |fill an array with a character                                       |
-|`arrsize`   |general       |        |set size of an array                                                 |
 |`ascii`     |general       |        |show ASCII table                                                     |
 |`beep`      |general       |        |make a beep with internal speaker                                    |
 |`carr`      |general       |        |show all constants array with theirs size or define a new one        |
@@ -279,6 +278,7 @@ protocol via a serial port.
 |`echo`      |general       |F9      |enable/hexadecimal/disable local echo for serial connections         |
 |`exit`      |general       |F10     |exit                                                                 |
 |`for`       |general       |        |loop iteration                                                       |
+|`getarrsize`|general       |        |get size of an array                                                 |
 |`goto`      |general       |        |jump to specified label                                              |
 |`help`      |general       |F1      |show description or usage of the commands                            |
 |`if`        |general       |        |selection statement                                                  |
@@ -286,9 +286,10 @@ protocol via a serial port.
 |`let`       |general       |ALT-L   |set value of a variable, a constant or an element of array           |
 |`pause`     |general       |        |waits for a keystroke or specified time                              |
 |`print`     |general       |ALT-P   |print message, value of the variable and register                    |
+|`setarrsize`|general       |        |set size of an array                                                 |
 |`var`       |general       |        |show all variable with theirs value or define a new one              |
-|`varr`      |general       |        |show all variable array with theirs size or define a new one         |
 |`varmon`    |general       |ALT-M   |monitoring the value of variables                                    |
+|`varr`      |general       |        |show all variable array with theirs size or define a new one         |
 |`ver`       |general       |        |show version and build information of this program                   |
 |`and`       |logic         |        |AND logical operations                                               |
 |`bit`       |logic         |        |value of the specified bit                                           |

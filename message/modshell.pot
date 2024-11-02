@@ -1058,10 +1058,14 @@ msgid "         fill an array with a character"
 msgstr ""
 
 #: modshell:des109
-msgid "         set size of an array"
+msgid "         get size of an array"
 msgstr ""
 
 #: modshell:des110
+msgid "         set size of an array"
+msgstr ""
+
+#: modshell:des111
 msgid "         read/write data from/to remote device with DCON protocol"
 msgstr ""
 
@@ -1092,6 +1096,7 @@ msgstr ""
 msgid ""
 "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
 "  let $VARIABLE [$]VALUE\n"
+"  let $VARIABLE nul\n"
 "  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS"
 msgstr ""
 
@@ -1575,10 +1580,14 @@ msgid "arrfill ARRAY [$]DATA"
 msgstr ""
 
 #: modshell:usg109
-msgid "arrsize ARRAY [$]SIZE"
+msgid "getarrsize ARRAY $TARGET"
 msgstr ""
 
 #: modshell:usg110
+msgid "setarrsize ARRAY [$]SIZE"
+msgstr ""
+
+#: modshell:usg111
 msgid ""
 "dcon con? $TXARRAY $RXARRAY\n"
 "Notes:\n"

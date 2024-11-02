@@ -101,7 +101,7 @@ var
   i: integer;
 begin
   result := 0;
-  if (s[1] = #36) then
+  if (s[1] = #36) and (length(s) > 1) then
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
     for i := 0 to VARBUFFSIZE - 1 do
@@ -116,7 +116,7 @@ var
   i: integer;
 begin
   result := false;
-  if (s[1] = #36) then
+  if (s[1] = #36) and (length(s) > 1) then
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
     for i := 0 to VARBUFFSIZE - 1 do
@@ -131,7 +131,7 @@ var
   i: integer;
 begin
   result := '';
-  if (s[1] = #36) then
+  if (s[1] = #36) and (length(s) > 1) then
   begin
     s := stringreplace(s, #36 , '', [rfReplaceAll]);
     for i := 0 to VARBUFFSIZE - 1 do

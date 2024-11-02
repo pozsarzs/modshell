@@ -388,13 +388,10 @@ Saves all registers to four typed files.
 .SS General commands
 .TP
 \fBarrclear\fP \fIARRAY\fP
-  Clears content of an array.
+Clears content of an array.
 .TP
 \fBarrfill\fP \fIARRAY\fP \fI[$]DATA\fP
-  Fills an array with \fI[$]DATA\fP.
-.TP
-\fBarrsize\fP \fIARRAY\fP \fI[[$]SIZE]\fP
-  Sets size of an array.
+Fills an array with \fI[$]DATA\fP.
 .TP
 \fBascii\fP \fI[dec|hex]\fP
 Shows ASCII table (0-127 characters) with decimal or hexadecimal numbers.
@@ -445,6 +442,9 @@ Hex means the hexadecimal representation of the bytes.
 \fBexit\fP
 Exits from program.
 .TP
+\fBgetarrsize\fP \fIARRAY\fP \fI$TARGET\fP
+Gets size of an array and placed in _$TARGET_.
+.TP
 \fBgoto\fP \fILABEL\fP
 Jumps to specified label (only in script).
 .TP
@@ -462,7 +462,10 @@ Selection statement (only in script). \fBRELATIONAL_SIGN\fP: < <= = >= >.
 Define label (only in script).
 .TP
 \fBlet\fP \fI$VARIABLE\fP \fI[$]VALUE\fP
-Sets value of a variable \fI$VARIABLE\fP to value \fI[$]VALUE\fP.
+Sets value of \fI$VARIABLE\fP variable or constant to value \fI[$]VALUE\fP.
+.TP
+\fBlet\fP \fI$VARIABLE\fP \fInul\fP
+Clear \fI$VARIABLE\fP variable content.
 .TP
 \fBpause\fP \fI[[$]TIME]\fP
 Waits for a keystroke or specified time.
@@ -479,6 +482,9 @@ and the cursor does not return to the beginning of the line.
 \fBprint\fP "\fImessage\fP" [\fI-n\fP]
 Prints a single line message. The -n parameter does not raise a line and the
 cursor does not return to the beginning of the line.
+.TP
+\fBsetarrsize\fP \fIARRAY\fP \fI[[$]SIZE]\fP
+Sets size of an array.
 .TP
 \fBvar\fP
 Prints all defined variables with their values.

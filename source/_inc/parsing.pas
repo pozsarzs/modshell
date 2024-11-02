@@ -199,7 +199,7 @@ begin
                 // varr
                 // varr NAME
                 // varr NAME SIZE
-            110: exitcode := cmd_dcon(splitted[1], splitted[2], splitted[3]);
+            111: exitcode := cmd_dcon(splitted[1], splitted[2], splitted[3]);
                 // dcon con? $TXARRAY $RXARRAY
             COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
           else
@@ -222,7 +222,7 @@ begin
             // lock file handler functions
             if (b >= 103) and (b <= 104) then exitcode := cmd_devlock(b, splitted[1]);
             // array handler functions
-            if (b >= 107) and (b <= 109) then exitcode := cmd_arr(b, splitted[1], splitted[2]);
+            if (b >= 107) and (b <= 110) then exitcode := cmd_arr(b, splitted[1], splitted[2]);
            end;
         end;
         vars[0].vvalue := inttostr(exitcode);

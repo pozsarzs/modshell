@@ -1,10 +1,5 @@
 KNOWN BUT NOT FIXED BUGS DURING DEVELOPMENT AND OTHER WISHES
 --------------------------------------------------------------------------------
-B  'let'         If only '$'' is placed in the target variable, it exits with a
-                 runtime error.
-B  'var'         The value of the variable can be set to empty.
-B  'varr'        The value of the variable array can be set to empty.
-B  'arrsize'     Get array size -> put result into variable.
 B  'dcon'        This command is not finished.
 B                Modbus/TCP support is not started.
 O                Scite syntax highlighting is not started.

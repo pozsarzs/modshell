@@ -1081,10 +1081,14 @@ msgid "         fill an array with a character"
 msgstr "         tîmb feltîltÇse adattal"
 
 #: modshell:des109
+msgid "         get size of an array"
+msgstr "        tîmbmÇret lekÇrdezÇse"
+
+#: modshell:des110
 msgid "         set size of an array"
 msgstr "        tîmbmÇret be†ll°t†sa"
 
-#: modshell:des110
+#: modshell:des111
 msgid "         read/write data from/to remote device with DCON protocol"
 msgstr "         adat olvas†sa/°r†sa t†voli eszkîzrãl/eszkîzre DCON protokollal"
 
@@ -1122,10 +1126,12 @@ msgstr "help [[$]PARANCS]"
 msgid ""
 "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
 "  let $VARIABLE [$]VALUE\n"
+"  let $VARIABLE nul\n"
 "  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS"
 msgstr ""
 "let dinp|coil|ireg|hreg [$]C÷M [$]êRTêK\n"
 "  let $VµLTOZ‡ [$]êRTêK\n"
+"  let $VµLTOZ‡ nul\n"
 "  let $VµLTOZ‡ dinp|coil|ireg|hreg [$]C÷M"
 
 #: modshell:usg05
@@ -1672,10 +1678,14 @@ msgid "arrfill ARRAY [$]DATA"
 msgstr "arrfill TôMB [$]ADAT"
 
 #: modshell:usg109
-msgid "arrsize ARRAY [$]SIZE"
-msgstr "arrsize TôMB [$]MêRET"
+msgid "getarrsize ARRAY $TARGET"
+msgstr "getarrsize TôMB $CêL"
 
 #: modshell:usg110
+msgid "setarrsize ARRAY [$]SIZE"
+msgstr "setarrsize TôMB [$]MêRET"
+
+#: modshell:usg111
 msgid ""
 "dcon con? $TXARRAY $RXARRAY\n"
 "Notes:\n"

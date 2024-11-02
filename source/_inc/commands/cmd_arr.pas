@@ -13,11 +13,12 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0       p1    p2
-  ----------------------
-  arrclear ARRAY
-  arrfill  ARRAY [$]DATA
-  arrsize  ARRAY [$]SIZE
+  p0          p1    p2
+  -------------------------
+  arrclear    ARRAY
+  arrfill     ARRAY [$]DATA
+  getarrsize  ARRAY $TARGET
+  setarrsize  ARRAY [$]SIZE
 }
 
 // RETURN WITH ARRAY INDEX
@@ -127,7 +128,14 @@ begin
                else
                  if length(arrays[intisitconstantarray(p1)].aitems[i]) = 0
                    then arrays[intisitconstantarray(p1)].aitems[i] := p2;
-      109: if boolisitvariablearray(p1)
+      109: if boolisitvariablearray(p1) then
+           begin
+             if boolisitvariable(p2) then
+               vars[intisitvariable(p2)].vvalue := inttostr(length(arrays[intisitvariablearray(p1)].aitems));
+             if boolisitvariablearray(p2) then
+               arrays[intisitvariablearray(p2)].aitems[intisitvariablearrayelement(p1)] := inttostr(length(arrays[intisitvariablearray(p1)].aitems));
+           end;
+      110: if boolisitvariablearray(p1)
              then setlength(arrays[intisitvariablearray(p1)].aitems, strtoint(s2))
              else setlength(arrays[intisitconstantarray(p1)].aitems, strtoint(s2));
     end;

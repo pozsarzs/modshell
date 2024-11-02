@@ -1081,10 +1081,14 @@ msgid "         fill an array with a character"
 msgstr "         tömb feltöltése adattal"
 
 #: modshell:des109
+msgid "         get size of an array"
+msgstr "        tömbméret lekérdezése"
+
+#: modshell:des110
 msgid "         set size of an array"
 msgstr "        tömbméret beállítása"
 
-#: modshell:des110
+#: modshell:des111
 msgid "         read/write data from/to remote device with DCON protocol"
 msgstr "         adat olvasása/írása távoli eszközről/eszközre DCON protokollal"
 
@@ -1122,10 +1126,12 @@ msgstr "help [[$]PARANCS]"
 msgid ""
 "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
 "  let $VARIABLE [$]VALUE\n"
+"  let $VARIABLE nul\n"
 "  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS"
 msgstr ""
 "let dinp|coil|ireg|hreg [$]CÍM [$]ÉRTÉK\n"
 "  let $VÁLTOZÓ [$]ÉRTÉK\n"
+"  let $VÁLTOZÓ nul\n"
 "  let $VÁLTOZÓ dinp|coil|ireg|hreg [$]CÍM"
 
 #: modshell:usg05
@@ -1672,10 +1678,14 @@ msgid "arrfill ARRAY [$]DATA"
 msgstr "arrfill TÖMB [$]ADAT"
 
 #: modshell:usg109
-msgid "arrsize ARRAY [$]SIZE"
-msgstr "arrsize TÖMB [$]MÉRET"
+msgid "getarrsize ARRAY $TARGET"
+msgstr "getarrsize TÖMB $CÉL"
 
 #: modshell:usg110
+msgid "setarrsize ARRAY [$]SIZE"
+msgstr "setarrsize TÖMB [$]MÉRET"
+
+#: modshell:usg111
 msgid ""
 "dcon con? $TXARRAY $RXARRAY\n"
 "Notes:\n"

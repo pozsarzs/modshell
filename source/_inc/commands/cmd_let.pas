@@ -17,8 +17,10 @@
   ------------------------------------------------------
   let dinp|coil|ireg|hreg [$]ADDRESS          [$]VALUE
   let $VARIABLE           [$]VALUE
+  let $VARIABLE           NUL
   let $CONSTANT           [$]VALUE
   let $VARARRAY[NUM]      [$]VALUE
+  let $VARARRAY[NUM]      NUL
   let $CONSTARRAY[NUM]    [$]VALUE
   let $VARIABLE           dinp|coil|ireg|hreg [$]ADDRESS
 }
@@ -31,6 +33,7 @@ var
   s2, s3: string; // parameters in other type
   x, y: byte;
   valid: boolean = false;
+  clear: boolean = false;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -64,18 +67,28 @@ begin
       if length(s2) = 0 then s2 := p2;
       // CHANGE '\ ' TO SPACE IN P2
       s2 := stringreplace(s2, #92+#32, #32, [rfReplaceAll]);
+      if uppercase(s2) = 'NUL' then clear := true;
       // PRIMARY MISSION
-      if boolisitvariable(p1) then vars[intisitvariable(p1)].vvalue := s2;
-      if boolisitvariablearray(p1) then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := s2;
-      if boolisitconstant(p1) then
-        if length(vars[intisitconstant(p1)].vvalue) = 0
-          then vars[intisitconstant(p1)].vvalue := s2
-          else {$IFNDEF X} writeln(ERR51); {$ELSE} Form1.Memo1.Lines.Add(ERR51); {$ENDIF}
-      if boolisitconstantarray(p1) then
-        if length(arrays[intisitconstant(p1)].aitems[intisitconstantarrayelement(p1)]) = 0
-          then arrays[intisitconstantarray(p1)].aitems[intisitconstantarrayelement(p1)] := s2
-          else {$IFNDEF X} writeln(ERR51); {$ELSE} Form1.Memo1.Lines.Add(ERR51); {$ENDIF}
-      exit;
+      if not clear then
+      begin
+        if boolisitvariable(p1) then vars[intisitvariable(p1)].vvalue := s2;
+        if boolisitvariablearray(p1) then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := s2;
+        if boolisitconstant(p1) then
+          if length(vars[intisitconstant(p1)].vvalue) = 0
+            then vars[intisitconstant(p1)].vvalue := s2
+            else {$IFNDEF X} writeln(ERR51); {$ELSE} Form1.Memo1.Lines.Add(ERR51); {$ENDIF}
+        if boolisitconstantarray(p1) then
+          if length(arrays[intisitconstant(p1)].aitems[intisitconstantarrayelement(p1)]) = 0
+            then arrays[intisitconstantarray(p1)].aitems[intisitconstantarrayelement(p1)] := s2
+            else {$IFNDEF X} writeln(ERR51); {$ELSE} Form1.Memo1.Lines.Add(ERR51); {$ENDIF}
+        exit;
+      end else
+      begin
+        // CLEAR VARIABLE CONTENT
+        if boolisitvariable(p1) then vars[intisitvariable(p1)].vvalue := '';
+        if boolisitvariablearray(p1) then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := '';
+        exit;
+      end;
     end else
     begin
       // ASSIGN VALUE TO A VARIABLE FROM REGISTER

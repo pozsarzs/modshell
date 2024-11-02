@@ -95,7 +95,7 @@ msgid "         fill an array with a character"
 msgstr "         tömb feltöltése adattal"
 
 #: frmmain.des109
-msgid "         set size of an array"
+msgid "         get size of an array"
 msgstr "        tömbméret beállítása"
 
 #: frmmain.des11
@@ -103,6 +103,10 @@ msgid "ALT-W    write data from buffer to one or more remote registers"
 msgstr "ALT-W    adat írása egy vagy több pufferből a távoli regiszterbe"
 
 #: frmmain.des110
+msgid "         set size of an array"
+msgstr "        tömbméret beállítása"
+
+#: frmmain.des111
 msgid "         read/write data from/to remote device with DCON protocol"
 msgstr "         adat olvasása/írása távoli eszközről/eszközre DCON protokollal"
 
@@ -1122,10 +1126,12 @@ msgstr "help [[$]PARANCS]"
 msgid ""
 "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
 "  let $VARIABLE [$]VALUE\n"
+"  let $VARIABLE nul\n"
 "  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS"
 msgstr ""
 "let dinp|coil|ireg|hreg [$]CÍM [$]ÉRTÉK\n"
 "  let $VÁLTOZÓ [$]ÉRTÉK\n"
+"  let $VÁLTOZÓ nul\n"
 "  let $VÁLTOZÓ dinp|coil|ireg|hreg [$]CÍM"
 
 #: frmmain.usg05
@@ -1235,8 +1241,8 @@ msgid "arrfill ARRAY [$]DATA"
 msgstr "arrfill TÖMB [$]ADAT"
 
 #: frmmain.usg109
-msgid "arrsize ARRAY [$]SIZE"
-msgstr "arrsize TÖMB [$]MÉRET"
+msgid "getarrsize ARRAY $TARGET"
+msgstr "getarrsize TÖMB $CÉL"
 
 #: frmmain.usg11
 msgid ""
@@ -1249,6 +1255,10 @@ msgstr ""
 "  - A '?' értéke 0-7 lehet."
 
 #: frmmain.usg110
+msgid "setarrsize ARRAY [$]SIZE"
+msgstr "setarrsize TÖMB [$]MÉRET"
+
+#: frmmain.usg111
 msgid ""
 "dcon con? $TXARRAY $RXARRAY\n"
 "Notes:\n"

@@ -82,7 +82,7 @@ msgid "         fill an array with a character"
 msgstr ""
 
 #: frmmain.des109
-msgid "         set size of an array"
+msgid "         get size of an array"
 msgstr ""
 
 #: frmmain.des11
@@ -90,6 +90,10 @@ msgid "ALT-W    write data from buffer to one or more remote registers"
 msgstr ""
 
 #: frmmain.des110
+msgid "         set size of an array"
+msgstr ""
+
+#: frmmain.des111
 msgid "         read/write data from/to remote device with DCON protocol"
 msgstr ""
 
@@ -1095,6 +1099,7 @@ msgstr ""
 msgid ""
 "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
 "  let $VARIABLE [$]VALUE\n"
+"  let $VARIABLE nul\n"
 "  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS"
 msgstr ""
 
@@ -1182,7 +1187,7 @@ msgid "arrfill ARRAY [$]DATA"
 msgstr ""
 
 #: frmmain.usg109
-msgid "arrsize ARRAY [$]SIZE"
+msgid "getarrsize ARRAY $TARGET"
 msgstr ""
 
 #: frmmain.usg11
@@ -1193,6 +1198,10 @@ msgid ""
 msgstr ""
 
 #: frmmain.usg110
+msgid "setarrsize ARRAY [$]SIZE"
+msgstr ""
+
+#: frmmain.usg111
 msgid ""
 "dcon con? $TXARRAY $RXARRAY\n"
 "Notes:\n"
