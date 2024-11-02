@@ -80,7 +80,7 @@
       <Filename Value="xmodshell"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir);../_inc;../_inc/commands;../_inc/modbus;../_inc/ports"/>
+      <IncludeFiles Value="$(ProjOutDir);../_inc;../_inc/commands;../_inc/dcon;../_inc/modbus;../_inc/ports"/>
       <OtherUnitFiles Value="../_ppu;../_ext/synapse;../_ext/convert;../_ext/modlcltranslator;../_ext/modsynhighlighterany"/>
       <UnitOutputDirectory Value="../_lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>

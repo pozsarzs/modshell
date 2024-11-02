@@ -17,8 +17,9 @@
   ------------------------------------------------------------------------------------
   set dev?    net            [$]DEVICE     PORT
   set dev?    ser            [$]DEVICE     [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT
-  set pro?    ascii|rtu      [$]UID
+  set pro?    ascii|rtu      [$]ID
   set pro?    tcp            [$]IP_ADDRESS
+  set pro?    dcon           [$]ADDRESS
   set con?    dev?           pro?
   set project [$]PROJECTNAME
   set timeout [$]TIMEOUT
@@ -200,7 +201,7 @@ var
       exit;
     end;
     // CHECK P2 PARAMETER
-    for prt := 0 to 2 do
+    for prt := 0 to 3 do
       if PROT_TYPE[prt] = p2 then
       begin
         valid := true;
@@ -210,26 +211,35 @@ var
     begin
       // What is the 2nd parameter?
       s := NUM2 + MSG05;
-      for i := 0 to 2 do s := s + ' ' + PROT_TYPE[i];
+      for i := 0 to 3 do s := s + ' ' + PROT_TYPE[i];
       {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
       error := 1;
       exit;
     end;
     // CHECK P3 PARAMETER
-    if prt < 2 then
+    if (prt < 2) or (prt = 3) then
     begin
       if boolisitconstant(p3) then s3 := isitconstant(p3);
       if boolisitvariable(p3) then s3 := isitvariable(p3);
       if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
       if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
       if length(s3) = 0 then s3 := p3;
-      if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 247) then
-      begin
-        // UID must be 1-247!
-        {$IFNDEF X} writeln(ERR06); {$ELSE} Form1.Memo1.Lines.Add(ERR06); {$ENDIF}
-        error := 1;
-        exit;
-      end;
+      if prt < 2 then
+        if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 247) then
+        begin
+          // Device ID must be 1-247!
+          {$IFNDEF X} writeln(ERR06); {$ELSE} Form1.Memo1.Lines.Add(ERR06); {$ENDIF}
+          error := 1;
+          exit;
+        end;
+      if prt = 3 then
+        if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 255) then
+        begin
+          // Address must be 1-255!
+          {$IFNDEF X} writeln(ERR54); {$ELSE} Form1.Memo1.Lines.Add(ERR54); {$ENDIF}
+          error := 1;
+          exit;
+        end;
     end else
       if not checkipaddress(p3) then
       begin
@@ -245,7 +255,7 @@ var
       prottype := prt;
       if prt < 2
       then
-        uid := strtointdef(s3, 1)
+        id := strtointdef(s3, 1)
       else
         ipaddress := p3;
     end;

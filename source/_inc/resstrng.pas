@@ -29,13 +29,13 @@ resourcestring
   MSG04 = 'Usage this command:';
   MSG05 = 'parameter:';
   MSG06 = ' is not set.';
-  MSG07 = ' device:     ';
-  MSG08 = ' port:       ';
-  MSG09 = ' baudrate:   ';
-  MSG10 = ' bits:       ';
-  MSG11 = ' protocol:   ';
-  MSG12 = ' IP address: ';
-  MSG13 = ' device UID: ';
+  MSG07 = ' device:          ';
+  MSG08 = ' port:            ';
+  MSG09 = ' baudrate:        ';
+  MSG10 = ' bits:            ';
+  MSG11 = ' protocol:        ';
+  MSG12 = ' IP address:      ';
+  MSG13 = ' device ID:       ';
   MSG14 = 'File exist, overwrite? (y/n)';
   MSG15 = 'Command line history has exported to ';
   MSG16 = 'Settings has saved to ';
@@ -80,7 +80,7 @@ resourcestring
   MSG53 = 'parity';
   MSG54 = 'stopbit(s)';
   MSG55 = 'protocol';
-  MSG56 = 'UID/IP address';
+  MSG56 = 'ID/(IP) address';
   MSG57 = 'CSV file|*.csv|INI file|*.ini|XML file|*.xml';
   MSG58 = 'INI file|*.ini|XML file|*.xml';
   MSG59 = 'registers';
@@ -110,6 +110,7 @@ resourcestring
   MSG83 = ' or a variable';
   MSG84 = ' or "text"';
   MSG85 = 'Cannot use it on this operation system!';
+  MSG86 = ' device address:  ';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -123,7 +124,7 @@ resourcestring
   ERR03 = 'Connection number must be 0-7!';
   ERR04 = 'IP address is not valid!';
   ERR05 = 'Parameter(s) required!';
-  ERR06 = 'UID must be 1-247!';
+  ERR06 = 'Device ID must be 1-247!';
   ERR07 = 'Cannot export command line history to ';
   ERR08 = 'Cannot save settings to ';
   ERR09 = 'Cannot load settings from ';
@@ -171,6 +172,7 @@ resourcestring
   ERR51 = 'The value of the constant can only be set once!';
   ERR52 = 'No such array: ';
   ERR53 = 'Cannot define more array!';
+  ERR54 = 'Address must be 1-255!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='         copy one or more remote reg. between two connections';
@@ -306,8 +308,9 @@ resourcestring
         '  - The ''?'' value can be 0-7.';
   USG08='set dev? net [$]DEVICE [$]PORT' + EOL +
         '  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT' + EOL +
-        '  set pro? ascii|rtu [$]UID' + EOL +
+        '  set pro? ascii|rtu [$]ID' + EOL +
         '  set pro? tcp [$]IP_ADDRESS' + EOL +
+        '  set pro? dcon [$]ADDRESS' + EOL +
         '  set con? dev? pro?' + EOL +
         '  set project [$]PROJECT_NAME' + EOL +
         '  set timeout [$]TIME_OUT' + EOL +

@@ -8,7 +8,7 @@
 # +----------------------------------------------------------------------------+
 
 # constants and variables
-const UID 1
+const ID 1
 const COUNTS 3
 const WAIT 1
 var count 0
@@ -30,14 +30,14 @@ cls
 print "Example\ script\ -\ Read\ Datcon\ DT510\ power\ meter"
 print "----------------------------------------------"
 print "Protocol:\ Modbus/ASCII"
-print "UID:\ " -n
-print $UID
+print "ID:\ " -n
+print $ID
 echo on
 
 # settings
 # set device on DOS/Windows:
 set dev0 ser COM1 9600 7 e 1
-set pro0 ascii $UID
+set pro0 ascii $ID
 set con0 dev0 pro0
 
 # measuring loop

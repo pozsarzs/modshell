@@ -89,6 +89,10 @@ msgstr ""
 msgid "ALT-W    write data from buffer to one or more remote registers"
 msgstr ""
 
+#: frmmain.des110
+msgid "         read/write data from/to remote device with DCON protocol"
+msgstr ""
+
 #: frmmain.des12
 msgid "F8       clear screen"
 msgstr ""
@@ -466,7 +470,7 @@ msgid "Parameter(s) required!"
 msgstr ""
 
 #: frmmain.err06
-msgid "UID must be 1-247!"
+msgid "Device ID must be 1-247!"
 msgstr ""
 
 #: frmmain.err07
@@ -657,6 +661,10 @@ msgstr ""
 msgid "Cannot define more array!"
 msgstr ""
 
+#: frmmain.err54
+msgid "Address must be 1-255!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -686,31 +694,31 @@ msgid " is not set."
 msgstr ""
 
 #: frmmain.msg07
-msgid " device:     "
+msgid " device:          "
 msgstr ""
 
 #: frmmain.msg08
-msgid " port:       "
+msgid " port:            "
 msgstr ""
 
 #: frmmain.msg09
-msgid " baudrate:   "
+msgid " baudrate:        "
 msgstr ""
 
 #: frmmain.msg10
-msgid " bits:       "
+msgid " bits:            "
 msgstr ""
 
 #: frmmain.msg11
-msgid " protocol:   "
+msgid " protocol:        "
 msgstr ""
 
 #: frmmain.msg12
-msgid " IP address: "
+msgid " IP address:      "
 msgstr ""
 
 #: frmmain.msg13
-msgid " device UID: "
+msgid " device ID:       "
 msgstr ""
 
 #: frmmain.msg14
@@ -885,7 +893,7 @@ msgid "protocol"
 msgstr ""
 
 #: frmmain.msg56
-msgid "UID/IP address"
+msgid "ID/(IP) address"
 msgstr ""
 
 #: frmmain.msg57
@@ -1004,6 +1012,10 @@ msgstr ""
 msgid "Cannot use it on this operation system!"
 msgstr ""
 
+#: frmmain.msg86
+msgid " device address:  "
+msgstr ""
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr ""
@@ -1108,8 +1120,9 @@ msgstr ""
 msgid ""
 "set dev? net [$]DEVICE [$]PORT\n"
 "  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]UID\n"
+"  set pro? ascii|rtu [$]ID\n"
 "  set pro? tcp [$]IP_ADDRESS\n"
+"  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set project [$]PROJECT_NAME\n"
 "  set timeout [$]TIME_OUT\n"
@@ -1175,6 +1188,13 @@ msgstr ""
 #: frmmain.usg11
 msgid ""
 "writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg110
+msgid ""
+"dcon con? $TXARRAY $RXARRAY\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
@@ -1616,6 +1636,10 @@ msgstr ""
 msgid "Lis&t script"
 msgstr ""
 
+#: tform1.menuitem19.caption
+msgid "Show all constant a&rrays"
+msgstr ""
+
 #: tform1.menuitem2.caption
 msgid "&Script"
 msgstr ""
@@ -1756,6 +1780,10 @@ msgstr ""
 msgid "W&rite data to serial port.."
 msgstr ""
 
+#: tform1.menuitem51.caption
+msgid "Show all variable arra&ys"
+msgstr ""
+
 #: tform1.menuitem52.caption
 msgid "Show &variable monitor.."
 msgstr ""
@@ -1856,8 +1884,16 @@ msgstr ""
 msgid "ToolButton18"
 msgstr ""
 
+#: tform1.toolbutton19.caption
+msgid "ToolButton19"
+msgstr ""
+
 #: tform1.toolbutton2.caption
 msgid "ToolButton2"
+msgstr ""
+
+#: tform1.toolbutton20.caption
+msgid "ToolButton20"
 msgstr ""
 
 #: tform1.toolbutton3.caption

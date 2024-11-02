@@ -30,9 +30,9 @@ begin
   pdu := hex1(2, FUNCTION_CODE) +
          hex1(4, address) +
          hex1(4, count);
-  adu := hex1(2, prot[protocol].uid) +
+  adu := hex1(2, prot[protocol].id) +
          pdu +
-         hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
+         hex1(2, lrc(hex1(2, prot[protocol].id) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
@@ -79,7 +79,7 @@ begin
     // parse response
     try
       if tgm[1] = #58 then
-        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
+        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].id then
         begin
           case strtoint('$' + tgm[4] + tgm[5]) of
             FUNCTION_CODE: begin
@@ -123,9 +123,9 @@ begin
   pdu := hex1(2, FUNCTION_CODE) +
          hex1(4, address) +
          hex1(4, count);
-  adu := hex1(2, prot[protocol].uid) +
+  adu := hex1(2, prot[protocol].id) +
          pdu +
-         hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
+         hex1(2, lrc(hex1(2, prot[protocol].id) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
@@ -172,7 +172,7 @@ begin
     // parse response
     try
       if tgm[1] = #58 then
-        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
+        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].id then
         begin
           case strtoint('$' + tgm[4] + tgm[5]) of
             FUNCTION_CODE: begin
@@ -216,9 +216,9 @@ begin
   pdu := hex1(2, FUNCTION_CODE) +
          hex1(4, address) +
          hex1(4, count);
-  adu := hex1(2, prot[protocol].uid) +
+  adu := hex1(2, prot[protocol].id) +
          pdu +
-         hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
+         hex1(2, lrc(hex1(2, prot[protocol].id) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
@@ -265,7 +265,7 @@ begin
     // parse response
     try
       if tgm[1] = #58 then
-        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
+        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].id then
         begin
           case strtoint('$' + tgm[4] + tgm[5]) of
             FUNCTION_CODE: begin
@@ -311,9 +311,9 @@ begin
   pdu := hex1(2, FUNCTION_CODE) +
          hex1(4, address) +
          hex1(4, count);
-  adu := hex1(2, prot[protocol].uid) +
+  adu := hex1(2, prot[protocol].id) +
          pdu +
-         hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
+         hex1(2, lrc(hex1(2, prot[protocol].id) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
@@ -360,7 +360,7 @@ begin
     // parse response
     try
       if tgm[1] = #58 then
-        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
+        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].id then
         begin
           case strtoint('$' + tgm[4] + tgm[5]) of
             FUNCTION_CODE: begin
@@ -416,9 +416,9 @@ begin
       if coil[i + bb] then x := x or powerof2(bb);
     pdu := pdu + hex1(2, x);
   end;
-  adu := hex1(2, prot[protocol].uid) +
+  adu := hex1(2, prot[protocol].id) +
          pdu +
-         hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
+         hex1(2, lrc(hex1(2, prot[protocol].id) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
@@ -465,7 +465,7 @@ begin
     // parse response
     try
       if tgm[1] = #58 then
-        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
+        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].id then
         begin
           if strtoint('$' + tgm[4] + tgm[5]) = FUNCTERR_CODE then
             case strtoint('$' + tgm[6] + tgm[7]) of
@@ -501,9 +501,9 @@ begin
          hex1(2, count * 2);
   for i := address to address + count - 1 do
     pdu := pdu + hex1(4, hreg[i]);
-  adu := hex1(2, prot[protocol].uid) +
+  adu := hex1(2, prot[protocol].id) +
          pdu +
-         hex1(2, lrc(hex1(2, prot[protocol].uid) + pdu));
+         hex1(2, lrc(hex1(2, prot[protocol].id) + pdu));
   tgm := uppercase(#58 + adu + #13 + #10);
   // connect to serial port
   if ser_open(dev[device].device, dev[device].speed, dev[device].databit, dev[device].parity, dev[device].stopbit) then
@@ -550,7 +550,7 @@ begin
     // parse response
     try
       if tgm[1] = #58 then
-        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].uid then
+        if strtoint('$' + tgm[2] + tgm[3]) = prot[protocol].id then
         begin
           if strtoint('$' + tgm[4] + tgm[5]) = FUNCTERR_CODE then
             case strtoint('$' + tgm[6] + tgm[7]) of
@@ -582,7 +582,7 @@ var
   recvbyte: byte;
   s: string;
   sot: char;
-  uid: byte;
+  id: byte;
   valid: boolean = true;
 const
   FUNCTION_CODES_ALL: array[0..5] of byte = ($01, $02, $03, $04, $0F, $10);
@@ -625,7 +625,7 @@ begin
       if length(tgm) >= 17 then
       begin
         sot := tgm[1];
-        uid := strtoint('$' + tgm[2] + tgm[3]);
+        id := strtoint('$' + tgm[2] + tgm[3]);
         function_code := strtoint('$' + tgm[4] + tgm[5]);
         address := strtoint('$' + tgm[6] + tgm[7] + tgm[8] + tgm[9]);
         count := strtoint('$' + tgm[10] + tgm[11] + tgm[12] + tgm[13]);
@@ -635,7 +635,7 @@ begin
         if (count < 1) or (count > 125) then error := $03;
         if (function_code = FUNCTION_CODES_ALL[4]) and (length(tgm) < 21) then error := $04;
         if (function_code = FUNCTION_CODES_ALL[5]) and (length(tgm) < 23) then error := $04;
-        if (uid < 1) or (uid > 247) then error := 4;
+        if (id < 1) or (id > 247) then error := 4;
         valid := false;
         for b:= 0 to 5 do
           if function_code = FUNCTION_CODES_ALL[b] then valid := true;
@@ -660,7 +660,7 @@ begin
     if loop then
     begin
       // create telegram for response
-      if uid = prot[protocol1].uid then
+      if id = prot[protocol1].id then
       begin
         if error > 0 then pdu := hex1(2, FUNCTERR_CODE_OFFSET + error) else
         begin
@@ -732,9 +732,9 @@ begin
             until b = (count div 2);
           end;
         end;
-        adu := hex1(2, uid) +
+        adu := hex1(2, id) +
                pdu +
-               hex1(2, lrc(hex1(2, uid) + pdu));
+               hex1(2, lrc(hex1(2, id) + pdu));
         tgm := uppercase(#58 + adu + #13 + #10);
         // send answer
         if ser_canwrite then

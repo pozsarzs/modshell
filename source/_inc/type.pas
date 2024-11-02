@@ -45,7 +45,7 @@ type
     valid: boolean;               // false|true: invalid|valid
     prottype: byte;               // 0..2 -> PROT_TYPE
     ipaddress: string[15];        // a.b.c.d
-    uid: integer;                 // 1..247
+    id: integer;                  // 1..247 or 1..255
   end;
   tvariable = record
     vname: string[16];            // name

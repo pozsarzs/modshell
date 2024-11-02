@@ -33,8 +33,8 @@ begin
          char(lo(address)) +
          char(hi(count)) +
          char(lo(count));
-  crc := crc16(char(prot[protocol].uid) + pdu);
-  adu := char(prot[protocol].uid) +
+  crc := crc16(char(prot[protocol].id) + pdu);
+  adu := char(prot[protocol].id) +
          pdu +
          char(lo(crc)) +
          char(hi(crc));
@@ -83,7 +83,7 @@ begin
     ser_close;
     // parse response
     try
-      if ord(tgm[1]) = prot[protocol].uid then
+      if ord(tgm[1]) = prot[protocol].id then
       begin
         case ord(tgm[2]) of
           FUNCTION_CODE: begin
@@ -130,8 +130,8 @@ begin
          char(lo(address)) +
          char(hi(count)) +
          char(lo(count));
-  crc := crc16(char(prot[protocol].uid) + pdu);
-  adu := char(prot[protocol].uid) +
+  crc := crc16(char(prot[protocol].id) + pdu);
+  adu := char(prot[protocol].id) +
          pdu +
          char(lo(crc)) +
          char(hi(crc));
@@ -180,7 +180,7 @@ begin
     ser_close;
     // parse response
     try
-      if ord(tgm[1]) = prot[protocol].uid then
+      if ord(tgm[1]) = prot[protocol].id then
       begin
         case ord(tgm[2]) of
           FUNCTION_CODE: begin
@@ -227,8 +227,8 @@ begin
          char(lo(address)) +
          char(hi(count)) +
          char(lo(count));
-  crc := crc16(char(prot[protocol].uid) + pdu);
-  adu := char(prot[protocol].uid) +
+  crc := crc16(char(prot[protocol].id) + pdu);
+  adu := char(prot[protocol].id) +
          pdu +
          char(lo(crc)) +
          char(hi(crc));
@@ -277,7 +277,7 @@ begin
     ser_close;
     // parse response
     try
-      if ord(tgm[1]) = prot[protocol].uid then
+      if ord(tgm[1]) = prot[protocol].id then
       begin
         case ord(tgm[2]) of
           FUNCTION_CODE: begin
@@ -322,8 +322,8 @@ begin
          char(lo(address)) +
          char(hi(count)) +
          char(lo(count));
-  crc := crc16(char(prot[protocol].uid) + pdu);
-  adu := char(prot[protocol].uid) +
+  crc := crc16(char(prot[protocol].id) + pdu);
+  adu := char(prot[protocol].id) +
          pdu +
          char(lo(crc)) +
          char(hi(crc));
@@ -372,7 +372,7 @@ begin
     ser_close;
     // parse response
     try
-      if ord(tgm[1]) = prot[protocol].uid then
+      if ord(tgm[1]) = prot[protocol].id then
       begin
         case ord(tgm[2]) of
           FUNCTION_CODE: begin
@@ -427,8 +427,8 @@ begin
       if coil[i + bb] then x := x or powerof2(bb);
     pdu := pdu + char(x);
   end;
-  crc := crc16(char(prot[protocol].uid) + pdu);
-  adu := char(prot[protocol].uid) +
+  crc := crc16(char(prot[protocol].id) + pdu);
+  adu := char(prot[protocol].id) +
          pdu +
          char(lo(crc)) +
          char(hi(crc));
@@ -477,7 +477,7 @@ begin
     ser_close;
     // parse response
     try
-      if ord(tgm[1]) = prot[protocol].uid then
+      if ord(tgm[1]) = prot[protocol].id then
       begin
         if ord(tgm[2]) = FUNCTERR_CODE then
           case ord(tgm[3]) of
@@ -516,8 +516,8 @@ begin
          char(count * 2);
   for i := address to address + count - 1 do
     pdu := pdu + char(hi(hreg[i])) + char(lo(hreg[i]));
-  crc := crc16(char(prot[protocol].uid) + pdu);
-  adu := char(prot[protocol].uid) +
+  crc := crc16(char(prot[protocol].id) + pdu);
+  adu := char(prot[protocol].id) +
          pdu +
          char(lo(crc)) +
          char(hi(crc));
@@ -566,7 +566,7 @@ begin
     ser_close;
     // parse response
     try
-      if ord(tgm[1]) = prot[protocol].uid then
+      if ord(tgm[1]) = prot[protocol].id then
       begin
         if ord(tgm[2]) = FUNCTERR_CODE then
           case ord(tgm[3]) of
@@ -598,7 +598,7 @@ var
   ready: boolean = false;
   recvbyte: byte;
   s: string;
-  uid: byte;
+  id: byte;
   valid: boolean = true;
 const
   FUNCTION_CODES_ALL: array[0..5] of byte = ($01, $02, $03, $04, $0F, $10);
@@ -640,7 +640,7 @@ begin
       // parse request
       if length(tgm) >= 8 then
       begin
-        uid := ord(tgm[1]);
+        id := ord(tgm[1]);
         function_code := ord(tgm[2]);
         address := ord(tgm[3]) * 256 + ord(tgm[4]) ;
         count := ord(tgm[5]) * 256 + ord(tgm[6]) ;
@@ -649,7 +649,7 @@ begin
         if (count < 1) or (count > 125) then error := $03;
         if (function_code = FUNCTION_CODES_ALL[4]) and (length(tgm) < 10) then error := $04;
         if (function_code = FUNCTION_CODES_ALL[5]) and (length(tgm) < 11) then error := $04;
-        if (uid < 1) or (uid > 247) then error := 4;
+        if (id < 1) or (id > 247) then error := 4;
         valid := false;
         for b:= 0 to 5 do
           if function_code = FUNCTION_CODES_ALL[b] then valid := true;
@@ -674,7 +674,7 @@ begin
     if loop then
     begin
       // create telegram for response
-      if uid = prot[protocol1].uid then
+      if id = prot[protocol1].id then
       begin
         if error > 0 then pdu := char(FUNCTERR_CODE_OFFSET + error) else
         begin
@@ -742,8 +742,8 @@ begin
             until b = count;
           end;
         end;
-        crc := crc16(char(uid) + pdu);
-        adu := char(uid) +
+        crc := crc16(char(id) + pdu);
+        adu := char(id) +
                pdu +
                char(lo(crc)) +
                char(hi(crc));

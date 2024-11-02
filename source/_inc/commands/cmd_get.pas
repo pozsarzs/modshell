@@ -67,18 +67,20 @@ var
       1: if prot[n].valid
          then
            with prot[n] do
+           begin
              if prottype < 2 then
              begin
                {$IFNDEF X}
                  writeln(PREFIX[pr], n, ':');
                  writeln(MSG11 + PROT_TYPE[prottype]);
-                 writeln(MSG13, uid);
+                 writeln(MSG13, id);
                {$ELSE}
                  Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
                  Form1.Memo1.Lines.Add(MSG11 + PROT_TYPE[prottype]);
-                 Form1.Memo1.Lines.Add(MSG13 + inttostr(uid));
+                 Form1.Memo1.Lines.Add(MSG13 + inttostr(id));
                {$ENDIF}
-             end else
+             end;
+             if prottype = 2 then
              begin
                {$IFNDEF X}
                  writeln(PREFIX[pr], n, ':');
@@ -89,7 +91,20 @@ var
                  Form1.Memo1.Lines.Add(MSG11 + PROT_TYPE[prottype]);
                  Form1.Memo1.Lines.Add(MSG12 + ipaddress);
                {$ENDIF}
-             end
+             end;
+             if prottype = 3 then
+             begin
+               {$IFNDEF X}
+                 writeln(PREFIX[pr], n, ':');
+                 writeln(MSG11 + PROT_TYPE[prottype]);
+                 writeln(MSG86, id);
+               {$ELSE}
+                 Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
+                 Form1.Memo1.Lines.Add(MSG11 + PROT_TYPE[prottype]);
+                 Form1.Memo1.Lines.Add(MSG86 + inttostr(id));
+               {$ENDIF}
+             end;
+           end
          else
            {$IFNDEF X}
              writeln(PREFIX[pr], n, MSG06);

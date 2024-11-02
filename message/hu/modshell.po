@@ -70,32 +70,32 @@ msgid " is not set."
 msgstr " nincs beállítva."
 
 #: modshell:msg07
-msgid " device:     "
-msgstr " eszköz:     "
+msgid " device:          "
+msgstr " eszköz:          "
 
 #: modshell:msg08
-msgid " port:       "
-msgstr " port:       "
+msgid " port:            "
+msgstr " port:            "
 
 #: modshell:msg09
-msgid " baudrate:   "
-msgstr " sebesség:   "
+msgid " baudrate:        "
+msgstr " sebesség:        "
 
 #: modshell:msg10
-msgid " bits:       "
-msgstr " bitek:      "
+msgid " bits:            "
+msgstr " bitek:           "
 
 #: modshell:msg11
-msgid " protocol:   "
-msgstr " protokoll:   "
+msgid " protocol:        "
+msgstr " protokoll:       "
 
 #: modshell:msg12
-msgid " IP address: "
-msgstr " IP-cím: "
+msgid " IP address:      "
+msgstr " IP-cím:          "
 
 #: modshell:msg13
-msgid " device UID: "
-msgstr " eszköz UID: "
+msgid " device ID:       "
+msgstr " eszköz ID:       "
 
 #: modshell:msg14
 msgid "File exist, overwrite? (y/n)"
@@ -272,8 +272,8 @@ msgid "protocol"
 msgstr "protokoll"
 
 #: modshell:msg56
-msgid "UID/IP address"
-msgstr "UID/IP cím"
+msgid "ID/(IP) address"
+msgstr "ID/(IP) cím"
 
 #: modshell:msg57
 msgid "CSV file|*.csv|INI file|*.ini|XML file|*.xml"
@@ -391,6 +391,10 @@ msgstr " vagy \"szöveg\""
 msgid "Cannot use it on this operation system!"
 msgstr "Ezen az operációs rendszeren ez nem használható!"
 
+#: modshell:msg86
+msgid " device address:  "
+msgstr " eszköz cím:      "
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -440,8 +444,8 @@ msgid "Parameter(s) required!"
 msgstr "Paraméterek szükséges(ek)!"
 
 #: modshell:err06
-msgid "UID must be 1-247!"
-msgstr "Az UID-nek 1-247-nek kell lennie!"
+msgid "Device ID must be 1-247!"
+msgstr "Az eszköz ID-nek 1-247-nek kell lennie!"
 
 #: modshell:err07
 msgid "Cannot export command line history to "
@@ -630,6 +634,10 @@ msgstr "Nincs ilyen tömb: "
 #: modshell:err53
 msgid "Cannot define more array!"
 msgstr "Nem lehet létrehozni több tömböt!"
+
+#: modshell:err54
+msgid "Address must be 1-255!"
+msgstr "Az eszköz címének 1-255-nek kell lennie!"
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
@@ -1076,6 +1084,10 @@ msgstr "         tömb feltöltése adattal"
 msgid "         set size of an array"
 msgstr "        tömbméret beállítása"
 
+#: modshell:des110
+msgid "         read/write data from/to remote device with DCON protocol"
+msgstr "         adat olvasása/írása távoli eszközről/eszközre DCON protokollal"
+
 #: modshell:usg00
 msgid ""
 "copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
@@ -1144,8 +1156,9 @@ msgstr ""
 msgid ""
 "set dev? net [$]DEVICE [$]PORT\n"
 "  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]UID\n"
+"  set pro? ascii|rtu [$]ID\n"
 "  set pro? tcp [$]IP_ADDRESS\n"
+"  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set project [$]PROJECT_NAME\n"
 "  set timeout [$]TIME_OUT\n"
@@ -1155,8 +1168,9 @@ msgid ""
 msgstr ""
 "set dev? net [$]ESZKÖZ [$]PORT\n"
 "  set dev? ser [$]ESZKÖZ [$]BAUDRATE [$]ADATBIT [$]PARITÁS [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]UID\n"
+"  set pro? ascii|rtu [$]ID\n"
 "  set pro? tcp [$]IP_CÍM\n"
+"  set pro? dcon [$]CÍM\n"
 "  set con? dev? pro?\n"
 "  set project [$]PROJEKNÉV\n"
 "  set timeout [$]IDŐTÚLLÉPÉS\n"
@@ -1660,6 +1674,19 @@ msgstr "arrfill TÖMB [$]ADAT"
 #: modshell:usg109
 msgid "arrsize ARRAY [$]SIZE"
 msgstr "arrsize TÖMB [$]MÉRET"
+
+#: modshell:usg110
+msgid ""
+"dcon con? $TXARRAY $RXARRAY\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"dcon con? $TXTÖMB $RXTÖMB\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#~ msgid " device UID: "
+#~ msgstr " eszköz UID: "
 
 #~ msgid "date"
 #~ msgstr "date"

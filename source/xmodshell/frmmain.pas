@@ -78,6 +78,7 @@ type
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
     MenuItem18: TMenuItem;
+    MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem20: TMenuItem;
     MenuItem21: TMenuItem;
@@ -113,6 +114,7 @@ type
     MenuItem49: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem50: TMenuItem;
+    MenuItem51: TMenuItem;
     MenuItem52: TMenuItem;
     MenuItem54: TMenuItem;
     MenuItem56: TMenuItem;
@@ -151,7 +153,9 @@ type
     ToolButton16: TToolButton;
     ToolButton17: TToolButton;
     ToolButton18: TToolButton;
+    ToolButton19: TToolButton;
     ToolButton2: TToolButton;
+    ToolButton20: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
@@ -171,6 +175,7 @@ type
     procedure MenuItem15Click(Sender: TObject);
     procedure MenuItem16Click(Sender: TObject);
     procedure MenuItem18Click(Sender: TObject);
+    procedure MenuItem19Click(Sender: TObject);
     procedure MenuItem20Click(Sender: TObject);
     procedure MenuItem22Click(Sender: TObject);
     procedure MenuItem23Click(Sender: TObject);
@@ -198,6 +203,7 @@ type
     procedure MenuItem48Click(Sender: TObject);
     procedure MenuItem49Click(Sender: TObject);
     procedure MenuItem50Click(Sender: TObject);
+    procedure MenuItem51Click(Sender: TObject);
     procedure MenuItem52Click(Sender: TObject);
     procedure MenuItem54Click(Sender: TObject);
     procedure MenuItem56Click(Sender: TObject);
@@ -937,6 +943,7 @@ var
   LEdit1: TEdit;
   LLabel1, LLabel2, LLabel3, LLabel4: TLabel;
   LSpinEdit1: TSpinEdit;
+  b: byte;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -992,9 +999,7 @@ begin
       AnchorSideLeft.Control := LSpinEdit1;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
-    Items.Add('ascii');
-    Items.Add('rtu');
-    Items.Add('tcp');
+    for b:= 0 to 3 do Items.Add(PROT_TYPE[b]);
     ItemIndex := 0;
     Parent := Form;
     ReadOnly := true;
@@ -2447,6 +2452,22 @@ begin
   parsingcommands(menucmd);
 end;
 
+// RUN COMMAND 'carr'
+procedure TForm1.MenuItem19Click(Sender: TObject);
+begin
+  menucmd := COMMANDS[105];
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
+end;
+
+// RUN COMMAND 'varr'
+procedure TForm1.MenuItem51Click(Sender: TObject);
+begin
+  menucmd := COMMANDS[106];
+  Memo1.Lines.Add(fullprompt + menucmd);
+  parsingcommands(menucmd);
+end;
+
 // -- MAIN MENU/Utilities ------------------------------------------------------
 
 // RUN COMMAND 'ascii dec'
@@ -3280,6 +3301,8 @@ begin
   ToolButton15.Hint := rmampdot(MenuItem26.Caption);
   ToolButton16.Hint := rmampdot(MenuItem52.Caption);
   ToolButton18.Hint := rmampdot(MenuItem6.Caption);
+  ToolButton19.Hint := rmampdot(MenuItem19.Caption);
+  ToolButton20.Hint := rmampdot(MenuItem51.Caption);
   // set colors
   Memo1.Font.Color := uconfig.guicolors[0];
   Memo1.Color := uconfig.guicolors[1];
@@ -3297,7 +3320,7 @@ begin
     CommentAttri.Foreground := clLime;
     for b := 0 to 1 do Constants.Add(DEV_TYPE[b]);
     for b := 0 to 2 do Constants.Add(FILE_TYPE[b]);
-    for b := 1 to 2 do Constants.Add(PROT_TYPE[b]);
+    for b := 1 to 3 do Constants.Add(PROT_TYPE[b]);
     for b := 0 to 3 do Constants.Add(REG_TYPE[b]);
     for b := 0 to 4 do Constants.Add(PREFIX[b]);
     for b := 0 to 3 do Constants.Add(ECHO_ARG[b]);

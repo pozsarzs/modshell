@@ -323,13 +323,17 @@ ttyUSB0, ttyAMA0 etc.). \fIBAUDRATE\fP must be: 1200; 2400; 4800; 9600; 19200;
 38400; 57600 or 115200. \fIDATABIT\fP must be 7 or 8, \fIPARITY\fP must be E/N/O
 (even/none/odd). \fISTOPBIT\fP must be 1 or 2.
 .TP
-\fBset\fP \fIpro?\fP \fIascii\fP|\fIrtu\fP \fI[$]UID\fP
+\fBset\fP \fIpro?\fP \fIascii\fP|\fIrtu\fP \fI[$]ID\fP
 Sets protocol (\fIpro?\fP) to Modbus/ASCII (\fIascii\fP) or Modbus/RTU (\fIrtu\fP).
-Unit ID (\fIUID\fP) must be between 1-247.
+Unit ID (\fIID\fP) must be between 1-247.
 .TP
 \fBset\fP \fIpro?\fP \fItcp\fP \fI[$]IP_ADDRESS\fP
 Sets protocol (\fIpro?\fP) to Modbus/TCP (\fItcp\fP). Address of remote device
 (\fIIP_ADDRESS\fP) must be in a.b.c.d format, with values between 1-255.
+.TP
+\fBset\fP \fIpro?\fP \fIdcon\fP \fI[$]ADDRESS\fP
+Sets protocol (\fIpro?\fP) to DCON (\fIdcon\fP). Address of remote device
+(\fIADDRESS\fP) must be between 1-255.
 .TP
 \fBset\fP \fIcon?\fP \fIdev?\fP \fIpro?\fP
 Assigns a device (\fIdev?\fP) and a protocol (\fIpro?\fP) to a connection
@@ -1092,7 +1096,7 @@ type TProtocol = record
        valid: boolean;        // settings validity: false|true
        prottype: byte;        // type of protocol: 0..2 -> see PROT_TYPE
        ipaddress: string[15]; // IP address in a.b.c.d format
-       uid: integer;          // Modbus Unit ID: 1..247
+       ID: integer;          // Modbus Unit ID: 1..247
      end;
 .TP
 .B "*.CDT"

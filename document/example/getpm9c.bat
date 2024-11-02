@@ -8,7 +8,7 @@
 # +----------------------------------------------------------------------------+
 
 # constants and variables
-const UID 1
+const ID 1
 var uh
 var ul
 var u
@@ -24,13 +24,13 @@ cls
 print "Example\ script\ -\ Read\ Schneider\ PM9C\ power\ meter"
 print "------------------------------------------------"
 print "Protocol:\ Modbus/RTU"
-print "UID:\ " -n
-print $UID
+print "ID:\ " -n
+print $ID
 echo hex
 
 # settings
 set dev0 ser COM3 9600 8 n 1
-set pro0 rtu $UID
+set pro0 rtu $ID
 set con0 dev0 pro0
 
 # read remote data

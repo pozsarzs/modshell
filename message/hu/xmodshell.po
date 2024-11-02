@@ -102,6 +102,10 @@ msgstr "        tömbméret beállítása"
 msgid "ALT-W    write data from buffer to one or more remote registers"
 msgstr "ALT-W    adat írása egy vagy több pufferből a távoli regiszterbe"
 
+#: frmmain.des110
+msgid "         read/write data from/to remote device with DCON protocol"
+msgstr "         adat olvasása/írása távoli eszközről/eszközre DCON protokollal"
+
 #: frmmain.des12
 msgid "F8       clear screen"
 msgstr "F8       képernyőtörlés"
@@ -479,8 +483,8 @@ msgid "Parameter(s) required!"
 msgstr "Paraméterek szükséges(ek)!"
 
 #: frmmain.err06
-msgid "UID must be 1-247!"
-msgstr "Az UID-nek 1-247-nek kell lennie!"
+msgid "Device ID must be 1-247!"
+msgstr "Az eszköz ID-nek 1-247-nek kell lennie!"
 
 #: frmmain.err07
 msgid "Cannot export command line history to "
@@ -670,6 +674,10 @@ msgstr "Nincs ilyen tömb: "
 msgid "Cannot define more array!"
 msgstr "Nem lehet létrehozni több tömböt!"
 
+#: frmmain.err54
+msgid "Address must be 1-255!"
+msgstr "Az eszköz címének 1-255-nek kell lennie!"
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -703,32 +711,32 @@ msgid " is not set."
 msgstr " nincs beállítva."
 
 #: frmmain.msg07
-msgid " device:     "
-msgstr " eszköz:     "
+msgid " device:          "
+msgstr " eszköz:          "
 
 #: frmmain.msg08
-msgid " port:       "
-msgstr " port:       "
+msgid " port:            "
+msgstr " port:            "
 
 #: frmmain.msg09
-msgid " baudrate:   "
-msgstr " sebesség:   "
+msgid " baudrate:        "
+msgstr " sebesség:        "
 
 #: frmmain.msg10
-msgid " bits:       "
-msgstr " bitek:      "
+msgid " bits:            "
+msgstr " bitek:           "
 
 #: frmmain.msg11
-msgid " protocol:   "
-msgstr " protokoll:   "
+msgid " protocol:        "
+msgstr " protokoll:       "
 
 #: frmmain.msg12
-msgid " IP address: "
-msgstr " IP-cím: "
+msgid " IP address:      "
+msgstr " IP-cím:          "
 
 #: frmmain.msg13
-msgid " device UID: "
-msgstr " eszköz UID: "
+msgid " device ID:       "
+msgstr " eszköz ID:       "
 
 #: frmmain.msg14
 msgid "File exist, overwrite? (y/n)"
@@ -905,8 +913,8 @@ msgid "protocol"
 msgstr "protokoll"
 
 #: frmmain.msg56
-msgid "UID/IP address"
-msgstr "UID/IP cím"
+msgid "ID/(IP) address"
+msgstr "ID/(IP) cím"
 
 #: frmmain.msg57
 msgid "CSV file|*.csv|INI file|*.ini|XML file|*.xml"
@@ -1023,6 +1031,10 @@ msgstr " vagy \"szöveg\""
 #: frmmain.msg85
 msgid "Cannot use it on this operation system!"
 msgstr "Ezen az operációs rendszeren ez nem használható!"
+
+#: frmmain.msg86
+msgid " device address:  "
+msgstr " eszköz cím:      "
 
 #: frmmain.msg94
 msgid "Build date:  "
@@ -1144,8 +1156,9 @@ msgstr ""
 msgid ""
 "set dev? net [$]DEVICE [$]PORT\n"
 "  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]UID\n"
+"  set pro? ascii|rtu [$]ID\n"
 "  set pro? tcp [$]IP_ADDRESS\n"
+"  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set project [$]PROJECT_NAME\n"
 "  set timeout [$]TIME_OUT\n"
@@ -1155,8 +1168,9 @@ msgid ""
 msgstr ""
 "set dev? net [$]ESZKÖZ [$]PORT\n"
 "  set dev? ser [$]ESZKÖZ [$]BAUDRATE [$]ADATBIT [$]PARITÁS [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]UID\n"
+"  set pro? ascii|rtu [$]ID\n"
 "  set pro? tcp [$]IP_CÍM\n"
+"  set pro? dcon [$]CÍM\n"
 "  set con? dev? pro?\n"
 "  set project [$]PROJEKNÉV\n"
 "  set timeout [$]IDŐTÚLLÉPÉS\n"
@@ -1231,6 +1245,16 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 "writereg con? coil|hreg [$]CÍM [[$]MENNYISÉG]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg110
+msgid ""
+"dcon con? $TXARRAY $RXARRAY\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"dcon con? $TXTÖMB $RXTÖMB\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -1709,6 +1733,10 @@ msgstr "Projekt &név"
 msgid "Lis&t script"
 msgstr "Szkrip&t listázása"
 
+#: tform1.menuitem19.caption
+msgid "Show all constant a&rrays"
+msgstr "Állandó &tömbök mutatása"
+
 #: tform1.menuitem2.caption
 msgid "&Script"
 msgstr "&Szkript"
@@ -1849,6 +1877,10 @@ msgstr "&Projekt"
 msgid "W&rite data to serial port.."
 msgstr "Adat í&rása soros portra.."
 
+#: tform1.menuitem51.caption
+msgid "Show all variable arra&ys"
+msgstr "Változó tömbö&k mutatása"
+
 #: tform1.menuitem52.caption
 msgid "Show &variable monitor.."
 msgstr "&Változó monitor.."
@@ -1949,8 +1981,16 @@ msgstr "ToolButton17"
 msgid "ToolButton18"
 msgstr "ToolButton18"
 
+#: tform1.toolbutton19.caption
+msgid "ToolButton19"
+msgstr "ToolButton1"
+
 #: tform1.toolbutton2.caption
 msgid "ToolButton2"
+msgstr "ToolButton2"
+
+#: tform1.toolbutton20.caption
+msgid "ToolButton20"
 msgstr "ToolButton2"
 
 #: tform1.toolbutton3.caption
@@ -1988,6 +2028,9 @@ msgstr "Változó monitor"
 #: tform3.caption
 msgid "Form3"
 msgstr "Form3"
+
+#~ msgid " device UID: "
+#~ msgstr " eszköz UID: "
 
 #~ msgid "date"
 #~ msgstr "date"

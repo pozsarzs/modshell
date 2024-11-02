@@ -51,31 +51,31 @@ msgid " is not set."
 msgstr ""
 
 #: modshell:msg07
-msgid " device:     "
+msgid " device:          "
 msgstr ""
 
 #: modshell:msg08
-msgid " port:       "
+msgid " port:            "
 msgstr ""
 
 #: modshell:msg09
-msgid " baudrate:   "
+msgid " baudrate:        "
 msgstr ""
 
 #: modshell:msg10
-msgid " bits:       "
+msgid " bits:            "
 msgstr ""
 
 #: modshell:msg11
-msgid " protocol:   "
+msgid " protocol:        "
 msgstr ""
 
 #: modshell:msg12
-msgid " IP address: "
+msgid " IP address:      "
 msgstr ""
 
 #: modshell:msg13
-msgid " device UID: "
+msgid " device ID:       "
 msgstr ""
 
 #: modshell:msg14
@@ -250,7 +250,7 @@ msgid "protocol"
 msgstr ""
 
 #: modshell:msg56
-msgid "UID/IP address"
+msgid "ID/(IP) address"
 msgstr ""
 
 #: modshell:msg57
@@ -369,6 +369,10 @@ msgstr ""
 msgid "Cannot use it on this operation system!"
 msgstr ""
 
+#: modshell:msg86
+msgid " device address:  "
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""
@@ -418,7 +422,7 @@ msgid "Parameter(s) required!"
 msgstr ""
 
 #: modshell:err06
-msgid "UID must be 1-247!"
+msgid "Device ID must be 1-247!"
 msgstr ""
 
 #: modshell:err07
@@ -607,6 +611,10 @@ msgstr ""
 
 #: modshell:err53
 msgid "Cannot define more array!"
+msgstr ""
+
+#: modshell:err54
+msgid "Address must be 1-255!"
 msgstr ""
 
 #: modshell:err99
@@ -1109,8 +1117,9 @@ msgstr ""
 msgid ""
 "set dev? net [$]DEVICE [$]PORT\n"
 "  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]UID\n"
+"  set pro? ascii|rtu [$]ID\n"
 "  set pro? tcp [$]IP_ADDRESS\n"
+"  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set project [$]PROJECT_NAME\n"
 "  set timeout [$]TIME_OUT\n"
