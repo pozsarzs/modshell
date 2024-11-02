@@ -199,6 +199,8 @@ begin
                 // varr
                 // varr NAME
                 // varr NAME SIZE
+            110: exitcode := cmd_dcon(splitted[1], splitted[2], splitted[3]);
+                // dcon con? $TXARRAY $RXARRAY
             COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
           else
           begin

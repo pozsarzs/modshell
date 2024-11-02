@@ -263,6 +263,7 @@ procedure version(h: boolean); forward;
 {$I ethernet.pas}
 {$I serport.pas}
 
+{$I dcon.pas}
 {$I mbascii.pas}
 {$I mbrtu.pas}
 {$I mbtcp.pas}
@@ -279,6 +280,7 @@ procedure version(h: boolean); forward;
 {$I cmd_copy.pas}
 {$I cmd_cron.pas}
 {$I cmd_date.pas}
+{$I cmd_dcon.pas}
 {$I cmd_dump.pas}
 {$I cmd_echo.pas}
 {$I cmd_edit.pas}

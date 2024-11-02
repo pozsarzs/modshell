@@ -16,12 +16,11 @@
 var
   {$IFNDEF GO32V2} ser: TBlockSerial; {$ENDIF}
   // BUFFERS
-  // registers
+  // Modbus registers
   coil: array[1..9999] of boolean;
   dinp: array[1..9999] of boolean;
   ireg: array[1..9999] of word;
   hreg: array[1..9999] of word;
-  sbuffer: array[0..SCRBUFFSIZE - 1] of string;
   // variables and constats
   arrays: array[0..ARRBUFFSIZE-1] of tarray;
   vars: array[0..VARBUFFSIZE-1] of tvariable;
@@ -35,6 +34,7 @@ var
   exitcode: byte;
   lang: string;
   originaldirectory: string;
+  sbuffer: array[0..SCRBUFFSIZE - 1] of string;
   scriptline: integer;
   scriptlabel: integer;
   scriptlastline: integer;

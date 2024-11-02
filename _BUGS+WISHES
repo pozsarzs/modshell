@@ -1,0 +1,23 @@
+KNOWN BUT NOT FIXED BUGS DURING DEVELOPMENT AND OTHER WISHES
+--------------------------------------------------------------------------------
+B  'let'         If only '$'' is placed in the target variable, it exits with a
+                 runtime error.
+B  'var'         The value of the variable can be set to empty.
+B  'varr'        The value of the variable array can be set to empty.
+B  'arrsize'     Get array size -> put result into variable.
+B  'dcon'        This command is not finished.
+B                Modbus/TCP support is not started
+X  'Project/Set' Insert DCON protocol.
+X  'carr'        Insert to menu and create toolbutton.
+X  'varr'        Insert to menu and create toolbutton.
+O                Scite syntax highlighting is not started.
+--------------------------------------------------------------------------------
+Note:
+  B: Both of them
+  D: Documentation
+  E: Used external library
+  M: ModShell
+  O: Other
+  P: Installer packages
+  T: Translate
+  X: XModShell

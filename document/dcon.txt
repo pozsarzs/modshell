@@ -1,0 +1,24 @@
+DCON syntax
+~~~~~~~~~~~
+
+[delimiter character][address][command][data][checksum][carriage return]
+
+- Delimiter:       $, #, % and @
+- Address:         00-FF, remote device address
+- Command:         see manual of remote device
+- Data:            see manual of remote device
+- Checksum:        00-FF, optional
+- Carriage return: 0D
+
+Note:
+  The checksum equals to the result after performing modulus-256 (100h) of all
+  the ASCII values’ sum  preceding the checksum. 
+
+  Example:
+    Command: $07RH25(cr)
+    25h = (24h + 30h + 37h + 52h + 48h) MOD 100h
+
+All commands should be issued in uppercase characters!
+
+---------------------------------------------------------------------------------------------------
+  ModShell * Copyright (C) 2023-2024 Pozsár Zsolt <pozsarzs@gmail.com>

@@ -11,18 +11,18 @@
 Copyright (C) 2023-2024 Pozsár Zsolt <pozsarzs@gmail.com>  
 
 ModShell is a utility built around a command interpreter, which with the connected peripherals
-communicates via various ports using the Modbus protocol.
+communicates via various ports using the Modbus and DCON protocol.
 
 |features                |                                                                                            |
 |------------------------|--------------------------------------------------------------------------------------------|
+|version                 |v0.1                                                                                        |
+|licence                 |EUPL v1.2                                                                                   |
+|language                |en, hu                                                                                      |
 |architecture            |amd64, armhf, i386, x86_64                                                                  |
 |operation system        |DOS, FreeBSD, Linux, Windows                                                                |
-|version                 |v0.1                                                                                        |
-|language                |en, hu                                                                                      |
-|licence                 |EUPL v1.2                                                                                   |
-|user interface          |CLI, TUI and GUI                                                                            |
-|running modes           |command line, full-screen or interpreter                                                    |
-|local Modbus registers  |2x10000 boolean and 2x10000 word type                                                       |
+|user interface          |ModShell: CLI and TUI                                                                       |
+|                        |XModShell: GUI                                                                              |
+|running modes           |normal or interpreter                                                                       |
 |variables               |max. 128 variables or constants (stored as string)                                          |
 |arrays                  |max. 16 dynamic size array of variables or constants (elements stored as string)            |
 |built-in commands       |110 commands in 10 categories                                                               |
@@ -35,9 +35,11 @@ communicates via various ports using the Modbus protocol.
 |configurable protocols  |max. 8 settings, ASCII, RTU or TCP                                                          |
 |configurable connections|max. 8 settings by combining the previous two                                               |
 |raw serial communication|read/write serial port and mini serial console with char/hex echo                           |
+|DCON communication      |read and write remote devices                                                               |
 |Modbus communication    |read and write remote device and copy between devices                                       |
 |                        |internal server for remote access to own registers                                          |
 |                        |gateway to access devices using other ports or protocols                                    |
+|local Modbus registers  |2x10000 boolean and 2x10000 word type                                                       |
 |script size             |max. 1024 line                                                                              |
 |example scripts         |8 scripts (shellscript and batch file versions)                                             |
 |script syntax plugins   |for MCEdit, Micro, Nano, NeoVim and Vim                                                     |
@@ -46,13 +48,13 @@ communicates via various ports using the Modbus protocol.
 
 _v0.1-beta1:_  
 The next release will be with the following changes:  
+ - [ ] DCON communication;  
  - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
  - [x] `exist` command;
  - [x] support for variable and constant arrays;  
  - [x] syntax highlighting file for Vim/Neovim;  
  - [ ] syntax highlighting file for Scite. 
-
 
 _v0.1-alpha3:_  
 The next release with the following changes:  
@@ -76,7 +78,6 @@ in _v0.1-beta2:_
 
 in _v0.1-beta3:_  
  - [ ] implementation of additional Modbus functions.  
- - [ ] support DCOM protocol;  
 
 #### 1. Screenshots
 
@@ -121,10 +122,12 @@ Variable monitor
 
 This is a utility that can be used on several operating systems, which can
 communicate with connected equipment using Modbus/ASCII,
-Modbus/RTU and Modbus/TCP protocols [^3]. The program can - even automatically -
-read, write or copy data from one device to another (e.g. transferring
-settings). When copying, the source and destination register areas can be
-different.
+Modbus/RTU and Modbus/TCP protocols [^3]. The basic communication protocol
+of the program is Modbus, but DCON was also implemented due to communication
+with other devices (e.g. ADAM). The range of foreign protocols may be expanded
+later. The program can - even automatically - read, write or copy data from one
+device to another (e.g. transferring settings). When copying, the source and
+destination register areas can be different.
 
 The ModShell program has a *traditional (CLI)* or *full-screen (TUI) command-line*
 interface and is also *suitable for running pre-created scripts* independently
@@ -198,12 +201,17 @@ It is also possible to observe the values of up to four variables during
 runtime and to keep the final values​of constants and variables created
 during runtime.
 
-**Serial connection**
+**Raw serial connection**
 
-The program also provides the possibility to send and receive raw data via a
+The program provides the possibility to send and receive raw data via a
 serial port, and also includes a very simple serial console. The display of sent
 and received data can be turned off or raw text and hexadecimal viewing can be
 selected.
+
+**Serial connection with DCON protocol**
+
+The program also provides the possibility to send and receive data with DCON
+protocol via a serial port.
 
 **Already implemented commands:**
 
@@ -236,12 +244,15 @@ selected.
 |`sub`       |arithmetic    |        |substraction                                                         |
 |`tan`       |arithmetic    |        |tangent function                                                     |
 |`copyreg`   |communication |        |copy one or more remote registers between two connections            |
+|`dcon`      |communication |        |read or write data from/to remote device with DCON protocol          |
 |`mbgw`      |communication |        |start internal Modbus gateway                                        |
 |`mbsrv`     |communication |        |start internal Modbus slave/server                                   |
+|`readdc`    |communication |        |read data from a serial device with DCON protocol                    |
 |`readreg`   |communication |ALT-R   |read one or more remote registers                                    |
 |`sercons`   |communication |F7      |serial console                                                       |
-|`serread`   |communication |        |read a string from serial device                                     |
-|`serwrite`  |communication |        |write a string from serial device                                    |
+|`serread`   |communication |        |read a string from a serial device                                   |
+|`serwrite`  |communication |        |write a string to a serial device                                    |
+|`writedc`   |communication |        |write data to a serial device with DCON protocol                     |
 |`writereg`  |communication |ALT-W   |write data to one or more remote registers                           |
 |`get`       |configuration |ALT-G   |get device, protocol, connection, project name and connection timeout|
 |`reset`     |configuration |ALT-T   |reset device, protocol or connection or reset project name           |
@@ -337,7 +348,7 @@ selected.
 |$B38    |38400 (baud)                       |
 |$B57    |57600 (baud)                       |
 |$B115   |115200 (baud)                      |
-|$EULER  |value of e  (2.7182818284590452354)|
+|$EULER  |value of e (2.7182818284590452354) |
 |$HOME   |user's home directory              |
 |$PI     |value of Pi (3.1415926535897932385)|
 |$PRJDIR |directory of the actual project    |

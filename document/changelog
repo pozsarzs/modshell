@@ -1,3 +1,16 @@
+modshell (0.1-beta1) unstable; urgency=low
+
+  * First user test release.
+  * DCON communication,
+  * Modbus/TCP communication (Unix-like OS and Windows versions),
+  * `chkdevlock`/`rmdevlock` commands (only *nix versions), 
+  * `exist` command,
+  * support for variable and constant arrays,
+  * syntax highlighting file for Vim/Neovim,
+  * syntax highlighting file for Scite.
+
+ -- Pozsár Zsolt <pozsarzs@gmail.com>  Sat, 30 Nov 2024 00:00:00
+
 modshell (0.1-alpha3) unstable; urgency=low
 
   * Next developer test release.

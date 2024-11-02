@@ -4,11 +4,11 @@
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | for-if.bat                                                                 |
-# | Example script * How to use variables?                                     |
+# | Example script * How to use for-to-do and if-then?                         |
 # +----------------------------------------------------------------------------+
 
-print "Example\ script\ -\ How\ to\ use\ for-to-do\ and\ if-then"
-print "-------------------------------------------------"
+print "Example\ script\ -\ How\ to\ use\ for-to-do\ and\ if-then?"
+print "--------------------------------------------------"
 
 # constants
 const MIN 1

@@ -17,7 +17,7 @@ rules:
   - statement: "\\b(add|and|applog|arrclear|arrfill|arrsize|ascii|avg)\\b"
   - statement: "\\b(beep|bit)\\b"
   - statement: "\\b(cd|chkdevlock|chr|cls|carr|color|concat|const|conv|copyreg|copy|cos|cotan|cron)\\b"
-  - statement: "\\b(date|dec|del|dir|div|do|dump)\\b"
+  - statement: "\\b(date|dcon|dec|del|dir|div|do|dump)\\b"
   - statement: "\\b(echo|edit|erasescr|exist|exit|exphis|expreg|exp)\\b"
   - statement: "\\b(for)\\b"
   - statement: "\\b(get|goto)\\b"

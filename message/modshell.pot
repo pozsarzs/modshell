@@ -1053,6 +1053,10 @@ msgstr ""
 msgid "         set size of an array"
 msgstr ""
 
+#: modshell:des110
+msgid "         read/write data from/to remote device with DCON protocol"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
@@ -1563,5 +1567,12 @@ msgstr ""
 
 #: modshell:usg109
 msgid "arrsize ARRAY [$]SIZE"
+msgstr ""
+
+#: modshell:usg110
+msgid ""
+"dcon con? $TXARRAY $RXARRAY\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
 msgstr ""
 

@@ -283,6 +283,7 @@ resourcestring
   DES107='         clear content of an array';
   DES108='         fill an array with a character';
   DES109='         set size of an array';
+  DES110='         read/write data from/to remote device with DCON protocol';
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -446,3 +447,6 @@ resourcestring
   USG107='arrclear ARRAY';
   USG108='arrfill ARRAY [$]DATA';
   USG109='arrsize ARRAY [$]SIZE';
+  USG110='dcon con? $TXARRAY $RXARRAY' + EOL +
+        'Notes:' + EOL +
+        '  - The ''?'' value can be 0-7.';

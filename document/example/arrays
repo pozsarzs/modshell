@@ -3,11 +3,11 @@
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | arrays                                                                     |
-# | Example script * How to use arrays                                         |
+# | Example script * How to use arrays?                                        |
 # +----------------------------------------------------------------------------+
 
-print "Example\ script\ -\ How\ to\ use\ arrays"
-print "----------------------------------"
+print "Example\ script\ -\ How\ to\ use\ arrays?"
+print "-----------------------------------"
 
 # variables
 var i

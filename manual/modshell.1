@@ -7,10 +7,12 @@ modshell \- Command-driven scriptable Modbus utility
 .SH COPYRIGHT
 ModShell is Copyright (C) 2023-2024 by Pozsar Zsolt.
 .SH DESCRIPTION
-This is a utility that can be used on several operating systems, which can
-communicate with connected equipment using Modbus/ASCII, Modbus/RTU and
-Modbus/TCP protocols. The program is designed for DOS, Windows and Unix-like
-operating systems.
+This is a utility that can be used on several operating systems, which
+can communicate with connected equipment using Modbus/ASCII, Modbus/RTU
+and Modbus/TCP protocols. The basic communication protocol of the program
+is Modbus, but DCON was also implemented due to communication with other
+devices (e.g. ADAM). The range of foreign protocols may be expanded later.
+The program is designed for DOS, Windows and Unix-like operating systems.
 .SH OPTIONS
 .TP
 .B \-f \-\-fullscreen
@@ -246,6 +248,24 @@ Copies logical data between connections (\fIcon?\fP). Number of connection
 Copies numeral data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
 \fICOUNT\fP must be between 1-9999.
+
+.TP
+\fBdcon\fP \fIcon?\fP \fI$TXARRAY\fP \fI$RXARRAY\fP
+Reads or writes data from/to remote device with DCON protocol.  
+If necessary, arrays are resized by the command.
+.EX
+
+\fI$TXARRAY\fP must have at least 5 elements:  
+[0]  delimiter [$, #, %, @]
+[1]  address   [00-FF]
+[2]  command
+[3]  data
+[4]  checksum  [0/1]
+
+\fI$RXARRAY\fP must have at least 2 elements:
+[0]  delimiter [!, ?, >]
+[1]  data
+.EE
 .TP
 \fBmbgw\fP \fIcon?\fP \fIcon?\fP
 Start internal Modbus slave/server for remote access own registers.
