@@ -173,6 +173,8 @@ resourcestring
   ERR52 = 'No such array: ';
   ERR53 = 'Cannot define more array!';
   ERR54 = 'Address must be 1-255!';
+  ERR55 = 'The specified parameter is not a variable array: ';
+  ERR56 = 'This can only be used with the DCON protocol!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='         copy one or more remote reg. between two connections';
@@ -295,7 +297,7 @@ resourcestring
   USG02='get dev?|pro?|con?|project|timeout' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.' + EOL +
-        '  - The timeout value can be 1-60.';
+        '  - The timeout value is in s.';
   USG03='help [[$]COMMAND]';
   USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + EOL +
         '  let $VARIABLE [$]VALUE' + EOL +
@@ -315,10 +317,10 @@ resourcestring
         '  set pro? dcon [$]ADDRESS' + EOL +
         '  set con? dev? pro?' + EOL +
         '  set project [$]PROJECT_NAME' + EOL +
-        '  set timeout [$]TIME_OUT' + EOL +
+        '  set timeout [$]TIMEOUT' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.' + EOL +
-        '  - The ''TIMEOUT'' value is in ms.';
+        '  - The ''TIMEOUT'' value can be 1-60 (s).';
   USG09='date [$TARGET]';
   USG10='ver';
   USG11='writereg con? coil|hreg [$]ADDRESS [[$]COUNT]' + EOL +

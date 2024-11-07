@@ -639,6 +639,14 @@ msgstr "Nem lehet létrehozni több tömböt!"
 msgid "Address must be 1-255!"
 msgstr "Az eszköz címének 1-255-nek kell lennie!"
 
+#: modshell:err55
+msgid "The specified parameter is not a variable array: "
+msgstr "A megadott eszköz nem változó tömb: "
+
+#: modshell:err56
+msgid "This can only be used with the DCON protocol!"
+msgstr "Ez csak DCON protokollal használható!"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -1111,12 +1119,12 @@ msgid ""
 "get dev?|pro?|con?|project|timeout\n"
 "Notes:\n"
 "  - The '?' value can be 0-7.\n"
-"  - The timeout value can be 1-60."
+"  - The timeout value is in s."
 msgstr ""
 "get dev?|pro?|con?|project|timeout\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet.\n"
-"  - A 'timeout' értéke 1-60 lehet."
+"  - A 'timeout' értéke mp-ben."
 
 #: modshell:usg03
 msgid "help [[$]COMMAND]"
@@ -1167,10 +1175,10 @@ msgid ""
 "  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set project [$]PROJECT_NAME\n"
-"  set timeout [$]TIME_OUT\n"
+"  set timeout [$]TIMEOUT\n"
 "Notes:\n"
 "  - The '?' value can be 0-7.\n"
-"  - The 'TIMEOUT' value is in ms."
+"  - The 'TIMEOUT' value can be 1-60 (s)."
 msgstr ""
 "set dev? net [$]ESZKÖZ [$]PORT\n"
 "  set dev? ser [$]ESZKÖZ [$]BAUDRATE [$]ADATBIT [$]PARITÁS [$]STOPBIT\n"
@@ -1182,7 +1190,7 @@ msgstr ""
 "  set timeout [$]IDŐTÚLLÉPÉS\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet.\n"
-"  - A 'TIMEOUT' értéke ms-ban van."
+"  - A 'TIMEOUT' értéke 1-60 (mp) lehet."
 
 #: modshell:usg09
 msgid "date [$TARGET]"

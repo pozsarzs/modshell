@@ -3,8 +3,8 @@
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
 # | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
-# | getpm9c.bat                                                                |
-# | Example script * Read Schneider PM9C power meter                           |
+# | getpm9c1.bat                                                               |
+# | Example script * Read Schneider PM9C power meter 1.                        |
 # +----------------------------------------------------------------------------+
 
 # constants and variables
@@ -21,21 +21,21 @@ var f
 
 # header
 cls
-print "Example\ script\ -\ Read\ Schneider\ PM9C\ power\ meter"
-print "------------------------------------------------"
+print "Example\ script\ -\ Read\ Schneider\ PM9C\ power\ meter\ #1"
+print "---------------------------------------------------"
 print "Protocol:\ Modbus/RTU"
 print "ID:\ " -n
 print $ID
 echo hex
 
 # settings
-set dev0 ser COM3 9600 8 n 1
+set dev0 ser /dev/ttyUSB2 9600 8 n 1
 set pro0 rtu $ID
 set con0 dev0 pro0
+set timeout 1
 
 # read remote data
 print "\ "
-print "-\ telegrams:"
 readreg con0 hreg 1000 22
 
 # calculations
@@ -57,14 +57,14 @@ div $f $f 100
 
 # print result
 print "\ "
-print "-\ measured\ data:"
-print "U:\ " -n
+print "Measured\ data:"
+print "\ U:\ " -n
 print $u -n
 print "\ V"
-print "I:\ " -n
+print "\ I:\ " -n
 print $i -n
 print "\ A"
-print "f:\ " -n
+print "\ f:\ " -n
 print $f -n
 print "\ Hz"
 

@@ -74,6 +74,7 @@ function checkipaddress(address: string): boolean;
 function checklrc(s: string; l: word): boolean;
 function crc16(s: string): word;
 function getexedir: string;
+function formattelegram(rt: boolean; telegram: string): string;
 function getlang: string;
 function getuserdir: string;
 function hex1(n: byte; w: word): string;
@@ -104,6 +105,14 @@ begin
   Result := string(PChar(@buffer));
 end;
 {$ENDIF}
+
+// FORMAT TELEGRAM FOR ECHO 
+function formattelegram(rt: boolean; telegram: string): string;
+begin
+  result := 'X[' + telegram + ']';
+  if rt then result := 'T' + result else result := 'R' + result;
+  if result[length(result) - 1] = #32 then delete(result, length(result) - 1, 1);
+end;
 
 // POWER OF TWO FROM ZERO TO SEVEN
 function powerof2(exponent: byte): byte;

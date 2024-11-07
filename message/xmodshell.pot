@@ -669,6 +669,14 @@ msgstr ""
 msgid "Address must be 1-255!"
 msgstr ""
 
+#: frmmain.err55
+msgid "The specified parameter is not a variable array: "
+msgstr ""
+
+#: frmmain.err56
+msgid "This can only be used with the DCON protocol!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -1088,7 +1096,7 @@ msgid ""
 "get dev?|pro?|con?|project|timeout\n"
 "Notes:\n"
 "  - The '?' value can be 0-7.\n"
-"  - The timeout value can be 1-60."
+"  - The timeout value is in s."
 msgstr ""
 
 #: frmmain.usg03
@@ -1130,10 +1138,10 @@ msgid ""
 "  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set project [$]PROJECT_NAME\n"
-"  set timeout [$]TIME_OUT\n"
+"  set timeout [$]TIMEOUT\n"
 "Notes:\n"
 "  - The '?' value can be 0-7.\n"
-"  - The 'TIMEOUT' value is in ms."
+"  - The 'TIMEOUT' value can be 1-60 (s)."
 msgstr ""
 
 #: frmmain.usg09

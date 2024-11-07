@@ -48,7 +48,7 @@ communicates via various ports using the Modbus and DCON protocol.
 
 _v0.1-beta1:_  
 The next release will be with the following changes:  
- - [ ] DCON communication;  
+ - [x] DCON communication;  
  - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
  - [x] `exist` command;

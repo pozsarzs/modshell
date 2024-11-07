@@ -639,6 +639,14 @@ msgstr "Nem lehet lÇtrehozni tîbb tîmbît!"
 msgid "Address must be 1-255!"
 msgstr "Az eszkîz c°mÇnek 1-255-nek kell lennie!"
 
+#: modshell:err55
+msgid "The specified parameter is not a variable array: "
+msgstr "A megadott eszkîz nem v†ltoz¢ tîmb: "
+
+#: modshell:err56
+msgid "This can only be used with the DCON protocol!"
+msgstr "Ez csak DCON protokollal haszn†lhat¢!"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb termin†l mÇret 80x25!"
@@ -1111,12 +1119,12 @@ msgid ""
 "get dev?|pro?|con?|project|timeout\n"
 "Notes:\n"
 "  - The '?' value can be 0-7.\n"
-"  - The timeout value can be 1-60."
+"  - The timeout value is in s."
 msgstr ""
 "get dev?|pro?|con?|project|timeout\n"
 "MegjegyzÇs:\n"
 "  - A '?' ÇrtÇke 0-7 lehet.\n"
-"  - A 'timeout' ÇrtÇke 1-60 lehet."
+"  - A 'timeout' ÇrtÇke mp-ben."
 
 #: modshell:usg03
 msgid "help [[$]COMMAND]"
@@ -1167,10 +1175,10 @@ msgid ""
 "  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set project [$]PROJECT_NAME\n"
-"  set timeout [$]TIME_OUT\n"
+"  set timeout [$]TIMEOUT\n"
 "Notes:\n"
 "  - The '?' value can be 0-7.\n"
-"  - The 'TIMEOUT' value is in ms."
+"  - The 'TIMEOUT' value can be 1-60 (s)."
 msgstr ""
 "set dev? net [$]ESZKôZ [$]PORT\n"
 "  set dev? ser [$]ESZKôZ [$]BAUDRATE [$]ADATBIT [$]PARITµS [$]STOPBIT\n"
@@ -1182,7 +1190,7 @@ msgstr ""
 "  set timeout [$]IDäTÈLLêPêS\n"
 "MegjegyzÇs:\n"
 "  - A '?' ÇrtÇke 0-7 lehet.\n"
-"  - A 'TIMEOUT' ÇrtÇke ms-ban van."
+"  - A 'TIMEOUT' ÇrtÇke 1-60 (mp) lehet."
 
 #: modshell:usg09
 msgid "date [$TARGET]"

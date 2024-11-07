@@ -248,23 +248,26 @@ Copies logical data between connections (\fIcon?\fP). Number of connection
 Copies numeral data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
 \fICOUNT\fP must be between 1-9999.
-
 .TP
 \fBdcon\fP \fIcon?\fP \fI$TXARRAY\fP \fI$RXARRAY\fP
-Reads or writes data from/to remote device with DCON protocol.  
-If necessary, arrays are resized by the command.
+Reads or writes data from/to remote device with DCON protocol. The command
+takes the input data from the \fI$TXARRAY\fP array, the output data is placed in
+the \fI$RXARRAY\fP. Both arrays can only be variable arrays. If necessary, arrays
+are resized by the command.
 .EX
 
-\fI$TXARRAY\fP must have at least 5 elements:  
+\fI$$TXARRAY\fP:
 [0]  delimiter [$, #, %, @]
-[1]  address   [00-FF]
-[2]  command
-[3]  data
-[4]  checksum  [0/1]
+[1]  command
+[2]  input data
+[3]  checksum enable/disable [1/0]
 
-\fI$RXARRAY\fP must have at least 2 elements:
+\fI$$RXARRAY\fP:
 [0]  delimiter [!, ?, >]
-[1]  data
+[1]  command (non used)
+[2]  output data
+[3]  checksum, output data is correct or not [1/0]
+
 .EE
 .TP
 \fBmbgw\fP \fIcon?\fP \fIcon?\fP

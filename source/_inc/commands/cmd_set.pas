@@ -253,7 +253,7 @@ var
     begin
       valid := true;
       prottype := prt;
-      if prt < 2
+      if (prt < 2) or (prt = 3)
       then
         id := strtointdef(s3, 1)
       else
