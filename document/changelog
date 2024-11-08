@@ -1,13 +1,16 @@
 modshell (0.1-beta1) unstable; urgency=low
 
   * First user test release.
-  * DCON communication,
-  * Modbus/TCP communication (Unix-like OS and Windows versions),
-  * `chkdevlock`/`rmdevlock` commands (only *nix versions), 
+  * `chkdevlock`/`rmdevlock` commands (only *nix versions),
+  * `color` -> `set color`: sets all default colors,
+  * `color`: sets temporary foreground and background color,
   * `exist` command,
+  * DCON protocol support,
+  * Modbus/TCP communication (Unix-like OS and Windows versions),
   * support for variable and constant arrays,
-  * syntax highlighting file for Vim/Neovim,
-  * syntax highlighting file for Scite.
+  * syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes),
+  * syntax highlighting file for Notepad++ (Windows only),
+  * syntax highlighting file for Vim/Neovim.
 
  -- Pozsár Zsolt <pozsarzs@gmail.com>  Sat, 30 Nov 2024 00:00:00
 

@@ -41,20 +41,23 @@ communicates via various ports using the Modbus and DCON protocol.
 |                        |gateway to access devices using other ports or protocols                                    |
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                                                       |
 |script size             |max. 1024 line                                                                              |
-|example scripts         |8 scripts (shellscript and batch file versions)                                             |
-|script syntax plugins   |for MCEdit, Micro, Nano, NeoVim and Vim                                                     |
+|example scripts         |10 scripts (shellscript and batch file versions)                                            |
+|script syntax plugins   |for MCEdit, Micro, Nano, Notepad++, NeoVim and Vim                                          |
 
 **Releases**  
 
 _v0.1-beta1:_  
 The next release will be with the following changes:  
- - [x] DCON communication;  
- - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
- - [x] `exist` command;
+ - [ ] `color` -> `set color`: sets all default colors;  
+ - [ ] `color`: sets temporary foreground and background color;  
+ - [x] `exist` command;  
+ - [x] DCON protocol support;  
+ - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  
  - [x] support for variable and constant arrays;  
- - [x] syntax highlighting file for Vim/Neovim;  
- - [ ] syntax highlighting file for Scite. 
+ - [ ] syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes);  
+ - [x] syntax highlighting file for Notepad++ (Windows only);  
+ - [x] syntax highlighting file for Vim/Neovim.  
 
 _v0.1-alpha3:_  
 The next release with the following changes:  

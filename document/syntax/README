@@ -9,6 +9,7 @@ Files
   MCEdit    modshell.syntax  copy file into ~/.local/share/mc/Syntax/
   Micro     modshell.yaml    copy file into ~/.config/micro/syntax/
   Nano      modshell.nanorc  copy file into /usr/share/nano/
+  Notepad++ modshell.xml     copy file into %USERPROFILE%\AppData\Roaming\Notepad++\userDefineLangs\
   (Neo)Vim  modshell.vim     copy file into ~/.config/vim/syntax/
   (Neo)Vim  scripts.vim      copy file into ~/.config/vim/
   
@@ -31,7 +32,7 @@ Synopsis
     add and applog arrclear arrcopy arrfill arrsize ascii avg
     beep bit
     cd chkdevlock chr cls carr color concat const conv copyreg copy cos cotan cron
-    date dec del dir div do dump
+    date dcon dec del dir div do dump
     echo edit erasescr exist exit exphis expreg exp
     for
     get goto
