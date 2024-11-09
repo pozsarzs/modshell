@@ -2,8 +2,8 @@ modshell (0.1-beta1) unstable; urgency=low
 
   * First user test release.
   * `chkdevlock`/`rmdevlock` commands (only *nix versions),
-  * `color` -> `set color`: sets all default colors,
-  * `color`: sets temporary foreground and background color,
+  * `color` -> `set color`: sets all default colors (CLI and TUI),
+  * `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI),
   * `exist` command,
   * DCON protocol support,
   * Modbus/TCP communication (Unix-like OS and Windows versions),

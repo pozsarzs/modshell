@@ -342,6 +342,17 @@ Sets protocol (\fIpro?\fP) to DCON (\fIdcon\fP). Address of remote device
 Assigns a device (\fIdev?\fP) and a protocol (\fIpro?\fP) to a connection
 (\fIcon?\fP). ? number must be 0-7.
 .TP
+\fBset\fP \fIcolor\fP \fI[$]FOREGROUND\fP \fI[$]BACKGROUND\fP \fI[$]RXD_TEXT\fP \fI[$]TXD_TEXT\fP \fI[$]VARMON\fP
+Sets all default colors in CLI and TUI mode.
+.EX
+
+\fIColors:\fP
+0: black  4: red         8: darkgray    12: lightred
+1: blue   5: magenta:    9: lightblue   13: lightmagenta
+2: green  6: brown      10: lightgreen  14: yellow
+3: cyan   7: lightgray  11: lightcyan   15: white
+.EE
+.TP
 \fBset\fP \fIproject\fP [$]PROJECT_NAME
 Sets the project name. The name cannot contain spaces or special characters.
 The project directory will also be created with this name.
@@ -414,17 +425,6 @@ Defines new \fISIZE\fP size \fIARRAY\fP constant array.
 \fBcls\fP
 Clears screen.
 .TP
-\fBcolor\fP \fI[$]FOREGROUND\fP \fI[$]BACKGROUND\fP \fI[$]RXD_TEXT\fP \fI[$]TXD_TEXT\fP \fI[$]VARMON\fP  
-Sets foreground and background color in full screen mode.
-.EX
-
-\fIColors:\fP
-0: black  4: red         8: darkgray    12: lightred
-1: blue   5: magenta:    9: lightblue   13: lightmagenta
-2: green  6: brown      10: lightgreen  14: yellow
-3: cyan   7: lightgray  11: lightcyan   15: white
-.EE
-.TP
 \fBconst\fP \fICONSTANT\fP [\fI[$]VALUE\fP]
 Defines new constant (\fICONSTANT\fP) and assign value (\fIVALUE\fP).
 Use a backslash before a space.
@@ -485,6 +485,18 @@ and the cursor does not return to the beginning of the line.
 \fBprint\fP "\fImessage\fP" [\fI-n\fP]
 Prints a single line message. The -n parameter does not raise a line and the
 cursor does not return to the beginning of the line.
+.TP
+\fBprintcolor\fP \fI[$]FOREGROUND\fP|\fI255\fP \fI[$]BACKGROUND\fP|\fI255\fP
+Sets temporary foreground and background colors for \fBprint\fP command in CLI and TUI mode.
+Value \fI255\fP sets color to default.
+.EX
+
+\fIColors:\fP
+0: black  4: red         8: darkgray    12: lightred
+1: blue   5: magenta:    9: lightblue   13: lightmagenta
+2: green  6: brown      10: lightgreen  14: yellow
+3: cyan   7: lightgray  11: lightcyan   15: white
+.EE
 .TP
 \fBsetarrsize\fP \fIARRAY\fP \fI[[$]SIZE]\fP
 Sets size of an array.

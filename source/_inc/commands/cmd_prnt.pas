@@ -49,10 +49,15 @@ begin
   // CHECK P1 PARAMETER: IS IT A MESSAGE?
   s1 := isitmessage(p1);
   s := '';
+  // PRIMARY MISSION
   if length(s1) > 0 then 
   begin
     {$IFNDEF X}
+      textcolor(printcolors[0]);
+      textbackground(printcolors[1]);
       write(s1);
+      textcolor(uconfig.colors[0]);
+      textbackground(uconfig.colors[1]);
       if crlf then writeln;
     {$ELSE}
       s := s + s1;
@@ -66,10 +71,15 @@ begin
   if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
   if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
   s := '';
+  // PRIMARY MISSION
   if length(s1) > 0 then 
   begin
     {$IFNDEF X}
+      textcolor(printcolors[0]);
+      textbackground(printcolors[1]);
       write(s1);
+      textcolor(uconfig.colors[0]);
+      textbackground(uconfig.colors[1]);
       if crlf then writeln;
     {$ELSE}
       s := s + s1;
@@ -133,6 +143,8 @@ begin
   if (i2 + i3) > 9999 then i3 := (i2 + i3) - 9999;
   // PRIMARY MISSION
   s := '';
+  textcolor(printcolors[0]);
+  textbackground(printcolors[1]);
   for i2 := i2  to i2 + i3 - 1 do
     case rt of
       0: {$IFNDEF X} write(dinp[i2], ' '); {$ELSE} s := s + booltostr(dinp[i2]) + ' '; {$ENDIF}
@@ -140,5 +152,7 @@ begin
       2: {$IFNDEF X} write(ireg[i2], ' '); {$ELSE} s := s + inttostr(ireg[i2]) + ' '; {$ENDIF}
       3: {$IFNDEF X} write(hreg[i2], ' '); {$ELSE} s := s + inttostr(hreg[i2]) + ' '; {$ENDIF}
     end;
+    textcolor(uconfig.colors[0]);
+    textbackground(uconfig.colors[1]);
     {$IFNDEF X} if crlf then writeln; {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
 end;

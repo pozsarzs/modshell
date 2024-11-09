@@ -34,6 +34,7 @@ var
   exitcode: byte;
   lang: string;
   originaldirectory: string;
+  printcolors: array[0..1] of integer;
   sbuffer: array[0..SCRBUFFSIZE - 1] of string;
   scriptline: integer;
   scriptlabel: integer;

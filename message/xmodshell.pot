@@ -34,7 +34,7 @@ msgid "ALT-T    reset device, protocol, connection or project name"
 msgstr ""
 
 #: frmmain.des08
-msgid "ALT-S    set device, protocol, connection, project name or timeout"
+msgid "ALT-S    set device, protocol, connection, default colors, project name or timeout"
 msgstr ""
 
 #: frmmain.des09
@@ -134,7 +134,7 @@ msgid "         list all variable with value or define a new one"
 msgstr ""
 
 #: frmmain.des21
-msgid "         set colors"
+msgid "         set temporary foreground and background colors for print command"
 msgstr ""
 
 #: frmmain.des22
@@ -1028,6 +1028,10 @@ msgstr ""
 msgid " device address:  "
 msgstr ""
 
+#: frmmain.msg87
+msgid "Cannot use it in GUI version!"
+msgstr ""
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr ""
@@ -1137,11 +1141,17 @@ msgid ""
 "  set pro? tcp [$]IP_ADDRESS\n"
 "  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
+"  set color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON\n"
 "  set project [$]PROJECT_NAME\n"
 "  set timeout [$]TIMEOUT\n"
 "Notes:\n"
 "  - The '?' value can be 0-7.\n"
-"  - The 'TIMEOUT' value can be 1-60 (s)."
+"  - The 'TIMEOUT' value can be 1-60 (s).\n"
+"  - Colors:\n"
+"      0: black  4: red         8: darkgray    12: lightred\n"
+"      1: blue   5: magenta:    9: lightblue   13: lightmagenta\n"
+"      2: green  6: brown      10: lightgreen  14: yellow\n"
+"      3: cyan   7: lightgray  11: lightcyan   15: white"
 msgstr ""
 
 #: frmmain.usg09
@@ -1256,8 +1266,9 @@ msgstr ""
 
 #: frmmain.usg21
 msgid ""
-"color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON\n"
-"  colors:\n"
+"printcolor [$]FOREGROUND [$]BACKGROUND\n"
+"Notes:\n"
+"  - Colors:\n"
 "      0: black  4: red         8: darkgray    12: lightred\n"
 "      1: blue   5: magenta:    9: lightblue   13: lightmagenta\n"
 "      2: green  6: brown      10: lightgreen  14: yellow\n"

@@ -280,7 +280,6 @@ procedure version(h: boolean); forward;
 {$I cmd_asci.pas}
 {$I cmd_avg.pas}
 {$I cmd_carr.pas}
-{$I cmd_colr.pas}
 {$I cmd_cons.pas}
 {$I cmd_conv.pas}
 {$I cmd_copy.pas}
@@ -310,6 +309,7 @@ procedure version(h: boolean); forward;
 {$I cmd_lscr.pas}
 {$I cmd_math.pas}
 {$I cmd_paus.pas}
+{$I cmd_pclr.pas}
 {$I cmd_prnt.pas}
 {$I cmd_prop.pas}
 {$I cmd_read.pas}

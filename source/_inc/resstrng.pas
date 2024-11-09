@@ -111,6 +111,7 @@ resourcestring
   MSG84 = ' or "text"';
   MSG85 = 'Cannot use it on this operation system!';
   MSG86 = ' device address:  ';
+  MSG87 = 'Cannot use it in GUI version!';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -185,7 +186,7 @@ resourcestring
   DES05='ALT-P    print message, value of the variable and register';
   DES06='ALT-R    read one or more remote registers to buffer';
   DES07='ALT-T    reset device, protocol, connection or project name';
-  DES08='ALT-S    set device, protocol, connection, project name or timeout';
+  DES08='ALT-S    set device, protocol, connection, default colors, project name or timeout';
   DES09='         show system date and time';
   DES10='         show version and build information of this program';
   DES11='ALT-W    write data from buffer to one or more remote registers';
@@ -198,7 +199,7 @@ resourcestring
   DES18='F4       save all registers';
   DES19='F5       load all registers';
   DES20='         list all variable with value or define a new one';
-  DES21='         set colors';
+  DES21='         set temporary foreground and background colors for print command';
   DES22='ALT-I    import value of the one or more registers';
   DES23='         AND logical operations';
   DES24='         OR logical operations';
@@ -316,11 +317,17 @@ resourcestring
         '  set pro? tcp [$]IP_ADDRESS' + EOL +
         '  set pro? dcon [$]ADDRESS' + EOL +
         '  set con? dev? pro?' + EOL +
+        '  set color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON' + EOL +
         '  set project [$]PROJECT_NAME' + EOL +
         '  set timeout [$]TIMEOUT' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.' + EOL +
-        '  - The ''TIMEOUT'' value can be 1-60 (s).';
+        '  - The ''TIMEOUT'' value can be 1-60 (s).' + EOL +
+        '  - Colors:' + EOL +
+        '      0: black  4: red         8: darkgray    12: lightred' + EOL +
+        '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + EOL +
+        '      2: green  6: brown      10: lightgreen  14: yellow' + EOL +
+        '      3: cyan   7: lightgray  11: lightcyan   15: white';
   USG09='date [$TARGET]';
   USG10='ver';
   USG11='writereg con? coil|hreg [$]ADDRESS [[$]COUNT]' + EOL +
@@ -336,8 +343,9 @@ resourcestring
   USG19='loadreg [$]PATH_AND_FILENAME';
   USG20='var' + EOL +
         '  var NAME [[$]VALUE]';
-  USG21='color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON' + EOL +
-        '  colors:' + EOL +
+  USG21='printcolor [$]FOREGROUND [$]BACKGROUND' + EOL +
+        'Notes:' + EOL +
+        '  - Colors:' + EOL +
         '      0: black  4: red         8: darkgray    12: lightred' + EOL +
         '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + EOL +
         '      2: green  6: brown      10: lightgreen  14: yellow' + EOL +

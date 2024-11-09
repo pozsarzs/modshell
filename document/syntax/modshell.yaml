@@ -11,12 +11,12 @@ detect:
 rules:
 
   ## group #1
-  - special: "\\b(con[0-7]|dev[0-7]|pro[0-7]|proj|timeout)\\b"
+  - special: "\\b(con[0-7]|dev[0-7]|pro[0-7]|color|project|timeout)\\b"
 
   ## group #2
   - statement: "\\b(add|and|applog|arrclear|arrfill|arrsize|ascii|avg)\\b"
   - statement: "\\b(beep|bit)\\b"
-  - statement: "\\b(cd|chkdevlock|chr|cls|carr|color|concat|const|conv|copyreg|copy|cos|cotan|cron)\\b"
+  - statement: "\\b(cd|chkdevlock|chr|cls|carr|concat|const|conv|copyreg|copy|cos|cotan|cron)\\b"
   - statement: "\\b(date|dcon|dec|del|dir|div|do|dump)\\b"
   - statement: "\\b(echo|edit|erasescr|exist|exit|exphis|expreg|exp)\\b"
   - statement: "\\b(for)\\b"
@@ -27,7 +27,7 @@ rules:
   - statement: "\\b(mbgw|mbsrv|md|mkcrc|mklrc|mulinv|mul)\\b"
   - statement: "\\b(not)\\b"
   - statement: "\\b(odd|ord|or)\\b"
-  - statement: "\\b(pause|pow2|pow|print|prop)\\b"
+  - statement: "\\b(pause|pow2|pow|print|printcolor|prop)\\b"
   - statement: "\\b(rd|readreg|ren|reset|rmdevlock|rnd|roll|rolr|round|run)\\b"
   - statement: "\\b(savecfg|savereg|savescr|sercons|serread|serwrite|set|shl|shr|sin|sqrt|sqr|strdel|strfind|strins|stritem|strrepl|sub)\\b"
   - statement: "\\b(tan|then|to|type)\\b"

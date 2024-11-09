@@ -13,7 +13,7 @@ syn sync lines=250
 
 syn keyword modshellFunction add and applog arrclear arrcopy arrfill arrsize ascii avg
 syn keyword modshellFunction beep bit
-syn keyword modshellFunction cd chkdevlock chr cls carr color concat const conv copyreg copy cos cotan cron
+syn keyword modshellFunction cd chkdevlock chr cls carr concat const conv copyreg copy cos cotan cron
 syn keyword modshellFunction date dcon dec del dir div do dump
 syn keyword modshellFunction echo edit erasescr exist exit exphis expreg exp
 syn keyword modshellFunction for
@@ -24,7 +24,7 @@ syn keyword modshellFunction label length let list ln loadcfg loadreg loadscr lo
 syn keyword modshellFunction mbgw mbsrv md mkcrc mklrc mulinv mul
 syn keyword modshellFunction not
 syn keyword modshellFunction odd ord or
-syn keyword modshellFunction pause pow2 pow print prop
+syn keyword modshellFunction pause pow2 pow print printcolor prop
 syn keyword modshellFunction rd readreg ren reset rmdevlock rnd roll rolr round run
 syn keyword modshellFunction savecfg savereg savescr sercons serread serwrite set shl shr sin sqrt sqr strdel strfind strins stritem strrepl sub
 syn keyword modshellFunction tan then to type
@@ -43,6 +43,7 @@ syn match modshellSymbolOperator "<>"
 syn match modshellDevice "dev[0-7]"
 syn match modshellDevice "pro[0-7]"
 syn match modshellDevice "con[0-7]"
+syn match modshellDevice "color"
 syn match modshellDevice "project"
 syn match modshellDevice "timeout"
 

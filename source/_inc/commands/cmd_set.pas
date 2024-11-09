@@ -13,14 +13,15 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0  p1      p2             p3            p4          p5         p6        p7
-  ------------------------------------------------------------------------------------
+  p0  p1      p2             p3            p4              p5                 p6        p7
+  ------------------------------------------------------------------------------------------------
   set dev?    net            [$]DEVICE     PORT
-  set dev?    ser            [$]DEVICE     [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT
+  set dev?    ser            [$]DEVICE     [$]BAUDRATE     [$]DATABIT         [$]PARITY [$]STOPBIT
   set pro?    ascii|rtu      [$]ID
   set pro?    tcp            [$]IP_ADDRESS
   set pro?    dcon           [$]ADDRESS
   set con?    dev?           pro?
+  set color   [$]FOREGROUND  [$]BACKGROUND [$]RECEIVEDTEXT [$]TRANSMITTEDTEXT [$]VARMON
   set project [$]PROJECTNAME
   set timeout [$]TIMEOUT
 }
@@ -329,6 +330,102 @@ var
     end;
   end;
 
+  // SET DEFAULT COLORS
+  procedure cmd_set_color(p2, p3, p4, p5, p6: string);
+  var
+    i2, i3, i4, i5, i6: integer; // parameters in other type
+    s2, s3, s4, s5, s6: string; // parameters in other type
+  begin
+    result := 0;
+    {$IFDEF X}
+      Form1.Memo1.Lines.Add(MSG64);
+      exit;
+    {$ENDIF}
+    // CHECK LENGTH OF PARAMETER
+    if (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0) or
+       (length(p5) = 0) or (length(p6) = 0) then
+    begin
+      // Parameter(s) required!
+      writeln(ERR05);
+      exit;
+    end;
+    // CHECK P2 PARAMETER
+    if boolisitconstant(p2) then s2 := isitconstant(p2);
+    if boolisitvariable(p2) then s2 := isitvariable(p2);
+    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    if length(s2) = 0 then s2 := p2;
+    i2 := strtointdef(s2, -1);
+    if (i2 < 0) or (i2 > 15) then
+    begin
+      // What is the 2nd parameter?
+      writeln(NUM2 + MSG05 + ' 0-15');
+      result := 1;
+      exit;
+    end;
+  // CHECK P3 PARAMETER
+  if boolisitconstant(p3) then s3 := isitconstant(p3);
+  if boolisitvariable(p3) then s3 := isitvariable(p3);
+  if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+  if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
+  i3 := strtointdef(s3, -1);
+  if (i3 < 0) or (i3 > 15) then
+  begin
+    // What is the 3rd parameter?
+    writeln(NUM3 + MSG05 + ' 0-15');
+    result := 1;
+    exit;
+  end;
+  // CHECK P4 PARAMETER
+  if boolisitconstant(p4) then s4 := isitconstant(p4);
+  if boolisitvariable(p4) then s4 := isitvariable(p4);
+  if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
+  if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
+  if length(s4) = 0 then s4 := p4;
+  i4 := strtointdef(s4, -1);
+  if (i4 < 0) or (i4 > 15) then
+  begin
+    // What is the 4th parameter?
+    writeln(NUM4 + MSG05 + ' 0-15');
+    result := 1;
+    exit;
+  end;
+    // CHECK P5 PARAMETER
+    if boolisitconstant(p5) then s5 := isitconstant(p5);
+    if boolisitvariable(p5) then s5 := isitvariable(p5);
+    if boolisitconstantarray(p5) then s4 := isitconstantarray(p5);
+    if boolisitvariablearray(p5) then s4 := isitvariablearray(p5);
+    if length(s5) = 0 then s5 := p5;
+    i5 := strtointdef(s5, -1);
+    if (i5 < 0) or (i5 > 15) then
+    begin
+      // What is the 5th parameter?
+      writeln(NUM5 + MSG05 + ' 0-15');
+      result := 1;
+      exit;
+    end;
+    // CHECK P6 PARAMETER
+    if boolisitconstant(p6) then s6 := isitconstant(p6);
+    if boolisitvariable(p6) then s6 := isitvariable(p6);
+    if boolisitconstantarray(p6) then s6 := isitconstantarray(p6);
+    if boolisitvariablearray(p6) then s6 := isitvariablearray(p6);
+    if length(s6) = 0 then s6 := p6;
+    i6 := strtointdef(s6, -1);
+    if (i6 < 0) or (i6 > 15) then
+    begin
+      // What is the 6th parameter?
+      writeln(NUM6 + MSG05 + ' 0-15');
+      result := 1;
+      exit;
+    end;
+    // PRIMARY MISSION
+    uconfig.colors[0] := i2;
+    uconfig.colors[1] := i3;
+    uconfig.colors[2] := i4;
+    uconfig.colors[3] := i5;
+    uconfig.colors[4] := i6;
+  end;
+
   // SET NAME OF THE PROJECT
   procedure cmd_set_project(p2: string);
   var
@@ -436,6 +533,12 @@ begin
   if p1 = PREFIX[4] then
   begin
     cmd_set_timeout(p2);
+    result := 1;
+    exit;
+  end;
+  if p1 = PREFIX[5] then
+  begin
+    cmd_set_color(p2, p3, p4, p5, p6);
     result := 1;
     exit;
   end;

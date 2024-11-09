@@ -49,8 +49,8 @@ communicates via various ports using the Modbus and DCON protocol.
 _v0.1-beta1:_  
 The next release will be with the following changes:  
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
- - [ ] `color` -> `set color`: sets all default colors;  
- - [ ] `color`: sets temporary foreground and background color;  
+ - [x] `color` -> `set color`: sets all default colors (CLI and TUI);  
+ - [x] `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI);  
  - [x] `exist` command;  
  - [x] DCON protocol support;  
  - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  
@@ -257,9 +257,9 @@ protocol via a serial port.
 |`serwrite`  |communication |        |write a string to a serial device                                    |
 |`writedc`   |communication |        |write data to a serial device with DCON protocol                     |
 |`writereg`  |communication |ALT-W   |write data to one or more remote registers                           |
-|`get`       |configuration |ALT-G   |get device, protocol, connection, project name and connection timeout|
+|`get`       |configuration |ALT-G   |get device, protocol, connection, colors, project name and timeout   |
 |`reset`     |configuration |ALT-T   |reset device, protocol or connection or reset project name           |
-|`set`       |configuration |ALT-S   |set device, protocol, connection, project name and connection timeout|
+|`set`       |configuration |ALT-S   |set device, protocol, connection, colors, project name and timeout   |
 |`applog`    |file          |        |append a record to log file (LOG)                                    |
 |`exphis`    |file          |        |export command line history to file (TXT)                            |
 |`expreg`    |file          |ALT-E   |export one or more registers to file (CSV, INI, XML)                 |
@@ -274,7 +274,6 @@ protocol via a serial port.
 |`beep`      |general       |        |make a beep with internal speaker                                    |
 |`carr`      |general       |        |show all constants array with theirs size or define a new one        |
 |`cls`       |general       |F8      |clear screen                                                         |
-|`color`     |general       |        |set colors                                                           |
 |`const`     |general       |        |show all constant with theirs value or define a new one              |
 |`cron`      |general       |        |loaded script scheduled execution                                    |
 |`date`      |general       |        |show system date and time                                            |
@@ -289,6 +288,7 @@ protocol via a serial port.
 |`let`       |general       |ALT-L   |set value of a variable, a constant or an element of array           |
 |`pause`     |general       |        |waits for a keystroke or specified time                              |
 |`print`     |general       |ALT-P   |print message, value of the variable and register                    |
+|`printcolor`|general       |        |set temporary foreground and background colors for print in CLI/TUI  |
 |`setarrsize`|general       |        |set size of an array                                                 |
 |`var`       |general       |        |show all variable with theirs value or define a new one              |
 |`varmon`    |general       |ALT-M   |monitoring the value of variables                                    |

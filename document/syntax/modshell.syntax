@@ -11,7 +11,8 @@ context default brightcyan
     keyword whole con\{01234567\} brightblue
     keyword whole dev\{01234567\} brightblue
     keyword whole pro\{01234567\} brightblue
-    keyword whole proj brightblue
+    keyword whole color brightblue
+    keyword whole project brightblue
     keyword whole timeout brightblue
     # group #2
     keyword whole add white
@@ -28,7 +29,6 @@ context default brightcyan
     keyword whole chkdevlock white
     keyword whole chr white
     keyword whole cls white
-    keyword whole color white
     keyword whole concat white
     keyword whole const white
     keyword whole conv white
@@ -87,6 +87,7 @@ context default brightcyan
     keyword whole pow2 white
     keyword whole pow white
     keyword whole print white
+    keyword whole printcolor white
     keyword whole prop white
     keyword whole rd white
     keyword whole readreg white
