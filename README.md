@@ -55,7 +55,7 @@ The next release will be with the following changes:
  - [x] DCON protocol support;  
  - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  
  - [x] support for variable and constant arrays;  
- - [ ] syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes);  
+ - [x] syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes);  
  - [x] syntax highlighting file for Notepad++ (Windows only);  
  - [x] syntax highlighting file for Vim/Neovim.  
 

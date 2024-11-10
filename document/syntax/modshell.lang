@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="modshell" _name="ModShell" version="2.0" _section="Script">
+  <metadata>
+    <property name="line-comment-start">#</property>
+  </metadata>
+  <styles>
+    <style id="comment" name="Comment" map-to="def:comment"/>
+    <style id="string" name="String" map-to="def:string"/>
+    <style id="identifier" name="Identifier" map-to="def:identifier"/>
+    <style id="keyword" name="Keyword" map-to="def:keyword"/>
+    <style id="constant" name="Constant" map-to="def:constant"/>
+  </styles>
+  <default-regex-options case-sensitive="false"/>
+  <definitions>
+    <context id="comment" style-ref="comment" end-at-line-end="true" class="comment" class-disabled="no-spell-check">
+      <start>#</start>
+      <include>
+        <context ref="def:in-comment"/>
+      </include>
+    </context>
+    <context id="string" style-ref="string" end-at-line-end="true" class="string" class-disabled="no-spell-check">
+      <start>"</start>
+      <end>"</end>
+    </context>
+    <context id="identifier" style-ref="identifier">
+      <keyword>con[0-7]</keyword>
+      <keyword>dev[0-7]</keyword>
+      <keyword>pro[0-7]</keyword>
+      <keyword>color</keyword>
+      <keyword>project</keyword>
+      <keyword>timeout</keyword>
+    </context>
+    <context id="keyword" style-ref="keyword">
+      <keyword>add</keyword>
+      <keyword>applog</keyword>
+      <keyword>arrclear</keyword>
+      <keyword>arrfill</keyword>
+      <keyword>arrsize</keyword>
+      <keyword>avg</keyword>
+      <keyword>beep</keyword>
+      <keyword>bit</keyword>
+      <keyword>carr</keyword>
+      <keyword>cd</keyword>
+      <keyword>chkdevlock</keyword>
+      <keyword>chr</keyword>
+      <keyword>cls</keyword>
+      <keyword>concat</keyword>
+      <keyword>const</keyword>
+      <keyword>conv</keyword>
+      <keyword>copyreg</keyword>
+      <keyword>copy</keyword>
+      <keyword>cos</keyword>
+      <keyword>cotan</keyword>
+      <keyword>cron</keyword>
+      <keyword>date</keyword>
+      <keyword>dcon</keyword>
+      <keyword>dec</keyword>
+      <keyword>del</keyword>
+      <keyword>dir</keyword>
+      <keyword>div</keyword>
+      <keyword>do</keyword>
+      <keyword>dump</keyword>
+      <keyword>echo</keyword>
+      <keyword>edit</keyword>
+      <keyword>erasescr</keyword>
+      <keyword>exist</keyword>
+      <keyword>exit</keyword>
+      <keyword>exphis</keyword>
+      <keyword>expreg</keyword>
+      <keyword>exp</keyword>
+      <keyword>for</keyword>
+      <keyword>get</keyword>
+      <keyword>goto</keyword>
+      <keyword>help</keyword>
+      <keyword>idiv</keyword>
+      <keyword>if</keyword>
+      <keyword>imod</keyword>
+      <keyword>impreg</keyword>
+      <keyword>inc</keyword>
+      <keyword>inrange</keyword>
+      <keyword>label</keyword>
+      <keyword>length</keyword>
+      <keyword>let</keyword>
+      <keyword>list</keyword>
+      <keyword>ln</keyword>
+      <keyword>loadcfg</keyword>
+      <keyword>loadreg</keyword>
+      <keyword>loadscr</keyword>
+      <keyword>lowcase</keyword>
+      <keyword>mbgw</keyword>
+      <keyword>mbsrv</keyword>
+      <keyword>md</keyword>
+      <keyword>mkcrc</keyword>
+      <keyword>mklrc</keyword>
+      <keyword>mulinv</keyword>
+      <keyword>mul</keyword>
+      <keyword>not</keyword>
+      <keyword>odd</keyword>
+      <keyword>ord</keyword>
+      <keyword>or</keyword>
+      <keyword>pause</keyword>
+      <keyword>pow2</keyword>
+      <keyword>pow</keyword>
+      <keyword>print</keyword>
+      <keyword>printcolor</keyword>
+      <keyword>prop</keyword>
+      <keyword>rd</keyword>
+      <keyword>readreg</keyword>
+      <keyword>ren</keyword>
+      <keyword>reset</keyword>
+      <keyword>rmdevlock</keyword>
+      <keyword>rnd</keyword>
+      <keyword>roll</keyword>
+      <keyword>rolr</keyword>
+      <keyword>round</keyword>
+      <keyword>run</keyword>
+      <keyword>savecfg</keyword>
+      <keyword>savereg</keyword>
+      <keyword>savescr</keyword>
+      <keyword>sercons</keyword>
+      <keyword>serread</keyword>
+      <keyword>serwrite</keyword>
+      <keyword>set</keyword>
+      <keyword>shl</keyword>
+      <keyword>shr</keyword>
+      <keyword>sin</keyword>
+      <keyword>sqrt</keyword>
+      <keyword>sqr</keyword>
+      <keyword>strdel</keyword>
+      <keyword>strfind</keyword>
+      <keyword>strins</keyword>
+      <keyword>stritem</keyword>
+      <keyword>strrepl</keyword>
+      <keyword>sub</keyword>
+      <keyword>tan</keyword>
+      <keyword>then</keyword>
+      <keyword>to</keyword>
+      <keyword>type</keyword>
+      <keyword>upcase</keyword>
+      <keyword>varmon</keyword>
+      <keyword>varr</keyword>
+      <keyword>var</keyword>
+      <keyword>ver</keyword>
+      <keyword>writereg</keyword>
+      <keyword>xor</keyword>
+    </context>
+    <context id="constant" style-ref="constant">
+      <keyword>ascii</keyword>
+      <keyword>bin</keyword>
+      <keyword>coil</keyword>
+      <keyword>csv</keyword>
+      <keyword>dec</keyword>
+      <keyword>dinp</keyword>
+      <keyword>hex</keyword>
+      <keyword>hreg</keyword>
+      <keyword>ini</keyword>
+      <keyword>ireg</keyword>
+      <keyword>net</keyword>
+      <keyword>oct</keyword>
+      <keyword>off</keyword>
+      <keyword>on</keyword>
+      <keyword>rtu</keyword>
+      <keyword>ser</keyword>
+      <keyword>swap</keyword>
+      <keyword>tcp</keyword>
+      <keyword>xml</keyword>
+    </context>
+    <context id="modshell" class="no-spell-check">
+      <include>
+        <context ref="comment"/>
+        <context ref="string"/>
+        <context ref="identifier"/>
+        <context ref="keyword"/>
+        <context ref="constant"/>
+      </include>
+    </context>
+  </definitions>
+</language>
