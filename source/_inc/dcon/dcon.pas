@@ -15,14 +15,24 @@
 
 // MAKE CHECKSUM
 function dc_mkchecksum(s: string): string;
+var
+  b: byte;
+  i: integer = 0;
 begin
-  result := '';
+  for b := 1 to length(s) do i := i + ord(s[b]);
+  i := i mod $100;
+  result := inttostr(i);
 end;
 
 // CHECK RECEIVED STRING WITH CHECKSUM
-function dc_chkchecksum(s: string): boolean;
+function dc_chkchecksum(s, checksum: string): boolean;
+var
+  b: byte;
+  i: integer = 0;
 begin
-  result := true;
+  for b := 1 to length(s) do i := i + ord(s[b]);
+  i := i mod $100;
+  if inttostr(i) = checksum then result := true else result := false;
 end;
 
 // READ AND WRITE FROM/TO A REMOTE DEVICE
@@ -79,6 +89,9 @@ begin
     // disconnect serial port
     ser_close;
     result := tgm;
+    // checksum check
+    if checksum then
+      if not dc_chkchecksum(leftstr(tgm, length(tgm) - 2), rightstr(tgm, 2)) then result := '__';
   end else {$IFNDEF X} writeln(ERR18, dev[device].device); {$ELSE} Form1.Memo1.Lines.Add(ERR18 + dev[device].device); {$ENDIF}
 end;
 
