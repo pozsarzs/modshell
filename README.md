@@ -42,7 +42,7 @@ communicates via various ports using the Modbus and DCON protocol.
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                                                       |
 |script size             |max. 1024 line                                                                              |
 |example scripts         |10 scripts (shellscript and batch file versions)                                            |
-|script syntax plugins   |for MCEdit, Micro, Nano, Notepad++, NeoVim and Vim                                          |
+|script syntax plugins   |for editors using GtkSourceView, MCEdit, Micro, Nano, Notepad++, NeoVim and Vim             |
 
 **Releases**  
 
@@ -55,7 +55,7 @@ The next release will be with the following changes:
  - [x] DCON protocol support;  
  - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  
  - [x] support for variable and constant arrays;  
- - [x] syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes);  
+ - [x] syntax highlighter file for editors using GtkSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes);  
  - [x] syntax highlighting file for Notepad++ (Windows only);  
  - [x] syntax highlighting file for Vim/Neovim.  
 
