@@ -1,14 +1,25 @@
 DCON syntax
 ~~~~~~~~~~~
 
-[delimiter character][address][command][data][checksum][carriage return]
+Abbreviations
+-------------
+  DC    Delimiter Character ($, #, % and @)
+  AD    Address
+  CMD   Command
+  CS    Checksum
 
-- Delimiter:       $, #, % and @
-- Address:         00-FF, remote device address
-- Command:         see manual of remote device
-- Data:            see manual of remote device
-- Checksum:        00-FF, optional
-- Carriage return: 0D
+Message
+-------
+  Message = DC + AD + CMD + data (+ CS)
+
+  DC:     1  char
+  AD:     2  chars
+  CMD:    1- chars
+  data:   0- chars
+  (CS:    2  chars)
+  0x0D:   2  chars
+  -----------------
+  total:  5- chars
 
 Note:
   The checksum equals to the result after performing modulus-256 of all

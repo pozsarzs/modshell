@@ -3,115 +3,173 @@ Modbus telegrams
 
 Abbreviations
 -------------
-  ADU: Application Data Unit
-  CRC: Cyclic Redundancy Check (CRC-16-ANSI also known as CRC-16-IBM)
-  FC:  Function Code
-  PDU: Protocol Data Unit
-  LRC: Longitudinal Redundancy Check
-  TGM: telegram
-  ID:  device Identifiers 
+  ADU   Application Data Unit (Mosbus frame)
+  CRC   Cyclic Redundancy Check (CRC-16-ANSI also known as CRC-16-IBM)
+  FC    Function Code (1-127: REQUEST  and Response, 128-255 Exception FC)
+  LF    Length Field
+  L     Length (count of the following bytesfields: UI + PDU)
+  LRC   Longitudinal Redundancy Check
+  MBAP  Modbus Application Protocol header
+  PDU   Protocol Data Unit
+  PI    Protocol Identifier
+  SA    Slave Address (1-254)
+  TI    Transaction Identifier
+  UI    Unit Identifier (1-254)
 
-Structure
----------
-ASCII:
+Modbus/ASCII
+------------
   PDU = FC + data
-  ADU = ID + PDU + LRC(ID + PDU)
-  TGM = 0x3A + ADU + 0x0D + 0x0A
+  ADU = SA + PDU + LRC(SA + PDU)
+  telegram = 0x3A + ADU + 0x0D + 0x0A
 
-RTU:
+  PDU:
+    FC:         2 chars
+    data:   0-504 chars
+    -------------------
+    total:  2-506 chars
+
+  ADU:
+    SA:         2 chars
+    PDU:    2-506 chars
+    LRC:        2 chars
+    ------------------
+    total:  8-510 chars
+
+  Telegram:
+    0x3A:       2 chars
+    ADU:    8-510 chars
+    0x0D:       2 chars
+    0x0A:       2 chars
+    ------------------
+    total:  4-516 chars
+
+Modbus/RTU
+----------
   PDU = FC + data
-  ADU = ID + PDU + CRC(ID + PDU)
-  TGM = ADU
+  MBAP = TI + PI + L + UI
+  telegram = MBAP + ADU
+
+  PDU:
+    FC:         1 byte
+    data:   0-252 byte
+    ------------------
+    total:  1-253 byte
+
+  MBAP:
+    TI:         2 byte
+    PI:         2 byte
+    L:          2 byte
+    UI:         1 byte
+    ------------------
+    total:      7 byte
+
+  Telegram:
+    MBAP:       7 byte
+    ADU:    4-256 byte
+    ------------------
+    total: 11-513 byte
+
+Modbus/TCP
+----------
+  PDU = FC + data
+  ADU = SA + PDU + CRC(SA + PDU)
+  telegram = ADU
+
+  PDU:
+    FC:         1 byte
+    data:   0-252 byte
+    ------------------
+    total:  1-253 byte
+
+  ADU:
+    SA:         1 byte
+    PDU:    1-253 byte
+    CRC:        2 byte
+    ------------------
+    total:  4-256 byte
+
+  Telegram:
+    ADU:    4-256 byte
+    ------------------
+    total:  4-256 byte
 
 Functions
 ---------
-ID: 8
-ADDRESS: 255
-COUNT: 1
+  ID: 8
+  ADDRESS: 255
+  COUNT: 1
 
-Read coils (FC = 0x01):
+  Read coils (FC = 0x01):
 
-REQUEST|     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
--------|-------------------------------------------------------------------
-ASCII  | 3A  30  38  30  31  30  30  2E  2E  30  30  30  31  XX      0D  0A
-ASCII  |  :   0   8   0   1   0   0   F   F   0   0   0   1   X   X  LF  CR
-RTU    |         08      01      00      FF      00      01  XX  XX
+  REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
+  --------|-------------------------------------------------------------------
+  ASCII   |  :   0   8   0   1   0   0   F   F   0   0   0   1   X   X  LF  CR
+  RTU     |         08      01      00      FF      00      01  XX  XX
 
-ANSWER|     --ID--   --FC--  BYTES-  ----DATA------  -?RC--
-------|-----------------------------------------------------------
-ASCII | 3A  30  38  30  31  30  32  30  30  30  30  XX  XX  0D  0A
-ASCII |  :   0   8   0   1   0   2   0   0   0   0   X   X  LF  CR
-RTU   |         08      01      02              00  XX  XX
+  RESPONSE|     --ID--   --FC--  BYTES-  ----DATA------  -?RC--
+  --------|-----------------------------------------------------------
+  ASCII   |  :   0   8   0   1   0   2   0   0   0   0   X   X  LF  CR
+  RTU     |         08      01      02              00  XX  XX
 
-Read discrete inputs (FC = 0x02):
+  Read discrete inputs (FC = 0x02):
 
-REQUEST|     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
--------|-------------------------------------------------------------------
-ASCII  | 3A  30  38  30  32  30  30  2E  2E  30  30  30  31  XX  XX  0D  0A
-ASCII  |  :   0   8   0   2   0   0   F   F   0   0   0   1   X   X  LF  CR
-RTU    |         08      02      00      FF      00      01  XX  XX
+  REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
+  --------|-------------------------------------------------------------------
+  ASCII   |  :   0   8   0   2   0   0   F   F   0   0   0   1   X   X  LF  CR
+  RTU     |         08      02      00      FF      00      01  XX  XX
 
-ANSWER |     --ID--  --FC--  BYTES-  ----DATA------  -?RC--
--------|-----------------------------------------------------------
-ASCII  | 3A  30  38  30  32  30  32  30  30  30  30  XX  XX  0D  0A
-ASCII  |  :   0   8   0   2   0   2   0   0   0   0   X   X  LF  CR
-RTU    |         08      02      02              00  XX  XX
+  RESPONSE|     --ID--  --FC--  BYTES-  ----DATA------  -?RC--
+  --------|-----------------------------------------------------------
+  ASCII   |  :   0   8   0   2   0   2   0   0   0   0   X   X  LF  CR
+  RTU     |         08      02      02              00  XX  XX
 
-Read holding registers (FC = 0x03):
+  Read holding registers (FC = 0x03):
 
-REQUEST|     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
--------|-------------------------------------------------------------------
-ASCII  | 3A  30  38  30  33  30  30  2E  2E  30  30  30  31  XX  XX  0D  0A
-ASCII  |  :   0   8   0   3   0   0   F   F   0   0   0   1   X   X  LF  CR
-RTU    |         08      03      00      FF      00      01  XX  XX
+  REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
+  --------|-------------------------------------------------------------------
+  ASCII   |  :   0   8   0   3   0   0   F   F   0   0   0   1   X   X  LF  CR
+  RTU     |         08      03      00      FF      00      01  XX  XX
 
-ANSWER |     --ID--  --FC--  BYTES-  ----DATA------  -?RC--
--------|-----------------------------------------------------------
-ASCII  | 3A  30  38  30  33  30  32  30  30  30  30  XX  XX  0D  0A
-ASCII  |  :   0   8   0   3   0   2   0   0   0   0   X   X  LF  CR
-RTU    |         08      03      02      00      00  XX  XX
+  RESPONSE|     --ID--  --FC--  BYTES-  ----DATA------  -?RC--
+  --------|-----------------------------------------------------------
+  ASCII   |  :   0   8   0   3   0   2   0   0   0   0   X   X  LF  CR
+  RTU     |         08      03      02      00      00  XX  XX
 
-Read input registers (FC = 0x04):
+  Read input registers (FC = 0x04):
 
-REQUEST|     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
--------|-------------------------------------------------------------------
-ASCII  | 3A  30  38  30  34  30  30  2E  2E  30  30  30  31  XX  XX  0D  0A
-ASCII  |  :   0   8   0   4   0   0   F   F   0   0   0   1   X   X  LF  CR
-RTU    |         08      04      00      FF      00      01  XX  XX
+  REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
+  --------|-------------------------------------------------------------------
+  ASCII   |  :   0   8   0   4   0   0   F   F   0   0   0   1   X   X  LF  CR
+  RTU     |         08      04      00      FF      00      01  XX  XX
 
-ANSWER |     --ID--  --FC--  BYTES-  ----DATA------  -?RC--
--------|-----------------------------------------------------------
-ASCII  | 3A  30  38  30  34  30  32  30  30  30  30  XX  XX  0D  0A
-ASCII  |  :   0   8   0   4   0   2   0   0   0   0   X   X  LF  CR
-RTU    |         08      04      02      00      00  XX  XX
+  RESPONSE|     --ID--  --FC--  BYTES-  ----DATA------  -?RC--
+  --------|-----------------------------------------------------------
+  ASCII   |  :   0   8   0   4   0   2   0   0   0   0   X   X  LF  CR
+  RTU     |         08      04      02      00      00  XX  XX
 
-Write multiple coils (FC = 0x0F):
+  Write multiple coils (FC = 0x0F):
 
-REQUEST|     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  BYTES-  -----DATA-----  -?RC--
--------|-------------------------------------------------------------------------------------------
-ASCII  | 3A  30  38  30  2E  30  30  2E  2E  30  30  31  00  30  32  00  00  00  00  XX  XX  0D  0A
-ASCII  |  :   0   8   0   F   0   0   F   F   0   0   1   0   0   2   0   0   0   0   X   X  LF  CR
-RTU    |         08      0F      00      FF      00      10      02      00      00  XX  XX
+  REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  BYTES-  -----DATA-----  -?RC--
+  --------|-------------------------------------------------------------------------------------------
+  ASCII   |  :   0   8   0   F   0   0   F   F   0   0   1   0   0   2   0   0   0   0   X   X  LF  CR
+  RTU     |         08      0F      00      FF      00      10      02      00      00  XX  XX
 
-ANSWER |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----   -?RC--
--------|--------------------------------------------------------------------
-ASCII  | 3A  30  38  30  2E  30  30  2E  2E  30  30  31  00   XX  XX  0D  0A
-ASCII  |  :   0   8   0   F   0   0   F   F   0   0   1   0    X   X  LF  CR
-RTU    |         08      0F      00      FF      00      10   XX  XX
+  RESPONSE|     --ID--  --FC--  ---ADDRESS----  ----COUNT-----   -?RC--
+  --------|--------------------------------------------------------------------
+  ASCII   |  :   0   8   0   F   0   0   F   F   0   0   1   0    X   X  LF  CR
+  RTU     |         08      0F      00      FF      00      10   XX  XX
 
-Write multiple holding registers (FC = 0x10):
+  Write multiple holding registers (FC = 0x10):
 
-REQUEST|     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  BYTES-  -----DATA-----  -?RC--
--------|-------------------------------------------------------------------------------------------
-ASCII  | 3A  30  38  31  30  30  30  2E  2E  30  30  30  31  30  32  00  00  00  00  XX  XX  0D  0A
-ASCII  |  :   0   8   1   0   0   0   F   F   0   0   0   1   0   2  00  00  00  00   X   X  LF  CR
-RTU    |         08      10      00      FF      00      01      02      00      00  XX  XX
+  REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  BYTES-  -----DATA-----  -?RC--
+  --------|-------------------------------------------------------------------------------------------
+  ASCII   |  :   0   8   1   0   0   0   F   F   0   0   0   1   0   2  00  00  00  00   X   X  LF  CR
+  RTU     |         08      10      00      FF      00      01      02      00      00  XX  XX
 
-ANSWER |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----   -?RC--
--------|--------------------------------------------------------------------
-ASCII  | 3A  30  38  31  30  30  30  2E  2E  30  30  30  31   XX  XX  0D  0A
-ASCII  |  :   0   8   1   0   0   0   F   F   0   0   0   1    X   X  LF  CR
-RTU    |         08      10      00      FF      00      01   XX  XX
+  RESPONSE|     --ID--  --FC--  ---ADDRESS----  ----COUNT-----   -?RC--
+  --------|--------------------------------------------------------------------
+  ASCII   |  :   0   8   1   0   0   0   F   F   0   0   0   1    X   X  LF  CR
+  RTU     |         08      10      00      FF      00      01   XX  XX
 
 Error codes in the response
 ---------------------------
