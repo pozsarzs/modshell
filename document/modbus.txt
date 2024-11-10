@@ -46,32 +46,6 @@ Modbus/ASCII
 Modbus/RTU
 ----------
   PDU = FC + data
-  MBAP = TI + PI + L + UI
-  telegram = MBAP + ADU
-
-  PDU:
-    FC:         1 byte
-    data:   0-252 byte
-    ------------------
-    total:  1-253 byte
-
-  MBAP:
-    TI:         2 byte
-    PI:         2 byte
-    L:          2 byte
-    UI:         1 byte
-    ------------------
-    total:      7 byte
-
-  Telegram:
-    MBAP:       7 byte
-    ADU:    4-256 byte
-    ------------------
-    total: 11-513 byte
-
-Modbus/TCP
-----------
-  PDU = FC + data
   ADU = SA + PDU + CRC(SA + PDU)
   telegram = ADU
 
@@ -92,6 +66,32 @@ Modbus/TCP
     ADU:    4-256 byte
     ------------------
     total:  4-256 byte
+
+Modbus/TCP
+----------
+  PDU = FC + data
+  MBAP = TI + PI + L + UI
+  telegram = MBAP + PDU
+
+  PDU:
+    FC:         1 byte
+    data:   0-252 byte
+    ------------------
+    total:  1-253 byte
+
+  MBAP:
+    TI:         2 byte
+    PI:         2 byte
+    L:          2 byte
+    UI:         1 byte
+    ------------------
+    total:      7 byte
+
+  Telegram:
+    MBAP:       7 byte
+    ADU:    4-256 byte
+    ------------------
+    total: 11-513 byte
 
 Functions
 ---------
