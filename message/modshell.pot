@@ -1132,10 +1132,9 @@ msgstr ""
 
 #: modshell:usg08
 msgid ""
-"set dev? net [$]DEVICE [$]PORT\n"
+"set dev? net [$]DEVICE [$]IP_ADDRESS [$]PORT\n"
 "  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]ID\n"
-"  set pro? tcp [$]IP_ADDRESS\n"
+"  set pro? ascii|rtu|tcp [$]ID\n"
 "  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON\n"

@@ -311,10 +311,9 @@ resourcestring
   USG07='reset dev?|pro?|con?|project' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
-  USG08='set dev? net [$]DEVICE [$]PORT' + EOL +
+  USG08='set dev? net [$]DEVICE [$]IP_ADDRESS [$]PORT' + EOL +
         '  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT' + EOL +
-        '  set pro? ascii|rtu [$]ID' + EOL +
-        '  set pro? tcp [$]IP_ADDRESS' + EOL +
+        '  set pro? ascii|rtu|tcp [$]ID' + EOL +
         '  set pro? dcon [$]ADDRESS' + EOL +
         '  set con? dev? pro?' + EOL +
         '  set color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON' + EOL +

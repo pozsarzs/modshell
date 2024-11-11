@@ -15,10 +15,9 @@
 {
   p0  p1      p2             p3            p4              p5                 p6        p7
   ------------------------------------------------------------------------------------------------
-  set dev?    net            [$]DEVICE     PORT
+  set dev?    net            [$]DEVICE     [$]IP_ADDRESS   [$]PORT
   set dev?    ser            [$]DEVICE     [$]BAUDRATE     [$]DATABIT         [$]PARITY [$]STOPBIT
-  set pro?    ascii|rtu      [$]ID
-  set pro?    tcp            [$]IP_ADDRESS
+  set pro?    ascii|rtu|tcp  [$]ID
   set pro?    dcon           [$]ADDRESS
   set con?    dev?           pro?
   set color   [$]FOREGROUND  [$]BACKGROUND [$]RECEIVEDTEXT [$]TRANSMITTEDTEXT [$]VARMON
@@ -44,7 +43,8 @@ var
     s4, s5, s6, s7: string; // parameters in other type
   begin
     // 1ST CHECK LENGTH OF PARAMETERS
-    if (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0) then
+    if (length(p2) = 0) or (length(p3) = 0) or
+       (length(p4) = 0) or (length(p5) = 0) then
     begin
       // Parameter(s) required!
       {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
@@ -76,10 +76,23 @@ var
       if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
       if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
       if length(s4) = 0 then s4 := p4;
-      if (strtointdef(s4, -1) < 0 ) or (strtointdef(s4, -1) > 65535) then
+      if not checkipaddress(p4) then
       begin
-        // What is the 4th parameter?
-        {$IFNDEF X} writeln(NUM4 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-65535'); {$ENDIF}
+        // Invalid IP address!
+        {$IFNDEF X} writeln(ERR04); {$ELSE} Form1.Memo1.Lines.Add(ERR04); {$ENDIF}
+        error := 1;
+        exit;
+      end;
+      // CHECK P5 PARAMETER
+      if boolisitconstant(p5) then s5 := isitconstant(p5);
+      if boolisitvariable(p5) then s5 := isitvariable(p5);
+      if boolisitconstantarray(p5) then s5 := isitconstantarray(p5);
+      if boolisitvariablearray(p5) then s5 := isitvariablearray(p5);
+      if length(s5) = 0 then s5 := p5;
+      if (strtointdef(s5, -1) < 0 ) or (strtointdef(s5, -1) > 65535) then
+      begin
+        // What is the 5th parameter?
+        {$IFNDEF X} writeln(NUM5 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-65535'); {$ENDIF}
         error := 1;
         exit;
       end;
@@ -89,7 +102,8 @@ var
         valid := true;
         devtype := dvt;
         device := p3;
-        port := strtointdef(s4, 0);
+        ipaddress := p4;
+        port := strtointdef(s5, 0);
       end;
     end else
     begin
@@ -225,40 +239,28 @@ var
       if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
       if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
       if length(s3) = 0 then s3 := p3;
-      if prt < 2 then
+      if prt < 3 then
         if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 247) then
         begin
           // Device ID must be 1-247!
           {$IFNDEF X} writeln(ERR06); {$ELSE} Form1.Memo1.Lines.Add(ERR06); {$ENDIF}
           error := 1;
           exit;
-        end;
-      if prt = 3 then
-        if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 255) then
-        begin
-          // Address must be 1-255!
-          {$IFNDEF X} writeln(ERR54); {$ELSE} Form1.Memo1.Lines.Add(ERR54); {$ENDIF}
-          error := 1;
-          exit;
-        end;
+        end else
+          if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 255) then
+          begin
+            // Address must be 1-255!
+            {$IFNDEF X} writeln(ERR54); {$ELSE} Form1.Memo1.Lines.Add(ERR54); {$ENDIF}
+            error := 1;
+            exit;
+          end;
     end else
-      if not checkipaddress(p3) then
-      begin
-        // Invalid IP address!
-        {$IFNDEF X} writeln(ERR04); {$ELSE} Form1.Memo1.Lines.Add(ERR04); {$ENDIF}
-        error := 1;
-        exit;
-      end;
     // PRIMARY MISSION
     with prot[strtoint(n)] do
     begin
       valid := true;
       prottype := prt;
-      if (prt < 2) or (prt = 3)
-      then
-        id := strtointdef(s3, 1)
-      else
-        ipaddress := p3;
+      id := strtointdef(s3, 1)
     end;
   end;
 

@@ -33,8 +33,9 @@ type
   end;
   tdevice = record
     valid: boolean;               // false|true: invalid|valid
-    devtype: byte;                // 0..1 -> DEV_TYPE
+    devtype: byte;                // 0..2 -> DEV_TYPE
     device: string[15];           // /dev/ttySx, /dev/ttyUSBx, /dev/ttyAMAx, COMx, etc.
+    ipaddress: string[15];        // a.b.c.d
     port: word;                   // 0-65535
     speed: byte;                  // 0..7 -> DEV_SPEED
     databit: byte;                // 7|8
@@ -43,8 +44,7 @@ type
   end;
   tprotocol = record
     valid: boolean;               // false|true: invalid|valid
-    prottype: byte;               // 0..2 -> PROT_TYPE
-    ipaddress: string[15];        // a.b.c.d
+    prottype: byte;               // 0..3 -> PROT_TYPE
     id: integer;                  // 1..247 or 1..255
   end;
   tvariable = record

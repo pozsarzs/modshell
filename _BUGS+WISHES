@@ -1,6 +1,5 @@
 KNOWN BUT NOT FIXED BUGS DURING DEVELOPMENT AND OTHER WISHES
 --------------------------------------------------------------------------------
-B  dcon.pas  Checksum verification of the response is missing.
 --------------------------------------------------------------------------------
 Note:
   B: Both of them

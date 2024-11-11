@@ -313,11 +313,12 @@ Gets configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
 Resets configuration of a device (\fIdev?\fP), protocol (\fIpro?\fP) or connection
 (\fIcon?\fP), or reset project name (\fIproject\fP). ? number must be 0-7.
 .TP
-\fBset\fP \fIdev?\fP \fInet\fP \fI[$]DEVICE\fP \fI[$]PORT\fP
+\fBset\fP \fIdev?\fP \fInet\fP \fI[$]DEVICE\fP \fI[$]IP_ADDRESS\fP \fI[$]PORT\fP
 Sets device (\fIdev?\fP) to ethernet (\fInet\fP) device. Device number must be
 between 0-7 and port number must be between 0-65535. The \fIDEVICE\fP name on
 DOS is always PACKET, on other systems is the name of the adapter (e.g. eth0,
-nfe0, etc.).
+nfe0, etc.). Address of remote device (\fIIP_ADDRESS\fP) must be in a.b.c.d format,
+with values between 1-255.
 .TP
 \fBset\fP \fIdev?\fP \fIser\fP \fI[$]DEVICE\fP \fI[$]BAUDRATE\fP \fI[$]DATABIT\fP \fI[$]PARITY\fP \fI[$]STOPBIT\fP
 Sets device (\fIdev?\fP) to serial (\fIser\fP) device. Device number must be
@@ -326,13 +327,8 @@ ttyUSB0, ttyAMA0 etc.). \fIBAUDRATE\fP must be: 1200; 2400; 4800; 9600; 19200;
 38400; 57600 or 115200. \fIDATABIT\fP must be 7 or 8, \fIPARITY\fP must be E/N/O
 (even/none/odd). \fISTOPBIT\fP must be 1 or 2.
 .TP
-\fBset\fP \fIpro?\fP \fIascii\fP|\fIrtu\fP \fI[$]ID\fP
-Sets protocol (\fIpro?\fP) to Modbus/ASCII (\fIascii\fP) or Modbus/RTU (\fIrtu\fP).
-Unit ID (\fIID\fP) must be between 1-247.
-.TP
-\fBset\fP \fIpro?\fP \fItcp\fP \fI[$]IP_ADDRESS\fP
-Sets protocol (\fIpro?\fP) to Modbus/TCP (\fItcp\fP). Address of remote device
-(\fIIP_ADDRESS\fP) must be in a.b.c.d format, with values between 1-255.
+\fBset\fP \fIpro?\fP \fIascii\fP|\fIrtu\fP|\fItcp\fP \fI[$]ID\fP
+Sets protocol (\fIpro?\fP) and unit ID. Unit ID (\fIID\fP) must be between 1-247.
 .TP
 \fBset\fP \fIpro?\fP \fIdcon\fP \fI[$]ADDRESS\fP
 Sets protocol (\fIpro?\fP) to DCON (\fIdcon\fP). Address of remote device
@@ -751,11 +747,11 @@ Get configuration of a device #2.
 \fBreset\fP project
 Reset project name (project name will be 'default').
 .TP
-\fBset\fP dev0 net /dev/enp0s7 502
-Set device #0 to '/dev/enp0s7' ethernet device with 502 port.
+\fBset\fP dev0 net /dev/enp0s7 192.168.10.11 502
+Set device #0 to '/dev/enp0s7' ethernet device with 192.168.10.11 IP-address and 502 port.
 .TP
-\fBset\fP dev0 net /dev/enp0s7 $P
-Set device #0 to '/dev/enp0s7' ethernet device with value of the $P port.
+\fBset\fP dev0 net /dev/enp0s7 $A $P
+Set device #0 to '/dev/enp0s7' ethernet device with value of the $A IP-address and $P port.
 .TP
 \fBset\fP dev1 ser ttyS0 9600 8 N 1
 Set device #1 to /dev/ttyS0 serial device, with 9600 baud, 8 databits,
@@ -771,9 +767,6 @@ parity check and $t stopbit.
 .TP
 \fBset\fP pro0 ascii 100
 Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).
-.TP
-\fBset\fP pro2 tcp 192.168.100.2
-Set protocol #2 to Modbus/TCP with IP address of server.
 .TP
 \fBset\fP con0 dev0 pro2
 Assigns a device #0 and protocol #2 to connection #0.

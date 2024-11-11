@@ -38,10 +38,12 @@ var
                {$IFNDEF X}
                  writeln(PREFIX[pr], n, ':');
                  writeln(MSG07 + device);
+                 writeln(MSG12, ipaddress);
                  writeln(MSG08, port);
                {$ELSE}
                  Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
                  Form1.Memo1.Lines.Add(MSG07 + device);
+                 Form1.Memo1.Lines.Add(MSG12 + ipaddress);
                  Form1.Memo1.Lines.Add(MSG08 + inttostr(port));
                {$ENDIF}
              end else
@@ -68,7 +70,7 @@ var
          then
            with prot[n] do
            begin
-             if prottype < 2 then
+             if prottype < 3 then
              begin
                {$IFNDEF X}
                  writeln(PREFIX[pr], n, ':');
@@ -79,20 +81,7 @@ var
                  Form1.Memo1.Lines.Add(MSG11 + PROT_TYPE[prottype]);
                  Form1.Memo1.Lines.Add(MSG13 + inttostr(id));
                {$ENDIF}
-             end;
-             if prottype = 2 then
-             begin
-               {$IFNDEF X}
-                 writeln(PREFIX[pr], n, ':');
-                 writeln(MSG11 + PROT_TYPE[prottype]);
-                 writeln(MSG12, ipaddress);
-               {$ELSE}
-                 Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
-                 Form1.Memo1.Lines.Add(MSG11 + PROT_TYPE[prottype]);
-                 Form1.Memo1.Lines.Add(MSG12 + ipaddress);
-               {$ENDIF}
-             end;
-             if prottype = 3 then
+             end else
              begin
                {$IFNDEF X}
                  writeln(PREFIX[pr], n, ':');
