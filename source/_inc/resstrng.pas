@@ -75,12 +75,12 @@ resourcestring
   MSG48 = 'background';
   MSG49 = 'type';
   MSG50 = 'device';
-  MSG51 = 'port/baudrate';
-  MSG52 = 'databits';
+  MSG51 = 'baudrate' + EOL + 'IP address';
+  MSG52 = 'databits' + EOL + 'port';
   MSG53 = 'parity';
   MSG54 = 'stopbit(s)';
   MSG55 = 'protocol';
-  MSG56 = 'ID/(IP) address';
+  MSG56 = 'ID/address';
   MSG57 = 'CSV file|*.csv|INI file|*.ini|XML file|*.xml';
   MSG58 = 'INI file|*.ini|XML file|*.xml';
   MSG59 = 'registers';
