@@ -116,6 +116,7 @@ type
     MenuItem50: TMenuItem;
     MenuItem51: TMenuItem;
     MenuItem52: TMenuItem;
+    MenuItem53: TMenuItem;
     MenuItem54: TMenuItem;
     MenuItem56: TMenuItem;
     MenuItem57: TMenuItem;
@@ -205,6 +206,7 @@ type
     procedure MenuItem50Click(Sender: TObject);
     procedure MenuItem51Click(Sender: TObject);
     procedure MenuItem52Click(Sender: TObject);
+    procedure MenuItem53Click(Sender: TObject);
     procedure MenuItem54Click(Sender: TObject);
     procedure MenuItem56Click(Sender: TObject);
     procedure MenuItem57Click(Sender: TObject);
@@ -382,7 +384,22 @@ end;
 
 // -- MAIN MENU/File -----------------------------------------------------------
 
-// RUN command 'exit'
+// RESTART APPLICATION
+procedure TForm1.MenuItem53Click(Sender: TObject);
+var
+  LProcess1 : TProcess;
+begin
+  LProcess1 := TProcess.Create(nil);
+  with LProcess1 do
+  begin
+    Executable := Application.ExeName;
+    Execute;
+    Free;
+  end;
+  Application.Terminate;
+end;
+
+// RUN COMMAND 'exit'
 procedure TForm1.MenuItem20Click(Sender: TObject);
 begin
   menucmd := COMMANDS[1];
@@ -456,35 +473,73 @@ begin
   LSaveDialog1.Free;
 end;
 
-// RUN COMMAND 'set prj ...' WITH InputBox
+// RUN COMMAND 'set project ...' WITH InputBox
 procedure TForm1.MenuItem38Click(Sender: TObject);
 begin
-  menucmd := COMMANDS[8] + ' prj ' + InputBox(rmampdot(MenuItem38.Caption), MSG71, vars[12].vvalue);
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
-  Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vvalue;
-  Label1.Caption := fullprompt;
+  menucmd := InputBox(rmampdot(MenuItem38.Caption), MSG71, vars[12].vvalue);
+  if length(menucmd) = 0 then showmessage(ERR57) else
+  begin
+    menucmd := COMMANDS[8] + ' project ' + menucmd;
+    Memo1.Lines.Add(fullprompt + menucmd);
+    parsingcommands(menucmd);
+    Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vvalue;
+    Label1.Caption := fullprompt;
+  end;
 end;
 
-// RUN COMMAND 'reset prj'
+// RUN COMMAND 'reset project'
 procedure TForm1.MenuItem42Click(Sender: TObject);
 begin
-  menucmd := COMMANDS[7] + ' prj';
+  menucmd := COMMANDS[7] + ' project';
   Memo1.Lines.Add(fullprompt + menucmd);
   parsingcommands(menucmd);
   Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vvalue;
   Label1.Caption := fullprompt;
 end;
 
-// RUN COMMAND 'get prj'
+// RUN COMMAND 'get project'
 procedure TForm1.MenuItem46Click(Sender: TObject);
 begin
-  menucmd := COMMANDS[2] + ' prj';
+  menucmd := COMMANDS[2] + ' project';
   Memo1.Lines.Add(fullprompt + menucmd);
   parsingcommands(menucmd);
 end;
 
 // RUN COMMAND 'set dev? ...' WITH DIALOG
+procedure TForm1.LComboBox1Change(Sender: TObject);
+var
+  LComboBox2: TComboBox;
+  LEdit2, LEdit3: TEdit;
+  LSpinEdit2, LSpinEdit3, LSpinEdit4: TSpinEdit;
+begin
+  if Sender is TCombobox then
+  begin
+    LComboBox2 := TComboBox(TForm(TComboBox(Sender).Parent).FindComponent('LComboBox2'));
+    LEdit2 := TEdit(TForm(TComboBox(Sender).Parent).FindComponent('LEdit2'));
+    LEdit3 := TEdit(TForm(TComboBox(Sender).Parent).FindComponent('LEdit3'));
+    LSpinEdit2 := TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit2'));
+    LSpinEdit3 := TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit3'));
+    LSpinEdit4 := TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit4'));
+    if TCombobox(Sender).ItemIndex = 0 then
+    begin
+      if assigned(LComboBox2) then LComboBox2.Enabled := true;
+      if assigned(LEdit2) then LEdit2.Enabled := true;
+      if assigned(LEdit3) then LEdit3.Enabled := false;
+      if assigned(LSpinEdit2) then LSpinEdit2.Enabled := true;
+      if assigned(LSpinEdit3) then LSpinEdit3.Enabled := true;
+      if assigned(LSpinEdit4) then LSpinEdit4.Enabled := false;
+    end else
+    begin
+      if assigned(LComboBox2) then LComboBox2.Enabled := false;
+      if assigned(LEdit2) then LEdit2.Enabled := false;
+      if assigned(LEdit3) then LEdit3.Enabled := true;
+      if assigned(LSpinEdit2) then LSpinEdit2.Enabled := false;
+      if assigned(LSpinEdit3) then LSpinEdit3.Enabled := false;
+      if assigned(LSpinEdit4) then LSpinEdit4.Enabled := true;
+    end;
+  end;
+end;
+
 procedure TForm1.MenuItem39Click(Sender: TObject);
 var
   Form: TForm;
@@ -592,9 +647,11 @@ begin
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
       BorderSpacing.Right := 8;
+    Name := 'LEdit2';
     Parent := Form;
     TabOrder := 3;
     Width := 120;
+    Clear;
   end;
   with LSpinEdit2 do  // databits
   begin
@@ -605,6 +662,7 @@ begin
       AnchorSideLeft.Control := LEdit2;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
+    Name := 'LSpinEdit2';
     Parent := Form;
     MinValue := 7;
     MaxValue := 8;
@@ -627,6 +685,7 @@ begin
     Items.Add('E');
     Items.Add('O');
     ItemIndex := 0;
+    Name := 'LComboBox2';
     Parent := Form;
     ReadOnly := true;
     TabOrder := 5;
@@ -641,6 +700,7 @@ begin
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
       BorderSpacing.Right := 8;
+    Name := 'LSpinEdit3';
     Parent := Form;
     MinValue := 1;
     MaxValue := 2;
@@ -753,6 +813,8 @@ begin
       AnchorSideRight.Control := LEdit2;
       AnchorSideRight.Side := asrRight;
       BorderSpacing.Right := 0;
+    Enabled := false;
+    Name := 'LEdit3';
     Parent := Form;
     TabOrder := 7;
     Text := '192.168.0.1';
@@ -769,7 +831,9 @@ begin
       AnchorSideRight.Control := LSpinEdit2;
       AnchorSideRight.Side := asrRight;
       BorderSpacing.Right := 0;
-      Parent := Form;
+    Enabled := false;
+    Name := 'LSpinEdit4';
+    Parent := Form;
     MinValue := 0;
     MaxValue := 65535;
     Value := 502;
@@ -842,10 +906,6 @@ begin
     parsingcommands(menucmd);
   end;
   FreeAndNil(Form);
-end;
-
-procedure TForm1.LComboBox1Change(Sender: TObject);
-begin
 end;
 
 // RUN COMMAND 'reset dev? ...' WITH DIALOG
@@ -2679,12 +2739,14 @@ begin
   begin
     with Form do
     begin
-      menucmd := COMMANDS[17] + ' ' +
+      menucmd := COMMANDS[17] + ' $i ' +
         NUM_SYS[LRadioGroup1.ItemIndex] + ' ' +
         NUM_SYS[LRadioGroup2.ItemIndex] + ' ' +
         LEdit1.Text;
       Memo1.Lines.Add(fullprompt + menucmd);
+      parsingcommands('var i');
       parsingcommands(menucmd);
+      parsingcommands('print $i');
     end;
   end;
   FreeAndNil(Form);
@@ -3174,17 +3236,20 @@ var
   LProcess1: TProcess;
 begin
   LProcess1 := TProcess.Create(Self);
-  if length(BROWSER) > 0 then
+  with LProcess1 do
   begin
-    LProcess1.Executable := BROWSER;
-    LProcess1.Parameters.Add('https://github.com/pozsarzs/modshell/wiki');
-    try
-      LProcess1.Execute;
-    except
-      ShowMessage(ERR38);
+    if length(BROWSER) > 0 then
+    begin
+      Executable := BROWSER;
+      Parameters.Add('https://github.com/pozsarzs/modshell/wiki');
+      try
+        Execute;
+      except
+        ShowMessage(ERR38);
+      end;
     end;
+    Free;
   end;
-  LProcess1.Free;
 end;
 
 // OPEN HOMEPAGE
@@ -3193,17 +3258,20 @@ var
   LProcess1: TProcess;
 begin
   LProcess1 := TProcess.Create(Self);
-  if length(BROWSER) > 0 then
+  with LProcess1 do
   begin
-    LProcess1.Executable := BROWSER;
-    LProcess1.Parameters.Add('https://pozsarzs.github.io/modshell/');
-    try
-      LProcess1.Execute;
-    except
-      ShowMessage(ERR38);
+    if length(BROWSER) > 0 then
+    begin
+      Executable := BROWSER;
+      Parameters.Add('https://pozsarzs.github.io/modshell/');
+      try
+        Execute;
+      except
+        ShowMessage(ERR38);
+      end;
     end;
+    Free;
   end;
-  LProcess1.Free;
 end;
 
 // OPEN GITHUB PROJECT PAGE
@@ -3212,17 +3280,20 @@ var
   LProcess1: TProcess;
 begin
   LProcess1 := TProcess.Create(Self);
-  if length(BROWSER) > 0 then
+  with LProcess1 do
   begin
-    LProcess1.Executable := BROWSER;
-    LProcess1.Parameters.Add('https://github.com/pozsarzs/modshell');
-    try
-      LProcess1.Execute;
-    except
-      ShowMessage(ERR38);
+    if length(BROWSER) > 0 then
+    begin
+      Executable := BROWSER;
+      Parameters.Add('https://github.com/pozsarzs/modshell');
+      try
+        Execute;
+      except
+        ShowMessage(ERR38);
+      end;
     end;
+    Free;
   end;
-  LProcess1.Free;
 end;
 
 // RUN COMMAND 'ver'

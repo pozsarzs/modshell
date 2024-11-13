@@ -23,6 +23,7 @@
 {"hash":151863744,"name":"tform1.toolbutton20.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,50,48],"value":"ToolButton20"},
 {"hash":86477809,"name":"tform1.label1.caption","sourcebytes":[76,97,98,101,108,49],"value":"Label1"},
 {"hash":2805797,"name":"tform1.menuitem1.caption","sourcebytes":[38,70,105,108,101],"value":"&File"},
+{"hash":147499556,"name":"tform1.menuitem53.caption","sourcebytes":[38,82,101,115,116,97,114,116],"value":"&Restart"},
 {"hash":2805508,"name":"tform1.menuitem20.caption","sourcebytes":[38,69,120,105,116],"value":"&Exit"},
 {"hash":127273236,"name":"tform1.menuitem5.caption","sourcebytes":[38,80,114,111,106,101,99,116],"value":"&Project"},
 {"hash":152572158,"name":"tform1.menuitem37.caption","sourcebytes":[38,76,111,97,100,32,99,111,110,102,105,103,117,114,97,116,105,111,110,46,46],"value":"&Load configuration.."},

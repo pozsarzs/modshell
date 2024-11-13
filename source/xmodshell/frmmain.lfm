@@ -585,6 +585,11 @@ object Form1: TForm1
     Left = 368
     object MenuItem1: TMenuItem
       Caption = '&File'
+      object MenuItem53: TMenuItem
+        Caption = '&Restart'
+        ImageIndex = 19
+        OnClick = MenuItem53Click
+      end
       object MenuItem20: TMenuItem
         Caption = '&Exit'
         ImageIndex = 0
