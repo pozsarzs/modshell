@@ -157,7 +157,7 @@ begin
           Form1.ComboBox1.Enabled := true;
           if f3active then Form3.Memo1.SetFocus; // else Form1.ComboBox1.SetFocus;
         {$ENDIF}
-      end else {$IFNDEF X} writeln(ERR00); {$ELSE} Form1.Memo1.Lines.Add(ERR00); {$ENDIF}
+      end else {$IFNDEF X} writeln(ERR00); {$ELSE} Form1.Memo1.Lines.Add(ERR00 + command); {$ENDIF}
     end;
   end;
 end;

@@ -30,8 +30,8 @@ var
   procedure showsettings(pr, n: byte);
   begin
     case pr of
-      0: if dev[n].valid
-         then
+      0: if dev[n].valid then
+         begin
            with dev[n] do
              if devtype = 0 then
              begin
@@ -59,49 +59,35 @@ var
                  Form1.Memo1.Lines.Add(MSG09 + DEV_SPEED[speed]);
                  Form1.Memo1.Lines.Add(MSG10 + inttostr(databit) + upcase(DEV_PARITY[parity]) + inttostr(stopbit));
                {$ENDIF}
-             end
-         else
+             end;
+           end else
            {$IFNDEF X}
              writeln(PREFIX[pr], n, MSG06);
            {$ELSE}
              Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + MSG06);
            {$ENDIF}
-      1: if prot[n].valid
-         then
+      1: if prot[n].valid then
+         begin
            with prot[n] do
            begin
-             if prottype < 3 then
-             begin
-               {$IFNDEF X}
-                 writeln(PREFIX[pr], n, ':');
-                 writeln(MSG11 + PROT_TYPE[prottype]);
-                 writeln(MSG13, id);
-               {$ELSE}
-                 Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
-                 Form1.Memo1.Lines.Add(MSG11 + PROT_TYPE[prottype]);
-                 Form1.Memo1.Lines.Add(MSG13 + inttostr(id));
-               {$ENDIF}
-             end else
-             begin
-               {$IFNDEF X}
-                 writeln(PREFIX[pr], n, ':');
-                 writeln(MSG11 + PROT_TYPE[prottype]);
-                 writeln(MSG86, id);
-               {$ELSE}
-                 Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
-                 Form1.Memo1.Lines.Add(MSG11 + PROT_TYPE[prottype]);
-                 Form1.Memo1.Lines.Add(MSG86 + inttostr(id));
-               {$ENDIF}
-             end;
-           end
-         else
+             {$IFNDEF X}
+               writeln(PREFIX[pr], n, ':');
+               writeln(MSG11 + PROT_TYPE[prottype]);
+               if prottype = 3 then writeln(MSG86, id) else writeln(MSG13, id);
+             {$ELSE}
+               Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
+               Form1.Memo1.Lines.Add(MSG11 + PROT_TYPE[prottype]);
+               if prottype = 3 then Form1.Memo1.Lines.Add(MSG86 + inttostr(id)) else Form1.Memo1.Lines.Add(MSG13 + inttostr(id));
+             {$ENDIF}
+           end;
+         end else
            {$IFNDEF X}
              writeln(PREFIX[pr], n, MSG06);
            {$ELSE}
              Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + MSG06);
            {$ENDIF}
-      2: if conn[n].valid
-         then
+      2: if conn[n].valid then
+         begin
            with conn[n] do
            begin
            {$IFNDEF X}
@@ -113,8 +99,8 @@ var
              Form1.Memo1.Lines.Add(MSG07 + PREFIX[0] + inttostr(dev));
              Form1.Memo1.Lines.Add(MSG11 + PREFIX[1] + inttostr(prot));
            {$ENDIF}
-           end
-       else
+           end;
+         end else
            {$IFNDEF X}
              writeln(PREFIX[pr], n, MSG06);
            {$ELSE}

@@ -232,29 +232,26 @@ var
       exit;
     end;
     // CHECK P3 PARAMETER
-    if (prt < 2) or (prt = 3) then
-    begin
-      if boolisitconstant(p3) then s3 := isitconstant(p3);
-      if boolisitvariable(p3) then s3 := isitvariable(p3);
-      if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
-      if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
-      if length(s3) = 0 then s3 := p3;
-      if prt < 3 then
-        if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 247) then
+    if boolisitconstant(p3) then s3 := isitconstant(p3);
+    if boolisitvariable(p3) then s3 := isitvariable(p3);
+    if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+    if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
+    if length(s3) = 0 then s3 := p3;
+    if prt < 3 then
+      if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 247) then
+      begin
+        // Device ID must be 1-247!
+        {$IFNDEF X} writeln(ERR06); {$ELSE} Form1.Memo1.Lines.Add(ERR06); {$ENDIF}
+        error := 1;
+        exit;
+      end else
+        if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 255) then
         begin
-          // Device ID must be 1-247!
-          {$IFNDEF X} writeln(ERR06); {$ELSE} Form1.Memo1.Lines.Add(ERR06); {$ENDIF}
+          // Address must be 1-255!
+          {$IFNDEF X} writeln(ERR54); {$ELSE} Form1.Memo1.Lines.Add(ERR54); {$ENDIF}
           error := 1;
           exit;
-        end else
-          if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 255) then
-          begin
-            // Address must be 1-255!
-            {$IFNDEF X} writeln(ERR54); {$ELSE} Form1.Memo1.Lines.Add(ERR54); {$ENDIF}
-            error := 1;
-            exit;
-          end;
-    end else
+        end;
     // PRIMARY MISSION
     with prot[strtoint(n)] do
     begin

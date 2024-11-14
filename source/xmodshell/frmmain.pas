@@ -218,6 +218,7 @@ type
     procedure MenuItem6Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
     procedure LComboBox1Change(Sender: TObject);
+    procedure LSpinEdit1Change(Sender: TObject);
   private
   public
   end;
@@ -229,7 +230,6 @@ var
   Form1: TForm1;
   LSynAnySyn1: TSynAnySyn;
   fp: string;
-  menucmd: string;
   thrdcmd: tthrdcmd;
 
 {$DEFINE X}
@@ -364,7 +364,8 @@ end;
 // RUN A COMMAND ON NEW THREAD
 procedure TLThread.Execute;
 begin
-  fStatusText := fullprompt + menucmd + EOL;
+  with thrdcmd do
+    fStatusText := fullprompt + COMMANDS[c] + ' ' + p1 + ' ' + p2 + EOL;
   Synchronize(@Showstatus);
   with thrdcmd do
     case c of
@@ -402,8 +403,6 @@ end;
 // RUN COMMAND 'exit'
 procedure TForm1.MenuItem20Click(Sender: TObject);
 begin
-  menucmd := COMMANDS[1];
-  Memo1.Lines.Add(fullprompt + menucmd);
   Form1.Close;
 end;
 
@@ -413,6 +412,7 @@ end;
 procedure TForm1.MenuItem37Click(Sender: TObject);
 var
   LOpenDialog1: TOpenDialog;
+  cmd: string;
 begin
   LOpenDialog1 := TOpenDialog.Create(Self);
   with LOpenDialog1 do
@@ -425,9 +425,9 @@ begin
   end;
   if LOpenDialog1.Execute then
   begin
-    menucmd := COMMANDS[14] + ' ' + LOpenDialog1.FileName;
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    cmd := COMMANDS[14] + ' ' + LOpenDialog1.FileName;
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   LOpenDialog1.Free;
 end;
@@ -435,9 +435,10 @@ end;
 // RUN COMMAND 'savecfg' WITH TSaveDialog
 procedure TForm1.MenuItem36Click(Sender: TObject);
 var
+  LSaveDialog1: TSaveDialog;
+  cmd: string;
   exists: boolean = false;
   fp, fn, fx, fpn: string;
-  LSaveDialog1: TSaveDialog;
 begin
   LSaveDialog1 := TSaveDialog.Create(Self);
   with LSaveDialog1 do
@@ -466,22 +467,24 @@ begin
         LSaveDialog1.Free;
         exit;
       end;
-    menucmd := COMMANDS[13] + ' ' + fp + fn;
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    cmd := COMMANDS[13] + ' ' + fp + fn;
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   LSaveDialog1.Free;
 end;
 
 // RUN COMMAND 'set project ...' WITH InputBox
 procedure TForm1.MenuItem38Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := InputBox(rmampdot(MenuItem38.Caption), MSG71, vars[12].vvalue);
-  if length(menucmd) = 0 then showmessage(ERR57) else
+  cmd := InputBox(rmampdot(MenuItem38.Caption), MSG71, vars[12].vvalue);
+  if length(cmd) = 0 then showmessage(ERR57) else
   begin
-    menucmd := COMMANDS[8] + ' project ' + menucmd;
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    cmd := COMMANDS[8] + ' project ' + cmd;
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
     Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vvalue;
     Label1.Caption := fullprompt;
   end;
@@ -489,20 +492,24 @@ end;
 
 // RUN COMMAND 'reset project'
 procedure TForm1.MenuItem42Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[7] + ' project';
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[7] + ' project';
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
   Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vvalue;
   Label1.Caption := fullprompt;
 end;
 
 // RUN COMMAND 'get project'
 procedure TForm1.MenuItem46Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[2] + ' project';
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[2] + ' project';
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // RUN COMMAND 'set dev? ...' WITH DIALOG
@@ -549,6 +556,7 @@ var
   LEdit1, LEdit2, LEdit3: TEdit;
   LLabel1, LLabel2, LLabel3, LLabel4, LLabel5, LLabel6, LLabel7, LLabel8: TLabel;
   LSpinEdit1, LSpinEdit2, LSpinEdit3, LSpinEdit4: TSpinEdit;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -887,7 +895,7 @@ begin
   begin
    with Form do
      if LComboBox1.ItemIndex = 0 then
-       menucmd := COMMANDS[8] + ' dev' +
+       cmd := COMMANDS[8] + ' dev' +
          inttostr(LSpinEdit1.Value) + ' ' +
          LComboBox1.Items[LComboBox1.ItemIndex] + ' ' +
          LEdit1.Text + ' ' +
@@ -896,14 +904,14 @@ begin
          LComboBox2.Items[LComboBox2.ItemIndex] + ' ' +
          inttostr(LSpinEdit3.Value)
      else
-       menucmd := COMMANDS[8] + ' dev' +
+       cmd := COMMANDS[8] + ' dev' +
          inttostr(LSpinEdit1.Value) + ' ' +
          LComboBox1.Items[LComboBox1.ItemIndex] + ' ' +
          LEdit1.Text + ' ' +
          LEdit3.Text + ' ' +
          inttostr(LSpinEdit4.Value);
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   FreeAndNil(Form);
 end;
@@ -916,6 +924,7 @@ var
   LButton1, LButton2: TButton;
   LLabel1, LLabel2: TLabel;
   LSpinEdit1: TSpinEdit;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -1025,9 +1034,9 @@ begin
   if Form.ShowModal = mrOk then
   begin
     with Form do
-      menucmd := COMMANDS[7] + ' dev' + inttostr(LSpinEdit1.Value);
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+      cmd := COMMANDS[7] + ' dev' + inttostr(LSpinEdit1.Value);
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   FreeAndNil(Form);
 end;
@@ -1036,11 +1045,12 @@ end;
 procedure TForm1.MenuItem47Click(Sender: TObject);
 var
   b: byte;
+  cmd: string;
 begin
-  menucmd := COMMANDS[2] + ' dev';
-  Memo1.Lines.Add(fullprompt + menucmd+ '[0-7]');
+  cmd := COMMANDS[2] + ' dev';
+  Memo1.Lines.Add(fullprompt + cmd + '[0-7]');
   for b := 0 to 7 do
-    parsingcommands(menucmd + inttostr(b));
+    parsingcommands(cmd + inttostr(b));
 end;
 
 // RUN COMMAND 'set pro? ...' WITH DIALOG
@@ -1054,6 +1064,7 @@ var
   LLabel1, LLabel2, LLabel3, LLabel4: TLabel;
   LSpinEdit1: TSpinEdit;
   b: byte;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -1217,12 +1228,12 @@ begin
   if Form.ShowModal = mrOk then
   begin
     with Form do
-      menucmd := COMMANDS[8] + ' pro' +
+      cmd := COMMANDS[8] + ' pro' +
         inttostr(LSpinEdit1.Value) + ' ' +
         LComboBox1.Items[LComboBox1.ItemIndex] + ' ' +
         LEdit1.Text;
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   FreeAndNil(Form);
 end;
@@ -1235,6 +1246,7 @@ var
   LButton1, LButton2: TButton;
   LLabel1, LLabel2: TLabel;
   LSpinEdit1: TSpinEdit;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -1344,10 +1356,10 @@ begin
   if Form.ShowModal = mrOk then
   begin
     with Form do
-      menucmd := COMMANDS[7] +
+      cmd := COMMANDS[7] +
       ' pro' + inttostr(LSpinEdit1.Value);
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   FreeAndNil(Form);
 end;
@@ -1356,14 +1368,34 @@ end;
 procedure TForm1.MenuItem48Click(Sender: TObject);
 var
   b: byte;
+  cmd: string;
 begin
-  menucmd := COMMANDS[2] + ' pro';
-  Memo1.Lines.Add(fullprompt + menucmd+ '[0-7]');
+  cmd := COMMANDS[2] + ' pro';
+  Memo1.Lines.Add(fullprompt + cmd+ '[0-7]');
   for b := 0 to 7 do
-    parsingcommands(menucmd + inttostr(b));
+    parsingcommands(cmd + inttostr(b));
 end;
 
 // RUN COMMAND 'set con? ...' WITH DIALOG
+procedure TForm1.LSpinEdit1Change(Sender: TObject);
+var
+  LSpinEdit2, LSpinEdit3: TSpinEdit;
+begin
+  if Sender is TSpinEdit then
+  begin
+    LSpinEdit2 := TSpinEdit(TForm(TSpinEdit(Sender).Parent).FindComponent('LSpinEdit2'));
+    LSpinEdit3 := TSpinEdit(TForm(TSpinEdit(Sender).Parent).FindComponent('LSpinEdit3'));
+    if assigned(LSpinEdit2) then
+      if conn[TSpinEdit(Sender).Value].valid
+        then LSpinEdit2.Value := conn[TSpinEdit(Sender).Value].dev
+        else LSpinEdit2.Value := 0;
+    if assigned(LSpinEdit3) then
+      if conn[TSpinEdit(Sender).Value].valid
+        then LSpinEdit3.Value := conn[TSpinEdit(Sender).Value].prot
+        else LSpinEdit3.Value := 0;
+  end;
+end;
+
 procedure TForm1.MenuItem41Click(Sender: TObject);
 var
   Form: TForm;
@@ -1371,6 +1403,7 @@ var
   LButton1, LButton2: TButton;
   LLabel1, LLabel2, LLabel3, LLabel4, LLabel5, LLabel6: TLabel;
   LSpinEdit1, LSpinEdit2, LSpinEdit3: TSpinEdit;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -1416,8 +1449,11 @@ begin
       BorderSpacing.Left := 8;
     MinValue := 0;
     MaxValue := 7;
+    Name := 'LSpinEdit1';
     Parent := Form;
     TabOrder := 0;
+    Value := 0;
+    OnChange := @LSpinEdit1Change;
   end;
   with LLabel2 do
   begin
@@ -1442,8 +1478,12 @@ begin
       BorderSpacing.Left := 8;
     MinValue := 0;
     MaxValue := 7;
+    Name := 'LSpinEdit2';
     Parent := Form;
     TabOrder := 1;
+    if conn[LSpinEdit1.Value].valid
+      then LSpinEdit2.Value := conn[LSpinEdit1.Value].dev
+      else LSpinEdit2.Value := 0;
   end;
   with LLabel3 do
   begin
@@ -1469,8 +1509,12 @@ begin
       BorderSpacing.Right := 8;
     MinValue := 0;
     MaxValue := 7;
+    Name := 'LSpinEdit3';
     Parent := Form;
     TabOrder := 2;
+    if conn[LSpinEdit1.Value].valid
+      then LSpinEdit2.Value := conn[LSpinEdit1.Value].prot
+      else LSpinEdit2.Value := 0;
   end;
   with LLabel4 do
   begin
@@ -1567,12 +1611,12 @@ begin
   if Form.ShowModal = mrOk then
   begin
     with Form do
-      menucmd := COMMANDS[8] +
+      cmd := COMMANDS[8] +
       ' con' + inttostr(LSpinEdit1.Value) +
       ' dev' + inttostr(LSpinEdit2.Value) +
       ' pro' + inttostr(LSpinEdit3.Value);
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   FreeAndNil(Form);
 end;
@@ -1585,6 +1629,7 @@ var
   LButton1, LButton2: TButton;
   LLabel1, LLabel2: TLabel;
   LSpinEdit1: TSpinEdit;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -1694,10 +1739,10 @@ begin
   if Form.ShowModal = mrOk then
   begin
     with Form do
-      menucmd := COMMANDS[7] +
+      cmd := COMMANDS[7] +
       ' con' + inttostr(LSpinEdit1.Value);
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   FreeAndNil(Form);
 end;
@@ -1706,11 +1751,12 @@ end;
 procedure TForm1.MenuItem49Click(Sender: TObject);
 var
   b: byte;
+  cmd: string;
 begin
-  menucmd := COMMANDS[2] + ' con';
-  Memo1.Lines.Add(fullprompt + menucmd+ '[0-7]');
+  cmd := COMMANDS[2] + ' con';
+  Memo1.Lines.Add(fullprompt + cmd + '[0-7]');
   for b := 0 to 7 do
-    parsingcommands(menucmd + inttostr(b));
+    parsingcommands(cmd + inttostr(b));
 end;
 
 // RUN COMMAND 'set timeout'
@@ -1721,6 +1767,7 @@ var
   LButton1, LButton2: TButton;
   LLabel1, LLabel2: TLabel;
   LSpinEdit1: TSpinEdit;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -1828,19 +1875,21 @@ begin
   if Form.ShowModal = mrOk then
   begin
     with Form do
-      menucmd := COMMANDS[8] + ' timeout' + inttostr(LSpinEdit1.Value);
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+      cmd := COMMANDS[8] + ' timeout ' + inttostr(LSpinEdit1.Value);
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   FreeAndNil(Form);
 end;
 
 // RUN COMMAND 'get timeout'
 procedure TForm1.MenuItem63Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[2] + ' timeout';
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[2] + ' timeout';
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // RUN COMMAND 'color ...' WITH InputBox
@@ -1851,6 +1900,7 @@ var
   LButton1, LButton2: TButton;
   LColorBox1, LColorBox2: TColorBox;
   LLabel1, LLabel2: TLabel;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -1983,6 +2033,7 @@ end;
 procedure TForm1.MenuItem13Click(Sender: TObject);
 var
   LOpenDialog1: TOpenDialog;
+  cmd: string;
 begin
   LOpenDialog1 := TOpenDialog.Create(Self);
   with LOpenDialog1 do
@@ -1995,9 +2046,9 @@ begin
   end;
   if LOpenDialog1.Execute then
   begin
-    menucmd := COMMANDS[19] + ' ' + LOpenDialog1.FileName;
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    cmd := COMMANDS[19] + ' ' + LOpenDialog1.FileName;
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   LOpenDialog1.Free;
 end;
@@ -2005,9 +2056,10 @@ end;
 // RUN COMMAND 'savereg' WITH TSaveDialog
 procedure TForm1.MenuItem14Click(Sender: TObject);
 var
+  LSaveDialog1: TSaveDialog;
+  cmd: string;
   exists: boolean = false;
   fp,fn,fx, fpn: string;
-  LSaveDialog1: TSaveDialog;
 begin
   LSaveDialog1 := TSaveDialog.Create(Self);
   with LSaveDialog1 do
@@ -2035,9 +2087,9 @@ begin
         LSaveDialog1.Free;
         exit;
       end;
-    menucmd := COMMANDS[18] + ' ' + fp + fn;
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    cmd := COMMANDS[18] + ' ' + fp + fn;
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   LSaveDialog1.Free;
 end;
@@ -2046,6 +2098,7 @@ end;
 procedure TForm1.MenuItem32Click(Sender: TObject);
 var
   LOpenDialog1: TOpenDialog;
+  cmd: string;
 begin
   LOpenDialog1 := TOpenDialog.Create(Self);
   with LOpenDialog1 do
@@ -2058,9 +2111,9 @@ begin
   end;
   if LOpenDialog1.Execute then
   begin
-    menucmd := COMMANDS[22] + ' ' + LOpenDialog1.FileName;
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    cmd := COMMANDS[22] + ' ' + LOpenDialog1.FileName;
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
   end;
   LOpenDialog1.Free;
 end;
@@ -2076,6 +2129,7 @@ var
   LRadioGroup1: TRadiogroup;
   LSpinEdit1, LSpinEdit2: TSpinEdit;
   b: byte;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -2232,11 +2286,11 @@ begin
             LSaveDialog1.Free;
             exit;
           end;
-        menucmd := COMMANDS[15] + ' ' + LSaveDialog1.FileName + ' ' +
+        cmd := COMMANDS[15] + ' ' + LSaveDialog1.FileName + ' ' +
           REG_TYPE[LRadioGroup1.ItemIndex] + ' ' +
           inttostr(LSpinEdit1.Value) + ' ' + inttostr(LSpinEdit2.Value);
-        Memo1.Lines.Add(fullprompt + menucmd);
-        parsingcommands(menucmd);
+        Memo1.Lines.Add(fullprompt + cmd);
+        parsingcommands(cmd);
       end;
       LSaveDialog1.Free;
     end;
@@ -2254,6 +2308,7 @@ var
   LRadioGroup1: TRadiogroup;
   LSpinEdit1: TSpinEdit;
   b: byte;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -2363,9 +2418,9 @@ begin
   begin
     with Form do
     begin
-      menucmd := COMMANDS[33] + ' ' + REG_TYPE[LRadioGroup1.ItemIndex] + ' ' + inttostr(LSpinEdit1.Value);
-      Memo1.Lines.Add(fullprompt + menucmd);
-      parsingcommands(menucmd);
+      cmd := COMMANDS[33] + ' ' + REG_TYPE[LRadioGroup1.ItemIndex] + ' ' + inttostr(LSpinEdit1.Value);
+      Memo1.Lines.Add(fullprompt + cmd);
+      parsingcommands(cmd);
     end;
   end;
   FreeAndNil(Form);
@@ -2377,6 +2432,7 @@ end;
 procedure TForm1.MenuItem10Click(Sender: TObject);
 var
   LOpenDialog1: TOpenDialog;
+  cmd: string;
 begin
   LOpenDialog1 := TOpenDialog.Create(Self);
   with LOpenDialog1 do
@@ -2394,10 +2450,10 @@ begin
   end;
   if LOpenDialog1.Execute then
   begin
-    menucmd := COMMANDS[39] + ' ' + LOpenDialog1.FileName;
-    Memo1.Lines.Add(fullprompt + menucmd);
+    cmd := COMMANDS[39] + ' ' + LOpenDialog1.FileName;
+    Memo1.Lines.Add(fullprompt + cmd);
     StatusBar1.Panels.Items[1].Text := LOpenDialog1.FileName;
-    parsingcommands(menucmd);
+    parsingcommands(cmd);
   end;
   LOpenDialog1.Free;
 end;
@@ -2406,6 +2462,7 @@ end;
 procedure TForm1.MenuItem11Click(Sender: TObject);
 var
   LSaveDialog1: TSaveDialog;
+  cmd: string;
 begin
   LSaveDialog1 := TSaveDialog.Create(Self);
   with LSaveDialog1 do
@@ -2429,9 +2486,9 @@ begin
         LSaveDialog1.Free;
         exit;
       end;
-    menucmd := COMMANDS[93] + ' ' + LSaveDialog1.FileName;
-    Memo1.Lines.Add(fullprompt + menucmd);
-    parsingcommands(menucmd);
+    cmd := COMMANDS[93] + ' ' + LSaveDialog1.FileName;
+    Memo1.Lines.Add(fullprompt + cmd);
+    parsingcommands(cmd);
     StatusBar1.Panels.Items[1].Text := LSaveDialog1.FileName;
   end;
   LSaveDialog1.Free;
@@ -2439,10 +2496,12 @@ end;
 
 // RUN COMMAND 'list'
 procedure TForm1.MenuItem18Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[41];
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[41];
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // RUN COMMAND 'edit' WITH DIALOG
@@ -2450,6 +2509,7 @@ procedure TForm1.MenuItem30Click(Sender: TObject);
 var
   Form: TForm;
   LSynEdit1: TSynEdit;
+  cmd: string;
   line, sline: integer;
 begin
   Form := TForm.Create(Nil);
@@ -2515,19 +2575,23 @@ end;
 
 // RUN COMMAND 'erasescr'
 procedure TForm1.MenuItem29Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[92];
-  Memo1.Lines.Add(fullprompt + menucmd);
+  cmd := COMMANDS[92];
+  Memo1.Lines.Add(fullprompt + cmd);
   StatusBar1.Panels.Items[1].Text := '';
-  parsingcommands(menucmd);
+  parsingcommands(cmd);
 end;
 
 // RUN COMMAND 'run'
 procedure TForm1.MenuItem12Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[40];
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[40];
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // -- MAIN MENU/Operation ------------------------------------------------------
@@ -2540,68 +2604,84 @@ end;
 
 // RUN COMMAND 'echo swap'
 procedure TForm1.MenuItem28Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[38] + ' swap';
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[38] + ' swap';
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // RUN COMMAND 'const'
 procedure TForm1.MenuItem24Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[66];
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[66];
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // RUN COMMAND 'var'
 procedure TForm1.MenuItem25Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[20];
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[20];
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // RUN COMMAND 'carr'
 procedure TForm1.MenuItem19Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[105];
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[105];
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // RUN COMMAND 'varr'
 procedure TForm1.MenuItem51Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[106];
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[106];
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // -- MAIN MENU/Utilities ------------------------------------------------------
 
 // RUN COMMAND 'ascii dec'
 procedure TForm1.MenuItem59Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[79] + ' dec';
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[79] + ' dec';
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // RUN COMMAND 'ascii hex'
 procedure TForm1.MenuItem60Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[79] + ' hex';
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[79] + ' hex';
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // RUN COMMAND 'date'
 procedure TForm1.MenuItem27Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[9];
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[9];
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // RUN COMMAND 'conv' with DIALOG
@@ -2614,6 +2694,7 @@ var
   LLabel1: TLabel;
   LRadioGroup1: TRadiogroup;
   LRadioGroup2: TRadiogroup;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -2739,13 +2820,13 @@ begin
   begin
     with Form do
     begin
-      menucmd := COMMANDS[17] + ' $i ' +
+      cmd := COMMANDS[17] + ' $i ' +
         NUM_SYS[LRadioGroup1.ItemIndex] + ' ' +
         NUM_SYS[LRadioGroup2.ItemIndex] + ' ' +
         LEdit1.Text;
-      Memo1.Lines.Add(fullprompt + menucmd);
+      Memo1.Lines.Add(fullprompt + cmd);
       parsingcommands('var i');
-      parsingcommands(menucmd);
+      parsingcommands(cmd);
       parsingcommands('print $i');
     end;
   end;
@@ -2754,6 +2835,8 @@ end;
 
 // RUN COMMAND 'varmon' with DIALOG
 procedure TForm1.MenuItem52Click(Sender: TObject);
+var
+  cmd: string;
 begin
   with Form2 do
   begin
@@ -2772,6 +2855,7 @@ var
   LButton1, LButton2: TButton;
   LLabel1, LLabel2: TLabel;
   LSpinEdit1: TSpinEdit;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -2900,6 +2984,7 @@ var
   LEdit1: TEdit;
   LSpinEdit1: TSpinEdit;
   LThread1: TLThread;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -3042,7 +3127,6 @@ begin
       thrdcmd.c := 36;
       thrdcmd.p1 := 'dev' + inttostr(LSpinEdit1.Value);
         if length(LEdit1.Text) > 0 then thrdcmd.p2 := '$' + LEdit1.Text else thrdcmd.p2 := '';
-      menucmd := COMMANDS[thrdcmd.c] + ' ' + thrdcmd.p1 + ' ' + thrdcmd.p2;
     end;
     LThread1 := TLThread.Create(true);
     with LThread1 do
@@ -3064,6 +3148,7 @@ var
   LEdit1: TEdit;
   LSpinEdit1: TSpinEdit;
   LThread2: TLThread;
+  cmd: string;
 begin
   Form := TForm.Create(Nil);
   LBevel1 := TBevel.Create(Form);
@@ -3208,7 +3293,6 @@ begin
       if boolisitvariable('$' + LEdit1.Text)
         then thrdcmd.p2 := '$' + LEdit1.Text
         else thrdcmd.p2 := '"' + LEdit1.Text + '"';
-      menucmd := COMMANDS[thrdcmd.c] + ' ' + thrdcmd.p1 + ' ' + thrdcmd.p2;
     end;
     LThread2 := TLThread.Create(true);
     with LThread2 do
@@ -3224,10 +3308,12 @@ end;
 
 // RUN COMMAND 'help'
 procedure TForm1.MenuItem6Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[3];
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[3];
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // OPEN ONLINE WIKI
@@ -3298,26 +3384,30 @@ end;
 
 // RUN COMMAND 'ver'
 procedure TForm1.MenuItem7Click(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := COMMANDS[10];
-  Memo1.Lines.Add(fullprompt + menucmd);
-  parsingcommands(menucmd);
+  cmd := COMMANDS[10];
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
 end;
 
 // -- END OF THE MAIN MENU -----------------------------------------------------
 
 // RUN A COMMAND
 procedure TForm1.ComboBox1EditingDone(Sender: TObject);
+var
+  cmd: string;
 begin
-  menucmd := ComboBox1.Text;
-  Memo1.Lines.Add(fullprompt + menucmd);
+  cmd := ComboBox1.Text;
+  Memo1.Lines.Add(fullprompt + cmd);
   if length(ComboBox1.Text) > 0 then
   begin
-    ComboBox1.Items.Add(menucmd);
+    ComboBox1.Items.Add(cmd);
     ComboBox1.Text := '';
-    if menucmd = COMMANDS[1] then Form1.Close else
+    if cmd = COMMANDS[1] then Form1.Close else
     begin
-      parsingcommands(menucmd);
+      parsingcommands(cmd);
       varmon_viewer;
     end;
   end;
