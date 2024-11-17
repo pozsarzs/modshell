@@ -23,6 +23,7 @@
 procedure setdefaultconstants;
 var
   b: byte;
+  y, mh, d, w: word;
 begin
   with vars[0] do
   begin
@@ -74,6 +75,17 @@ begin
     vreadonly := true;
     vmonitored := false;
   end;
+  // Belphegor's prime was first discovered by Harvey Dubner
+  // = 10^31 + 666 * 10^14 + 1
+  getdate(y, mh, d, w);
+  if (mh = 10) and (d = 31) then
+    with vars[66] do
+    begin
+      vname := 'belfegor';
+      vvalue := '1000000000000066600000000000001';
+      vreadonly := true;
+      vmonitored := false;
+    end;
 end;
 
 // CLEAR ALL CONSTANTS AND SET PREDEFINED ONES

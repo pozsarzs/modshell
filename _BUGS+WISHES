@@ -1,9 +1,5 @@
 KNOWN BUT NOT FIXED BUGS DURING DEVELOPMENT AND OTHER WISHES
 --------------------------------------------------------------------------------
-X  Setting protocols  LEdit1 -> LSpinEdit2 exchange and showing the set values
-X  Device setting     LEdit2 -> LSpinEdit5 exchange, show set values, check IP
-                      address format and lack of data.
-X  Number converter   TEdit for the variable of the result
 --------------------------------------------------------------------------------
 Note:
   B: Both of them

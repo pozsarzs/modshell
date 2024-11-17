@@ -694,6 +694,10 @@ msgstr "A megadott eszköz nem változó tömb: "
 msgid "This can only be used with the DCON protocol!"
 msgstr "Ez csak DCON protokollal használható!"
 
+#: frmmain.err57
+msgid "You did not provide something!"
+msgstr "Nem adott meg valamit!"
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -909,12 +913,20 @@ msgid "device"
 msgstr "eszköz"
 
 #: frmmain.msg51
-msgid "port/baudrate"
-msgstr "port/sebesség"
+msgid ""
+"baudrate\n"
+"IP address"
+msgstr ""
+"sebesség\n"
+"IP cím"
 
 #: frmmain.msg52
-msgid "databits"
-msgstr "adatbitek"
+msgid ""
+"databits\n"
+"port"
+msgstr ""
+"adatbitek\n"
+"port"
 
 #: frmmain.msg53
 msgid "parity"
@@ -929,8 +941,8 @@ msgid "protocol"
 msgstr "protokoll"
 
 #: frmmain.msg56
-msgid "ID/(IP) address"
-msgstr "ID/(IP) cím"
+msgid "ID/address"
+msgstr "ID/cím"
 
 #: frmmain.msg57
 msgid "CSV file|*.csv|INI file|*.ini|XML file|*.xml"
@@ -981,8 +993,9 @@ msgid "number"
 msgstr "szám"
 
 #: frmmain.msg69
-msgid "&Convert"
-msgstr "Át&alakít"
+msgctxt "frmmain.msg69"
+msgid "&Write"
+msgstr "Í&rás"
 
 #: frmmain.msg70
 msgid "&Start"
@@ -1008,10 +1021,6 @@ msgstr "változó"
 msgid "message"
 msgstr "üzenet"
 
-#: frmmain.msg76
-msgid "&Write"
-msgstr "Í&rás"
-
 #: frmmain.msg77
 msgid "&Read"
 msgstr "Ol&vasás"
@@ -1021,12 +1030,12 @@ msgid "Go on!"
 msgstr "Tovább!"
 
 #: frmmain.msg79
-msgid "Variable"
-msgstr "Változó"
+msgid "Variables"
+msgstr "Változók"
 
 #: frmmain.msg80
-msgid "Value"
-msgstr "Érték"
+msgid "Values"
+msgstr "Értékek"
 
 #: frmmain.msg81
 msgid "Use 'Utilities/Mini serial console' on GUI version."
@@ -1176,10 +1185,9 @@ msgstr ""
 
 #: frmmain.usg08
 msgid ""
-"set dev? net [$]DEVICE [$]PORT\n"
+"set dev? net [$]DEVICE [$]IP_ADDRESS [$]PORT\n"
 "  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]ID\n"
-"  set pro? tcp [$]IP_ADDRESS\n"
+"  set pro? ascii|rtu|tcp [$]ID\n"
 "  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON\n"
@@ -1194,10 +1202,9 @@ msgid ""
 "      2: green  6: brown      10: lightgreen  14: yellow\n"
 "      3: cyan   7: lightgray  11: lightcyan   15: white"
 msgstr ""
-"set dev? net [$]ESZKÖZ [$]PORT\n"
+"set dev? net [$]ESZKÖZ [$]IP-CÍM [$]PORT\n"
 "  set dev? ser [$]ESZKÖZ [$]BAUDRATE [$]ADATBIT [$]PARITÁS [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]ID\n"
-"  set pro? tcp [$]IP_CÍM\n"
+"  set pro? ascii|rtu|tcp [$]ID\n"
 "  set pro? dcon [$]CÍM\n"
 "  set con? dev? pro?\n"
 "  set color [$]ELŐTÉRSZÍN [$]HÁTTÉRSZÍN [$]VÉTELSZÍN [$]ADÁSSZÍN [$]VÁLT_MON\n"
@@ -1925,6 +1932,10 @@ msgstr "Változó tömbö&k mutatása"
 msgid "Show &variable monitor.."
 msgstr "&Változó monitor.."
 
+#: tform1.menuitem53.caption
+msgid "&Restart"
+msgstr "Új&raindítás"
+
 #: tform1.menuitem54.caption
 msgid "&Mini serial console.."
 msgstr "&Mini soros konzol.."
@@ -2068,6 +2079,16 @@ msgstr "Változó monitor"
 #: tform3.caption
 msgid "Form3"
 msgstr "Form3"
+
+#~ msgctxt "frmmain.msg76"
+#~ msgid "&Write"
+#~ msgstr "Í&rás"
+
+#~ msgid "port/baudrate"
+#~ msgstr "port/sebesség"
+
+#~ msgid "&Convert"
+#~ msgstr "Át&alakít"
 
 #~ msgid "         set colors"
 #~ msgstr "         színek beállítása"

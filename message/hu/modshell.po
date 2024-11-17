@@ -252,12 +252,20 @@ msgid "device"
 msgstr "eszköz"
 
 #: modshell:msg51
-msgid "port/baudrate"
-msgstr "port/sebesség"
+msgid ""
+"baudrate\n"
+"IP address"
+msgstr ""
+"sebesség\n"
+"IP cím"
 
 #: modshell:msg52
-msgid "databits"
-msgstr "adatbitek"
+msgid ""
+"databits\n"
+"port"
+msgstr ""
+"adatbitek\n"
+"port"
 
 #: modshell:msg53
 msgid "parity"
@@ -272,8 +280,8 @@ msgid "protocol"
 msgstr "protokoll"
 
 #: modshell:msg56
-msgid "ID/(IP) address"
-msgstr "ID/(IP) cím"
+msgid "ID/address"
+msgstr "ID/cím"
 
 #: modshell:msg57
 msgid "CSV file|*.csv|INI file|*.ini|XML file|*.xml"
@@ -324,8 +332,8 @@ msgid "number"
 msgstr "szám"
 
 #: modshell:msg69
-msgid "&Convert"
-msgstr "Át&alakít"
+msgid "&Write"
+msgstr "Í&rás"
 
 #: modshell:msg70
 msgid "&Start"
@@ -351,10 +359,6 @@ msgstr "változó"
 msgid "message"
 msgstr "üzenet"
 
-#: modshell:msg76
-msgid "&Write"
-msgstr "Í&rás"
-
 #: modshell:msg77
 msgid "&Read"
 msgstr "Ol&vasás"
@@ -364,12 +368,12 @@ msgid "Go on!"
 msgstr "Tovább!"
 
 #: modshell:msg79
-msgid "Variable"
-msgstr "Változó"
+msgid "Variables"
+msgstr "Változók"
 
 #: modshell:msg80
-msgid "Value"
-msgstr "Érték"
+msgid "Values"
+msgstr "Értékek"
 
 #: modshell:msg81
 msgid "Use 'Utilities/Mini serial console' on GUI version."
@@ -650,6 +654,10 @@ msgstr "A megadott eszköz nem változó tömb: "
 #: modshell:err56
 msgid "This can only be used with the DCON protocol!"
 msgstr "Ez csak DCON protokollal használható!"
+
+#: modshell:err57
+msgid "You did not provide something!"
+msgstr "Nem adott meg valamit!"
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
@@ -1176,10 +1184,9 @@ msgstr ""
 
 #: modshell:usg08
 msgid ""
-"set dev? net [$]DEVICE [$]PORT\n"
+"set dev? net [$]DEVICE [$]IP_ADDRESS [$]PORT\n"
 "  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]ID\n"
-"  set pro? tcp [$]IP_ADDRESS\n"
+"  set pro? ascii|rtu|tcp [$]ID\n"
 "  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON\n"
@@ -1194,10 +1201,9 @@ msgid ""
 "      2: green  6: brown      10: lightgreen  14: yellow\n"
 "      3: cyan   7: lightgray  11: lightcyan   15: white"
 msgstr ""
-"set dev? net [$]ESZKÖZ [$]PORT\n"
+"set dev? net [$]ESZKÖZ [$]IP-CÍM [$]PORT\n"
 "  set dev? ser [$]ESZKÖZ [$]BAUDRATE [$]ADATBIT [$]PARITÁS [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]ID\n"
-"  set pro? tcp [$]IP_CÍM\n"
+"  set pro? ascii|rtu|tcp [$]ID\n"
 "  set pro? dcon [$]CÍM\n"
 "  set con? dev? pro?\n"
 "  set color [$]ELŐTÉRSZÍN [$]HÁTTÉRSZÍN [$]VÉTELSZÍN [$]ADÁSSZÍN [$]VÁLT_MON\n"
@@ -1724,6 +1730,12 @@ msgstr ""
 "dcon con? $TXTÖMB $RXTÖMB\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
+
+#~ msgid "port/baudrate"
+#~ msgstr "port/sebesség"
+
+#~ msgid "&Convert"
+#~ msgstr "Át&alakít"
 
 #~ msgid "         set colors"
 #~ msgstr "         színek beállítása"

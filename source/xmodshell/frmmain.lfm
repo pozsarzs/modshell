@@ -1,11 +1,11 @@
 object Form1: TForm1
   Left = 315
-  Height = 482
+  Height = 478
   Top = 118
   Width = 701
   ActiveControl = ComboBox1
   Caption = 'Form1'
-  ClientHeight = 457
+  ClientHeight = 453
   ClientWidth = 701
   Icon.Data = {
     BE2500000000010001003030000001002000A825000016000000280000003000
@@ -322,7 +322,7 @@ object Form1: TForm1
   object StatusBar1: TStatusBar
     Left = 0
     Height = 19
-    Top = 438
+    Top = 434
     Width = 701
     Panels = <    
       item
@@ -461,7 +461,7 @@ object Form1: TForm1
       ShowHint = True
     end
     object ToolButton14: TToolButton
-      Left = 278
+      Left = 301
       Height = 22
       Top = 2
       Caption = 'ToolButton14'
@@ -470,7 +470,7 @@ object Form1: TForm1
       Style = tbsSeparator
     end
     object ToolButton15: TToolButton
-      Left = 309
+      Left = 303
       Top = 2
       Caption = 'ToolButton15'
       ImageIndex = 12
@@ -479,7 +479,7 @@ object Form1: TForm1
       ShowHint = True
     end
     object ToolButton16: TToolButton
-      Left = 332
+      Left = 326
       Top = 2
       Caption = 'ToolButton16'
       ImageIndex = 22
@@ -488,7 +488,7 @@ object Form1: TForm1
       ShowHint = True
     end
     object ToolButton17: TToolButton
-      Left = 355
+      Left = 349
       Height = 22
       Top = 2
       Caption = 'ToolButton17'
@@ -497,7 +497,7 @@ object Form1: TForm1
       Style = tbsSeparator
     end
     object ToolButton18: TToolButton
-      Left = 363
+      Left = 357
       Top = 2
       Caption = 'ToolButton18'
       ImageIndex = 8
@@ -515,7 +515,7 @@ object Form1: TForm1
       ShowHint = True
     end
     object ToolButton20: TToolButton
-      Left = 286
+      Left = 278
       Top = 2
       Caption = 'ToolButton20'
       ImageIndex = 24
@@ -530,7 +530,7 @@ object Form1: TForm1
     AnchorSideTop.Side = asrCenter
     Left = 2
     Height = 17
-    Top = 405
+    Top = 401
     Width = 43
     BorderSpacing.Left = 2
     Caption = 'Label1'
@@ -543,7 +543,7 @@ object Form1: TForm1
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 2
-    Height = 366
+    Height = 362
     Top = 28
     Width = 697
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -568,7 +568,7 @@ object Form1: TForm1
     AnchorSideBottom.Control = StatusBar1
     Left = 51
     Height = 34
-    Top = 396
+    Top = 392
     Width = 648
     Anchors = [akLeft, akRight, akBottom]
     AutoComplete = True
@@ -582,7 +582,7 @@ object Form1: TForm1
   end
   object MainMenu1: TMainMenu
     Images = ImageList1
-    Left = 368
+    Left = 408
     object MenuItem1: TMenuItem
       Caption = '&File'
       object MenuItem53: TMenuItem
@@ -917,7 +917,7 @@ object Form1: TForm1
     end
   end
   object ImageList1: TImageList
-    Left = 400
+    Left = 440
     Bitmap = {
       4C7A1A0000001000000010000000691500000000000078DAED5D09785445B63E
       803AEA202A8AEB28E27B333A32E3C6B8CCA00EAE83FA1C755C1897278E3BF8D4

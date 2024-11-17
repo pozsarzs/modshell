@@ -341,6 +341,9 @@ begin
   // load configuration
   loadconfiguration(BASENAME, '.ini');
   vars[12].vvalue := uconfig.lastproject;
+  // set temporary colors
+  printcolors[0] := uconfig.colors[0];
+  printcolors[1] := uconfig.colors[1];
   // set default constants
   setdefaultconstants;
   vars[11].vvalue := getuserdir;

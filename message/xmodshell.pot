@@ -677,6 +677,10 @@ msgstr ""
 msgid "This can only be used with the DCON protocol!"
 msgstr ""
 
+#: frmmain.err57
+msgid "You did not provide something!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -885,11 +889,15 @@ msgid "device"
 msgstr ""
 
 #: frmmain.msg51
-msgid "port/baudrate"
+msgid ""
+"baudrate\n"
+"IP address"
 msgstr ""
 
 #: frmmain.msg52
-msgid "databits"
+msgid ""
+"databits\n"
+"port"
 msgstr ""
 
 #: frmmain.msg53
@@ -905,7 +913,7 @@ msgid "protocol"
 msgstr ""
 
 #: frmmain.msg56
-msgid "ID/(IP) address"
+msgid "ID/address"
 msgstr ""
 
 #: frmmain.msg57
@@ -957,7 +965,8 @@ msgid "number"
 msgstr ""
 
 #: frmmain.msg69
-msgid "&Convert"
+msgctxt "frmmain.msg69"
+msgid "&Write"
 msgstr ""
 
 #: frmmain.msg70
@@ -984,10 +993,6 @@ msgstr ""
 msgid "message"
 msgstr ""
 
-#: frmmain.msg76
-msgid "&Write"
-msgstr ""
-
 #: frmmain.msg77
 msgid "&Read"
 msgstr ""
@@ -997,11 +1002,11 @@ msgid "Go on!"
 msgstr ""
 
 #: frmmain.msg79
-msgid "Variable"
+msgid "Variables"
 msgstr ""
 
 #: frmmain.msg80
-msgid "Value"
+msgid "Values"
 msgstr ""
 
 #: frmmain.msg81
@@ -1135,10 +1140,9 @@ msgstr ""
 
 #: frmmain.usg08
 msgid ""
-"set dev? net [$]DEVICE [$]PORT\n"
+"set dev? net [$]DEVICE [$]IP_ADDRESS [$]PORT\n"
 "  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT\n"
-"  set pro? ascii|rtu [$]ID\n"
-"  set pro? tcp [$]IP_ADDRESS\n"
+"  set pro? ascii|rtu|tcp [$]ID\n"
 "  set pro? dcon [$]ADDRESS\n"
 "  set con? dev? pro?\n"
 "  set color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON\n"
@@ -1814,6 +1818,10 @@ msgstr ""
 
 #: tform1.menuitem52.caption
 msgid "Show &variable monitor.."
+msgstr ""
+
+#: tform1.menuitem53.caption
+msgid "&Restart"
 msgstr ""
 
 #: tform1.menuitem54.caption

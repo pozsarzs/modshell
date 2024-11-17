@@ -55,7 +55,7 @@ The next release will be with the following changes:
  - [x] DCON protocol support;  
  - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  
  - [x] support for variable and constant arrays;  
- - [x] syntax highlighter file for editors using GtkSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes);  
+ - [x] syntax highlighter file for editors using GtkSourceView (Builder, Geany, Gedit, Mousepad, Pluma, Scribes, etc.);  
  - [x] syntax highlighting file for Notepad++ (Windows only);  
  - [x] syntax highlighting file for Vim/Neovim.  
 
@@ -76,10 +76,11 @@ This test release is not yet suitable for work, although it is functional, but i
 
 in _v0.1-beta2:_  
  - [ ] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
- - [ ] Modbus/TCP communication (DOS version);  
- - [ ] graphical monitoring the change of values over time (only XModShell).  
+ - [ ] HART protocol support;  
+ - [ ] Modbus/TCP communication (DOS version).  
 
 in _v0.1-beta3:_  
+ - [ ] graphical monitoring the change of values over time (only XModShell);  
  - [ ] implementation of additional Modbus functions.  
 
 #### 1. Screenshots

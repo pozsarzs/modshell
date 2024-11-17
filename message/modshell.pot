@@ -230,11 +230,15 @@ msgid "device"
 msgstr ""
 
 #: modshell:msg51
-msgid "port/baudrate"
+msgid ""
+"baudrate\n"
+"IP address"
 msgstr ""
 
 #: modshell:msg52
-msgid "databits"
+msgid ""
+"databits\n"
+"port"
 msgstr ""
 
 #: modshell:msg53
@@ -250,7 +254,7 @@ msgid "protocol"
 msgstr ""
 
 #: modshell:msg56
-msgid "ID/(IP) address"
+msgid "ID/address"
 msgstr ""
 
 #: modshell:msg57
@@ -302,7 +306,7 @@ msgid "number"
 msgstr ""
 
 #: modshell:msg69
-msgid "&Convert"
+msgid "&Write"
 msgstr ""
 
 #: modshell:msg70
@@ -330,7 +334,7 @@ msgid "message"
 msgstr ""
 
 #: modshell:msg76
-msgid "&Write"
+msgid ""
 msgstr ""
 
 #: modshell:msg77
@@ -342,11 +346,11 @@ msgid "Go on!"
 msgstr ""
 
 #: modshell:msg79
-msgid "Variable"
+msgid "Variables"
 msgstr ""
 
 #: modshell:msg80
-msgid "Value"
+msgid "Values"
 msgstr ""
 
 #: modshell:msg81
@@ -627,6 +631,10 @@ msgstr ""
 
 #: modshell:err56
 msgid "This can only be used with the DCON protocol!"
+msgstr ""
+
+#: modshell:err57
+msgid "You did not provide something!"
 msgstr ""
 
 #: modshell:err99
