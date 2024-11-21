@@ -68,8 +68,8 @@ One or more same type registers can be exported to file. During saving, one text
 file is created, with CSV, INI or XML extension. The program can only import from
 INI and XML format files.
 .PP
-The program has a simple serial console whose traffic is logged in the project
-directory as console.log.
+The program has a simple serial and a TCP console whose traffic is logged in the
+project directory as console.log.
 .PP
 On exit, the command line history, echo mode and colors are preserved.
 .PP
@@ -86,6 +86,11 @@ during runtime.
 .SS Serial console
 The program also provides the possibility to send and receive raw data
 via a serial port, and also includes a very simple serial console. The
+display of sent and received data can be turned off or raw text and
+hexadecimal viewing can be selected.
+.SS TCP console
+The program also provides the possibility to send and receive raw data
+via network device with TCP, and also includes a very simple TCP console. The
 display of sent and received data can be turned off or raw text and
 hexadecimal viewing can be selected.
 .SH PREDEFINED CONSTANTS

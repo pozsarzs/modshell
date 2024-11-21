@@ -381,6 +381,10 @@ msgstr ""
 msgid "Cannot use it in GUI version!"
 msgstr ""
 
+#: modshell:msg88
+msgid "Use 'Utilities/Mini TCP console' on GUI version."
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""
@@ -635,6 +639,10 @@ msgstr ""
 
 #: modshell:err57
 msgid "You did not provide something!"
+msgstr ""
+
+#: modshell:err58
+msgid "Cannot initialize network device: "
 msgstr ""
 
 #: modshell:err99

@@ -403,6 +403,10 @@ msgstr " eszkîz c°m:      "
 msgid "Cannot use it in GUI version!"
 msgstr "Ez a grafikus felÅlet˚ v†ltozatban nem haszn†lhat¢!"
 
+#: modshell:msg88
+msgid "Use 'Utilities/Mini TCP console' on GUI version."
+msgstr "Haszn†lja az 'Eszkîzîk/Mini TCP konzol'-t a GUI v†ltozatn†l."
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Ford°t†s ideje: "
@@ -658,6 +662,10 @@ msgstr "Ez csak DCON protokollal haszn†lhat¢!"
 #: modshell:err57
 msgid "You did not provide something!"
 msgstr "Nem adott meg valamit!"
+
+#: modshell:err58
+msgid "Cannot initialize network device: "
+msgstr "Nem lehet inicializ†lni a h†l¢zati eszkîzt: "
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"

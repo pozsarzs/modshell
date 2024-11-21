@@ -97,6 +97,18 @@ msgstr ""
 msgid "         read/write data from/to remote device with DCON protocol"
 msgstr ""
 
+#: frmmain.des112
+msgid "SHIFT-F7 open a mini TCP console"
+msgstr ""
+
+#: frmmain.des113
+msgid "         read string with TCP from network device"
+msgstr ""
+
+#: frmmain.des114
+msgid "         write string with TCP to network device"
+msgstr ""
+
 #: frmmain.des12
 msgid "F8       clear screen"
 msgstr ""
@@ -190,7 +202,7 @@ msgid "         wait for a keystroke or specified time"
 msgstr ""
 
 #: frmmain.des35
-msgid "F7       open a simple serial console"
+msgid "F7       open a mini serial console"
 msgstr ""
 
 #: frmmain.des36
@@ -681,6 +693,10 @@ msgstr ""
 msgid "You did not provide something!"
 msgstr ""
 
+#: frmmain.err58
+msgid "Cannot initialize network device: "
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -1036,6 +1052,10 @@ msgstr ""
 msgid "Cannot use it in GUI version!"
 msgstr ""
 
+#: frmmain.msg88
+msgid "Use 'Utilities/Mini TCP console' on GUI version."
+msgstr ""
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr ""
@@ -1225,6 +1245,28 @@ msgstr ""
 #: frmmain.usg111
 msgid ""
 "dcon con? $TXARRAY $RXARRAY\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg112
+msgid ""
+"tcpcons [dev?]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg113
+msgid ""
+"tcpread dev? [$TARGET]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg114
+msgid ""
+"tcpwrite dev? $MESSAGE\n"
+"  tcpwrite dev? \"MESSAGE\"\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""

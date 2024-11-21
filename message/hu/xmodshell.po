@@ -113,6 +113,18 @@ msgstr "        tömbméret beállítása"
 msgid "         read/write data from/to remote device with DCON protocol"
 msgstr "         adat olvasása/írása távoli eszközről/eszközre DCON protokollal"
 
+#: frmmain.des112
+msgid "SHIFT-F7 open a mini TCP console"
+msgstr "SHIFT-F7 egyszerű TCP konzol"
+
+#: frmmain.des113
+msgid "         read string with TCP from network device"
+msgstr "         string olvasása hálózati eszközről TCP-vel"
+
+#: frmmain.des114
+msgid "         write string with TCP to network device"
+msgstr "         string írása hálózati eszközre TCP-vel"
+
 #: frmmain.des12
 msgid "F8       clear screen"
 msgstr "F8       képernyőtörlés"
@@ -207,7 +219,7 @@ msgid "         wait for a keystroke or specified time"
 msgstr "         várakozás billentyűleütésre vagy idő leteltére"
 
 #: frmmain.des35
-msgid "F7       open a simple serial console"
+msgid "F7       open a mini serial console"
 msgstr "F7       egyszerű soros konzol"
 
 #: frmmain.des36
@@ -698,6 +710,10 @@ msgstr "Ez csak DCON protokollal használható!"
 msgid "You did not provide something!"
 msgstr "Nem adott meg valamit!"
 
+#: frmmain.err58
+msgid "Cannot initialize network device: "
+msgstr "Nem lehet inicializálni a hálózati eszközt: "
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -1064,6 +1080,10 @@ msgstr " eszköz cím:      "
 msgid "Cannot use it in GUI version!"
 msgstr "Ez a grafikus felületű változatban nem használható!"
 
+#: frmmain.msg88
+msgid "Use 'Utilities/Mini TCP console' on GUI version."
+msgstr "Használja az 'Eszközök/Mini TCP konzol'-t a GUI változatnál."
+
 #: frmmain.msg94
 msgid "Build date:  "
 msgstr "Fordítás ideje: "
@@ -1299,6 +1319,38 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 "dcon con? $TXTÖMB $RXTÖMB\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg112
+msgid ""
+"tcpcons [dev?]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"tcpcons [dev?]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg113
+msgid ""
+"tcpread dev? [$TARGET]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"tcpread dev? [$CÉL]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg114
+msgid ""
+"tcpwrite dev? $MESSAGE\n"
+"  tcpwrite dev? \"MESSAGE\"\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"tcpwrite dev? $ÜZENET\n"
+"  tcpwrite dev? \"ÜZENET\"\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 

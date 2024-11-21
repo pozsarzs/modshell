@@ -12,7 +12,10 @@ COPYRIGHT
 DESCRIPTION
        This  is a utility that can be used on several operating systems, which can commu‐
        nicate with connected equipment using Modbus/ASCII, Modbus/RTU and Modbus/TCP pro‐
-       tocols. The program is designed for DOS, Windows and Unix-like operating systems.
+       tocols.  The  basic  communication protocol of the program is Modbus, but DCON was
+       also implemented due to communication with other devices (e.g. ADAM). The range of
+       foreign protocols may be expanded later.  The program is designed for DOS, Windows
+       and Unix-like operating systems.
 
 OPTIONS
        -f --fullscreen
@@ -29,77 +32,79 @@ OPTIONS
 
 OPERATION
        The program can - even automatically - read, write or copy data from one device to
-       another (e.g. transferring settings). When copying,  the  source  and  destination
+       another  (e.g.  transferring  settings).  When copying, the source and destination
        register areas can be different.
 
-       The  program  has  a traditional (CLI) or full-screen (TUI) command-line interface
-       and is also suitable for running pre-created scripts independently (as  a  command
-       interpreter).  The program provides help on the commands that can be used, and of‐
-       fers possible values when the parameters are entered incorrectly. The issued  com‐
+       The program has a traditional (CLI) or full-screen  (TUI)  command-line  interface
+       and  is  also suitable for running pre-created scripts independently (as a command
+       interpreter). The program provides help on the commands that can be used, and  of‐
+       fers  possible values when the parameters are entered incorrectly. The issued com‐
        mands are placed in history, which can be browsed with the up/down arrow keys.
 
    Operating principle
        It must be defined the I/O devices, then the protocols and the connections.  There
        can be eight of each. The data traffic takes place between the preset connections.
-       In  all  cases, the data is sent to or read from the internal buffer.  The size of
-       the buffer is suitable for storing 2*9999 logical and  word  values  of  the  same
-       size.  One  hundred  and twenty-eight variables or constants can be created in the
-       program, to which we can assign a value of any type (eg.: message, boolean or  in‐
-       teger  register  value,  etc.)  Variables can be used to perform logical and basic
-       mathematical operations, and can be used to pass values to commands.
+       In all cases, the data is sent to or read from the internal buffer.  The  size  of
+       the  buffer  is  suitable  for  storing 2*9999 logical and word values of the same
+       size. One hundred and twenty-eight variables or constants can be  created  in  the
+       program,  to which we can assign a value of any type (eg.: message, boolean or in‐
+       teger register value, etc.) Variables and constants can be used to perform logical
+       and basic mathematical operations, and can be used to pass values to commands.
 
    Projects
-       In the program, you can create projects for  easier  management  of  settings  and
-       data.  The  name of the current project is shown in the prompt. The project direc‐
-       tory will be created in the program directory on DOS, and in the  ModShell  direc‐
+       In  the  program,  you  can  create projects for easier management of settings and
+       data. The name of the current project is shown in the prompt. The  project  direc‐
+       tory  will  be created in the program directory on DOS, and in the ModShell direc‐
        tory in the user's home directory on all other systems. If only filename is speci‐
        fied during file operations (without path), this directory will be the source/des‐
        tination directory.
 
    File operations
-       The  command  line history can be exported to a text file and provides it with the
-       appropriate 'shebang' for all operating system. You can  easily  create  a  script
+       The command line history can be exported to a text file and provides it  with  the
+       appropriate  'shebang'  for  all  operating system. You can easily create a script
        from this raw file.
 
        Device, protocol and connection settings can be saved and loaded in their own for‐
-       mat. During saving, three typed files are created, with the following  extensions:
+       mat.  During saving, three typed files are created, with the following extensions:
        DDT, PDT, CDT.
 
-       All  register  values  can be saved and loaded in their own format. During saving,
+       All register values can be saved and loaded in their own  format.  During  saving,
        two typed files are created, with the following extensions: BDT, WDT.
 
-       One or more same type registers can be exported to file. During saving,  one  text
-       file  is created, with CSV, INI or XML extension. The program can only import from
+       One  or  more same type registers can be exported to file. During saving, one text
+       file is created, with CSV, INI or XML extension. The program can only import  from
        INI and XML format files.
 
-       The program has a simple serial console whose traffic is logged in the project di‐
-       rectory as console.log.
+       The  program  has a simple serial and a TCP console whose traffic is logged in the
+       project directory as console.log.
 
        On exit, the command line history, echo mode and colors are preserved.
 
        The program also has basic file and directory management commands.
 
    Script operations
-       The  script on the disc can be loaded into the already running program and started
-       manually.The loaded script can be edited with a line  editor,  saved  to  disk  or
-       deleted  from  the  buffer.  The graphical version has a simple editor window with
-       syntax highlighting instead of the line editor.  Variables and  constants  defined
-       before  running  the  script  will be deleted.  It is also possible to observe the
+       The script on the disc can be loaded into the already running program and  started
+       manually.The  loaded  script  can  be  edited with a line editor, saved to disk or
+       deleted from the buffer. The graphical version has a  simple  editor  window  with
+       syntax  highlighting  instead of the line editor.  Variables and constants defined
+       before running the script will be deleted.  It is also  possible  to  observe  the
        values of up to four variables during runtime and to keep the final valuesof con‐
        stants and variables created during runtime.
 
    Serial console
-       The  program  also provides the possibility to send and receive raw data via a se‐
+       The program also provides the possibility to send and receive raw data via  a  se‐
        rial port, and also includes a very simple serial console. The display of sent and
-       received  data  can  be  turned off or raw text and hexadecimal viewing can be se‐
+       received data can be turned off or raw text and hexadecimal  viewing  can  be  se‐
+       lected.
+
+   TCP console
+       The program also provides the possibility to send and receive raw data via network
+       device with TCP, and also includes a very simple TCP console. The display of  sent
+       and received data can be turned off or raw text and hexadecimal viewing can be se‐
        lected.
 
 PREDEFINED CONSTANTS
        $?     Exit value of the commands.
-
-       $PI    Value of Pi (3.1415926535897932385).
-
-       $EULER Value of e  (2.7182818284590452354).
 
        $B1    1200 (baud).
 
@@ -117,11 +122,24 @@ PREDEFINED CONSTANTS
 
        $B115  115200 (baud).
 
+       $PI    Value of Pi (3.1415926535897932385).
+
+       $EULER Value of e  (2.7182818284590452354).
+
+       $HOME  User's home directory.
+
+       $PRJDIR
+              Directory of the actual project.
+
+       $PRJNAME
+              Name of the actual project.
+
 BUILTIN COMMANDS
        Notes:
-         - register: local buffer register;
-         - remote register: register of the connected device;
-         - The '$' sign indicates a variable not a direct value.
+         - register: local buffer register
+         - remote register: register of the connected device
+         - The '$' sign indicates value of a variable or constant not a direct value.
+         - The symbol '[x]' indicates the element number of a variable or constant array.
          - The exit value of the commands is in the '$?' constant.
 
    Arithmetical commands
@@ -132,9 +150,10 @@ BUILTIN COMMANDS
        avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]
               Calculates average of 2-5 numbers and the result is placed in $TARGET.
 
-       conv bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
+       conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
               Converts  numbers  between  binary,  decimal, hexadecimal and octal numeral
-              system.  VALUE must be between 0 and 65535
+              system. Result is placed in $TARGET variable.  VALUE must be between 0  and
+              65535
 
        cos $TARGET [$]VALUE
               Calculates cosine of [$]VALUE and the result is placed in $TARGET.
@@ -142,52 +161,52 @@ BUILTIN COMMANDS
        cotan $TARGET [$]VALUE
               Calculates cotangent of [$]VALUE and the result is placed in $TARGET.
 
-       dec $TARGET [$]VALUE
-              Decrements [$]VALUE integer and the result is placed in $TARGET.
+       dec $VARIABLE
+              Decrements $VARIABLE integer.
 
        div $TARGET [$]VALUE1 [$]VALUE2
               Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET.
 
        exp $TARGET [$]VALUE
-              Calculates natural exponential of [$]VALUE and  the  result  is  placed  in
+              Calculates  natural  exponential  of  [$]VALUE  and the result is placed in
               $TARGET.
 
        idiv $TARGET [$]VALUE1 [$]VALUE2
-              Divides  [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET. (inte‐
+              Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET.  (inte‐
               ger division)
 
        imod $TARGET [$]VALUE1 [$]VALUE2
-              Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET.  (modu‐
+              Divides  [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET. (modu‐
               lus division)
 
-       inc $TARGET [$]VALUE
-              Increments [$]VALUE integer and the result is placed in $TARGET.
+       inc $VARIABLE
+              Increments $VARIABLE integer.
 
        ln $TARGET [$]VALUE
-              Calculates  natural logarithm of [$]VALUE and the result is placed in $TAR‐
+              Calculates natural logarithm of [$]VALUE and the result is placed in  $TAR‐
               GET.
 
        mul $TARGET [$]VALUE1 [$]VALUE2
-              Multiplies the two two values or variables ([$]VALUE1  [$]VALUE2)  and  the
+              Multiplies  the  two  two values or variables ([$]VALUE1 [$]VALUE2) and the
               result is placed in $TARGET.
 
        mulinv $TARGET [$]VALUE
-              Calculates  multiplicative  inverse of [$]VALUE and the result is placed in
+              Calculates multiplicative inverse of [$]VALUE and the result is  placed  in
               $TARGET.
 
        odd $TARGET [$]VALUE
               Decides whether the integer [$]VALUE is even or odd.
 
        pow $TARGET [$]BASE [$]EXPONENT
-              Calculates [$]EXPONENT exponentiation of the  [$]BASE  and  the  result  is
+              Calculates  [$]EXPONENT  exponentiation  of  the  [$]BASE and the result is
               placed in $TARGET.
 
        pow2 $TARGET [$]EXPONENT
-              Calculates  [$]EXPONENT  exponentiation  of two and the result is placed in
+              Calculates [$]EXPONENT exponentiation of two and the result  is  placed  in
               $TARGET.
 
        prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE
-              Propotional value calculation (for example: 4-20 mA current loop  and  mea‐
+              Propotional  value  calculation (for example: 4-20 mA current loop and mea‐
               sured value).
 
        rnd $TARGET [$]VALUE
@@ -216,13 +235,31 @@ BUILTIN COMMANDS
    Communication commands
        copyreg con? dinp|coil con? coil? [$]ADDRESS [[$]COUNT]
               Copies logical data between connections (con?). Number of connection (con?)
-              must be between 0-7, register start ADDRESS and the COUNT must  be  between
+              must  be  between 0-7, register start ADDRESS and the COUNT must be between
               1-9999.
 
        copyreg con? ireg|hreg con? hreg? [$]ADDRESS [[$]COUNT]
               Copies numeral data between connections (con?). Number of connection (con?)
-              must be between 0-7, register start ADDRESS and the COUNT must  be  between
+              must  be  between 0-7, register start ADDRESS and the COUNT must be between
               1-9999.
+
+       dcon con? $TXARRAY $RXARRAY
+              Reads or writes data from/to remote device with DCON protocol. The  command
+              takes  the input data from the $TXARRAY array, the output data is placed in
+              the $RXARRAY. Both arrays can only be variable arrays. If necessary, arrays
+              are resized by the command.
+
+              $$TXARRAY:
+              [0]  delimiter [$, #, %, @]
+              [1]  command
+              [2]  input data
+              [3]  checksum enable/disable [1/0]
+
+              $$RXARRAY:
+              [0]  delimiter [!, ?, >]
+              [1]  command (non used)
+              [2]  output data
+              [3]  checksum, output data is correct or not [1/0]
 
        mbgw con? con?
               Start internal Modbus slave/server for remote access own registers.
@@ -251,47 +288,72 @@ BUILTIN COMMANDS
               Writes "MESSAGE" to serial device. Number of device (dev?) must be  between
               0-7.
 
+       tcpcons [dev?]
+              Opens a simple TCP console. Data traffic is logged to the project directory
+              named console.log. Number of device (dev?) must be between 0-7.
+
+       tcpread [dev?] [$TARGET]
+              Reads string from network device with TCP  to  variable  $TARGET  or  write
+              screen.  Number of device (dev?) must be between 0-7.
+
+       tcpwrite [dev?] $MESSAGE
+              Writes  string  to network device with TCP from $MESSAGE.  Number of device
+              (dev?) must be between 0-7.
+
+       tcpwrite [dev?] "MESSAGE"
+              Writes "MESSAGE" to network device with TCP. Number of device  (dev?)  must
+              be between 0-7.
+
        writereg con? coil|hreg [$]ADDRESS [[$]COUNT]
               Writes  data  to  one or more remote registers. Number of connection (con?)
               must be between 0-7, register start address and the count must  be  between
               1-9999.
 
    Configuration commands
-       get dev?|pro?|con?|prj|timeout
+       get dev?|pro?|con?|project|timeout
               Gets  configuration  of  a  device  (dev?),  protocol  (pro?) or connection
-              (con?), or project name (prj) or connection timeout  (timeout)  in  ms.   ?
-              number must be 0-7.
+              (con?), or project name (project) or connection timeout (timeout) in s.   ?
+              number must be 0-7, timeout must be 1-60.
 
-       reset dev?|pro?|con?|prj
+       reset dev?|pro?|con?|project
               Resets  configuration  of  a  device  (dev?), protocol (pro?) or connection
-              (con?), or reset project name (prj). ? number must be 0-7.
+              (con?), or reset project name (project). ? number must be 0-7.
 
-       set dev? net [$]DEVICE [$]PORT
+       set dev? net [$]DEVICE [$]IP_ADDRESS [$]PORT
               Sets device (dev?) to ethernet (net) device. Device number must be  between
               0-7  and port number must be between 0-65535. The DEVICE name on DOS is al‐
               ways PACKET, on other systems is the name of the adapter (e.g. eth0,  nfe0,
-              etc.).
+              etc.).  Address  of  remote  device (IP_ADDRESS) must be in a.b.c.d format,
+              with values between 1-255.
 
        set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT
-              Sets  device  (dev?)  to serial (ser) device. Device number must be between
+              Sets device (dev?) to serial (ser) device. Device number  must  be  between
               0-7. The DEVICE name is the name of the adapter (e.g. com1, ttyS0, ttyUSB0,
-              ttyAMA0  etc.).  BAUDRATE  must  be:  1200; 2400; 4800; 9600; 19200; 38400;
-              57600  or  115200.  DATABIT  must  be  7  or  8,  PARITY  must   be   E/N/O
+              ttyAMA0 etc.). BAUDRATE must be: 1200;  2400;  4800;  9600;  19200;  38400;
+              57600   or   115200.  DATABIT  must  be  7  or  8,  PARITY  must  be  E/N/O
               (even/none/odd). STOPBIT must be 1 or 2.
 
-       set pro? ascii|rtu [$]UID
-              Sets  protocol (pro?) to Modbus/ASCII (ascii) or Modbus/RTU (rtu).  Unit ID
-              (UID) must be between 1-247.
+       set pro? ascii|rtu|tcp [$]ID
+              Sets protocol (pro?) and unit ID. Unit ID (ID) must be between 1-247.
 
-       set pro? tcp [$]IP_ADDRESS
-              Sets protocol (pro?) to Modbus/TCP (tcp). Address of remote device  (IP_AD‐
-              DRESS) must be in a.b.c.d format, with values between 1-255.
+       set pro? dcon [$]ADDRESS
+              Sets protocol (pro?) to DCON (dcon). Address  of  remote  device  (ADDRESS)
+              must be between 1-255.
 
        set con? dev? pro?
               Assigns  a  device  (dev?)  and a protocol (pro?) to a connection (con?). ?
               number must be 0-7.
 
-       set prj [$]PROJECT_NAME
+       set color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VARMON
+              Sets all default colors in CLI and TUI mode.
+
+              Colors:
+              0: black  4: red         8: darkgray    12: lightred
+              1: blue   5: magenta:    9: lightblue   13: lightmagenta
+              2: green  6: brown      10: lightgreen  14: yellow
+              3: cyan   7: lightgray  11: lightcyan   15: white
+
+       set project [$]PROJECT_NAME
               Sets the project name. The name cannot contain spaces  or  special  charac‐
               ters.  The project directory will also be created with this name.
 
@@ -340,21 +402,26 @@ BUILTIN COMMANDS
               Saves all registers to four typed files.
 
    General commands
+       arrclear ARRAY
+              Clears content of an array.
+
+       arrfill ARRAY [$]DATA
+              Fills an array with [$]DATA.
+
        ascii [dec|hex]
               Shows ASCII table (0-127 characters) with decimal or hexadecimal numbers.
 
        beep   Make a beep.
 
+       carr   Prints constant arrays with their size.
+
+       carr ARRAY
+              Defines new zero size ARRAY constant array.
+
+       carr ARRAY SIZE
+              Defines new SIZE size ARRAY constant array.
+
        cls    Clears screen.
-
-       color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VARMON
-              Sets foreground and background color in full screen mode.
-
-              Colors:
-              0: black  4: red         8: darkgray    12: lightred
-              1: blue   5: magenta:    9: lightblue   13: lightmagenta
-              2: green  6: brown      10: lightgreen  14: yellow
-              3: cyan   7: lightgray  11: lightcyan   15: white
 
        const CONSTANT [[$]VALUE]
               Defines new constant (CONSTANT) and assign value (VALUE).  Use a  backslash
@@ -367,13 +434,17 @@ BUILTIN COMMANDS
               Shows  all  or  removes specified record from the crontable. rec_num may be
               1-4.
 
-       date   Shows system date and time.
+       date [$TARGET]
+              Shows or write into $TARGET variable system date and time.
 
        echo [off|on|hex]
               Queries local echo status or enable/disable it for serial connections.  Hex
               means the hexadecimal representation of the bytes.
 
        exit   Exits from program.
+
+       getarrsize ARRAY $TARGET
+              Gets size of an array and placed in _$TARGET_.
 
        goto LABEL
               Jumps to specified label (only in script).
@@ -391,6 +462,12 @@ BUILTIN COMMANDS
        label LABEL
               Define label (only in script).
 
+       let $VARIABLE [$]VALUE
+              Sets value of $VARIABLE variable or constant to value [$]VALUE.
+
+       let $VARIABLE nul
+              Clear $VARIABLE variable content.
+
        pause [[$]TIME]
               Waits for a keystroke or specified time.
 
@@ -407,11 +484,32 @@ BUILTIN COMMANDS
               Prints  a  single  line message. The -n parameter does not raise a line and
               the cursor does not return to the beginning of the line.
 
+       printcolor [$]FOREGROUND|255 [$]BACKGROUND|255
+              Sets temporary foreground and background colors for print  command  in  CLI
+              and TUI mode.  Value 255 sets color to default.
+
+              Colors:
+              0: black  4: red         8: darkgray    12: lightred
+              1: blue   5: magenta:    9: lightblue   13: lightmagenta
+              2: green  6: brown      10: lightgreen  14: yellow
+              3: cyan   7: lightgray  11: lightcyan   15: white
+
+       setarrsize ARRAY [[$]SIZE]
+              Sets size of an array.
+
        var    Prints all defined variables with their values.
 
        var VARIABLE [[$]VALUE]
-              Defines new variable (ARIABLE) and assign value (VALUE).  Use  a  backslash
+              Defines  new  variable (ARIABLE) and assign value (VALUE).  Use a backslash
               before a space.
+
+       varr   Prints variable arrays with their size.
+
+       varr ARRAY
+              Defines new zero size ARRAY variable array.
+
+       varr ARRAY SIZE
+              Defines new SIZE size ARRAY variable array.
 
        varmon off|on
               Enable/disable variable monitor.
@@ -423,30 +521,30 @@ BUILTIN COMMANDS
 
    Logical commands
        and $TARGET [$]VALUE1 [$]VALUE2
-              Performs  the  AND operation between the two values or variables ([$]VALUE1
+              Performs the AND operation between the two values or  variables  ([$]VALUE1
               [$]VALUE2) and the result is placed in $TARGET.
 
        bit $TARGET [$]VALUE1 [$]VALUE2
               Returns with the specified bit [$]VALUE2 of the [$]VALUE1.
 
        not $TARGET [$]VALUE
-              Performs the NOT operation on value or variable ([$]VALUE) and  the  result
+              Performs  the  NOT operation on value or variable ([$]VALUE) and the result
               is placed in $TARGET.
 
        or $TARGET [$]VALUE1 [$]VALUE2
-              Performs  the  OR  operation between the two values or variables ([$]VALUE1
+              Performs the OR operation between the two values  or  variables  ([$]VALUE1
               [$]VALUE2) and the result is placed in $TARGET.
 
        roll $TARGET [$]VALUE1 [$]VALUE2
-              Rolls bits of the [$]VALUE1 to the left by position [$]VALUE2 and  the  re‐
+              Rolls  bits  of the [$]VALUE1 to the left by position [$]VALUE2 and the re‐
               sult is placed in $TARGET.
 
        rolr $TARGET [$]VALUE1 [$]VALUE2
-              Rolls  bits of the [$]VALUE1 to the right by position [$]VALUE2 and the re‐
+              Rolls bits of the [$]VALUE1 to the right by position [$]VALUE2 and the  re‐
               sult is placed in $TARGET.
 
        shl $TARGET [$]VALUE1 [$]VALUE2
-              Shifts bits of the [$]VALUE1 to the left by position [$]VALUE2 and the  re‐
+              Shifts  bits of the [$]VALUE1 to the left by position [$]VALUE2 and the re‐
               sult is placed in $TARGET.
 
        shr $TARGET [$]VALUE1 [$]VALUE2
@@ -454,27 +552,24 @@ BUILTIN COMMANDS
               sult is placed in $TARGET.
 
        xor $TARGET [$]VALUE1 [$]VALUE2
-              Performs the XOR operation between the two values or  variables  ([$]VALUE1
+              Performs  the  XOR operation between the two values or variables ([$]VALUE1
               [$]VALUE2) and the result is placed in $TARGET.
 
    Register handler commands
        dump [[dinp|coil|ireg|hreg] [$]ADDRESS]
-              Dumps  one  page register content from ADDRESS in binary/hexadecimal format
+              Dumps one page register content from ADDRESS in  binary/hexadecimal  format
               to a table.
 
        let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE
-              Sets value of a register. Register start address must  be  between  1-9999.
-              If  register  type  is discrete input (dinp) and coil (coil), VALUE must be
-              0/1, l/h or false/true. If it is input register (ireg) or holding  register
+              Sets  value  of  a register. Register start address must be between 1-9999.
+              If register type is discrete input (dinp) and coil (coil),  VALUE  must  be
+              0/1,  l/h or false/true. If it is input register (ireg) or holding register
               (hreg), VALUE must be 0-65535.
 
-       let $VARIABLE [$]VALUE
-              Sets value of a variable $VARIABLE to value [$]VALUE.
-
        let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS
-              Sets  value  of  a variable $VARIABLE from register content. Register start
-              address and must be between 1-9999, If  register  type  is  discrete  input
-              (dinp)  and  coil (coil), value will be 0/1, if it is input register (ireg)
+              Sets value of a variable $VARIABLE from register  content.  Register  start
+              address  and  must  be  between  1-9999, If register type is discrete input
+              (dinp) and coil (coil), value will be 0/1, if it is input  register  (ireg)
               or holding register (hreg), value of the variable will be 0-65535.
 
    Script operation commands
@@ -491,13 +586,13 @@ BUILTIN COMMANDS
 
        run [-h] [-s]
               Runs loaded script. When the [-h] parameter is specified, the valuesof the
-              variables  and constants created by the script are preserved until the next
+              variables and constants created by the script are preserved until the  next
               run.  [-s] parameter means step-by-step program execution.
                .TP savescr [$]PATH_AND_FILENAME Saves loaded script to disc.
 
    String handler commands
        chr $TARGET [$]VALUE';
-              Converts byte value ([$]VALUE) to char value and the result  is  placed  in
+              Converts  byte  value  ([$]VALUE) to char value and the result is placed in
               $TARGET.
 
        concat $TARGET [$]VALUE1 [$]VALUE2
@@ -507,7 +602,7 @@ BUILTIN COMMANDS
               Puts length of the string ([$]VALUE) to $TARGET.
 
        lowcase $TARGET [$]VALUE
-              Converts  string  ([$]VALUE) to lowercase and the result is placed in $TAR‐
+              Converts string ([$]VALUE) to lowercase and the result is placed  in  $TAR‐
               GET.
 
        mklrc $TARGET [$]STRING
@@ -517,7 +612,7 @@ BUILTIN COMMANDS
               Make CRC of the [$]STRING
 
        ord $TARGET [$]VALUE
-              Converts char value ([$]VALUE) to byte value and the result  is  placed  in
+              Converts  char  value  ([$]VALUE) to byte value and the result is placed in
               $TARGET.
 
        strdel $TARGET [$]PLACE [$]COUNT
@@ -536,7 +631,7 @@ BUILTIN COMMANDS
               Replace specified element ([$]OLD) to [$]NEW in the $TARGET variable.
 
        upcase $TARGET [$]VALUE
-              Converts  string  ([$]VALUE) to uppercase and the result is placed in $TAR‐
+              Converts string ([$]VALUE) to uppercase and the result is placed  in  $TAR‐
               GET.
 
    File and directory management system commands
@@ -546,29 +641,46 @@ BUILTIN COMMANDS
        cd     Gets name of the actual directory.
 
        cd [[$]PATH_AND_DIRECTORYNAME]
-              Changes actual directory to [[$]PATH_AND_DIRECTORYNAME].   Makes  a  direc‐
-              tory.   Removes  [$]PATH_AND_DIRECTORYNAME  directory  if  empty.   Removes
-              [$]PATH_AND_FILENAME file.
+              Changes actual directory to [[$]PATH_AND_DIRECTORYNAME].
 
-       type [$]PATH_AND_FILENAME
-              Lists content [$]PATH_AND_FILENAME file.
+       chkdevlock [$]DEVICE
+              Check [$]DEVICE device lock file.
 
-       rcopy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME
+       copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME
               Copies [$]PATH_AND_FILENAME file to [$]NEW_PATH_AND_FILENAME.
+
+       del [$]PATH_AND_FILENAME
+              Removes [$]PATH_AND_FILENAME file.
+
+       exist [$]PATH_AND_FILENAME
+              Existence of [$]PATH_AND_FILENAME file or directory.
+
+       md [$]PATH_AND_DIRECTORYNAME
+              Makes a directory.
+
+       rd [$]PATH_AND_DIRECTORYNAME
+              Removes [$]PATH_AND_DIRECTORYNAME directory if empty.
 
        ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME
               Renames [$]PATH_AND_FILENAME file to [$]NEW_PATH_AND_FILENAME.
+
+       rmdevlock [$]DEVICE
+              Remove [$]DEVICE device lock file.
+
+       type [$]PATH_AND_FILENAME
+              Lists content [$]PATH_AND_FILENAME file.
 
 EXAMPLES
    Arithmetical commands
        add $result 12 13
               Adds 12 and 13, and the result is placed in $result.
 
-       conv bin hex 1011000010110100
-              Convert 45236 in binary to hex (result: B0B4).
+       conv $result bin hex 1011000010110100
+              Convert 45236 in binary to hexadecimal, result placed in $result (B0B4).
 
-       conv hex dec $I
-              Convert value of the $I in hexadecimal to decimal.
+       conv $result hex dec $i
+              Convert  value  of  the $i in hexadecimal to decimal. Result placed in $re‐
+              sult.
 
        round $result 12.01023 2
               Round 12.01023 to decimal places, and the result (12.01) is placed in  $re‐
@@ -621,14 +733,16 @@ EXAMPLES
        get dev2
               Get configuration of a device #2.
 
-       reset prj
+       reset project
               Reset project name (project name will be 'default').
 
-       set dev0 net /dev/enp0s7 502
-              Set device #0 to '/dev/enp0s7' ethernet device with 502 port.
+       set dev0 net /dev/enp0s7 192.168.10.11 502
+              Set device #0 to '/dev/enp0s7' ethernet device  with  192.168.10.11  IP-ad‐
+              dress and 502 port.
 
-       set dev0 net /dev/enp0s7 $P
-              Set device #0 to '/dev/enp0s7' ethernet device with value of the $P port.
+       set dev0 net /dev/enp0s7 $A $P
+              Set  device #0 to '/dev/enp0s7' ethernet device with value of the $A IP-ad‐
+              dress and $P port.
 
        set dev1 ser ttyS0 9600 8 N 1
               Set device #1 to /dev/ttyS0 serial device,  with  9600  baud,  8  databits,
@@ -645,13 +759,10 @@ EXAMPLES
        set pro0 ascii 100
               Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).
 
-       set pro2 tcp 192.168.100.2
-              Set protocol #2 to Modbus/TCP with IP address of server.
-
        set con0 dev0 pro2
               Assigns a device #0 and protocol #2 to connection #0.
 
-       set prj temp_meter
+       set project temp_meter
               Set the project name to 'temp_meter'.
 
        set timeout 1000
@@ -702,6 +813,12 @@ EXAMPLES
 
        help set
               Show usage of help command.
+
+       let $a 10
+              Set $a variable to 10.
+
+       let $a $b
+              Set $a variable to value of $b.
 
        pause  Wait for a key press.
 
@@ -763,12 +880,6 @@ EXAMPLES
 
        let $a ireg 100
               Set $a to input register address 100.
-
-       let $a 10
-              Set $a variable to 10.
-
-       let $a $b
-              Set $a variable to value of $b.
 
        print ireg 10 10
               Print value of the input register address 10 to 20.
@@ -943,7 +1054,7 @@ FILES
                      valid: boolean;        // settings validity: false|true
                      prottype: byte;        // type of protocol: 0..2 -> see PROT_TYPE
                      ipaddress: string[15]; // IP address in a.b.c.d format
-                     uid: integer;          // Modbus Unit ID: 1..247
+                     ID: integer;          // Modbus Unit ID: 1..247
                    end;
 
        *.CDT  Saved connection setting in typed file with seven TConnection type values.
