@@ -809,7 +809,7 @@ msgid "         wait for a keystroke or specified time"
 msgstr "         várakozás billentyûleütésre vagy idõ leteltére"
 
 #: modshell:des35
-msgid "F7       open a simple serial console"
+msgid "F7       open a mini serial console"
 msgstr "F7       egyszerû soros konzol"
 
 #: modshell:des36
@@ -1115,6 +1115,18 @@ msgstr "        tömbméret beállítása"
 #: modshell:des111
 msgid "         read/write data from/to remote device with DCON protocol"
 msgstr "         adat olvasása/írása távoli eszközrõl/eszközre DCON protokollal"
+
+#: modshell:des112
+msgid "SHIFT-F7 open a mini TCP console"
+msgstr "SHIFT-F7 egyszerû TCP konzol"
+
+#: modshell:des113
+msgid "         read string with TCP from network device"
+msgstr "         string olvasása hálózati eszközrõl TCP-vel"
+
+#: modshell:des114
+msgid "         write string with TCP to network device"
+msgstr "         string írása hálózati eszközre TCP-vel"
 
 #: modshell:usg00
 msgid ""
@@ -1728,6 +1740,38 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 "dcon con? $TXTÖMB $RXTÖMB\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: modshell:usg112
+msgid ""
+"tcpcons [dev?]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"tcpcons [dev?]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: modshell:usg113
+msgid ""
+"tcpread dev? [$TARGET]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"tcpread dev? [$CÉL]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: modshell:usg114
+msgid ""
+"tcpwrite dev? $MESSAGE\n"
+"  tcpwrite dev? \"MESSAGE\"\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"tcpwrite dev? $ÜZENET\n"
+"  tcpwrite dev? \"ÜZENET\"\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 

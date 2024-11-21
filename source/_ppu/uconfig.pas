@@ -27,7 +27,7 @@ var
   // settings from/to ini file
   colors: array[0..4] of integer;
   echo: byte;
-  formpositions: array[0..3, 0..3] of integer;
+  formpositions: array[0..4, 0..3] of integer;
   guicolors: array[0..1] of integer;
   histbuff: array[0..255] of string;
   histitem: integer;
@@ -108,9 +108,12 @@ begin
     s := 'form3_';
     for b:= 0 to 3 do
       ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[2, b]);
-    s := 'form4_';
+    s := 'form301_';
     for b:= 0 to 3 do
       ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[3, b]);
+    s := 'form4_';
+    for b:= 0 to 3 do
+      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[4, b]);
   except
     result := false;
   end;

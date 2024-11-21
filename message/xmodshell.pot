@@ -965,7 +965,6 @@ msgid "number"
 msgstr ""
 
 #: frmmain.msg69
-msgctxt "frmmain.msg69"
 msgid "&Write"
 msgstr ""
 
@@ -1817,7 +1816,7 @@ msgid "Show all variable arra&ys"
 msgstr ""
 
 #: tform1.menuitem52.caption
-msgid "Show &variable monitor.."
+msgid "&Variable monitor.."
 msgstr ""
 
 #: tform1.menuitem53.caption
@@ -1825,7 +1824,11 @@ msgid "&Restart"
 msgstr ""
 
 #: tform1.menuitem54.caption
-msgid "&Mini serial console.."
+msgid "Mini &serial console.."
+msgstr ""
+
+#: tform1.menuitem55.caption
+msgid "Mini &TCP console.."
 msgstr ""
 
 #: tform1.menuitem56.caption
@@ -1862,6 +1865,14 @@ msgstr ""
 
 #: tform1.menuitem63.caption
 msgid "&Show timeout"
+msgstr ""
+
+#: tform1.menuitem64.caption
+msgid "Re&ad data with TCP.."
+msgstr ""
+
+#: tform1.menuitem65.caption
+msgid "Wr&ite data with TCP.."
 msgstr ""
 
 #: tform1.menuitem7.caption
@@ -1964,7 +1975,7 @@ msgstr ""
 msgid "Variable monitor"
 msgstr ""
 
-#: tform3.caption
-msgid "Form3"
+#: tform4.caption
+msgid "Form4"
 msgstr ""
 

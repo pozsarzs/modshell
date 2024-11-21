@@ -782,7 +782,7 @@ msgid "         wait for a keystroke or specified time"
 msgstr ""
 
 #: modshell:des35
-msgid "F7       open a simple serial console"
+msgid "F7       open a mini serial console"
 msgstr ""
 
 #: modshell:des36
@@ -1087,6 +1087,18 @@ msgstr ""
 
 #: modshell:des111
 msgid "         read/write data from/to remote device with DCON protocol"
+msgstr ""
+
+#: modshell:des112
+msgid "SHIFT-F7 open a mini TCP console"
+msgstr ""
+
+#: modshell:des113
+msgid "         read string with TCP from network device"
+msgstr ""
+
+#: modshell:des114
+msgid "         write string with TCP to network device"
 msgstr ""
 
 #: modshell:usg00
@@ -1616,6 +1628,28 @@ msgstr ""
 #: modshell:usg111
 msgid ""
 "dcon con? $TXARRAY $RXARRAY\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg112
+msgid ""
+"tcpcons [dev?]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg113
+msgid ""
+"tcpread dev? [$TARGET]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg114
+msgid ""
+"tcpwrite dev? $MESSAGE\n"
+"  tcpwrite dev? \"MESSAGE\"\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""

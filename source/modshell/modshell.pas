@@ -127,6 +127,9 @@ procedure version(h: boolean); forward;
 {$I cmd_sscr.pas}
 {$I cmd_str.pas}
 {$I cmd_sys.pas}
+{$I cmd_tccn.pas}
+{$I cmd_tcrd.pas}
+{$I cmd_tcwr.pas}
 {$I cmd_var.pas}
 {$I cmd_varr.pas}
 {$I cmd_vrmn.pas}
@@ -224,6 +227,8 @@ begin
           begin command := COMMANDS[40]; c:=#13; end;                         // F12
         if c = #85 then
           begin command := COMMANDS[93]; c := #32; end;                       // SHIFT-F2
+        if c = #90 then
+          begin command := COMMANDS[112]; c := #32; end;                      // SHIFT-F7
         if c = #91 then
           begin command := COMMANDS[92]; c := #32; end;                       // SHIFT-F8
         if c = #72 then                                                       // UP

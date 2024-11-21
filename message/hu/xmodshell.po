@@ -993,7 +993,6 @@ msgid "number"
 msgstr "szám"
 
 #: frmmain.msg69
-msgctxt "frmmain.msg69"
 msgid "&Write"
 msgstr "Í&rás"
 
@@ -1929,7 +1928,7 @@ msgid "Show all variable arra&ys"
 msgstr "Változó tömbö&k mutatása"
 
 #: tform1.menuitem52.caption
-msgid "Show &variable monitor.."
+msgid "&Variable monitor.."
 msgstr "&Változó monitor.."
 
 #: tform1.menuitem53.caption
@@ -1937,8 +1936,12 @@ msgid "&Restart"
 msgstr "Új&raindítás"
 
 #: tform1.menuitem54.caption
-msgid "&Mini serial console.."
+msgid "Mini &serial console.."
 msgstr "&Mini soros konzol.."
+
+#: tform1.menuitem55.caption
+msgid "Mini &TCP console.."
+msgstr "Mini TC&P konzol.."
 
 #: tform1.menuitem56.caption
 msgid "&Online wiki"
@@ -1975,6 +1978,14 @@ msgstr "Időtúllépés beállítá&sa"
 #: tform1.menuitem63.caption
 msgid "&Show timeout"
 msgstr "Időtúllépés &mutatása"
+
+#: tform1.menuitem64.caption
+msgid "Re&ad data with TCP.."
+msgstr "Ada&t olvasása TCP-vel.."
+
+#: tform1.menuitem65.caption
+msgid "Wr&ite data with TCP.."
+msgstr "Adat írá&sa TCP-vel.."
 
 #: tform1.menuitem7.caption
 msgid "&About"
@@ -2076,9 +2087,15 @@ msgstr "ToolButton9"
 msgid "Variable monitor"
 msgstr "Változó monitor"
 
-#: tform3.caption
-msgid "Form3"
-msgstr "Form3"
+#: tform4.caption
+msgid "Form4"
+msgstr "Form4"
+
+#~ msgid "Show &variable monitor.."
+#~ msgstr "&Változó monitor.."
+
+#~ msgid "Form3"
+#~ msgstr "Form3"
 
 #~ msgctxt "frmmain.msg76"
 #~ msgid "&Write"

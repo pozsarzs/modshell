@@ -25,7 +25,7 @@ communicates via various ports using the Modbus and DCON protocol.
 |running modes           |normal or interpreter                                                                       |
 |variables               |max. 128 variables or constants (stored as string)                                          |
 |arrays                  |max. 16 dynamic size array of variables or constants (elements stored as string)            |
-|built-in commands       |111 commands in 10 categories                                                               |
+|built-in commands       |114 commands in 10 categories                                                               |
 |load from file          |registers, script, settings                                                                 |
 |save to file            |command history, console traffic, registers, communication settings, user log with timestamp|
 |auto save to file       |general settings and console traffic                                                        |
@@ -35,6 +35,7 @@ communicates via various ports using the Modbus and DCON protocol.
 |configurable protocols  |max. 8 settings, ASCII, RTU or TCP                                                          |
 |configurable connections|max. 8 settings by combining the previous two                                               |
 |raw serial communication|read/write serial port and mini serial console with char/hex echo                           |
+|raw TCP communication   |read/write network device and mini TCP console with char/hex echo                           |
 |DCON communication      |read and write remote devices                                                               |
 |Modbus communication    |read and write remote device and copy between devices                                       |
 |                        |internal server for remote access to own registers                                          |
@@ -50,8 +51,9 @@ _v0.1-beta1:_
 The next release will be with the following changes:  
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
  - [x] `color` -> `set color`: sets all default colors (CLI and TUI);  
- - [x] `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI);  
  - [x] `exist` command;  
+ - [x] `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI);  
+ - [ ] `tcpcons`, `tcpread`, `tcpwrite`,  commands;  
  - [x] DCON protocol support;  
  - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  
  - [x] support for variable and constant arrays;  
@@ -253,9 +255,12 @@ protocol via a serial port.
 |`mbsrv`     |communication |        |start internal Modbus slave/server                                   |
 |`readdc`    |communication |        |read data from a serial device with DCON protocol                    |
 |`readreg`   |communication |ALT-R   |read one or more remote registers                                    |
-|`sercons`   |communication |F7      |serial console                                                       |
-|`serread`   |communication |        |read a string from a serial device                                   |
-|`serwrite`  |communication |        |write a string to a serial device                                    |
+|`sercons`   |communication |F7      |mini serial console                                                  |
+|`serread`   |communication |        |read string from a serial device                                     |
+|`serwrite`  |communication |        |write string to a serial device                                      |
+|`tcpcons`   |communication |SHIFT-F7|mini TCP console                                                     |
+|`tcpread`   |communication |        |read string with TCP from a network device                           |
+|`tcpwrite`  |communication |        |write string with TCP to a network device                            |
 |`writedc`   |communication |        |write data to a serial device with DCON protocol                     |
 |`writereg`  |communication |ALT-W   |write data to one or more remote registers                           |
 |`get`       |configuration |ALT-G   |get device, protocol, connection, colors, project name and timeout   |

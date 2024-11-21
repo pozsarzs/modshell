@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | frmsecn.pas                                                              | }
-{ | mini serial console window                                               | }
+{ | frmtccn.pas                                                              | }
+{ | mini TCP console window                                                  | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-unit frmsecn;
+unit frmtccn;
 {$MODE OBJFPC}{$H+}{$MACRO ON}
 interface
 uses
@@ -37,10 +37,10 @@ type
     procedure Execute; override;
   public
     constructor Create(CreateSuspended: boolean);
-    function thr_sercons(p1: byte): byte;
+    function thr_tcpcons(p1: byte): byte;
   end;
-  { TForm3 }
-  TForm3 = class(TForm)
+  { TForm4 }
+  TForm4 = class(TForm)
     Memo1: TMemo;
     StatusBar1: TStatusBar;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -51,7 +51,7 @@ type
   public
   end;
 var
-  Form3: TForm3;
+  Form4: TForm4;
   device: byte;
   keyprd: boolean;
   prdkey: char;
@@ -66,23 +66,23 @@ uses frmmain;
 {$R *.lfm}
 
 {$I lockfile.pas}
-{$I serport.pas}
+{$I ethernet.pas}
 
-{$I thr_secn.pas}
+{$I thr_tccn.pas}
 
 { TLThread }
 
 // ADD TEXT TO MEMO1 FROM OTHER THREAD
 procedure TLThread.ShowStatus;
 begin
-  Form3.Memo1.Text := Form3.Memo1.Text + fStatusText;
+  Form4.Memo1.Text := Form4.Memo1.Text + fStatusText;
 end;
 
 // RUN A COMMAND ON NEW THREAD
 procedure TLThread.Execute;
 begin
-  exitcode := thr_sercons(device);
-  Form3.Close;
+  exitcode := thr_tcpcons(device);
+  Form4.Close;
 end;
 
 // CREATE THREAD
@@ -92,29 +92,26 @@ begin
   inherited Create(CreateSuspended);
 end;
 
-{ TForm3 }
+{ TForm4 }
 
 // SEND A CHAR
-procedure TForm3.FormKeyPress(Sender: TObject; var Key: char);
+procedure TForm4.FormKeyPress(Sender: TObject; var Key: char);
 begin
   keyprd := true;
   prdkey := Key;
 end;
 
-procedure TForm3.FormShow(Sender: TObject);
+procedure TForm4.FormShow(Sender: TObject);
 var
   LThread1: TLThread;
   begin
     if dev[device].valid then
-      if dev[device].devtype = 1 then
+      if dev[device].devtype = 0 then
       begin
         with StatusBar1.Panels do
         begin
           Items[1].Text := dev[device].device;
-          Items[2].Text := DEV_SPEED[dev[device].speed] + ' baud '+
-          inttostr(dev[device].databit) +
-          upcase(DEV_PARITY[dev[device].parity]) +
-          inttostr(dev[device].stopbit);
+          Items[2].Text := dev[device].ipaddress + ':' + inttostr(dev[device].port);
         end;
       end;
     // new threads for I/O operation
@@ -126,16 +123,16 @@ var
     end;
 end;
 
-// CLOSE MINI SERIAL CONSOLE WINDOW
-procedure TForm3.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+// CLOSE MINI TCP CONSOLE WINDOW
+procedure TForm4.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   // save window size and position
-  with Form3 do
+  with Form4 do
   begin
-    formpositions[2, 0] := Top;
-    formpositions[2, 1] := Left;
-    formpositions[2, 2] := Height;
-    formpositions[2, 3] := Width;
+    formpositions[4, 0] := Top;
+    formpositions[4, 1] := Left;
+    formpositions[4, 2] := Height;
+    formpositions[4, 3] := Width;
   end;
   keyprd := true;
   prdkey := #27;
@@ -143,17 +140,17 @@ begin
   CanClose := true;
 end;
 
-// SHOW MINI SERIAL CONSOLE WINDOW
-procedure TForm3.FormCreate(Sender: TObject);
+// SHOW MINI TCP CONSOLE WINDOW
+procedure TForm4.FormCreate(Sender: TObject);
 begin
   KeyPreview := true;
   // restore window size and position
-  with Form3 do
+  with Form4 do
   begin
-    Top := formpositions[2, 0];
-    Left := formpositions[2, 1];
-    if formpositions[2, 2] > 120 then Height := formpositions[2, 2];
-    if formpositions[2, 3] > 160 then Width := formpositions[2, 3];
+    Top := formpositions[4, 0];
+    Left := formpositions[4, 1];
+    if formpositions[4, 2] > 120 then Height := formpositions[4, 2];
+    if formpositions[4, 3] > 160 then Width := formpositions[4, 3];
   end;
   // set colors
   Memo1.Font.Color := uconfig.guicolors[0];

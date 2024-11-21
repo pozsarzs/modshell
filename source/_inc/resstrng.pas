@@ -214,7 +214,7 @@ resourcestring
   DES32='         division mathematical operation';
   DES33='F6       dump all registers in binary/hexadecimal format to a table';
   DES34='         wait for a keystroke or specified time';
-  DES35='F7       open a simple serial console';
+  DES35='F7       open a mini serial console';
   DES36='         read string from serial device';
   DES37='         write string to serial device';
   DES38='F9       query local echo status or enable/disable it';
@@ -291,6 +291,9 @@ resourcestring
   DES109='         get size of an array';
   DES110='         set size of an array';
   DES111='         read/write data from/to remote device with DCON protocol';
+  DES112='SHIFT-F7 open a mini TCP console';
+  DES113='         read string with TCP from network device';
+  DES114='         write string with TCP to network device';
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -464,5 +467,15 @@ resourcestring
   USG109='getarrsize ARRAY $TARGET';
   USG110='setarrsize ARRAY [$]SIZE';
   USG111='dcon con? $TXARRAY $RXARRAY' + EOL +
+        'Notes:' + EOL +
+        '  - The ''?'' value can be 0-7.';
+  USG112='tcpcons [dev?]' + EOL +
+        'Notes:' + EOL +
+        '  - The ''?'' value can be 0-7.';
+  USG113='tcpread dev? [$TARGET]' + EOL +
+        'Notes:' + EOL +
+        '  - The ''?'' value can be 0-7.';
+  USG114='tcpwrite dev? $MESSAGE' + EOL +
+        '  tcpwrite dev? "MESSAGE"' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';

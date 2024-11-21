@@ -14,8 +14,8 @@
 }
 {
   p0     p1
-  -------------
-  sercon [dev?]
+  --------------
+  sercons [dev?]
 }
 
 // COMMAND 'SERCONS'

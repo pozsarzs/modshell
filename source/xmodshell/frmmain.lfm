@@ -3,7 +3,7 @@ object Form1: TForm1
   Height = 478
   Top = 118
   Width = 701
-  ActiveControl = ComboBox1
+  ActiveControl = Memo1
   Caption = 'Form1'
   ClientHeight = 453
   ClientWidth = 701
@@ -470,7 +470,7 @@ object Form1: TForm1
       Style = tbsSeparator
     end
     object ToolButton15: TToolButton
-      Left = 303
+      Left = 309
       Top = 2
       Caption = 'ToolButton15'
       ImageIndex = 12
@@ -479,7 +479,7 @@ object Form1: TForm1
       ShowHint = True
     end
     object ToolButton16: TToolButton
-      Left = 326
+      Left = 332
       Top = 2
       Caption = 'ToolButton16'
       ImageIndex = 22
@@ -488,7 +488,7 @@ object Form1: TForm1
       ShowHint = True
     end
     object ToolButton17: TToolButton
-      Left = 349
+      Left = 355
       Height = 22
       Top = 2
       Caption = 'ToolButton17'
@@ -497,7 +497,7 @@ object Form1: TForm1
       Style = tbsSeparator
     end
     object ToolButton18: TToolButton
-      Left = 357
+      Left = 363
       Top = 2
       Caption = 'ToolButton18'
       ImageIndex = 8
@@ -855,7 +855,7 @@ object Form1: TForm1
         OnClick = MenuItem26Click
       end
       object MenuItem52: TMenuItem
-        Caption = 'Show &variable monitor..'
+        Caption = '&Variable monitor..'
         ImageIndex = 22
         ShortCut = 32845
         OnClick = MenuItem52Click
@@ -864,7 +864,7 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem54: TMenuItem
-        Caption = '&Mini serial console..'
+        Caption = 'Mini &serial console..'
         ImageIndex = 21
         ShortCut = 118
         OnClick = MenuItem54Click
@@ -878,6 +878,25 @@ object Form1: TForm1
         Caption = 'W&rite data to serial port..'
         ImageIndex = 21
         OnClick = MenuItem50Click
+      end
+      object Separator4: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem55: TMenuItem
+        Caption = 'Mini &TCP console..'
+        ImageIndex = 21
+        ShortCut = 8310
+        OnClick = MenuItem55Click
+      end
+      object MenuItem64: TMenuItem
+        Caption = 'Re&ad data with TCP..'
+        ImageIndex = 21
+        OnClick = MenuItem64Click
+      end
+      object MenuItem65: TMenuItem
+        Caption = 'Wr&ite data with TCP..'
+        ImageIndex = 21
+        OnClick = MenuItem65Click
       end
     end
     object MenuItem3: TMenuItem

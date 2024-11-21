@@ -297,6 +297,21 @@ Number of device (\fIdev?\fP) must be between 0-7.
 \fBserwrite\fP \fI[dev?]\fP \fI"MESSAGE"\fP
 Writes "MESSAGE" to serial device. Number of device (\fIdev?\fP) must be between 0-7.
 .TP
+\fBtcpcons\fP \fI[dev?]\fP
+Opens a simple TCP console. Data traffic is logged to the project directory
+named \fIconsole.log\fP. Number of device (\fIdev?\fP) must be between 0-7.
+.TP
+\fBtcpread\fP \fI[dev?]\fP \fI[$TARGET]\fP
+Reads string from network device with TCP to variable \fI$TARGET\fP or write screen.
+Number of device (\fIdev?\fP) must be between 0-7.
+.TP
+\fBtcpwrite\fP \fI[dev?]\fP \fI$MESSAGE\fP
+Writes string to network device with TCP from \fI$MESSAGE\fP.
+Number of device (\fIdev?\fP) must be between 0-7.
+.TP
+\fBtcpwrite\fP \fI[dev?]\fP \fI"MESSAGE"\fP
+Writes "MESSAGE" to network device with TCP. Number of device (\fIdev?\fP) must be between 0-7.
+.TP
 \fBwritereg\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Writes data to one or more remote registers. Number of connection
 (\fIcon?\fP) must be between 0-7, register start address and the count must be
