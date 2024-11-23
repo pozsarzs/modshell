@@ -86,13 +86,12 @@ begin
     end;
   end;
   // PRIMARY MISSION
-  if checklockfile(dev[i1].device, true) then exit;
   with dev[i1] do
-    if eth_open(device, ipaddress ,port) then
+    if tcp_open(ipaddress, inttostr(port)) then
     begin
-      if eth_canwrite then
+      if tcp_canwrite then
       begin
-        eth_sendstring(s2);
+        tcp_sendstring(s2);
         {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
         case uconfig.echo of
           1: {$IFNDEF X} writeln(s2); {$ELSE} Form1.Memo1.Lines.Add(s2); {$ENDIF}
@@ -110,7 +109,7 @@ begin
         {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
         result := 1;
       end;
-      eth_close;
+      tcp_close;
     end else
     begin
       // Cannot initialize network device!

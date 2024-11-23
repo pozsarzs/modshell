@@ -17,6 +17,7 @@ unit frmmain;
 {$MODE OBJFPC}{$H+}{$MACRO ON}
 interface
 uses
+  BlckSock,
   Classes,
   ColorBox,
   ComCtrls,
@@ -281,7 +282,7 @@ procedure version(h: boolean); forward;
 {$I lockfile.pas}
 {$I validity.pas}
 
-{$I ethernet.pas}
+{$I network.pas}
 {$I serport.pas}
 
 {$I dcon.pas}

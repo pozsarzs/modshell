@@ -85,18 +85,17 @@ begin
     writeln(ERR50);
   end;
   // PRIMARY MISSION
-  if checklockfile(dev[i1].device, true) then exit;
   with dev[i1] do
-    if eth_open(device, ipaddress, port) then
+    if tcp_open(ipaddress, inttostr(port)) then
     begin
       writeln(MSG31);
       repeat
         if  keypressed then
         begin
           c := readkey;
-          if eth_canwrite then
+          if tcp_canwrite then
           begin
-            eth_sendstring(c);
+            tcp_sendstring(c);
             textcolor(uconfig.colors[3]);
             write(c);
             try
@@ -107,9 +106,9 @@ begin
             textcolor(uconfig.colors[0]);
           end else writeln(ERR27);
         end;
-        if eth_canread then
+        if tcp_canread then
         begin
-          b := eth_recvbyte;
+          b := tcp_recvbyte;
           textcolor(uconfig.colors[2]);
           write(char(b));
           try
@@ -120,7 +119,7 @@ begin
           textcolor(uconfig.colors[0]);
         end;
       until c = #27;
-      eth_close;
+      tcp_close;
       writeln(EOL);
     end else
     begin

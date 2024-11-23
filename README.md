@@ -219,6 +219,13 @@ selected.
 The program also provides the possibility to send and receive data with DCON
 protocol via a serial port.
 
+**Raw TCP connection**
+
+The program provides the possibility to send and receive raw data via network
+device with TCP, and also includes a very simple TCP console. The display of sent
+and received data can be turned off or raw text and hexadecimal viewing can be
+selected.
+
 **Already implemented commands:**
 
 |command     |category      |hotkey  |description                                                          |
@@ -259,8 +266,8 @@ protocol via a serial port.
 |`serread`   |communication |        |read string from a serial device                                     |
 |`serwrite`  |communication |        |write string to a serial device                                      |
 |`tcpcons`   |communication |SHIFT-F7|mini TCP console                                                     |
-|`tcpread`   |communication |        |read string with TCP from a network device                           |
-|`tcpwrite`  |communication |        |write string with TCP to a network device                            |
+|`tcpread`   |communication |        |read string over the network using TCP                               |
+|`tcpwrite`  |communication |        |write string over the network using TCP                              |
 |`writedc`   |communication |        |write data to a serial device with DCON protocol                     |
 |`writereg`  |communication |ALT-W   |write data to one or more remote registers                           |
 |`get`       |configuration |ALT-G   |get device, protocol, connection, colors, project name and timeout   |

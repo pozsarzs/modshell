@@ -89,17 +89,12 @@ begin
     end;
   end;
   // PRIMARY MISSION
-  if checklockfile(dev[i1].device, false) then
-  begin
-    sendmessage(ERR49, true);
-    exit;
-  end;
   with dev[i1] do
-    if eth_open(device, ipaddress, port) then
+    if tcp_open(ipaddress, inttostr(port)) then
     begin
-      if eth_canwrite then
+      if tcp_canwrite then
       begin
-        eth_sendstring(s2);
+        tcp_sendstring(s2);
         case uconfig.echo of
           1: sendmessage(s2, true);
           2: begin
@@ -115,7 +110,7 @@ begin
         sendmessage(ERR27, true);
         result := 1;
       end;
-      eth_close;
+      tcp_close;
     end else
     begin
       // Cannot initialize network device!

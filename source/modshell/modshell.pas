@@ -17,6 +17,7 @@
 program modshell;
 uses
   {$IFDEF GO32V2} protcom, {$ELSE} synaser, {$ENDIF}
+  {$IFDEF GO32V2} {$ELSE} BlckSock, {$ENDIF}
   Classes,
   GetText,
   INIFiles,
@@ -68,7 +69,7 @@ procedure version(h: boolean); forward;
 {$I lockfile.pas}
 {$I validity.pas}
 
-{$I ethernet.pas}
+{$I network.pas}
 {$I serport.pas}
 
 {$I dcon.pas}

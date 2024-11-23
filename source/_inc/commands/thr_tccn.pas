@@ -51,18 +51,17 @@ begin
     sendmessage(MSG50,true);
   end;
   // PRIMARY MISSION
-  if checklockfile(dev[p1].device, true) then exit;
   with dev[p1] do
-    if eth_open(device, ipaddress, port) then
+    if tcp_open(ipaddress, inttostr(port)) then
     begin
       repeat
         // send a char
         if keyprd then
         begin
           keyprd := false;
-          if eth_canwrite then
+          if tcp_canwrite then
           begin
-            eth_sendstring(prdkey);
+            tcp_sendstring(prdkey);
             sendmessage(prdkey, false);
             try
               write(lf, prdkey);
@@ -72,9 +71,9 @@ begin
           end else sendmessage(ERR27, true);
         end;
         // receive a char
-        if eth_canread then
+        if tcp_canread then
         begin
-          b := eth_recvbyte;
+          b := tcp_recvbyte;
           sendmessage(char(b), false);
           try
             write(lf, char(b));
@@ -83,7 +82,7 @@ begin
           if b = 13 then sendmessage('', true);
         end;
       until prdkey = #27;
-      eth_close;
+      tcp_close;
       sendmessage('', true);
     end else
     begin

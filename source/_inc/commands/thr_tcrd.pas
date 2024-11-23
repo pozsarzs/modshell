@@ -85,20 +85,15 @@ begin
     end;
   end;
   // PRIMARY MISSION
-  if checklockfile(dev[i1].device, false) then
-  begin
-    sendmessage(ERR49, true);
-    exit;
-  end;
   with dev[i1] do
-    if eth_open(device, ipaddress, port) then
+    if tcp_open(ipaddress, inttostr(port)) then
     begin
       repeat
         sleep(10);
-        if eth_canread then
+        if tcp_canread then
         begin
           wait := 0;
-          b := eth_recvbyte;
+          b := tcp_recvbyte;
           case uconfig.echo of
             1: sendmessage(char(b), false);
             2: sendmessage(addsomezero(2, deztohex(inttostr(b))) + ' ', false);
@@ -112,7 +107,7 @@ begin
           if not no_timeout_error then
             if wait < 6000 then inc(wait);
       until (length(s) = 255) or (wait = timeout * 100);
-      eth_close;
+      tcp_close;
       if (uconfig.echo > 0) then sendmessage('', true);
       if length(p2) = 0 then sendmessage(s, true);
       if length(p2) > 0 then

@@ -83,17 +83,16 @@ begin
     end;
   end;
   // PRIMARY MISSION
-  if checklockfile(dev[i1].device, true) then exit;
   with dev[i1] do
-    if eth_open(device, ipaddress, port) then
+    if tcp_open(ipaddress, inttostr(port)) then
     begin
       {$IFNDEF X} writeln(MSG31); {$ENDIF}
       repeat
         sleep(10);
-        if eth_canread then
+        if tcp_canread then
         begin
           wait := 0;
-          b := eth_recvbyte;
+          b := tcp_recvbyte;
           {$IFNDEF X}
             textcolor(uconfig.colors[2]);
             case uconfig.echo of
@@ -116,7 +115,7 @@ begin
           if wait < 6000 then inc(wait);
         {$IFNDEF X} if keypressed then c := readkey; {$ENDIF}
       until {$IFNDEF X} (c = #27) or {$ENDIF} (length(s) = 255) or (wait = timeout * 100);
-      eth_close;
+      tcp_close;
       if (uconfig.echo > 0)
         then {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Lines.Add(''); {$ENDIF}      
       if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}

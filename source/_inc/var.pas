@@ -14,7 +14,11 @@
 }
 
 var
-  {$IFNDEF GO32V2} ser: TBlockSerial; {$ENDIF}
+  {$IFNDEF GO32V2}
+    ser: TBlockSerial;
+    tcp: TTCPBlockSocket;
+    udp: TUDPBlockSocket;
+  {$ENDIF}
   // BUFFERS
   // Modbus registers
   coil: array[1..9999] of boolean;

@@ -17,6 +17,7 @@ unit frmtccn;
 {$MODE OBJFPC}{$H+}{$MACRO ON}
 interface
 uses
+  BlckSock,
   Classes,
   ComCtrls,
   Controls,
@@ -65,8 +66,7 @@ uses frmmain;
 
 {$R *.lfm}
 
-{$I lockfile.pas}
-{$I ethernet.pas}
+{$I network.pas}
 
 {$I thr_tccn.pas}
 
