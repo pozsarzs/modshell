@@ -2,16 +2,16 @@
 
 ### Files
 
-|Editor       |Filename       |Target file or directory|  
-|-------------|---------------|-----------------------------------------------------------------------|  
-|GTKSourceView|modshell.lang  |copy file into ~/.local/share/gtksourceview-?/language-specs/          |
-|MCEdit       |Syntax         |insert file content to top of ~/.local/share/mc/Syntax                 |
-|             |modshell.syntax|copy file into ~/.local/share/mc/Syntax/                               |
-|Micro        |modshell.yaml  |copy file into ~/.config/micro/syntax/                                 |
-|Nano         |modshell.nanorc|copy file into /usr/share/nano/                                        |
-|Notepad++    |modshell.xml   |copy file into %USERPROFILE%\AppData\Roaming\Notepad++\userDefineLangs\|
-|(Neo)Vim     |modshell.vim   |copy file into ~/.config/vim/syntax/                                   |
-|             |scripts.vim    |copy file into ~/.config/vim/                                          |
+|Editor       |Filename       |Target file or directory                                                  |  
+|-------------|---------------|--------------------------------------------------------------------------|  
+|GTKSourceView|modshell.lang  |copy file into ~/.local/share/gtksourceview-?/language-specs/             |
+|MCEdit       |Syntax         |insert file content to top of ~/.local/share/mc/Syntax                    |
+|             |modshell.syntax|copy file into ~/.local/share/mc/Syntax/                                  |
+|Micro        |modshell.yaml  |copy file into ~/.config/micro/syntax/                                    |
+|Nano         |modshell.nanorc|copy file into /usr/share/nano/                                           |
+|Notepad++    |modshell.xml   |copy file into %USERPROFILE%\AppData\Roaming\\Notepad++\\userDefineLangs\ |
+|(Neo)Vim     |modshell.vim   |copy file into ~/.config/vim/syntax/                                      |
+|             |scripts.vim    |copy file into ~/.config/vim/                                             |
 
 > [!NOTE]
 > Applications using GtkSourceView, for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes.
