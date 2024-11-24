@@ -47,42 +47,45 @@ communication with other devices.
 
 **b. Download from Github**  
   
-  `$ git clone https://github.com/pozsarzs/modshell.git`  
+  ```
+  $ git clone https://github.com/pozsarzs/modshell.git
+  ```  
   
 **c. Download from Debian repository**  
   
   set reporitory:  
-  `$ sudo echo "deb http://www.pozsarzs.hu/deb/ ./" >> /etc/apt/sources.list`  
-  `$ sudo wget -q -O - http://www.pozsarzs.hu/deb/KEY.gpg | apt-key add -`  
-  `$ sudo apt-get update`  
-  
+  ```
+  $ sudo echo "deb http://www.pozsarzs.hu/deb/ ./" >> /etc/apt/sources.list
+  $ sudo wget -q -O - http://www.pozsarzs.hu/deb/KEY.gpg | apt-key add -
+  $ sudo apt-get update
+  ```
   install:  
-  `$ sudo apt-get install modshell`  
+  ```
+  $ sudo apt-get install modshell
+  ```  
 
-Note:
-  How to resolve 'Key is stored in legacy trusted.gpg keyring' warning message:
+**_Note:_**  
+
+  How to resolve _Key is stored in legacy trusted.gpg keyring_ warning message:
 
   List all the GPG keys added to your system:
-
-    $ sudo apt-key list
-
+  ```
+  $ sudo apt-key list
+  ```
   Search dpkg1@szerafingomba.hu's public key:
-
+  ```
     /etc/apt/trusted.gpg
     --------------------
     pub   rsa4096 2019-12-04 [SCEA]
           0503 875E 0F22 8B99 C057  9E0A 97AB CE11 F36E 9EE8
     uid           [ unknown] dpkg1 <dpkg1@szerafingomba.hu>
-    
+  ```  
   Copy dearmored key to the new place:
-
-    $ sudo apt-key export f36e9ee8 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/pozsarzs.gpg
+  ```
+  $ sudo apt-key export f36e9ee8 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/pozsarzs.gpg
+  ```
 
 ### 3. Contact
 
-   Homepage:             <http://www.pozsarzs.hu>
-                         <https://pozsarzs.github.io/modshell>
-   Author:               Pozsár Zsolt
-   E-mail:               <pozsarzs@gmail.com>           
-   Phone:                +36 56/470-272
-   Mobile:               +36 30/249-5030
+  Homepage: <https://pozsarzs.github.io/modshell> and <http://www.pozsarzs.hu>  
+  Author: Pozsár Zsolt <pozsarzs@gmail.com>  
