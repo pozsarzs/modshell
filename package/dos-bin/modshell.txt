@@ -12,8 +12,8 @@ COPYRIGHT
 DESCRIPTION
        This  is a utility that can be used on several operating systems, which can commu‐
        nicate with connected equipment using Modbus/ASCII, Modbus/RTU and Modbus/TCP pro‐
-       tocols.  The  basic  communication protocol of the program is Modbus, but DCON was
-       also implemented due to communication with other devices (e.g. ADAM). The range of
+       tocols.  The  basic  communication protocol of the program is Modbus, but DCON and
+       HART was also implemented due to communication with other devices.  The  range  of
        foreign protocols may be expanded later.  The program is designed for DOS, Windows
        and Unix-like operating systems.
 
@@ -75,7 +75,7 @@ OPERATION
        file is created, with CSV, INI or XML extension. The program can only import  from
        INI and XML format files.
 
-       The  program  has a simple serial and a TCP console whose traffic is logged in the
+       The program has simple serial, TCP and UDP consoles whose traffic is logged in the
        project directory as console.log.
 
        On exit, the command line history, echo mode and colors are preserved.
@@ -100,6 +100,12 @@ OPERATION
    TCP console
        The program also provides the possibility to send and receive raw data via network
        device with TCP, and also includes a very simple TCP console. The display of  sent
+       and received data can be turned off or raw text and hexadecimal viewing can be se‐
+       lected.
+
+   UDP console
+       The program also provides the possibility to send and receive raw data via network
+       device  with UDP, and also includes a very simple UDP console. The display of sent
        and received data can be turned off or raw text and hexadecimal viewing can be se‐
        lected.
 
@@ -144,15 +150,15 @@ BUILTIN COMMANDS
 
    Arithmetical commands
        add $TARGET [$]VALUE1 [$]VALUE2
-              Adds the two values or variables ([$]VALUE1 [$]VALUE2) and  the  result  is
+              Adds  the  two  values or variables ([$]VALUE1 [$]VALUE2) and the result is
               placed in $TARGET.
 
        avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]
               Calculates average of 2-5 numbers and the result is placed in $TARGET.
 
        conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
-              Converts  numbers  between  binary,  decimal, hexadecimal and octal numeral
-              system. Result is placed in $TARGET variable.  VALUE must be between 0  and
+              Converts numbers between binary, decimal,  hexadecimal  and  octal  numeral
+              system.  Result is placed in $TARGET variable.  VALUE must be between 0 and
               65535
 
        cos $TARGET [$]VALUE
@@ -168,45 +174,45 @@ BUILTIN COMMANDS
               Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET.
 
        exp $TARGET [$]VALUE
-              Calculates  natural  exponential  of  [$]VALUE  and the result is placed in
+              Calculates natural exponential of [$]VALUE and  the  result  is  placed  in
               $TARGET.
 
        idiv $TARGET [$]VALUE1 [$]VALUE2
-              Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET.  (inte‐
+              Divides  [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET. (inte‐
               ger division)
 
        imod $TARGET [$]VALUE1 [$]VALUE2
-              Divides  [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET. (modu‐
+              Divides [$]VALUE1 by [$]VALUE2 and the result is placed in $TARGET.  (modu‐
               lus division)
 
        inc $VARIABLE
               Increments $VARIABLE integer.
 
        ln $TARGET [$]VALUE
-              Calculates natural logarithm of [$]VALUE and the result is placed in  $TAR‐
+              Calculates  natural logarithm of [$]VALUE and the result is placed in $TAR‐
               GET.
 
        mul $TARGET [$]VALUE1 [$]VALUE2
-              Multiplies  the  two  two values or variables ([$]VALUE1 [$]VALUE2) and the
+              Multiplies the two two values or variables ([$]VALUE1  [$]VALUE2)  and  the
               result is placed in $TARGET.
 
        mulinv $TARGET [$]VALUE
-              Calculates multiplicative inverse of [$]VALUE and the result is  placed  in
+              Calculates  multiplicative  inverse of [$]VALUE and the result is placed in
               $TARGET.
 
        odd $TARGET [$]VALUE
               Decides whether the integer [$]VALUE is even or odd.
 
        pow $TARGET [$]BASE [$]EXPONENT
-              Calculates  [$]EXPONENT  exponentiation  of  the  [$]BASE and the result is
+              Calculates [$]EXPONENT exponentiation of the  [$]BASE  and  the  result  is
               placed in $TARGET.
 
        pow2 $TARGET [$]EXPONENT
-              Calculates [$]EXPONENT exponentiation of two and the result  is  placed  in
+              Calculates  [$]EXPONENT  exponentiation  of two and the result is placed in
               $TARGET.
 
        prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE
-              Propotional  value  calculation (for example: 4-20 mA current loop and mea‐
+              Propotional value calculation (for example: 4-20 mA current loop  and  mea‐
               sured value).
 
        rnd $TARGET [$]VALUE
@@ -235,17 +241,17 @@ BUILTIN COMMANDS
    Communication commands
        copyreg con? dinp|coil con? coil? [$]ADDRESS [[$]COUNT]
               Copies logical data between connections (con?). Number of connection (con?)
-              must  be  between 0-7, register start ADDRESS and the COUNT must be between
+              must be between 0-7, register start ADDRESS and the COUNT must  be  between
               1-9999.
 
        copyreg con? ireg|hreg con? hreg? [$]ADDRESS [[$]COUNT]
               Copies numeral data between connections (con?). Number of connection (con?)
-              must  be  between 0-7, register start ADDRESS and the COUNT must be between
+              must be between 0-7, register start ADDRESS and the COUNT must  be  between
               1-9999.
 
        dcon con? $TXARRAY $RXARRAY
-              Reads or writes data from/to remote device with DCON protocol. The  command
-              takes  the input data from the $TXARRAY array, the output data is placed in
+              Reads  or writes data from/to remote device with DCON protocol. The command
+              takes the input data from the $TXARRAY array, the output data is placed  in
               the $RXARRAY. Both arrays can only be variable arrays. If necessary, arrays
               are resized by the command.
 
@@ -265,11 +271,11 @@ BUILTIN COMMANDS
               Start internal Modbus slave/server for remote access own registers.
 
        mbsrv con?
-              Start  internal  Modbus  gateway for access other remote device's registers
+              Start internal Modbus gateway for access other  remote  device's  registers
               with different communication and/or protocol.
 
        readreg con? dinp|coil|ireg|hreg [$]ADDRESS [ICOUNT]
-              Reads one or more remote registers. Number of connection  (con?)   must  be
+              Reads  one  or  more remote registers. Number of connection (con?)  must be
               between 0-7, register start ADDRESS and the COUNT must be between 1-9999.
 
        sercons [dev?]
@@ -277,7 +283,7 @@ BUILTIN COMMANDS
               tory named console.log. Number of device (dev?) must be between 0-7.
 
        serread [dev?] [$TARGET]
-              Reads string from serial device to variable $TARGET or write screen.   Num‐
+              Reads  string from serial device to variable $TARGET or write screen.  Num‐
               ber of device (dev?) must be between 0-7.
 
        serwrite [dev?] $MESSAGE
@@ -285,7 +291,7 @@ BUILTIN COMMANDS
               be between 0-7.
 
        serwrite [dev?] "MESSAGE"
-              Writes "MESSAGE" to serial device. Number of device (dev?) must be  between
+              Writes  "MESSAGE" to serial device. Number of device (dev?) must be between
               0-7.
 
        tcpcons [dev?]
@@ -293,52 +299,72 @@ BUILTIN COMMANDS
               named console.log. Number of device (dev?) must be between 0-7.
 
        tcpread [dev?] [$TARGET]
-              Reads string from network device with TCP  to  variable  $TARGET  or  write
+              Reads  string  from  network  device  with TCP to variable $TARGET or write
               screen.  Number of device (dev?) must be between 0-7.
 
        tcpwrite [dev?] $MESSAGE
-              Writes  string  to network device with TCP from $MESSAGE.  Number of device
+              Writes string to network device with TCP from $MESSAGE.  Number  of  device
               (dev?) must be between 0-7.
 
        tcpwrite [dev?] "MESSAGE"
-              Writes "MESSAGE" to network device with TCP. Number of device  (dev?)  must
+              Writes  "MESSAGE"  to network device with TCP. Number of device (dev?) must
+              be between 0-7.
+
+       udpcons [dev?]
+              Opens a simple UDP console. Data traffic is logged to the project directory
+              named console.log. Number of device (dev?) must be between 0-7.
+
+       udpread [dev?] [$TARGET]
+              Reads  string  from  network  device  with UDP to variable $TARGET or write
+              screen.  Number of device (dev?) must be between 0-7.
+
+       udpwrite [dev?] $MESSAGE
+              Writes string to network device with UDP from $MESSAGE.  Number  of  device
+              (dev?) must be between 0-7.
+
+       udpwrite [dev?] "MESSAGE"
+              Writes  "MESSAGE"  to network device with UDP. Number of device (dev?) must
               be between 0-7.
 
        writereg con? coil|hreg [$]ADDRESS [[$]COUNT]
-              Writes  data  to  one or more remote registers. Number of connection (con?)
-              must be between 0-7, register start address and the count must  be  between
+              Writes data to one or more remote registers. Number  of  connection  (con?)
+              must  be  between 0-7, register start address and the count must be between
               1-9999.
 
    Configuration commands
        get dev?|pro?|con?|project|timeout
-              Gets  configuration  of  a  device  (dev?),  protocol  (pro?) or connection
-              (con?), or project name (project) or connection timeout (timeout) in s.   ?
+              Gets configuration of  a  device  (dev?),  protocol  (pro?)  or  connection
+              (con?),  or project name (project) or connection timeout (timeout) in s.  ?
               number must be 0-7, timeout must be 1-60.
 
        reset dev?|pro?|con?|project
-              Resets  configuration  of  a  device  (dev?), protocol (pro?) or connection
+              Resets configuration of a device  (dev?),  protocol  (pro?)  or  connection
               (con?), or reset project name (project). ? number must be 0-7.
 
        set dev? net [$]DEVICE [$]IP_ADDRESS [$]PORT
-              Sets device (dev?) to ethernet (net) device. Device number must be  between
-              0-7  and port number must be between 0-65535. The DEVICE name on DOS is al‐
-              ways PACKET, on other systems is the name of the adapter (e.g. eth0,  nfe0,
-              etc.).  Address  of  remote  device (IP_ADDRESS) must be in a.b.c.d format,
+              Sets  device (dev?) to ethernet (net) device. Device number must be between
+              0-7 and port number must be between 0-65535. The DEVICE name on DOS is  al‐
+              ways  PACKET, on other systems is the name of the adapter (e.g. eth0, nfe0,
+              etc.). Address of remote device (IP_ADDRESS) must  be  in  a.b.c.d  format,
               with values between 1-255.
 
        set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT
-              Sets device (dev?) to serial (ser) device. Device number  must  be  between
+              Sets  device  (dev?)  to serial (ser) device. Device number must be between
               0-7. The DEVICE name is the name of the adapter (e.g. com1, ttyS0, ttyUSB0,
-              ttyAMA0 etc.). BAUDRATE must be: 1200;  2400;  4800;  9600;  19200;  38400;
-              57600   or   115200.  DATABIT  must  be  7  or  8,  PARITY  must  be  E/N/O
+              ttyAMA0  etc.).  BAUDRATE  must  be:  1200; 2400; 4800; 9600; 19200; 38400;
+              57600  or  115200.  DATABIT  must  be  7  or  8,  PARITY  must   be   E/N/O
               (even/none/odd). STOPBIT must be 1 or 2.
 
        set pro? ascii|rtu|tcp [$]ID
               Sets protocol (pro?) and unit ID. Unit ID (ID) must be between 1-247.
 
        set pro? dcon [$]ADDRESS
-              Sets protocol (pro?) to DCON (dcon). Address  of  remote  device  (ADDRESS)
+              Sets  protocol  (pro?)  to  DCON (dcon). Address of remote device (ADDRESS)
               must be between 1-255.
+
+       set pro? hart [$]ADDRESS
+              Sets protocol (pro?) to HART (dcon). Address  of  remote  device  (ADDRESS)
+              must be between 0-15.
 
        set con? dev? pro?
               Assigns  a  device  (dev?)  and a protocol (pro?) to a connection (con?). ?

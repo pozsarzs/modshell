@@ -27,7 +27,7 @@ var
   // settings from/to ini file
   colors: array[0..4] of integer;
   echo: byte;
-  formpositions: array[0..4, 0..3] of integer;
+  formpositions: array[0..5, 0..3] of integer;
   guicolors: array[0..1] of integer;
   histbuff: array[0..255] of string;
   histitem: integer;
@@ -108,12 +108,15 @@ begin
     s := 'form3_';
     for b:= 0 to 3 do
       ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[2, b]);
-    s := 'form301_';
-    for b:= 0 to 3 do
-      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[3, b]);
     s := 'form4_';
     for b:= 0 to 3 do
       ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[4, b]);
+    s := 'form5_';
+    for b:= 0 to 3 do
+      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[5, b]);
+    s := 'form301_';
+    for b:= 0 to 3 do
+      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[3, b]);
   except
     result := false;
   end;
@@ -154,6 +157,12 @@ begin
     for b:= 0 to 3 do
       formpositions[2, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
     s := 'form4_';
+    for b:= 0 to 3 do
+      formpositions[4, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
+    s := 'form5_';
+    for b:= 0 to 3 do
+      formpositions[5, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
+    s := 'form301_';
     for b:= 0 to 3 do
       formpositions[3, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
   except

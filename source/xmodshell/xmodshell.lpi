@@ -72,6 +72,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
+      <Unit>
+        <Filename Value="frmudcn.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form5"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

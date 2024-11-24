@@ -2774,6 +2774,7 @@ begin
     TabOrder := 0;
     Position := poMainFormCenter;
     HighLighter := LSynAnySyn1;
+    Clear;
   end;
   for sline := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[sline]) > 0 then
@@ -4328,6 +4329,14 @@ begin
     formpositions[4, 1] := Left;
     formpositions[4, 2] := Height;
     formpositions[4, 3] := Width;
+  end;
+  // save mini UDP console window size and position and set title
+  with Form4 do
+  begin
+    formpositions[5, 0] := Top;
+    formpositions[5, 1] := Left;
+    formpositions[5, 2] := Height;
+    formpositions[5, 3] := Width;
   end;
   // save configuration
   uconfig.lastproject := vars[12].vvalue;
