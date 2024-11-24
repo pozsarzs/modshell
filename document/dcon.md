@@ -26,7 +26,7 @@ Message = DC + AD + CMD + data (+ CS)
 ### Checksum
 
 The checksum equals to the result after performing modulus-256 of all
-the ASCII values's sum preceding the checksum.  
+the ASCII values' sum preceding the checksum.  
 
 Example:  
 ```
