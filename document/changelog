@@ -2,17 +2,20 @@ modshell (0.1-beta1) unstable; urgency=low
 
   * First user test release.
   * `chkdevlock`/`rmdevlock` commands (only *nix versions),
+  * `exist` command,
   * `color` -> `set color`: sets all default colors (CLI and TUI),
   * `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI),
-  * `exist` command,
+  * `tcpcons`, `tcpread`, `tcpwrite` commands,
+  * `udpcons`, `udpread`, `udpwrite` commands,
   * DCON protocol support,
+  * HART protocol support,
   * Modbus/TCP communication (Unix-like OS and Windows versions),
   * support for variable and constant arrays,
   * syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes),
   * syntax highlighting file for Notepad++ (Windows only),
   * syntax highlighting file for Vim/Neovim.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>  Sat, 30 Nov 2024 00:00:00
+ -- Pozsár Zsolt <pozsarzs@gmail.com>  Tue, 31 Dec 2024 23:59:59
 
 modshell (0.1-alpha3) unstable; urgency=low
 

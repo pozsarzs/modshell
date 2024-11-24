@@ -71,6 +71,7 @@
       <keyword>for</keyword>
       <keyword>get</keyword>
       <keyword>goto</keyword>
+      <keyword>hart</keyword>
       <keyword>help</keyword>
       <keyword>idiv</keyword>
       <keyword>if</keyword>
@@ -133,9 +134,15 @@
       <keyword>strrepl</keyword>
       <keyword>sub</keyword>
       <keyword>tan</keyword>
+      <keyword>tcpcons</keyword>
+      <keyword>tcpread</keyword>
+      <keyword>tcpwrite</keyword>
       <keyword>then</keyword>
       <keyword>to</keyword>
       <keyword>type</keyword>
+      <keyword>udpcons</keyword>
+      <keyword>udpread</keyword>
+      <keyword>udpwrite</keyword>
       <keyword>upcase</keyword>
       <keyword>varmon</keyword>
       <keyword>varr</keyword>

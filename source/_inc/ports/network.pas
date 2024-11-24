@@ -96,3 +96,87 @@ begin
     tcp.Free;
   {$ENDIF}
 end;
+
+// TRUE IF THERE IS RECEIVED DATA	
+function udp_canread: boolean;
+begin
+  {$IFDEF GO32V2}
+    result := false;
+  {$ELSE}
+    result := udp.CanRead(0);
+  {$ENDIF}
+end;
+
+// TRUE, ALL DATA HAS BEEN SENT
+function udp_canwrite: boolean;
+begin
+  {$IFDEF GO32V2}
+    result := false;
+  {$ELSE}
+    result := udp.CanWrite(0);
+  {$ENDIF}
+end;
+
+// READ CHAR FROM NETWORK DEVICE
+function udp_recvbyte: byte;
+begin
+  {$IFDEF GO32V2}
+    result := 0;
+  {$ELSE}
+    result := ser.RecvByte(0);
+  {$ENDIF}
+end;
+
+// READ STRING FROM NETWORK DEVICE
+function udp_recvstring: string;
+begin
+  {$IFDEF GO32V2}
+    result := '';
+  {$ELSE}
+    result := ser.RecvString(0);
+  {$ENDIF}
+end;
+
+// WRITE CHAR TO NETWORK DEVICE
+procedure udp_sendbyte(b: byte);
+begin
+  {$IFDEF GO32V2}
+  {$ELSE}
+    udp.SendByte(b);
+  {$ENDIF}
+end;
+
+// WRITE STRING TO NETWORK DEVICE
+procedure udp_sendstring(s: string);
+begin
+  {$IFDEF GO32V2}
+  {$ELSE}
+    udp.SendString(s);
+  {$ENDIF}
+end;
+
+// OPEN NETWORK DEVICE
+function udp_open(ipaddress, port: string): boolean;
+begin
+  result := true;
+  {$IFDEF GO32V2}
+    result := false;
+  {$ELSE}
+    udp := TUDPBlockSocket.Create;
+    try
+      udp.Connect(ipaddress, port);
+    except
+      result := false;
+    end;
+  {$ENDIF}
+end;
+
+// CLOSE NETWORK DEVICE
+procedure udp_close;
+begin
+  {$IFDEF GO32V2}
+  {$ELSE}
+    udp.CloseSocket;
+    udp.Free;
+  {$ENDIF}
+end;

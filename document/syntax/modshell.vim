@@ -18,7 +18,7 @@ syn keyword modshellFunction date dcon dec del dir div do dump
 syn keyword modshellFunction echo edit erasescr exist exit exphis expreg exp
 syn keyword modshellFunction for
 syn keyword modshellFunction get goto
-syn keyword modshellFunction help
+syn keyword modshellFunction hart help
 syn keyword modshellFunction idiv if imod impreg inc inrange
 syn keyword modshellFunction label length let list ln loadcfg loadreg loadscr lowcase
 syn keyword modshellFunction mbgw mbsrv md mkcrc mklrc mulinv mul
@@ -27,8 +27,8 @@ syn keyword modshellFunction odd ord or
 syn keyword modshellFunction pause pow2 pow print printcolor prop
 syn keyword modshellFunction rd readreg ren reset rmdevlock rnd roll rolr round run
 syn keyword modshellFunction savecfg savereg savescr sercons serread serwrite set shl shr sin sqrt sqr strdel strfind strins stritem strrepl sub
-syn keyword modshellFunction tan then to type
-syn keyword modshellFunction upcase
+syn keyword modshellFunction tan tcpcons tcpread tcpwrite then to type
+syn keyword modshellFunction udpcons udpread udpwrite upcase
 syn keyword modshellFunction varmon var varr ver
 syn keyword modshellFunction writereg
 syn keyword modshellFunction xor

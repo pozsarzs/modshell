@@ -29,7 +29,7 @@ The checksum equals to the result after performing modulus-256 of all
 the ASCII values' sum preceding the checksum.  
 
 Example:  
-```
+  ```
   Command: $07RH25(cr)
     DC:          $
     AD:         07
@@ -38,5 +38,5 @@ Example:
 
     CS   = (DC   + AD   + CMD + data        ) mod 0x100
     0x25 = (0x24 + 0x30 + 0x37 + 0x52 + 0x48) mod 0x100
-```
+  ```
 All commands should be issued in uppercase characters!  

@@ -870,12 +870,12 @@ object Form1: TForm1
         OnClick = MenuItem54Click
       end
       object MenuItem16: TMenuItem
-        Caption = 'R&ead data from serial port..'
+        Caption = 'Read data from serial port..'
         ImageIndex = 21
         OnClick = MenuItem16Click
       end
       object MenuItem50: TMenuItem
-        Caption = 'W&rite data to serial port..'
+        Caption = 'Write data to serial port..'
         ImageIndex = 21
         OnClick = MenuItem50Click
       end
@@ -889,14 +889,32 @@ object Form1: TForm1
         OnClick = MenuItem55Click
       end
       object MenuItem64: TMenuItem
-        Caption = 'Re&ad data with TCP..'
+        Caption = 'Read data with TCP..'
         ImageIndex = 21
         OnClick = MenuItem64Click
       end
       object MenuItem65: TMenuItem
-        Caption = 'Wr&ite data with TCP..'
+        Caption = 'Write data with TCP..'
         ImageIndex = 21
         OnClick = MenuItem65Click
+      end
+      object Separator12: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem66: TMenuItem
+        Caption = 'Mini &UDP console..'
+        ImageIndex = 21
+        OnClick = MenuItem66Click
+      end
+      object MenuItem67: TMenuItem
+        Caption = 'Read data with UDP..'
+        ImageIndex = 21
+        OnClick = MenuItem67Click
+      end
+      object MenuItem68: TMenuItem
+        Caption = 'Write data with UDP..'
+        ImageIndex = 21
+        OnClick = MenuItem68Click
       end
     end
     object MenuItem3: TMenuItem

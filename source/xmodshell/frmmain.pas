@@ -64,6 +64,8 @@ type
     function thr_serwrite(p1, p2: string): byte;
     function thr_tcpread(p1, p2: string; no_timeout_error: boolean): byte;
     function thr_tcpwrite(p1, p2: string): byte;
+    function thr_udpread(p1, p2: string; no_timeout_error: boolean): byte;
+    function thr_udpwrite(p1, p2: string): byte;
   end;
   { TForm1 }
   TForm1 = class(TForm)
@@ -132,12 +134,16 @@ type
     MenuItem63: TMenuItem;
     MenuItem64: TMenuItem;
     MenuItem65: TMenuItem;
+    MenuItem66: TMenuItem;
+    MenuItem67: TMenuItem;
+    MenuItem68: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     Separator1: TMenuItem;
     Separator10: TMenuItem;
     Separator11: TMenuItem;
+    Separator12: TMenuItem;
     Separator2: TMenuItem;
     Separator3: TMenuItem;
     Separator4: TMenuItem;
@@ -224,6 +230,9 @@ type
     procedure MenuItem63Click(Sender: TObject);
     procedure MenuItem64Click(Sender: TObject);
     procedure MenuItem65Click(Sender: TObject);
+    procedure MenuItem66Click(Sender: TObject);
+    procedure MenuItem67Click(Sender: TObject);
+    procedure MenuItem68Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
     procedure LComboBox391Change(Sender: TObject);
@@ -286,6 +295,7 @@ procedure version(h: boolean); forward;
 {$I serport.pas}
 
 {$I dcon.pas}
+{$I hart.pas}
 {$I mbascii.pas}
 {$I mbrtu.pas}
 {$I mbtcp.pas}
@@ -312,6 +322,7 @@ procedure version(h: boolean); forward;
 {$I cmd_get.pas}
 {$I cmd_goto.pas}
 {$I cmd_gw.pas}
+{$I cmd_hart.pas}
 {$I cmd_help.pas}
 {$I cmd_if.pas}
 {$I cmd_impr.pas}
@@ -344,6 +355,9 @@ procedure version(h: boolean); forward;
 {$I cmd_tccn.pas}
 {$I cmd_tcrd.pas}
 {$I cmd_tcwr.pas}
+{$I cmd_udcn.pas}
+{$I cmd_udrd.pas}
+{$I cmd_udwr.pas}
 {$I cmd_var.pas}
 {$I cmd_varr.pas}
 {$I cmd_vrmn.pas}
@@ -354,6 +368,8 @@ procedure version(h: boolean); forward;
 {$I thr_sewr.pas}
 {$I thr_tcrd.pas}
 {$I thr_tcwr.pas}
+{$I thr_udrd.pas}
+{$I thr_udwr.pas}
 
 {$I parsing.pas}
 {$I fllprmpt.pas}
@@ -1251,7 +1267,7 @@ begin
       AnchorSideLeft.Control := LSpinEdit401;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
-      for b:= 0 to 3 do Items.Add(PROT_TYPE[b]);
+      for b:= 0 to 4 do Items.Add(PROT_TYPE[b]);
     if prot[LSpinEdit401.Value].valid
       then ItemIndex := prot[LSpinEdit401.Value].prottype
       else ItemIndex := 0;
@@ -4141,6 +4157,21 @@ begin
     end;
   end;
   FreeAndNil(Form651);
+end;
+
+// RUN COMMAND 'udpcons' with DIALOG
+procedure TForm1.MenuItem66Click(Sender: TObject);
+begin
+end;
+
+// RUN COMMAND 'udpread' with DIALOG
+procedure TForm1.MenuItem67Click(Sender: TObject);
+begin
+end;
+
+// RUN COMMAND 'udpwrite' with DIALOG
+procedure TForm1.MenuItem68Click(Sender: TObject);
+begin
 end;
 
 // -- MAIN MENU/Help -----------------------------------------------------------

@@ -131,6 +131,10 @@ begin
             112: exitcode := cmd_tcpcons(splitted[1]);
             113: exitcode := cmd_tcpread(splitted[1], splitted[2]);
             114: exitcode := cmd_tcpwrite(splitted[1], splitted[2]);
+            115: exitcode := cmd_udpcons(splitted[1]);
+            116: exitcode := cmd_udpread(splitted[1], splitted[2]);
+            117: exitcode := cmd_udpwrite(splitted[1], splitted[2]);
+            118: exitcode := cmd_hart(splitted[1], splitted[2], splitted[3]);
             COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
           else
           begin
@@ -158,7 +162,7 @@ begin
         vars[0].vvalue := inttostr(exitcode);
         {$IFDEF X}
           Form1.ComboBox1.Enabled := true;
-          if f3active then Form3.Memo1.SetFocus; // else Form1.ComboBox1.SetFocus;
+          if f3active then Form3.Memo1.SetFocus else Form1.ComboBox1.SetFocus;
         {$ENDIF}
       end else {$IFNDEF X} writeln(ERR00); {$ELSE} Form1.Memo1.Lines.Add(ERR00 + command); {$ENDIF}
     end;

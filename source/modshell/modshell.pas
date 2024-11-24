@@ -73,6 +73,7 @@ procedure version(h: boolean); forward;
 {$I serport.pas}
 
 {$I dcon.pas}
+{$I hart.pas}
 {$I mbascii.pas}
 {$I mbrtu.pas}
 {$I mbtcp.pas}
@@ -99,6 +100,7 @@ procedure version(h: boolean); forward;
 {$I cmd_get.pas}
 {$I cmd_goto.pas}
 {$I cmd_gw.pas}
+{$I cmd_hart.pas}
 {$I cmd_help.pas}
 {$I cmd_if.pas}
 {$I cmd_impr.pas}
@@ -131,6 +133,9 @@ procedure version(h: boolean); forward;
 {$I cmd_tccn.pas}
 {$I cmd_tcrd.pas}
 {$I cmd_tcwr.pas}
+{$I cmd_udcn.pas}
+{$I cmd_udrd.pas}
+{$I cmd_udwr.pas}
 {$I cmd_var.pas}
 {$I cmd_varr.pas}
 {$I cmd_vrmn.pas}

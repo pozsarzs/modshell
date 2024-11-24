@@ -56,6 +56,7 @@ context default brightcyan
     keyword whole for white
     keyword whole get white
     keyword whole goto white
+    keyword whole hart white
     keyword whole help white
     keyword whole idiv white
     keyword whole if white
@@ -118,9 +119,15 @@ context default brightcyan
     keyword whole strrepl white
     keyword whole sub white
     keyword whole tan white
+    keyword whole tcpcons white
+    keyword whole tcpread white
+    keyword whole tcpwrite white
     keyword whole then white
     keyword whole to white
     keyword whole type white
+    keyword whole udpcons white
+    keyword whole udpread white
+    keyword whole udpwrite white
     keyword whole upcase white
     keyword whole varmon white
     keyword whole varr white

@@ -1,8 +1,9 @@
  + commands              useable command line commands
    - cmd_*.pas           commands
    - thr_*.pas           commands for thread
- + dcon                  DCON handler
- + modbus                Modbus handlers   
+ + dcon                  DCON protocol handler
+ + hart                  HART protocol handler
+ + modbus                Modbus protocol handlers   
  + ports                 I/O port handlers
  - type.pas              declaration of types
  - const.pas             declaration of constants

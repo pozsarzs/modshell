@@ -105,12 +105,12 @@ telegram = MBAP + PDU
 
 ### Functions
 
-  In these examples:  
+In these examples:  
   - ID: 8  
   - ADDRESS: 255 
   - COUNT: 1  
 
-  **Read coils (FC = 0x01):**  
+**Read coils (FC = 0x01):**  
   ```
   REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
   --------|-------------------------------------------------------------------
@@ -123,7 +123,7 @@ telegram = MBAP + PDU
   RTU     |         08      01      02              00  XX  XX
   ```
 
-  **Read discrete inputs (FC = 0x02):**  
+**Read discrete inputs (FC = 0x02):**  
   ```
   REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
   --------|-------------------------------------------------------------------
@@ -136,7 +136,7 @@ telegram = MBAP + PDU
   RTU     |         08      02      02              00  XX  XX
   ```
 
-  **Read holding registers (FC = 0x03):**  
+**Read holding registers (FC = 0x03):**  
   ```
   REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
   --------|-------------------------------------------------------------------
@@ -149,7 +149,7 @@ telegram = MBAP + PDU
   RTU     |         08      03      02      00      00  XX  XX
   ```
 
-  **Read input registers (FC = 0x04):**  
+**Read input registers (FC = 0x04):**  
   ```
   REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  -?RC--
   --------|-------------------------------------------------------------------
@@ -162,7 +162,7 @@ telegram = MBAP + PDU
   RTU     |         08      04      02      00      00  XX  XX
   ```
 
-  **Write multiple coils (FC = 0x0F):**  
+**Write multiple coils (FC = 0x0F):**  
   ```
   REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  BYTES-  -----DATA-----  -?RC--
   --------|-------------------------------------------------------------------------------------------
@@ -175,7 +175,7 @@ telegram = MBAP + PDU
   RTU     |         08      0F      00      FF      00      10   XX  XX
   ```
 
-  **Write multiple holding registers (FC = 0x10):**  
+**Write multiple holding registers (FC = 0x10):**  
   ```
   REQUEST |     --ID--  --FC--  ---ADDRESS----  ----COUNT-----  BYTES-  -----DATA-----  -?RC--
   --------|-------------------------------------------------------------------------------------------
@@ -192,8 +192,7 @@ telegram = MBAP + PDU
 
 If FC+0x80 is present in place of FC, the following error codes may appear
 in place of the number of bytes:
-
-  - 0x01: Illegal function.
-  - 0x02: Illegal data address.
-  - 0x03: Illegal data value.
-  - 0x04: Slave device failure.
+ - 0x01: Illegal function.
+ - 0x02: Illegal data address.
+ - 0x03: Illegal data value.
+ - 0x04: Slave device failure.

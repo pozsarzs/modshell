@@ -10,8 +10,8 @@ ModShell is Copyright (C) 2023-2024 by Pozsar Zsolt.
 This is a utility that can be used on several operating systems, which
 can communicate with connected equipment using Modbus/ASCII, Modbus/RTU
 and Modbus/TCP protocols. The basic communication protocol of the program
-is Modbus, but DCON was also implemented due to communication with other
-devices (e.g. ADAM). The range of foreign protocols may be expanded later.
+is Modbus, but DCON and HART was also implemented due to communication with
+other devices. The range of foreign protocols may be expanded later.
 The program is designed for DOS, Windows and Unix-like operating systems.
 .SH OPTIONS
 .TP
@@ -68,8 +68,8 @@ One or more same type registers can be exported to file. During saving, one text
 file is created, with CSV, INI or XML extension. The program can only import from
 INI and XML format files.
 .PP
-The program has a simple serial and a TCP console whose traffic is logged in the
-project directory as console.log.
+The program has simple serial, TCP and UDP consoles whose traffic is logged in
+the project directory as console.log.
 .PP
 On exit, the command line history, echo mode and colors are preserved.
 .PP
@@ -91,6 +91,11 @@ hexadecimal viewing can be selected.
 .SS TCP console
 The program also provides the possibility to send and receive raw data
 via network device with TCP, and also includes a very simple TCP console. The
+display of sent and received data can be turned off or raw text and
+hexadecimal viewing can be selected.
+.SS UDP console
+The program also provides the possibility to send and receive raw data
+via network device with UDP, and also includes a very simple UDP console. The
 display of sent and received data can be turned off or raw text and
 hexadecimal viewing can be selected.
 .SH PREDEFINED CONSTANTS
@@ -317,6 +322,21 @@ Number of device (\fIdev?\fP) must be between 0-7.
 \fBtcpwrite\fP \fI[dev?]\fP \fI"MESSAGE"\fP
 Writes "MESSAGE" to network device with TCP. Number of device (\fIdev?\fP) must be between 0-7.
 .TP
+\fBudpcons\fP \fI[dev?]\fP
+Opens a simple UDP console. Data traffic is logged to the project directory
+named \fIconsole.log\fP. Number of device (\fIdev?\fP) must be between 0-7.
+.TP
+\fBudpread\fP \fI[dev?]\fP \fI[$TARGET]\fP
+Reads string from network device with UDP to variable \fI$TARGET\fP or write screen.
+Number of device (\fIdev?\fP) must be between 0-7.
+.TP
+\fBudpwrite\fP \fI[dev?]\fP \fI$MESSAGE\fP
+Writes string to network device with UDP from \fI$MESSAGE\fP.
+Number of device (\fIdev?\fP) must be between 0-7.
+.TP
+\fBudpwrite\fP \fI[dev?]\fP \fI"MESSAGE"\fP
+Writes "MESSAGE" to network device with UDP. Number of device (\fIdev?\fP) must be between 0-7.
+.TP
 \fBwritereg\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Writes data to one or more remote registers. Number of connection
 (\fIcon?\fP) must be between 0-7, register start address and the count must be
@@ -353,6 +373,10 @@ Sets protocol (\fIpro?\fP) and unit ID. Unit ID (\fIID\fP) must be between 1-247
 \fBset\fP \fIpro?\fP \fIdcon\fP \fI[$]ADDRESS\fP
 Sets protocol (\fIpro?\fP) to DCON (\fIdcon\fP). Address of remote device
 (\fIADDRESS\fP) must be between 1-255.
+.TP
+\fBset\fP \fIpro?\fP \fIhart\fP \fI[$]ADDRESS\fP
+Sets protocol (\fIpro?\fP) to HART (\fIdcon\fP). Address of remote device
+(\fIADDRESS\fP) must be between 0-15.
 .TP
 \fBset\fP \fIcon?\fP \fIdev?\fP \fIpro?\fP
 Assigns a device (\fIdev?\fP) and a protocol (\fIpro?\fP) to a connection
