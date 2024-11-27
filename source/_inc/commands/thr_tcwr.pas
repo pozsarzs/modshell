@@ -65,9 +65,9 @@ begin
     result := 1;
     exit;
   end;
-  if not (dev[i1].devtype = 1) then
+  if not (dev[i1].devtype = 0) then
   begin
-    sendmessage(MSG24, true);
+    sendmessage(ERR25, true);
     result := 1;
     exit;
   end;
@@ -106,15 +106,15 @@ begin
         if (uconfig.echo = 1) and (b = 13) then sendmessage('', true);
       end else
       begin
-        // Cannot write data to serial port!
+        // Cannot write data to socket!
         sendmessage(ERR27, true);
         result := 1;
       end;
       tcp_close;
     end else
     begin
-      // Cannot initialize network device!
-      sendmessage(ERR58 + dev[i1].device, true);
+      // Cannot initialize socket!
+      sendmessage(ERR58, true);
       result := 1;
     end;
 end;

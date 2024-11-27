@@ -19,7 +19,7 @@ begin
   {$IFDEF GO32V2}
     result := false;
   {$ELSE}
-    result := tcp.CanRead(0);
+    result := tcp.CanRead(100);
   {$ENDIF}
 end;
 
@@ -29,31 +29,31 @@ begin
   {$IFDEF GO32V2}
     result := false;
   {$ELSE}
-    result := tcp.CanWrite(0);
+    result := tcp.CanWrite(100);
   {$ENDIF}
 end;
 
-// READ CHAR FROM NETWORK DEVICE
+// READ CHAR FROM SOCKET
 function tcp_recvbyte: byte;
 begin
   {$IFDEF GO32V2}
     result := 0;
   {$ELSE}
-    result := ser.RecvByte(0);
+    result := tcp.RecvByte(1000);
   {$ENDIF}
 end;
 
-// READ STRING FROM NETWORK DEVICE
+// READ STRING FROM SOCKET
 function tcp_recvstring: string;
 begin
   {$IFDEF GO32V2}
     result := '';
   {$ELSE}
-    result := ser.RecvString(0);
+    result := tcp.RecvString(1000);
   {$ENDIF}
 end;
 
-// WRITE CHAR TO NETWORK DEVICE
+// WRITE CHAR TO SOCKET
 procedure tcp_sendbyte(b: byte);
 begin
   {$IFDEF GO32V2}
@@ -62,7 +62,7 @@ begin
   {$ENDIF}
 end;
 
-// WRITE STRING TO NETWORK DEVICE
+// WRITE STRING TO SOCKET
 procedure tcp_sendstring(s: string);
 begin
   {$IFDEF GO32V2}
@@ -71,7 +71,7 @@ begin
   {$ENDIF}
 end;
 
-// OPEN NETWORK DEVICE
+// OPEN SOCKET
 function tcp_open(ipaddress, port: string): boolean;
 begin
   result := true;
@@ -87,7 +87,7 @@ begin
   {$ENDIF}
 end;
 
-// CLOSE NETWORK DEVICE
+// CLOSE SOCKET
 procedure tcp_close;
 begin
   {$IFDEF GO32V2}
@@ -103,7 +103,7 @@ begin
   {$IFDEF GO32V2}
     result := false;
   {$ELSE}
-    result := udp.CanRead(0);
+    result := udp.CanRead(100);
   {$ENDIF}
 end;
 
@@ -113,31 +113,31 @@ begin
   {$IFDEF GO32V2}
     result := false;
   {$ELSE}
-    result := udp.CanWrite(0);
+    result := udp.CanWrite(100);
   {$ENDIF}
 end;
 
-// READ CHAR FROM NETWORK DEVICE
+// READ CHAR FROM SOCKET
 function udp_recvbyte: byte;
 begin
   {$IFDEF GO32V2}
     result := 0;
   {$ELSE}
-    result := ser.RecvByte(0);
+    result := udp.RecvByte(1000);
   {$ENDIF}
 end;
 
-// READ STRING FROM NETWORK DEVICE
+// READ STRING FROM SOCKET
 function udp_recvstring: string;
 begin
   {$IFDEF GO32V2}
     result := '';
   {$ELSE}
-    result := ser.RecvString(0);
+    result := udp.RecvString(1000);
   {$ENDIF}
 end;
 
-// WRITE CHAR TO NETWORK DEVICE
+// WRITE CHAR TO SOCKET
 procedure udp_sendbyte(b: byte);
 begin
   {$IFDEF GO32V2}
@@ -146,7 +146,7 @@ begin
   {$ENDIF}
 end;
 
-// WRITE STRING TO NETWORK DEVICE
+// WRITE STRING TO SOCKET
 procedure udp_sendstring(s: string);
 begin
   {$IFDEF GO32V2}
@@ -155,7 +155,7 @@ begin
   {$ENDIF}
 end;
 
-// OPEN NETWORK DEVICE
+// OPEN SOCKET
 function udp_open(ipaddress, port: string): boolean;
 begin
   result := true;
@@ -171,7 +171,7 @@ begin
   {$ENDIF}
 end;
 
-// CLOSE NETWORK DEVICE
+// CLOSE SOCKET
 procedure udp_close;
 begin
   {$IFDEF GO32V2}

@@ -62,9 +62,9 @@ begin
     result := 1;
     exit;
   end;
-  if not (dev[i1].devtype = 1) then
+  if not (dev[i1].devtype = 0) then
   begin
-    {$IFNDEF X} writeln(MSG24); {$ELSE} Form1.Memo1.Lines.Add(MSG24); {$ENDIF}
+    {$IFNDEF X} writeln(ERR25); {$ELSE} Form1.Memo1.Lines.Add(ERR25); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -105,15 +105,15 @@ begin
         if (uconfig.echo = 1) and (b = 13) then write(EOL);
       end else
       begin
-        // Cannot write data to serial port!
+        // Cannot write data to socket!
         {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
         result := 1;
       end;
       tcp_close;
     end else
     begin
-      // Cannot initialize network device!
-      {$IFNDEF X} writeln(ERR58, dev[i1].device); {$ELSE} Form1.Memo1.Lines.Add(ERR18 + dev[i1].device); {$ENDIF}
+      // Cannot initialize socket!
+      {$IFNDEF X} writeln(ERR58); {$ELSE} Form1.Memo1.Lines.Add(ERR58); {$ENDIF}
       result := 1;
     end;
 end;

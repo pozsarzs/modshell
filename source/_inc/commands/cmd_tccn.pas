@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0     p1
+  p0      p1
   --------------
   tcpcons [dev?]
 }
@@ -67,16 +67,15 @@ begin
     writeln(PREFIX[0], i1, MSG06);
     exit;
   end;
-  if not (dev[i1].devtype = 1) then
+  if not (dev[i1].devtype = 0) then
   begin
-    writeln(MSG24);
+    writeln(ERR25);
     result := 1;
     exit;
   end;
   // SET LOG FILE
   fp := vars[13].vvalue;
   ForceDirectories(fp);
-  fp := fp + SLASH;
   fpn := fp + SLASH + 'console.log';
   assignfile(lf, fpn);
   try
@@ -85,11 +84,11 @@ begin
     writeln(ERR50);
   end;
   // PRIMARY MISSION
+  writeln(MSG31);
   with dev[i1] do
-    if tcp_open(ipaddress, inttostr(port)) then
-    begin
-      writeln(MSG31);
-      repeat
+    repeat
+      if tcp_open(ipaddress, inttostr(port)) then
+      begin
         if  keypressed then
         begin
           c := readkey;
@@ -118,15 +117,17 @@ begin
           if b = 13 then write(EOL);
           textcolor(uconfig.colors[0]);
         end;
-      until c = #27;
-      tcp_close;
-      writeln(EOL);
-    end else
-    begin
-      // Cannot initialize network decice!
-      writeln(ERR58, dev[i1].device);
-      result := 1;
-    end;
+        tcp_close;
+      end else
+      begin
+        // Cannot initialize socket!
+        writeln(ERR58);
+        result := 1;
+        c := #27;
+      end;
+      sleep(100);
+    until c = #27;
+    writeln(EOL);
   try
     closefile(lf);
   except

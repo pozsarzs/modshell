@@ -178,7 +178,7 @@ resourcestring
   ERR55 = 'The specified parameter is not a variable array: ';
   ERR56 = 'This can only be used with the DCON protocol!';
   ERR57 = 'You did not provide something!';
-  ERR58 = 'Cannot initialize network device: ';
+  ERR58 = 'Cannot initialize socket!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='         copy one or more remote reg. between two connections';

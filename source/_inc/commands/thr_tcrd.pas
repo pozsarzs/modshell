@@ -66,9 +66,9 @@ begin
     result := 1;
     exit;
   end;
-  if not (dev[i1].devtype = 1) then
+  if not (dev[i1].devtype = 0) then
   begin
-    sendmessage(MSG24, true);
+    sendmessage(ERR25, true);
     result := 1;
     exit;
   end;
@@ -116,8 +116,8 @@ begin
           else arrays[intisitvariablearray(p2)].aitems[intisitvariablearrayelement(p1)] := s;
     end else
     begin
-      // Cannot initialize network device!
-      sendmessage(ERR58 + dev[i1].device, true);
+      // Cannot initialize socket!
+      sendmessage(ERR58, true);
       result := 1;
     end;
 end;

@@ -36,7 +36,7 @@ begin
   end;
   if not (dev[p1].devtype = 1) then
   begin
-    sendmessage(MSG24, true);
+    sendmessage(ERR24, true);
     result := 1;
     exit;
   end;

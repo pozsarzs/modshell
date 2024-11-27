@@ -694,7 +694,7 @@ msgid "You did not provide something!"
 msgstr ""
 
 #: frmmain.err58
-msgid "Cannot initialize network device: "
+msgid "Cannot initialize socket!"
 msgstr ""
 
 #: frmmain.err99

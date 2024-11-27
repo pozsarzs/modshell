@@ -405,6 +405,10 @@ begin
     case c of
       36: exitcode := thr_serread(p1, p2, false);
       37: exitcode := thr_serwrite(p1, p2);
+      113: exitcode := thr_tcpread(p1, p2, false);
+      114: exitcode := thr_tcpwrite(p1, p2);
+      115: exitcode := thr_udpread(p1, p2, false);
+      116: exitcode := thr_udpwrite(p1, p2);
     end;
 end;
 

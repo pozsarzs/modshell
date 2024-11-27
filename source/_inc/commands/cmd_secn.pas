@@ -69,7 +69,7 @@ begin
   end;
   if not (dev[i1].devtype = 1) then
   begin
-    writeln(MSG24);
+    writeln(ERR24);
     result := 1;
     exit;
   end;

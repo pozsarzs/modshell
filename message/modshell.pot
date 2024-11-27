@@ -642,7 +642,7 @@ msgid "You did not provide something!"
 msgstr ""
 
 #: modshell:err58
-msgid "Cannot initialize network device: "
+msgid "Cannot initialize socket!"
 msgstr ""
 
 #: modshell:err99

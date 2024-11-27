@@ -64,7 +64,7 @@ begin
   end;
   if not (dev[i1].devtype = 1) then
   begin
-    {$IFNDEF X} writeln(MSG24); {$ELSE} Form1.Memo1.Lines.Add(MSG24); {$ENDIF}
+    {$IFNDEF X} writeln(ERR24); {$ELSE} Form1.Memo1.Lines.Add(ERR24); {$ENDIF}
     result := 1;
     exit;
   end;

@@ -34,9 +34,9 @@ begin
     sendmessage(PREFIX[0] + inttostr(p1) + MSG06, true);
     exit;
   end;
-  if not (dev[p1].devtype = 1) then
+  if not (dev[p1].devtype = 0) then
   begin
-    sendmessage(MSG24, true);
+    sendmessage(ERR25, true);
     result := 1;
     exit;
   end;
@@ -52,16 +52,16 @@ begin
   end;
   // PRIMARY MISSION
   with dev[p1] do
-    if udp_open(ipaddress, inttostr(port)) then
-    begin
-      repeat
+    repeat
+      if udp_open(ipaddress, inttostr(port))  then
+      begin
         // send a char
         if keyprd then
         begin
           keyprd := false;
           if udp_canwrite then
           begin
-            udp_sendstring(prdkey);
+            udp_sendbyte(ord(prdkey));
             sendmessage(prdkey, false);
             try
               write(lf, prdkey);
@@ -81,15 +81,17 @@ begin
           end;
           if b = 13 then sendmessage('', true);
         end;
-      until prdkey = #27;
-      udp_close;
-      sendmessage('', true);
-    end else
-    begin
-      // Cannot initialize network device!
-      sendmessage(ERR58 + device, true);
-      result := 1;
-    end;
+        udp_close;
+      end else
+      begin
+        // Cannot initialize socket!
+        sendmessage(ERR58, true);
+        result := 1;
+        prdkey := #27;
+      end;
+      sleep(100);
+    until prdkey = #27;
+  sendmessage('', true);
   try
     closefile(lf);
   except

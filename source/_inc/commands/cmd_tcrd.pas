@@ -64,9 +64,9 @@ begin
     result := 1;
     exit;
   end;
-  if not (dev[i1].devtype = 1) then
+  if not (dev[i1].devtype = 0) then
   begin
-    {$IFNDEF X} writeln(MSG24); {$ELSE} Form1.Memo1.Lines.Add(MSG24); {$ENDIF}
+    {$IFNDEF X} writeln(ERR25); {$ELSE} Form1.Memo1.Lines.Add(ERR25); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -125,8 +125,8 @@ begin
           else arrays[intisitvariablearray(p2)].aitems[intisitvariablearrayelement(p1)] := s;
     end else
     begin
-      // Cannot initialize ethernet device!
-      {$IFNDEF X} writeln(ERR58, dev[i1].device); {$ELSE} Form1.Memo1.Lines.Add(ERR58 + dev[i1].device); {$ENDIF}
+      // Cannot initialize socket!
+      {$IFNDEF X} writeln(ERR58); {$ELSE} Form1.Memo1.Lines.Add(ERR58); {$ENDIF}
       result := 1;
     end;
 end;
