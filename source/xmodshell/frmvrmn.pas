@@ -24,7 +24,6 @@ uses
   Graphics,
   SysUtils,
   ValEdit,
-  ucommon,
   uconfig;
 type
   { TForm2 }

@@ -54,8 +54,8 @@ The next release _will be_ with the following changes:
  - [x] `color` -> `set color`: sets all default colors (CLI and TUI);  
  - [x] `exist` command;  
  - [x] `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI);  
- - [ ] `tcpcons`, `tcpread`, `tcpwrite` commands;  
- - [ ] `udpcons`, `udpread`, `udpwrite` commands;  
+ - [x] `tcpcons`, `tcpread`, `tcpwrite` commands;  
+ - [x] `udpcons`, `udpread`, `udpwrite` commands;  
  - [x] DCON protocol support;  
  - [ ] HART protocol support;  
  - [ ] Modbus/TCP communication (Unix-like OS and Windows versions);  

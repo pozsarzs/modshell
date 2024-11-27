@@ -1,7 +1,5 @@
 KNOWN BUT NOT FIXED BUGS DURING DEVELOPMENT AND OTHER WISHES
 --------------------------------------------------------------------------------
-B  TCP read/write/console commands are not ready yet.
-B  UDP read/write/console commands is not yet started.
 B  Modbus/TCP support is not yet started.
 B  HART protocol support is not yet started.
 D  HART protocol handler command is not yet included into manual.

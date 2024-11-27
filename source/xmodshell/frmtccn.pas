@@ -25,8 +25,6 @@ uses
   Forms,
   StdCtrls,
   SysUtils,
-  synaser,
-  ucommon,
   uconfig;
 type
   { TLThread }

@@ -4166,17 +4166,486 @@ end;
 
 // RUN COMMAND 'udpcons' with DIALOG
 procedure TForm1.MenuItem66Click(Sender: TObject);
+var
+  Form661: TForm;
+  LBevel661: TBevel;
+  LButton661, LButton662: TButton;
+  LLabel661, LLabel662: TLabel;
+  LSpinEdit661: TSpinEdit;
 begin
+  Form661 := TForm.Create(Nil);
+  LBevel661 := TBevel.Create(Form661);
+  LButton661 := TButton.Create(Form661);
+  LButton662 := TButton.Create(Form661);
+  LLabel661 := TLabel.Create(Form661);
+  LLabel662 := TLabel.Create(Form661);
+  LSpinEdit661 := TSpinEdit.Create(Form661);
+  with Form661 do
+  begin
+    Caption := rmampdot(MenuItem66.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Name := 'Form661';
+    Parent := Nil;
+    Position := poMainFormCenter;
+  end;
+  with LLabel661 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit661;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form661;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := 'dev';
+    Font.Style := [fsBold];
+    Name := 'LLabel661';
+    Parent := Form661;
+  end;
+  with LSpinEdit661 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LLabel662;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := LLabel661;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := LBevel661;
+      AnchorSideRight.Side := asrRight;
+    MinValue := 0;
+    MaxValue := 7;
+    Name := 'LSpinEdit661';
+    Parent := Form661;
+    TabOrder := 0;
+  end;
+  with LLabel662 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := Form661;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LLabel661;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 0;
+      AnchorSideRight.Control := LSpinEdit661;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 0;
+    Alignment := taCenter;
+    Caption := MSG50;
+    Name := 'LLabel662';
+    Parent := Form661;
+  end;
+  with LBevel661 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LSpinEdit661;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form661;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form661;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Name := 'LBevel661';
+    Parent := Form661;
+    Shape := bsTopLine;
+  end;
+  with LButton661 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel661;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton662;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+      BorderSpacing.Left := 8;
+    Caption := MSG44;
+    Cancel := True;
+    ModalResult := mrCancel;
+    Name := 'LButton661';
+    Parent := Form661;
+    TabOrder := 2;
+  end;
+  with LButton662 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel661;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form661;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG70;
+    ModalResult := mrOk;
+    Name := 'LButton662';
+    Parent := Form661;
+    TabOrder := 1;
+  end;
+  if Form661.ShowModal = mrOk then
+  begin
+    frmsecn.device := LSpinEdit661.Value;
+    with Form4 do
+    begin
+      Show;
+      Caption := rmampdot(MenuItem66.Caption);
+      StatusBar1.Panels[0].Text := Form1.StatusBar1.Panels[0].Text;
+    end;
+  end;
+  FreeAndNil(Form661);
 end;
 
 // RUN COMMAND 'udpread' with DIALOG
 procedure TForm1.MenuItem67Click(Sender: TObject);
+var
+  Form671: TForm;
+  LBevel671: TBevel;
+  LButton671, LButton672: TButton;
+  LLabel671, LLabel673, LLabel674: TLabel;
+  LEdit671: TEdit;
+  LSpinEdit671: TSpinEdit;
+  LThread671: TLThread;
 begin
+  Form671 := TForm.Create(Nil);
+  LBevel671 := TBevel.Create(Form671);
+  LButton671 := TButton.Create(Form671);
+  LButton672 := TButton.Create(Form671);
+  LEdit671 := TEdit.Create(Form671);
+  LLabel671 := TLabel.Create(Form671);
+  LLabel673 := TLabel.Create(Form671);
+  LLabel674 := TLabel.Create(Form671);
+  LSpinEdit671 := TSpinEdit.Create(Form671);
+  with Form671 do
+  begin
+    Caption := rmampdot(MenuItem67.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Name := 'Form671';
+    Parent := Nil;
+    Position := poMainFormCenter;
+  end;
+  with LLabel671 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit671;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form671;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := 'dev';
+    Font.Style := [fsBold];
+    Name := 'LLabel671';
+    Parent := Form671;
+  end;
+  with LSpinEdit671 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LLabel673;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := LLabel671;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    MinValue := 0;
+    MaxValue := 7;
+    Name := 'LSpinEdit671';
+    Parent := Form671;
+    TabOrder := 0;
+  end;
+  with LEdit671 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit671;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := LSpinEdit671;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      BorderSpacing.Right := 8;
+    Text := '';
+    Name := 'LEdit671';
+    Parent := Form671;
+    TabOrder := 1;
+    Width := 60;
+    Clear;
+  end;
+  with LLabel673 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := Form671;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LLabel671;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 0;
+      AnchorSideRight.Control := LSpinEdit671;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 0;
+    Alignment := taCenter;
+    Caption := MSG50;
+    Name := 'LLabel673';
+    Parent := Form671;
+  end;
+  with LLabel674 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := Form671;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LEdit671;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 0;
+      AnchorSideRight.Control := LEdit671;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 0;
+    Alignment := taCenter;
+    Caption := MSG74;
+    Name := 'LLabel674';
+    Parent := Form671;
+  end;
+  with LBevel671 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LSpinEdit671;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form671;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form671;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Name := 'LBevel671';
+    Parent := Form671;
+    Shape := bsTopLine;
+  end;
+  with LButton671 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel671;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton672;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+    Caption := MSG44;
+    Cancel := True;
+    ModalResult := mrCancel;
+    Name := 'LButton671';
+    Parent := Form671;
+    TabOrder := 3;
+  end;
+  with LButton672 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel671;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form671;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG77;
+    ModalResult := mrOk;
+    Name := 'LButton672';
+    Parent := Form671;
+    TabOrder := 2;
+  end;
+  if Form671.ShowModal = mrOk then
+  begin
+    with Form671 do
+    begin
+      thrdcmd.c := 116;
+      thrdcmd.p1 := 'dev' + inttostr(LSpinEdit671.Value);
+        if length(LEdit671.Text) > 0 then thrdcmd.p2 := LEdit671.Text else thrdcmd.p2 := '';
+    end;
+    LThread671 := TLThread.Create(true);
+    with LThread671 do
+    begin
+      FreeOnTerminate := true;
+      Start;
+    end;
+  end;
+  FreeAndNil(Form671);
 end;
 
 // RUN COMMAND 'udpwrite' with DIALOG
 procedure TForm1.MenuItem68Click(Sender: TObject);
+var
+  Form681: TForm;
+  LBevel681: TBevel;
+  LButton681, LButton682: TButton;
+  LLabel681, LLabel683, LLabel684: TLabel;
+  LEdit681: TEdit;
+  LSpinEdit681: TSpinEdit;
+  LThread681: TLThread;
 begin
+  Form681 := TForm.Create(Nil);
+  LBevel681 := TBevel.Create(Form681);
+  LButton681 := TButton.Create(Form681);
+  LButton682 := TButton.Create(Form681);
+  LEdit681 := TEdit.Create(Form681);
+  LLabel681 := TLabel.Create(Form681);
+  LLabel683 := TLabel.Create(Form681);
+  LLabel684 := TLabel.Create(Form681);
+  LSpinEdit681 := TSpinEdit.Create(Form681);
+  with Form681 do
+  begin
+    Caption := rmampdot(MenuItem68.Caption);
+    AutoSize := True;
+    BorderStyle := bsDialog;
+    Name := 'Form681';
+    Parent := Nil;
+    Position := poMainFormCenter;
+  end;
+  with LLabel681 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit681;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := Form681;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 12;
+    Caption := 'dev';
+    Font.Style := [fsBold];
+    Name := 'LLabel681';
+    Parent := Form681;
+  end;
+  with LSpinEdit681 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LLabel683;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := LLabel681;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+    MinValue := 0;
+    MaxValue := 7;
+    Name := 'LSpinEdit681';
+    Parent := Form681;
+    TabOrder := 0;
+  end;
+  with LEdit681 do
+  begin
+    Anchors := [akTop, akLeft];
+      AnchorSideTop.Control := LSpinEdit681;
+      AnchorSideTop.Side := asrCenter;
+      BorderSpacing.Top := 0;
+      AnchorSideLeft.Control := LSpinEdit681;
+      AnchorSideLeft.Side := asrRight;
+      BorderSpacing.Left := 8;
+      BorderSpacing.Right := 8;
+    Text := '';
+    Name := 'LEdit681';
+    Parent := Form681;
+    TabOrder := 1;
+    Width := 268;
+    Clear;
+  end;
+  with LLabel683 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := Form681;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LLabel681;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 0;
+      AnchorSideRight.Control := LSpinEdit681;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 0;
+    Alignment := taCenter;
+    Caption := MSG50;
+    Name := 'LLabel683';
+    Parent := Form681;
+  end;
+  with LLabel684 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := Form681;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 12;
+      AnchorSideLeft.Control := LEdit681;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 0;
+      AnchorSideRight.Control := LEdit681;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 0;
+    Alignment := taCenter;
+    Caption := MSG74 +'/' + MSG75;
+    Name := 'LLabel684';
+    Parent := Form681;
+  end;
+  with LBevel681 do
+  begin
+    Anchors := [akTop, akLeft, akRight];
+      AnchorSideTop.Control := LSpinEdit681;
+      AnchorSideTop.Side := asrBottom;
+      BorderSpacing.Top := 8;
+      AnchorSideLeft.Control := Form681;
+      AnchorSideLeft.Side := asrLeft;
+      BorderSpacing.Left := 8;
+      AnchorSideRight.Control := Form681;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Name := 'LBevel681';
+    Parent := Form681;
+    Shape := bsTopLine;
+  end;
+  with LButton681 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel681;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := LButton682;
+      AnchorSideRight.Side := asrLeft;
+      BorderSpacing.Right := 8;
+    Caption := MSG44;
+    Cancel := True;
+    ModalResult := mrCancel;
+    Name := 'LButton681';
+    Parent := Form681;
+    TabOrder := 3;
+  end;
+  with LButton682 do
+  begin
+    Anchors := [akTop, akRight];
+      AnchorSideTop.Control := LBevel681;
+      AnchorSideTop.Side := asrTop;
+      BorderSpacing.Top := 16;
+      AnchorSideRight.Control := Form681;
+      AnchorSideRight.Side := asrRight;
+      BorderSpacing.Right := 8;
+    Caption := MSG69;
+    ModalResult := mrOk;
+    Name := 'LButton682';
+    Parent := Form681;
+    TabOrder := 2;
+  end;
+  if Form681.ShowModal = mrOk then
+  begin
+    with Form681 do
+    begin
+      thrdcmd.c := 117;
+      thrdcmd.p1 := 'dev' + inttostr(LSpinEdit681.Value);
+      if boolisitvariable(LEdit681.Text)
+        then thrdcmd.p2 := LEdit681.Text
+        else thrdcmd.p2 := '"' + LEdit681.Text + '"';
+    end;
+    LThread681 := TLThread.Create(true);
+    with LThread681 do
+    begin
+      FreeOnTerminate := true;
+      Start;
+    end;
+  end;
+  FreeAndNil(Form681);
 end;
 
 // -- MAIN MENU/Help -----------------------------------------------------------
