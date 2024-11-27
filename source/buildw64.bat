@@ -20,6 +20,12 @@ if %buildcui%==0 goto :gui
 cd modshell
 make -f Makefile.w64
 cd ..
+cd tcpechoserver
+make -f Makefile.w64
+cd ..
+cd udpechoserver
+make -f Makefile.w64
+cd ..
 :gui
 if %buildgui%==0 goto :end
 cd xmodshell

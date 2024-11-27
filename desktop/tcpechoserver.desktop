@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=TCPEchoServer
+Name[hu]=TCPEchoServer
+Exec=tcpechoserver
+Icon=tcp
+GenericName=TCPEchoServer utility
+GenericName[hu]=TCPEchoServer segédprogram
+Type=Application
+Categories=Science
+StartupNotify=true
+Terminal=true

@@ -13,7 +13,8 @@ modshell (0.1-beta1) unstable; urgency=low
   * support for variable and constant arrays,
   * syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes),
   * syntax highlighting file for Notepad++ (Windows only),
-  * syntax highlighting file for Vim/Neovim.
+  * syntax highlighting file for Vim/Neovim,
+  * TCP and UPD echo server utilities for testing connectivity.
 
  -- Pozsár Zsolt <pozsarzs@gmail.com>  Tue, 31 Dec 2024 23:59:59
 

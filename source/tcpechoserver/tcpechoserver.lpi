@@ -9,24 +9,20 @@
         <MainUnitHasScaledStatement Value="False"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="modshell"/>
+      <Title Value="TCPEchoServer"/>
       <UseAppBundle Value="False"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <XPManifest>
-        <ExecutionLevel Value="requireAdministrator"/>
-        <TextName Value="Pozsar_Zsolt.ModShell.ModShell"/>
-        <TextDesc Value="Command-driven scriptable Modbus utility"/>
+        <TextName Value="Pozsar_Zsolt.ModShell.TCPEchoServer"/>
+        <TextDesc Value="TCP echo server utility"/>
       </XPManifest>
       <Icon Value="0"/>
     </General>
-    <i18n>
-      <EnableI18N Value="True"/>
-    </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MinorVersionNr Value="1"/>
-      <StringTable Comments="Pozsar Zsolt" CompanyName="Command-driven scriptable Modbus utility" LegalCopyright="EUPL v1.2" OriginalFilename="modshell.pas" ProductName="ModShell" ProductVersion="0.1"/>
+      <StringTable CompanyName="Pozsar Zsolt" LegalCopyright="(C)2024 Pozsar Zsolt" OriginalFilename="tcpechoserver.exe" ProductName="ModShell" ProductVersion="0.1"/>
     </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -40,19 +36,16 @@
     </RunParams>
     <Units>
       <Unit>
-        <Filename Value="modshell.pas"/>
+        <Filename Value="tcpechoserver.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
-    <Target>
-      <Filename Value="modshell"/>
-    </Target>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir);./*;commands/*"/>
-      <OtherUnitFiles Value="../synapse;../convert;../protcom"/>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="../_ext/synapse"/>
       <UnitOutputDirectory Value="../_lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
   </CompilerOptions>

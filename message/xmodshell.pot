@@ -1698,7 +1698,7 @@ msgid "&Dump registers.."
 msgstr ""
 
 #: tform1.menuitem16.caption
-msgid "R&ead data from serial port.."
+msgid "Read data from serial port.."
 msgstr ""
 
 #: tform1.menuitem17.caption
@@ -1850,7 +1850,7 @@ msgid "&Project"
 msgstr ""
 
 #: tform1.menuitem50.caption
-msgid "W&rite data to serial port.."
+msgid "Write data to serial port.."
 msgstr ""
 
 #: tform1.menuitem51.caption
@@ -1910,11 +1910,23 @@ msgid "&Show timeout"
 msgstr ""
 
 #: tform1.menuitem64.caption
-msgid "Re&ad data with TCP.."
+msgid "Read data with TCP.."
 msgstr ""
 
 #: tform1.menuitem65.caption
-msgid "Wr&ite data with TCP.."
+msgid "Write data with TCP.."
+msgstr ""
+
+#: tform1.menuitem66.caption
+msgid "Mini &UDP console.."
+msgstr ""
+
+#: tform1.menuitem67.caption
+msgid "Read data with UDP.."
+msgstr ""
+
+#: tform1.menuitem68.caption
+msgid "Write data with UDP.."
 msgstr ""
 
 #: tform1.menuitem7.caption
@@ -2018,6 +2030,12 @@ msgid "Variable monitor"
 msgstr ""
 
 #: tform4.caption
+msgctxt "tform4.caption"
+msgid "Form4"
+msgstr ""
+
+#: tform5.caption
+msgctxt "tform5.caption"
 msgid "Form4"
 msgstr ""
 

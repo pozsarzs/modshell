@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=UDPEchoServer
+Name[hu]=UDPEchoServer
+Exec=udpechoserver
+Icon=udp
+GenericName=UDPEchoServer utility
+GenericName[hu]=UDPEchoServer segédprogram
+Type=Application
+Categories=Science
+StartupNotify=true
+Terminal=true

@@ -62,7 +62,8 @@ The next release _will be_ with the following changes:
  - [x] support for variable and constant arrays;  
  - [x] syntax highlighter file for editors using GtkSourceView (Builder, Geany, Gedit, Mousepad, Pluma, Scribes, etc.);  
  - [x] syntax highlighting file for Notepad++ (Windows only);  
- - [x] syntax highlighting file for Vim/Neovim.  
+ - [x] syntax highlighting file for Vim/Neovim,  
+ - [x] TCP and UPD echo server utilities for testing connectivity.  
 
 _v0.1-alpha3:_  
 The next release with the following changes:  
