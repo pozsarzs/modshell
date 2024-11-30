@@ -21,9 +21,10 @@
 // COMMAND 'TCPCONS'
 function TLThread.thr_tcpcons(p1: byte): byte;
 var
-  b: byte;
   fpn, fp: string;
-  lf: file of char;
+  lf: text;
+  srx: string = '';
+  stx: string = '';
 
 {$I sendmesg.pas}
 
@@ -55,31 +56,37 @@ begin
     repeat
       if tcp_open(ipaddress, inttostr(port))  then
       begin
-        // send a char
         if keyprd then
         begin
           keyprd := false;
-          if tcp_canwrite then
+          if prdkey = #13 then
           begin
-            tcp_sendbyte(ord(prdkey));
+            // send a string
+            if tcp_canwrite then
+            begin
+              tcp_sendstring(stx);
+              sendmessage('', true);
+              try
+                writeln(lf, stx);
+              except
+              end;
+              stx := '';
+            end else sendmessage(ERR27, true);
+          end else
+          begin
             sendmessage(prdkey, false);
-            try
-              write(lf, prdkey);
-            except
-            end;
-            if prdkey = #13 then sendmessage('', true);
-          end else sendmessage(ERR27, true);
+            stx := stx + prdkey;
+          end;
         end;
-        // receive a char
+        // receive a string
         if tcp_canread then
         begin
-          b := tcp_recvbyte;
-          sendmessage(char(b), false);
+          srx := tcp_recvpacket;
+          sendmessage(srx, true);
           try
-            write(lf, char(b));
+            writeln(lf, srx);
           except
           end;
-          if b = 13 then sendmessage('', true);
         end;
         tcp_close;
       end else

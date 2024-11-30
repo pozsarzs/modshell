@@ -22,7 +22,7 @@ uses
   Controls,
   Dialogs,
   Forms,
-  StdCtrls,
+  StdCtrls, ActnList,
   SysUtils,
   synaser,
   ucommon,
@@ -55,6 +55,7 @@ var
   device: byte;
   keyprd: boolean;
   prdkey: char;
+
 
 {$DEFINE X}
 
@@ -97,8 +98,14 @@ end;
 // SEND A CHAR
 procedure TForm3.FormKeyPress(Sender: TObject; var Key: char);
 begin
-  keyprd := true;
-  prdkey := Key;
+  case Key of
+    #66: Memo1.Clear;
+    #67: Form1.MenuItem28.OnClick(Sender);
+    #68: Close;
+  else
+    keyprd := true;
+    prdkey := Key;
+  end;
 end;
 
 procedure TForm3.FormShow(Sender: TObject);

@@ -14,8 +14,8 @@
 }
 {
   p0   p1
-  ----------------------
-  echo [off|on|hex|swap]
+  -------------------------
+  echo [off|ascii|hex|swap]
 }
 
 // COMMAND 'ECHO'
@@ -62,5 +62,7 @@ begin
     Form1.Memo1.Lines.Add(MSG28 + ECHO_ARG[echo]);
     Form1.StatusBar1.Panels[0].Text := 'Echo: ' + upcase(ECHO_ARG[echo]);
     Form3.StatusBar1.Panels[0].Text := 'Echo: ' + upcase(ECHO_ARG[echo]);
+    Form4.StatusBar1.Panels[0].Text := 'Echo: ' + upcase(ECHO_ARG[echo]);
+    Form5.StatusBar1.Panels[0].Text := 'Echo: ' + upcase(ECHO_ARG[echo]);
   {$ENDIF}
 end;

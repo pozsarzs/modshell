@@ -27,6 +27,7 @@ var
   // settings from/to ini file
   colors: array[0..4] of integer;
   echo: byte;
+  inputmode: byte;
   formpositions: array[0..5, 0..3] of integer;
   guicolors: array[0..1] of integer;
   histbuff: array[0..255] of string;
@@ -95,6 +96,7 @@ begin
       ini.writestring(SECTION[1], 'line' + inttostr(b), histbuff[b]);
     ini.writeinteger(SECTION[1], 'histitem', histitem);
     ini.writeinteger(SECTION[1], 'histlast', histlast);
+    ini.writeinteger(SECTION[2], 'input', inputmode);
     ini.writeinteger(SECTION[2], 'echo', echo);
     ini.writeinteger(SECTION[3], 'foreground', guicolors[0]);
     ini.writeinteger(SECTION[3], 'background', guicolors[1]);
@@ -143,6 +145,7 @@ begin
       histbuff[b] := ini.readstring(SECTION[1], 'line' + inttostr(b), '');
     histitem := ini.readinteger(SECTION[1], 'histitem', 0);
     histlast := ini.readinteger(SECTION[1], 'histlast', 0);
+    inputmode := ini.readinteger(SECTION[2], 'input', 0);
     echo := ini.readinteger(SECTION[2], 'echo', 0);
     guicolors[0] := ini.readinteger(SECTION[3], 'foreground', 16776960);
     guicolors[1] := ini.readinteger(SECTION[3], 'background', 8388608);

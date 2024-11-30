@@ -585,6 +585,14 @@ object Form1: TForm1
     Left = 408
     object MenuItem1: TMenuItem
       Caption = '&File'
+      object MenuItem23: TMenuItem
+        Caption = 'Set console &colors..'
+        ImageIndex = 17
+        OnClick = MenuItem23Click
+      end
+      object Separator9: TMenuItem
+        Caption = '-'
+      end
       object MenuItem53: TMenuItem
         Caption = '&Restart'
         ImageIndex = 19
@@ -699,13 +707,35 @@ object Form1: TForm1
           OnClick = MenuItem63Click
         end
       end
-      object Separator9: TMenuItem
+    end
+    object MenuItem69: TMenuItem
+      Caption = '&Modbus'
+      object MenuItem70: TMenuItem
+        Caption = 'Read &discrete inputs..'
+        OnClick = MenuItem70Click
+      end
+      object MenuItem74: TMenuItem
+        Caption = 'Read &coils..'
+        OnClick = MenuItem74Click
+      end
+      object MenuItem71: TMenuItem
+        Caption = 'Write &coils..'
+        OnClick = MenuItem71Click
+      end
+      object Separator13: TMenuItem
         Caption = '-'
       end
-      object MenuItem23: TMenuItem
-        Caption = 'Set console &colors..'
-        ImageIndex = 17
-        OnClick = MenuItem23Click
+      object MenuItem72: TMenuItem
+        Caption = 'Read input registers..'
+        OnClick = MenuItem72Click
+      end
+      object MenuItem73: TMenuItem
+        Caption = 'Read holding registers..'
+        OnClick = MenuItem73Click
+      end
+      object MenuItem75: TMenuItem
+        Caption = 'Write holding registers..'
+        OnClick = MenuItem75Click
       end
     end
     object MenuItem4: TMenuItem

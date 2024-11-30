@@ -53,6 +53,16 @@ begin
   {$ENDIF}
 end;
 
+// READ PACKET FROM SOCKET
+function tcp_recvpacket: string;
+begin
+  {$IFDEF GO32V2}
+    result := '';
+  {$ELSE}
+    result := tcp.RecvPacket(1000);
+  {$ENDIF}
+end;
+
 // WRITE CHAR TO SOCKET
 procedure tcp_sendbyte(b: byte);
 begin
