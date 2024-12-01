@@ -7,7 +7,6 @@
       <Unit>
         <Filename Value="xmodshell.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <CursorPos X="3" Y="15"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
@@ -18,7 +17,7 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="2"/>
         <CursorPos Y="15"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
@@ -30,7 +29,7 @@
         <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="6"/>
         <CursorPos Y="15"/>
         <UsageCount Value="219"/>
         <Loaded Value="True"/>
@@ -42,7 +41,7 @@
         <ComponentName Value="Form4"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <CursorPos Y="15"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
@@ -61,9 +60,9 @@
         <ComponentName Value="Form5"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <CursorPos X="2" Y="15"/>
-        <UsageCount Value="132"/>
+        <UsageCount Value="133"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -86,9 +85,9 @@
         <ComponentName Value="Form3"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="3"/>
         <CursorPos X="2" Y="15"/>
-        <UsageCount Value="65"/>
+        <UsageCount Value="66"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -149,24 +148,17 @@
         <CursorPos Y="147"/>
         <UsageCount Value="10"/>
       </Unit>
+      <Unit>
+        <Filename Value="../_inc/commands/thr_sewr.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="99"/>
+        <CursorPos X="25" Y="111"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="1103" TopLine="1092"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="70"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="15"/>
-      </Position>
-      <Position>
-        <Filename Value="frmsecn.pas"/>
-        <Caret Line="70" TopLine="48"/>
-      </Position>
       <Position>
         <Filename Value="frmsecn.pas"/>
         <Caret Line="73" TopLine="51"/>
@@ -270,6 +262,22 @@
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="15"/>
+      </Position>
+      <Position>
+        <Filename Value="xmodshell.lpr"/>
+        <Caret Line="15" Column="3"/>
+      </Position>
+      <Position>
+        <Filename Value="../_inc/commands/thr_sewr.pas"/>
+        <Caret Line="107" Column="58" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="../_inc/commands/thr_sewr.pas"/>
+        <Caret Line="108" Column="19" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="../_inc/commands/thr_sewr.pas"/>
+        <Caret Line="109" Column="20" TopLine="96"/>
       </Position>
     </JumpHistory>
     <RunParams>
