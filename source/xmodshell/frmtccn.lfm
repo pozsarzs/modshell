@@ -343,10 +343,15 @@ object Form4: TForm4
     Panels = <    
       item
         Alignment = taCenter
-        Width = 100
+        Width = 50
       end    
       item
-        Width = 100
+        Alignment = taCenter
+        Width = 50
+      end    
+      item
+        Alignment = taCenter
+        Width = 50
       end    
       item
         Width = 110

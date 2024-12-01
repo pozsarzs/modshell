@@ -108,8 +108,8 @@ var
       begin
         with StatusBar1.Panels do
         begin
-          Items[2].Text := dev[device].device;
-          Items[3].Text := dev[device].ipaddress + ':' + inttostr(dev[device].port);
+          Items[3].Text := dev[device].device;
+          Items[4].Text := dev[device].ipaddress + ':' + inttostr(dev[device].port);
         end;
       end;
     // new threads for I/O operation

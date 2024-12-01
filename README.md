@@ -26,7 +26,10 @@ HART protocols.
 |running modes           |normal or interpreter                                                                       |
 |variables               |max. 128 variables or constants (stored as string)                                          |
 |arrays                  |max. 16 dynamic size array of variables or constants (elements stored as string)            |
-|built-in commands       |120 commands in 10 categories                                                               |
+|built-in commands       |122 commands in 10 categories with macro and script options)                                |
+|macros                  |max. 16                                                                                     |
+|script size             |max. 1024 line                                                                              |
+|example scripts         |10 scripts (shellscript and batch file versions)                                            |
 |load from file          |registers, script, settings                                                                 |
 |save to file            |command history, console traffic, registers, communication settings, user log with timestamp|
 |auto save to file       |general settings and console traffic                                                        |
@@ -37,28 +40,30 @@ HART protocols.
 |configurable connections|max. 8 settings by combining the previous two                                               |
 |raw serial communication|read/write serial port and mini serial console with A/N or Hex echo                         |
 |raw TCP communication   |read/write network device and mini TCP console with A/N or Hex echo                         |
+|raw UDP communication   |read/write network device and mini TCP console with A/N or Hex echo                         |
 |DCON communication      |read and write remote devices                                                               |
 |HART communication      |read and write remote devices                                                               |
 |Modbus communication    |read and write remote device and copy between devices                                       |
 |                        |internal server for remote access to own registers                                          |
 |                        |gateway to access devices using other ports or protocols                                    |
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                                                       |
-|script size             |max. 1024 line                                                                              |
-|example scripts         |10 scripts (shellscript and batch file versions)                                            |
 |script syntax plugins   |for editors using GtkSourceView, MCEdit, Micro, Nano, Notepad++, NeoVim and Vim             |
+|other utilities         |command line TCP and UDP echo servers                                                       |
 
 **Releases**  
 
 _v0.1-beta1:_  
 The next release _will be_ with the following changes:  
- - [x] `echo` command parameters: off|on|hex|swap -> off|an|hex|swap;
+ - [x] `echo` -> `echometh` command, parameters: off|on|hex|swap -> off|an|hex|swap;
  - [x] `exist` command;  
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
  - [x] `color` -> `set color`: sets all default colors (CLI and TUI);  
- - [x] `input` command: change data input mode between alphanumerical and hexadecimal;  
+ - [x] `inputmeth` command: change data input mode between alphanumerical and hexadecimal;  
+ - [ ] `macro` command: create one-line macro;
  - [x] `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI);  
  - [x] `tcpcons`, `tcpread`, `tcpwrite` commands;  
  - [x] `udpcons`, `udpread`, `udpwrite` commands;  
+ - [x] `sendmeth` command: change data send method between char-to-char and as string;  
  - [ ] `sercons`, `tcpcons`, `udpcons` commands: character-by-character input with immediate sending or sending as a string with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;  
  - [ ] `serwrite`, `tcpwrite`, `udpwrite` commands: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo.  
  - [ ] Main menu for all consoles in GUI version;  

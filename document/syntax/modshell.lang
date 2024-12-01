@@ -60,7 +60,7 @@
       <keyword>div</keyword>
       <keyword>do</keyword>
       <keyword>dump</keyword>
-      <keyword>echo</keyword>
+      <keyword>echometh</keyword>
       <keyword>edit</keyword>
       <keyword>erasescr</keyword>
       <keyword>exist</keyword>
@@ -78,7 +78,7 @@
       <keyword>imod</keyword>
       <keyword>impreg</keyword>
       <keyword>inc</keyword>
-      <keyword>input</keyword>
+      <keyword>inputmeth</keyword>
       <keyword>inrange</keyword>
       <keyword>label</keyword>
       <keyword>length</keyword>
@@ -119,6 +119,7 @@
       <keyword>savecfg</keyword>
       <keyword>savereg</keyword>
       <keyword>savescr</keyword>
+      <keyword>sendmeth</keyword>
       <keyword>sercons</keyword>
       <keyword>serread</keyword>
       <keyword>serwrite</keyword>
@@ -157,6 +158,7 @@
       <keyword>ascii</keyword>
       <keyword>bin</keyword>
       <keyword>coil</keyword>
+      <keyword>chr</keyword>
       <keyword>csv</keyword>
       <keyword>dec</keyword>
       <keyword>dinp</keyword>
@@ -168,6 +170,7 @@
       <keyword>oct</keyword>
       <keyword>off</keyword>
       <keyword>rtu</keyword>
+      <keyword>str</keyword>
       <keyword>ser</keyword>
       <keyword>swap</keyword>
       <keyword>tcp</keyword>

@@ -15,18 +15,18 @@ syn keyword modshellFunction add and applog arrclear arrcopy arrfill arrsize asc
 syn keyword modshellFunction beep bit
 syn keyword modshellFunction cd chkdevlock chr cls carr concat const conv copyreg copy cos cotan cron
 syn keyword modshellFunction date dcon dec del dir div do dump
-syn keyword modshellFunction echo edit erasescr exist exit exphis expreg exp
+syn keyword modshellFunction echometh edit erasescr exist exit exphis expreg exp
 syn keyword modshellFunction for
 syn keyword modshellFunction get goto
 syn keyword modshellFunction hart help
-syn keyword modshellFunction idiv if imod impreg inc input inrange
+syn keyword modshellFunction idiv if imod impreg inc inputmeth inrange
 syn keyword modshellFunction label length let list ln loadcfg loadreg loadscr lowcase
 syn keyword modshellFunction mbgw mbsrv md mkcrc mklrc mulinv mul
 syn keyword modshellFunction not
 syn keyword modshellFunction odd ord or
 syn keyword modshellFunction pause pow2 pow print printcolor prop
 syn keyword modshellFunction rd readreg ren reset rmdevlock rnd roll rolr round run
-syn keyword modshellFunction savecfg savereg savescr sercons serread serwrite set shl shr sin sqrt sqr strdel strfind strins stritem strrepl sub
+syn keyword modshellFunction savecfg savereg savescr sendmeth sercons serread serwrite set shl shr sin sqrt sqr strdel strfind strins stritem strrepl sub
 syn keyword modshellFunction tan tcpcons tcpread tcpwrite then to type
 syn keyword modshellFunction udpcons udpread udpwrite upcase
 syn keyword modshellFunction varmon var varr ver
@@ -34,7 +34,7 @@ syn keyword modshellFunction writereg
 syn keyword modshellFunction xor
 
 syn keyword modshellPredefined bin coil csv dec dinp hex hreg ini ireg net
-syn keyword modshellPredefined an oct off rtu ser swap tcp xml
+syn keyword modshellPredefined an chr oct off rtu ser str swap tcp xml
 
 syn match modshellSymbolOperator "[<>]=\="
 syn match modshellSymbolOperator "="

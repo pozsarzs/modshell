@@ -48,12 +48,12 @@ begin
     begin
       ser_sendstring(tgm);
       s := '';
-      case uconfig.echo of
+      case uconfig.echometh of
         1: s := tgm;
         2: for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
       end;
       {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
-      if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
+      if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // receive response
@@ -65,7 +65,7 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        case uconfig.echo of
+        case uconfig.echometh of
           1: s := s + char(b);
           2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
@@ -75,7 +75,7 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
-    if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
+    if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
     {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     // disconnect serial port
     ser_close;
@@ -143,12 +143,12 @@ begin
     begin
       ser_sendstring(tgm);
       s := '';
-      case uconfig.echo of
+      case uconfig.echometh of
         1: s := tgm;
         2: for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
       end;
       {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
-      if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
+      if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // receive response
@@ -160,7 +160,7 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        case uconfig.echo of
+        case uconfig.echometh of
           1: s := s + char(b);
           2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
@@ -170,7 +170,7 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
-    if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
+    if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
     {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     // disconnect serial port
     ser_close;
@@ -238,12 +238,12 @@ begin
     begin
       ser_sendstring(tgm);
       s := '';
-      case uconfig.echo of
+      case uconfig.echometh of
         1: s := tgm;
         2: for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
       end;
       {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
-      if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
+      if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // receive response
@@ -255,7 +255,7 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        case uconfig.echo of
+        case uconfig.echometh of
           1: s := s + char(b);
           2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
@@ -265,7 +265,7 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout * 1000);
     {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
-    if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
+    if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
     {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     // disconnect serial port
     ser_close;
@@ -331,12 +331,12 @@ begin
     begin
       ser_sendstring(tgm);
       s := '';
-      case uconfig.echo of
+      case uconfig.echometh of
         1: s := tgm;
         2: for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
       end;
       {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
-      if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
+      if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // receive response
@@ -348,7 +348,7 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        case uconfig.echo of
+        case uconfig.echometh of
           1: s := s + char(b);
           2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
@@ -358,7 +358,7 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
-    if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
+    if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
     {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     // disconnect serial port
     ser_close;
@@ -434,12 +434,12 @@ begin
     begin
       ser_sendstring(tgm);
       s := '';
-      case uconfig.echo of
+      case uconfig.echometh of
         1: s := tgm;
         2: for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
       end;
       {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
-      if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
+      if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // receive response
@@ -451,7 +451,7 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        case uconfig.echo of
+        case uconfig.echometh of
           1: s := s + char(b);
           2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
@@ -461,7 +461,7 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
-    if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
+    if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
     {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     // disconnect serial port
     ser_close;
@@ -521,12 +521,12 @@ begin
     begin
       ser_sendstring(tgm);
       s := '';
-      case uconfig.echo of
+      case uconfig.echometh of
         1: s := tgm;
         2: for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
       end;
       {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
-      if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
+      if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
     // receive response
@@ -538,7 +538,7 @@ begin
       begin
         wait := 0;
         b := ser_recvbyte;
-        case uconfig.echo of
+        case uconfig.echometh of
           1: s := s + char(b);
           2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
         end;
@@ -548,7 +548,7 @@ begin
       if keypressed then c := readkey;
     until (c = #27) or (length(tgm) = 255) or (wait = timeout);
     {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
-    if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
+    if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
     {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
     // disconnect serial port
     ser_close;
@@ -613,7 +613,7 @@ begin
         if ser_canread then
         begin
           b := ser_recvbyte;
-          case uconfig.echo of
+          case uconfig.echometh of
             1: s := s + char(b);
             2: s := s + addsomezero(2, deztohex(inttostr(b))) + ' ';
           end;
@@ -623,7 +623,7 @@ begin
         if c = #27 then loop := false;
       until (c = #27) or (length(tgm) = 255) or ready;
       {$IFNDEF X} textcolor(uconfig.colors[2]); {$ENDIF}
-      if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
+      if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(false, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(false, s)); {$ENDIF}
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
       // parse request
       if length(tgm) >= 8 then
@@ -741,12 +741,12 @@ begin
         begin
           ser_sendstring(tgm);
           s := '';
-          case uconfig.echo of
+          case uconfig.echometh of
             1: s := tgm;
             2: for b := 1 to length(tgm) do s := s + addsomezero(2, deztohex(inttostr(ord(tgm[b])))) + ' ';
           end;
           {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
-          if uconfig.echo > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
+          if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
           {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
         end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
       end;

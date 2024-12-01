@@ -17,11 +17,12 @@ const
   // OTHERS
   MINTERMX = 80;
   MINTERMY = 25;
+  MCRBUFFSIZE = 16;
   PROMPT = 'MODSH|_>';
   PRGCOPYRIGHT = '(C) 2023-2024 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
-  COMMARRSIZE = 121;
+  COMMARRSIZE = 123;
   SCRBUFFSIZE = 1024;
   SHOWTIMEDELAY = 25;
   VARBUFFSIZE = 128;
@@ -47,7 +48,7 @@ const
     {   0 } ('copyreg',    'exit',       'get',      'help',       'let',       'print',   'readreg', 'reset',    'set',      'date',
     {  10 }  'ver',        'writereg',   'cls',      'savecfg',    'loadcfg',   'expreg',  'exphis',  'conv',     'savereg',  'loadreg',
     {  20 }  'var',        'printcolor', 'impreg',   'and',        'or',        'not',     'xor',     'shl',      'shr',      'add',
-    {  30 }  'sub',        'mul',        'div',      'dump',       'pause',     'sercons', 'serread', 'serwrite', 'echo',     'loadscr',
+    {  30 }  'sub',        'mul',        'div',      'dump',       'pause',     'sercons', 'serread', 'serwrite', 'echometh', 'loadscr',
     {  40 }  'run',        'list',       'round',    'cos',        'cotan',     'dec',     'exp',     'idiv',     'imod',     'inc',
     {  50 }  'ln',         'mulinv',     'odd',      'rnd',        'tan',       'sin',     'sqr',     'sqrt',     'roll',     'rolr',
     {  60 }  'upcase',     'length',     'lowcase',  'stritem',    'chr',       'ord',     'const',   'bit',      'pow',      'goto',
@@ -55,8 +56,8 @@ const
     {  80 }  'beep',       'avg',        'prop',     'concat',     'strdel',    'strfind', 'strins',  'strrepl',  'varmon',   'applog',
     {  90 }  'cron',       'edit',       'erasescr', 'savescr',    'dir',       'cd',      'md',      'rd',       'del',      'type',
     { 100 }  'copy',       'ren',        'exist',    'chkdevlock', 'rmdevlock', 'carr',    'varr',    'arrclear', 'arrfill',  'getarrsize',
-    { 110 }  'setarrsize', 'dcon',       'tcpcons',  'tcpread',    'tcpwrite',  'udpcons', 'udpread', 'udpwrite', 'hart',     'input',
-    { 120 }  'whatever');
+    { 110 }  'setarrsize', 'dcon',       'tcpcons',  'tcpread',    'tcpwrite',  'udpcons', 'udpread', 'udpwrite', 'hart',     'inputmeth',
+    { 120 }  'sendmeth',   'macro',      'whatever');
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..10] of string = ('150','300','600','1200','2400','4800','9600','19200','38400','57600','115200');
   DEV_PARITY: array[0..2] of char = ('e','n','o');
@@ -64,5 +65,5 @@ const
   PROT_TYPE: array[0..4] of string = ('ascii','rtu','tcp','dcon','hart');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');
   PREFIX: array[0..5] of string = ('dev','pro','con','project','timeout','color');
-  ECHO_ARG: array[0..3] of string = ('off','an','hex','swap');
+  METHOD: array[0..5] of string = ('off','an','hex','swap','chr','str');
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');

@@ -19,7 +19,7 @@ print "------------------------------------------------------------"
 print "Protocol:\ Modbus/RTU"
 print "ID:\ " -n
 print $ID
-echo hex
+echometh hex
 print "\ "
 
 # settings

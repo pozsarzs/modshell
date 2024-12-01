@@ -109,6 +109,26 @@ msgstr ""
 msgid "         write string with TCP to network device"
 msgstr ""
 
+#: frmmain.des115
+msgid "         open a mini UDP console"
+msgstr ""
+
+#: frmmain.des116
+msgid "         read string with UDP from network device"
+msgstr ""
+
+#: frmmain.des117
+msgid "         write string with UDP to network device"
+msgstr ""
+
+#: frmmain.des118
+msgid "         read/write data from/to remote device with HART protocol"
+msgstr ""
+
+#: frmmain.des119
+msgid "SHIFT-F9 query or change input mode"
+msgstr ""
+
 #: frmmain.des12
 msgid "F8       clear screen"
 msgstr ""
@@ -214,7 +234,7 @@ msgid "         write string to serial device"
 msgstr ""
 
 #: frmmain.des38
-msgid "F9       query local echo status or enable/disable it"
+msgid "F9       query or change local echo status"
 msgstr ""
 
 #: frmmain.des39
@@ -1271,6 +1291,39 @@ msgid ""
 "  - The '?' value can be 0-7."
 msgstr ""
 
+#: frmmain.usg115
+msgid ""
+"udpcons [dev?]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg116
+msgid ""
+"udpread dev? [$TARGET]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg117
+msgid ""
+"udpwrite dev? $MESSAGE\n"
+"  udpwrite dev? \"MESSAGE\"\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg118
+msgid ""
+"hart con? $TXARRAY $RXARRAY\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: frmmain.usg119
+msgid "input [an|hex|swap]"
+msgstr ""
+
 #: frmmain.usg12
 msgid "cls"
 msgstr ""
@@ -1395,7 +1448,7 @@ msgid ""
 msgstr ""
 
 #: frmmain.usg38
-msgid "echo [off|on|hex|swap]"
+msgid "echo [off|an|hex|swap]"
 msgstr ""
 
 #: frmmain.usg39
@@ -1959,6 +2012,10 @@ msgstr ""
 
 #: tform1.menuitem75.caption
 msgid "Write holding registers.."
+msgstr ""
+
+#: tform1.menuitem76.caption
+msgid "&Swap input mode"
 msgstr ""
 
 #: tform1.menuitem8.caption

@@ -32,7 +32,7 @@ print "----------------------------------------------"
 print "Protocol:\ Modbus/ASCII"
 print "ID:\ " -n
 print $ID
-echo an
+echometh an
 
 # settings
 # set device on DOS/Windows:

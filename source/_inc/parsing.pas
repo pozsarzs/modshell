@@ -104,7 +104,7 @@ begin
             35: exitcode := cmd_sercons(splitted[1]);
             36: exitcode := cmd_serread(splitted[1], splitted[2]);
             37: exitcode := cmd_serwrite(splitted[1], splitted[2]);
-            38: exitcode := cmd_echo(splitted[1]);
+            38: exitcode := cmd_echometh(splitted[1]);
             39: exitcode := cmd_loadscr(splitted[1]);
             40: exitcode := cmd_run(splitted[1], splitted[2]);
             41: exitcode := cmd_list;
@@ -135,7 +135,9 @@ begin
             116: exitcode := cmd_udpread(splitted[1], splitted[2]);
             117: exitcode := cmd_udpwrite(splitted[1], splitted[2]);
             118: exitcode := cmd_hart(splitted[1], splitted[2], splitted[3]);
-            119: exitcode := cmd_input(splitted[1]);
+            119: exitcode := cmd_inputmeth(splitted[1]);
+            120: exitcode := cmd_sendmeth(splitted[1]);
+            121: exitcode := cmd_macro(splitted[1], command);
             COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
           else
           begin

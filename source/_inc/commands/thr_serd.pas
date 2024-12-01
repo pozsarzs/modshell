@@ -99,12 +99,12 @@ begin
         begin
           wait := 0;
           b := ser_recvbyte;
-          case uconfig.echo of
+          case uconfig.echometh of
             1: sendmessage(char(b), false);
             2: sendmessage(addsomezero(2, deztohex(inttostr(b))) + ' ', false);
           end;
           s := s + char(b);
-          if (uconfig.echo = 1) and (b = 13) then
+          if (uconfig.echometh = 1) and (b = 13) then
           begin
             sendmessage('', true);
           end;
@@ -113,7 +113,7 @@ begin
             if wait < 6000 then inc(wait);
       until (length(s) = 255) or (wait = timeout * 100);
       ser_close;
-      if (uconfig.echo > 0) then sendmessage('', true);
+      if (uconfig.echometh > 0) then sendmessage('', true);
       if length(p2) = 0 then sendmessage(s, true);
       if length(p2) > 0 then
         if boolisitvariable(p2)

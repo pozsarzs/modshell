@@ -34,24 +34,24 @@
      `beep` `bit`  
      `cd` `chkdevlock` `chr` `cls` `carr` `concat` `const` `conv` `copyreg` `copy` `cos` `cotan` `cron`  
      `date` `dcon` `dec` `del` `dir` `div` `do` `dump`  
-     `echo` `edit` `erasescr` `exist` `exit` `exphis` `expreg` `exp`  
+     `echometh` `edit` `erasescr` `exist` `exit` `exphis` `expreg` `exp`  
      `for`  
      `get` `goto`  
      `help`  
-     `idiv` `if` `imod` `impreg` `inc` `input` `inrange`  
+     `idiv` `if` `imod` `impreg` `inc` `inputmeth` `inrange`  
      `label` `length` `let` `list` `ln` `loadcfg` `loadreg` `loadscr` `lowcase`  
      `mbgw` `mbsrv` `md` `mkcrc` `mklrc` `mulinv` `mul`  
      `not`  
      `odd` `ord` `or`  
      `pause` `pow2` `pow` `print` `printcolor` `prop`  
      `rd` `readreg` `ren` `reset` `rmdevlock` `rnd` `roll` `rolr` `round` `run`  
-     `savecfg` `savereg` `savescr` `sercons` `serread` `serwrite` `set` `shl` `shr` `sin` `sqrt` `sqr` `strdel` `strfind` `strins` `stritem` `strrepl` `sub`  
+     `savecfg` `savereg` `savescr` `sendmeth` `sercons` `serread` `serwrite` `set` `shl` `shr` `sin` `sqrt` `sqr` `strdel` `strfind` `strins` `stritem` `strrepl` `sub`  
      `tan` `tcpcons` `tcpread` `tcpwrite` `then` `to` `type`  
      `udpcons` `udpread` `udpwrite` `upcase`  
      `varmon` `var` `varr` `ver`  
      `writereg`  
      `xor`
  - word group #3:  
-      `an` `ascii` `bin` `coil` `csv` `dec` `dcon` `dinp` `hart` `hex` `hreg` `ini` `ireg` `net` `oct` `off` `rtu` `ser` `swap` `tcp` `xml`
+     `an` `ascii` `bin` `coil` `chr` `csv` `dec` `dcon` `dinp` `hart` `hex` `hreg` `ini` `ireg` `net` `oct` `off` `rtu` `ser` `str` `swap` `tcp` `xml`
  - word group #4:  
      `<` `<=` `=` `=>` `>` `<>`

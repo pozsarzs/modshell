@@ -138,7 +138,7 @@ msgid "Start address (0-9990): "
 msgstr ""
 
 #: modshell:msg28
-msgid "Echo mode: "
+msgid "Echo method: "
 msgstr ""
 
 #: modshell:msg29
@@ -383,6 +383,14 @@ msgstr ""
 
 #: modshell:msg88
 msgid "Use 'Utilities/Mini TCP console' on GUI version."
+msgstr ""
+
+#: modshell:msg89
+msgid "Input method: "
+msgstr ""
+
+#: modshell:msg90
+msgid "Send method: "
 msgstr ""
 
 #: modshell:msg94
@@ -1126,7 +1134,15 @@ msgid "         read/write data from/to remote device with HART protocol"
 msgstr ""
 
 #: modshell:des119
-msgid "SHIFT-F9 query or change input mode"
+msgid "SHIFT-F9 query or change input method"
+msgstr ""
+
+#: modshell:des120
+msgid "CTRL-F9  query or change send method"
+msgstr ""
+
+#: modshell:des121
+msgid "         create one-line macro"
 msgstr ""
 
 #: modshell:usg00
@@ -1337,7 +1353,7 @@ msgid ""
 msgstr ""
 
 #: modshell:usg38
-msgid "echo [off|an|hex|swap]"
+msgid "echometh [off|an|hex|swap]"
 msgstr ""
 
 #: modshell:usg39
@@ -1712,6 +1728,14 @@ msgid ""
 msgstr ""
 
 #: modshell:usg119
-msgid "input [an|hex|swap]"
+msgid "inputmeth [an|hex|swap]"
+msgstr ""
+
+#: modshell:usg120
+msgid "sendmeth [chr|str|swap]"
+msgstr ""
+
+#: modshell:usg121
+msgid "macro NAME \"command with parameters\""
 msgstr ""
 

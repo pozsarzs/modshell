@@ -18,18 +18,18 @@ rules:
   - statement: "\\b(beep|bit)\\b"
   - statement: "\\b(cd|chkdevlock|chr|cls|carr|concat|const|conv|copyreg|copy|cos|cotan|cron)\\b"
   - statement: "\\b(date|dcon|dec|del|dir|div|do|dump)\\b"
-  - statement: "\\b(echo|edit|erasescr|exist|exit|exphis|expreg|exp)\\b"
+  - statement: "\\b(echometh|edit|erasescr|exist|exit|exphis|expreg|exp)\\b"
   - statement: "\\b(for)\\b"
   - statement: "\\b(get|goto)\\b"
   - statement: "\\b(hart|help)\\b"
-  - statement: "\\b(idiv|if|imod|impreg|inc|input|inrange)\\b"
+  - statement: "\\b(idiv|if|imod|impreg|inc|inputmeth|inrange)\\b"
   - statement: "\\b(label|length|let|list|ln|loadcfg|loadreg|loadscr|lowcase)\\b"
   - statement: "\\b(mbgw|mbsrv|md|mkcrc|mklrc|mulinv|mul)\\b"
   - statement: "\\b(not)\\b"
   - statement: "\\b(odd|ord|or)\\b"
   - statement: "\\b(pause|pow2|pow|print|printcolor|prop)\\b"
   - statement: "\\b(rd|readreg|ren|reset|rmdevlock|rnd|roll|rolr|round|run)\\b"
-  - statement: "\\b(savecfg|savereg|savescr|sercons|serread|serwrite|set|shl|shr|sin|sqrt|sqr|strdel|strfind|strins|stritem|strrepl|sub)\\b"
+  - statement: "\\b(savecfg|savereg|savescr|sendmeth|sercons|serread|serwrite|set|shl|shr|sin|sqrt|sqr|strdel|strfind|strins|stritem|strrepl|sub)\\b"
   - statement: "\\b(tan|tcpcons|tcpread|tcpwrite|then|to|type)\\b"
   - statement: "\\b(udpcons|udpread|udpwrite|upcase)\\b"
   - statement: "\\b(varmon|var|varr|ver)\\b"
@@ -38,7 +38,7 @@ rules:
 
   ## group #3
   - identifier: "\\b(bin|coil|csv|dec|dinp|hex|hreg|ini|ireg|net)\\b"
-  - identifier: "\\b(an|oct|off|rtu|ser|swap|tcp|xml)\\b"
+  - identifier: "\\b(an|chr|oct|off|rtu|ser|str|swap|tcp|xml)\\b"
 
   ## group #4
   - statement: "<=>"

@@ -19,7 +19,7 @@ print "---------------------------------------------------"
 print "Protocol:\ Modbus/RTU"
 print "ID:\ " -n
 print $ID
-echo hex
+echometh hex
 
 # settings
 set dev0 ser /dev/ttyUSB2 9600 8 n 1

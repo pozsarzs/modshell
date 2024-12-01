@@ -22,7 +22,7 @@ uses
   Controls,
   Dialogs,
   Forms,
-  StdCtrls, ActnList,
+  StdCtrls, ActnList, Menus,
   SysUtils,
   synaser,
   ucommon,
@@ -41,12 +41,26 @@ type
   end;
   { TForm3 }
   TForm3 = class(TForm)
+    MainMenu1: TMainMenu;
     Memo1: TMemo;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem8: TMenuItem;
+    Separator1: TMenuItem;
     StatusBar1: TStatusBar;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: char);
     procedure FormShow(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
+    procedure MenuItem5Click(Sender: TObject);
+    procedure MenuItem6Click(Sender: TObject);
+    procedure MenuItem8Click(Sender: TObject);
   private
   public
   end;
@@ -55,7 +69,6 @@ var
   device: byte;
   keyprd: boolean;
   prdkey: char;
-
 
 {$DEFINE X}
 
@@ -98,16 +111,47 @@ end;
 // SEND A CHAR
 procedure TForm3.FormKeyPress(Sender: TObject; var Key: char);
 begin
-  case Key of
-    #66: Memo1.Clear;
-    #67: Form1.MenuItem28.OnClick(Sender);
-    #68: Close;
-  else
-    keyprd := true;
-    prdkey := Key;
-  end;
+  keyprd := true;
+  prdkey := Key;
 end;
 
+// -- MAIN MENU/File -----------------------------------------------------------
+
+// CLOSE WINDOW
+procedure TForm3.MenuItem2Click(Sender: TObject);
+begin
+  Close;
+end;
+
+// -- MAIN MENU/Operation ------------------------------------------------------
+
+// RUN COMMAND 'cls'
+procedure TForm3.MenuItem4Click(Sender: TObject);
+begin
+  Memo1.Clear;
+end;
+
+// RUN COMMAND 'inputmeth swap'
+procedure TForm3.MenuItem6Click(Sender: TObject);
+begin
+  Form1.MenuItem76.OnClick(Sender);
+end;
+
+// RUN COMMAND 'echometh swap'
+procedure TForm3.MenuItem5Click(Sender: TObject);
+begin
+  Form1.MenuItem28.OnClick(Sender);
+end;
+
+// RUN COMMAND 'sendmeth swap'
+procedure TForm3.MenuItem8Click(Sender: TObject);
+begin
+  Form1.MenuItem77.OnClick(Sender);
+end;
+
+// -- END OF THE MAIN MENU -----------------------------------------------------
+
+// SHOW MINI SERIAL CONSOLE WINDOW
 procedure TForm3.FormShow(Sender: TObject);
 var
   LThread1: TLThread;
@@ -117,8 +161,8 @@ var
       begin
         with StatusBar1.Panels do
         begin
-          Items[2].Text := dev[device].device;
-          Items[3].Text := DEV_SPEED[dev[device].speed] + ' baud '+
+          Items[3].Text := dev[device].device;
+          Items[4].Text := DEV_SPEED[dev[device].speed] + ' baud '+
           inttostr(dev[device].databit) +
           upcase(DEV_PARITY[dev[device].parity]) +
           inttostr(dev[device].stopbit);

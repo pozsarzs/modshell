@@ -104,7 +104,7 @@ procedure version(h: boolean); forward;
 {$I cmd_help.pas}
 {$I cmd_if.pas}
 {$I cmd_impr.pas}
-{$I cmd_input.pas}
+{$I cmd_inpt.pas}
 {$I cmd_labl.pas}
 {$I cmd_lcfg.pas}
 {$I cmd_let.pas}
@@ -114,6 +114,7 @@ procedure version(h: boolean); forward;
 {$I cmd_lreg.pas}
 {$I cmd_lscr.pas}
 {$I cmd_math.pas}
+{$I cmd_mcro.pas}
 {$I cmd_paus.pas}
 {$I cmd_pclr.pas}
 {$I cmd_prnt.pas}
@@ -123,6 +124,7 @@ procedure version(h: boolean); forward;
 {$I cmd_run.pas}
 {$I cmd_scfg.pas}
 {$I cmd_secn.pas}
+{$I cmd_send.pas}
 {$I cmd_serd.pas}
 {$I cmd_set.pas}
 {$I cmd_sewr.pas}
@@ -220,7 +222,7 @@ begin
         if c = #66 then
           begin command := COMMANDS[12]; c:=#13; end;                         // F8
         if c = #67 then
-          begin command := COMMANDS[38] + #32 + ECHO_ARG[3]; c:=#13; end;     // F9
+          begin command := COMMANDS[38] + #32 + METHOD[3]; c:=#13; end;     // F9
         if c = #68 then
           begin command := COMMANDS[1]; c:=#13; end;                          // F10
         if c = #133 then
@@ -239,6 +241,8 @@ begin
           begin command := COMMANDS[92]; c := #32; end;                       // SHIFT-F8
         if c = #92 then
           begin command := COMMANDS[119]; c := #32; end;                      // SHIFT-F9
+        if c = #00 then
+          begin command := COMMANDS[120]; c := #32; end;                      // CTRL-F9
         if c = #72 then                                                       // UP
           if uconfig.histitem > 0 then
           begin

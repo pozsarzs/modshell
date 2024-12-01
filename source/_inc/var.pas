@@ -28,6 +28,8 @@ var
   // variables and constats
   arrays: array[0..ARRBUFFSIZE-1] of tarray;
   vars: array[0..VARBUFFSIZE-1] of tvariable;
+  // macros
+  macros: array[0..MCRBUFFSIZE-1] of tmacro;
   // SETTINGS - DEVICE, PROJECT NAME, PROTOCOL, CONNECTION
   dev: array[0..7] of tdevice;
   prot: array[0..7] of tprotocol;

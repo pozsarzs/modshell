@@ -71,7 +71,8 @@ INI and XML format files.
 The program has simple serial, TCP and UDP consoles whose traffic is logged in
 the project directory as console.log.
 .PP
-On exit, the command line history, echo mode and colors are preserved.
+On exit, the command line history, echo, input and send method and colors are
+preserved.
 .PP
 The program also has basic file and directory management commands.
 .SS Script operations
@@ -487,8 +488,8 @@ Shows all or removes specified record from the crontable. \fIrec_num\fP may be 1
 \fBdate\fP [\fI$TARGET\fP]
 Shows or write into \fI$TARGET\fP variable system date and time.
 .TP
-\fBecho\fP [\fIoff\fP|\fIan\fP|\fIhex\fP|\fIswap\fP]
-Queries or changes local echo status for connection.
+\fBechometh\fP [\fIoff\fP|\fIan\fP|\fIhex\fP|\fIswap\fP]
+Queries or changes local echo method for connection.
 AN means alphanumerical, hex means the hexadecimal representation of the bytes.
 .TP
 \fBexit\fP
@@ -510,6 +511,10 @@ Shows description or usage of the builtin commands.
 \fBif\fP \fI[$]VALUE1\fP \fBRELATIONAL_SIGN\fP \fI[$]VALUE2\fP \fBthen\fP \fICOMMAND\fP
 Selection statement (only in script). \fBRELATIONAL_SIGN\fP: < <= = >= >.
 .TP
+\fBinputmeth\fP [\fIan\fP|\fIhex\fP|\fIswap\fP]
+Queries or changes local input method for connection.
+AN means alphanumerical, hex means the hexadecimal representation of the bytes.
+.TP
 \fBlabel\fP \fILABEL\fP
 Define label (only in script).
 .TP
@@ -518,6 +523,9 @@ Sets value of \fI$VARIABLE\fP variable or constant to value \fI[$]VALUE\fP.
 .TP
 \fBlet\fP \fI$VARIABLE\fP \fInul\fP
 Clear \fI$VARIABLE\fP variable content.
+.TP
+\fBmacro\fP \fINAME\fP \fI"command with parameters"\fP
+Make one-line macro.
 .TP
 \fBpause\fP \fI[[$]TIME]\fP
 Waits for a keystroke or specified time.
@@ -546,6 +554,10 @@ Value \fI255\fP sets color to default.
 2: green  6: brown      10: lightgreen  14: yellow
 3: cyan   7: lightgray  11: lightcyan   15: white
 .EE
+.TP
+\fBsendmeth\fP [\fIchr\fP|\fIstr\fP|\fIswap\fP]
+Queries or changes send method for connection.
+Chr means char-to-char, str means string sending.
 .TP
 \fBsetarrsize\fP \fIARRAY\fP \fI[[$]SIZE]\fP
 Sets size of an array.
@@ -870,7 +882,7 @@ Removes 2nd record from the crontable.
 \fBecho\fP
 Query local echo status.
 .TP
-\fBecho\fP an
+\fBechometh\fP an
 Set alphanumerical local echo for connections.
 .TP
 \fBecho\fP hex
@@ -1029,7 +1041,7 @@ sercons command
 cls command
 .TP
 \fBF9\fP
-echo swap command
+echometh swap command
 .TP
 \fBF10\fP
 exit command
@@ -1039,6 +1051,9 @@ list command
 .TP
 \fBF12\fP
 run loaded script
+.TP
+\fBCTRL\fP-\fBF9\fP
+sendmeth swap
 .TP
 \fBSHIFT\fP-\fBF3\fP
 list loaded script
@@ -1053,7 +1068,7 @@ sercons command
 erase script from buffer
 .TP
 \fBSHIFT\fP-\fBF9\fP
-input swap
+inputmeth swap
 .TP
 \fBALT\fP-\fBC\fP
 conv command

@@ -23,7 +23,7 @@ print "Protocol:\ Modbus/ASCII"
 set dev0 ser COM1 9600 7 e 1
 set pro0 ascii $ORIGID
 set con0 dev0 pro0
-echo off
+echometh off
 
 # read and print original setting
 readreg con0 hreg 200 3

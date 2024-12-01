@@ -52,7 +52,7 @@ resourcestring
   MSG25 = 'Select register type: ';
   MSG26 = 'Local register type (dinp/coil/ireg/hreg: 1/2/3/4): ';
   MSG27 = 'Start address (0-9990): ';
-  MSG28 = 'Echo mode: ';
+  MSG28 = 'Echo method: ';
   MSG29 = 'Mini serial console (exit: <F10>)';
   MSG30 = 'Device number (0-7): ';
   MSG31 = 'Press <Esc> to break receiving.';
@@ -113,6 +113,8 @@ resourcestring
   MSG86 = ' device address:  ';
   MSG87 = 'Cannot use it in GUI version!';
   MSG88 = 'Use ''Utilities/Mini TCP console'' on GUI version.';
+  MSG89 = 'Input method: ';
+  MSG90 = 'Send method: ';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -300,7 +302,9 @@ resourcestring
   DES116='         read string with UDP from network device';
   DES117='         write string with UDP to network device';
   DES118='         read/write data from/to remote device with HART protocol';
-  DES119='SHIFT-F9 query or change input mode';
+  DES119='SHIFT-F9 query or change input method';
+  DES120='CTRL-F9  query or change send method';
+  DES121='         create one-line macro';
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -383,7 +387,7 @@ resourcestring
         '  serwrite dev? "MESSAGE"' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
-  USG38='echo [off|an|hex|swap]';
+  USG38='echometh [off|an|hex|swap]';
   USG39='loadscr [$]PATH_AND_FILENAME';
   USG40='run [-h] [-s]';
   USG41='list';
@@ -499,4 +503,6 @@ resourcestring
   USG118='hart con? $TXARRAY $RXARRAY' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
-  USG119='input [an|hex|swap]';
+  USG119='inputmeth [an|hex|swap]';
+  USG120='sendmeth [chr|str|swap]';
+  USG121='macro NAME "command with parameters"';

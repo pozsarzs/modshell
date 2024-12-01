@@ -157,7 +157,7 @@ var
       if boolisitvariablearray(p6) then s6 := isitvariablearray(p6);
       if length(s6) = 0 then s6 := p6;
       for i6 := 0 to 2 do
-        if DEV_PARITY[i6] = s6 then
+        if DEV_PARITY[i6] = lowercase(s6) then
         begin
           valid := true;
           break;

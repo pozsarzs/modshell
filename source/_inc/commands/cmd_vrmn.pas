@@ -78,7 +78,7 @@ begin
       // CHECK P1 PARAMETER
       valid := false;
       for b := 0 to 1 do
-        if ECHO_ARG[b] = p1 then
+        if METHOD[b] = p1 then
         begin
           valid := true;
           break;
@@ -87,7 +87,7 @@ begin
       begin
         // What is the 1st parameter?
         s := NUM1 + MSG05;
-        for b := 0 to 1 do s := s + ' ' + ECHO_ARG[b];
+        for b := 0 to 1 do s := s + ' ' + METHOD[b];
         {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
         result := 1;
         exit;
@@ -95,7 +95,7 @@ begin
       // PRIMARY MISSION
       // on/off variable monitor
       varmon := inttobool(b);
-      {$IFNDEF X} writeln(MSG32 + ECHO_ARG[b]); {$ELSE} Form1.Memo1.Lines.Add(MSG32 + ECHO_ARG[b]); {$ENDIF}
+      {$IFNDEF X} writeln(MSG32 + METHOD[b]); {$ELSE} Form1.Memo1.Lines.Add(MSG32 + METHOD[b]); {$ENDIF}
     end else
     begin
       // CHECK P1 PARAMETER
@@ -109,7 +109,7 @@ begin
       // CHECK P2 PARAMETER
       valid := false;
       for b := 0 to 1 do
-        if ECHO_ARG[b] = p2 then
+        if METHOD[b] = p2 then
         begin
           valid := true;
           break;
@@ -118,7 +118,7 @@ begin
       begin
         // What is the 2nd parameter?
         s := NUM2 + MSG05;
-        for b := 0 to 1 do s := s + ' ' + ECHO_ARG[b];
+        for b := 0 to 1 do s := s + ' ' + METHOD[b];
         {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
         result := 1;
         exit;

@@ -95,19 +95,19 @@ begin
           b := udp_recvbyte;
           {$IFNDEF X}
             textcolor(uconfig.colors[2]);
-            case uconfig.echo of
+            case uconfig.echometh of
               1: write(char(b));
               2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
             end;
             textcolor(uconfig.colors[0]);
           {$ELSE}
-            case uconfig.echo of
+            case uconfig.echometh of
               1: Form1.Memo1.Text := Form1.Memo1.Text + char(b);
               2: Form1.Memo1.Text := Form1.Memo1.Text + addsomezero(2, deztohex(inttostr(b))) + ' ';
             end;
           {$ENDIF}
           s := s + char(b);
-          if (uconfig.echo = 1) and (b = 13) then
+          if (uconfig.echometh = 1) and (b = 13) then
           begin
             {$IFNDEF X} write(EOL); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
           end;
@@ -116,7 +116,7 @@ begin
         {$IFNDEF X} if keypressed then c := readkey; {$ENDIF}
       until {$IFNDEF X} (c = #27) or {$ENDIF} (length(s) = 255) or (wait = timeout * 100);
       udp_close;
-      if (uconfig.echo > 0)
+      if (uconfig.echometh > 0)
         then {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Lines.Add(''); {$ENDIF}      
       if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
       if length(p2) > 0 then

@@ -146,6 +146,8 @@ type
     MenuItem73: TMenuItem;
     MenuItem74: TMenuItem;
     MenuItem75: TMenuItem;
+    MenuItem76: TMenuItem;
+    MenuItem77: TMenuItem;
     Separator13: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
@@ -153,6 +155,7 @@ type
     Separator10: TMenuItem;
     Separator11: TMenuItem;
     Separator12: TMenuItem;
+    Separator14: TMenuItem;
     Separator2: TMenuItem;
     Separator3: TMenuItem;
     Separator4: TMenuItem;
@@ -249,6 +252,9 @@ type
     procedure MenuItem73Click(Sender: TObject);
     procedure MenuItem74Click(Sender: TObject);
     procedure MenuItem75Click(Sender: TObject);
+    procedure MenuItem76Click(Sender: TObject);
+    procedure MenuItem77Click(Sender: TObject);
+    procedure MenuItem78Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
     procedure LComboBox391Change(Sender: TObject);
     procedure LEdit261Change(Sender: TObject);
@@ -340,7 +346,7 @@ procedure version(h: boolean); forward;
 {$I cmd_hart.pas}
 {$I cmd_help.pas}
 {$I cmd_if.pas}
-{$I cmd_input.pas}
+{$I cmd_inpt.pas}
 {$I cmd_impr.pas}
 {$I cmd_labl.pas}
 {$I cmd_lcfg.pas}
@@ -350,6 +356,7 @@ procedure version(h: boolean); forward;
 {$I cmd_logc.pas}
 {$I cmd_lreg.pas}
 {$I cmd_lscr.pas}
+{$I cmd_mcro.pas}
 {$I cmd_math.pas}
 {$I cmd_paus.pas}
 {$I cmd_pclr.pas}
@@ -360,6 +367,7 @@ procedure version(h: boolean); forward;
 {$I cmd_run.pas}
 {$I cmd_scfg.pas}
 {$I cmd_secn.pas}
+{$I cmd_send.pas}
 {$I cmd_serd.pas}
 {$I cmd_set.pas}
 {$I cmd_sewr.pas}
@@ -790,7 +798,7 @@ begin
     begin
       cmd := COMMANDS[39] + ' ' + FileName;
       Memo1.Lines.Add(fullprompt + cmd);
-      StatusBar1.Panels.Items[2].Text := FileName;
+      StatusBar1.Panels.Items[3].Text := FileName;
       parsingcommands(cmd);
     end;
     Free;
@@ -827,7 +835,7 @@ begin
       cmd := COMMANDS[93] + ' ' + FileName;
       Memo1.Lines.Add(fullprompt + cmd);
       parsingcommands(cmd);
-      StatusBar1.Panels.Items[2].Text := FileName;
+      StatusBar1.Panels.Items[3].Text := FileName;
     end;
     Free;
   end;
@@ -853,7 +861,7 @@ var
 begin
   cmd := COMMANDS[92];
   Memo1.Lines.Add(fullprompt + cmd);
-  StatusBar1.Panels.Items[2].Text := '';
+  StatusBar1.Panels.Items[3].Text := '';
   parsingcommands(cmd);
 end;
 
@@ -875,12 +883,32 @@ begin
   parsingcommands(COMMANDS[12]);
 end;
 
+// RUN COMMAND 'input swap'
+procedure TForm1.MenuItem76Click(Sender: TObject);
+var
+  cmd: string;
+begin
+  cmd := COMMANDS[119] + ' swap';
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
+end;
+
 // RUN COMMAND 'echo swap'
 procedure TForm1.MenuItem28Click(Sender: TObject);
 var
   cmd: string;
 begin
   cmd := COMMANDS[38] + ' swap';
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
+end;
+
+// RUN COMMAND 'send swap'
+procedure TForm1.MenuItem77Click(Sender: TObject);
+var
+  cmd: string;
+begin
+  cmd := COMMANDS[120] + ' swap';
   Memo1.Lines.Add(fullprompt + cmd);
   parsingcommands(cmd);
 end;
@@ -921,6 +949,16 @@ var
   cmd: string;
 begin
   cmd := COMMANDS[106];
+  Memo1.Lines.Add(fullprompt + cmd);
+  parsingcommands(cmd);
+end;
+
+// RUN COMMAND 'macro'
+procedure TForm1.MenuItem78Click(Sender: TObject);
+var
+  cmd: string;
+begin
+  cmd := COMMANDS[122];
   Memo1.Lines.Add(fullprompt + cmd);
   parsingcommands(cmd);
 end;
@@ -1229,8 +1267,9 @@ begin
   Memo1.Font.Color := uconfig.guicolors[0];
   Memo1.Color := uconfig.guicolors[1];
   // set statusbar
-  StatusBar1.Panels[0].Text := upcase(ECHO_ARG[inputmode]);
-  StatusBar1.Panels[1].Text := upcase(ECHO_ARG[echo]);
+  StatusBar1.Panels[0].Text := upcase(METHOD[inputmeth]);
+  StatusBar1.Panels[1].Text := upcase(METHOD[echometh]);
+  StatusBar1.Panels[2].Text := upcase(METHOD[sendmeth]);
   // restore history
   for b := 0 to 255 do
     if length(histbuff[b]) > 0 then ComboBox1.Items.Add(histbuff[b]);
@@ -1246,7 +1285,7 @@ begin
     for b := 1 to 3 do Constants.Add(PROT_TYPE[b]);
     for b := 0 to 3 do Constants.Add(REG_TYPE[b]);
     for b := 0 to 4 do Constants.Add(PREFIX[b]);
-    for b := 0 to 3 do Constants.Add(ECHO_ARG[b]);
+    for b := 0 to 5 do Constants.Add(METHOD[b]);
     for b := 0 to 3 do Constants.Add(NUM_SYS[b]);
     ConstantAttri.Foreground := clRed;
     DetectPreprocessor := false;

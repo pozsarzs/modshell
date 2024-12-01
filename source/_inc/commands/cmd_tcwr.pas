@@ -93,7 +93,7 @@ begin
       begin
         tcp_sendstring(s2);
         {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
-        case uconfig.echo of
+        case uconfig.echometh of
           1: {$IFNDEF X} writeln(s2); {$ELSE} Form1.Memo1.Lines.Add(s2); {$ENDIF}
           2: begin
                for b := 1 to length(s2) do
@@ -102,7 +102,7 @@ begin
              end;
         end;
         {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
-        if (uconfig.echo = 1) and (b = 13) then write(EOL);
+        if (uconfig.echometh = 1) and (b = 13) then write(EOL);
       end else
       begin
         // Cannot write data to socket!

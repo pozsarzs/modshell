@@ -42,6 +42,10 @@ type
     parity: byte;                 // 0..2 -> DEV_PARITY
     stopbit: byte;                // 1|2
   end;
+  tmacro = record
+    mname: string[16];
+    mcommand: string;
+  end;
   tprotocol = record
     valid: boolean;               // false|true: invalid|valid
     prottype: byte;               // 0..4 -> PROT_TYPE

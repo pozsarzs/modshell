@@ -100,7 +100,7 @@ begin
       if ser_canwrite then
       begin
         ser_sendstring(s2);
-        case uconfig.echo of
+        case uconfig.echometh of
           1: sendmessage(s2, true);
           2: begin
                for b := 1 to length(s2) do      
@@ -108,7 +108,7 @@ begin
                sendmessage(s, true)
              end;
         end;
-        if (uconfig.echo = 1) and (b = 13) then sendmessage('', true);
+        if (uconfig.echometh = 1) and (b = 13) then sendmessage('', true);
       end else
       begin
         // Cannot write data to serial port!

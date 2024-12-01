@@ -45,7 +45,7 @@ context default brightcyan
     keyword whole div white
     keyword whole do white
     keyword whole dump white
-    keyword whole echo white
+    keyword whole echometh white
     keyword whole edit white
     keyword whole erasescr white
     keyword whole exist white
@@ -63,7 +63,7 @@ context default brightcyan
     keyword whole imod white
     keyword whole impreg white
     keyword whole inc white
-    keyword whole input white
+    keyword whole inputmeth white
     keyword whole inrange white
     keyword whole label white
     keyword whole length white
@@ -104,6 +104,7 @@ context default brightcyan
     keyword whole savecfg white
     keyword whole savereg white
     keyword whole savescr white
+    keyword whole sendmeth white
     keyword whole sercons white
     keyword whole serread white
     keyword whole serwrite white
@@ -140,6 +141,7 @@ context default brightcyan
     keyword whole an brightred
     keyword whole ascii brightred
     keyword whole bin brightred
+    keyword whole chr brightred
     keyword whole coil brightred
     keyword whole csv brightred
     keyword whole dec brightred
@@ -153,6 +155,7 @@ context default brightcyan
     keyword whole off brightred
     keyword whole rtu brightred
     keyword whole ser brightred
+    keyword whole str brightred
     keyword whole swap brightred
     keyword whole tcp brightred
     keyword whole xml brightred
