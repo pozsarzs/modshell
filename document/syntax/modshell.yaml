@@ -22,7 +22,7 @@ rules:
   - statement: "\\b(for)\\b"
   - statement: "\\b(get|goto)\\b"
   - statement: "\\b(hart|help)\\b"
-  - statement: "\\b(idiv|if|imod|impreg|inc|inrange)\\b"
+  - statement: "\\b(idiv|if|imod|impreg|inc|input|inrange)\\b"
   - statement: "\\b(label|length|let|list|ln|loadcfg|loadreg|loadscr|lowcase)\\b"
   - statement: "\\b(mbgw|mbsrv|md|mkcrc|mklrc|mulinv|mul)\\b"
   - statement: "\\b(not)\\b"
@@ -38,7 +38,7 @@ rules:
 
   ## group #3
   - identifier: "\\b(bin|coil|csv|dec|dinp|hex|hreg|ini|ireg|net)\\b"
-  - identifier: "\\b(oct|off|on|rtu|ser|swap|tcp|xml)\\b"
+  - identifier: "\\b(an|oct|off|rtu|ser|swap|tcp|xml)\\b"
 
   ## group #4
   - statement: "<=>"

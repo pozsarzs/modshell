@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 315
+  Left = 282
   Height = 478
-  Top = 118
+  Top = 153
   Width = 701
   ActiveControl = Memo1
   Caption = 'Form1'
@@ -327,6 +327,9 @@ object Form1: TForm1
     Panels = <    
       item
         Alignment = taCenter
+        Width = 100
+      end    
+      item
         Width = 100
       end    
       item

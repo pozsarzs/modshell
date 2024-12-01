@@ -117,8 +117,8 @@ var
       begin
         with StatusBar1.Panels do
         begin
-          Items[1].Text := dev[device].device;
-          Items[2].Text := DEV_SPEED[dev[device].speed] + ' baud '+
+          Items[2].Text := dev[device].device;
+          Items[3].Text := DEV_SPEED[dev[device].speed] + ' baud '+
           inttostr(dev[device].databit) +
           upcase(DEV_PARITY[dev[device].parity]) +
           inttostr(dev[device].stopbit);

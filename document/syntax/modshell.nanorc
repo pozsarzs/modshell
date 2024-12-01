@@ -25,7 +25,7 @@ icolor brightwhite "\<(echo|edit|erasescr|exist|exit|exphis|expreg|exp)\>"
 icolor brightwhite "\<(for)\>"
 icolor brightwhite "\<(get|goto)\>"
 icolor brightwhite "\<(hart|help)\>"
-icolor brightwhite "\<(idiv|if|imod|impreg|inc|inrange)\>"
+icolor brightwhite "\<(idiv|if|imod|impreg|inc|input|inrange)\>"
 icolor brightwhite "\<(label|length|let|list|ln|loadcfg|loadreg|loadscr|lowcase)\>"
 icolor brightwhite "\<(mbgw|mbsrv|md|mkcrc|mklrc|mulinv|mul)\>"
 icolor brightwhite "\<(not)\>"
@@ -41,7 +41,7 @@ icolor brightwhite "\<(xor)\>"
 
 ## group #3
 icolor brightred "\<(bin|coil|csv|dec|dinp|hex|hreg|ini|ireg|net)\>"
-icolor brightred "\<(oct|off|on|rtu|ser|swap|tcp|xml)\>"
+icolor brightred "\<(an|oct|off|rtu|ser|swap|tcp|xml)\>"
 
 ## group #4
 color brightwhite "<" "<=" "=" ">=" ">" "<>"

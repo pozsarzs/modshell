@@ -64,5 +64,5 @@ const
   PROT_TYPE: array[0..4] of string = ('ascii','rtu','tcp','dcon','hart');
   REG_TYPE: array[0..3] of string = ('dinp','coil','ireg','hreg');
   PREFIX: array[0..5] of string = ('dev','pro','con','project','timeout','color');
-  ECHO_ARG: array[0..3] of string = ('off','ascii','hex','swap');
+  ECHO_ARG: array[0..3] of string = ('off','an','hex','swap');
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');

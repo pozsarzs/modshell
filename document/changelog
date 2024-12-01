@@ -1,16 +1,16 @@
 modshell (0.1-beta1) unstable; urgency=low
 
   * First user test release.
-  * `echo` command parameters: off|on|hex|swap -> off|ascii|hex|swap;
+  * `echo` command parameters: off|on|hex|swap -> off|an|hex|swap;
   * `exist` command;  
   * `chkdevlock`/`rmdevlock` commands (only *nix versions);  
   * `color` -> `set color`: sets all default colors (CLI and TUI);  
-  * `input` command: change data input mode between ascii and hexadecimal;  
+  * `input` command: change data input mode between alphanumerical and hexadecimal;  
   * `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI);  
   * `tcpcons`, `tcpread`, `tcpwrite` commands;  
   * `udpcons`, `udpread`, `udpwrite` commands;  
-  * `sercons`, `tcpcons`, `udpcons` commands: character-by-character input with immediate sending or sending as a string with alphanumeric or hexadecimal input, with or without normal or hexadecimal echo;  
-  * `serwrite`, `tcpwrite`, `udpwrite` commands: alphanumeric or hexadecimal input, with or without normal or hexadecimal echo.  
+  * `sercons`, `tcpcons`, `udpcons` commands: character-by-character input with immediate sending or sending as a string with alphanumeric or hexadecimal input, with or without alphanumerical or hexadecimal echo;  
+  * `serwrite`, `tcpwrite`, `udpwrite` commands: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo.  
   * Main menu for all consoles in GUI version;  
   * New menu item in the main menu for quick execution of Modbus R/W commands.  
   * New serial baudrates: 150, 300, 600 baud.

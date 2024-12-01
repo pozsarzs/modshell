@@ -346,6 +346,9 @@ object Form5: TForm5
         Width = 100
       end    
       item
+        Width = 100
+      end    
+      item
         Width = 110
       end    
       item

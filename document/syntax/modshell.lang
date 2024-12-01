@@ -78,6 +78,7 @@
       <keyword>imod</keyword>
       <keyword>impreg</keyword>
       <keyword>inc</keyword>
+      <keyword>input</keyword>
       <keyword>inrange</keyword>
       <keyword>label</keyword>
       <keyword>length</keyword>
@@ -152,6 +153,7 @@
       <keyword>xor</keyword>
     </context>
     <context id="constant" style-ref="constant">
+      <keyword>an</keyword>
       <keyword>ascii</keyword>
       <keyword>bin</keyword>
       <keyword>coil</keyword>
@@ -165,7 +167,6 @@
       <keyword>net</keyword>
       <keyword>oct</keyword>
       <keyword>off</keyword>
-      <keyword>on</keyword>
       <keyword>rtu</keyword>
       <keyword>ser</keyword>
       <keyword>swap</keyword>

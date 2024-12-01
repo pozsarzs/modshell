@@ -1929,8 +1929,36 @@ msgstr ""
 msgid "Write data with UDP.."
 msgstr ""
 
+#: tform1.menuitem69.caption
+msgid "&Modbus"
+msgstr ""
+
 #: tform1.menuitem7.caption
 msgid "&About"
+msgstr ""
+
+#: tform1.menuitem70.caption
+msgid "Read &discrete inputs.."
+msgstr ""
+
+#: tform1.menuitem71.caption
+msgid "Write &coils.."
+msgstr ""
+
+#: tform1.menuitem72.caption
+msgid "Read input registers.."
+msgstr ""
+
+#: tform1.menuitem73.caption
+msgid "Read holding registers.."
+msgstr ""
+
+#: tform1.menuitem74.caption
+msgid "Read &coils.."
+msgstr ""
+
+#: tform1.menuitem75.caption
+msgid "Write holding registers.."
 msgstr ""
 
 #: tform1.menuitem8.caption
@@ -2030,12 +2058,10 @@ msgid "Variable monitor"
 msgstr ""
 
 #: tform4.caption
-msgctxt "tform4.caption"
 msgid "Form4"
 msgstr ""
 
 #: tform5.caption
-msgctxt "tform5.caption"
-msgid "Form4"
+msgid "Form5"
 msgstr ""
 

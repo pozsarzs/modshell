@@ -104,6 +104,7 @@ procedure version(h: boolean); forward;
 {$I cmd_help.pas}
 {$I cmd_if.pas}
 {$I cmd_impr.pas}
+{$I cmd_input.pas}
 {$I cmd_labl.pas}
 {$I cmd_lcfg.pas}
 {$I cmd_let.pas}
@@ -202,11 +203,6 @@ begin
           begin command := COMMANDS[8]; c := #32; end;                        // ALT-S
         if c = #17 then
           begin command := COMMANDS[11]; c := #32; end;                       // ALT-W
-        if c = #86 then
-          begin command := COMMANDS[39]; c := #32; end;                       // SHIFT-F3
-        if c = #87 then
-          begin command := COMMANDS[91]; c := #32; end;                       // SHIFT-F4
-        // insert and run
         if c = #59 then
           begin command := COMMANDS[3]; c:=#13; end;                          // F1
         if c = #60 then
@@ -233,10 +229,16 @@ begin
           begin command := COMMANDS[40]; c:=#13; end;                         // F12
         if c = #85 then
           begin command := COMMANDS[93]; c := #32; end;                       // SHIFT-F2
+        if c = #86 then
+          begin command := COMMANDS[39]; c := #32; end;                       // SHIFT-F3
+        if c = #87 then
+          begin command := COMMANDS[91]; c := #32; end;                       // SHIFT-F4
         if c = #90 then
           begin command := COMMANDS[112]; c := #32; end;                      // SHIFT-F7
         if c = #91 then
           begin command := COMMANDS[92]; c := #32; end;                       // SHIFT-F8
+        if c = #92 then
+          begin command := COMMANDS[119]; c := #32; end;                      // SHIFT-F9
         if c = #72 then                                                       // UP
           if uconfig.histitem > 0 then
           begin

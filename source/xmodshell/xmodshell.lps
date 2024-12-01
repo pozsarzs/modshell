@@ -43,8 +43,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="91"/>
-        <CursorPos Y="15"/>
+        <TopLine Value="105"/>
+        <CursorPos Y="112"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -63,7 +63,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="70"/>
         <CursorPos Y="15"/>
         <UsageCount Value="115"/>
         <Loaded Value="True"/>
@@ -89,8 +88,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="95"/>
-        <CursorPos Y="104"/>
+        <CursorPos X="18" Y="121"/>
         <UsageCount Value="57"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>

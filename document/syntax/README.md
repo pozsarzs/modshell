@@ -38,7 +38,7 @@
      `for`  
      `get` `goto`  
      `help`  
-     `idiv` `if` `imod` `impreg` `inc` `inrange`  
+     `idiv` `if` `imod` `impreg` `inc` `input` `inrange`  
      `label` `length` `let` `list` `ln` `loadcfg` `loadreg` `loadscr` `lowcase`  
      `mbgw` `mbsrv` `md` `mkcrc` `mklrc` `mulinv` `mul`  
      `not`  
@@ -52,6 +52,6 @@
      `writereg`  
      `xor`
  - word group #3:  
-     `ascii` `bin` `coil` `csv` `dec` `dcon` `dinp` `hart` `hex` `hreg` `ini` `ireg` `net` `oct` `off` `on` `rtu` `ser` `swap` `tcp` `xml`
+      `an` `ascii` `bin` `coil` `csv` `dec` `dcon` `dinp` `hart` `hex` `hreg` `ini` `ireg` `net` `oct` `off` `rtu` `ser` `swap` `tcp` `xml`
  - word group #4:  
      `<` `<=` `=` `=>` `>` `<>`

@@ -63,6 +63,7 @@ context default brightcyan
     keyword whole imod white
     keyword whole impreg white
     keyword whole inc white
+    keyword whole input white
     keyword whole inrange white
     keyword whole label white
     keyword whole length white
@@ -136,6 +137,7 @@ context default brightcyan
     keyword whole writereg white
     keyword whole xor white
     # group #3
+    keyword whole an brightred
     keyword whole ascii brightred
     keyword whole bin brightred
     keyword whole coil brightred
@@ -149,7 +151,6 @@ context default brightcyan
     keyword whole net brightred
     keyword whole oct brightred
     keyword whole off brightred
-    keyword whole on brightred
     keyword whole rtu brightred
     keyword whole ser brightred
     keyword whole swap brightred

@@ -802,7 +802,7 @@ msgid "         write string to serial device"
 msgstr ""
 
 #: modshell:des38
-msgid "F9       query local echo status or enable/disable it"
+msgid "F9       query or change local echo status"
 msgstr ""
 
 #: modshell:des39
@@ -1109,6 +1109,26 @@ msgstr ""
 msgid "         write string with TCP to network device"
 msgstr ""
 
+#: modshell:des115
+msgid "         open a mini UDP console"
+msgstr ""
+
+#: modshell:des116
+msgid "         read string with UDP from network device"
+msgstr ""
+
+#: modshell:des117
+msgid "         write string with UDP to network device"
+msgstr ""
+
+#: modshell:des118
+msgid "         read/write data from/to remote device with HART protocol"
+msgstr ""
+
+#: modshell:des119
+msgid "SHIFT-F9 query or change input mode"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
@@ -1317,7 +1337,7 @@ msgid ""
 msgstr ""
 
 #: modshell:usg38
-msgid "echo [off|on|hex|swap]"
+msgid "echo [off|an|hex|swap]"
 msgstr ""
 
 #: modshell:usg39
@@ -1660,5 +1680,38 @@ msgid ""
 "  tcpwrite dev? \"MESSAGE\"\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg115
+msgid ""
+"udpcons [dev?]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg116
+msgid ""
+"udpread dev? [$TARGET]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg117
+msgid ""
+"udpwrite dev? $MESSAGE\n"
+"  udpwrite dev? \"MESSAGE\"\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg118
+msgid ""
+"hart con? $TXARRAY $RXARRAY\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+
+#: modshell:usg119
+msgid "input [an|hex|swap]"
 msgstr ""
 

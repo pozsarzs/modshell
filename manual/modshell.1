@@ -103,6 +103,15 @@ hexadecimal viewing can be selected.
 \fB$?\fP
 Exit value of the commands.
 .TP
+\fB$B01\fP
+150 (baud).
+.TP
+\fB$B03\fP
+300 (baud).
+.TP
+\fB$B06\fP
+600 (baud).
+.TP
 \fB$B1\fP
 1200 (baud).
 .TP
@@ -478,9 +487,9 @@ Shows all or removes specified record from the crontable. \fIrec_num\fP may be 1
 \fBdate\fP [\fI$TARGET\fP]
 Shows or write into \fI$TARGET\fP variable system date and time.
 .TP
-\fBecho\fP [\fIoff\fP|\fIon\fP|\fIhex\fP]
-Queries local echo status or enable/disable it for serial connections.
-Hex means the hexadecimal representation of the bytes.
+\fBecho\fP [\fIoff\fP|\fIan\fP|\fIhex\fP|\fIswap\fP]
+Queries or changes local echo status for connection.
+AN means alphanumerical, hex means the hexadecimal representation of the bytes.
 .TP
 \fBexit\fP
 Exits from program.
@@ -861,8 +870,8 @@ Removes 2nd record from the crontable.
 \fBecho\fP
 Query local echo status.
 .TP
-\fBecho\fP on
-Enable local echo it for serial connections.
+\fBecho\fP an
+Set alphanumerical local echo for connections.
 .TP
 \fBecho\fP hex
 Enable local echo with hexadecimal representation of the bytes.

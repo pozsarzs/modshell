@@ -340,6 +340,7 @@ procedure version(h: boolean); forward;
 {$I cmd_hart.pas}
 {$I cmd_help.pas}
 {$I cmd_if.pas}
+{$I cmd_input.pas}
 {$I cmd_impr.pas}
 {$I cmd_labl.pas}
 {$I cmd_lcfg.pas}
@@ -789,7 +790,7 @@ begin
     begin
       cmd := COMMANDS[39] + ' ' + FileName;
       Memo1.Lines.Add(fullprompt + cmd);
-      StatusBar1.Panels.Items[1].Text := FileName;
+      StatusBar1.Panels.Items[2].Text := FileName;
       parsingcommands(cmd);
     end;
     Free;
@@ -826,7 +827,7 @@ begin
       cmd := COMMANDS[93] + ' ' + FileName;
       Memo1.Lines.Add(fullprompt + cmd);
       parsingcommands(cmd);
-      StatusBar1.Panels.Items[1].Text := FileName;
+      StatusBar1.Panels.Items[2].Text := FileName;
     end;
     Free;
   end;
@@ -852,7 +853,7 @@ var
 begin
   cmd := COMMANDS[92];
   Memo1.Lines.Add(fullprompt + cmd);
-  StatusBar1.Panels.Items[1].Text := '';
+  StatusBar1.Panels.Items[2].Text := '';
   parsingcommands(cmd);
 end;
 
@@ -1228,7 +1229,8 @@ begin
   Memo1.Font.Color := uconfig.guicolors[0];
   Memo1.Color := uconfig.guicolors[1];
   // set statusbar
-  StatusBar1.Panels[0].Text := 'Echo: ' + upcase(ECHO_ARG[echo]);
+  StatusBar1.Panels[0].Text := upcase(ECHO_ARG[inputmode]);
+  StatusBar1.Panels[1].Text := upcase(ECHO_ARG[echo]);
   // restore history
   for b := 0 to 255 do
     if length(histbuff[b]) > 0 then ComboBox1.Items.Add(histbuff[b]);

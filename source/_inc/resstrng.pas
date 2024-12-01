@@ -219,7 +219,7 @@ resourcestring
   DES35='F7       open a mini serial console';
   DES36='         read string from serial device';
   DES37='         write string to serial device';
-  DES38='F9       query local echo status or enable/disable it';
+  DES38='F9       query or change local echo status';
   DES39='SHIFT-F3 load ModShell script from file';
   DES40='F12      run loaded ModShell script';
   DES41='F11      list loaded ModShell script';
@@ -296,6 +296,11 @@ resourcestring
   DES112='SHIFT-F7 open a mini TCP console';
   DES113='         read string with TCP from network device';
   DES114='         write string with TCP to network device';
+  DES115='         open a mini UDP console';
+  DES116='         read string with UDP from network device';
+  DES117='         write string with UDP to network device';
+  DES118='         read/write data from/to remote device with HART protocol';
+  DES119='SHIFT-F9 query or change input mode';
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -378,7 +383,7 @@ resourcestring
         '  serwrite dev? "MESSAGE"' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
-  USG38='echo [off|on|hex|swap]';
+  USG38='echo [off|an|hex|swap]';
   USG39='loadscr [$]PATH_AND_FILENAME';
   USG40='run [-h] [-s]';
   USG41='list';
@@ -481,3 +486,17 @@ resourcestring
         '  tcpwrite dev? "MESSAGE"' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
+  USG115='udpcons [dev?]' + EOL +
+        'Notes:' + EOL +
+        '  - The ''?'' value can be 0-7.';
+  USG116='udpread dev? [$TARGET]' + EOL +
+        'Notes:' + EOL +
+        '  - The ''?'' value can be 0-7.';
+  USG117='udpwrite dev? $MESSAGE' + EOL +
+        '  udpwrite dev? "MESSAGE"' + EOL +
+        'Notes:' + EOL +
+        '  - The ''?'' value can be 0-7.';
+  USG118='hart con? $TXARRAY $RXARRAY' + EOL +
+        'Notes:' + EOL +
+        '  - The ''?'' value can be 0-7.';
+  USG119='input [an|hex|swap]';

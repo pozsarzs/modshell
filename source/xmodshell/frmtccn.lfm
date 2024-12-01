@@ -346,6 +346,9 @@ object Form4: TForm4
         Width = 100
       end    
       item
+        Width = 100
+      end    
+      item
         Width = 110
       end    
       item

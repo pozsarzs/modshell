@@ -35,8 +35,8 @@ HART protocols.
 |configurable devices    |max. 8 settings, serial and ethernet port                                                   |
 |configurable protocols  |max. 8 settings, ASCII, RTU or TCP                                                          |
 |configurable connections|max. 8 settings by combining the previous two                                               |
-|raw serial communication|read/write serial port and mini serial console with char/hex echo                           |
-|raw TCP communication   |read/write network device and mini TCP console with char/hex echo                           |
+|raw serial communication|read/write serial port and mini serial console with A/N or Hex echo                         |
+|raw TCP communication   |read/write network device and mini TCP console with A/N or Hex echo                         |
 |DCON communication      |read and write remote devices                                                               |
 |HART communication      |read and write remote devices                                                               |
 |Modbus communication    |read and write remote device and copy between devices                                       |
@@ -51,16 +51,16 @@ HART protocols.
 
 _v0.1-beta1:_  
 The next release _will be_ with the following changes:  
- - [ ] `echo` command parameters: off|on|hex|swap -> off|ascii|hex|swap;
+ - [x] `echo` command parameters: off|on|hex|swap -> off|an|hex|swap;
  - [x] `exist` command;  
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
  - [x] `color` -> `set color`: sets all default colors (CLI and TUI);  
- - [ ] `input` command: change data input mode between ascii and hexadecimal;  
+ - [x] `input` command: change data input mode between alphanumerical and hexadecimal;  
  - [x] `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI);  
  - [x] `tcpcons`, `tcpread`, `tcpwrite` commands;  
  - [x] `udpcons`, `udpread`, `udpwrite` commands;  
- - [ ] `sercons`, `tcpcons`, `udpcons` commands: character-by-character input with immediate sending or sending as a string with alphanumeric or hexadecimal input, with or without normal or hexadecimal echo;  
- - [ ] `serwrite`, `tcpwrite`, `udpwrite` commands: alphanumeric or hexadecimal input, with or without normal or hexadecimal echo.  
+ - [ ] `sercons`, `tcpcons`, `udpcons` commands: character-by-character input with immediate sending or sending as a string with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;  
+ - [ ] `serwrite`, `tcpwrite`, `udpwrite` commands: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo.  
  - [ ] Main menu for all consoles in GUI version;  
  - [ ] New menu item in the main menu for quick execution of Modbus R/W commands.  
  - [ ] New serial baudrates: 150, 300, 600 baud.
@@ -318,14 +318,14 @@ hexadecimal viewing can be selected.
 | 60|`const`     |general      |        |show all constant with theirs value or define a new one              |
 | 61|`cron`      |general      |        |loaded script scheduled execution                                    |
 | 62|`date`      |general      |        |show system date and time                                            |
-| 63|`echo`      |general      |F9      |ascii/hexadecimal/disable local echo for connections                 |
+| 63|`echo`      |general      |F9      |alphanumerical/hexadecimal/disable local echo for connections        |
 | 64|`exit`      |general      |F10     |exit                                                                 |
 | 65|`for`       |general      |        |loop iteration                                                       |
 | 66|`getarrsize`|general      |        |get size of an array                                                 |
 | 67|`goto`      |general      |        |jump to specified label                                              |
 | 68|`help`      |general      |F1      |show description or usage of the commands                            |
 | 69|`if`        |general      |        |selection statement                                                  |
-| 70|`input`     |general      |SHIFT-F9|ascii/hexadecimal data input for connections                         |
+| 70|`input`     |general      |SHIFT-F9|alphanumerical/hexadecimal data input for connections                |
 | 71|`label`     |general      |        |define label (for goto command)                                      |
 | 72|`let`       |general      |ALT-L   |set value of a register, variable, a constant or an element of array |
 | 73|`pause`     |general      |        |waits for a keystroke or specified time                              |

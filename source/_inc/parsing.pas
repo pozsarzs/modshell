@@ -135,6 +135,7 @@ begin
             116: exitcode := cmd_udpread(splitted[1], splitted[2]);
             117: exitcode := cmd_udpwrite(splitted[1], splitted[2]);
             118: exitcode := cmd_hart(splitted[1], splitted[2], splitted[3]);
+            119: exitcode := cmd_input(splitted[1]);
             COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
           else
           begin
