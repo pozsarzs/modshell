@@ -160,7 +160,7 @@ msgid "Start address (0-9990): "
 msgstr "Kezdőcím (0-9990): "
 
 #: modshell:msg28
-msgid "Echo mode: "
+msgid "Echo method: "
 msgstr "Visszhang mód: "
 
 #: modshell:msg29
@@ -406,6 +406,14 @@ msgstr "Ez a grafikus felületű változatban nem használható!"
 #: modshell:msg88
 msgid "Use 'Utilities/Mini TCP console' on GUI version."
 msgstr "Használja az 'Eszközök/Mini TCP konzol'-t a GUI változatnál."
+
+#: modshell:msg89
+msgid "Input method: "
+msgstr "Beviteli mód: "
+
+#: modshell:msg90
+msgid "Send method: "
+msgstr "Módszer kiválasztása: "
 
 #: modshell:msg94
 msgid "Build date:  "
@@ -664,8 +672,8 @@ msgid "You did not provide something!"
 msgstr "Nem adott meg valamit!"
 
 #: modshell:err58
-msgid "Cannot initialize network device: "
-msgstr "Nem lehet inicializálni a hálózati eszközt: "
+msgid "Cannot initialize socket!"
+msgstr "Nem lehet inicializálni a socketet!"
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
@@ -829,8 +837,8 @@ msgid "         write string to serial device"
 msgstr "         string írása soros portra"
 
 #: modshell:des38
-msgid "F9       query local echo status or enable/disable it"
-msgstr "F9       visszahang állapot lekérése/beállítása"
+msgid "F9       query or change local echo status"
+msgstr "F9       visszahang mód beállítása vagy lekérése"
 
 #: modshell:des39
 msgid "SHIFT-F3 load ModShell script from file"
@@ -1136,6 +1144,34 @@ msgstr "         string olvasása hálózati eszközről TCP-vel"
 msgid "         write string with TCP to network device"
 msgstr "         string írása hálózati eszközre TCP-vel"
 
+#: modshell:des115
+msgid "         open a mini UDP console"
+msgstr "         mini UDP konzol"
+
+#: modshell:des116
+msgid "         read string with UDP from network device"
+msgstr "         string olvasása hálózati eszközről UDP-vel"
+
+#: modshell:des117
+msgid "         write string with UDP to network device"
+msgstr "         string írása hálózati eszközre UDP-vel"
+
+#: modshell:des118
+msgid "         read/write data from/to remote device with HART protocol"
+msgstr "         adat olvasása/írása távoli eszközről/eszközre HART protokollal"
+
+#: modshell:des119
+msgid "SHIFT-F9 query or change input method"
+msgstr "SHIFT-F9 beviteli mód lekérdezése vagy cseréje"
+
+#: modshell:des120
+msgid "CTRL-F9  query or change send method"
+msgstr "CTRL-F9  küldési mód lekérdezése vagy cseréje"
+
+#: modshell:des121
+msgid "         create one-line macro"
+msgstr "         egysoros makró létrehozása"
+
 #: modshell:usg00
 msgid ""
 "copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
@@ -1400,8 +1436,8 @@ msgstr ""
 "  - A '?' értéke 0-7 lehet."
 
 #: modshell:usg38
-msgid "echo [off|on|hex|swap]"
-msgstr "echo [off|on|hex|swap]"
+msgid "echometh [off|an|hex|swap]"
+msgstr "echometh [off|on|hex|swap]"
 
 #: modshell:usg39
 msgid "loadscr [$]PATH_AND_FILENAME"
@@ -1782,6 +1818,63 @@ msgstr ""
 "  tcpwrite dev? \"ÜZENET\"\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
+
+#: modshell:usg115
+msgid ""
+"udpcons [dev?]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"udpcons [dev?]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: modshell:usg116
+msgid ""
+"udpread dev? [$TARGET]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"udpread dev? [$CÉL]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: modshell:usg117
+msgid ""
+"udpwrite dev? $MESSAGE\n"
+"  udpwrite dev? \"MESSAGE\"\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"udpwrite dev? $ÜZENET\n"
+"  udpwrite dev? \"ÜZENET\"\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: modshell:usg118
+msgid ""
+"hart con? $TXARRAY $RXARRAY\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"hart con? $TXTÖMB $RXTÖMB\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: modshell:usg119
+msgid "inputmeth [an|hex|swap]"
+msgstr "inputmeth [an|hex|swap]"
+
+#: modshell:usg120
+msgid "sendmeth [chr|str|swap]"
+msgstr "sendmeth [chr|str|swap]"
+
+#: modshell:usg121
+msgid "macro NAME \"command with parameters\""
+msgstr "macro NÉV \"parancs a paraméterekkel\""
+
+#~ msgid "Cannot initialize network device: "
+#~ msgstr "Nem lehet inicializálni a hálózati eszközt: "
 
 #~ msgid "port/baudrate"
 #~ msgstr "port/sebesség"

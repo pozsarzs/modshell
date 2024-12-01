@@ -22,7 +22,8 @@ uses
   Controls,
   Dialogs,
   Forms,
-  StdCtrls, ActnList, Menus,
+  Menus,
+  StdCtrls,
   SysUtils,
   synaser,
   ucommon,
@@ -41,6 +42,7 @@ type
   end;
   { TForm3 }
   TForm3 = class(TForm)
+    ImageList1: TImageList;
     MainMenu1: TMainMenu;
     Memo1: TMemo;
     MenuItem1: TMenuItem;

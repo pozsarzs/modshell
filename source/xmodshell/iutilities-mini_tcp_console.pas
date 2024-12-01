@@ -143,6 +143,7 @@ begin
       Caption := rmampdot(MenuItem55.Caption);
       StatusBar1.Panels[0].Text := Form1.StatusBar1.Panels[0].Text;
       StatusBar1.Panels[1].Text := Form1.StatusBar1.Panels[1].Text;
+      StatusBar1.Panels[2].Text := Form1.StatusBar1.Panels[2].Text;
     end;
   end;
   FreeAndNil(Form551);

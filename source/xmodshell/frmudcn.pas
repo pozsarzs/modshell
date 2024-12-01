@@ -23,6 +23,7 @@ uses
   Controls,
   Dialogs,
   Forms,
+  Menus,
   StdCtrls,
   SysUtils,
   uconfig;
@@ -40,12 +41,27 @@ type
   end;
   { TForm5 }
   TForm5 = class(TForm)
+    ImageList1: TImageList;
+    MainMenu1: TMainMenu;
     Memo1: TMemo;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem8: TMenuItem;
+    Separator1: TMenuItem;
     StatusBar1: TStatusBar;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: char);
     procedure FormShow(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
+    procedure MenuItem5Click(Sender: TObject);
+    procedure MenuItem6Click(Sender: TObject);
+    procedure MenuItem8Click(Sender: TObject);
   private
   public
   end;
@@ -98,6 +114,42 @@ begin
   keyprd := true;
   prdkey := Key;
 end;
+
+// -- MAIN MENU/File -----------------------------------------------------------
+
+// CLOSE WINDOW
+procedure TForm5.MenuItem2Click(Sender: TObject);
+begin
+  Close;
+end;
+
+// -- MAIN MENU/Operation ------------------------------------------------------
+
+// RUN COMMAND 'cls'
+procedure TForm5.MenuItem4Click(Sender: TObject);
+begin
+  Memo1.Clear;
+end;
+
+// RUN COMMAND 'inputmeth swap'
+procedure TForm5.MenuItem6Click(Sender: TObject);
+begin
+  Form1.MenuItem76.OnClick(Sender);
+end;
+
+// RUN COMMAND 'echometh swap'
+procedure TForm5.MenuItem5Click(Sender: TObject);
+begin
+  Form1.MenuItem28.OnClick(Sender);
+end;
+
+// RUN COMMAND 'sendmeth swap'
+procedure TForm5.MenuItem8Click(Sender: TObject);
+begin
+  Form1.MenuItem77.OnClick(Sender);
+end;
+
+// -- END OF THE MAIN MENU -----------------------------------------------------
 
 procedure TForm5.FormShow(Sender: TObject);
 var

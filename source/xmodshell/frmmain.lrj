@@ -21,6 +21,7 @@
 {"hash":151863768,"name":"tform1.toolbutton18.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,49,56],"value":"ToolButton18"},
 {"hash":151863769,"name":"tform1.toolbutton19.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,49,57],"value":"ToolButton19"},
 {"hash":151863744,"name":"tform1.toolbutton20.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,50,48],"value":"ToolButton20"},
+{"hash":151863745,"name":"tform1.toolbutton21.caption","sourcebytes":[84,111,111,108,66,117,116,116,111,110,50,49],"value":"ToolButton21"},
 {"hash":86477809,"name":"tform1.label1.caption","sourcebytes":[76,97,98,101,108,49],"value":"Label1"},
 {"hash":2805797,"name":"tform1.menuitem1.caption","sourcebytes":[38,70,105,108,101],"value":"&File"},
 {"hash":41657614,"name":"tform1.menuitem23.caption","sourcebytes":[83,101,116,32,99,111,110,115,111,108,101,32,38,99,111,108,111,114,115,46,46],"value":"Set console &colors.."},

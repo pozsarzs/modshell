@@ -148,6 +148,7 @@ type
     MenuItem75: TMenuItem;
     MenuItem76: TMenuItem;
     MenuItem77: TMenuItem;
+    MenuItem78: TMenuItem;
     Separator13: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
@@ -156,6 +157,7 @@ type
     Separator11: TMenuItem;
     Separator12: TMenuItem;
     Separator14: TMenuItem;
+    Separator15: TMenuItem;
     Separator2: TMenuItem;
     Separator3: TMenuItem;
     Separator4: TMenuItem;
@@ -181,6 +183,7 @@ type
     ToolButton19: TToolButton;
     ToolButton2: TToolButton;
     ToolButton20: TToolButton;
+    ToolButton21: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
@@ -1263,6 +1266,7 @@ begin
   ToolButton18.Hint := rmampdot(MenuItem6.Caption);
   ToolButton19.Hint := rmampdot(MenuItem19.Caption);
   ToolButton20.Hint := rmampdot(MenuItem51.Caption);
+  ToolButton21.Hint := rmampdot(MenuItem78.Caption);
   // set colors
   Memo1.Font.Color := uconfig.guicolors[0];
   Memo1.Color := uconfig.guicolors[1];

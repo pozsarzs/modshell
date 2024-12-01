@@ -125,9 +125,37 @@ msgstr "         string olvasása hálózati eszközről TCP-vel"
 msgid "         write string with TCP to network device"
 msgstr "         string írása hálózati eszközre TCP-vel"
 
+#: frmmain.des115
+msgid "         open a mini UDP console"
+msgstr "         mini UDP konzol"
+
+#: frmmain.des116
+msgid "         read string with UDP from network device"
+msgstr "         string olvasása hálózati eszközről UDP-vel"
+
+#: frmmain.des117
+msgid "         write string with UDP to network device"
+msgstr "         string írása hálózati eszközre UDP-vel"
+
+#: frmmain.des118
+msgid "         read/write data from/to remote device with HART protocol"
+msgstr "         adat olvasása/írása távoli eszközről/eszközre HART protokollal"
+
+#: frmmain.des119
+msgid "SHIFT-F9 query or change input method"
+msgstr "SHIFT-F9 beviteli mód lekérdezése vagy cseréje"
+
 #: frmmain.des12
 msgid "F8       clear screen"
 msgstr "F8       képernyőtörlés"
+
+#: frmmain.des120
+msgid "CTRL-F9  query or change send method"
+msgstr "CTRL-F9  küldési mód lekérdezése vagy cseréje"
+
+#: frmmain.des121
+msgid "         create one-line macro"
+msgstr "         egysoros makró létrehozása"
 
 #: frmmain.des13
 msgid "F2       save settings of device, protocol and connection"
@@ -231,8 +259,8 @@ msgid "         write string to serial device"
 msgstr "         string írása soros portra"
 
 #: frmmain.des38
-msgid "F9       query local echo status or enable/disable it"
-msgstr "F9       visszahang állapot lekérése/beállítása"
+msgid "F9       query or change local echo status"
+msgstr "F9       visszahang mód beállítása vagy lekérése"
 
 #: frmmain.des39
 msgid "SHIFT-F3 load ModShell script from file"
@@ -711,8 +739,8 @@ msgid "You did not provide something!"
 msgstr "Nem adott meg valamit!"
 
 #: frmmain.err58
-msgid "Cannot initialize network device: "
-msgstr "Nem lehet inicializálni a hálózati eszközt: "
+msgid "Cannot initialize socket!"
+msgstr "Nem lehet inicializálni a socketet!"
 
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
@@ -837,7 +865,7 @@ msgid "Start address (0-9990): "
 msgstr "Kezdőcím (0-9990): "
 
 #: frmmain.msg28
-msgid "Echo mode: "
+msgid "Echo method: "
 msgstr "Visszhang mód: "
 
 #: frmmain.msg29
@@ -1083,6 +1111,14 @@ msgstr "Ez a grafikus felületű változatban nem használható!"
 #: frmmain.msg88
 msgid "Use 'Utilities/Mini TCP console' on GUI version."
 msgstr "Használja az 'Eszközök/Mini TCP konzol'-t a GUI változatnál."
+
+#: frmmain.msg89
+msgid "Input method: "
+msgstr "Beviteli mód: "
+
+#: frmmain.msg90
+msgid "Send method: "
+msgstr "Módszer kiválasztása: "
 
 #: frmmain.msg94
 msgid "Build date:  "
@@ -1354,9 +1390,63 @@ msgstr ""
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
+#: frmmain.usg115
+msgid ""
+"udpcons [dev?]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"udpcons [dev?]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg116
+msgid ""
+"udpread dev? [$TARGET]\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"udpread dev? [$CÉL]\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg117
+msgid ""
+"udpwrite dev? $MESSAGE\n"
+"  udpwrite dev? \"MESSAGE\"\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"udpwrite dev? $ÜZENET\n"
+"  udpwrite dev? \"ÜZENET\"\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg118
+msgid ""
+"hart con? $TXARRAY $RXARRAY\n"
+"Notes:\n"
+"  - The '?' value can be 0-7."
+msgstr ""
+"hart con? $TXTÖMB $RXTÖMB\n"
+"Megjegyzés:\n"
+"  - A '?' értéke 0-7 lehet."
+
+#: frmmain.usg119
+msgid "inputmeth [an|hex|swap]"
+msgstr "inputmeth [an|hex|swap]"
+
 #: frmmain.usg12
 msgid "cls"
 msgstr "cls"
+
+#: frmmain.usg120
+msgid "sendmeth [chr|str|swap]"
+msgstr "sendmeth [chr|str|swap]"
+
+#: frmmain.usg121
+msgid "macro NAME \"command with parameters\""
+msgstr "macro NÉV \"parancs a paraméterekkel\""
 
 #: frmmain.usg13
 msgid "savecfg [$]PATH_AND_FILENAME"
@@ -1498,8 +1588,8 @@ msgstr ""
 "  - A '?' értéke 0-7 lehet."
 
 #: frmmain.usg38
-msgid "echo [off|on|hex|swap]"
-msgstr "echo [off|on|hex|swap]"
+msgid "echometh [off|an|hex|swap]"
+msgstr "echometh [off|on|hex|swap]"
 
 #: frmmain.usg39
 msgid "loadscr [$]PATH_AND_FILENAME"
@@ -1792,6 +1882,7 @@ msgid "Label1"
 msgstr "Label1"
 
 #: tform1.menuitem1.caption
+msgctxt "tform1.menuitem1.caption"
 msgid "&File"
 msgstr "&Fájl"
 
@@ -1820,8 +1911,8 @@ msgid "&Dump registers.."
 msgstr "Regiszterek kiíra&tása.."
 
 #: tform1.menuitem16.caption
-msgid "R&ead data from serial port.."
-msgstr "Adat olvasása s&oros portról.."
+msgid "Read data from serial port.."
+msgstr "Adat olvasása soros portról.."
 
 #: tform1.menuitem17.caption
 msgid "Project &name"
@@ -1848,6 +1939,7 @@ msgid "&ASCII table"
 msgstr "&ASCII tábla"
 
 #: tform1.menuitem22.caption
+msgctxt "tform1.menuitem22.caption"
 msgid "&Clear screen"
 msgstr "&Képernyőtörlés"
 
@@ -1872,8 +1964,9 @@ msgid "&Date and time"
 msgstr "&Dátum és idő"
 
 #: tform1.menuitem28.caption
-msgid "S&wap echo mode"
-msgstr "Echo mód váltá&s"
+msgctxt "tform1.menuitem28.caption"
+msgid "S&wap echo method"
+msgstr "Echo mód c&sere"
 
 #: tform1.menuitem29.caption
 msgid "E&rase script"
@@ -1972,8 +2065,8 @@ msgid "&Project"
 msgstr "&Projekt"
 
 #: tform1.menuitem50.caption
-msgid "W&rite data to serial port.."
-msgstr "Adat í&rása soros portra.."
+msgid "Write data to serial port.."
+msgstr "Adat írása soros portra.."
 
 #: tform1.menuitem51.caption
 msgid "Show all variable arra&ys"
@@ -2032,18 +2125,72 @@ msgid "&Show timeout"
 msgstr "Időtúllépés &mutatása"
 
 #: tform1.menuitem64.caption
-msgid "Re&ad data with TCP.."
+msgid "Read data with TCP.."
 msgstr "Ada&t olvasása TCP-vel.."
 
 #: tform1.menuitem65.caption
-msgid "Wr&ite data with TCP.."
+msgid "Write data with TCP.."
 msgstr "Adat írá&sa TCP-vel.."
+
+#: tform1.menuitem66.caption
+msgid "Mini &UDP console.."
+msgstr "Mini U&DP konzol.."
+
+#: tform1.menuitem67.caption
+msgid "Read data with UDP.."
+msgstr "Adat &olvasása UDP-vel.."
+
+#: tform1.menuitem68.caption
+msgid "Write data with UDP.."
+msgstr "Adat írása UDP-&vel.."
+
+#: tform1.menuitem69.caption
+msgid "&Modbus"
+msgstr "&Modbus"
 
 #: tform1.menuitem7.caption
 msgid "&About"
 msgstr "&Névjegy"
 
+#: tform1.menuitem70.caption
+msgid "Read &discrete inputs.."
+msgstr "&Diszkrét bemenetek olvasása.."
+
+#: tform1.menuitem71.caption
+msgid "Write &coils.."
+msgstr "D&iszkrét kimenetek írása.."
+
+#: tform1.menuitem72.caption
+msgid "Read input registers.."
+msgstr "Bemeneti regiszterek olvasása.."
+
+#: tform1.menuitem73.caption
+msgid "Read holding registers.."
+msgstr "Tároló regiszterek olvasása.."
+
+#: tform1.menuitem74.caption
+msgid "Read &coils.."
+msgstr "Di&szkrét kimenetek olvasása.."
+
+#: tform1.menuitem75.caption
+msgid "Write holding registers.."
+msgstr "Tároló regiszterek írása.."
+
+#: tform1.menuitem76.caption
+msgid "&Swap input methode"
+msgstr "&Bemeneti mód cseréje"
+
+#: tform1.menuitem77.caption
+msgctxt "tform1.menuitem77.caption"
+msgid "Sw&ap send method"
+msgstr "Kü&ldési mód cseréje"
+
+#: tform1.menuitem78.caption
+msgid "Show all &macros"
+msgstr "Ma&krók mutatása"
+
 #: tform1.menuitem8.caption
+msgctxt "tform1.menuitem8.caption"
 msgid "&Operation"
 msgstr "Műkö&dés"
 
@@ -2107,6 +2254,10 @@ msgstr "ToolButton2"
 msgid "ToolButton20"
 msgstr "ToolButton2"
 
+#: tform1.toolbutton21.caption
+msgid "ToolButton21"
+msgstr "ToolButton21"
+
 #: tform1.toolbutton3.caption
 msgid "ToolButton3"
 msgstr "ToolButton3"
@@ -2142,6 +2293,83 @@ msgstr "Változó monitor"
 #: tform4.caption
 msgid "Form4"
 msgstr "Form4"
+
+#: tform4.menuitem1.caption
+msgctxt "tform4.menuitem1.caption"
+msgid "&File"
+msgstr "&Fájl"
+
+#: tform4.menuitem2.caption
+msgctxt "tform4.menuitem2.caption"
+msgid "&Close"
+msgstr "&Bezár"
+
+#: tform4.menuitem3.caption
+msgctxt "tform4.menuitem3.caption"
+msgid "&Operation"
+msgstr "Műkö&dés"
+
+#: tform4.menuitem4.caption
+msgctxt "tform4.menuitem4.caption"
+msgid "&Clear screen"
+msgstr "&Képernyőtörlés"
+
+#: tform4.menuitem5.caption
+msgctxt "tform4.menuitem5.caption"
+msgid "S&wap echo method"
+msgstr "Echo mód váltá&s"
+
+#: tform4.menuitem6.caption
+msgctxt "tform4.menuitem6.caption"
+msgid "&Swap input method"
+msgstr "&Bemeneti mód cseréje"
+
+#: tform4.menuitem8.caption
+msgctxt "tform4.menuitem8.caption"
+msgid "Sw&ap send method"
+msgstr "Kü&ldési mód cseréje"
+
+#: tform5.caption
+msgid "Form5"
+msgstr "Form5"
+
+#: tform5.menuitem1.caption
+msgctxt "tform5.menuitem1.caption"
+msgid "&File"
+msgstr "&Fájl"
+
+#: tform5.menuitem2.caption
+msgctxt "tform5.menuitem2.caption"
+msgid "&Close"
+msgstr "&Bezár"
+
+#: tform5.menuitem3.caption
+msgctxt "tform5.menuitem3.caption"
+msgid "&Operation"
+msgstr "Műkö&dés"
+
+#: tform5.menuitem4.caption
+msgctxt "tform5.menuitem4.caption"
+msgid "&Clear screen"
+msgstr "&Képernyőtörlés"
+
+#: tform5.menuitem5.caption
+msgctxt "tform5.menuitem5.caption"
+msgid "S&wap echo method"
+msgstr "Echo mód váltá&s"
+
+#: tform5.menuitem6.caption
+msgctxt "tform5.menuitem6.caption"
+msgid "&Swap input method"
+msgstr "&Bemeneti mód cseréje"
+
+#: tform5.menuitem8.caption
+msgctxt "tform5.menuitem8.caption"
+msgid "Sw&ap send method"
+msgstr "Kü&ldési mód cseréje"
+
+#~ msgid "Cannot initialize network device: "
+#~ msgstr "Nem lehet inicializálni a hálózati eszközt: "
 
 #~ msgid "Show &variable monitor.."
 #~ msgstr "&Változó monitor.."
