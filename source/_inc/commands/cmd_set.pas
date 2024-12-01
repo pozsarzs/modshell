@@ -122,7 +122,7 @@ var
       if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
       if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
       if length(s4) = 0 then s4 := p4;
-      for i4 := 0 to 7 do
+      for i4 := 0 to 10 do
         if DEV_SPEED[i4] = p4 then
         begin
           valid := true;
@@ -132,7 +132,7 @@ var
       begin
         // What is the 4th parameter?
         s := NUM4 + MSG05;
-        for i := 0 to 7 do s := s + ' ' + DEV_SPEED[i];
+        for i := 0 to 10 do s := s + ' ' + DEV_SPEED[i];
         {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
         error := 1;
         exit;

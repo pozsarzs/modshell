@@ -52,7 +52,7 @@ begin
     if assigned(LComboBox392) and dev[TSpinEdit(Sender).Value].valid and
        (dev[TSpinEdit(Sender).Value].devtype = 1)
       then LComboBox392.ItemIndex := dev[TSpinEdit(Sender).Value].speed
-      else LComboBox392.ItemIndex := 3;
+      else LComboBox392.ItemIndex := 6;
     if assigned(LSpinEdit392) and dev[TSpinEdit(Sender).Value].valid and
        (dev[TSpinEdit(Sender).Value].devtype = 1)
        then LSpinEdit392.Value := dev[TSpinEdit(Sender).Value].databit
@@ -232,11 +232,11 @@ begin
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
       BorderSpacing.Right := 8;
-    for b := 0 to 7 do Items.Add(DEV_SPEED[b]);
+    for b := 0 to 10 do Items.Add(DEV_SPEED[b]);
     if dev[LSpinEdit391.Value].valid and
        (dev[LSpinEdit391.Value].devtype = 1)
       then ItemIndex := dev[LSpinEdit391.Value].speed
-      else ItemIndex := 3;
+      else ItemIndex := 6;
     Name := 'LComboBox392';
     Parent := Form391;
     ReadOnly := true;
