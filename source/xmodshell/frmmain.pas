@@ -650,34 +650,22 @@ end;
 // -- MAIN MENU/Modbus ---------------------------------------------------------
 
 // RUN 'readreg con? dinp' COMMAND WITH DIALOG
-procedure TForm1.MenuItem70Click(Sender: TObject);
-begin
-end;
+{$I imodbus-read_discrete_input.pas}
 
 // RUN 'readreg con? coil' COMMAND WITH DIALOG
-procedure TForm1.MenuItem74Click(Sender: TObject);
-begin
-end;
+{$I imodbus-read_coil.pas}
 
 // RUN 'writereg con? coil' COMMAND WITH DIALOG
-procedure TForm1.MenuItem71Click(Sender: TObject);
-begin
-end;
+{$I imodbus-write_coil.pas}
 
 // RUN 'readreg con? ireg' COMMAND WITH DIALOG
-procedure TForm1.MenuItem72Click(Sender: TObject);
-begin
-end;
+{$I imodbus-read_input_register.pas}
 
 // RUN 'readreg con? hreg' COMMAND WITH DIALOG
-procedure TForm1.MenuItem73Click(Sender: TObject);
-begin
-end;
+{$I imodbus-read_holding_register.pas}
 
 // RUN 'writereg con? hreg' COMMAND WITH DIALOG
-procedure TForm1.MenuItem75Click(Sender: TObject);
-begin
-end;
+{$I imodbus-write_holding_register.pas}
 
 // -- MAIN MENU/Registers ------------------------------------------------------
 

@@ -91,18 +91,50 @@ begin
     begin
       if udp_canwrite then
       begin
-        udp_sendstring(s2);
+        // input method
+        if uconfig.inputmeth = 2 then
+        begin
+          s := '';
+          b := 1;
+          repeat
+            try
+              s := s + char(strtoint(hextodez(s2[b] + s2[b + 1])));
+            finally
+              b := b + 2;
+            end;
+          until b >= length(s2);
+          s2 := s;
+        end;
+        // send method
         {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
-        case uconfig.echometh of
-          1: {$IFNDEF X} writeln(s2); {$ELSE} Form1.Memo1.Lines.Add(s2); {$ENDIF}
-          2: begin
+        case uconfig.sendmeth of
+          4: begin
                for b := 1 to length(s2) do
-                 s := s + addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ';
-               {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+               begin
+                 udp_sendbyte(ord(s2[b]));
+                 // echo method
+                 case uconfig.echometh of
+                   1: {$IFNDEF X} write(s2[b]); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + s2[b]; {$ENDIF}
+                   2: {$IFNDEF X} write(addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' '); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' '; {$ENDIF}
+                 end;
+               end;
+               {$IFNDEF X} writeln(''); {$ELSE} Form1.Memo1.Lines.Add(''); {$ENDIF}
+             end;
+          5: begin
+               udp_sendstring(s2);
+               // echo method
+               case uconfig.echometh of
+                 1: {$IFNDEF X} writeln(s2); {$ELSE} Form1.Memo1.Lines.Add(s2); {$ENDIF}
+                 2: begin
+                      s := '';
+                      for b := 1 to length(s2) do
+                        s := s + addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ';
+                      {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+                    end;
+               end;
              end;
         end;
-        {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
-        if (uconfig.echometh = 1) and (b = 13) then write(EOL);
+        {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
       end else
       begin
         // Cannot write data to socket!

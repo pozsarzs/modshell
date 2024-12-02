@@ -136,21 +136,6 @@ begin
                end;
              end;
         end;
-
-
-
-{
-        tcp_sendstring(s2);
-        case uconfig.echometh of
-          1: sendmessage(s2, true);
-          2: begin
-               for b := 1 to length(s2) do      
-                 s := s + addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ';
-               sendmessage(s, true)
-             end;
-        end;
-        if (uconfig.echometh = 1) and (b = 13) then sendmessage('', true);
-}
       end else
       begin
         // Cannot write data to socket!

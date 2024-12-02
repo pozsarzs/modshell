@@ -114,10 +114,10 @@ begin
                begin
                  ser_sendbyte(ord(s2[b]));
                  // echo method
-//                 case uconfig.echometh of
-//                   1: sendmessage(s2[b], false);
-//                   2: sendmessage(addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ', false);
-//                 end;
+                 case uconfig.echometh of
+                   1: {$IFNDEF X} write(s2[b]); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + s2[b]; {$ENDIF}
+                   2: {$IFNDEF X} write(addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' '); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' '; {$ENDIF}
+                 end;
                end;
                {$IFNDEF X} writeln(''); {$ELSE} Form1.Memo1.Lines.Add(''); {$ENDIF}
              end;
