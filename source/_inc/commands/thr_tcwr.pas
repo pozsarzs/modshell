@@ -94,6 +94,52 @@ begin
     begin
       if tcp_canwrite then
       begin
+        // input method
+        if uconfig.inputmeth = 2 then
+        begin
+          s := '';
+          b := 1;
+          repeat
+            try
+              s := s + char(strtoint(hextodez(s2[b] + s2[b + 1])));
+            finally
+              b := b + 2;
+            end;
+          until b >= length(s2);
+          s2 := s;
+        end;
+        // send method
+        case uconfig.sendmeth of
+          4: begin
+               for b := 1 to length(s2) do
+               begin
+                 tcp_sendbyte(ord(s2[b]));
+                 // echo method
+                 case uconfig.echometh of
+                   1: sendmessage(s2[b], false);
+                   2: sendmessage(addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ', false);
+                 end;
+               end;
+               sendmessage('', true);
+             end;
+          5: begin
+               tcp_sendstring(s2);
+               // echo method
+               case uconfig.echometh of
+                 1: sendmessage(s2, true);
+                 2: begin
+                      s := '';
+                      for b := 1 to length(s2) do
+                        s := s + addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ';
+                      sendmessage(s, true)
+                    end;
+               end;
+             end;
+        end;
+
+
+
+{
         tcp_sendstring(s2);
         case uconfig.echometh of
           1: sendmessage(s2, true);
@@ -104,6 +150,7 @@ begin
              end;
         end;
         if (uconfig.echometh = 1) and (b = 13) then sendmessage('', true);
+}
       end else
       begin
         // Cannot write data to socket!
