@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pozsár Zsolt <pozsarzs@gmail.com>\n"
+"Language-Team: \n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: tcpechoserver:msg02
+msgid "TCP Echo Server utility"
+msgstr "TCP Echo Server segédprogram"
+
+#: tcpechoserver:msg03
+msgid "port: "
+msgstr "port: "
+
+#: tcpechoserver:msg04
+msgid "Press [ESC] to exit."
+msgstr "Nyomj [ESC]-et a kilépéshez."
+
+#: tcpechoserver:msg05
+msgid "Server running..."
+msgstr "A kiszolgáló fut..."
+
+#: tcpechoserver:msg06
+msgid "message: "
+msgstr "üzenet: "
+
+#: tcpechoserver:msg07
+msgid "Server stopped."
+msgstr "A kiszolgáló leállt."
+
+#: tcpechoserver:msg94
+msgid "Build date:  "
+msgstr "Fordítás ideje: "
+
+#: tcpechoserver:msg95
+msgid "Builder:     "
+msgstr "Fordító:        "
+
+#: tcpechoserver:msg96
+msgid "FPC version: "
+msgstr "FPC verzió:     "
+
+#: tcpechoserver:msg97
+msgid "Target OS:   "
+msgstr "Cél OS:         "
+
+#: tcpechoserver:msg98
+msgid "Target CPU:  "
+msgstr "Cél CPU:        "
+
+#: tcpechoserver:err01
+msgid "ERROR: "
+msgstr "HIBA: "
+
+#: tcpechoserver:err02
+msgid "The port value must be between 0-65535."
+msgstr "A port értéke: 0-65535."

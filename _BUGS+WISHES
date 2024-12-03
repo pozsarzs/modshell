@@ -20,10 +20,10 @@ NEW FUNCTION CHECK PROCEDURE
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
  - [x] `color` -> `set color`: sets all default colors (CLI and TUI);  
  - [x] `inputmeth` command: change data input mode between alphanumerical and hexadecimal;  
- - [ ] `macro` command: create one-line macro;
+ - [x] `macro` command: create one-line macro;
  - [x] `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI);  
- - [ ] `tcpcons`, `tcpread`, `tcpwrite` commands;  
- - [ ] `udpcons`, `udpread`, `udpwrite` commands;  
+ - [x] `tcpcons`, `tcpread`, `tcpwrite` commands;  
+ - [x] `udpcons`, `udpread`, `udpwrite` commands;  
  - [x] `sendmeth` command: change data send method between char-to-char and as string;  
  - [ ] `sercons`, `tcpcons`, `udpcons` commands: char-by-char input with immediate sending or sending as a string with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;  
  - [ ] `serwrite`, `tcpwrite`, `udpwrite` commands: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo.  
@@ -31,11 +31,11 @@ NEW FUNCTION CHECK PROCEDURE
  - [ ] New menu item in the main menu for quick execution of Modbus R/W commands.  
  - [x] New serial baudrates: 150, 300, 600 baud.
  - [x] DCON protocol support;  
- - [-] HART protocol support;  
- - [-] Modbus/TCP communication (Unix-like OS and Windows versions).  
+ - [ ] HART protocol support;  
+ - [ ] Modbus/TCP communication (Unix-like OS and Windows versions).  
  - [x] Support for variable and constant arrays.  
  - [x] Modified source code structure of XModshell: The main menu procedures that create a new form at runtime have been moved to files.  
  - [x] Syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes);  
  - [x] syntax highlighting file for Notepad++ (Windows only);  
  - [x] syntax highlighting file for Vim/Neovim.  
- - [ ] TCP and UPD echo server utilities for testing connectivity.  
+ - [X] TCP and UPD echo server utilities for testing connectivity.  

@@ -43,6 +43,7 @@ begin
     then stepbystep := true 
     else stepbystep := false;
   clearallconstants;
+  clearallmacros;
   clearallvariables;
   for line := 0 to SCRBUFFSIZE - 1 do
     if length(sbuffer[line]) > 0 then

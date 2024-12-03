@@ -742,6 +742,14 @@ msgstr "Nem adott meg valamit!"
 msgid "Cannot initialize socket!"
 msgstr "Nem lehet inicializálni a socketet!"
 
+#: frmmain.err59
+msgid "Illegal character in the macro name!"
+msgstr "Nem engedélyezett karakter a makró nevében!"
+
+#: frmmain.err60
+msgid "Cannot define more macro!"
+msgstr "Nem lehet létrehozni több makrót!"
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -1445,8 +1453,8 @@ msgid "sendmeth [chr|str|swap]"
 msgstr "sendmeth [chr|str|swap]"
 
 #: frmmain.usg121
-msgid "macro NAME \"command with parameters\""
-msgstr "macro NÉV \"parancs a paraméterekkel\""
+msgid "macro NAME command with parameters"
+msgstr "macro NÉV parancs a paraméterekkel"
 
 #: frmmain.usg13
 msgid "savecfg [$]PATH_AND_FILENAME"

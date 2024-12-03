@@ -13,6 +13,9 @@ import os
 import polib
 import sys
 
+global potfiles
+potfiles="modshell","tcpechoserver","udpechoserver","xmodshell"
+
 # command line arguments
 if (len(sys.argv) == 1):
   print("Usage: ",sys.argv[0]," LANG")
@@ -27,12 +30,13 @@ except OSError as error:
 
 # translate  
 translator = Translator(service_urls=['translate.google.com'])
-po = polib.pofile('modshell.pot') 
-for entry in po.untranslated_entries():
-    result = translator.translate(entry.msgid, dest=sys.argv[1])
-    new_entry = polib.POEntry(
-    msgid=entry.msgid,
-    msgstr=result.text,
-    occurrences=entry.occurrences )
-    po.append(new_entry)
-po.save(sys.argv[1] + '/pre-modshell.po')
+for i in range(0,4):
+  po = polib.pofile(potfiles[i] + '.pot') 
+  for entry in po.untranslated_entries():
+      result=translator.translate(entry.msgid, dest=sys.argv[1])
+      new_entry=polib.POEntry(
+      msgid=entry.msgid,
+      msgstr=result.text,
+      occurrences=entry.occurrences )
+      po.append(new_entry)
+  po.save(sys.argv[1] + '/pre-' + potfiles[i] + '.pot')

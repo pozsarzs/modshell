@@ -181,6 +181,8 @@ resourcestring
   ERR56 = 'This can only be used with the DCON protocol!';
   ERR57 = 'You did not provide something!';
   ERR58 = 'Cannot initialize socket!';
+  ERR59 = 'Illegal character in the macro name!';
+  ERR60 = 'Cannot define more macro!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='         copy one or more remote reg. between two connections';

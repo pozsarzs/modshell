@@ -725,6 +725,14 @@ msgstr ""
 msgid "Cannot initialize socket!"
 msgstr ""
 
+#: frmmain.err59
+msgid "Illegal character in the macro name!"
+msgstr ""
+
+#: frmmain.err60
+msgid "Cannot define more macro!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -1349,7 +1357,7 @@ msgid "sendmeth [chr|str|swap]"
 msgstr ""
 
 #: frmmain.usg121
-msgid "macro NAME \"command with parameters\""
+msgid "macro NAME command with parameters"
 msgstr ""
 
 #: frmmain.usg13

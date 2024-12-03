@@ -31,11 +31,13 @@ all:
 	    echo ""; \
 	  fi; \
 	done
-	@if [ -f $(sourcedir)/$(name).rsj ]; \
+	@for x in $(projectdirs); do \
+          if [ -f $(sourcedir)/$$x.rsj ]; \
 	  then \
-	    $(rstconv) -f po -p utf-8 -i $(sourcedir)/$(name).rsj  -o ../message/$(name).pot; \
-	  fi
-	@if [ -f $(podir)/x$(name).pot ]; then mv $(podir)/x$(name).pot  ../message/; fi
+	    $(rstconv) -f po -p utf-8 -i $(sourcedir)/$$x.rsj  -o ../message/$$x.pot; \
+	  fi; \
+	  if [ -f $(podir)/$$x.pot ]; then mv $(podir)/$$x.pot  ../message/; fi \
+	done
 
 clean:
 	@for x in $(projectdirs); do \

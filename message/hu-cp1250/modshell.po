@@ -675,6 +675,14 @@ msgstr "Nem adott meg valamit!"
 msgid "Cannot initialize socket!"
 msgstr "Nem lehet inicializálni a socketet!"
 
+#: modshell:err59
+msgid "Illegal character in the macro name!"
+msgstr "Nem engedélyezett karakter a makró nevében!"
+
+#: modshell:err60
+msgid "Cannot define more macro!"
+msgstr "Nem lehet létrehozni több makrót!"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -1870,8 +1878,8 @@ msgid "sendmeth [chr|str|swap]"
 msgstr "sendmeth [chr|str|swap]"
 
 #: modshell:usg121
-msgid "macro NAME \"command with parameters\""
-msgstr "macro NÉV \"parancs a paraméterekkel\""
+msgid "macro NAME command with parameters"
+msgstr "macro NÉV parancs a paraméterekkel"
 
 #~ msgid "Cannot initialize network device: "
 #~ msgstr "Nem lehet inicializálni a hálózati eszközt: "

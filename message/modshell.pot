@@ -653,6 +653,14 @@ msgstr ""
 msgid "Cannot initialize socket!"
 msgstr ""
 
+#: modshell:err59
+msgid "Illegal character in the macro name!"
+msgstr ""
+
+#: modshell:err60
+msgid "Cannot define more macro!"
+msgstr ""
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""

@@ -21,9 +21,6 @@
 
 // SET PREDEFINED MACROS
 procedure setdefaultmacros;
-var
-  b: byte;
-  y, mh, d, w: word;
 begin
   with macros[0] do
   begin
@@ -148,7 +145,7 @@ begin
   end;
   if not valid then
     // Illegal character in the variable name!
-    {$IFNDEF X} writeln(ERR15) {$ELSE} Form1.Memo1.Lines.Add(ERR15) {$ENDIF} else
+    {$IFNDEF X} writeln(ERR59) {$ELSE} Form1.Memo1.Lines.Add(ERR59) {$ENDIF} else
   begin
     // COMPARING EXISTING NAMES WITH THE NEW ONE
     valid := true;
@@ -171,7 +168,7 @@ begin
       if not valid then
       begin
         // Cannot define more variable!
-        {$IFNDEF X} writeln(ERR16); {$ELSE} Form1.Memo1.Lines.Add(ERR16); {$ENDIF}
+        {$IFNDEF X} writeln(ERR60); {$ELSE} Form1.Memo1.Lines.Add(ERR60); {$ENDIF}
         result := 1;
         exit;
       end;

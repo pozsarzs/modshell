@@ -317,9 +317,9 @@ begin
       writeln('parameters:');
       for b := 0 to 2 do
       begin
-        write('  ',CMDLINEPARAMS[b,0]);
-        gotoxy(8, wherey); write(CMDLINEPARAMS[b,1]);
-        gotoxy(30, wherey); writeln(CMDLINEPARAMS[b,2]);
+        write('  ',CMDLINEPARAMS[b, 0]);
+        gotoxy(8, wherey); write(CMDLINEPARAMS[b, 1]);
+        gotoxy(30, wherey); writeln(CMDLINEPARAMS[b, 2]);
       end;
       writeln;
     end;
@@ -347,8 +347,8 @@ begin
   begin
     for b := 0 to 3 do
     begin
-      if paramstr(1) = CMDLINEPARAMS[b,0] then appmode := b + 1;
-      if paramstr(1) = CMDLINEPARAMS[b,1] then appmode := b + 1;
+      if paramstr(1) = CMDLINEPARAMS[b, 0] then appmode := b + 1;
+      if paramstr(1) = CMDLINEPARAMS[b, 1] then appmode := b + 1;
     end;
     case appmode of
       1: help(false);

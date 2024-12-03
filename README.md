@@ -66,9 +66,9 @@ The next release _will be_ with the following changes:
  - [x] `sendmeth` command: change data send method between char-to-char and as string;  
  - [ ] `sercons`, `tcpcons`, `udpcons` commands: character-by-character input with immediate sending or sending as a string with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;  
  - [ ] `serwrite`, `tcpwrite`, `udpwrite` commands: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo.  
- - [ ] Main menu for all consoles in GUI version;  
+ - [x] Main menu for all consoles in GUI version;  
  - [ ] New menu item in the main menu for quick execution of Modbus R/W commands.  
- - [ ] New serial baudrates: 150, 300, 600 baud.
+ - [x] New serial baudrates: 150, 300, 600 baud.
  - [x] DCON protocol support;  
  - [ ] HART protocol support;  
  - [ ] Modbus/TCP communication (Unix-like OS and Windows versions).  

@@ -1,0 +1,52 @@
+#: udpechoserver:msg02
+msgid "TCP Echo Server utility"
+msgstr ""
+
+#: udpechoserver:msg03
+msgid "port: "
+msgstr ""
+
+#: udpechoserver:msg04
+msgid "Press [ESC] to exit."
+msgstr ""
+
+#: udpechoserver:msg05
+msgid "Server running..."
+msgstr ""
+
+#: udpechoserver:msg06
+msgid "message: "
+msgstr ""
+
+#: udpechoserver:msg07
+msgid "Server stopped."
+msgstr ""
+
+#: udpechoserver:msg94
+msgid "Build date:  "
+msgstr ""
+
+#: udpechoserver:msg95
+msgid "Builder:     "
+msgstr ""
+
+#: udpechoserver:msg96
+msgid "FPC version: "
+msgstr ""
+
+#: udpechoserver:msg97
+msgid "Target OS:   "
+msgstr ""
+
+#: udpechoserver:msg98
+msgid "Target CPU:  "
+msgstr ""
+
+#: udpechoserver:err01
+msgid "ERROR: "
+msgstr ""
+
+#: udpechoserver:err02
+msgid "The port value must be between 0-65535."
+msgstr ""
+

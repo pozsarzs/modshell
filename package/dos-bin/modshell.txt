@@ -505,7 +505,7 @@ BUILTIN COMMANDS
        let $VARIABLE nul
               Clear $VARIABLE variable content.
 
-       macro NAME "command with parameters"
+       macro NAME command with parameters
               Make one-line macro.
 
        pause [[$]TIME]
@@ -1203,7 +1203,7 @@ HOMEPAGE
        ⟨https://github.com/pozsarzs/modshell⟩
 
 SEE ALSO
-       xmodshell(1)
+       xmodshell(1) tcpechoserver(1) udpechoserver(1)
        and files in document or /usr/share/doc/modshell/ folder (or  equivalent  on  your
        system).
 AUTHOR

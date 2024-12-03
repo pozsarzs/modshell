@@ -43,6 +43,9 @@ begin
       for b := 1 to length(command) do
         if command[b] <> '@' then s := s + command[b];
       command := s;
+      // macro detection and replacement with its content
+      if boolisitmacro(command) then
+        command := isitmacro(command);
       // split command to 8 slices
       for b := 0 to 7 do
         splitted[b] := '';

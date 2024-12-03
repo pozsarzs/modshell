@@ -10,9 +10,9 @@ XModShell is Copyright (C) 2023-2024 by Pozsar Zsolt.
 This is a utility that can be used on several operating systems, which
 can communicate with connected equipment using Modbus/ASCII, Modbus/RTU
 and Modbus/TCP protocols. The basic communication protocol of the program
-is Modbus, but DCON was also implemented due to communication with other
-devices (e.g. ADAM). The range of foreign protocols may be expanded later.
-The program is designed for DOS, Windows and Unix-like operating systems.
+is Modbus, but DCON and HART was also implemented due to communication with
+other devices. The range of foreign protocols may be expanded later.
+The XModShell is designed for Windows and Unix-like operating systems.
 .SH OPTIONS
 .TP
 .B \-h \-\-help
@@ -33,12 +33,12 @@ The issued commands are placed in history, which can be browsed with the up/down
 arrow keys.
 .PP
 The XModShell program has a *graphical interface (GUI)*, which helps to perform
-several operations with dialog windows, but the original command line input remained
-available for them (e.g. file selection, settings, etc.).
+several operations with dialog windows, but the original command line input
+remained available for them (e.g. file selection, settings, etc.).
 .PP
-For operating principle, prepredefined constants, builtin commands with example,
-useable hotkeys, used environmental variables and files with internal structure
-see manual page of ModShell.
+For operating principle, prepredefined constants and macros, builtin commands
+with example, useable hotkeys, used environmental variables and files with
+internal structure see manual page of ModShell.
 .SH HOMEPAGE
 .UR http://www.pozsarzs.hu
 .UE
@@ -52,8 +52,11 @@ see manual page of ModShell.
 .PD 0
 .LP
 \fBmodshell\fP(1)
+\fBtcpechoserver\fP(1)
+\fBudpechoserver\fP(1)
 .LP
-and files in document or /usr/share/doc/modshell/ folder (or equivalent on your system).
+and files in document or /usr/share/doc/modshell/ folder (or equivalent on your
+system).
 .SH AUTHOR
 Pozsar Zsolt
 .MT pozsarzs@gmail.com
