@@ -14,23 +14,32 @@
 }
     
 type
+  // constant and variable
+  tvariable = record
+    vname: string[16];            // name
+    vvalue: string[255];          // value
+    vreadonly: boolean;           // variable or constant
+    vmonitored: boolean;          // it is monitored?
+  end;
+  // array of constant and variable
   tarray = record
     aname: string[16];            // name
     aitems: array of string[255]; // items
     areadonly: boolean;           // variable or constant
     amonitored: boolean;          // it is monitored?
   end;
-type
-  tconnection = record
-    valid: boolean;               // false|true: invalid|valid
-    dev: byte;                    // 0..7
-    prot: byte;                   // 0..7
+  // command macro
+  tmacro = record
+    mname: string[16];            // name
+    mcommand: string;             // command and parameters
   end;
+  // cron record
   tcron = record
      cenable: boolean;            // enable/disable this record
      chour: byte;                 // hour(s)
      cminute: byte;               // minutes(s)
   end;
+  // settings
   tdevice = record
     valid: boolean;               // false|true: invalid|valid
     devtype: byte;                // 0..1 -> DEV_TYPE
@@ -42,18 +51,16 @@ type
     parity: byte;                 // 0..2 -> DEV_PARITY
     stopbit: byte;                // 1|2
   end;
-  tmacro = record
-    mname: string[16];
-    mcommand: string;
-  end;
   tprotocol = record
     valid: boolean;               // false|true: invalid|valid
     prottype: byte;               // 0..4 -> PROT_TYPE
     id: integer;                  // 1..247 or 1..255
   end;
-  tvariable = record
-    vname: string[16];            // name
-    vvalue: string[255];          // value
-    vreadonly: boolean;           // variable or constant
-    vmonitored: boolean;          // it is monitored?
+  tconnection = record
+    valid: boolean;               // false|true: invalid|valid
+    dev: byte;                    // 0..7
+    prot: byte;                   // 0..7
   end;
+
+
+

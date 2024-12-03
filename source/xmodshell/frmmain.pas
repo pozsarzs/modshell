@@ -1213,10 +1213,11 @@ begin
   randomize;
   // detect language
   lang := getlang;
-  // set default constants
   loadconfiguration(BASENAME,'.ini');
+  // set default constants
   vars[12].vvalue := uconfig.lastproject;
   setdefaultconstants;
+  setdefaultmacros;
   vars[11].vvalue := getuserdir;
   if length(vars[12].vvalue) = 0 then vars[12].vvalue := 'default';
   {$IFDEF GO32V2}

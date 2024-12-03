@@ -56,6 +56,7 @@ begin
   if not holdvariables then
   begin
     clearallconstants;
+    clearallmacros;
     clearallvariables;
   end;
 end;

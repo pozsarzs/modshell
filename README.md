@@ -25,9 +25,9 @@ HART protocols.
 |                        |XModShell: GUI                                                                              |
 |running modes           |normal or interpreter                                                                       |
 |variables               |max. 128 variables or constants (stored as string)                                          |
-|arrays                  |max. 16 dynamic size array of variables or constants (elements stored as string)            |
+|arrays                  |max. 32 dynamic size array of variables or constants (elements stored as string)            |
 |built-in commands       |122 commands in 10 categories with macro and script options)                                |
-|macros                  |max. 16                                                                                     |
+|macros                  |max. 32                                                                                     |
 |script size             |max. 1024 line                                                                              |
 |example scripts         |10 scripts (shellscript and batch file versions)                                            |
 |load from file          |registers, script, settings                                                                 |
@@ -59,7 +59,7 @@ The next release _will be_ with the following changes:
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
  - [x] `color` -> `set color`: sets all default colors (CLI and TUI);  
  - [x] `inputmeth` command: change data input mode between alphanumerical and hexadecimal;  
- - [ ] `macro` command: create one-line macro;
+ - [x] `macro` command: create one-line macro;
  - [x] `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI);  
  - [x] `tcpcons`, `tcpread`, `tcpwrite` commands;  
  - [x] `udpcons`, `udpread`, `udpwrite` commands;  
@@ -104,6 +104,7 @@ checked for possible typos and errors.
 ...that either will or won't.  
 
 in _v0.1-beta2:_  
+ - [ ] ANSI escape sequences support;
  - [ ] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
  - [ ] Modbus/TCP communication (DOS version).  
 
@@ -180,12 +181,15 @@ connections. In all cases, the data is sent to or read from the internal buffer.
 The size of the buffer is suitable for storing 2*9999 logical and word values of
 the same size.
 
-One hundred and twenty-eight variables and sixteen array
-(which can also be constants) can be created in the program, to which
-we can assign a value of any type (eg.: string, boolean or integer register
-value, real number, etc.). Variables and constants can be used to perform
-logical and arithmetical operations, and can be used to pass values to commands.
+128 variables and 32 arrays (which can also be constants) can be created in
+the program, to which we can assign a value of any type (eg.: string, boolean
+or integer register value, real number, etc.). Variables and constants can be
+used to perform logical and arithmetical operations, and can be used to pass
+values to commands.
 
+It is possible to create 32 single-line macros to replace frequently used longer
+commands. The program includes 3 pre-created macros, the content of which can
+also be changed.
 
 **Projects**
 
@@ -228,9 +232,9 @@ The loaded script can be edited with a line editor, saved to disk or
 deleted from the buffer. The graphical version has a simple editor window
 with syntax highlighting instead of the line editor.
 
-Variables and constants defined before running the script will be deleted.
-It is also possible to observe the values of up to four variables during
-runtime and to keep the final values​of constants and variables created
+Variables, constants and macros defined before running the script will be
+deleted. It is also possible to observe the values of up to four variables
+during runtime and to keep the final values​of constants and variables created
 during runtime.
 
 **Raw serial connection**
@@ -250,12 +254,19 @@ protocol via a serial port.
 The program also provides the possibility to send and receive data with HART
 protocol via a serial port. A serial/HART gateway may be required for connection.
 
-**Raw TCP and UDP connection**
+**Raw TCP connection**
 
 The program provides the possibility to send and receive raw data via network
-device with TCP or UDP, and also includes a very simple TCP and UDP console.
-The display of sent and received data can be turned off or raw text and
-hexadecimal viewing can be selected.
+device with TCP, and also includes a very simple TCP console. The display of
+sent and received data can be turned off or raw text and hexadecimal viewing
+can be selected.
+
+**Raw UDP connection**
+
+The program provides the possibility to send and receive raw data via network
+device with UDP, and also includes a very simple UDP console. The display of
+sent and received data can be turned off or raw text and hexadecimal viewing
+can be selected.
 
 **Already implemented commands:**
 
@@ -318,69 +329,71 @@ hexadecimal viewing can be selected.
 | 55|`arrfill`   |general      |        |fill an array with a character                                       |
 | 56|`ascii`     |general      |        |show ASCII table                                                     |
 | 57|`beep`      |general      |        |make a beep with internal speaker                                    |
-| 58|`carr`      |general      |        |show all constants array with theirs size or define a new one        |
+| 58|`carr`      |general      |        |show all constant arrays with theirs size or define a new one        |
 | 59|`cls`       |general      |F8      |clear screen                                                         |
-| 60|`const`     |general      |        |show all constant with theirs value or define a new one              |
+| 60|`const`     |general      |        |show all constants with theirs value or define a new one             |
 | 61|`cron`      |general      |        |loaded script scheduled execution                                    |
 | 62|`date`      |general      |        |show system date and time                                            |
-| 63|`echo`      |general      |F9      |alphanumerical/hexadecimal/disable local echo for connections        |
+| 63|`echometh`  |general      |F9      |alphanumerical/hexadecimal/none local echo method for connections    |
 | 64|`exit`      |general      |F10     |exit                                                                 |
 | 65|`for`       |general      |        |loop iteration                                                       |
 | 66|`getarrsize`|general      |        |get size of an array                                                 |
 | 67|`goto`      |general      |        |jump to specified label                                              |
 | 68|`help`      |general      |F1      |show description or usage of the commands                            |
 | 69|`if`        |general      |        |selection statement                                                  |
-| 70|`input`     |general      |SHIFT-F9|alphanumerical/hexadecimal data input for connections                |
+| 70|`inputmeth` |general      |SHIFT-F9|alphanumerical/hexadecimal data input method for connections         |
 | 71|`label`     |general      |        |define label (for goto command)                                      |
 | 72|`let`       |general      |ALT-L   |set value of a register, variable, a constant or an element of array |
-| 73|`pause`     |general      |        |waits for a keystroke or specified time                              |
-| 74|`printcolor`|general      |        |set temporary foreground and background colors for print in CLI/TUI  |
-| 75|`print`     |general      |ALT-P   |print message, value of the variable and register                    |
-| 76|`setarrsize`|general      |        |set size of an array                                                 |
-| 77|`var`       |general      |        |show all variable with theirs value or define a new one              |
-| 78|`varmon`    |general      |ALT-M   |monitoring the value of variables                                    |
-| 79|`varr`      |general      |        |show all variable array with theirs size or define a new one         |
-| 80|`ver`       |general      |        |show version and build information of this program                   |
-| 81|`and`       |logic        |        |AND logical operations                                               |
-| 82|`bit`       |logic        |        |value of the specified bit                                           |
-| 83|`not`       |logic        |        |NOT logical operations                                               |
-| 84|`or`        |logic        |        |OR logical operations                                                |
-| 85|`roll`      |logic        |        |roll bit of integer to left                                          |
-| 86|`rolr`      |logic        |        |roll bit of integer to right                                         |
-| 87|`shl`       |logic        |        |bit shift to left                                                    |
-| 88|`shr`       |logic        |        |bit shift to right                                                   |
-| 89|`xor`       |logic        |        |XOR logical operations                                               |
-| 90|`dump`      |register     |F6      |dump all registers in binary/hexadecimal format to a table           |
-| 91|`edit`      |script       |SHIFT-F4|edit loaded script with line editor                                  |
-| 92|`erasescr`  |script       |SHIFT-F8|erase script from buffer                                             |
-| 93|`list`      |script       |F11     |list loaded script                                                   |
-| 94|`loadscr`   |script       |SHIFT-F3|load ModShell scriptfile from disc                                   |
-| 95|`run`       |script       |F12     |run loaded script                                                    |
-| 96|`savescr`   |script       |SHIFT-F2|save loaded script to disc                                           |
-| 97|`chr`       |string       |        |convert byte to char                                                 |
-| 98|`concat`    |string       |        |concatenate strings                                                  |
-| 99|`length`    |string       |        |length of string                                                     |
-|100|`lowcase`   |string       |        |conversion to lowercase                                              |
-|101|`mkcrc`     |string       |        |make CRC value                                                       |
-|102|`mklrc`     |string       |        |make LRC value                                                       |
-|103|`ord`       |string       |        |convert char to byte                                                 |
-|104|`strdel`    |string       |        |delete specified element(s) of the string                            |
-|105|`strfind`   |string       |        |find specified element in the string                                 |
-|106|`strins`    |string       |        |insert element into string                                           |
-|107|`stritem`   |string       |        |specified element of the string                                      |
-|108|`strrepl`   |string       |        |replace element in the string                                        |
-|109|`upcase`    |string       |        |conversion to uppercase                                              | 
-|110|`cd`        |system       |        |change actual directory                                              |
-|111|`chkdevlock`|system       |        |check device lock file                                               |
-|112|`copy`      |system       |        |copy file                                                            |
-|113|`del`       |system       |        |remove file                                                          |
-|114|`dir`       |system       |        |list directory content                                               |
-|115|`exist`     |system       |        |existence of a file or directory                                     |
-|116|`md`        |system       |        |make directory                                                       |
-|117|`rd`        |system       |        |remove directory                                                     |
-|118|`ren`       |system       |        |rename file                                                          |
-|119|`rmdevlock` |system       |        |remove device lock file                                              |
-|120|`type`      |system       |        |type file                                                            |
+| 73|`macro`     |general      |        |show all macros with theirs value or define a new one                |
+| 74|`pause`     |general      |        |waits for a keystroke or specified time                              |
+| 75|`printcolor`|general      |        |set temporary foreground and background colors for print in CLI/TUI  |
+| 76|`print`     |general      |ALT-P   |print message, value of the variable and register                    |
+| 77|`sendmeth`  |general      |CTRL-F9 |char-to-char or string data send method for connections              |
+| 78|`setarrsize`|general      |        |set size of an array                                                 |
+| 79|`var`       |general      |        |show all variables with theirs value or define a new one             |
+| 80|`varmon`    |general      |ALT-M   |monitoring the value of variables                                    |
+| 81|`varr`      |general      |        |show all variable arrays with theirs size or define a new one        |
+| 82|`ver`       |general      |        |show version and build information of this program                   |
+| 83|`and`       |logic        |        |AND logical operations                                               |
+| 84|`bit`       |logic        |        |value of the specified bit                                           |
+| 85|`not`       |logic        |        |NOT logical operations                                               |
+| 86|`or`        |logic        |        |OR logical operations                                                |
+| 87|`roll`      |logic        |        |roll bit of integer to left                                          |
+| 88|`rolr`      |logic        |        |roll bit of integer to right                                         |
+| 89|`shl`       |logic        |        |bit shift to left                                                    |
+| 90|`shr`       |logic        |        |bit shift to right                                                   |
+| 91|`xor`       |logic        |        |XOR logical operations                                               |
+| 92|`dump`      |register     |F6      |dump all registers in binary/hexadecimal format to a table           |
+| 93|`edit`      |script       |SHIFT-F4|edit loaded script with line editor                                  |
+| 94|`erasescr`  |script       |SHIFT-F8|erase script from buffer                                             |
+| 95|`list`      |script       |F11     |list loaded script                                                   |
+| 96|`loadscr`   |script       |SHIFT-F3|load ModShell scriptfile from disc                                   |
+| 97|`run`       |script       |F12     |run loaded script                                                    |
+| 98|`savescr`   |script       |SHIFT-F2|save loaded script to disc                                           |
+| 99|`chr`       |string       |        |convert byte to char                                                 |
+|100|`concat`    |string       |        |concatenate strings                                                  |
+|101|`length`    |string       |        |length of string                                                     |
+|102|`lowcase`   |string       |        |conversion to lowercase                                              |
+|103|`mkcrc`     |string       |        |make CRC value                                                       |
+|104|`mklrc`     |string       |        |make LRC value                                                       |
+|105|`ord`       |string       |        |convert char to byte                                                 |
+|106|`strdel`    |string       |        |delete specified element(s) of the string                            |
+|107|`strfind`   |string       |        |find specified element in the string                                 |
+|108|`strins`    |string       |        |insert element into string                                           |
+|109|`stritem`   |string       |        |specified element of the string                                      |
+|110|`strrepl`   |string       |        |replace element in the string                                        |
+|111|`upcase`    |string       |        |conversion to uppercase                                              | 
+|112|`cd`        |system       |        |change actual directory                                              |
+|113|`chkdevlock`|system       |        |check device lock file                                               |
+|114|`copy`      |system       |        |copy file                                                            |
+|115|`del`       |system       |        |remove file                                                          |
+|116|`dir`       |system       |        |list directory content                                               |
+|117|`exist`     |system       |        |existence of a file or directory                                     |
+|118|`md`        |system       |        |make directory                                                       |
+|119|`rd`        |system       |        |remove directory                                                     |
+|120|`ren`       |system       |        |rename file                                                          |
+|121|`rmdevlock` |system       |        |remove device lock file                                              |
+|122|`type`      |system       |        |type file                                                            |
 
 (Commands with function keys (F?) are executed immediately, modifier keys
 (ALT-?) only make typing easier.)  
@@ -406,6 +419,16 @@ hexadecimal viewing can be selected.
 |$PI     |value of Pi (3.1415926535897932385)|
 |$PRJDIR |directory of the actual project    |
 |$PRJNAME|name of the actual project         |
+
+**Predefined macros**
+
+|name    |value                               |
+|--------|------------------------------------|
+|mydev0  |set dev0 set /dev/ttyUSB0 9600 8 n 1|
+|mypro0  |set pro0 rtu 1                      |
+|mycon0  |set con0 dev0 pro0                  |
+
+These macros can also be changed
 
 **Documentation and Help**
 

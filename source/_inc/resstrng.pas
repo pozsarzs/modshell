@@ -505,4 +505,4 @@ resourcestring
         '  - The ''?'' value can be 0-7.';
   USG119='inputmeth [an|hex|swap]';
   USG120='sendmeth [chr|str|swap]';
-  USG121='macro NAME "command with parameters"';
+  USG121='macro NAME command with parameters';

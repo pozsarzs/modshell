@@ -15,18 +15,18 @@
 
 const
   // OTHERS
+  ARRBUFFSIZE = 32;
+  COMMARRSIZE = 123;
+  MCRBUFFSIZE = 32;
   MINTERMX = 80;
   MINTERMY = 25;
-  MCRBUFFSIZE = 16;
-  PROMPT = 'MODSH|_>';
   PRGCOPYRIGHT = '(C) 2023-2024 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
-  COMMARRSIZE = 123;
+  PROMPT = 'MODSH|_>';
   SCRBUFFSIZE = 1024;
   SHOWTIMEDELAY = 25;
   VARBUFFSIZE = 128;
-  ARRBUFFSIZE = 16;
   {$IFDEF UNIX} EOL = #10; {$ELSE} EOL = #13 + #10; {$ENDIF}
   // VALID BOOLEAN VALUES
   BOOLVALUES: array[0..1,0..2] of string =

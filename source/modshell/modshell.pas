@@ -61,6 +61,7 @@ function isitmessage(s: string): string; forward;
 function isitvariablearray(s: string): string; forward;
 function isitvariable(s: string): string; forward;
 procedure clearallconstants; forward;
+procedure clearallmacros; forward;
 procedure clearallvariables; forward;
 procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
@@ -361,8 +362,9 @@ begin
   // set temporary colors
   printcolors[0] := uconfig.colors[0];
   printcolors[1] := uconfig.colors[1];
-  // set default constants
+  // set default constants and macros
   setdefaultconstants;
+  setdefaultmacros;
   vars[11].vvalue := getuserdir;
   if length(vars[12].vvalue) = 0 then vars[12].vvalue := 'default';
   {$IFDEF GO32V2}

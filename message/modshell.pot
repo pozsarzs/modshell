@@ -1736,6 +1736,6 @@ msgid "sendmeth [chr|str|swap]"
 msgstr ""
 
 #: modshell:usg121
-msgid "macro NAME \"command with parameters\""
+msgid "macro NAME command with parameters"
 msgstr ""
 
