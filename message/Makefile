@@ -46,6 +46,22 @@ install:
 	    echo -n "#"; \
 	  fi; \
 	done
+	@for x in $(languages); do \
+	  if [ -f $$x/tcpechoserver.mo ]; \
+	  then \
+	    $(install) -d $(targetdir)/$$x/LC_MESSAGES/; \
+	    $(install) -m $(filemode) $(sourcedir)/$$x/tcpechoserver.mo $(targetdir)/$$x/LC_MESSAGES/; \
+	    echo -n "#"; \
+	  fi; \
+	done
+	@for x in $(languages); do \
+	  if [ -f $$x/udpechoserver.mo ]; \
+	  then \
+	    $(install) -d $(targetdir)/$$x/LC_MESSAGES/; \
+	    $(install) -m $(filemode) $(sourcedir)/$$x/udpechoserver.mo $(targetdir)/$$x/LC_MESSAGES/; \
+	    echo -n "#"; \
+	  fi; \
+	done
 	@echo "]"
 
 uninstall:
