@@ -38,7 +38,7 @@ begin
   begin
     s := stringreplace(s, #34 , '', [rfReplaceAll]);
     s := stringreplace(s, #92 + #32 , #32, [rfReplaceAll]);
-    s := stringreplace(s, '^[' , #27 + '[', [rfReplaceAll]);
+    {$IFNDEF X} s := stringreplace(s, '^[' , #27 + '[', [rfReplaceAll]); {$ENDIF}
     result := s;
   end;
 end;

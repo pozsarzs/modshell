@@ -54,6 +54,7 @@ HART protocols.
 
 _v0.1-beta1:_  
 The next release _will be_ with the following changes:  
+ - [x] ANSI escape sequences support (only DOS and *nix like systems);
  - [x] `echo` -> `echometh` command, parameters: off|on|hex|swap -> off|an|hex|swap;
  - [x] `exist` command;  
  - [x] `chkdevlock`/`rmdevlock` commands (only *nix versions);  
@@ -104,7 +105,6 @@ checked for possible typos and errors.
 ...that either will or won't.  
 
 in _v0.1-beta2:_  
- - [ ] ANSI escape sequences support;
  - [ ] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
  - [ ] Modbus/TCP communication (DOS version).  
 

@@ -13,11 +13,12 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0    p1                  p2         p3         p4
-  ----------------------------------------------------
-  print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]
-  print $VARIABLE           [-n]
-  print "Hello\ world!"     [-n]
+  p0    p1                           p2         p3         p4
+  -------------------------------------------------------------
+  print dinp|coil|ireg|hreg          [$]ADDRESS [[$]COUNT] [-n]
+  print $VARIABLE                    [-n]
+  print "Hello\ world!"              [-n]
+  print "^[1;31mHello\ world!^[1;0m" [-n]
 }
 
 // COMMAND 'PRINT'

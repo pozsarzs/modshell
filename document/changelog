@@ -1,6 +1,7 @@
 modshell (0.1-beta1) unstable; urgency=low
 
   * First user test release.
+  * ANSI escape sequences support (only DOS and *nix like systems);
   * `echo` -> `echometh` command, parameters: off|on|hex|swap -> off|an|hex|swap;
   * `exist` command;  
   * `chkdevlock`/`rmdevlock` commands (only *nix versions);  
