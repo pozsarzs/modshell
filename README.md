@@ -68,7 +68,7 @@ HART protocols.
  _Third user test release_. The software will not include any new features
  compared to the previous release, only bug fixes. Only a source package will be
  released.  
-<details>
+</details>
 
 <details>
  <summary>_v0.1-beta2:_</summary> 
