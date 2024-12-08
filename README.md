@@ -56,27 +56,30 @@ HART protocols.
 ...that either will or won't.  
 
 <details>
- <summary>_v0.1:_</summary> 
- This is _first unstable release_. Unstable, but it is already complete in its
- intended functionality. The software will not include any new features compared
- to the previous release, only bug fixes. All types of binary and installation
- packages will be released along with the source package.  
+ <summary><i>v0.1:</i></summary>
+ This is <i>first unstable release</i>.<br>
+ Unstable, but it is already complete in its intended functionality.
+ The software will not include any new features compared to the previous
+ release, only bug fixes. All types of binary and installation packages
+ will be released along with the source package.  
 </details>
 
 <details>
- <summary>_v0.1-beta3:_</summary> 
- _Third user test release_. The software will not include any new features
- compared to the previous release, only bug fixes. Only a source package will be
- released.  
+ <summary><i>v0.1-beta3:</i></summary>
+ <i>Third user test release</i>.<br>
+ The software will not include any new features compared to the previous
+ release, only bug fixes. Only a source package will be released.  
 </details>
 
 <details>
- <summary>_v0.1-beta2:_</summary> 
- _Second user test release_ will be with the following changes: 
- - [ ] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
- - [ ] TCP-Modbus/TCP-UDP communication on DOS;
- - [ ] graphical monitoring the change of values over time (only XModShell);  
- - [ ] implementation of additional Modbus functions.  
+ <summary><i>v0.1-beta2:</i></summary>
+ <i>Second user test release</i> will be with the following changes:
+ <ul>
+  <li>compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);</li>
+  <li>TCP-Modbus/TCP-UDP communication on DOS;</li>
+  <li>graphical monitoring the change of values over time (only XModShell);</li>
+  <li>implementation of additional Modbus functions.</li>
+ </ul>
  Only a source package will be released.
 </details>
 
@@ -113,32 +116,36 @@ _First user test release_ will be with the following changes:
  Only a source package will be released.
  
 <details>
- <summary>_v0.1-alpha3:_</summary>  
- _Third and last developer test release_ with the following changes:  
-   - New source code directory structure;
-   - new commands;
-   - new predefined constants;
-   - bug fixes;
-   - GUI (except DOS).
-   - Script syntax highlighting file for MCEdit and Nano.  
-   Only a source package will be released.  
+ <summary><i>v0.1-alpha3:</i></summary>  
+ <i>Third and last developer test release</i> with the following changes:
+ <ul>
+  <li>New source code directory structure;</li>
+  <li>new commands;</li>
+  <li>new predefined constants;</li>
+  <li>bug fixes;</li>
+  <li>GUI (except DOS);</li>
+  <li>script syntax highlighting file for MCEdit and Nano.</li>
+ </ul>
+ Only a source package will be released.  
 </details>
 
 <details>
- <summary>_v0.1-alpha2:_</summary>
- _Second developer test release_ with the following changes:  
-  - Bug fixes;
-  - Modbus/ASCII and Modbus/RTU communication;
-  - handling of constants;
-  - three predefined constants and
-  - 28 new command (total: 94). 
-  - Script syntax highlighting file for Micro.  
-  All types of binary and installation packages will be released along with the source package.  
+ <summary><i>v0.1-alpha2:</i></summary>
+ <i>Second developer test release</i> with the following changes:
+ <ul>
+  <li>Bug fixes;</li>
+  <li>Modbus/ASCII and Modbus/RTU communication;</li>
+  <li>handling of constants;</li>
+  <li>three predefined constants and</li>
+  <li>28 new command (total: 94);</li>
+  <li>script syntax highlighting file for Micro.</li>
+ </ul>
+ All types of binary and installation packages will be released along with the source package.  
 </details>
 
 <details>
- <summary>_v0.1-alpha1:_</summary>
- _First developer test release_ is not yet suitable for work, although it is
+ <summary><i>v0.1-alpha1:</i></summary>
+ <i>First developer test release</i> is not yet suitable for work, although it is
  functional, but it can only communicate via Modbus/ASCII. The purpose of this
  release is to test the program's construction, operation, packaging, and package
  installation in all supported environments. In addition, the documentation and
