@@ -14,11 +14,16 @@
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <XPManifest>
+        <ExecutionLevel Value="requireAdministrator"/>
         <TextName Value="Pozsar_Zsolt.ModShell.TCPEchoServer"/>
         <TextDesc Value="TCP echo server utility"/>
       </XPManifest>
       <Icon Value="0"/>
     </General>
+    <i18n>
+      <EnableI18N Value="True"/>
+      <OutDir Value="../_po"/>
+    </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MinorVersionNr Value="1"/>
@@ -44,8 +49,8 @@
   <CompilerOptions>
     <Version Value="11"/>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="../_ext/synapse"/>
+      <IncludeFiles Value="$(ProjOutDir);../_inc"/>
+      <OtherUnitFiles Value="../_ext/synapse;../_ppu"/>
       <UnitOutputDirectory Value="../_lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
   </CompilerOptions>

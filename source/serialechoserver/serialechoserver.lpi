@@ -9,25 +9,23 @@
         <MainUnitHasScaledStatement Value="False"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="UDPEchoServer"/>
+      <Title Value="SerialEchoServer"/>
       <UseAppBundle Value="False"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <XPManifest>
-        <ExecutionLevel Value="requireAdministrator"/>
-        <TextName Value="Pozsar_Zsolt.ModShell.UDPEchoServer"/>
-        <TextDesc Value="UDP echo server utility"/>
+        <TextName Value="Pozsar_Zsolt.ModS.SerialEchoServer"/>
+        <TextDesc Value="Serial echo server utility"/>
       </XPManifest>
       <Icon Value="0"/>
     </General>
     <i18n>
       <EnableI18N Value="True"/>
-      <OutDir Value="../_po"/>
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MinorVersionNr Value="1"/>
-      <StringTable CompanyName="Pozsar Zsolt" LegalCopyright="(C)2024 Pozsar Zsolt" OriginalFilename="udpechoserver.exe" ProductName="ModShell" ProductVersion="0.1"/>
+      <StringTable CompanyName="Pozsar Zsolt" LegalCopyright="(C)2024 Pozsar Zsolt" OriginalFilename="serialechoserver.exe" ProductName="ModShell" ProductVersion="0.1"/>
     </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -41,7 +39,7 @@
     </RunParams>
     <Units>
       <Unit>
-        <Filename Value="udpechoserver.pas"/>
+        <Filename Value="serialechoserver.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit>
     </Units>

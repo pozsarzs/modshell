@@ -84,7 +84,7 @@
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="xmodshell"/>
+      <Filename Value="../_lib/$(TargetCPU)-$(TargetOS)/xmodshell"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir);../_inc;../_inc/commands;../_inc/dcon;../_inc/hart;../_inc/modbus;../_inc/ports"/>

@@ -5,26 +5,18 @@
     <BuildModes Active="Default"/>
     <Units>
       <Unit>
-        <Filename Value="tcpechoserver.pas"/>
+        <Filename Value="serialechoserver.pas"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos Y="15"/>
+        <CursorPos X="3" Y="7"/>
         <UsageCount Value="61"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="2">
+    <JumpHistory>
       <Position>
-        <Filename Value="tcpechoserver.pas"/>
+        <Filename Value="serialechoserver.pas"/>
         <Caret Line="79" Column="57" TopLine="59"/>
-      </Position>
-      <Position>
-        <Filename Value="tcpechoserver.pas"/>
-        <Caret Line="50" Column="3"/>
-      </Position>
-      <Position>
-        <Filename Value="tcpechoserver.pas"/>
-        <Caret Line="23" Column="3"/>
       </Position>
     </JumpHistory>
     <RunParams>
