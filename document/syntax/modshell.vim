@@ -21,7 +21,7 @@ syn keyword modshellFunction get goto
 syn keyword modshellFunction hart help
 syn keyword modshellFunction idiv if imod impreg inc inputmeth inrange
 syn keyword modshellFunction label length let list ln loadcfg loadreg loadscr lowcase
-syn keyword modshellFunction mbgw mbsrv md mkcrc mklrc mulinv mul
+syn keyword modshellFunction mbgw mbmon mbsrv md mkcrc mklrc mulinv mul
 syn keyword modshellFunction not
 syn keyword modshellFunction odd ord or
 syn keyword modshellFunction pause pow2 pow print printcolor prop

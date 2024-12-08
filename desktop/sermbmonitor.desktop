@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=SerialMbMonitor
+Name[hu]=SerialMbMonitor
+Exec=sermbmonitor
+Icon=serial
+GenericName=Serial Modbus Monitor utility
+GenericName[hu]=Serial Modbus Monitor segédprogram
+Type=Application
+Categories=Science
+StartupNotify=true
+Terminal=true

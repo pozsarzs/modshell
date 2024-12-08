@@ -1,0 +1,4 @@
+ - serialechoserver.pas  source code of SerialEchoServer utility,
+                         this is part of ModShell.
+                         Copyright (C) 2023-2024 Pozsar Zsolt,
+                         Licence:  EUPL v1.2.

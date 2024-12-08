@@ -24,7 +24,7 @@ rules:
   - statement: "\\b(hart|help)\\b"
   - statement: "\\b(idiv|if|imod|impreg|inc|inputmeth|inrange)\\b"
   - statement: "\\b(label|length|let|list|ln|loadcfg|loadreg|loadscr|lowcase)\\b"
-  - statement: "\\b(mbgw|mbsrv|md|mkcrc|mklrc|mulinv|mul)\\b"
+  - statement: "\\b(mbgw|mbmon|mbsrv|md|mkcrc|mklrc|mulinv|mul)\\b"
   - statement: "\\b(not)\\b"
   - statement: "\\b(odd|ord|or)\\b"
   - statement: "\\b(pause|pow2|pow|print|printcolor|prop)\\b"

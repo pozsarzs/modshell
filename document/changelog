@@ -1,60 +1,61 @@
 modshell (0.1-beta1) unstable; urgency=low
 
-  * First user test release.
-  * ANSI escape sequences support (only DOS and *nix like systems);
-  * `echo` -> `echometh` command, parameters: off|on|hex|swap -> off|an|hex|swap;
-  * `exist` command;  
-  * `chkdevlock`/`rmdevlock` commands (only *nix versions);  
-  * `color` -> `set color`: sets all default colors (CLI and TUI);  
-  * `inputmeth` command: change data input mode between alphanumerical and hexadecimal;  
-  * `macro` command: create one-line macro;
-  * `printcolor`: sets temporary foreground and background colors for `print` command (CLI and TUI);  
-  * `tcpcons`, `tcpread`, `tcpwrite` commands;  
-  * `udpcons`, `udpread`, `udpwrite` commands;  
-  * `sendmeth` command: change data send method between char-to-char and as string;  
-  * `sercons`, `tcpcons`, `udpcons` commands: character-by-character input with immediate sending or sending as a string with alphanumeric or hexadecimal input, with or without alphanumerical or hexadecimal echo;  
-  * `serwrite`, `tcpwrite`, `udpwrite` commands: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo.  
-  * Main menu for all consoles in GUI version;  
-  * New menu item in the main menu for quick execution of Modbus R/W commands.  
-  * New serial baudrates: 150, 300, 600 baud.
-  * DCON protocol support;  
-  * HART protocol support;  
-  * Modbus/TCP communication (Unix-like OS and Windows versions).  
-  * Support for variable and constant arrays.  
-  * Modified source code structure of XModshell: The main menu procedures that create a new form at runtime have been moved to files.  
-  * Syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes);  
-  * syntax highlighting file for Notepad++ (Windows only);  
-  * syntax highlighting file for Vim/Neovim.  
-  * TCP and UPD echo server utilities for testing connectivity. 
+* First user test release will be with the following changes:
+* ANSI escape sequences support (only DOS and *nix like systems);
+* command `color` -> `set color`, sets all default colors (CLI and TUI);
+* command `echo` -> `echometh`, parameters: off|on|hex|swap -> off|an|hex|swap;
+* commands `sercons`, `tcpcons`, `udpcons`: character-to-character or string sending, with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;
+* commands `serwrite`, `tcpwrite`, `udpwrite`: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo;
+* DCON protocol support;
+* HART protocol support;
+* main menu for all consoles in GUI version;
+* Modbus/TCP communication on Unix-like OS and Windows;
+* modified source code structure of XModshell;
+* new command `chkdevlock`/`rmdevlock` (only *nix systems);
+* new command `exist`;
+* new command `inputmeth`;
+* new command `macro`;
+* new command `mbmon`;
+* new command `printcolor`(only CLI and TUI);
+* new command `sendmeth`;
+* new command `tcpcons`, `tcpread`, `tcpwrite`;
+* new command `udpcons`, `udpread`, `udpwrite`;
+* new menu item in the main menu for quick execution of Modbus R/W commands;
+* new serial baudrates: 150, 300, 600 baud;
+* serial echo server utility for testing connectivity;
+* serial port monitor utility;
+* support for variable and constant arrays;
+* syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows only) and Vim/Neovim;
+* TCP and UPD echo server utilities for testing connectivity.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>  Tue, 31 Dec 2024 23:59:59
+ -- Pozsár Zsolt <pozsarzs@gmail.com>Tue, 31 Dec 2024 23:59:59
 
 modshell (0.1-alpha3) unstable; urgency=low
 
-  * Next developer test release.
-  * New source code directory structure;
-  * new commands;
-  * new predefined constants;
-  * bug fixes;
-  * GUI (except DOS).
-  * Script syntax highlighting file for MCEdit and Nano.
+* Next developer test release.
+* New source code directory structure;
+* new commands;
+* new predefined constants;
+* bug fixes;
+* GUI (except DOS);
+* script syntax highlighting file for MCEdit and Nano.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>  Sun, 20 Oct 2024 09:37:44
+ -- Pozsár Zsolt <pozsarzs@gmail.com>Sun, 20 Oct 2024 09:37:44
  
 modshell (0.1-alpha2) unstable; urgency=low
 
-  * Next developer test release.
-  * Bug fixes;
-  * Modbus/ASCII and Modbus/RTU communication;
-  * handling of constants;
-  * three predefined constants and
-  * 28 new command (total: 94).
-  * Script syntax highlighting file for Micro.
+* Next developer test release.
+* Bug fixes;
+* Modbus/ASCII and Modbus/RTU communication;
+* handling of constants;
+* three predefined constants;
+* 28 new command (total: 94);
+* script syntax highlighting file for Micro.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>  Mon, 12 Feb 2024 00:00:00
+ -- Pozsár Zsolt <pozsarzs@gmail.com>Mon, 12 Feb 2024 00:00:00
 
 modshell (0.1-alpha1) unstable; urgency=low
 
-  * Initial release.
+* Initial release.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>  Fri, 16 Jan 2024 21:12:00
+ -- Pozsár Zsolt <pozsarzs@gmail.com>Fri, 16 Jan 2024 21:12:00

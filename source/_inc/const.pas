@@ -16,7 +16,7 @@
 const
   // OTHERS
   ARRBUFFSIZE = 32;
-  COMMARRSIZE = 123;
+  COMMARRSIZE = 124;
   MCRBUFFSIZE = 32;
   MINTERMX = 80;
   MINTERMY = 25;
@@ -57,7 +57,7 @@ const
     {  90 }  'cron',       'edit',       'erasescr', 'savescr',    'dir',       'cd',      'md',      'rd',       'del',      'type',
     { 100 }  'copy',       'ren',        'exist',    'chkdevlock', 'rmdevlock', 'carr',    'varr',    'arrclear', 'arrfill',  'getarrsize',
     { 110 }  'setarrsize', 'dcon',       'tcpcons',  'tcpread',    'tcpwrite',  'udpcons', 'udpread', 'udpwrite', 'hart',     'inputmeth',
-    { 120 }  'sendmeth',   'macro',      'whatever');
+    { 120 }  'sendmeth',   'macro',      'mbmon',    'whatever');
   DEV_TYPE: array[0..1] of string = ('net','ser');
   DEV_SPEED: array[0..10] of string = ('150','300','600','1200','2400','4800','9600','19200','38400','57600','115200');
   DEV_PARITY: array[0..2] of char = ('e','n','o');

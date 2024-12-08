@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-// TRUE IF THERE IS RECEIVED DATA	
+// TRUE IF THERE IS RECEIVED DATA
 function ser_canread: boolean;
 begin
   {$IFDEF GO32V2}

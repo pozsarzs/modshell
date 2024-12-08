@@ -1,0 +1,59 @@
+.TH SerialMBMonitor 1 "2024 December 03" ""
+.SH NAME
+serialmbmonitor \- Simple serial Modbus traffic monitor
+.SH SYNOPSIS
+.B serialmbmonitor
+[options]
+.SH COPYRIGHT
+SerialMBMonitor is Copyright (C) 2024 by Pozsar Zsolt.
+.SH DESCRIPTION
+This utility is part of ModShell and can be used to decode Modbus/ASCII or RTU
+telegrams. The decoded traffic is saved to the project directory named
+\fImbmon.log\fP. The Modshell program's \fImbmon\fP command works the same way,
+but it can also be used in DOS. This program is designed for Windows and
+Unix-like operating systems.
+.SH OPTIONS
+.TP
+.B \-h \-\-help
+Write useable parameters.
+.TP
+.B \-v \-\-version
+Write version and build information.
+.TP
+.B device
+Set serial port name.
+.TP
+.B baudrate
+Set baudrate (150-115200).
+.TP
+.B databit
+Set number of databits (7|8).
+.TP
+.B parity
+Set parity type (e|n|o).
+.TP
+.B stopbit
+Set number of stopbits (1|2).
+.SH HOMEPAGE
+.UR http://www.pozsarzs.hu
+.UE
+.PP
+.UR https://pozsarzs.github.io/modshell
+.UE
+.PP
+.UR https://github.com/pozsarzs/modshell
+.UE
+.SH SEE ALSO
+.PD 0
+.LP
+\fBmodshell\fP(1)
+\fBserialmbmonitor\fP(1)
+\fBserialechoserver\fP(1)
+\fBudpechoserver\fP(1)
+\fBxmodshell\fP(1)
+.LP
+and files in document or /usr/share/doc/modshell/ folder (or equivalent on your system).
+.SH AUTHOR
+Pozsar Zsolt
+.MT pozsarzs@gmail.com
+.ME

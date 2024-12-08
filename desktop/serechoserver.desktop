@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=SerialEchoServer
+Name[hu]=SerialEchoServer
+Exec=serechoserver
+Icon=serial
+GenericName=SerialEchoServer utility
+GenericName[hu]=SerialEchoServer segédprogram
+Type=Application
+Categories=Science
+StartupNotify=true
+Terminal=true

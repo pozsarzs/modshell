@@ -14,7 +14,7 @@ filemode=$(txtmode)
 targetdir1=$(datarootdir)/applications
 files1=`ls $(sourcedir)/*.desktop | grep -v Makefile`
 targetdir2=$(datarootdir)/pixmaps
-files2=`ls $(sourcedir)/*.xpm | grep -v Makefile`
+files2=`ls $(sourcedir)/*.png | grep -v Makefile`
 
 all:
 

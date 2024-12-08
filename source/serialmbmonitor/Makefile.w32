@@ -1,0 +1,34 @@
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | Makefile                                                                   |
+# | Makefile for 32 bit Windows                                                |
+# +----------------------------------------------------------------------------+
+
+name = serialmbmonitor
+architecture = i386
+os = win32
+lcldir = c:\lazarus\lcl
+outdir = ..\_lib\$(architecture)-$(os)
+fpcargs = -T$(os) \
+          -MObjFPC \
+          -Scgi \
+          -O1 \
+          -v0 \
+          -Fi../_inc \
+          -Fi../_inc/* \
+          -Fu. \
+          -Fu../_ppu \
+          -Fu../_ext/* \
+          -Fu$(outdir) \
+          -FE$(outdir)
+
+
+all:
+	@if not exist ..\_lib\nul md ..\_lib
+	@if not exist $(outdir)\nul md $(outdir)
+	@ppc386 $(fpcargs) $(name).pas
+	@copy $(outdir)\$(name).exe ..\..
+
+clean:
+	@erase $(outdir)\*.*

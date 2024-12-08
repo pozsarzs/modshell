@@ -19,16 +19,16 @@
 
 ### Synopsis
 
- - case: insensitivity
- - comment: after `#`
+ - case: insensitivity  
+ - comment: after `#`  
  - start line:  
      `#!\....`  
      `@modshell.exe...`  
      `@goto eof`  
      `@:eof`
- - text: between `""`
+ - text: between `""`  
  - word group #1:  
-     `dev[0-7]` `pro[0-7]` `con[0-7]` `color` `project` `timeout`
+     `dev[0-7]` `pro[0-7]` `con[0-7]` `color` `project` `timeout`  
  - word group #2:  
      `add` `and` `applog` `arrclear` `arrcopy` `arrfill` `arrsize` `ascii` `avg`  
      `beep` `bit`  
@@ -40,7 +40,7 @@
      `help`  
      `idiv` `if` `imod` `impreg` `inc` `inputmeth` `inrange`  
      `label` `length` `let` `list` `ln` `loadcfg` `loadreg` `loadscr` `lowcase`  
-     `mbgw` `mbsrv` `md` `mkcrc` `mklrc` `mulinv` `mul`  
+     `mbgw` `mbmon` `mbsrv` `md` `mkcrc` `mklrc` `mulinv` `mul`  
      `not`  
      `odd` `ord` `or`  
      `pause` `pow2` `pow` `print` `printcolor` `prop`  
@@ -52,6 +52,6 @@
      `writereg`  
      `xor`
  - word group #3:  
-     `an` `ascii` `bin` `coil` `chr` `csv` `dec` `dcon` `dinp` `hart` `hex` `hreg` `ini` `ireg` `net` `oct` `off` `rtu` `ser` `str` `swap` `tcp` `xml`
+     `an` `ascii` `bin` `coil` `chr` `csv` `dec` `dcon` `dinp` `hart` `hex` `hreg` `ini` `ireg` `net` `oct` `off` `rtu` `ser` `str` `swap` `tcp` `xml`  
  - word group #4:  
-     `<` `<=` `=` `=>` `>` `<>`
+     `<` `<=` `=` `=>` `>` `<>`  

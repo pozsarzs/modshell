@@ -75,6 +75,7 @@ context default brightcyan
     keyword whole loadscr white
     keyword whole lowcase white
     keyword whole mbgw white
+    keyword whole mbmon white
     keyword whole mbsrv white
     keyword whole md white
     keyword whole mkcrc white

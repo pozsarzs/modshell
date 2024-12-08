@@ -1,13 +1,13 @@
-.TH TCPEchoServer 1 "2024 December 03" ""
+.TH SerialEchoServer 1 "2024 December 03" ""
 .SH NAME
-tcpechoserver \- Simple TCP echo server
+serialechoserver \- Simple serial echo server
 .SH SYNOPSIS
-.B tcpechoserver
+.B serialechoserver
 [options]
 .SH COPYRIGHT
-TCPEchoServer is Copyright (C) 2024 by Pozsar Zsolt.
+SerialEchoServer is Copyright (C) 2024 by Pozsar Zsolt.
 .SH DESCRIPTION
-This utility is part of ModShell and can be used to test TCP connectivity. The
+This utility is part of ModShell and can be used to test serial connectivity. The
 program is designed for Windows and Unix-like operating systems.
 .SH OPTIONS
 .TP
@@ -17,8 +17,20 @@ Write useable parameters.
 .B \-v \-\-version
 Write version and build information.
 .TP
-.B port
-Set port number (0-65535).
+.B device
+Set serial port name.
+.TP
+.B baudrate
+Set baudrate (150-115200).
+.TP
+.B databit
+Set number of databits (7|8).
+.TP
+.B parity
+Set parity type (e|n|o).
+.TP
+.B stopbit
+Set number of stopbits (1|2).
 .SH HOMEPAGE
 .UR http://www.pozsarzs.hu
 .UE
@@ -32,8 +44,8 @@ Set port number (0-65535).
 .PD 0
 .LP
 \fBmodshell\fP(1)
-\fBserialechoserver\fP(1)
 \fBserialmbmonitor\fP(1)
+\fBserialechoserver\fP(1)
 \fBudpechoserver\fP(1)
 \fBxmodshell\fP(1)
 .LP
