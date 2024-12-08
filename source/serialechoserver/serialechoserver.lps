@@ -8,15 +8,20 @@
         <Filename Value="serialechoserver.pas"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="3" Y="7"/>
+        <TopLine Value="165"/>
+        <CursorPos X="25" Y="185"/>
         <UsageCount Value="61"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory>
+    <JumpHistory HistoryIndex="1">
       <Position>
         <Filename Value="serialechoserver.pas"/>
         <Caret Line="79" Column="57" TopLine="59"/>
+      </Position>
+      <Position>
+        <Filename Value="serialechoserver.pas"/>
+        <Caret Line="7" Column="3" TopLine="76"/>
       </Position>
     </JumpHistory>
     <RunParams>

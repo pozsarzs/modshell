@@ -92,12 +92,12 @@ begin
   // detect language
   lang := getlang;
   translatemessages(LANG, BASENAME, '.mo');
-  // check size of terminal
+  // command line parameters
   appmode := 0;
   { appmode #0: normal run
     appmode #1: show useable parameters
     appmode #2: show version and build information }
-  if length(paramstr(1)) <> 0 then
+  if paramcount > 0 then
   begin
     for b := 0 to 1 do
     begin
@@ -113,6 +113,7 @@ begin
   writeln(PRGCOPYRIGHT);
   writeln;
   writeln(MSG04);
+  // port number
   if paramcount = 0 then
   begin
     write(MSG03 + '?');
@@ -126,36 +127,38 @@ begin
     until ((length(port) > 0) and (c = #13)) or (c = #27);
     if c = #27 then halt(0);
   end else port := paramstr(1);
-  if (strtointdef(port, -1) >= 0) and (strtointdef(port, -1) <= 65535) then
-  begin
-    gotoxy(1, wherey); clreol;
-    writeln(MSG03 + port);
-    Socket1 := TTCPBlockSocket.Create;
-    Socket1.Bind('0.0.0.0', port);
-    if Socket1.LastError <> 0 then quit(2, false, ERR01 + Socket1.LastErrorDesc);
-    Socket1.Listen;
-    writeln(MSG05);
-    repeat
-      if Socket1.CanRead(100) then
-      begin
-        Socket2 := TTCPBlockSocket.Create;
-        Socket2.Socket := Socket1.Accept;
-        s := Socket2.RecvPacket(1000);
-        if length(s) > 0 then
-          if Socket1.LastError = 0 then
-          begin
-            Socket2.SendString(s);
-            writeln(MSG06 + '"' + s + '"');
-          end;
-        Socket2.CloseSocket;
-        Socket2.Free;
-        delay(100);
-      end;
-      if keypressed then c := readkey;
-    until c = #27;
-    Socket1.CloseSocket;
-    Socket1.Free;
-    writeln(MSG07);
-    quit(0, false, '');
-  end else quit(1, false, ERR02);
+  writeln;
+  // check port number
+  if not ((strtointdef(port, -1) >= 0) and (strtointdef(port, -1) <= 65535))
+    then quit(1, false, ERR01 + ERR02);
+  // PRIMARY MISSION
+  gotoxy(1, wherey); clreol;
+  writeln(MSG03 + port);
+  Socket1 := TTCPBlockSocket.Create;
+  Socket1.Bind('0.0.0.0', port);
+  if Socket1.LastError <> 0 then quit(2, false, ERR01 + Socket1.LastErrorDesc);
+  Socket1.Listen;
+  writeln(MSG05);
+  repeat
+    if Socket1.CanRead(100) then
+    begin
+      Socket2 := TTCPBlockSocket.Create;
+      Socket2.Socket := Socket1.Accept;
+      s := Socket2.RecvPacket(1000);
+      if length(s) > 0 then
+        if Socket1.LastError = 0 then
+        begin
+          Socket2.SendString(s);
+          writeln(MSG06 + '"' + s + '"');
+        end;
+      Socket2.CloseSocket;
+      Socket2.Free;
+      delay(100);
+    end;
+    if keypressed then c := readkey;
+  until c = #27;
+  Socket1.CloseSocket;
+  Socket1.Free;
+  writeln(MSG07);
+  quit(0, false, '');
 end.

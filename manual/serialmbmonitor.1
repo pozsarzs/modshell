@@ -34,6 +34,19 @@ Set parity type (e|n|o).
 .TP
 .B stopbit
 Set number of stopbits (1|2).
+.SH EXIT STATUS
+.TP
+.B 0
+Normal exit.
+.TP
+.B 1
+Bad command line parameter.
+.TP
+.B 2
+The serial port cannot be opened.
+.TP
+.B 3
+Serial port is locked.
 .SH HOMEPAGE
 .UR http://www.pozsarzs.hu
 .UE

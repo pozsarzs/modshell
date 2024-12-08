@@ -1,0 +1,92 @@
+#: serialechoserver:msg01
+msgid "[press space]"
+msgstr ""
+
+#: serialechoserver:msg02
+msgid "Serial Echo Server utility"
+msgstr ""
+
+#: serialechoserver:msg03
+msgid "device: "
+msgstr ""
+
+#: serialechoserver:msg04
+msgid "Press [ESC] to exit."
+msgstr ""
+
+#: serialechoserver:msg05
+msgid "Server running..."
+msgstr ""
+
+#: serialechoserver:msg06
+msgid "message: "
+msgstr ""
+
+#: serialechoserver:msg07
+msgid "baudrate: "
+msgstr ""
+
+#: serialechoserver:msg08
+msgid "databit(s): "
+msgstr ""
+
+#: serialechoserver:msg09
+msgid "parity: "
+msgstr ""
+
+#: serialechoserver:msg10
+msgid "stopbit(s): "
+msgstr ""
+
+#: serialechoserver:msg94
+msgid "Build date:  "
+msgstr ""
+
+#: serialechoserver:msg95
+msgid "Builder:     "
+msgstr ""
+
+#: serialechoserver:msg96
+msgid "FPC version: "
+msgstr ""
+
+#: serialechoserver:msg97
+msgid "Target OS:   "
+msgstr ""
+
+#: serialechoserver:msg98
+msgid "Target CPU:  "
+msgstr ""
+
+#: serialechoserver:err01
+msgid "ERROR: "
+msgstr ""
+
+#: serialechoserver:err02
+msgid "The baudrate value can only be one of the following: "
+msgstr ""
+
+#: serialechoserver:err03
+msgid "The databit(s) value must be 7 or 8."
+msgstr ""
+
+#: serialechoserver:err04
+msgid "The parity value can only be one of the following: "
+msgstr ""
+
+#: serialechoserver:err05
+msgid "The stopbit(s) value must be 1 or 2."
+msgstr ""
+
+#: serialechoserver:err06
+msgid "Cannot open this serial port: "
+msgstr ""
+
+#: serialechoserver:err43
+msgid "Cannot erase file!"
+msgstr ""
+
+#: serialechoserver:err49
+msgid "Locked device: "
+msgstr ""
+
