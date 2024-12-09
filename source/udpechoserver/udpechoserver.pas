@@ -48,7 +48,7 @@ const
 
 resourcestring
   // messages
-  MSG02 = 'TCP Echo Server utility';
+  MSG02 = 'UDP Echo Server utility';
   MSG03 = 'port: ';
   MSG04 = 'Press [ESC] to exit.';
   MSG05 = 'Server running...';

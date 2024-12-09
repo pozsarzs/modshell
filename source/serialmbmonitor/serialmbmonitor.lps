@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="serialmbmonitor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="165"/>
+        <CursorPos X="25" Y="185"/>
+        <UsageCount Value="61"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="1">
+      <Position>
+        <Filename Value="serialmbmonitor.pas"/>
+        <Caret Line="79" Column="57" TopLine="59"/>
+      </Position>
+      <Position>
+        <Filename Value="serialmbmonitor.pas"/>
+        <Caret Line="7" Column="3" TopLine="76"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -38,6 +38,10 @@ msgstr ""
 msgid "stopbit(s): "
 msgstr ""
 
+#: serialechoserver:msg11
+msgid "Server stopped."
+msgstr ""
+
 #: serialechoserver:msg94
 msgid "Build date:  "
 msgstr ""
@@ -80,6 +84,10 @@ msgstr ""
 
 #: serialechoserver:err06
 msgid "Cannot open this serial port: "
+msgstr ""
+
+#: serialechoserver:err07
+msgid "Cannot write this serial port: "
 msgstr ""
 
 #: serialechoserver:err43

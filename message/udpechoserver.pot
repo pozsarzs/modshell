@@ -1,5 +1,5 @@
 #: udpechoserver:msg02
-msgid "TCP Echo Server utility"
+msgid "UDP Echo Server utility"
 msgstr ""
 
 #: udpechoserver:msg03

@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pozsár Zsolt <pozsarzs@gmail.com>\n"
+"Language-Team: \n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: serialechoserver:msg01
+msgid "[press space]"
+msgstr "[nyomj szóközt]"
+
+#: serialechoserver:msg02
+msgid "Serial Echo Server utility"
+msgstr "Serial Echo Server segédprogram"
+
+#: serialechoserver:msg03
+msgid "device: "
+msgstr "eszköz: "
+
+#: serialechoserver:msg04
+msgid "Press [ESC] to exit."
+msgstr "Nyomj [ESC]-et a kilépéshez."
+
+#: serialechoserver:msg05
+msgid "Server running..."
+msgstr "A kiszolgáló fut..."
+
+#: serialechoserver:msg06
+msgid "message: "
+msgstr "üzenet: "
+
+#: serialechoserver:msg07
+msgid "baudrate: "
+msgstr "sebesség: "
+
+#: serialechoserver:msg08
+msgid "databit(s): "
+msgstr "adatbit(ek): "
+
+#: serialechoserver:msg09
+msgid "parity: "
+msgstr "paritás: "
+
+#: serialechoserver:msg10
+msgid "stopbit(s): "
+msgstr "stopbit(ek): "
+
+#: serialechoserver:msg94
+msgid "Build date:  "
+msgstr "Fordítás ideje: "
+
+#: serialechoserver:msg95
+msgid "Builder:     "
+msgstr "Fordító:        "
+
+#: serialechoserver:msg96
+msgid "FPC version: "
+msgstr "FPC verzió:     "
+
+#: serialechoserver:msg97
+msgid "Target OS:   "
+msgstr "Cél OS:         "
+
+#: serialechoserver:msg98
+msgid "Target CPU:  "
+msgstr "Cél CPU:        "
+
+#: serialechoserver:err01
+msgid "ERROR: "
+msgstr "HIBA: "
+
+#: serialechoserver:err02
+msgid "The baudrate value can only be one of the following: "
+msgstr "A sebesség értéke a következő lehet: "
+
+#: serialechoserver:err03
+msgid "The databit(s) value must be 7 or 8."
+msgstr "Az adatbitek száma 7 vagy 8 lehet."
+
+#: serialechoserver:err04
+msgid "The parity value can only be one of the following: "
+msgstr "A paritás a következő lehet: "
+
+#: serialechoserver:err05
+msgid "The stopbit(s) value must be 1 or 2."
+msgstr "A stopbitek száma 1 vagy 2 lehet."
+
+#: serialechoserver:err06
+msgid "Cannot open this serial port: "
+msgstr "Nem lehet inicializálni a soros portot: "
+
+#: serialechoserver:err07
+msgid "Cannot write this serial port: "
+msgstr "Nem lehet írni a soros portot: "
+
+#: serialechoserver:err43
+msgid "Cannot erase file!"
+msgstr "A fájl törlése nem sikerült!"
+
+#: serialechoserver:err49
+msgid "Locked device: "
+msgstr "Zárolt eszköz: "

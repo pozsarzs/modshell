@@ -108,7 +108,7 @@ _First user test release_ will be with the following changes:
  - [x] new command `udpcons`, `udpread`, `udpwrite`;  
  - [ ] new menu item in the main menu for quick execution of Modbus R/W commands;  
  - [x] new serial baudrates: 150, 300, 600 baud;
- - [ ] serial echo server utility for testing connectivity;  
+ - [x] serial echo server utility for testing connectivity;  
  - [ ] serial port monitor utility;
  - [x] support for variable and constant arrays;  
  - [x] syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows only) and Vim/Neovim;
