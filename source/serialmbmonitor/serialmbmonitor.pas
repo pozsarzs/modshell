@@ -30,7 +30,7 @@ var
   c: char;
   databit: string = '';
   device: string = '';
-  id: string = '';
+  deviceid: string = '';
   lang: string;
   parity: string = '';
   protocol: string = '';
@@ -74,7 +74,10 @@ resourcestring
   MSG10 = 'stopbit(s): ';
   MSG11 = 'protocol: ';
   MSG12 = 'device ID: ';
-  MSG13 = 'Monitor stopped.'
+  MSG13 = 'Monitor stopped.';
+  MSG14 = 'REQUEST  ';
+  MSG15 = 'RESPONSE ';
+  MSG16 = '';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -92,58 +95,55 @@ resourcestring
   ERR43 = 'Cannot erase file!';
   ERR49 = 'Locked device: ';
 
-// DECODE ASCII/RTU telegram
-
-//           ID FC ADDR COUN LCRC
-// REQUEST   08 01 00FF 0001 XXXX
-//           ID FC BT DATA LCRC
-// RESPONSE  08 01 02 0000 XXXX
-
-
-function decodetelegram(mode: boolean; id: string; telegram: string): string
+// DECODE TELEGRAM
+function decodetelegram(mbmode: boolean; mbid: string; mbtgm: string): string
+var
+  id, fc: byte;
+  reg, regcount: integer;
+  reqres: boolean;
 begin
   result := '';
   if mode then
   begin
     // Modbus/ASCII
-
     // parse request
-
-{ 
-    if length(tgm) >= 17 then
+    if length(mbtgm) >= 17 then
     begin
-      sot := tgm[1];
-      id := strtoint('$' + tgm[2] + tgm[3]);
-      function_code := strtoint('$' + tgm[4] + tgm[5]);
-      address := strtoint('$' + tgm[6] + tgm[7] + tgm[8] + tgm[9]);
-      count := strtoint('$' + tgm[10] + tgm[11] + tgm[12] + tgm[13]);
-      // check data
-      if sot <> #58 then error := $04;
-      if (address < 1) or (address > 9999) then error := $02;
-      if (count < 1) or (count > 125) then error := $03;
-      if (function_code = FUNCTION_CODES_ALL[4]) and (length(tgm) < 21) then error := $04;
-      if (function_code = FUNCTION_CODES_ALL[5]) and (length(tgm) < 23) then error := $04;
-      if (id < 1) or (id > 247) then error := 4;
-      valid := false;
-      for b:= 0 to 5 do
-        if function_code = FUNCTION_CODES_ALL[b] then valid := true;
-      if not valid then error := $01;
-    end else error := $04;
-}
+      sot := mbtgm[1];
+      id := strtoint('$' + mbtgm[2] + mbtgm[3]);
+      fc := strtoint('$' + mbtgm[4] + mbtgm[5]);
+      reg := strtoint('$' + mbtgm[6] + mbtgm[7] + mbtgm[8] + mbtgm[9]);
+      regcount := strtoint('$' + mbtgm[10] + mbtgm[11] + mbtgm[12] + mbtgm[13]);
 
+
+
+
+
+
+    end;
     // parse response
-    
-
+    // ...
   end else
   begin
     // Modbus/RTU
     // parse request
+    if length(mbtgm) >= 8 then
+    begin
+      id := ord(mbtgm[1]);
+      fc := ord(mbtgm[2]);
+      reg := ord(mbtgm[3]) * 256 + ord(mbtgm[4]) ;
+      regcount := ord(mbtgm[5]) * 256 + ord(mbtgm[6]) ;
+    end;
     // parse response
+    // ...
   end;
+  // make result
+  if reqres then result := MSG14 else result := MSG15;
+
+  // MSG16 = '';
 
 
-
-
+  // result := result + 
 end;
 
 // SHOW USEABLE PARAMETERS
@@ -308,14 +308,14 @@ begin
     repeat
       c := readkey;
       if (ord(c) >= 48) and (ord(c) <= 57) and
-         (strtoint(port + c) <= 247) then port := port + c;
-      if (c = #8) and (length(port) > 0) then delete(port,length(port), 1);
+         (strtoint(deviceid + c) <= 247) then deviceid := deviceid + c;
+      if (c = #8) and (length(port) > 0) then delete(deviceid,length(port), 1);
       gotoxy(1, wherey); clreol;
       write(MSG03 + port);
     until ((length(protocol) > 0) and (c = #13)) or (c = #27);
     writeln;
     if c = #27 then halt(0);
-  end else id := paramstr(6);
+  end else deviceid := paramstr(6);
   writeln;
   // check baudrate
   valid := false;
@@ -373,12 +373,16 @@ begin
     quit(2, false, ERR01 + ERR08 + device);
   end;
   writeln(MSG05);
+  writeln;
+  // write header to console
+  writeln(MSG16);
   repeat
     if keypressed then c := readkey else
     begin
       if ser.CanRead(0) then
       begin
         s := ser.RecvString(0);
+        // write telegram to console
         writeln(decodetelegram(protocol, id, s));
       end;    
       delay(100);
