@@ -1,0 +1,120 @@
+#: serialmbmonitor:msg01
+msgid "[press space]"
+msgstr ""
+
+#: serialmbmonitor:msg02
+msgid "Serial Modbus traffic monitor utility"
+msgstr ""
+
+#: serialmbmonitor:msg03
+msgid "device:      "
+msgstr ""
+
+#: serialmbmonitor:msg04
+msgid "Press [ESC] to exit."
+msgstr ""
+
+#: serialmbmonitor:msg05
+msgid "Monitor running..."
+msgstr ""
+
+#: serialmbmonitor:msg06
+msgid "message: "
+msgstr ""
+
+#: serialmbmonitor:msg07
+msgid "baudrate:    "
+msgstr ""
+
+#: serialmbmonitor:msg08
+msgid "databit(s):  "
+msgstr ""
+
+#: serialmbmonitor:msg09
+msgid "parity:      "
+msgstr ""
+
+#: serialmbmonitor:msg10
+msgid "stopbit(s):  "
+msgstr ""
+
+#: serialmbmonitor:msg11
+msgid "protocol: "
+msgstr ""
+
+#: serialmbmonitor:msg12
+msgid "device ID: "
+msgstr ""
+
+#: serialmbmonitor:msg13
+msgid "Monitor stopped."
+msgstr ""
+
+#: serialmbmonitor:msg14
+msgid "Serial port: "
+msgstr ""
+
+#: serialmbmonitor:msg15
+msgid "Protocol:    "
+msgstr ""
+
+#: serialmbmonitor:msg94
+msgid "Build date:  "
+msgstr ""
+
+#: serialmbmonitor:msg95
+msgid "Builder:     "
+msgstr ""
+
+#: serialmbmonitor:msg96
+msgid "FPC version: "
+msgstr ""
+
+#: serialmbmonitor:msg97
+msgid "Target OS:   "
+msgstr ""
+
+#: serialmbmonitor:msg98
+msgid "Target CPU:  "
+msgstr ""
+
+#: serialmbmonitor:err01
+msgid "ERROR: "
+msgstr ""
+
+#: serialmbmonitor:err02
+msgid "The baudrate value can only be one of the following: "
+msgstr ""
+
+#: serialmbmonitor:err03
+msgid "The databit(s) value must be 7 or 8."
+msgstr ""
+
+#: serialmbmonitor:err04
+msgid "The parity value can only be one of the following: "
+msgstr ""
+
+#: serialmbmonitor:err05
+msgid "The stopbit(s) value must be 1 or 2."
+msgstr ""
+
+#: serialmbmonitor:err06
+msgid "The protocol value can only be one of the following: "
+msgstr ""
+
+#: serialmbmonitor:err07
+msgid "The device ID value must be 1-247, (0 means all ID)."
+msgstr ""
+
+#: serialmbmonitor:err08
+msgid "Cannot open this serial port: "
+msgstr ""
+
+#: serialmbmonitor:err43
+msgid "Cannot erase file!"
+msgstr ""
+
+#: serialmbmonitor:err49
+msgid "Locked device: "
+msgstr ""
+

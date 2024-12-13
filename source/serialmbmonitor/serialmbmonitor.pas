@@ -13,20 +13,25 @@
   FOR A PARTICULAR PURPOSE.
 }
 
+{$DEFINE PROGTEST}
+
 {$IFDEF GO32V2}{$ERROR "Cannot compile on this system." }{$ENDIF}
 {$MODE OBJFPC}{$H+}{$MACRO ON}
 program serialmbmonitor;
 uses
   Synaser,
   SysUtils,
+  convert,
   crt,
   ucommon,
   utranslt;
 var
-  ser: TBlockSerial;
+  {$IFNDEF PROGTEST}
+    ser: TBlockSerial;
+  {$ENDIF}
   appmode: byte;
   baudrate: string = '';
-  b: byte;
+  b, bb: byte;
   c: char;
   databit: string = '';
   device: string = '';
@@ -48,9 +53,49 @@ const
   PRGCOPYRIGHT = '(C) 2024 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'SerialMBMonitor';
   PRGVERSION = '0.1';
-  DEV_SPEED: array[0..10] of string = ('150','300','600','1200','2400','4800','9600','19200','38400','57600','115200');
+  DEV_SPEED: array[0..10] of string = ('150', '300', '600', '1200', '2400', '4800', '9600', '19200', '38400', '57600', '115200');
   DEV_PARITY: array[0..2] of char = ('e','n','o');
-  PROT_TYPE: array[0..1] of char = ('ascii','rtu');
+  PROT_TYPE: array[0..1] of string = ('ascii','rtu');
+  EOL: string = #13 + #10;
+  {$IFDEF PROGTEST}
+    // TEST PDUs (FC + data)  
+    PDU_ASCII_REQUEST: array[0..5] of string =        ('0100FF0001',
+                                                       '0200FF0001',
+                                                       '0300FF0001',
+                                                       '0400FF0001',
+                                                       '0F00FF0010020000',
+                                                       '1000FF00010200000000');
+    PDU_ASCII_RESPONSE: array[0..5] of string =       ('01020000',
+                                                       '02020000',
+                                                       '03020000',
+                                                       '04020000',
+                                                       '0F00FF0010',
+                                                       '1000FF0001');
+    PDU_ASCII_ERROR_RESPONSE: array[0..5] of string = ('810101',
+                                                       '820102',
+                                                       '830103',
+                                                       '840104',
+                                                       '8F01F1',
+                                                       '9001F2');
+    PDU_RTU_REQUEST: array[0..5] of string =          ('0100FF0001',
+                                                       '0200FF0001',
+                                                       '0300FF0001',
+                                                       '0400FF0001',
+                                                       '0F00FF0010020000',
+                                                       '1000FF00010200000000');
+    PDU_RTU_RESPONSE: array[0..5] of string =         ('01020000',
+                                                       '02020000',
+                                                       '03020000',
+                                                       '04020000',
+                                                       '0F00FF0010',
+                                                       '1000FF0001');
+    PDU_RTU_ERROR_RESPONSE: array[0..5] of string =   ('810101',
+                                                       '820102',
+                                                       '830103',
+                                                       '840104',
+                                                       '8F01F1',
+                                                       '9001F2');                                                       
+  {$ENDIF}
 
 {$DEFINE BASENAME := lowercase(PRGNAME)}
 {$DEFINE SLASH := DirectorySeparator}
@@ -63,21 +108,20 @@ const
 resourcestring
   // messages
   MSG01 = '[press space]';
-  MSG02 = 'Serial Echo Server utility';
-  MSG03 = 'device: ';
+  MSG02 = 'Serial Modbus traffic monitor utility';
+  MSG03 = 'device:      ';
   MSG04 = 'Press [ESC] to exit.';
   MSG05 = 'Monitor running...';
   MSG06 = 'message: ';
-  MSG07 = 'baudrate: ';
-  MSG08 = 'databit(s): ';
-  MSG09 = 'parity: ';
-  MSG10 = 'stopbit(s): ';
+  MSG07 = 'baudrate:    ';
+  MSG08 = 'databit(s):  ';
+  MSG09 = 'parity:      ';
+  MSG10 = 'stopbit(s):  ';
   MSG11 = 'protocol: ';
   MSG12 = 'device ID: ';
   MSG13 = 'Monitor stopped.';
-  MSG14 = 'REQUEST  ';
-  MSG15 = 'RESPONSE ';
-  MSG16 = '';
+  MSG14 = 'Serial port: ';
+  MSG15 = 'Protocol:    ';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -96,55 +140,69 @@ resourcestring
   ERR49 = 'Locked device: ';
 
 // DECODE TELEGRAM
-function decodetelegram(mbmode: boolean; mbid: string; mbtgm: string): string
+function decodetelegram(protocol, filter, telegram: string): string;
 var
-  id, fc: byte;
-  reg, regcount: integer;
-  reqres: boolean;
+  data: string = '';
+  fc: string;
+  i: integer;
+  id: string;
 begin
-  result := '';
-  if mode then
+  if protocol = PROT_TYPE[0] then
   begin
-    // Modbus/ASCII
-    // parse request
-    if length(mbtgm) >= 17 then
-    begin
-      sot := mbtgm[1];
-      id := strtoint('$' + mbtgm[2] + mbtgm[3]);
-      fc := strtoint('$' + mbtgm[4] + mbtgm[5]);
-      reg := strtoint('$' + mbtgm[6] + mbtgm[7] + mbtgm[8] + mbtgm[9]);
-      regcount := strtoint('$' + mbtgm[10] + mbtgm[11] + mbtgm[12] + mbtgm[13]);
-
-
-
-
-
-
-    end;
-    // parse response
-    // ...
+    // ASCII
+    if telegram[1] = #58 then
+      if telegram[length(telegram) - 1] + telegram[length(telegram)] = EOL then
+      begin
+        id := inttostr(strtoint('$' + telegram[2] + telegram[3]));
+        if (filter = '0') or (filter = id) then
+        begin
+          fc := telegram[4] + telegram[5];
+          for i := 6 to length(telegram) - 4 do data := data + telegram[i];
+        end else data := '[...]';
+      end;
   end else
   begin
-    // Modbus/RTU
-    // parse request
-    if length(mbtgm) >= 8 then
-    begin
-      id := ord(mbtgm[1]);
-      fc := ord(mbtgm[2]);
-      reg := ord(mbtgm[3]) * 256 + ord(mbtgm[4]) ;
-      regcount := ord(mbtgm[5]) * 256 + ord(mbtgm[6]) ;
-    end;
-    // parse response
-    // ...
+    // RTU
   end;
-  // make result
-  if reqres then result := MSG14 else result := MSG15;
-
-  // MSG16 = '';
-
-
-  // result := result + 
+  // split data to bytes
+  // check LRC/CRC
+  result:= addsomezero(3, id) + ' ' + fc + ' ' + data;
 end;
+
+{$IFDEF PROGTEST}
+  // MAKE A TEST TELEGRAM
+  function testtelegram(protocol: string; id, number: byte; respreq: boolean): string;
+  var
+    error: byte;
+  begin
+    error := random(150);
+    if protocol = PROT_TYPE[0] then
+    begin
+      // ASCII:
+      //   PDU = FC + data  
+      //   ADU = SA + PDU + LRC(SA + PDU)  
+      //   TGM = 0x3A + ADU + 0x0D + 0x0A
+      if respreq
+        then result := uppercase(#58 + hex1(2, id) + PDU_ASCII_REQUEST[number] +
+                                 hex1(2, lrc(hex1(2, id) + PDU_ASCII_REQUEST[number])) +
+                                 EOL)
+        else
+          if error < 130
+            then result := uppercase(#58 + hex1(2, id) + PDU_ASCII_RESPONSE[number] +
+                                     hex1(2, lrc(hex1(2, id) + PDU_ASCII_RESPONSE[number])) +
+                                     EOL)
+            else result := uppercase(#58 + hex1(2, id) + PDU_ASCII_ERROR_RESPONSE[number] +
+                                     hex1(2, lrc(hex1(2, id) + PDU_ASCII_ERROR_RESPONSE[number])) +
+                                     EOL);
+    end else
+    begin
+      // RTU:
+      //   PDU = FC + data  
+      //   ADU = SA + PDU + CRC(SA + PDU)  
+      //   TGM = ADU
+    end;
+  end;
+{$ENDIF}
 
 // SHOW USEABLE PARAMETERS
 procedure help(mode: boolean);
@@ -173,10 +231,10 @@ end;
 {$I lockfile.pas}
 
 begin
-  // detect language
+  // DETECT LANGUAGE
   lang := getlang;
   translatemessages(LANG, BASENAME, '.mo');
-  // command line parameters
+  // GET OR SET AND CHECK PARAMETERS
   appmode := 0;
   { appmode #0: normal run
     appmode #1: show useable parameters
@@ -195,8 +253,7 @@ begin
   end;
   writeln(PRGNAME + ' v' + PRGVERSION + ' * ' + MSG02);
   writeln(PRGCOPYRIGHT);
-  writeln;
-  writeln(MSG04);
+
   // device
   if paramcount < 1 then
   begin
@@ -211,6 +268,7 @@ begin
     writeln;
     if c = #27 then halt(0);
   end else device := paramstr(1);
+
   // baudrate
   if paramcount < 2 then
   begin
@@ -229,7 +287,18 @@ begin
     writeln;
     if c = #27 then halt(0);
   end else baudrate := paramstr(2);
-  // number of databits
+  valid := false;
+  for b := 0 to 10 do
+    if baudrate = DEV_SPEED[b] then valid := true;
+  if not valid then
+  begin
+    writeln(ERR01 + ERR02);
+    for b := 0 to 10 do write(DEV_SPEED[b] + ' ');
+    writeln;
+    quit(1, false, '');
+  end;
+
+  // databits
   if paramcount < 3 then
   begin
     b := 8;
@@ -247,7 +316,10 @@ begin
     writeln;
     if c = #27 then halt(0);
   end else databit := paramstr(3);  
-  // parity type
+  if not ((strtointdef(databit, -1) >= 7) and (strtointdef(databit, -1) <= 8))
+    then quit(1, false, ERR01 + ERR03);
+
+  // parity
   if paramcount < 4 then
   begin
     b := 2;
@@ -264,8 +336,19 @@ begin
     until ((length(parity) > 0) and (c = #13)) or (c = #27);
     writeln;
     if c = #27 then halt(0);
-  end else parity := paramstr(4);
-  // number of stopbits
+  end else parity := lowercase(paramstr(4));
+  valid := false;
+  for b := 0 to 2 do
+    if parity = DEV_PARITY[b] then valid := true;
+  if not valid then
+  begin
+    write(ERR01 + ERR04);
+    for b := 0 to 2 do write(DEV_PARITY[b] + ' ');
+    writeln;
+    quit(1, false, '');
+  end;
+
+  // stopbits
   if paramcount < 5 then
   begin
     b := 2;
@@ -283,8 +366,11 @@ begin
     writeln;
     if c = #27 then halt(0);
   end else stopbit := paramstr(5);
-  // protocol type
-  if paramcount < 5 then
+  if not ((strtointdef(stopbit, -1) >= 1) and (strtointdef(stopbit, -1) <= 2))
+    then quit(1, false, ERR01 + ERR05);
+
+  // protocol
+  if paramcount < 6 then
   begin
     b := 2;
     write(MSG11 + MSG01);
@@ -300,57 +386,7 @@ begin
     until ((length(protocol) > 0) and (c = #13)) or (c = #27);
     writeln;
     if c = #27 then halt(0);
-  end else protocol := paramstr(6);
-  // device ID
-  if paramcount < 6 then
-  begin
-    write(MSG12 + '?');
-    repeat
-      c := readkey;
-      if (ord(c) >= 48) and (ord(c) <= 57) and
-         (strtoint(deviceid + c) <= 247) then deviceid := deviceid + c;
-      if (c = #8) and (length(port) > 0) then delete(deviceid,length(port), 1);
-      gotoxy(1, wherey); clreol;
-      write(MSG03 + port);
-    until ((length(protocol) > 0) and (c = #13)) or (c = #27);
-    writeln;
-    if c = #27 then halt(0);
-  end else deviceid := paramstr(6);
-  writeln;
-  // check baudrate
-  valid := false;
-  for b := 0 to 10 do
-    if baudrate = DEV_SPEED[b] then valid := true;
-  if not valid then
-  begin
-    writeln(ERR01 + ERR02);
-    for b := 0 to 10 do write(DEV_SPEED[b] + ' ');
-    writeln;
-    quit(1, false, '');
-  end;
-  // check number of databits
-  if not ((strtointdef(databit, -1) >= 7) and (strtointdef(databit, -1) <= 8))
-    then quit(1, false, ERR01 + ERR03);
-  // check parity
-  valid := false;
-  for b := 0 to 2 do
-    if parity = DEV_PARITY[b] then valid := true;
-  if not valid then
-  begin
-    write(ERR01 + ERR04);
-    for b := 0 to 2 do write(DEV_PARITY[b] + ' ');
-    writeln;
-    quit(1, false, '');
-  end;
-  // check number of stopbits
-  if not ((strtointdef(stopbit, -1) >= 1) and (strtointdef(stopbit, -1) <= 2))
-    then quit(1, false, ERR01 + ERR05);
-  {$IFDEF UNIX}
-    // check lockfile
-    if checklockfile('/dev/' + device, false)
-      then quit(3, false, ERR01 + ERR49 + device);
-  {$ENDIF}
-  // check protocol type
+  end else protocol := lowercase(paramstr(6));
   valid := false;
   for b := 0 to 1 do
     if protocol = PROT_TYPE[b] then valid := true;
@@ -361,34 +397,70 @@ begin
     writeln;
     quit(1, false, '');
   end;
-  // check device ID
-  if not ((strtointdef(stopbit, -1) >= 0) and (strtointdef(stopbit, -1) <= 247))
+
+  // device ID
+  if paramcount < 7 then
+  begin
+    write(MSG12 + '?');
+    repeat
+      c := readkey;
+      if (ord(c) >= 48) and (ord(c) <= 57) and
+         (strtoint(deviceid + c) <= 247) then deviceid := deviceid + c;
+      if (c = #8) and (length(deviceid) > 0) then delete(deviceid,length(deviceid), 1);
+      gotoxy(1, wherey); clreol;
+      write(MSG12 + deviceid);
+    until ((length(protocol) > 0) and (c = #13)) or (c = #27);
+    writeln;
+    if c = #27 then halt(0);
+  end else deviceid := paramstr(7);
+  if not ((strtointdef(deviceid, -1) >= 0) and (strtointdef(deviceid, -1) <= 247))
     then quit(1, false, ERR01 + ERR07);
-  // PRIMARY MISSION
-  ser := TBlockSerial.Create;
-  try
-    ser.Connect(device);
-    ser.Config(strtoint(baudrate), strtoint(databit), parity[1], strtoint(stopbit), false, false);
-  except
-    quit(2, false, ERR01 + ERR08 + device);
-  end;
-  writeln(MSG05);
+
   writeln;
-  // write header to console
-  writeln(MSG16);
+  writeln(MSG14 + device + ' ' + baudrate + ' ' + databit + uppercase(parity) + stopbit);
+  writeln(MSG15 +  uppercase(protocol) + ' #' + deviceid);
+  writeln;
+  writeln(MSG04);
+  {$IFDEF UNIX}
+    // check lockfile
+    if checklockfile('/dev/' + device, false)
+      then quit(3, false, ERR01 + ERR49 + device);
+  {$ENDIF}
+  // PRIMARY MISSION
+  {$IFNDEF PROGTEST}
+    ser := TBlockSerial.Create;
+    try
+      ser.Connect(device);
+      ser.Config(strtoint(baudrate), strtoint(databit), parity[1], strtoint(stopbit), false, false);
+    except
+      quit(2, false, ERR01 + ERR08 + device);
+    end;
+  {$ENDIF}
+  writeln(MSG05);
   repeat
     if keypressed then c := readkey else
     begin
-      if ser.CanRead(0) then
-      begin
-        s := ser.RecvString(0);
-        // write telegram to console
-        writeln(decodetelegram(protocol, id, s));
-      end;    
-      delay(100);
+      {$IFNDEF PROGTEST}
+        if ser.CanRead(0) then
+        begin
+          s := ser.RecvString(0);
+          writeln(decodetelegram(protocol, deviceid, s));
+        end;    
+        delay(100);
+      {$ELSE}
+        b := random(5);
+        bb := random(246) + 1;
+        // test request
+        writeln(decodetelegram(protocol, deviceid, testtelegram(protocol, bb, b, true)));
+        // test response
+        writeln(decodetelegram(protocol, deviceid, testtelegram(protocol, bb, b, false)));
+        delay(500);
+      {$ENDIF}
     end;
   until c = #27;
-  ser.Free;  
+  {$IFNDEF PROGTEST}
+    ser.Free;
+  {$ENDIF}
   writeln(MSG13);
   quit(0, false, '');
 end.

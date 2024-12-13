@@ -61,15 +61,16 @@ resourcestring
   // messages
   MSG01 = '[press space]';
   MSG02 = 'Serial Echo Server utility';
-  MSG03 = 'device: ';
+  MSG03 = 'device:      ';
   MSG04 = 'Press [ESC] to exit.';
   MSG05 = 'Server running...';
   MSG06 = 'message: ';
-  MSG07 = 'baudrate: ';
-  MSG08 = 'databit(s): ';
-  MSG09 = 'parity: ';
-  MSG10 = 'stopbit(s): ';
+  MSG07 = 'baudrate:    ';
+  MSG08 = 'databit(s):  ';
+  MSG09 = 'parity:      ';
+  MSG10 = 'stopbit(s):  ';
   MSG11 = 'Server stopped.';
+  MSG12 = 'Serial port: '
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -113,10 +114,10 @@ end;
 {$I lockfile.pas}
 
 begin
-  // detect language
+  // DETECT LANGUAGE
   lang := getlang;
   translatemessages(LANG, BASENAME, '.mo');
-  // command line parameters
+  // GET OR SET AND CHECK PARAMETERS
   appmode := 0;
   { appmode #0: normal run
     appmode #1: show useable parameters
@@ -135,8 +136,7 @@ begin
   end;
   writeln(PRGNAME + ' v' + PRGVERSION + ' * ' + MSG02);
   writeln(PRGCOPYRIGHT);
-  writeln;
-  writeln(MSG04);
+
   // device
   if paramcount < 1 then
   begin
@@ -151,6 +151,7 @@ begin
     writeln;
     if c = #27 then halt(0);
   end else device := paramstr(1);
+
   // baudrate
   if paramcount < 2 then
   begin
@@ -169,7 +170,18 @@ begin
     writeln;
     if c = #27 then halt(0);
   end else baudrate := paramstr(2);
-  // number of databits
+  valid := false;
+  for b := 0 to 10 do
+    if baudrate = DEV_SPEED[b] then valid := true;
+  if not valid then
+  begin
+    writeln(ERR01 + ERR02);
+    for b := 0 to 10 do write(DEV_SPEED[b] + ' ');
+    writeln;
+    quit(1, false, '');
+  end;
+
+  // databits
   if paramcount < 3 then
   begin
     b := 8;
@@ -187,7 +199,10 @@ begin
     writeln;
     if c = #27 then halt(0);
   end else databit := paramstr(3);  
-  // parity type
+  if not ((strtointdef(databit, -1) >= 7) and (strtointdef(databit, -1) <= 8))
+    then quit(1, false, ERR01 + ERR03);
+
+  // parity
   if paramcount < 4 then
   begin
     b := 2;
@@ -204,8 +219,19 @@ begin
     until ((length(parity) > 0) and (c = #13)) or (c = #27);
     writeln;
     if c = #27 then halt(0);
-  end else parity := paramstr(4);
-  // number of stopbits
+  end else parity := lowercase(paramstr(4));
+  valid := false;
+  for b := 0 to 2 do
+    if parity = DEV_PARITY[b] then valid := true;
+  if not valid then
+  begin
+    write(ERR01 + ERR04);
+    for b := 0 to 2 do write(DEV_PARITY[b] + ' ');
+    writeln;
+    quit(1, false, '');
+  end;
+
+  // stopbits
   if paramcount < 5 then
   begin
     b := 2;
@@ -223,35 +249,12 @@ begin
     writeln;
     if c = #27 then halt(0);
   end else stopbit := paramstr(5);
-  writeln;
-  // check baudrate
-  valid := false;
-  for b := 0 to 10 do
-    if baudrate = DEV_SPEED[b] then valid := true;
-  if not valid then
-  begin
-    writeln(ERR01 + ERR02);
-    for b := 0 to 10 do write(DEV_SPEED[b] + ' ');
-    writeln;
-    quit(1, false, '');
-  end;
-  // check number of databits
-  if not ((strtointdef(databit, -1) >= 7) and (strtointdef(databit, -1) <= 8))
-    then quit(1, false, ERR01 + ERR03);
-  // check parity
-  valid := false;
-  for b := 0 to 2 do
-    if parity = DEV_PARITY[b] then valid := true;
-  if not valid then
-  begin
-    write(ERR01 + ERR04);
-    for b := 0 to 2 do write(DEV_PARITY[b] + ' ');
-    writeln;
-    quit(1, false, '');
-  end;
-  // check number of stopbits
   if not ((strtointdef(stopbit, -1) >= 1) and (strtointdef(stopbit, -1) <= 2))
     then quit(1, false, ERR01 + ERR05);
+  writeln;
+  writeln(MSG12 + device + ' ' + baudrate + ' ' + databit + upcase(parity) + stopbit);
+  writeln;
+  writeln(MSG04);
   {$IFDEF UNIX}
     // check lockfile
     if checklockfile('/dev/' + device, false)
