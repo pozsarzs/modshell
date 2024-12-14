@@ -122,6 +122,10 @@ resourcestring
   MSG13 = 'Monitor stopped.';
   MSG14 = 'Serial port: ';
   MSG15 = 'Protocol:    ';
+  MSG16 = 'CS test  ';
+  MSG17 = '[ok]     ';
+  MSG18 = '[error]  ';
+  MSG19 = 'ID  FC  DATA';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -142,10 +146,13 @@ resourcestring
 // DECODE TELEGRAM
 function decodetelegram(protocol, filter, telegram: string): string;
 var
+  cs: word;
+  cs_ok: boolean;
   data: string = '';
   fc: string;
   i: integer;
   id: string;
+  show_cscheck: boolean = false;
 begin
   if protocol = PROT_TYPE[0] then
   begin
@@ -158,6 +165,9 @@ begin
         begin
           fc := telegram[4] + telegram[5];
           for i := 6 to length(telegram) - 4 do data := data + telegram[i];
+          cs := strtoint('$' + telegram[length(telegram) - 3] + telegram[length(telegram) - 2]);
+          cs_ok := checklrc(telegram[2] + telegram[3] + telegram[4] + telegram[5] + data, cs);
+          show_cscheck := true;
         end else data := '[...]';
       end;
   end else
@@ -165,8 +175,17 @@ begin
     // RTU
   end;
   // split data to bytes
-  // check LRC/CRC
-  result:= addsomezero(3, id) + ' ' + fc + ' ' + data;
+  b := 1;
+  s := '';
+  repeat
+    s := s + data[b] + data[b + 1] + #32;
+    b := b + 2;
+  until b >= length(data);
+  data := s;
+  result:= addsomezero(3, id) + '  ' + fc + '  ' + data;
+  // show result of the checksum check
+  if show_cscheck then
+    if cs_ok then result := MSG17 + result else result := MSG18 + result;
 end;
 
 {$IFDEF PROGTEST}
@@ -437,6 +456,8 @@ begin
     end;
   {$ENDIF}
   writeln(MSG05);
+  writeln;
+  writeln(MSG16 + MSG19);
   repeat
     if keypressed then c := readkey else
     begin

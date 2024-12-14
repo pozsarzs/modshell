@@ -58,6 +58,22 @@ msgstr ""
 msgid "Protocol:    "
 msgstr ""
 
+#: serialmbmonitor:msg16
+msgid "CS test  "
+msgstr ""
+
+#: serialmbmonitor:msg17
+msgid "[ok]     "
+msgstr ""
+
+#: serialmbmonitor:msg18
+msgid "[error]  "
+msgstr ""
+
+#: serialmbmonitor:msg19
+msgid "ID  FC  DATA"
+msgstr ""
+
 #: serialmbmonitor:msg94
 msgid "Build date:  "
 msgstr ""
