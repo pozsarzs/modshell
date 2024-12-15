@@ -31,7 +31,7 @@ var
   {$ENDIF}
   appmode: byte;
   baudrate: string = '';
-  b, bb: byte;
+  b, x, y: byte;
   c: char;
   databit: string = '';
   device: string = '';
@@ -58,43 +58,25 @@ const
   PROT_TYPE: array[0..1] of string = ('ascii','rtu');
   EOL: string = #13 + #10;
   {$IFDEF PROGTEST}
-    // TEST PDUs (FC + data)  
-    PDU_ASCII_REQUEST: array[0..5] of string =        ('0100FF0001',
-                                                       '0200FF0001',
-                                                       '0300FF0001',
-                                                       '0400FF0001',
-                                                       '0F00FF0010020000',
-                                                       '1000FF00010200000000');
-    PDU_ASCII_RESPONSE: array[0..5] of string =       ('01020000',
-                                                       '02020000',
-                                                       '03020000',
-                                                       '04020000',
-                                                       '0F00FF0010',
-                                                       '1000FF0001');
-    PDU_ASCII_ERROR_RESPONSE: array[0..5] of string = ('810101',
-                                                       '820102',
-                                                       '830103',
-                                                       '840104',
-                                                       '8F01F1',
-                                                       '9001F2');
-    PDU_RTU_REQUEST: array[0..5] of string =          ('0100FF0001',
-                                                       '0200FF0001',
-                                                       '0300FF0001',
-                                                       '0400FF0001',
-                                                       '0F00FF0010020000',
-                                                       '1000FF00010200000000');
-    PDU_RTU_RESPONSE: array[0..5] of string =         ('01020000',
-                                                       '02020000',
-                                                       '03020000',
-                                                       '04020000',
-                                                       '0F00FF0010',
-                                                       '1000FF0001');
-    PDU_RTU_ERROR_RESPONSE: array[0..5] of string =   ('810101',
-                                                       '820102',
-                                                       '830103',
-                                                       '840104',
-                                                       '8F01F1',
-                                                       '9001F2');                                                       
+    // TEST PDUs as string
+    PDU_REQUEST: array[0..5] of string =        ('0100FF0001',
+                                                 '0200FF0001',
+                                                 '0300FF0001',
+                                                 '0400FF0001',
+                                                 '0F00FF0010020000',
+                                                 '1000FF00010200000000');
+    PDU_RESPONSE: array[0..5] of string =       ('01020000',
+                                                 '02020000',
+                                                 '03020000',
+                                                 '04020000',
+                                                 '0F00FF0010',
+                                                 '1000FF0001');
+    PDU_ERROR_RESPONSE: array[0..5] of string = ('810101',
+                                                 '820102',
+                                                 '830103',
+                                                 '840104',
+                                                 '8F01F1',
+                                                 '9001F2');
   {$ENDIF}
 
 {$DEFINE BASENAME := lowercase(PRGNAME)}
@@ -125,7 +107,7 @@ resourcestring
   MSG16 = 'CS test  ';
   MSG17 = '[ok]     ';
   MSG18 = '[error]  ';
-  MSG19 = 'ID  FC  DATA';
+  MSG19 = 'ID   FC  DATA';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -140,6 +122,7 @@ resourcestring
   ERR06 = 'The protocol value can only be one of the following: ';
   ERR07 = 'The device ID value must be 1-247, (0 means all ID).';
   ERR08 = 'Cannot open this serial port: ';
+  ERR09 = 'Telegram parsing error.';
   ERR43 = 'Cannot erase file!';
   ERR49 = 'Locked device: ';
 
@@ -173,6 +156,25 @@ begin
   end else
   begin
     // RTU
+    id := inttostr(ord(telegram[1]));
+
+{ 
+        if (filter = '0') or (filter = id) then
+        begin
+          fc := ord(telegram[2]);
+          for i := 6 to length(telegram) - 4 do data := data + telegram[i];
+          cs := strtoint('$' + telegram[length(telegram) - 3] + telegram[length(telegram) - 2]);
+          cs_ok := checklrc(telegram[2] + telegram[3] + telegram[4] + telegram[5] + data, cs);
+          show_cscheck := true;
+        end else data := '[...]';
+}
+
+
+
+
+
+
+ 
   end;
   // split data to bytes
   b := 1;
@@ -180,7 +182,7 @@ begin
   repeat
     s := s + data[b] + data[b + 1] + #32;
     b := b + 2;
-  until b >= length(data);
+  until b >= length(data) + 1;
   data := s;
   result:= addsomezero(3, id) + '  ' + fc + '  ' + data;
   // show result of the checksum check
@@ -193,6 +195,20 @@ end;
   function testtelegram(protocol: string; id, number: byte; respreq: boolean): string;
   var
     error: byte;
+
+  // CONVERT ASCII PDU TO RTU PDU
+  function converta2r(a: string): string;
+  var
+    b: byte;
+  begin
+    b := 1;
+    result := '';
+    repeat
+      result := result + char(strtoint('$' + a[b] + a[b + 1]));
+      b := b + 2;
+    until b >= length(a) + 1;
+  end;
+    
   begin
     error := random(150);
     if protocol = PROT_TYPE[0] then
@@ -202,16 +218,16 @@ end;
       //   ADU = SA + PDU + LRC(SA + PDU)  
       //   TGM = 0x3A + ADU + 0x0D + 0x0A
       if respreq
-        then result := uppercase(#58 + hex1(2, id) + PDU_ASCII_REQUEST[number] +
-                                 hex1(2, lrc(hex1(2, id) + PDU_ASCII_REQUEST[number])) +
+        then result := uppercase(#58 + hex1(2, id) + PDU_REQUEST[number] +
+                                 hex1(2, lrc(hex1(2, id) + PDU_REQUEST[number])) +
                                  EOL)
         else
           if error < 130
-            then result := uppercase(#58 + hex1(2, id) + PDU_ASCII_RESPONSE[number] +
-                                     hex1(2, lrc(hex1(2, id) + PDU_ASCII_RESPONSE[number])) +
+            then result := uppercase(#58 + hex1(2, id) + PDU_RESPONSE[number] +
+                                     hex1(2, lrc(hex1(2, id) + PDU_RESPONSE[number])) +
                                      EOL)
-            else result := uppercase(#58 + hex1(2, id) + PDU_ASCII_ERROR_RESPONSE[number] +
-                                     hex1(2, lrc(hex1(2, id) + PDU_ASCII_ERROR_RESPONSE[number])) +
+            else result := uppercase(#58 + hex1(2, id) + PDU_ERROR_RESPONSE[number] +
+                                     hex1(2, lrc(hex1(2, id) + PDU_ERROR_RESPONSE[number])) +
                                      EOL);
     end else
     begin
@@ -219,6 +235,18 @@ end;
       //   PDU = FC + data  
       //   ADU = SA + PDU + CRC(SA + PDU)  
       //   TGM = ADU
+      if respreq
+        then result := char(id) + converta2r(PDU_REQUEST[number]) +
+                       char(lo(crc16(char(id) + PDU_REQUEST[number]))) +
+                       char(hi(crc16(char(id) + PDU_REQUEST[number])))
+        else
+          if error < 130
+            then result := char(id) + converta2r(PDU_RESPONSE[number]) +
+                           char(lo(crc16(char(id) + PDU_RESPONSE[number]))) +
+                           char(hi(crc16(char(id) + PDU_RESPONSE[number])))
+            else result := char(id) + converta2r(PDU_ERROR_RESPONSE[number]) +
+                           char(lo(crc16(char(id) + PDU_ERROR_RESPONSE[number]))) +
+                           char(hi(crc16(char(id) + PDU_ERROR_RESPONSE[number])));
     end;
   end;
 {$ENDIF}
@@ -250,6 +278,7 @@ end;
 {$I lockfile.pas}
 
 begin
+  randomize;
   // DETECT LANGUAGE
   lang := getlang;
   translatemessages(LANG, BASENAME, '.mo');
@@ -469,12 +498,16 @@ begin
         end;    
         delay(100);
       {$ELSE}
-        b := random(5);
-        bb := random(246) + 1;
-        // test request
-        writeln(decodetelegram(protocol, deviceid, testtelegram(protocol, bb, b, true)));
-        // test response
-        writeln(decodetelegram(protocol, deviceid, testtelegram(protocol, bb, b, false)));
+        x := random(5);
+        y := random(246) + 1;
+        try
+          // test request
+          writeln(decodetelegram(protocol, deviceid, testtelegram(protocol, y, x, true)));
+          // test response
+          writeln(decodetelegram(protocol, deviceid, testtelegram(protocol, y, x, false)));
+        except
+          writeln(ERR01 + ERR09);
+        end;
         delay(500);
       {$ENDIF}
     end;

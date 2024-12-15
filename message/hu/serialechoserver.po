@@ -21,8 +21,8 @@ msgid "Serial Echo Server utility"
 msgstr "Serial Echo Server segédprogram"
 
 #: serialechoserver:msg03
-msgid "device: "
-msgstr "eszköz: "
+msgid "device:      "
+msgstr "eszköz:      "
 
 #: serialechoserver:msg04
 msgid "Press [ESC] to exit."
@@ -37,20 +37,28 @@ msgid "message: "
 msgstr "üzenet: "
 
 #: serialechoserver:msg07
-msgid "baudrate: "
-msgstr "sebesség: "
+msgid "baudrate:    "
+msgstr "sebesség:    "
 
 #: serialechoserver:msg08
-msgid "databit(s): "
+msgid "databit(s):  "
 msgstr "adatbit(ek): "
 
 #: serialechoserver:msg09
-msgid "parity: "
-msgstr "paritás: "
+msgid "parity:      "
+msgstr "paritás:     "
 
 #: serialechoserver:msg10
-msgid "stopbit(s): "
+msgid "stopbit(s):  "
 msgstr "stopbit(ek): "
+
+#: serialechoserver:msg11
+msgid "Server stopped."
+msgstr "A kiszolgáló leállt."
+
+#: serialechoserver:msg12
+msgid "Serial port: "
+msgstr "Soros port:  "
 
 #: serialechoserver:msg94
 msgid "Build date:  "

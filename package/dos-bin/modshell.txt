@@ -277,6 +277,11 @@ BUILTIN COMMANDS
        mbgw con? con?
               Start internal Modbus slave/server for remote access own registers.
 
+       mbmon [dev?]
+              Opens  a  simple  serial  monitor for decode Modbus/ASCII or RTU telegrams.
+              The decoded traffic is saved to  the  project  directory  named  mbmon.log.
+              Number of device (dev?) must be between 0-7.
+
        mbsrv con?
               Start  internal  Modbus  gateway for access other remote device's registers
               with different communication and/or protocol.
@@ -1049,7 +1054,10 @@ FILES
               tem or in the settings folder of the program on DOS.
 
        console.log
-              Serial console traffic.
+              Traffic log of the serial console.
+
+       mbmon.log
+              Decoded Modbus telegrams from serial modbus monitor.
 
        scriptfiles[.bat]
               The script file is used for batch execution of ModShell commands. The  com‐
@@ -1203,8 +1211,9 @@ HOMEPAGE
        ⟨https://github.com/pozsarzs/modshell⟩
 
 SEE ALSO
-       xmodshell(1) tcpechoserver(1) udpechoserver(1)
-       and files in document or /usr/share/doc/modshell/ folder (or  equivalent  on  your
+       xmodshell(1)   serialmbmonitor(1)   serialechoserver(1)   tcpechoserver(1)   udpe‐
+       choserver(1)
+       and  files  in  document or /usr/share/doc/modshell/ folder (or equivalent on your
        system).
 AUTHOR
        Pozsar Zsolt ⟨pozsarzs@gmail.com⟩

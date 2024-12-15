@@ -71,7 +71,7 @@ msgid "[error]  "
 msgstr ""
 
 #: serialmbmonitor:msg19
-msgid "ID  FC  DATA"
+msgid "ID   FC  DATA"
 msgstr ""
 
 #: serialmbmonitor:msg94
@@ -124,6 +124,10 @@ msgstr ""
 
 #: serialmbmonitor:err08
 msgid "Cannot open this serial port: "
+msgstr ""
+
+#: serialmbmonitor:err09
+msgid "Telegram parsing error."
 msgstr ""
 
 #: serialmbmonitor:err43

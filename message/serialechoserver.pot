@@ -7,7 +7,7 @@ msgid "Serial Echo Server utility"
 msgstr ""
 
 #: serialechoserver:msg03
-msgid "device: "
+msgid "device:      "
 msgstr ""
 
 #: serialechoserver:msg04
@@ -23,23 +23,27 @@ msgid "message: "
 msgstr ""
 
 #: serialechoserver:msg07
-msgid "baudrate: "
+msgid "baudrate:    "
 msgstr ""
 
 #: serialechoserver:msg08
-msgid "databit(s): "
+msgid "databit(s):  "
 msgstr ""
 
 #: serialechoserver:msg09
-msgid "parity: "
+msgid "parity:      "
 msgstr ""
 
 #: serialechoserver:msg10
-msgid "stopbit(s): "
+msgid "stopbit(s):  "
 msgstr ""
 
 #: serialechoserver:msg11
 msgid "Server stopped."
+msgstr ""
+
+#: serialechoserver:msg12
+msgid "Serial port: "
 msgstr ""
 
 #: serialechoserver:msg94

@@ -70,7 +70,7 @@ resourcestring
   MSG09 = 'parity:      ';
   MSG10 = 'stopbit(s):  ';
   MSG11 = 'Server stopped.';
-  MSG12 = 'Serial port: '
+  MSG12 = 'Serial port: ';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
