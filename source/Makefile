@@ -13,7 +13,6 @@ sourcedir=_lib/$(architecture)-$(os)
 podir=_po
 targetdir=$(bindir)
 filemode=$(binmode)
-#projectdirs=serialmbmonitor
 projectdirs=modshell serialechoserver serialmbmonitor tcpechoserver udpechoserver xmodshell
 
 all:

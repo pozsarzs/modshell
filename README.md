@@ -87,7 +87,7 @@ HART protocols.
 
 _v0.1-beta1:_  
 _First user test release_ will be with the following changes:  
- - [ ] ANSI escape sequences support (only DOS and *nix like systems);
+ - [x] ANSI escape sequences support (only DOS and *nix like systems);
  - [x] command `color` -> `set color`, sets all default colors (CLI and TUI);  
  - [x] command `echo` -> `echometh`, parameters: off|on|hex|swap -> off|an|hex|swap;
  - [ ] commands `sercons`, `tcpcons`, `udpcons`: character-to-character or string sending, with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;  
@@ -109,7 +109,7 @@ _First user test release_ will be with the following changes:
  - [ ] new menu item in the main menu for quick execution of Modbus R/W commands;  
  - [x] new serial baudrates: 150, 300, 600 baud;
  - [x] serial echo server utility for testing connectivity;  
- - [ ] serial port monitor utility;
+ - [x] serial ModBus traffic monitor utility;
  - [x] support for variable and constant arrays;  
  - [x] syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows only) and Vim/Neovim;
  - [x] TCP and UPD echo server utilities for testing connectivity.  

@@ -92,7 +92,7 @@ resourcestring
   MSG01 = '[press space]';
   MSG02 = 'Serial Modbus traffic monitor utility';
   MSG03 = 'device:      ';
-  MSG04 = 'Press [ESC] to exit.';
+  MSG04 = 'Press [SPACE] to pause or [ESC] to exit.';
   MSG05 = 'Monitor running...';
   MSG06 = 'message: ';
   MSG07 = 'baudrate:    ';
@@ -104,10 +104,11 @@ resourcestring
   MSG13 = 'Monitor stopped.';
   MSG14 = 'Serial port: ';
   MSG15 = 'Protocol:    ';
-  MSG16 = 'CS test  ';
-  MSG17 = '[ok]     ';
-  MSG18 = '[error]  ';
+  MSG16 = 'RC  ';
+  MSG17 = '[+]  ';
+  MSG18 = '[-]  ';
   MSG19 = 'ID   FC  DATA';
+  MSG20 = 'Monitor paused.';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
@@ -130,7 +131,7 @@ resourcestring
 function decodetelegram(protocol, filter, telegram: string): string;
 var
   cs: word;
-  cs_ok: boolean;
+  cs_ok: boolean = false;
   data: string = '';
   fc: string;
   i: integer;
@@ -149,6 +150,7 @@ begin
           fc := telegram[4] + telegram[5];
           for i := 6 to length(telegram) - 4 do data := data + telegram[i];
           cs := strtoint('$' + telegram[length(telegram) - 3] + telegram[length(telegram) - 2]);
+          // checksum test
           cs_ok := checklrc(telegram[2] + telegram[3] + telegram[4] + telegram[5] + data, cs);
           show_cscheck := true;
         end else data := '[...]';
@@ -157,24 +159,17 @@ begin
   begin
     // RTU
     id := inttostr(ord(telegram[1]));
-
-{ 
-        if (filter = '0') or (filter = id) then
-        begin
-          fc := ord(telegram[2]);
-          for i := 6 to length(telegram) - 4 do data := data + telegram[i];
-          cs := strtoint('$' + telegram[length(telegram) - 3] + telegram[length(telegram) - 2]);
-          cs_ok := checklrc(telegram[2] + telegram[3] + telegram[4] + telegram[5] + data, cs);
-          show_cscheck := true;
-        end else data := '[...]';
-}
-
-
-
-
-
-
- 
+    if (filter = '0') or (filter = id) then
+    begin
+      fc := addsomezero(2, deztohex(inttostr(ord(telegram[2]))));
+      for i := 3 to length(telegram) - 2 do data := data + addsomezero(2, deztohex(inttostr(ord(telegram[i]))));
+      cs := ord(telegram[length(telegram) - 1]) + ord(telegram[length(telegram)]) * 256;
+      // checksum test
+      s := telegram;
+      delete(s, length(telegram) - 1, 2);
+      cs_ok := checkcrc16(s, cs);
+      show_cscheck := true;
+    end else data := '[...]';
   end;
   // split data to bytes
   b := 1;
@@ -206,7 +201,7 @@ end;
     repeat
       result := result + char(strtoint('$' + a[b] + a[b + 1]));
       b := b + 2;
-    until b >= length(a) + 1;
+    until b >= (length(a) + 1);
   end;
     
   begin
@@ -237,16 +232,16 @@ end;
       //   TGM = ADU
       if respreq
         then result := char(id) + converta2r(PDU_REQUEST[number]) +
-                       char(lo(crc16(char(id) + PDU_REQUEST[number]))) +
-                       char(hi(crc16(char(id) + PDU_REQUEST[number])))
+                       char(lo(crc16(char(id) + converta2r(PDU_REQUEST[number])))) +
+                       char(hi(crc16(char(id) + converta2r(PDU_REQUEST[number]))))
         else
           if error < 130
             then result := char(id) + converta2r(PDU_RESPONSE[number]) +
-                           char(lo(crc16(char(id) + PDU_RESPONSE[number]))) +
-                           char(hi(crc16(char(id) + PDU_RESPONSE[number])))
+                           char(lo(crc16(char(id) + converta2r(PDU_RESPONSE[number])))) +
+                           char(hi(crc16(char(id) + converta2r(PDU_RESPONSE[number]))))
             else result := char(id) + converta2r(PDU_ERROR_RESPONSE[number]) +
-                           char(lo(crc16(char(id) + PDU_ERROR_RESPONSE[number]))) +
-                           char(hi(crc16(char(id) + PDU_ERROR_RESPONSE[number])));
+                           char(lo(crc16(char(id) + converta2r(PDU_ERROR_RESPONSE[number])))) +
+                           char(hi(crc16(char(id) + converta2r(PDU_ERROR_RESPONSE[number]))));
     end;
   end;
 {$ENDIF}
@@ -486,7 +481,10 @@ begin
   {$ENDIF}
   writeln(MSG05);
   writeln;
+  // write header
+  if protocol = PROT_TYPE[0] then write('L') else write('C');
   writeln(MSG16 + MSG19);
+  // write traffic
   repeat
     if keypressed then c := readkey else
     begin
@@ -511,10 +509,17 @@ begin
         delay(500);
       {$ENDIF}
     end;
+    // pause
+    if c = #32 then
+    begin
+      write(MSG20);
+      c := readkey;
+      gotoxy(1,wherey); clreol;
+    end;
   until c = #27;
   {$IFNDEF PROGTEST}
     ser.Free;
   {$ENDIF}
-  writeln(MSG13);
+  writeln(EOL + MSG13);
   quit(0, false, '');
 end.

@@ -359,8 +359,9 @@ procedure version(h: boolean); forward;
 {$I cmd_logc.pas}
 {$I cmd_lreg.pas}
 {$I cmd_lscr.pas}
-{$I cmd_mcro.pas}
 {$I cmd_math.pas}
+{$I cmd_mcro.pas}
+{$I cmd_mbmn.pas}
 {$I cmd_paus.pas}
 {$I cmd_pclr.pas}
 {$I cmd_prnt.pas}

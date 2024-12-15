@@ -18,15 +18,15 @@ msgstr "[nyomj szóközt]"
 
 #: serialmbmonitor:msg02
 msgid "Serial Modbus traffic monitor utility"
-msgstr ""
+msgstr "Soros Modbus forgalom monitor segédprogram"
 
 #: serialmbmonitor:msg03
 msgid "device:      "
 msgstr "eszköz:      "
 
 #: serialmbmonitor:msg04
-msgid "Press [ESC] to exit."
-msgstr "Nyomj [ESC]-et a kilépéshez."
+msgid "Press [SPACE] to pause or [ESC] to exit."
+msgstr "Nyomj [SPACE]-t a szünethez vagy [ESC]-et a kilépéshez."
 
 #: serialmbmonitor:msg05
 msgid "Monitor running..."
@@ -73,20 +73,24 @@ msgid "Protocol:    "
 msgstr "Protokoll:   "
 
 #: serialmbmonitor:msg16
-msgid "CS test  "
-msgstr "CS teszt "
+msgid "RC  "
+msgstr "RC  "
 
 #: serialmbmonitor:msg17
-msgid "[ok]     "
-msgstr "[ok]     "
+msgid "[+]  "
+msgstr "[+]  "
 
 #: serialmbmonitor:msg18
-msgid "[error]  "
-msgstr "[hiba]   "
+msgid "[-]  "
+msgstr "[-]  "
 
 #: serialmbmonitor:msg19
 msgid "ID   FC  DATA"
 msgstr "ID   FC  ADAT"
+
+#: serialmbmonitor:msg20
+msgid "Monitor paused."
+msgstr "Monitor megállítva."
 
 #: serialmbmonitor:msg94
 msgid "Build date:  "
@@ -134,7 +138,7 @@ msgstr "A protokoll a következő lehet: "
 
 #: serialmbmonitor:err07
 msgid "The device ID value must be 1-247, (0 means all ID)."
-msgstr ""
+msgstr "Az eszköz ID értéke 1-247 lehet, (a 0 az összes ID-t jelenti)."
 
 #: serialmbmonitor:err08
 msgid "Cannot open this serial port: "
@@ -151,3 +155,12 @@ msgstr "A fájl törlése nem sikerült!"
 #: serialmbmonitor:err49
 msgid "Locked device: "
 msgstr "Zárolt eszköz: "
+
+#~ msgid "CS test  "
+#~ msgstr "CS teszt "
+
+#~ msgid "[ok]     "
+#~ msgstr "[ok]     "
+
+#~ msgid "[error]  "
+#~ msgstr "[hiba]   "

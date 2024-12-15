@@ -11,7 +11,7 @@ msgid "device:      "
 msgstr ""
 
 #: serialmbmonitor:msg04
-msgid "Press [ESC] to exit."
+msgid "Press [SPACE] to pause or [ESC] to exit."
 msgstr ""
 
 #: serialmbmonitor:msg05
@@ -59,19 +59,23 @@ msgid "Protocol:    "
 msgstr ""
 
 #: serialmbmonitor:msg16
-msgid "CS test  "
+msgid "RC  "
 msgstr ""
 
 #: serialmbmonitor:msg17
-msgid "[ok]     "
+msgid "[+]  "
 msgstr ""
 
 #: serialmbmonitor:msg18
-msgid "[error]  "
+msgid "[-]  "
 msgstr ""
 
 #: serialmbmonitor:msg19
 msgid "ID   FC  DATA"
+msgstr ""
+
+#: serialmbmonitor:msg20
+msgid "Monitor paused."
 msgstr ""
 
 #: serialmbmonitor:msg94

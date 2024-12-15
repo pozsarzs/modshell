@@ -23,7 +23,7 @@ modshell (0.1-beta1) unstable; urgency=low
 * new menu item in the main menu for quick execution of Modbus R/W commands;
 * new serial baudrates: 150, 300, 600 baud;
 * serial echo server utility for testing connectivity;
-* serial port monitor utility;
+* serial ModBus traffic  monitor utility;
 * support for variable and constant arrays;
 * syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows only) and Vim/Neovim;
 * TCP and UPD echo server utilities for testing connectivity.
