@@ -115,12 +115,25 @@ resourcestring
   MSG88 = 'Use ''Utilities/Mini TCP console'' on GUI version.';
   MSG89 = 'Input method: ';
   MSG90 = 'Send method: ';
+  MSG91 = 'Monitor running...';
+  MSG92 = 'Monitor paused.';
+  MSG93 = 'Monitor stopped.';
   MSG94 = 'Build date:  ';
   MSG95 = 'Builder:     ';
   MSG96 = 'FPC version: ';
   MSG97 = 'Target OS:   ';
   MSG98 = 'Target CPU:  ';
   MSG99 = 'Sorry, this feature is not yet implemented.';
+  MSG100 = '[press space]';
+  MSG101 = 'Press [SPACE] to pause or [ESC] to exit.';
+  MSG102 = 'Serial port: ';
+  MSG103 = 'Protocol:    ';
+  MSG104 = 'RC  ';
+  MSG105 = '[+]  ';
+  MSG106 = '[-]  ';
+  MSG107 = 'ID   FC  DATA';
+
+  
   // ERROR MESSAGES
   ERR00 = 'No such command!';
   ERR01 = 'Device number must be 0-7!';
@@ -182,6 +195,14 @@ resourcestring
   ERR57 = 'You did not provide something!';
   ERR58 = 'Cannot initialize socket!';
   ERR59 = 'Illegal character in the macro name!';
+
+
+
+
+
+
+
+  
   ERR60 = 'Cannot define more macro!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION

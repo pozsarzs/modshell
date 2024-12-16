@@ -20,7 +20,7 @@ modshell (0.1-beta1) unstable; urgency=low
 * new command `sendmeth`;
 * new command `tcpcons`, `tcpread`, `tcpwrite`;
 * new command `udpcons`, `udpread`, `udpwrite`;
-* new menu item in the main menu for quick execution of Modbus R/W commands;
+* new menu items in the main menu for quick execution of Modbus R/W commands;
 * new serial baudrates: 150, 300, 600 baud;
 * serial echo server utility for testing connectivity;
 * serial ModBus traffic  monitor utility;

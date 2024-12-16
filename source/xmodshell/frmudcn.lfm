@@ -368,7 +368,7 @@ object Form5: TForm5
     object MenuItem1: TMenuItem
       Caption = '&File'
       object MenuItem2: TMenuItem
-        Caption = '&Close'
+        Caption = 'Close'
         ImageIndex = 0
         OnClick = MenuItem2Click
       end
@@ -376,7 +376,7 @@ object Form5: TForm5
     object MenuItem3: TMenuItem
       Caption = '&Operation'
       object MenuItem4: TMenuItem
-        Caption = '&Clear screen'
+        Caption = 'Clear screen'
         ImageIndex = 1
         ShortCut = 119
         OnClick = MenuItem4Click
@@ -385,19 +385,19 @@ object Form5: TForm5
         Caption = '-'
       end
       object MenuItem6: TMenuItem
-        Caption = '&Swap input method'
+        Caption = 'Swap input method'
         ImageIndex = 2
         ShortCut = 8312
         OnClick = MenuItem6Click
       end
       object MenuItem5: TMenuItem
-        Caption = 'S&wap echo method'
+        Caption = 'Swap echo method'
         ImageIndex = 2
         ShortCut = 120
         OnClick = MenuItem5Click
       end
       object MenuItem8: TMenuItem
-        Caption = 'Sw&ap send method'
+        Caption = 'Swap send method'
         ImageIndex = 2
         ShortCut = 16504
         OnClick = MenuItem8Click

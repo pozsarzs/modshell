@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | frmsecn.pas                                                              | }
-{ | mini serial console window                                               | }
+{ | frmmbmn.pas                                                              | }
+{ | serial Modbus traffic monitor window                                     | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-unit frmsecn;
+unit frmmbmn;
 {$MODE OBJFPC}{$H+}{$MACRO ON}
 interface
 uses
@@ -38,10 +38,10 @@ type
     procedure Execute; override;
   public
     constructor Create(CreateSuspended: boolean);
-    function thr_sercons(p1: byte): byte;
+    function thr_mbmon(p1: byte): byte;
   end;
-  { TForm3 }
-  TForm3 = class(TForm)
+  { TForm6 }
+  TForm6 = class(TForm)
     ImageList1: TImageList;
     MainMenu1: TMainMenu;
     Memo1: TMemo;
@@ -49,10 +49,6 @@ type
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
-    MenuItem5: TMenuItem;
-    MenuItem6: TMenuItem;
-    MenuItem8: TMenuItem;
-    Separator1: TMenuItem;
     StatusBar1: TStatusBar;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
@@ -60,15 +56,12 @@ type
     procedure FormShow(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
-    procedure MenuItem5Click(Sender: TObject);
-    procedure MenuItem6Click(Sender: TObject);
-    procedure MenuItem8Click(Sender: TObject);
   private
   public
   end;
 var
-  Form3: TForm3;
-  device: byte;
+  Form6: TForm6;
+  connection: byte;
   keyprd: boolean;
   prdkey: char;
 
@@ -84,21 +77,21 @@ uses frmmain;
 {$I lockfile.pas}
 {$I serport.pas}
 
-{$I thr_secn.pas}
+{$I thr_mbmn.pas}
 
 { TLThread }
 
 // ADD TEXT TO MEMO1 FROM OTHER THREAD
 procedure TLThread.ShowStatus;
 begin
-  Form3.Memo1.Text := Form3.Memo1.Text + fStatusText;
+  Form6.Memo1.Text := Form6.Memo1.Text + fStatusText;
 end;
 
 // RUN A COMMAND ON NEW THREAD
 procedure TLThread.Execute;
 begin
-  exitcode := thr_sercons(device);
-  Form3.Close;
+  exitcode := thr_mbmon(connection);
+  Form6.Close;
 end;
 
 // CREATE THREAD
@@ -108,10 +101,10 @@ begin
   inherited Create(CreateSuspended);
 end;
 
-{ TForm3 }
+{ TForm6 }
 
 // SEND A CHAR
-procedure TForm3.FormKeyPress(Sender: TObject; var Key: char);
+procedure TForm6.FormKeyPress(Sender: TObject; var Key: char);
 begin
   keyprd := true;
   prdkey := Key;
@@ -120,7 +113,7 @@ end;
 // -- MAIN MENU/File -----------------------------------------------------------
 
 // CLOSE WINDOW
-procedure TForm3.MenuItem2Click(Sender: TObject);
+procedure TForm6.MenuItem2Click(Sender: TObject);
 begin
   Close;
 end;
@@ -128,36 +121,19 @@ end;
 // -- MAIN MENU/Operation ------------------------------------------------------
 
 // RUN COMMAND 'cls'
-procedure TForm3.MenuItem4Click(Sender: TObject);
+procedure TForm6.MenuItem4Click(Sender: TObject);
 begin
   Memo1.Clear;
 end;
 
-// RUN COMMAND 'inputmeth swap'
-procedure TForm3.MenuItem6Click(Sender: TObject);
-begin
-  Form1.MenuItem76.OnClick(Sender);
-end;
-
-// RUN COMMAND 'echometh swap'
-procedure TForm3.MenuItem5Click(Sender: TObject);
-begin
-  Form1.MenuItem28.OnClick(Sender);
-end;
-
-// RUN COMMAND 'sendmeth swap'
-procedure TForm3.MenuItem8Click(Sender: TObject);
-begin
-  Form1.MenuItem77.OnClick(Sender);
-end;
-
 // -- END OF THE MAIN MENU -----------------------------------------------------
 
-// SHOW MINI SERIAL CONSOLE WINDOW
-procedure TForm3.FormShow(Sender: TObject);
+// SHOW CONSOLE WINDOW
+procedure TForm6.FormShow(Sender: TObject);
 var
   LThread1: TLThread;
 begin
+{
   if dev[device].valid then
     if dev[device].devtype = 1 then
     begin
@@ -170,6 +146,7 @@ begin
         inttostr(dev[device].stopbit);
       end;
     end;
+}
   // new threads for I/O operation
   LThread1 := TLThread.Create(True);
   with LThread1 do
@@ -179,11 +156,11 @@ begin
   end;
 end;
 
-// CLOSE MINI SERIAL CONSOLE WINDOW
-procedure TForm3.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+// CLOSE CONSOLE WINDOW
+procedure TForm6.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   // save window size and position
-  with Form3 do
+  with Form6 do
   begin
     formpositions[2, 0] := Top;
     formpositions[2, 1] := Left;
@@ -197,11 +174,11 @@ begin
 end;
 
 // SHOW MINI SERIAL CONSOLE WINDOW
-procedure TForm3.FormCreate(Sender: TObject);
+procedure TForm6.FormCreate(Sender: TObject);
 begin
   KeyPreview := true;
   // restore window size and position
-  with Form3 do
+  with Form6 do
   begin
     Top := formpositions[2, 0];
     Left := formpositions[2, 1];

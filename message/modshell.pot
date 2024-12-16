@@ -393,6 +393,18 @@ msgstr ""
 msgid "Send method: "
 msgstr ""
 
+#: modshell:msg91
+msgid "Monitor running..."
+msgstr ""
+
+#: modshell:msg92
+msgid "Monitor paused."
+msgstr ""
+
+#: modshell:msg93
+msgid "Monitor stopped."
+msgstr ""
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr ""
@@ -415,6 +427,38 @@ msgstr ""
 
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
+msgstr ""
+
+#: modshell:msg100
+msgid "[press space]"
+msgstr ""
+
+#: modshell:msg101
+msgid "Press [SPACE] to pause or [ESC] to exit."
+msgstr ""
+
+#: modshell:msg102
+msgid "Serial port: "
+msgstr ""
+
+#: modshell:msg103
+msgid "Protocol:    "
+msgstr ""
+
+#: modshell:msg104
+msgid "RC  "
+msgstr ""
+
+#: modshell:msg105
+msgid "[+]  "
+msgstr ""
+
+#: modshell:msg106
+msgid "[-]  "
+msgstr ""
+
+#: modshell:msg107
+msgid "ID   FC  DATA"
 msgstr ""
 
 #: modshell:err00

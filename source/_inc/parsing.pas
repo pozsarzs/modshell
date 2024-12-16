@@ -141,7 +141,7 @@ begin
             119: exitcode := cmd_inputmeth(splitted[1]);
             120: exitcode := cmd_sendmeth(splitted[1]);
             121: exitcode := cmd_macro(splitted[1], command);
-            122: exitcode := cmd_mbmon(splitted[1], splitted[2], splitted[3]);
+            122: exitcode := cmd_mbmon(splitted[1]);
             COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
           else
           begin

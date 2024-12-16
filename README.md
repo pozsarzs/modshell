@@ -101,12 +101,12 @@ _First user test release_ will be with the following changes:
  - [x] new command `exist`;  
  - [x] new command `inputmeth`;  
  - [x] new command `macro`;
- - [x] new command `mbmon`;  
+ - [ ] new command `mbmon`;  
  - [x] new command `printcolor`(only CLI and TUI);  
  - [x] new command `sendmeth`;  
  - [x] new command `tcpcons`, `tcpread`, `tcpwrite`;  
  - [x] new command `udpcons`, `udpread`, `udpwrite`;  
- - [ ] new menu item in the main menu for quick execution of Modbus R/W commands;  
+ - [ ] new menu items in the main menu for quick execution of Modbus R/W commands;  
  - [x] new serial baudrates: 150, 300, 600 baud;
  - [x] serial echo server utility for testing connectivity;  
  - [x] serial ModBus traffic monitor utility;

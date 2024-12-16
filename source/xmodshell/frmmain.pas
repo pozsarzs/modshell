@@ -39,6 +39,7 @@ uses
   crt,
   dom,
   dos,
+  frmmbmn,
   frmsecn,
   frmtccn,
   frmudcn,
@@ -149,6 +150,7 @@ type
     MenuItem76: TMenuItem;
     MenuItem77: TMenuItem;
     MenuItem78: TMenuItem;
+    MenuItem79: TMenuItem;
     Separator13: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
@@ -158,6 +160,7 @@ type
     Separator12: TMenuItem;
     Separator14: TMenuItem;
     Separator15: TMenuItem;
+    Separator16: TMenuItem;
     Separator2: TMenuItem;
     Separator3: TMenuItem;
     Separator4: TMenuItem;
@@ -258,6 +261,7 @@ type
     procedure MenuItem76Click(Sender: TObject);
     procedure MenuItem77Click(Sender: TObject);
     procedure MenuItem78Click(Sender: TObject);
+    procedure MenuItem79Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
     procedure LComboBox391Change(Sender: TObject);
     procedure LEdit261Change(Sender: TObject);
@@ -667,6 +671,9 @@ end;
 
 // RUN 'writereg con? hreg' COMMAND WITH DIALOG
 {$I imodbus-write_holding_register.pas}
+
+// RUN 'mbmon' COMMAND WITH DIALOG
+{$I imodbus-show_serial_modbus_traffic.pas}
 
 // -- MAIN MENU/Registers ------------------------------------------------------
 

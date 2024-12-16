@@ -603,7 +603,7 @@ object Form1: TForm1
     object MenuItem1: TMenuItem
       Caption = '&File'
       object MenuItem23: TMenuItem
-        Caption = 'Set console &colors..'
+        Caption = 'Set console colors..'
         ImageIndex = 17
         OnClick = MenuItem23Click
       end
@@ -611,12 +611,12 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem53: TMenuItem
-        Caption = '&Restart'
+        Caption = 'Restart'
         ImageIndex = 19
         OnClick = MenuItem53Click
       end
       object MenuItem20: TMenuItem
-        Caption = '&Exit'
+        Caption = 'Exit'
         ImageIndex = 0
         ShortCut = 121
         OnClick = MenuItem20Click
@@ -625,13 +625,13 @@ object Form1: TForm1
     object MenuItem5: TMenuItem
       Caption = '&Project'
       object MenuItem37: TMenuItem
-        Caption = '&Load configuration..'
+        Caption = 'Load configuration..'
         ImageIndex = 1
         ShortCut = 114
         OnClick = MenuItem37Click
       end
       object MenuItem36: TMenuItem
-        Caption = '&Save configuration..'
+        Caption = 'Save configuration..'
         ImageIndex = 2
         ShortCut = 113
         OnClick = MenuItem36Click
@@ -640,19 +640,19 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem17: TMenuItem
-        Caption = 'Project &name'
+        Caption = 'Project name'
         object MenuItem38: TMenuItem
-          Caption = '&Set project name..'
+          Caption = 'Set project name..'
           ImageIndex = 5
           OnClick = MenuItem38Click
         end
         object MenuItem42: TMenuItem
-          Caption = '&Reset project name'
+          Caption = 'Reset project name'
           ImageIndex = 6
           OnClick = MenuItem42Click
         end
         object MenuItem46: TMenuItem
-          Caption = 'Sho&w project name'
+          Caption = 'Show project name'
           ImageIndex = 7
           OnClick = MenuItem46Click
         end
@@ -660,17 +660,17 @@ object Form1: TForm1
       object MenuItem33: TMenuItem
         Caption = 'Devices'
         object MenuItem39: TMenuItem
-          Caption = '&Set devices..'
+          Caption = 'Set devices..'
           ImageIndex = 5
           OnClick = MenuItem39Click
         end
         object MenuItem43: TMenuItem
-          Caption = '&Reset devices..'
+          Caption = 'Reset devices..'
           ImageIndex = 6
           OnClick = MenuItem43Click
         end
         object MenuItem47: TMenuItem
-          Caption = 'Sho&w devices'
+          Caption = 'Show devices'
           ImageIndex = 7
           OnClick = MenuItem47Click
         end
@@ -678,17 +678,17 @@ object Form1: TForm1
       object MenuItem34: TMenuItem
         Caption = 'Protocols'
         object MenuItem40: TMenuItem
-          Caption = '&Set protocols..'
+          Caption = 'Set protocols..'
           ImageIndex = 5
           OnClick = MenuItem40Click
         end
         object MenuItem44: TMenuItem
-          Caption = '&Reset protocols..'
+          Caption = 'Reset protocols..'
           ImageIndex = 6
           OnClick = MenuItem44Click
         end
         object MenuItem48: TMenuItem
-          Caption = 'Sho&w protocols'
+          Caption = 'Show protocols'
           ImageIndex = 7
           OnClick = MenuItem48Click
         end
@@ -696,49 +696,49 @@ object Form1: TForm1
       object MenuItem35: TMenuItem
         Caption = 'Connections'
         object MenuItem41: TMenuItem
-          Caption = '&Set connections..'
+          Caption = 'Set connections..'
           ImageIndex = 5
           OnClick = MenuItem41Click
         end
         object MenuItem45: TMenuItem
-          Caption = '&Reset connections..'
+          Caption = 'Reset connections..'
           ImageIndex = 6
           OnClick = MenuItem45Click
         end
         object MenuItem49: TMenuItem
-          Caption = 'Sho&w connections'
+          Caption = 'Show connections'
           ImageIndex = 7
           OnClick = MenuItem49Click
         end
       end
       object MenuItem61: TMenuItem
-        Caption = 'T&imeout'
+        Caption = 'Timeout'
         object MenuItem62: TMenuItem
-          Caption = '&Set timeout'
+          Caption = 'Set timeout..'
           ImageIndex = 5
           OnClick = MenuItem62Click
         end
         object MenuItem63: TMenuItem
-          Caption = '&Show timeout'
+          Caption = 'Show timeout'
           ImageIndex = 7
           OnClick = MenuItem63Click
         end
       end
     end
     object MenuItem69: TMenuItem
-      Caption = '&Modbus'
+      Caption = 'Mod&bus'
       object MenuItem70: TMenuItem
-        Caption = 'Read &discrete inputs..'
+        Caption = 'Read discrete inputs..'
         ImageIndex = 29
         OnClick = MenuItem70Click
       end
       object MenuItem74: TMenuItem
-        Caption = 'Read &coils..'
+        Caption = 'Read coils..'
         ImageIndex = 29
         OnClick = MenuItem74Click
       end
       object MenuItem71: TMenuItem
-        Caption = 'Write &coils..'
+        Caption = 'Write coils..'
         ImageIndex = 29
         OnClick = MenuItem71Click
       end
@@ -760,17 +760,25 @@ object Form1: TForm1
         ImageIndex = 29
         OnClick = MenuItem75Click
       end
+      object Separator16: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem79: TMenuItem
+        Caption = 'Show serial Modbus traffic..'
+        ImageIndex = 29
+        OnClick = MenuItem79Click
+      end
     end
     object MenuItem4: TMenuItem
       Caption = '&Registers'
       object MenuItem13: TMenuItem
-        Caption = '&Load registers..'
+        Caption = 'Load registers..'
         ImageIndex = 1
         ShortCut = 116
         OnClick = MenuItem13Click
       end
       object MenuItem14: TMenuItem
-        Caption = '&Save registers..'
+        Caption = 'Save registers..'
         ImageIndex = 2
         ShortCut = 115
         OnClick = MenuItem14Click
@@ -779,13 +787,13 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem32: TMenuItem
-        Caption = 'I&mport registers..'
+        Caption = 'Import registers..'
         ImageIndex = 3
         ShortCut = 32841
         OnClick = MenuItem32Click
       end
       object MenuItem31: TMenuItem
-        Caption = 'E&xport registers..'
+        Caption = 'Export registers..'
         ImageIndex = 4
         ShortCut = 32837
         OnClick = MenuItem31Click
@@ -794,7 +802,7 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem15: TMenuItem
-        Caption = '&Dump registers..'
+        Caption = 'Dump registers..'
         ImageIndex = 15
         ShortCut = 117
         OnClick = MenuItem15Click
@@ -803,13 +811,13 @@ object Form1: TForm1
     object MenuItem2: TMenuItem
       Caption = '&Script'
       object MenuItem10: TMenuItem
-        Caption = '&Load script..'
+        Caption = 'Load script..'
         ImageIndex = 1
         ShortCut = 8306
         OnClick = MenuItem10Click
       end
       object MenuItem11: TMenuItem
-        Caption = '&Save script..'
+        Caption = 'Save script..'
         ImageIndex = 2
         ShortCut = 8305
         OnClick = MenuItem11Click
@@ -818,19 +826,19 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem18: TMenuItem
-        Caption = 'Lis&t script'
+        Caption = 'List script'
         ImageIndex = 20
         ShortCut = 122
         OnClick = MenuItem18Click
       end
       object MenuItem30: TMenuItem
-        Caption = 'E&dit script'
+        Caption = 'Edit script'
         ImageIndex = 18
         ShortCut = 8307
         OnClick = MenuItem30Click
       end
       object MenuItem29: TMenuItem
-        Caption = 'E&rase script'
+        Caption = 'Erase script'
         ImageIndex = 6
         ShortCut = 8311
         OnClick = MenuItem29Click
@@ -839,7 +847,7 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem12: TMenuItem
-        Caption = '&Run script'
+        Caption = 'Run script'
         ImageIndex = 13
         ShortCut = 123
         OnClick = MenuItem12Click
@@ -848,7 +856,7 @@ object Form1: TForm1
     object MenuItem8: TMenuItem
       Caption = '&Operation'
       object MenuItem22: TMenuItem
-        Caption = '&Clear screen'
+        Caption = 'Clear screen'
         ImageIndex = 16
         ShortCut = 119
         OnClick = MenuItem22Click
@@ -857,19 +865,19 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem76: TMenuItem
-        Caption = '&Swap input methode'
+        Caption = 'Swap input methode'
         ImageIndex = 19
         ShortCut = 8312
         OnClick = MenuItem76Click
       end
       object MenuItem28: TMenuItem
-        Caption = 'S&wap echo method'
+        Caption = 'Swap echo method'
         ImageIndex = 19
         ShortCut = 120
         OnClick = MenuItem28Click
       end
       object MenuItem77: TMenuItem
-        Caption = 'Sw&ap send method'
+        Caption = 'Swap send method'
         ImageIndex = 19
         ShortCut = 16504
         OnClick = MenuItem77Click
@@ -878,22 +886,22 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem24: TMenuItem
-        Caption = 'Show all &constants'
+        Caption = 'Show all constants'
         ImageIndex = 23
         OnClick = MenuItem24Click
       end
       object MenuItem25: TMenuItem
-        Caption = 'Show all &variables'
+        Caption = 'Show all variables'
         ImageIndex = 24
         OnClick = MenuItem25Click
       end
       object MenuItem19: TMenuItem
-        Caption = 'Show all constant a&rrays'
+        Caption = 'Show all constant arrays'
         ImageIndex = 23
         OnClick = MenuItem19Click
       end
       object MenuItem51: TMenuItem
-        Caption = 'Show all variable arra&ys'
+        Caption = 'Show all variable arrays'
         ImageIndex = 24
         OnClick = MenuItem51Click
       end
@@ -901,7 +909,7 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem78: TMenuItem
-        Caption = 'Show all &macros'
+        Caption = 'Show all macros'
         ImageIndex = 28
         OnClick = MenuItem78Click
       end
@@ -909,29 +917,29 @@ object Form1: TForm1
     object MenuItem9: TMenuItem
       Caption = '&Utilities'
       object MenuItem21: TMenuItem
-        Caption = '&ASCII table'
+        Caption = 'ASCII table'
         ImageIndex = 14
         object MenuItem59: TMenuItem
-          Caption = '&Decimal'
+          Caption = 'Decimal'
           OnClick = MenuItem59Click
         end
         object MenuItem60: TMenuItem
-          Caption = '&Hexadecimal'
+          Caption = 'Hexadecimal'
           OnClick = MenuItem60Click
         end
       end
       object MenuItem27: TMenuItem
-        Caption = '&Date and time'
+        Caption = 'Date and time'
         ImageIndex = 10
         OnClick = MenuItem27Click
       end
       object MenuItem26: TMenuItem
-        Caption = '&Number converter..'
+        Caption = 'Number converter..'
         ImageIndex = 12
         OnClick = MenuItem26Click
       end
       object MenuItem52: TMenuItem
-        Caption = '&Variable monitor..'
+        Caption = 'Variable monitor..'
         ImageIndex = 22
         ShortCut = 32845
         OnClick = MenuItem52Click
@@ -940,7 +948,7 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem54: TMenuItem
-        Caption = 'Mini &serial console..'
+        Caption = 'Mini serial console..'
         ImageIndex = 21
         ShortCut = 118
         OnClick = MenuItem54Click
@@ -959,7 +967,7 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem55: TMenuItem
-        Caption = 'Mini &TCP console..'
+        Caption = 'Mini TCP console..'
         ImageIndex = 26
         ShortCut = 8310
         OnClick = MenuItem55Click
@@ -978,7 +986,7 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem66: TMenuItem
-        Caption = 'Mini &UDP console..'
+        Caption = 'Mini UDP console..'
         ImageIndex = 27
         OnClick = MenuItem66Click
       end
@@ -996,7 +1004,7 @@ object Form1: TForm1
     object MenuItem3: TMenuItem
       Caption = '&Help'
       object MenuItem6: TMenuItem
-        Caption = '&Commands'
+        Caption = 'Commands'
         ImageIndex = 8
         ShortCut = 112
         OnClick = MenuItem6Click
@@ -1005,7 +1013,7 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem56: TMenuItem
-        Caption = '&Online wiki'
+        Caption = 'Online wiki'
         ImageIndex = 11
         OnClick = MenuItem56Click
       end
@@ -1023,7 +1031,7 @@ object Form1: TForm1
         Caption = '-'
       end
       object MenuItem7: TMenuItem
-        Caption = '&About'
+        Caption = 'About'
         ImageIndex = 9
         OnClick = MenuItem7Click
       end

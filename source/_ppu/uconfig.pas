@@ -29,7 +29,7 @@ var
   echometh: byte = 0;
   inputmeth: byte = 1;
   sendmeth: byte = 4;
-  formpositions: array[0..5, 0..3] of integer;
+  formpositions: array[0..6, 0..3] of integer;
   guicolors: array[0..1] of integer;
   histbuff: array[0..255] of string;
   histitem: integer;
@@ -118,6 +118,9 @@ begin
     s := 'form5_';
     for b:= 0 to 3 do
       ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[5, b]);
+    s := 'form6_';
+    for b:= 0 to 3 do
+      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[6, b]);
     s := 'form301_';
     for b:= 0 to 3 do
       ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[3, b]);
@@ -169,6 +172,9 @@ begin
     s := 'form5_';
     for b:= 0 to 3 do
       formpositions[5, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
+    s := 'form6_';
+    for b:= 0 to 3 do
+      formpositions[6, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
     s := 'form301_';
     for b:= 0 to 3 do
       formpositions[3, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);

@@ -1,9 +1,9 @@
-object Form3: TForm3
+object Form6: TForm6
   Left = 428
   Height = 354
   Top = 199
   Width = 515
-  Caption = 'Form3'
+  Caption = 'Form6'
   ClientHeight = 329
   ClientWidth = 515
   Icon.Data = {
@@ -380,27 +380,6 @@ object Form3: TForm3
         ImageIndex = 1
         ShortCut = 119
         OnClick = MenuItem4Click
-      end
-      object Separator1: TMenuItem
-        Caption = '-'
-      end
-      object MenuItem6: TMenuItem
-        Caption = 'Swap input method'
-        ImageIndex = 2
-        ShortCut = 8312
-        OnClick = MenuItem6Click
-      end
-      object MenuItem5: TMenuItem
-        Caption = 'Swap echo method'
-        ImageIndex = 2
-        ShortCut = 120
-        OnClick = MenuItem5Click
-      end
-      object MenuItem8: TMenuItem
-        Caption = 'Swap send method'
-        ImageIndex = 2
-        ShortCut = 16504
-        OnClick = MenuItem8Click
       end
     end
   end
