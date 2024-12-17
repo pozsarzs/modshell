@@ -21,24 +21,20 @@
 // COMMAND MBMON
 function cmd_mbmon(p1: string): byte;
 var
+  c: char;
   i1: integer; // parameter in other type
+  lf: textfile;
   loop: boolean;
   s: string;
   s1: string; // parameter in other type
 
-  ser: TBlockSerial;
-  baudrate: string = '';
-  b: byte;
-  c: char;
-  databit: string = '';
-  device: string = '';
-  deviceid: string = '';
-  parity: string = '';
-  protocol: string = '';
-  stopbit: string = '';
-
+  // b: byte;
 begin
   result := 0;
+  {$IFDEF X}
+    Form1.Memo1.Lines.Add(MSG108);
+    exit;
+  {$ENDIF}
   // CHECK LENGTH OF PARAMETER
   if (length(p1) = 0) then
   begin
@@ -61,67 +57,75 @@ begin
   end;
   if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
   begin
-    // Device number must be 0-7!
-    {$IFNDEF X} writeln(ERR01); {$ELSE} Form1.Memo1.Lines.Add(ERR01); {$ENDIF}
+    // Connection number must be 0-7!
+    {$IFNDEF X} writeln(ERR03); {$ELSE} Form1.Memo1.Lines.Add(ERR03); {$ENDIF}
     result := 1;
     exit;
   end;
-
-  // con/prot/dev érvényesség ellenőrzése ide
-
-  // parameters of connection
-  device := dev[conn[i1].dev].device;
-  baudrate := DEV_SPEED[dev[conn[i1].dev].speed];
-  databit := inttostr(dev[conn[i1].dev].databit);
-  parity := DEV_PARITY[dev[conn[i1].dev].parity];
-  stopbit := inttostr(dev[conn[i1].dev].stopbit);
-  protocol := PROT_TYPE[prot[conn[i1].prot].prottype];
- // deviceid := inttostr(prot[conn[i1].prot].deviceid);
+  if not dev[conn[i1].dev].device then
+  begin
+    writeln(PREFIX[0], i1, MSG06);
+    exit;
+  end;
+  if not (dev[conn[i1].dev].device = 1) then
+  begin
+    writeln(ERR24);
+    result := 1;
+    exit;
+  end;
+  // SET LOG FILE
+  fp := vars[13].vvalue;
+  ForceDirectories(fp);
+  fp := fp + SLASH;
+  fpn := fp + SLASH + 'mbmon.log';
+  assignfile(lf, fpn);
+  try
+    rewrite(lf);
+  except
+    writeln(ERR61);
+  end;
   // PRIMARY MISSION
-  writeln(MSG14 + device + ' ' + baudrate + ' ' + databit + uppercase(parity) + stopbit);
-  writeln(MSG15 +  uppercase(protocol) + ' #' + deviceid);
-  writeln;
-  writeln(MSG04);
-  {$IFDEF UNIX}
-    // check lockfile
-    if checklockfile('/dev/' + device, false)
-      then quit(3, false, ERR01 + ERR49 + device);
-  {$ENDIF}
-  // PRIMARY MISSION
-  {$IFNDEF PROGTEST}
-    ser := TBlockSerial.Create;
-    try
-      ser.Connect(device);
-      ser.Config(strtoint(baudrate), strtoint(databit), parity[1], strtoint(stopbit), false, false);
-    except
-      quit(2, false, ERR01 + ERR08 + device);
-    end;
-  {$ENDIF}
-  writeln(MSG05);
-  writeln;
-  // write header
-  if protocol = PROT_TYPE[0] then write('L') else write('C');
-  writeln(MSG16 + MSG19);
-  // write traffic
-  repeat
-    if keypressed then c := readkey else
+  writeln(MSG101);
+  if checklockfile(dev[conn[i1].dev].device) then exit;
+  with dev[conn[i1].dev] do
+    if ser_open(device, speed, databit, parity, stopbit) then
     begin
-      if ser.CanRead(0) then
-      begin
-        s := ser.RecvString(0);
-//        writeln(decodetelegram(protocol, deviceid, s));
-      end;    
-      delay(100);
-    end;
-    // pause
-    if c = #32 then
+      writeln(MSG91);
+      writeln;
+      // write header
+      if prot[conn[i1].prot].id = 0 then write('L') else write('C');
+      writeln(MSG104 + MSG107);
+      // write traffic
+      repeat
+        if keypressed then c := readkey else
+        begin
+          if ser.CanRead(0) then
+          begin
+            s := ser.RecvString(0);
+            writeln(decodetelegram(PROT_TYPE[prot[conn[i1].prot].prottype],
+                    prot[conn[i1].prot].id, s));
+          end;    
+          delay(100);
+        end;
+        // pause
+        if c = #32 then
+        begin
+          write(MSG92);
+          c := readkey;
+          gotoxy(1,wherey); clreol;
+        end;
+      until c = #27;
+      writeln(EOL + MSG93);
+      ser_close;
+      writeln(EOL);
+    end else
     begin
-      write(MSG20);
-      c := readkey;
-      gotoxy(1,wherey); clreol;
+      // Cannot initialize serial port!
+      writeln(ERR18, dev[conn[i1].dev].device);
+      result := 1;
     end;
-  until c = #27;
-  ser.Free;
-  writeln(EOL + MSG13);
-  result := 0;
+  try
+    closefile(lf);
+  except
+  end;
 end;

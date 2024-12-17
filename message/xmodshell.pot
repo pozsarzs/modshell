@@ -777,6 +777,38 @@ msgstr ""
 msgid " bits:            "
 msgstr ""
 
+#: frmmain.msg100
+msgid "[press space]"
+msgstr ""
+
+#: frmmain.msg101
+msgid "Press [SPACE] to pause or [ESC] to exit."
+msgstr ""
+
+#: frmmain.msg102
+msgid "Serial port: "
+msgstr ""
+
+#: frmmain.msg103
+msgid "Protocol:    "
+msgstr ""
+
+#: frmmain.msg104
+msgid "RC  "
+msgstr ""
+
+#: frmmain.msg105
+msgid "[+]  "
+msgstr ""
+
+#: frmmain.msg106
+msgid "[-]  "
+msgstr ""
+
+#: frmmain.msg107
+msgid "ID   FC  DATA"
+msgstr ""
+
 #: frmmain.msg11
 msgid " protocol:        "
 msgstr ""
@@ -1098,6 +1130,18 @@ msgstr ""
 
 #: frmmain.msg90
 msgid "Send method: "
+msgstr ""
+
+#: frmmain.msg91
+msgid "Monitor running..."
+msgstr ""
+
+#: frmmain.msg92
+msgid "Monitor paused."
+msgstr ""
+
+#: frmmain.msg93
+msgid "Monitor stopped."
 msgstr ""
 
 #: frmmain.msg94
@@ -1760,27 +1804,27 @@ msgid "&File"
 msgstr ""
 
 #: tform1.menuitem10.caption
-msgid "&Load script.."
+msgid "Load script.."
 msgstr ""
 
 #: tform1.menuitem11.caption
-msgid "&Save script.."
+msgid "Save script.."
 msgstr ""
 
 #: tform1.menuitem12.caption
-msgid "&Run script"
+msgid "Run script"
 msgstr ""
 
 #: tform1.menuitem13.caption
-msgid "&Load registers.."
+msgid "Load registers.."
 msgstr ""
 
 #: tform1.menuitem14.caption
-msgid "&Save registers.."
+msgid "Save registers.."
 msgstr ""
 
 #: tform1.menuitem15.caption
-msgid "&Dump registers.."
+msgid "Dump registers.."
 msgstr ""
 
 #: tform1.menuitem16.caption
@@ -1788,15 +1832,15 @@ msgid "Read data from serial port.."
 msgstr ""
 
 #: tform1.menuitem17.caption
-msgid "Project &name"
+msgid "Project name"
 msgstr ""
 
 #: tform1.menuitem18.caption
-msgid "Lis&t script"
+msgid "List script"
 msgstr ""
 
 #: tform1.menuitem19.caption
-msgid "Show all constant a&rrays"
+msgid "Show all constant arrays"
 msgstr ""
 
 #: tform1.menuitem2.caption
@@ -1804,45 +1848,45 @@ msgid "&Script"
 msgstr ""
 
 #: tform1.menuitem20.caption
-msgid "&Exit"
+msgid "Exit"
 msgstr ""
 
 #: tform1.menuitem21.caption
-msgid "&ASCII table"
+msgid "ASCII table"
 msgstr ""
 
 #: tform1.menuitem22.caption
 msgctxt "tform1.menuitem22.caption"
-msgid "&Clear screen"
+msgid "Clear screen"
 msgstr ""
 
 #: tform1.menuitem23.caption
-msgid "Set console &colors.."
+msgid "Set console colors.."
 msgstr ""
 
 #: tform1.menuitem24.caption
-msgid "Show all &constants"
+msgid "Show all constants"
 msgstr ""
 
 #: tform1.menuitem25.caption
-msgid "Show all &variables"
+msgid "Show all variables"
 msgstr ""
 
 #: tform1.menuitem26.caption
-msgid "&Number converter.."
+msgid "Number converter.."
 msgstr ""
 
 #: tform1.menuitem27.caption
-msgid "&Date and time"
+msgid "Date and time"
 msgstr ""
 
 #: tform1.menuitem28.caption
 msgctxt "tform1.menuitem28.caption"
-msgid "S&wap echo method"
+msgid "Swap echo method"
 msgstr ""
 
 #: tform1.menuitem29.caption
-msgid "E&rase script"
+msgid "Erase script"
 msgstr ""
 
 #: tform1.menuitem3.caption
@@ -1850,15 +1894,15 @@ msgid "&Help"
 msgstr ""
 
 #: tform1.menuitem30.caption
-msgid "E&dit script"
+msgid "Edit script"
 msgstr ""
 
 #: tform1.menuitem31.caption
-msgid "E&xport registers.."
+msgid "Export registers.."
 msgstr ""
 
 #: tform1.menuitem32.caption
-msgid "I&mport registers.."
+msgid "Import registers.."
 msgstr ""
 
 #: tform1.menuitem33.caption
@@ -1874,19 +1918,19 @@ msgid "Connections"
 msgstr ""
 
 #: tform1.menuitem36.caption
-msgid "&Save configuration.."
+msgid "Save configuration.."
 msgstr ""
 
 #: tform1.menuitem37.caption
-msgid "&Load configuration.."
+msgid "Load configuration.."
 msgstr ""
 
 #: tform1.menuitem38.caption
-msgid "&Set project name.."
+msgid "Set project name.."
 msgstr ""
 
 #: tform1.menuitem39.caption
-msgid "&Set devices.."
+msgid "Set devices.."
 msgstr ""
 
 #: tform1.menuitem4.caption
@@ -1894,43 +1938,43 @@ msgid "&Registers"
 msgstr ""
 
 #: tform1.menuitem40.caption
-msgid "&Set protocols.."
+msgid "Set protocols.."
 msgstr ""
 
 #: tform1.menuitem41.caption
-msgid "&Set connections.."
+msgid "Set connections.."
 msgstr ""
 
 #: tform1.menuitem42.caption
-msgid "&Reset project name"
+msgid "Reset project name"
 msgstr ""
 
 #: tform1.menuitem43.caption
-msgid "&Reset devices.."
+msgid "Reset devices.."
 msgstr ""
 
 #: tform1.menuitem44.caption
-msgid "&Reset protocols.."
+msgid "Reset protocols.."
 msgstr ""
 
 #: tform1.menuitem45.caption
-msgid "&Reset connections.."
+msgid "Reset connections.."
 msgstr ""
 
 #: tform1.menuitem46.caption
-msgid "Sho&w project name"
+msgid "Show project name"
 msgstr ""
 
 #: tform1.menuitem47.caption
-msgid "Sho&w devices"
+msgid "Show devices"
 msgstr ""
 
 #: tform1.menuitem48.caption
-msgid "Sho&w protocols"
+msgid "Show protocols"
 msgstr ""
 
 #: tform1.menuitem49.caption
-msgid "Sho&w connections"
+msgid "Show connections"
 msgstr ""
 
 #: tform1.menuitem5.caption
@@ -1942,27 +1986,27 @@ msgid "Write data to serial port.."
 msgstr ""
 
 #: tform1.menuitem51.caption
-msgid "Show all variable arra&ys"
+msgid "Show all variable arrays"
 msgstr ""
 
 #: tform1.menuitem52.caption
-msgid "&Variable monitor.."
+msgid "Variable monitor.."
 msgstr ""
 
 #: tform1.menuitem53.caption
-msgid "&Restart"
+msgid "Restart"
 msgstr ""
 
 #: tform1.menuitem54.caption
-msgid "Mini &serial console.."
+msgid "Mini serial console.."
 msgstr ""
 
 #: tform1.menuitem55.caption
-msgid "Mini &TCP console.."
+msgid "Mini TCP console.."
 msgstr ""
 
 #: tform1.menuitem56.caption
-msgid "&Online wiki"
+msgid "Online wiki"
 msgstr ""
 
 #: tform1.menuitem57.caption
@@ -1974,27 +2018,27 @@ msgid "Github"
 msgstr ""
 
 #: tform1.menuitem59.caption
-msgid "&Decimal"
+msgid "Decimal"
 msgstr ""
 
 #: tform1.menuitem6.caption
-msgid "&Commands"
+msgid "Commands"
 msgstr ""
 
 #: tform1.menuitem60.caption
-msgid "&Hexadecimal"
+msgid "Hexadecimal"
 msgstr ""
 
 #: tform1.menuitem61.caption
-msgid "T&imeout"
+msgid "Timeout"
 msgstr ""
 
 #: tform1.menuitem62.caption
-msgid "&Set timeout"
+msgid "Set timeout.."
 msgstr ""
 
 #: tform1.menuitem63.caption
-msgid "&Show timeout"
+msgid "Show timeout"
 msgstr ""
 
 #: tform1.menuitem64.caption
@@ -2006,7 +2050,7 @@ msgid "Write data with TCP.."
 msgstr ""
 
 #: tform1.menuitem66.caption
-msgid "Mini &UDP console.."
+msgid "Mini UDP console.."
 msgstr ""
 
 #: tform1.menuitem67.caption
@@ -2018,19 +2062,19 @@ msgid "Write data with UDP.."
 msgstr ""
 
 #: tform1.menuitem69.caption
-msgid "&Modbus"
+msgid "Mod&bus"
 msgstr ""
 
 #: tform1.menuitem7.caption
-msgid "&About"
+msgid "About"
 msgstr ""
 
 #: tform1.menuitem70.caption
-msgid "Read &discrete inputs.."
+msgid "Read discrete inputs.."
 msgstr ""
 
 #: tform1.menuitem71.caption
-msgid "Write &coils.."
+msgid "Write coils.."
 msgstr ""
 
 #: tform1.menuitem72.caption
@@ -2042,7 +2086,7 @@ msgid "Read holding registers.."
 msgstr ""
 
 #: tform1.menuitem74.caption
-msgid "Read &coils.."
+msgid "Read coils.."
 msgstr ""
 
 #: tform1.menuitem75.caption
@@ -2050,16 +2094,20 @@ msgid "Write holding registers.."
 msgstr ""
 
 #: tform1.menuitem76.caption
-msgid "&Swap input methode"
+msgid "Swap input methode"
 msgstr ""
 
 #: tform1.menuitem77.caption
 msgctxt "tform1.menuitem77.caption"
-msgid "Sw&ap send method"
+msgid "Swap send method"
 msgstr ""
 
 #: tform1.menuitem78.caption
-msgid "Show all &macros"
+msgid "Show all macros"
+msgstr ""
+
+#: tform1.menuitem79.caption
+msgid "Show serial Modbus traffic.."
 msgstr ""
 
 #: tform1.menuitem8.caption
@@ -2174,7 +2222,7 @@ msgstr ""
 
 #: tform4.menuitem2.caption
 msgctxt "tform4.menuitem2.caption"
-msgid "&Close"
+msgid "Close"
 msgstr ""
 
 #: tform4.menuitem3.caption
@@ -2184,22 +2232,22 @@ msgstr ""
 
 #: tform4.menuitem4.caption
 msgctxt "tform4.menuitem4.caption"
-msgid "&Clear screen"
+msgid "Clear screen"
 msgstr ""
 
 #: tform4.menuitem5.caption
 msgctxt "tform4.menuitem5.caption"
-msgid "S&wap echo method"
+msgid "Swap echo method"
 msgstr ""
 
 #: tform4.menuitem6.caption
 msgctxt "tform4.menuitem6.caption"
-msgid "&Swap input method"
+msgid "Swap input method"
 msgstr ""
 
 #: tform4.menuitem8.caption
 msgctxt "tform4.menuitem8.caption"
-msgid "Sw&ap send method"
+msgid "Swap send method"
 msgstr ""
 
 #: tform5.caption
@@ -2213,7 +2261,7 @@ msgstr ""
 
 #: tform5.menuitem2.caption
 msgctxt "tform5.menuitem2.caption"
-msgid "&Close"
+msgid "Close"
 msgstr ""
 
 #: tform5.menuitem3.caption
@@ -2223,21 +2271,45 @@ msgstr ""
 
 #: tform5.menuitem4.caption
 msgctxt "tform5.menuitem4.caption"
-msgid "&Clear screen"
+msgid "Clear screen"
 msgstr ""
 
 #: tform5.menuitem5.caption
 msgctxt "tform5.menuitem5.caption"
-msgid "S&wap echo method"
+msgid "Swap echo method"
 msgstr ""
 
 #: tform5.menuitem6.caption
 msgctxt "tform5.menuitem6.caption"
-msgid "&Swap input method"
+msgid "Swap input method"
 msgstr ""
 
 #: tform5.menuitem8.caption
 msgctxt "tform5.menuitem8.caption"
-msgid "Sw&ap send method"
+msgid "Swap send method"
+msgstr ""
+
+#: tform6.caption
+msgid "Form6"
+msgstr ""
+
+#: tform6.menuitem1.caption
+msgctxt "tform6.menuitem1.caption"
+msgid "&File"
+msgstr ""
+
+#: tform6.menuitem2.caption
+msgctxt "tform6.menuitem2.caption"
+msgid "Close"
+msgstr ""
+
+#: tform6.menuitem3.caption
+msgctxt "tform6.menuitem3.caption"
+msgid "&Operation"
+msgstr ""
+
+#: tform6.menuitem4.caption
+msgctxt "tform6.menuitem4.caption"
+msgid "Clear screen"
 msgstr ""
 

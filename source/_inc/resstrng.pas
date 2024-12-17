@@ -132,8 +132,7 @@ resourcestring
   MSG105 = '[+]  ';
   MSG106 = '[-]  ';
   MSG107 = 'ID   FC  DATA';
-
-  
+  MSG108 = 'Use ''Modbus/Show serial Modbus traffic'' on GUI version.';
   // ERROR MESSAGES
   ERR00 = 'No such command!';
   ERR01 = 'Device number must be 0-7!';
@@ -195,15 +194,8 @@ resourcestring
   ERR57 = 'You did not provide something!';
   ERR58 = 'Cannot initialize socket!';
   ERR59 = 'Illegal character in the macro name!';
-
-
-
-
-
-
-
-  
   ERR60 = 'Cannot define more macro!';
+  ERR61 = 'Cannot create Modbus traffic log file!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='         copy one or more remote reg. between two connections';
