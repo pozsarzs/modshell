@@ -22,13 +22,11 @@
 function cmd_mbmon(p1: string): byte;
 var
   c: char;
+  fpn, fp: string;
   i1: integer; // parameter in other type
   lf: textfile;
-  loop: boolean;
   s: string;
   s1: string; // parameter in other type
-
-  // b: byte;
 begin
   result := 0;
   {$IFDEF X}
@@ -62,12 +60,12 @@ begin
     result := 1;
     exit;
   end;
-  if not dev[conn[i1].dev].device then
+  if not dev[conn[i1].dev].valid then
   begin
     writeln(PREFIX[0], i1, MSG06);
     exit;
   end;
-  if not (dev[conn[i1].dev].device = 1) then
+  if not (dev[conn[i1].dev].devtype = 1) then
   begin
     writeln(ERR24);
     result := 1;
@@ -86,7 +84,7 @@ begin
   end;
   // PRIMARY MISSION
   writeln(MSG101);
-  if checklockfile(dev[conn[i1].dev].device) then exit;
+  if checklockfile(dev[conn[i1].dev].device, true) then exit;
   with dev[conn[i1].dev] do
     if ser_open(device, speed, databit, parity, stopbit) then
     begin
@@ -103,7 +101,7 @@ begin
           begin
             s := ser.RecvString(0);
             writeln(decodetelegram(PROT_TYPE[prot[conn[i1].prot].prottype],
-                    prot[conn[i1].prot].id, s));
+                    inttostr(prot[conn[i1].prot].id), s));
           end;    
           delay(100);
         end;

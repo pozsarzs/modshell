@@ -461,6 +461,10 @@ msgstr ""
 msgid "ID   FC  DATA"
 msgstr ""
 
+#: modshell:msg108
+msgid "Use 'Modbus/Show serial Modbus traffic' on GUI version."
+msgstr ""
+
 #: modshell:err00
 msgid "No such command!"
 msgstr ""
@@ -703,6 +707,10 @@ msgstr ""
 
 #: modshell:err60
 msgid "Cannot define more macro!"
+msgstr ""
+
+#: modshell:err61
+msgid "Cannot create Modbus traffic log file!"
 msgstr ""
 
 #: modshell:err99
