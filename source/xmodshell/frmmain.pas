@@ -325,6 +325,7 @@ procedure version(h: boolean); forward;
 {$I dcon.pas}
 {$I hart.pas}
 {$I mbascii.pas}
+{$I mbdectgm.pas}
 {$I mbrtu.pas}
 {$I mbtcp.pas}
 {$I modbus.pas}

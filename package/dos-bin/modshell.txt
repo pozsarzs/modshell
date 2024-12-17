@@ -149,11 +149,13 @@ PREDEFINED CONSTANTS
 
 BUILTIN COMMANDS
        Notes:
-         - register: local buffer register
-         - remote register: register of the connected device
+         - Register is the local buffer register, and remote register is the register  of
+       the connected device.
          - The '$' sign indicates value of a variable or constant not a direct value.
          - The symbol '[x]' indicates the element number of a variable or constant array.
          - The exit value of the commands is in the '$?' constant.
+         -  Enclose  the string in '"' characters, use '´ before a space, and use '^[' in
+       ANSI sequences.
 
    Arithmetical commands
        add $TARGET [$]VALUE1 [$]VALUE2
@@ -277,10 +279,10 @@ BUILTIN COMMANDS
        mbgw con? con?
               Start internal Modbus slave/server for remote access own registers.
 
-       mbmon [dev?]
+       mbmon [con?]
               Opens  a  simple  serial  monitor for decode Modbus/ASCII or RTU telegrams.
               The decoded traffic is saved to  the  project  directory  named  mbmon.log.
-              Number of device (dev?) must be between 0-7.
+              Number of connection (con?) must be between 0-7.
 
        mbsrv con?
               Start  internal  Modbus  gateway for access other remote device's registers

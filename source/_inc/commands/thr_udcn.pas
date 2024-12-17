@@ -48,7 +48,7 @@ begin
   try
     rewrite(lf);
   except
-    sendmessage(MSG50,true);
+    sendmessage(MSG50, true);
   end;
   // PRIMARY MISSION
   with dev[p1] do

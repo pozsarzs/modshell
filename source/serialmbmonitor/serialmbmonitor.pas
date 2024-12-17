@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{$DEFINE PROGTEST}
+{DEFINE PROGTEST}
 
 {$IFDEF GO32V2}{$ERROR "Cannot compile on this system." }{$ENDIF}
 {$MODE OBJFPC}{$H+}{$MACRO ON}
@@ -28,6 +28,7 @@ uses
 var
   {$IFNDEF PROGTEST}
     ser: TBlockSerial;
+    s: string;
   {$ENDIF}
   appmode: byte;
   baudrate: string = '';
@@ -39,7 +40,6 @@ var
   lang: string;
   parity: string = '';
   protocol: string = '';
-  s: string;
   stopbit: string = '';
   valid: boolean;
 const

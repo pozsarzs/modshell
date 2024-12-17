@@ -415,6 +415,18 @@ msgstr "Beviteli m¢d: "
 msgid "Send method: "
 msgstr "M¢dszer kiv†laszt†sa: "
 
+#: modshell:msg91
+msgid "Monitor running..."
+msgstr "A monitor fut..."
+
+#: modshell:msg92
+msgid "Monitor paused."
+msgstr "Monitor meg†ll°tva."
+
+#: modshell:msg93
+msgid "Monitor stopped."
+msgstr "Monitor meg†ll°tva."
+
 #: modshell:msg94
 msgid "Build date:  "
 msgstr "Ford°t†s ideje: "
@@ -438,6 +450,43 @@ msgstr "CÇl CPU:        "
 #: modshell:msg99
 msgid "Sorry, this feature is not yet implemented."
 msgstr "Sajn†lom, hogy ez a szolg†ltat†s mÇg nem val¢sult meg."
+
+#: modshell:msg100
+msgid "[press space]"
+msgstr "[nyomj sz¢kîzt]"
+
+#: modshell:msg101
+msgid "Press [SPACE] to pause or [ESC] to exit."
+msgstr "Nyomj [SPACE]-t a szÅnethez vagy [ESC]-et a kilÇpÇshez."
+
+#: modshell:msg102
+msgid "Serial port: "
+msgstr "Soros port:  "
+
+#: modshell:msg103
+msgid "Protocol:    "
+msgstr "Protokoll:   "
+
+#: modshell:msg104
+msgid "RC  "
+msgstr "RC  "
+
+#: modshell:msg105
+msgid "[+]  "
+msgstr "[+]  "
+
+#: modshell:msg106
+msgid "[-]  "
+msgstr "[-]  "
+
+#: modshell:msg107
+msgid "ID   FC  DATA"
+msgstr "ID   FC  ADAT"
+
+#: modshell:msg108
+msgid "Use 'Modbus/Show serial Modbus traffic' on GUI version."
+msgstr ""
+"Haszn†lja az 'Modbus/Soros Modbus forgalom monitoroz†sa'-t a GUI v†ltozatn†l."
 
 #: modshell:err00
 msgid "No such command!"
@@ -682,6 +731,10 @@ msgstr "Nem engedÇlyezett karakter a makr¢ nevÇben!"
 #: modshell:err60
 msgid "Cannot define more macro!"
 msgstr "Nem lehet lÇtrehozni tîbb makr¢t!"
+
+#: modshell:err61
+msgid "Cannot create Modbus traffic log file!"
+msgstr "Nem lehet lÇtrehozni a Modbus forgalom napl¢f†jlj†t!"
 
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"

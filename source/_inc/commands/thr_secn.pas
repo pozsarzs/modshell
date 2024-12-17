@@ -48,7 +48,7 @@ begin
   try
     rewrite(lf);
   except
-    sendmessage(MSG50,true);
+    sendmessage(MSG50, true);
   end;
   // PRIMARY MISSION
   if checklockfile(dev[p1].device, true) then exit;

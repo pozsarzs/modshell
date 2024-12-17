@@ -37,7 +37,7 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    writeln(ERR05);
     result := 1;
     exit;
   end;
@@ -49,14 +49,14 @@ begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
     s := s + ' ' + PREFIX[2] + '[0-7]';
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    writeln(s);
     result := 1;
     exit;
   end;
   if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
   begin
     // Connection number must be 0-7!
-    {$IFNDEF X} writeln(ERR03); {$ELSE} Form1.Memo1.Lines.Add(ERR03); {$ENDIF}
+    writeln(ERR03);
     result := 1;
     exit;
   end;
@@ -115,7 +115,6 @@ begin
       until c = #27;
       writeln(EOL + MSG93);
       ser_close;
-      writeln(EOL);
     end else
     begin
       // Cannot initialize serial port!

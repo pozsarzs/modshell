@@ -798,6 +798,38 @@ msgstr " sebesség:        "
 msgid " bits:            "
 msgstr " bitek:           "
 
+#: frmmain.msg100
+msgid "[press space]"
+msgstr "[nyomj szóközt]"
+
+#: frmmain.msg101
+msgid "Press [SPACE] to pause or [ESC] to exit."
+msgstr "Nyomj [SPACE]-t a szünethez vagy [ESC]-et a kilépéshez."
+
+#: frmmain.msg102
+msgid "Serial port: "
+msgstr "Soros port:  "
+
+#: frmmain.msg103
+msgid "Protocol:    "
+msgstr "Protokoll:   "
+
+#: frmmain.msg104
+msgid "RC  "
+msgstr "RC  "
+
+#: frmmain.msg105
+msgid "[+]  "
+msgstr "[+]  "
+
+#: frmmain.msg106
+msgid "[-]  "
+msgstr "[-]  "
+
+#: frmmain.msg107
+msgid "ID   FC  DATA"
+msgstr "ID   FC  ADAT"
+
 #: frmmain.msg11
 msgid " protocol:        "
 msgstr " protokoll:       "
@@ -1127,6 +1159,18 @@ msgstr "Beviteli mód: "
 #: frmmain.msg90
 msgid "Send method: "
 msgstr "Módszer kiválasztása: "
+
+#: frmmain.msg91
+msgid "Monitor running..."
+msgstr "A monitor fut..."
+
+#: frmmain.msg92
+msgid "Monitor paused."
+msgstr "Monitor megállítva."
+
+#: frmmain.msg93
+msgid "Monitor stopped."
+msgstr "Monitor megállítva."
 
 #: frmmain.msg94
 msgid "Build date:  "
@@ -1895,106 +1939,106 @@ msgid "&File"
 msgstr "&Fájl"
 
 #: tform1.menuitem10.caption
-msgid "&Load script.."
-msgstr "Szkript betö&ltése.."
+msgid "Load script.."
+msgstr "Szkript betöltése.."
 
 #: tform1.menuitem11.caption
-msgid "&Save script.."
-msgstr "Szkript menté&se.."
+msgid "Save script.."
+msgstr "Szkript mentése.."
 
 #: tform1.menuitem12.caption
-msgid "&Run script"
-msgstr "Szk&ript futtatása"
+msgid "Run script"
+msgstr "Szkript futtatása"
 
 #: tform1.menuitem13.caption
-msgid "&Load registers.."
-msgstr "Regiszterek betö&ltése.."
+msgid "Load registers.."
+msgstr "Regiszterek betöltése.."
 
 #: tform1.menuitem14.caption
-msgid "&Save registers.."
-msgstr "Regiszterek menté&se.."
+msgid "Save registers.."
+msgstr "Regiszterek mentése.."
 
 #: tform1.menuitem15.caption
-msgid "&Dump registers.."
-msgstr "Regiszterek kiíra&tása.."
+msgid "Dump registers.."
+msgstr "Regiszterek kiíratása.."
 
 #: tform1.menuitem16.caption
 msgid "Read data from serial port.."
 msgstr "Adat olvasása soros portról.."
 
 #: tform1.menuitem17.caption
-msgid "Project &name"
-msgstr "Projekt &név"
+msgid "Project name"
+msgstr "Projekt név"
 
 #: tform1.menuitem18.caption
-msgid "Lis&t script"
-msgstr "Szkrip&t listázása"
+msgid "List script"
+msgstr "Szkript listázása"
 
 #: tform1.menuitem19.caption
-msgid "Show all constant a&rrays"
-msgstr "Állandó &tömbök mutatása"
+msgid "Show all constant arrays"
+msgstr "Állandó tömbök mutatása"
 
 #: tform1.menuitem2.caption
 msgid "&Script"
 msgstr "&Szkript"
 
 #: tform1.menuitem20.caption
-msgid "&Exit"
-msgstr "K&ilépés"
+msgid "Exit"
+msgstr "Kilépés"
 
 #: tform1.menuitem21.caption
-msgid "&ASCII table"
-msgstr "&ASCII tábla"
+msgid "ASCII table"
+msgstr "ASCII tábla"
 
 #: tform1.menuitem22.caption
 msgctxt "tform1.menuitem22.caption"
-msgid "&Clear screen"
-msgstr "&Képernyőtörlés"
+msgid "Clear screen"
+msgstr "Képernyőtörlés"
 
 #: tform1.menuitem23.caption
-msgid "Set console &colors.."
-msgstr "Konzol színek &beállítása.."
+msgid "Set console colors.."
+msgstr "Konzol színek beállítása.."
 
 #: tform1.menuitem24.caption
-msgid "Show all &constants"
-msgstr "Á&llandók mutatása"
+msgid "Show all constants"
+msgstr "Állandók mutatása"
 
 #: tform1.menuitem25.caption
-msgid "Show all &variables"
-msgstr "&Változók mutatása"
+msgid "Show all variables"
+msgstr "Változók mutatása"
 
 #: tform1.menuitem26.caption
-msgid "&Number converter.."
-msgstr "Számko&nverter.."
+msgid "Number converter.."
+msgstr "Számkonverter.."
 
 #: tform1.menuitem27.caption
-msgid "&Date and time"
-msgstr "&Dátum és idő"
+msgid "Date and time"
+msgstr "Dátum és idő"
 
 #: tform1.menuitem28.caption
 msgctxt "tform1.menuitem28.caption"
-msgid "S&wap echo method"
-msgstr "Echo mód c&sere"
+msgid "Swap echo method"
+msgstr "Echo mód váltás"
 
 #: tform1.menuitem29.caption
-msgid "E&rase script"
-msgstr "Szk&ript törlése"
+msgid "Erase script"
+msgstr "Szkript törlése"
 
 #: tform1.menuitem3.caption
 msgid "&Help"
 msgstr "&Segí­tség"
 
 #: tform1.menuitem30.caption
-msgid "E&dit script"
-msgstr "Szkript szer&kesztése"
+msgid "Edit script"
+msgstr "Szkript szerkesztése"
 
 #: tform1.menuitem31.caption
-msgid "E&xport registers.."
-msgstr "Regiszterek e&xportálása.."
+msgid "Export registers.."
+msgstr "Regiszterek exportálása.."
 
 #: tform1.menuitem32.caption
-msgid "I&mport registers.."
-msgstr "Regiszterek i&mportálása.."
+msgid "Import registers.."
+msgstr "Regiszterek importálása.."
 
 #: tform1.menuitem33.caption
 msgid "Devices"
@@ -2009,64 +2053,64 @@ msgid "Connections"
 msgstr "Kapcsolatok"
 
 #: tform1.menuitem36.caption
-msgid "&Save configuration.."
-msgstr "Beállítások menté&se.."
+msgid "Save configuration.."
+msgstr "Beállítások mentése.."
 
 #: tform1.menuitem37.caption
-msgid "&Load configuration.."
-msgstr "Beá&llítások betöltése.."
+msgid "Load configuration.."
+msgstr "Beállítások betöltése.."
 
 #: tform1.menuitem38.caption
-msgid "&Set project name.."
-msgstr "Projekt név beállítá&sa.."
+msgid "Set project name.."
+msgstr "Projekt név beállítása.."
 
 #: tform1.menuitem39.caption
-msgid "&Set devices.."
-msgstr "Eszközök beállítá&sa.."
+msgid "Set devices.."
+msgstr "Eszközök beállítása.."
 
 #: tform1.menuitem4.caption
 msgid "&Registers"
 msgstr "&Regiszterek"
 
 #: tform1.menuitem40.caption
-msgid "&Set protocols.."
-msgstr "Protokollok beállítá&sa.."
+msgid "Set protocols.."
+msgstr "Protokollok beállítása.."
 
 #: tform1.menuitem41.caption
-msgid "&Set connections.."
-msgstr "Kapcsolatok beállítá&sa.."
+msgid "Set connections.."
+msgstr "Kapcsolatok beállítása.."
 
 #: tform1.menuitem42.caption
-msgid "&Reset project name"
-msgstr "Projekt név tör&lése"
+msgid "Reset project name"
+msgstr "Projekt név törlése"
 
 #: tform1.menuitem43.caption
-msgid "&Reset devices.."
-msgstr "Eszközök tör&lése.."
+msgid "Reset devices.."
+msgstr "Eszközök törlése.."
 
 #: tform1.menuitem44.caption
-msgid "&Reset protocols.."
-msgstr "Protokollok tör&lése.."
+msgid "Reset protocols.."
+msgstr "Protokollok törlése.."
 
 #: tform1.menuitem45.caption
-msgid "&Reset connections.."
-msgstr "Kapcsolatok tör&lése.."
+msgid "Reset connections.."
+msgstr "Kapcsolatok törlése.."
 
 #: tform1.menuitem46.caption
-msgid "Sho&w project name"
-msgstr "Projekt név &mutatása"
+msgid "Show project name"
+msgstr "Projekt név mutatása"
 
 #: tform1.menuitem47.caption
-msgid "Sho&w devices"
-msgstr "Eszközök &mutatása"
+msgid "Show devices"
+msgstr "Eszközök mutatása"
 
 #: tform1.menuitem48.caption
-msgid "Sho&w protocols"
-msgstr "Protokollok &mutatása"
+msgid "Show protocols"
+msgstr "Protokollok mutatása"
 
 #: tform1.menuitem49.caption
-msgid "Sho&w connections"
-msgstr "Kapcsolatok &mutatása"
+msgid "Show connections"
+msgstr "Kapcsolatok mutatása"
 
 #: tform1.menuitem5.caption
 msgid "&Project"
@@ -2077,28 +2121,28 @@ msgid "Write data to serial port.."
 msgstr "Adat írása soros portra.."
 
 #: tform1.menuitem51.caption
-msgid "Show all variable arra&ys"
-msgstr "Változó tömbö&k mutatása"
+msgid "Show all variable arrays"
+msgstr "Változó tömbök mutatása"
 
 #: tform1.menuitem52.caption
-msgid "&Variable monitor.."
-msgstr "&Változó monitor.."
+msgid "Variable monitor.."
+msgstr "Változó monitor.."
 
 #: tform1.menuitem53.caption
-msgid "&Restart"
-msgstr "Új&raindítás"
+msgid "Restart"
+msgstr "Újraindítás"
 
 #: tform1.menuitem54.caption
-msgid "Mini &serial console.."
-msgstr "&Mini soros konzol.."
+msgid "Mini serial console.."
+msgstr "Mini soros konzol.."
 
 #: tform1.menuitem55.caption
-msgid "Mini &TCP console.."
-msgstr "Mini TC&P konzol.."
+msgid "Mini TCP console.."
+msgstr "Mini TCP konzol.."
 
 #: tform1.menuitem56.caption
-msgid "&Online wiki"
-msgstr "&Online wiki"
+msgid "Online wiki"
+msgstr "Online wiki"
 
 #: tform1.menuitem57.caption
 msgid "Homepage"
@@ -2109,28 +2153,28 @@ msgid "Github"
 msgstr "Github"
 
 #: tform1.menuitem59.caption
-msgid "&Decimal"
-msgstr "&Decimális"
+msgid "Decimal"
+msgstr "Decimális"
 
 #: tform1.menuitem6.caption
-msgid "&Commands"
-msgstr "&Parancsok"
+msgid "Commands"
+msgstr "Parancsok"
 
 #: tform1.menuitem60.caption
-msgid "&Hexadecimal"
-msgstr "&Hexadecimális"
+msgid "Hexadecimal"
+msgstr "Hexadecimális"
 
 #: tform1.menuitem61.caption
-msgid "T&imeout"
-msgstr "&Időtúllépés"
+msgid "Timeout"
+msgstr "Időtúllépés"
 
 #: tform1.menuitem62.caption
-msgid "&Set timeout"
-msgstr "Időtúllépés beállítá&sa"
+msgid "Set timeout.."
+msgstr "Időtúllépés beállítása.."
 
 #: tform1.menuitem63.caption
-msgid "&Show timeout"
-msgstr "Időtúllépés &mutatása"
+msgid "Show timeout"
+msgstr "Időtúllépés mutatása"
 
 #: tform1.menuitem64.caption
 msgid "Read data with TCP.."
@@ -2141,8 +2185,8 @@ msgid "Write data with TCP.."
 msgstr "Adat írá&sa TCP-vel.."
 
 #: tform1.menuitem66.caption
-msgid "Mini &UDP console.."
-msgstr "Mini U&DP konzol.."
+msgid "Mini UDP console.."
+msgstr "Mini UDP konzol.."
 
 #: tform1.menuitem67.caption
 msgid "Read data with UDP.."
@@ -2153,20 +2197,20 @@ msgid "Write data with UDP.."
 msgstr "Adat írása UDP-&vel.."
 
 #: tform1.menuitem69.caption
-msgid "&Modbus"
-msgstr "&Modbus"
+msgid "Mod&bus"
+msgstr "Mod&bus"
 
 #: tform1.menuitem7.caption
-msgid "&About"
-msgstr "&Névjegy"
+msgid "About"
+msgstr "Névjegy"
 
 #: tform1.menuitem70.caption
-msgid "Read &discrete inputs.."
-msgstr "&Diszkrét bemenetek olvasása.."
+msgid "Read discrete inputs.."
+msgstr "Diszkrét bemenetek olvasása.."
 
 #: tform1.menuitem71.caption
-msgid "Write &coils.."
-msgstr "D&iszkrét kimenetek írása.."
+msgid "Write coils.."
+msgstr "Diszkrét kimenetek írása.."
 
 #: tform1.menuitem72.caption
 msgid "Read input registers.."
@@ -2177,25 +2221,29 @@ msgid "Read holding registers.."
 msgstr "Tároló regiszterek olvasása.."
 
 #: tform1.menuitem74.caption
-msgid "Read &coils.."
-msgstr "Di&szkrét kimenetek olvasása.."
+msgid "Read coils.."
+msgstr "Diszkrét kimenetek olvasása.."
 
 #: tform1.menuitem75.caption
 msgid "Write holding registers.."
 msgstr "Tároló regiszterek írása.."
 
 #: tform1.menuitem76.caption
-msgid "&Swap input methode"
+msgid "Swap input methode"
 msgstr "&Bemeneti mód cseréje"
 
 #: tform1.menuitem77.caption
 msgctxt "tform1.menuitem77.caption"
-msgid "Sw&ap send method"
-msgstr "Kü&ldési mód cseréje"
+msgid "Swap send method"
+msgstr "Küldési mód cseréje"
 
 #: tform1.menuitem78.caption
-msgid "Show all &macros"
-msgstr "Ma&krók mutatása"
+msgid "Show all macros"
+msgstr "Makrók mutatása"
+
+#: tform1.menuitem79.caption
+msgid "Show serial Modbus traffic.."
+msgstr "Soros Modbus forgalom monitorozása.."
 
 #: tform1.menuitem8.caption
 msgctxt "tform1.menuitem8.caption"
@@ -2309,8 +2357,8 @@ msgstr "&Fájl"
 
 #: tform4.menuitem2.caption
 msgctxt "tform4.menuitem2.caption"
-msgid "&Close"
-msgstr "&Bezár"
+msgid "Close"
+msgstr "Bezárás"
 
 #: tform4.menuitem3.caption
 msgctxt "tform4.menuitem3.caption"
@@ -2319,23 +2367,23 @@ msgstr "Műkö&dés"
 
 #: tform4.menuitem4.caption
 msgctxt "tform4.menuitem4.caption"
-msgid "&Clear screen"
-msgstr "&Képernyőtörlés"
+msgid "Clear screen"
+msgstr "Képernyőtörlés"
 
 #: tform4.menuitem5.caption
 msgctxt "tform4.menuitem5.caption"
-msgid "S&wap echo method"
-msgstr "Echo mód váltá&s"
+msgid "Swap echo method"
+msgstr "Echo mód váltás"
 
 #: tform4.menuitem6.caption
 msgctxt "tform4.menuitem6.caption"
-msgid "&Swap input method"
-msgstr "&Bemeneti mód cseréje"
+msgid "Swap input method"
+msgstr "Bemeneti mód cseréje"
 
 #: tform4.menuitem8.caption
 msgctxt "tform4.menuitem8.caption"
-msgid "Sw&ap send method"
-msgstr "Kü&ldési mód cseréje"
+msgid "Swap send method"
+msgstr "Küldési mód cseréje"
 
 #: tform5.caption
 msgid "Form5"
@@ -2348,8 +2396,8 @@ msgstr "&Fájl"
 
 #: tform5.menuitem2.caption
 msgctxt "tform5.menuitem2.caption"
-msgid "&Close"
-msgstr "&Bezár"
+msgid "Close"
+msgstr "Bezárás"
 
 #: tform5.menuitem3.caption
 msgctxt "tform5.menuitem3.caption"
@@ -2358,23 +2406,50 @@ msgstr "Műkö&dés"
 
 #: tform5.menuitem4.caption
 msgctxt "tform5.menuitem4.caption"
-msgid "&Clear screen"
-msgstr "&Képernyőtörlés"
+msgid "Clear screen"
+msgstr "Képernyőtörlés"
 
 #: tform5.menuitem5.caption
 msgctxt "tform5.menuitem5.caption"
-msgid "S&wap echo method"
-msgstr "Echo mód váltá&s"
+msgid "Swap echo method"
+msgstr "Echo mód váltás"
 
 #: tform5.menuitem6.caption
 msgctxt "tform5.menuitem6.caption"
-msgid "&Swap input method"
-msgstr "&Bemeneti mód cseréje"
+msgid "Swap input method"
+msgstr "Bemeneti mód cseréje"
 
 #: tform5.menuitem8.caption
 msgctxt "tform5.menuitem8.caption"
-msgid "Sw&ap send method"
-msgstr "Kü&ldési mód cseréje"
+msgid "Swap send method"
+msgstr "Küldési mód cseréje"
+
+#: tform6.caption
+msgid "Form6"
+msgstr "Form6"
+
+#: tform6.menuitem1.caption
+msgctxt "tform6.menuitem1.caption"
+msgid "&File"
+msgstr "&Fájl"
+
+#: tform6.menuitem2.caption
+msgctxt "tform6.menuitem2.caption"
+msgid "Close"
+msgstr "Bezárás"
+
+#: tform6.menuitem3.caption
+msgctxt "tform6.menuitem3.caption"
+msgid "&Operation"
+msgstr "&Működés"
+
+#: tform6.menuitem4.caption
+msgctxt "tform6.menuitem4.caption"
+msgid "Clear screen"
+msgstr "Képernyőtörlés"
+
+#~ msgid "&Modbus"
+#~ msgstr "&Modbus"
 
 #~ msgid "Cannot initialize network device: "
 #~ msgstr "Nem lehet inicializálni a hálózati eszközt: "

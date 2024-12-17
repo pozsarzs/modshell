@@ -25,6 +25,7 @@ uses
   Menus,
   StdCtrls,
   SysUtils,
+  convert,
   synaser,
   ucommon,
   uconfig;
@@ -76,7 +77,7 @@ uses frmmain;
 
 {$I lockfile.pas}
 {$I serport.pas}
-
+{$I mbdectgm.pas}
 {$I thr_mbmn.pas}
 
 { TLThread }

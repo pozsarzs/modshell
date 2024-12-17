@@ -13,8 +13,10 @@ section of the README.md.)
 
 |where|what                                                                    |
 |:---:|:-----------------------------------------------------------------------|
+|  M  |Command `mbmon` has not been tested yet.                                |
 |  U  |SerialEchoServer has not been tested yet.                               |
 |  U  |SerialMBMonitor has not been tested yet.                                |
+|  X  |Menu item 'Modbus/Show serial Modbus traffic' has not been tested yet.  |
 
 **Where:**
   - M: ModShell
