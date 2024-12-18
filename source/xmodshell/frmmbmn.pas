@@ -134,20 +134,21 @@ procedure TForm6.FormShow(Sender: TObject);
 var
   LThread1: TLThread;
 begin
-{
-  if dev[device].valid then
-    if dev[device].devtype = 1 then
+  if conn[connection].valid then
+    if dev[conn[connection].dev].devtype = 1 then
     begin
       with StatusBar1.Panels do
       begin
-        Items[3].Text := dev[device].device;
-        Items[4].Text := DEV_SPEED[dev[device].speed] + ' baud '+
-        inttostr(dev[device].databit) +
-        upcase(DEV_PARITY[dev[device].parity]) +
-        inttostr(dev[device].stopbit);
+        Items[3].Text := dev[conn[connection].dev].device;
+        Items[4].Text := DEV_SPEED[dev[conn[connection].dev].speed] + ' baud '+
+        inttostr(dev[conn[connection].dev].databit) +
+        upcase(DEV_PARITY[dev[conn[connection].dev].parity]) +
+        inttostr(dev[conn[connection].dev].stopbit);
+        Items[5].Text := upcase(PROT_TYPE[prot[conn[connection].prot].prottype]) +
+        ' #' + inttostr(prot[conn[connection].prot].id);
       end;
     end;
-}
+
   // new threads for I/O operation
   LThread1 := TLThread.Create(True);
   with LThread1 do
@@ -163,10 +164,10 @@ begin
   // save window size and position
   with Form6 do
   begin
-    formpositions[2, 0] := Top;
-    formpositions[2, 1] := Left;
-    formpositions[2, 2] := Height;
-    formpositions[2, 3] := Width;
+    formpositions[6, 0] := Top;
+    formpositions[6, 1] := Left;
+    formpositions[6, 2] := Height;
+    formpositions[6, 3] := Width;
   end;
   keyprd := true;
   prdkey := #27;
@@ -181,10 +182,10 @@ begin
   // restore window size and position
   with Form6 do
   begin
-    Top := formpositions[2, 0];
-    Left := formpositions[2, 1];
-    if formpositions[2, 2] > 120 then Height := formpositions[2, 2];
-    if formpositions[2, 3] > 160 then Width := formpositions[2, 3];
+    Top := formpositions[6, 0];
+    Left := formpositions[6, 1];
+    if formpositions[6, 2] > 120 then Height := formpositions[6, 2];
+    if formpositions[6, 3] > 160 then Width := formpositions[6, 3];
   end;
   // set colors
   Memo1.Font.Color := uconfig.guicolors[0];

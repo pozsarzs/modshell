@@ -63,7 +63,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="5"/>
         <CursorPos X="2" Y="15"/>
-        <UsageCount Value="138"/>
+        <UsageCount Value="160"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -75,7 +75,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="15"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="44"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -83,7 +83,7 @@
         <Filename Value="../_inc/commands/cmd_whvr.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="39" Y="22"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="../_ext/modsynhighlighterany/modsynhighlighterany.pas"/>
@@ -91,7 +91,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="50"/>
         <CursorPos X="3" Y="61"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="frmsecn.pas"/>
@@ -99,38 +99,24 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
-        <CursorPos X="43" Y="11"/>
-        <UsageCount Value="68"/>
+        <CursorPos X="2" Y="15"/>
+        <UsageCount Value="79"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../_inc/ports/network.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="94"/>
-        <CursorPos Y="105"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../_inc/commands/thr_tccn.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="77"/>
-        <CursorPos X="20" Y="90"/>
-        <UsageCount Value="1"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/parsing.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="61"/>
         <CursorPos X="29" Y="72"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/cmd_echo.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="46"/>
         <CursorPos X="5" Y="66"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="26"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/fpcsrc/3.2.2/packages/fv/src/menus.pas"/>
@@ -138,75 +124,76 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="63"/>
         <CursorPos X="11" Y="74"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="iutilities-mini_serial_console.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="127"/>
         <CursorPos Y="147"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="iutilities-mini_tcp_console.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="128"/>
         <CursorPos Y="147"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="iutilities-mini_udp_console.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="127"/>
         <CursorPos Y="147"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/thr_sewr.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="99"/>
         <CursorPos X="25" Y="111"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="imodbus-read_discrete_input.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="19"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="imodbus-show_serial_modbus_traffic.pas"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="2" Y="15"/>
-        <UsageCount Value="11"/>
+        <TopLine Value="125"/>
+        <CursorPos Y="144"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/cmd_mbmn.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="30" Y="22"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/thr_mbmn.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
         <CursorPos X="19" Y="22"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/commands/thr_secn.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="39" Y="22"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="../_inc/sendmesg.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="16" Y="21"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="19">
+    <JumpHistory HistoryIndex="25">
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="15"/>
@@ -285,6 +272,30 @@
       </Position>
       <Position>
         <Filename Value="frmmbmn.pas"/>
+        <Caret Line="15"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmbmn.pas"/>
+        <Caret Line="150" TopLine="135"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmbmn.pas"/>
+        <Caret Line="137" Column="6" TopLine="126"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmbmn.pas"/>
+        <Caret Line="148" Column="42" TopLine="137"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmbmn.pas"/>
+        <Caret Line="149" Column="45" TopLine="140"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmbmn.pas"/>
+        <Caret Line="156" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmain.pas"/>
         <Caret Line="15"/>
       </Position>
     </JumpHistory>

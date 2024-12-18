@@ -958,7 +958,7 @@ procedure TForm1.MenuItem78Click(Sender: TObject);
 var
   cmd: string;
 begin
-  cmd := COMMANDS[122];
+  cmd := COMMANDS[121];
   Memo1.Lines.Add(fullprompt + cmd);
   parsingcommands(cmd);
 end;

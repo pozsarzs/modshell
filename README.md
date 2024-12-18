@@ -31,7 +31,7 @@ HART protocols.
 |script size             |max. 1024 line                                                                              |
 |example scripts         |10 scripts (shellscript and batch file versions)                                            |
 |load from file          |registers, script, settings                                                                 |
-|save to file            |command history, console traffic, registers, communication settings, user log with timestamp|
+|save to file            |command history, console and Modbus traffic, registers, communication settings, user log    |
 |auto save to file       |general settings and console traffic                                                        |
 |export to file          |history (TXT), registers (CSV, INI, XML)                                                    |
 |import to file          |registers (INI, XML)                                                                        |
@@ -49,7 +49,7 @@ HART protocols.
 |                        |internal serial monitor for decode ASCII or RTU telegrams                                   |
 |local Modbus registers  |2x10000 boolean and 2x10000 word type                                                       |
 |script syntax plugins   |for editors using GtkSourceView, MCEdit, Micro, Nano, Notepad++, NeoVim and Vim             |
-|other utilities         |command line serial monitor, serial, TCP and UDP echo servers                               |
+|other utilities         |command line serial Modbus traffic monitor, serial, TCP and UDP echo servers                |
 
 **Planned releases**  
 

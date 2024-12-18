@@ -359,6 +359,9 @@ object Form6: TForm6
       end    
       item
         Width = 110
+      end    
+      item
+        Width = 110
       end>
     SimplePanel = False
   end
