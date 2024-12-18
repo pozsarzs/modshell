@@ -28,7 +28,7 @@ uses
   frmsecn,
   frmtccn,
   frmudcn,
-  frmvrmn;
+  frmvrmn, frmregtable;
 var
   b: byte;
   fn: string;
@@ -129,5 +129,6 @@ begin
   Application.CreateForm(TForm4, Form4);
   Application.CreateForm(TForm5, Form5);
   Application.CreateForm(TForm6, Form6);
+  Application.CreateForm(TForm7, Form7);
   Application.Run;
 end.

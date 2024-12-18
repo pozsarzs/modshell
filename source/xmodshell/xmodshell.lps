@@ -7,7 +7,6 @@
       <Unit>
         <Filename Value="xmodshell.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <CursorPos Y="15"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
@@ -18,8 +17,9 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos Y="15"/>
+        <CursorPos X="18" Y="1016"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -30,7 +30,7 @@
         <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="7"/>
         <CursorPos Y="15"/>
         <UsageCount Value="219"/>
         <Loaded Value="True"/>
@@ -42,7 +42,7 @@
         <ComponentName Value="Form4"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <CursorPos Y="15"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
@@ -61,9 +61,9 @@
         <ComponentName Value="Form5"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="6"/>
         <CursorPos X="2" Y="15"/>
-        <UsageCount Value="160"/>
+        <UsageCount Value="162"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -73,9 +73,9 @@
         <ComponentName Value="Form6"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
-        <CursorPos Y="15"/>
-        <UsageCount Value="44"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="42" Y="18"/>
+        <UsageCount Value="46"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -98,9 +98,9 @@
         <ComponentName Value="Form3"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <CursorPos X="2" Y="15"/>
-        <UsageCount Value="79"/>
+        <UsageCount Value="80"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -157,8 +157,9 @@
       <Unit>
         <Filename Value="imodbus-read_discrete_input.pas"/>
         <EditorIndex Value="-1"/>
-        <CursorPos Y="19"/>
-        <UsageCount Value="8"/>
+        <TopLine Value="94"/>
+        <CursorPos X="15" Y="110"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="imodbus-show_serial_modbus_traffic.pas"/>
@@ -192,8 +193,57 @@
         <CursorPos X="16" Y="21"/>
         <UsageCount Value="8"/>
       </Unit>
+      <Unit>
+        <Filename Value="imodbus-read_coil.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="2" Y="15"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="imodbus-read_input_register.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="19"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="imodbus-read_holding_register.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="19"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="imodbus-write_coil.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="197"/>
+        <CursorPos X="45" Y="213"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../_inc/commands/cmd_cons.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="120"/>
+        <CursorPos Y="131"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="frmregtable.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form7"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="2"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="iproject-connections-set_connections.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="23"/>
+        <CursorPos Y="35"/>
+        <UsageCount Value="10"/>
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="25">
+    <JumpHistory HistoryIndex="27">
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="15"/>
@@ -297,6 +347,14 @@
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="15"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="15"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="781" Column="14" TopLine="764"/>
       </Position>
     </JumpHistory>
     <RunParams>

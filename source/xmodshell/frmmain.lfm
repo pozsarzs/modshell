@@ -801,6 +801,12 @@ object Form1: TForm1
       object Separator8: TMenuItem
         Caption = '-'
       end
+      object MenuItem80: TMenuItem
+        Caption = 'Register table..'
+        ImageIndex = 15
+        ShortCut = 8309
+        OnClick = MenuItem80Click
+      end
       object MenuItem15: TMenuItem
         Caption = 'Dump registers..'
         ImageIndex = 15

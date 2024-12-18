@@ -1,0 +1,45 @@
+object Form7: TForm7
+  Left = 378
+  Height = 240
+  Top = 196
+  Width = 320
+  Caption = 'Form7'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '2.2.6.0'
+  object ComboBox1: TComboBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 8
+    Height = 34
+    Top = 8
+    Width = 304
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    ItemHeight = 0
+    ReadOnly = True
+    TabOrder = 0
+    Text = 'ComboBox1'
+  end
+  object StringGrid1: TStringGrid
+    AnchorSideLeft.Control = ComboBox1
+    AnchorSideTop.Control = ComboBox1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = ComboBox1
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 8
+    Height = 186
+    Top = 46
+    Width = 304
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Top = 4
+    BorderSpacing.Bottom = 8
+    TabOrder = 1
+  end
+end

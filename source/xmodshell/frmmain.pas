@@ -151,6 +151,7 @@ type
     MenuItem77: TMenuItem;
     MenuItem78: TMenuItem;
     MenuItem79: TMenuItem;
+    MenuItem80: TMenuItem;
     Separator13: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
@@ -269,6 +270,7 @@ type
     procedure LSpinEdit391Change(Sender: TObject);
     procedure LSpinEdit401Change(Sender: TObject);
     procedure LSpinEdit411Change(Sender: TObject);
+    procedure MenuItem80Click(Sender: TObject);
   private
   public
   end;
@@ -772,6 +774,12 @@ end;
 
 // RUN COMMAND 'dump' WITH DIALOG
 {$I iregisters-dump_registers.pas}
+
+// SHOW REGISTER TABLE
+procedure TForm1.MenuItem80Click(Sender: TObject);
+begin
+  Form7.Show;
+end;
 
 // -- MAIN MENU/Script ---------------------------------------------------------
 

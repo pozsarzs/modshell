@@ -87,7 +87,7 @@ begin
       AnchorSideLeft.Control := LLabel401;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
-    Name := 'LLabel401';
+    Name := 'LSpinEdit401';
     Parent := Form401;
     MinValue := 0;
     MaxValue := 7;

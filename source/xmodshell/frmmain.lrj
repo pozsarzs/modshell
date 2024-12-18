@@ -62,6 +62,7 @@
 {"hash":231847118,"name":"tform1.menuitem14.caption","sourcebytes":[83,97,118,101,32,114,101,103,105,115,116,101,114,115,46,46],"value":"Save registers.."},
 {"hash":164649630,"name":"tform1.menuitem32.caption","sourcebytes":[73,109,112,111,114,116,32,114,101,103,105,115,116,101,114,115,46,46],"value":"Import registers.."},
 {"hash":136010398,"name":"tform1.menuitem31.caption","sourcebytes":[69,120,112,111,114,116,32,114,101,103,105,115,116,101,114,115,46,46],"value":"Export registers.."},
+{"hash":181954974,"name":"tform1.menuitem80.caption","sourcebytes":[82,101,103,105,115,116,101,114,32,116,97,98,108,101,46,46],"value":"Register table.."},
 {"hash":147888206,"name":"tform1.menuitem15.caption","sourcebytes":[68,117,109,112,32,114,101,103,105,115,116,101,114,115,46,46],"value":"Dump registers.."},
 {"hash":194678868,"name":"tform1.menuitem2.caption","sourcebytes":[38,83,99,114,105,112,116],"value":"&Script"},
 {"hash":166138574,"name":"tform1.menuitem10.caption","sourcebytes":[76,111,97,100,32,115,99,114,105,112,116,46,46],"value":"Load script.."},

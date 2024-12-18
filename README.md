@@ -106,7 +106,8 @@ _First user test release_ will be with the following changes:
  - [x] new command `sendmeth`;  
  - [x] new command `tcpcons`, `tcpread`, `tcpwrite`;  
  - [x] new command `udpcons`, `udpread`, `udpwrite`;  
- - [ ] new menu items in the main menu for quick execution of Modbus R/W commands;  
+ - [x] new menu items in the main menu for quick execution of Modbus R/W commands;  
+ - [ ] new menu items for show and edit all register's value in a big table;  
  - [x] new serial baudrates: 150, 300, 600 baud;
  - [x] serial echo server utility for testing connectivity;  
  - [x] serial ModBus traffic monitor utility;
