@@ -90,6 +90,7 @@
         <Filename Value="frmregtable.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form7"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>

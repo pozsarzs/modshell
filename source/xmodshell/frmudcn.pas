@@ -173,7 +173,7 @@ var
     end;
 end;
 
-// CLOSE MINI udp CONSOLE WINDOW
+// CLOSE MINI UDP CONSOLE WINDOW
 procedure TForm5.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   // save window size and position
@@ -190,7 +190,7 @@ begin
   CanClose := true;
 end;
 
-// SHOW MINI udp CONSOLE WINDOW
+// CREATE MINI UDP CONSOLE WINDOW
 procedure TForm5.FormCreate(Sender: TObject);
 begin
   KeyPreview := true;

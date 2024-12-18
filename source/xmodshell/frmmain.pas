@@ -40,6 +40,7 @@ uses
   dom,
   dos,
   frmmbmn,
+  frmregtable,
   frmsecn,
   frmtccn,
   frmudcn,
@@ -1168,7 +1169,7 @@ begin
       histitem := i;
       histlast := i;
     end;
-  // save main window size and position and set title
+  // save main window size and position
   with Form1 do
   begin
     formpositions[0, 0] := Top;
@@ -1176,7 +1177,7 @@ begin
     formpositions[0, 2] := Height;
     formpositions[0, 3] := Width;
   end;
-  // save variable monitor window size and position and set title
+  // save variable monitor window size and position
   with Form2 do
   begin
     formpositions[1, 0] := Top;
@@ -1184,7 +1185,7 @@ begin
     formpositions[1, 2] := Height;
     formpositions[1, 3] := Width;
   end;
-  // save mini serial console window size and position and set title
+  // save mini serial console window size and position
   with Form3 do
   begin
     formpositions[2, 0] := Top;
@@ -1192,7 +1193,7 @@ begin
     formpositions[2, 2] := Height;
     formpositions[2, 3] := Width;
   end;
-  // save mini TCP console window size and position and set title
+  // save mini TCP console window size and position
   with Form4 do
   begin
     formpositions[4, 0] := Top;
@@ -1200,13 +1201,29 @@ begin
     formpositions[4, 2] := Height;
     formpositions[4, 3] := Width;
   end;
-  // save mini UDP console window size and position and set title
+  // save mini UDP console window size and position
   with Form5 do
   begin
     formpositions[5, 0] := Top;
     formpositions[5, 1] := Left;
     formpositions[5, 2] := Height;
     formpositions[5, 3] := Width;
+  end;
+  // save Modbus traffic monitor window size and position
+  with Form6 do
+  begin
+    formpositions[6, 0] := Top;
+    formpositions[6, 1] := Left;
+    formpositions[6, 2] := Height;
+    formpositions[6, 3] := Width;
+  end;
+  // save register table window size and position
+  with Form7 do
+  begin
+    formpositions[7, 0] := Top;
+    formpositions[7, 1] := Left;
+    formpositions[7, 2] := Height;
+    formpositions[7, 3] := Width;
   end;
   // save configuration
   uconfig.lastproject := vars[12].vvalue;

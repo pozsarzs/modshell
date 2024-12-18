@@ -190,7 +190,7 @@ begin
   CanClose := true;
 end;
 
-// SHOW MINI TCP CONSOLE WINDOW
+// CREATE MINI TCP CONSOLE WINDOW
 procedure TForm4.FormCreate(Sender: TObject);
 begin
   KeyPreview := true;

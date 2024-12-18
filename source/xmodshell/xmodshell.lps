@@ -19,7 +19,7 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="18" Y="1016"/>
+        <CursorPos Y="15"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -73,9 +73,21 @@
         <ComponentName Value="Form6"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="2"/>
         <CursorPos X="42" Y="18"/>
         <UsageCount Value="46"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="frmregtable.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form7"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="3"/>
+        <CursorPos Y="15"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -226,48 +238,21 @@
         <UsageCount Value="10"/>
       </Unit>
       <Unit>
-        <Filename Value="frmregtable.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form7"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
-      </Unit>
-      <Unit>
         <Filename Value="iproject-connections-set_connections.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="23"/>
         <CursorPos Y="35"/>
         <UsageCount Value="10"/>
       </Unit>
+      <Unit>
+        <Filename Value="../_ppu/uconfig.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="155"/>
+        <CursorPos Y="195"/>
+        <UsageCount Value="10"/>
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="27">
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="15"/>
-      </Position>
-      <Position>
-        <Filename Value="xmodshell.lpr"/>
-        <Caret Line="15" Column="3"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="15"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="690" Column="3" TopLine="684"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="15" TopLine="10"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="668" Column="39" TopLine="651"/>
-      </Position>
+    <JumpHistory HistoryIndex="28">
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="15"/>
@@ -355,6 +340,33 @@
       <Position>
         <Filename Value="frmmain.pas"/>
         <Caret Line="781" Column="14" TopLine="764"/>
+      </Position>
+      <Position>
+        <Filename Value="frmregtable.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="frmregtable.pas"/>
+        <Caret Line="34" Column="17" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="frmregtable.pas"/>
+        <Caret Line="51" Column="3" TopLine="48"/>
+      </Position>
+      <Position>
+        <Filename Value="xmodshell.lpr"/>
+        <Caret Line="15"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="15"/>
+      </Position>
+      <Position>
+        <Filename Value="frmmain.pas"/>
+        <Caret Line="43" Column="15" TopLine="34"/>
+      </Position>
+      <Position>
+        <Filename Value="frmregtable.pas"/>
+        <Caret Line="31" TopLine="16"/>
       </Position>
     </JumpHistory>
     <RunParams>

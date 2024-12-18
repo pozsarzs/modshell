@@ -22,30 +22,44 @@ uses
  inifiles;
 var
   ini: TINIFile;
-  b: byte;
   confdir: string;
   // settings from/to ini file
   colors: array[0..4] of integer;
   echometh: byte = 0;
   inputmeth: byte = 1;
   sendmeth: byte = 4;
-  formpositions: array[0..6, 0..3] of integer;
+  formpositions: array[0..7, 0..3] of integer;
   guicolors: array[0..1] of integer;
   histbuff: array[0..255] of string;
   histitem: integer;
   histlast: integer;
   lastproject: string;
 const
+  KEY: array[0..14] of string = ('foreground',
+                                'background',
+                                'receivedtext',
+                                'transmittedtext',
+                                'variable_monitor',
+                                'line',
+                                'histitem',
+                                'histlast',
+                                'inputmeth',
+                                'echometh',
+                                'sendmeth',
+                                'foreground',
+                                'background',
+                                'lastproject',
+                                'form');
+  FORMPROP: array[0..3] of string = ('top',
+                                     'left',
+                                     'height',
+                                     'width');
   SECTION: array[0..5] of string = ('cmdline-colors',
                                     'cmdline-history',
                                     'connection',
                                     'gui-colors',
                                     'others',
                                     'positions');
-  FORMPROP: array[0..3] of string = ('top',
-                                     'left',
-                                     'height',
-                                     'width');
 {$IFDEF UNIX}
   {$DEFINE SLASH := #47}
 {$ELSE}
@@ -79,7 +93,7 @@ end;
 // SAVE CONFIGURATION
 function saveconfiguration(basename, extension: string): boolean;
 var
-  b: byte;
+  b, bb: byte;
   fn: string;
   s: string;
 begin
@@ -88,42 +102,42 @@ begin
   fn := SLASH + basename + extension;
   ini := tinifile.create(confdir + fn);
   try
-    ini.writeinteger(SECTION[0], 'foreground', colors[0]);
-    ini.writeinteger(SECTION[0], 'background', colors[1]);
-    ini.writeinteger(SECTION[0], 'receivedtext', colors[2]);
-    ini.writeinteger(SECTION[0], 'transmittedtext', colors[3]);
-    ini.writeinteger(SECTION[0], 'variable_monitor', colors[4]);
+    ini.writeinteger(SECTION[0], KEY[0], colors[0]);
+    ini.writeinteger(SECTION[0], KEY[1], colors[1]);
+    ini.writeinteger(SECTION[0], KEY[2], colors[2]);
+    ini.writeinteger(SECTION[0], KEY[3], colors[3]);
+    ini.writeinteger(SECTION[0], KEY[4], colors[4]);
     for b := 0 to 255 do
-      ini.writestring(SECTION[1], 'line' + inttostr(b), histbuff[b]);
-    ini.writeinteger(SECTION[1], 'histitem', histitem);
-    ini.writeinteger(SECTION[1], 'histlast', histlast);
-    ini.writeinteger(SECTION[2], 'inputmeth', inputmeth);
-    ini.writeinteger(SECTION[2], 'echometh', echometh);
-    ini.writeinteger(SECTION[2], 'sendmeth', sendmeth);
-    ini.writeinteger(SECTION[3], 'foreground', guicolors[0]);
-    ini.writeinteger(SECTION[3], 'background', guicolors[1]);
-    ini.writestring(SECTION[4], 'lastproject', lastproject);
-    s := 'form1_';
-    for b:= 0 to 3 do
-      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[0, b]);
-    s := 'form2_';
-    for b:= 0 to 3 do
-      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[1, b]);
-    s := 'form3_';
-    for b:= 0 to 3 do
-      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[2, b]);
-    s := 'form4_';
-    for b:= 0 to 3 do
-      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[4, b]);
-    s := 'form5_';
-    for b:= 0 to 3 do
-      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[5, b]);
-    s := 'form6_';
-    for b:= 0 to 3 do
-      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[6, b]);
-    s := 'form301_';
-    for b:= 0 to 3 do
-      ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[3, b]);
+      ini.writestring(SECTION[1], KEY[5] + inttostr(b), histbuff[b]);
+    ini.writeinteger(SECTION[1], KEY[6], histitem);
+    ini.writeinteger(SECTION[1], KEY[7], histlast);
+    ini.writeinteger(SECTION[2], KEY[8], inputmeth);
+    ini.writeinteger(SECTION[2], KEY[9], echometh);
+    ini.writeinteger(SECTION[2], KEY[10], sendmeth);
+    ini.writeinteger(SECTION[3], KEY[11], guicolors[0]);
+    ini.writeinteger(SECTION[3], KEY[12], guicolors[1]);
+    ini.writestring(SECTION[4], KEY[13], lastproject);
+    for bb := 0 to 7 do
+    begin
+      if bb < 3 then
+      begin
+        s := KEY[14] + inttostr(bb + 1) + '_';
+        for b:= 0 to 3 do
+          ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[bb, b]);
+      end;
+      if bb = 3 then
+      begin
+        s := KEY[14] + '301_';
+        for b:= 0 to 3 do
+          ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[bb, b]);
+      end;
+      if bb > 3 then
+      begin
+        s := KEY[14] + inttostr(bb) + '_';
+        for b:= 0 to 3 do
+          ini.writeinteger(SECTION[5], s + FORMPROP[b], formpositions[bb, b]);
+      end;
+    end;
   except
     result := false;
   end;
@@ -134,6 +148,7 @@ end;
 // LOAD CONFIGURATION
 function loadconfiguration(basename, extension: string): boolean;
 var
+  b, bb: byte;
   fn: string;
   s: string;
 begin
@@ -141,43 +156,43 @@ begin
   fn := SLASH + basename + extension;
   ini := tinifile.create(confdir + fn);
   try
-    colors[0] := ini.readinteger(SECTION[0], 'foreground', 7);
-    colors[1] := ini.readinteger(SECTION[0], 'background', 0);
-    colors[2] := ini.readinteger(SECTION[0], 'receivedtext', 10);
-    colors[3] := ini.readinteger(SECTION[0], 'transmittedtext', 12);
-    colors[4] := ini.readinteger(SECTION[0], 'variable_monitor', 14);
+    colors[0] := ini.readinteger(SECTION[0], KEY[0], 7);
+    colors[1] := ini.readinteger(SECTION[0], KEY[1], 0);
+    colors[2] := ini.readinteger(SECTION[0], KEY[2], 10);
+    colors[3] := ini.readinteger(SECTION[0], KEY[3], 12);
+    colors[4] := ini.readinteger(SECTION[0], KEY[4], 14);
     for b := 0 to 255 do
-      histbuff[b] := ini.readstring(SECTION[1], 'line' + inttostr(b), '');
-    histitem := ini.readinteger(SECTION[1], 'histitem', 0);
-    histlast := ini.readinteger(SECTION[1], 'histlast', 0);
-    inputmeth := ini.readinteger(SECTION[2], 'inputmeth', 1);
-    echometh := ini.readinteger(SECTION[2], 'echometh', 0);
-    sendmeth := ini.readinteger(SECTION[2], 'sendmeth', 4);
+      histbuff[b] := ini.readstring(SECTION[1], KEY[5] + inttostr(b), '');
+    histitem := ini.readinteger(SECTION[1], KEY[6], 0);
+    histlast := ini.readinteger(SECTION[1], KEY[7], 0);
+    inputmeth := ini.readinteger(SECTION[2], KEY[8], 1);
+    echometh := ini.readinteger(SECTION[2], KEY[9], 0);
+    sendmeth := ini.readinteger(SECTION[2], KEY[10], 4);
     if sendmeth < 4 then sendmeth := 4;
-    guicolors[0] := ini.readinteger(SECTION[3], 'foreground', 16776960);
-    guicolors[1] := ini.readinteger(SECTION[3], 'background', 8388608);
-    lastproject := ini.readstring(SECTION[4], 'lastproject', 'default');
-    s := 'form1_';
-    for b:= 0 to 3 do
-      formpositions[0, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
-    s := 'form2_';
-    for b:= 0 to 3 do
-      formpositions[1, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
-    s := 'form3_';
-    for b:= 0 to 3 do
-      formpositions[2, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
-    s := 'form4_';
-    for b:= 0 to 3 do
-      formpositions[4, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
-    s := 'form5_';
-    for b:= 0 to 3 do
-      formpositions[5, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
-    s := 'form6_';
-    for b:= 0 to 3 do
-      formpositions[6, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
-    s := 'form301_';
-    for b:= 0 to 3 do
-      formpositions[3, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
+    guicolors[0] := ini.readinteger(SECTION[3], KEY[11], 16776960);
+    guicolors[1] := ini.readinteger(SECTION[3], KEY[12], 8388608);
+    lastproject := ini.readstring(SECTION[4], KEY[13], 'default');
+    for bb := 0 to 7 do
+    begin
+      if bb < 3 then
+      begin
+        s := KEY[14] + inttostr(bb + 1) + '_';
+        for b:= 0 to 3 do
+          formpositions[bb, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
+      end;
+      if bb = 3 then
+      begin
+        s := KEY[14] + '301_';
+        for b:= 0 to 3 do
+          formpositions[bb, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
+      end;
+      if bb > 3 then
+      begin
+        s := KEY[14] + inttostr(bb) + '_';
+        for b:= 0 to 3 do
+          formpositions[bb, b] := ini.readinteger(SECTION[5], s + FORMPROP[b], 0);
+      end;
+    end;
   except
     result := false;
   end;

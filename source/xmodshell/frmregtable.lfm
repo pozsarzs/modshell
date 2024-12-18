@@ -6,20 +6,22 @@ object Form7: TForm7
   Caption = 'Form7'
   ClientHeight = 240
   ClientWidth = 320
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
   LCLVersion = '2.2.6.0'
   object ComboBox1: TComboBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 8
+    Left = 4
     Height = 34
-    Top = 8
-    Width = 304
+    Top = 4
+    Width = 312
     Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Left = 8
-    BorderSpacing.Top = 8
-    BorderSpacing.Right = 8
+    BorderSpacing.Left = 4
+    BorderSpacing.Top = 4
+    BorderSpacing.Right = 4
     ItemHeight = 0
     ReadOnly = True
     TabOrder = 0
@@ -33,13 +35,13 @@ object Form7: TForm7
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 8
-    Height = 186
-    Top = 46
-    Width = 304
+    Left = 4
+    Height = 194
+    Top = 42
+    Width = 312
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Top = 4
-    BorderSpacing.Bottom = 8
+    BorderSpacing.Bottom = 4
     TabOrder = 1
   end
 end

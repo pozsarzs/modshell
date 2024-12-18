@@ -175,7 +175,7 @@ begin
   CanClose := true;
 end;
 
-// SHOW MINI SERIAL CONSOLE WINDOW
+// CREATE MINI SERIAL CONSOLE WINDOW
 procedure TForm6.FormCreate(Sender: TObject);
 begin
   KeyPreview := true;
