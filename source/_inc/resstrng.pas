@@ -133,6 +133,10 @@ resourcestring
   MSG106 = '[-]  ';
   MSG107 = 'ID   FC  DATA';
   MSG108 = 'Use ''Modbus/Show serial Modbus traffic'' on GUI version.';
+  MSG109 = 'Coils';
+  MSG110 = 'Discrete inputs';
+  MSG111 = 'Input registers';
+  MSG112 = 'Holding registers';
   // ERROR MESSAGES
   ERR00 = 'No such command!';
   ERR01 = 'Device number must be 0-7!';

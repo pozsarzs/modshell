@@ -329,7 +329,7 @@ object Form2: TForm2
     Width = 213
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 4
-    FixedColor = 13937152
+    FixedColor = 16775122
     FixedCols = 0
     Flat = True
     RowCount = 2

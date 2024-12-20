@@ -778,8 +778,18 @@ end;
 
 // SHOW REGISTER TABLE
 procedure TForm1.MenuItem80Click(Sender: TObject);
+var
+  b: byte;
 begin
-  Form7.Show;
+  with Form7 do
+  begin
+    Caption := rmampdot(MenuItem80.Caption);
+    ComboBox1.Items.Add(MSG109);
+    ComboBox1.Items.Add(MSG110);
+    ComboBox1.Items.Add(MSG111);
+    ComboBox1.Items.Add(MSG112);
+    ShowModal;
+  end;
 end;
 
 // -- MAIN MENU/Script ---------------------------------------------------------
@@ -1012,9 +1022,9 @@ procedure TForm1.MenuItem52Click(Sender: TObject);
 begin
   with Form2 do
   begin
-    Show;
     ValueListEditor1.TitleCaptions.Add(MSG79);
     ValueListEditor1.TitleCaptions.Add(MSG80);
+    Show;
   end;
   Form1.Show;
 end;
