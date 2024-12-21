@@ -19,7 +19,6 @@
   rmdevlock  [$]DEVICE
 }
 
-
 // COMMAND 'chkdevlock'
 function cmd_chkdevlock(p1: string): byte;
 begin

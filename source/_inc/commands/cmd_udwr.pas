@@ -44,14 +44,14 @@ begin
   if valid then
     if length(p1) >= 4 then
     begin
-       i1 := strtointdef(p1[4],-1);
+       i1 := strtointdef(p1[4], -1);
        if (i1 >= 0) and (i1 < 8) then valid := true;
     end;
   if not valid then
   begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
-    s := s + ' ' + PREFIX[0] + '[0-7]';
+    s := s + ' ' + PREFIX[0] + SVR;
     {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;

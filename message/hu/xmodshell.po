@@ -750,6 +750,12 @@ msgstr "Nem engedélyezett karakter a makró nevében!"
 msgid "Cannot define more macro!"
 msgstr "Nem lehet létrehozni több makrót!"
 
+#: frmmain.err61
+#, fuzzy
+#| msgid "Cannot create console log file!"
+msgid "Cannot create Modbus traffic log file!"
+msgstr "Nem lehet létrehozni a Modbus forgalom naplófájlját!"
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -830,9 +836,34 @@ msgstr "[-]  "
 msgid "ID   FC  DATA"
 msgstr "ID   FC  ADAT"
 
+#: frmmain.msg108
+#, fuzzy
+#| msgid "Show serial Modbus traffic.."
+msgid "Use 'Modbus/Show serial Modbus traffic' on GUI version."
+msgstr ""
+"Használja az 'Modbus/Soros Modbus forgalom monitorozása'-t a GUI változatnál."
+
+#: frmmain.msg109
+#, fuzzy
+#| msgid "Read discrete inputs.."
+msgid "Discrete input contacts"
+msgstr "Diszkrét bemeneti érintkező"
+
 #: frmmain.msg11
 msgid " protocol:        "
 msgstr " protokoll:       "
+
+#: frmmain.msg110
+msgid "Discrete output coils"
+msgstr "Diszkrét kimeneti tekercs"
+
+#: frmmain.msg111
+msgid "Analog input registers"
+msgstr "Analóg bemeneti regiszter"
+
+#: frmmain.msg112
+msgid "Analog output holding registers"
+msgstr "Analóg kimeneti tároló regiszter"
 
 #: frmmain.msg12
 msgid " IP address:      "
@@ -901,7 +932,7 @@ msgid "Local register type (dinp/coil/ireg/hreg: 1/2/3/4): "
 msgstr "Helyi regiszter típus (dinp/coil/ireg/hreg: 1/2/3/4): "
 
 #: frmmain.msg27
-msgid "Start address (0-9990): "
+msgid "Start data address (0-9990): "
 msgstr "Kezdőcím (0-9990): "
 
 #: frmmain.msg28
@@ -1041,7 +1072,7 @@ msgid "registers"
 msgstr "regiszterek"
 
 #: frmmain.msg60
-msgid "start address"
+msgid "start data address"
 msgstr "kezdőcím"
 
 #: frmmain.msg61
@@ -2250,6 +2281,10 @@ msgctxt "tform1.menuitem8.caption"
 msgid "&Operation"
 msgstr "Műkö&dés"
 
+#: tform1.menuitem80.caption
+msgid "Register table.."
+msgstr "Regisztertábla.."
+
 #: tform1.menuitem9.caption
 msgid "&Utilities"
 msgstr "&Kellékek"
@@ -2447,6 +2482,10 @@ msgstr "&Működés"
 msgctxt "tform6.menuitem4.caption"
 msgid "Clear screen"
 msgstr "Képernyőtörlés"
+
+#: tform7.caption
+msgid "Form7"
+msgstr "Form7"
 
 #~ msgid "&Modbus"
 #~ msgstr "&Modbus"

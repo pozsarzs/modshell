@@ -129,7 +129,7 @@ resourcestring
 
 {$I version.pas}
 {$I lockfile.pas}
-{$I mbdectgm.pas}
+{$I mbutil.pas}
 
 {$IFDEF PROGTEST}
   // MAKE A TEST TELEGRAM
@@ -435,7 +435,7 @@ begin
         if ser.CanRead(0) then
         begin
           s := ser.RecvString(0);
-          writeln(decodetelegram(protocol, deviceid, s));
+          writeln(mbdecodetelegram(protocol, deviceid, s));
         end;    
         delay(100);
       {$ELSE}
@@ -443,9 +443,9 @@ begin
         y := random(246) + 1;
         try
           // test request
-          writeln(decodetelegram(protocol, deviceid, testtelegram(protocol, y, x, true)));
+          writeln(mbdecodetelegram(protocol, deviceid, testtelegram(protocol, y, x, true)));
           // test response
-          writeln(decodetelegram(protocol, deviceid, testtelegram(protocol, y, x, false)));
+          writeln(mbdecodetelegram(protocol, deviceid, testtelegram(protocol, y, x, false)));
         except
           writeln(ERR01 + ERR09);
         end;

@@ -156,7 +156,7 @@ msgid "Local register type (dinp/coil/ireg/hreg: 1/2/3/4): "
 msgstr "Helyi regiszter típus (dinp/coil/ireg/hreg: 1/2/3/4): "
 
 #: modshell:msg27
-msgid "Start address (0-9990): "
+msgid "Start data address (0-9990): "
 msgstr "Kezdőcím (0-9990): "
 
 #: modshell:msg28
@@ -296,7 +296,7 @@ msgid "registers"
 msgstr "regiszterek"
 
 #: modshell:msg60
-msgid "start address"
+msgid "start data address"
 msgstr "kezdőcím"
 
 #: modshell:msg61
@@ -487,6 +487,22 @@ msgstr "ID   FC  ADAT"
 msgid "Use 'Modbus/Show serial Modbus traffic' on GUI version."
 msgstr ""
 "Használja az 'Modbus/Soros Modbus forgalom monitorozása'-t a GUI változatnál."
+
+#: modshell:msg109
+msgid "Discrete input contacts"
+msgstr "Diszkrét bemeneti érintkező"
+
+#: modshell:msg110
+msgid "Discrete output coils"
+msgstr "Diszkrét kimeneti tekercs"
+
+#: modshell:msg111
+msgid "Analog input registers"
+msgstr "Analóg bemeneti regiszter"
+
+#: modshell:msg112
+msgid "Analog output holding registers"
+msgstr "Analóg kimeneti tároló regiszter"
 
 #: modshell:err00
 msgid "No such command!"

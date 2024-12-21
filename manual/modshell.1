@@ -263,12 +263,12 @@ the result is placed in \fI$TARGET\fP.
 \fBcopyreg\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP \fIcon?\fP \fIcoil?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Copies logical data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
-\fICOUNT\fP must be between 1-9999.
+\fICOUNT\fP must be between 0-9998.
 .TP
 \fBcopyreg\fP \fIcon?\fP \fIireg\fP|\fIhreg\fP \fIcon?\fP \fIhreg?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Copies numeral data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
-\fICOUNT\fP must be between 1-9999.
+\fICOUNT\fP must be between 0-9998.
 .TP
 \fBdcon\fP \fIcon?\fP \fI$TXARRAY\fP \fI$RXARRAY\fP
 Reads or writes data from/to remote device with DCON protocol. The command
@@ -306,7 +306,7 @@ different communication and/or protocol.
 \fBreadreg\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\f[$]ICOUNT\fP]
 Reads one or more remote registers. Number of connection (\fIcon?\fP)
 must be between 0-7, register start \fIADDRESS\fP and the \fICOUNT\fP must be
-between 1-9999.
+between 0-9998.
 .TP
 \fBsercons\fP \fI[dev?]\fP
 Opens a simple serial console. Data traffic is logged to the project directory
@@ -355,8 +355,8 @@ Writes "MESSAGE" to network device with UDP. Number of device (\fIdev?\fP) must 
 .TP
 \fBwritereg\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Writes data to one or more remote registers. Number of connection
-(\fIcon?\fP) must be between 0-7, register start address and the count must be
-between 1-9999.
+(\fIcon?\fP) must be between 0-7, register start ADDRESS and the count must be
+between 0-9998.
 
 .SS Configuration commands
 .TP
@@ -538,7 +538,7 @@ Waits for a keystroke or specified time.
 .TP
 \fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP] [\fI-n\fP]
 Prints content of the one or more registers. Register start \fIADDRESS\fP and
-the \fICOUNT\fP must be between 1-9999. The -n parameter does not raise a line
+the \fICOUNT\fP must be between 0-9998. The -n parameter does not raise a line
 and the cursor does not return to the beginning of the line.
 .TP
 \fBprint\fP \fI$VARIABLE\fP [\fI-n\fP]
@@ -640,14 +640,14 @@ Dumps one page register content from \fIADDRESS\fP in binary/hexadecimal format
 to a table.
 .TP
 \fBlet\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP \fI[$]VALUE\fP
-Sets value of a register. Register start address must be between 1-9999.
+Sets value of a register. Register start address must be between 0-9998.
 If register type is discrete input (\fIdinp\fP) and coil
 (\fIcoil\fP), \fIVALUE\fP must be 0/1, l/h or false/true. If it is input register
 (\fIireg\fP) or holding register (\fIhreg\fP), \fIVALUE\fP must be 0-65535.
 .TP
 \fBlet\fP \fI$VARIABLE\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP
 Sets value of a variable \fI$VARIABLE\fP from register content. Register start address
-and must be between 1-9999, If register type is discrete input (\fIdinp\fP) and coil
+and must be between 0-9998, If register type is discrete input (\fIdinp\fP) and coil
 (\fIcoil\fP), value will be 0/1, if it is input register
 (\fIireg\fP) or holding register (\fIhreg\fP), value of the variable will be 0-65535.
 
@@ -774,17 +774,17 @@ Substract 13 from 12, and the result is placed in $result.
 .TP
 \fBcopyreg\fP con0 ireg con2 hreg 210 10
 Copy input register content of the connection #0 to holding register content of the
-connection #2 from address 210 to 220.
+connection #2 from data address 210 to 220.
 .TP
 \fBcopyreg\fP con0 ireg con2 hreg $a $b
 Copy input register content of the connection #0 to holding register content of the
-connection #2 from address value of the $a to $a+$b.
+connection #2 from data address value of the $a to $a+$b.
 .TP
 \fBreadreg\fP con0 hreg 100 15
-Read remote holding registers of the connection #0 from address 100 to 115.
+Read remote holding registers of the connection #0 from data address 100 to 115.
 .TP
 \fBreadreg\fP con0 hreg $a 15
-Read remote holding registers of the connection #0 from address value of the $a to $a+15.
+Read remote holding registers of the connection #0 from data address value of the $a to $a+15.
 .TP
 \fBsercons\fP
 Open serial console with requesting device number.
@@ -805,10 +805,10 @@ Write string to dev0 device.
 Write string from $message variable to dev0 device.
 .TP
 \fBwritereg\fP con2 coil 10
-Write data from to coil address 10 of the connection #2.
+Write data from to coil data address 10 of the connection #2.
 .TP
 \fBwritereg\fP con2 coil $c
-Write data from to coil address value of the $c of the connection #2.
+Write data from to coil data address value of the $c of the connection #2.
 
 .SS Configuration commands
 .TP
@@ -858,7 +858,7 @@ to logfile.
 Export command line history to project directory.
 .TP
 \fBexpreg\fP discrete_inputs.csv dinp 100 15
-Export values of discrete input register from address 100 to 115
+Export values of discrete input register from data address 100 to 115
 to CSV file.
 .TP
 \fBimpreg\fP discrete_inputs.xml
@@ -948,34 +948,34 @@ $shift and the result is placed in $result.
 .SS Register handler commands
 .TP
 \fBdump\fP
-Start dump with requesting register type and start address.
+Start dump with requesting register type and start data address.
 .TP
 \fBdump\fP hreg 1121
-Start discrete input register dump from address 1121.
+Start discrete input register dump from data address 1121.
 .TP
 \fBlet\fP dinp 10 1
-Set value of the discrete input register address 10 to 1.
+Set value of the discrete input register data address 10 to 1.
 .TP
 \fBlet\fP dinp 10 true
-Set value of the discrete input register address 10 to 1.
+Set value of the discrete input register data address 10 to 1.
 .TP
 \fBlet\fP dinp 10 H
-Set value of the discrete input register address 10 to 1.
+Set value of the discrete input register data address 10 to 1.
 .TP
 \fBlet\fP ireg 10 65535
-Set value of the input register address 10 to 65535.
+Set value of the input register data address 10 to 65535.
 .TP
 \fBlet\fP ireg $a $b
-Set value of the input register (address value of the $a) to value of the $b.
+Set value of the input register (data address value of the $a) to value of the $b.
 .TP
 \fBlet\fP $a ireg 100
-Set $a to input register address 100.
+Set $a to input register data address 100.
 .TP
 \fBprint\fP ireg 10 10
-Print value of the input register address 10 to 20.
+Print value of the input register data address 10 to 20.
 .TP
 \fBprint\fP ireg $a $b
-Print value of the input register address value of $a to value of $b.
+Print value of the input register data address value of $a to value of $b.
 
 .SS Script operation commands
 .TP

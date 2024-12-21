@@ -348,7 +348,7 @@ object Form7: TForm7
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Top = 4
     BorderSpacing.Bottom = 4
-    ColCount = 100
+    ColCount = 101
     ExtendedSelect = False
     FixedColor = 16775122
     Flat = True

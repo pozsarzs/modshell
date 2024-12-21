@@ -19,7 +19,7 @@
 }
 
 // COMMAND 'LABEL'
-function cmd_label(p1: string): byte;
+function cmd_label: byte;
 begin
   result := 0;
   if appmode <> 4 then

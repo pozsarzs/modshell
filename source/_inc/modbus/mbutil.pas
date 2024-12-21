@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | mbdectgm.pas                                                             | }
-{ | Decode Modbus/ASCII and RTU telegram for SerialMBMonitor and mbmon       | }
+{ | mbutil.pas                                                               | }
+{ | Modbus utilities                                                         | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -14,7 +14,7 @@
 }
 
 // DECODE TELEGRAM
-function decodetelegram(protocol, filter, telegram: string): string;
+function mbdecodetelegram(protocol, filter, telegram: string): string;
 var
   cs: word;
   cs_ok: boolean = false;

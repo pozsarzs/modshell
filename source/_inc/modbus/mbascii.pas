@@ -619,7 +619,7 @@ begin
         count := strtoint('$' + tgm[10] + tgm[11] + tgm[12] + tgm[13]);
         // check data
         if sot <> #58 then error := $04;
-        if (address < 1) or (address > 9999) then error := $02;
+        if (address < 0) or (address > 9998) then error := $02;
         if (count < 1) or (count > 125) then error := $03;
         if (function_code = FUNCTION_CODES_ALL[4]) and (length(tgm) < 21) then error := $04;
         if (function_code = FUNCTION_CODES_ALL[5]) and (length(tgm) < 23) then error := $04;

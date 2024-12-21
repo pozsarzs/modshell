@@ -115,7 +115,7 @@ begin
             69: exitcode := cmd_goto(splitted[1]);
             70: exitcode := cmd_if(splitted[1], splitted[2], splitted[3], splitted[4], command);
             71: exitcode := cmd_for(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], command);
-            72: exitcode := cmd_label(splitted[1]);
+            72: exitcode := cmd_label;
             73: exitcode := cmd_mbsrv(splitted[1]);
             74: exitcode := cmd_mbgw(splitted[1], splitted[2]);
             79: exitcode := cmd_ascii(splitted[1]);

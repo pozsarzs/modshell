@@ -77,7 +77,7 @@ uses frmmain;
 
 {$I lockfile.pas}
 {$I serport.pas}
-{$I mbdectgm.pas}
+{$I mbutil.pas}
 {$I thr_mbmn.pas}
 
 { TLThread }

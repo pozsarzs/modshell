@@ -115,10 +115,10 @@ begin
   if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
   if length(s3) = 0 then s3 := p3;
   i3 := strtointdef(s3, -1);
-  if (i3 < 1) or (i3 > 9999) then
+  if (i3 < 0) or (i3 > 9998) then
   begin
     // What is the 3rd parameter?
-    {$IFNDEF X} writeln(NUM3 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 1-9999'); {$ENDIF}
+    {$IFNDEF X} writeln(NUM3 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + AVR); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -131,10 +131,10 @@ begin
     if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
     if length(s4) = 0 then s4 := p4;
     i4 := strtointdef(s4, -1);
-    if (i4 < 1 ) or (i4 > 9999) then
+    if (i4 < 0 ) or (i4 > 9998) then
     begin
       // What is the 4rd parameter?
-      {$IFNDEF X} writeln(NUM4 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 1-9999'); {$ENDIF}
+      {$IFNDEF X} writeln(NUM4 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + AVR); {$ENDIF}
       result := 1;
       exit;
     end;
@@ -147,13 +147,13 @@ begin
          try
            case rt of
              0: for i := i3 to i3 + i4 -1 do
-                  if i < 10000 then writeln(tf,REG_TYPE[rt] + ',' + inttostr(i) + ',' + booltostr(dinp[i]));
+                  if i < 9998 then writeln(tf,REG_TYPE[rt] + ',' + inttostr(i) + ',' + booltostr(dinp[i]));
              1: for i := i3 to i3 + i4 do
-                  if i < 10000 then writeln(tf,REG_TYPE[rt] + ',' +  inttostr(i) + ',' + booltostr(coil[i]));
+                  if i < 9998 then writeln(tf,REG_TYPE[rt] + ',' +  inttostr(i) + ',' + booltostr(coil[i]));
              2: for i := i3 to i3 + i4 -1 do
-                  if i < 10000 then writeln(tf,REG_TYPE[rt] + ',' +  inttostr(i) + ',' + inttostr(ireg[i]));
+                  if i < 9998 then writeln(tf,REG_TYPE[rt] + ',' +  inttostr(i) + ',' + inttostr(ireg[i]));
              3: for i := i3 to i3 + i4 - 1 do
-                  if i < 10000 then writeln(tf,REG_TYPE[rt] + ',' +  inttostr(i) + ',' + inttostr(hreg[i]));
+                  if i < 9998 then writeln(tf,REG_TYPE[rt] + ',' +  inttostr(i) + ',' + inttostr(hreg[i]));
            end;
            closefile(tf);  
          except
@@ -169,13 +169,13 @@ begin
          try
            case rt of
              0: for i := i3 to i3 + i4 -1 do
-                  if i < 10000 then ini.writebool(REG_TYPE[rt], PREFIX + '_' + inttostr(i), dinp[i]);
+                  if i < 9998 then ini.writebool(REG_TYPE[rt], PREFIX + '_' + inttostr(i), dinp[i]);
              1: for i := i3 to i3 + i4 -1 do
-                  if i < 10000 then ini.writebool(REG_TYPE[rt], PREFIX + '_' + inttostr(i), coil[i]);
+                  if i < 9998 then ini.writebool(REG_TYPE[rt], PREFIX + '_' + inttostr(i), coil[i]);
              2: for i := i3 to i3 + i4 -1 do
-                  if i < 10000 then ini.writeinteger(REG_TYPE[rt], PREFIX + '_' + inttostr(i), ireg[i]);
+                  if i < 9998 then ini.writeinteger(REG_TYPE[rt], PREFIX + '_' + inttostr(i), ireg[i]);
              3: for i := i3 to i3 + i4 - 1 do
-                  if i < 10000 then ini.writeinteger(REG_TYPE[rt], PREFIX + '_' + inttostr(i), hreg[i]);
+                  if i < 9998 then ini.writeinteger(REG_TYPE[rt], PREFIX + '_' + inttostr(i), hreg[i]);
            end;
          except
            // Cannot export register content!
@@ -196,7 +196,7 @@ begin
          end;
          case rt of
            0: for i := i3 to i3 + i4 -1 do
-                if i < 10000 then
+                if i < 9998 then
                 begin
                   parentnode := xml.createelement('reg');               
                   tdomelement(parentnode).setattribute(utf8decode(PREFIX), utf8decode(inttostr(i)));
@@ -205,7 +205,7 @@ begin
                   rootnode.childnodes.item[rt].appendchild(parentnode);
                 end;
            1: for i := i3 to i3 + i4 -1 do
-                if i < 10000 then
+                if i < 9998 then
                 begin
                   parentnode := xml.createelement('reg');               
                   tdomelement(parentnode).setattribute(utf8decode(PREFIX), utf8decode(inttostr(i)));
@@ -214,7 +214,7 @@ begin
                   rootnode.childnodes.item[rt].appendchild(parentnode);
                 end;
            2: for i := i3 to i3 + i4 -1 do
-                if i < 10000 then
+                if i < 9998 then
                 begin
                   parentnode := xml.createelement('reg');               
                   tdomelement(parentnode).setattribute(utf8decode(PREFIX), utf8decode(inttostr(i)));
@@ -223,7 +223,7 @@ begin
                   rootnode.childnodes.item[rt].appendchild(parentnode);
                 end;
            3: for i := i3 to i3 + i4 -1 do
-                if i < 10000 then
+                if i < 9998 then
                 begin
                   parentnode := xml.createelement('reg');               
                   tdomelement(parentnode).setattribute(utf8decode(PREFIX), utf8decode(inttostr(i)));

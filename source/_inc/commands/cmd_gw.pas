@@ -42,12 +42,12 @@ begin
   begin
     // What is the 2nd parameter?
     s := NUM1 + MSG05; 
-    s := s + ' ' + PREFIX[2] + '[0-7]';
+    s := s + ' ' + PREFIX[2] + SVR;
     {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
-  if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
+  if length(p1) >= 4 then i1 := strtointdef(p1[4], -1) else
   begin
     // Device number must be 0-7!
     {$IFNDEF X} writeln(ERR01); {$ELSE} Form1.Memo1.Lines.Add(ERR01); {$ENDIF}
@@ -61,12 +61,12 @@ begin
   begin
     // What is the 2nd parameter?
     s := NUM2 + MSG05;
-    s := s + ' ' + PREFIX[2] + '[0-7]';
+    s := s + ' ' + PREFIX[2] + SVR;
     {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
-  if length(p2) >= 4 then i2 := strtointdef(p2[4],-1) else
+  if length(p2) >= 4 then i2 := strtointdef(p2[4], -1) else
   begin
     // Device number must be 0-7!
     {$IFNDEF X} writeln(ERR01); {$ELSE} Form1.Memo1.Lines.Add(ERR01); {$ENDIF}

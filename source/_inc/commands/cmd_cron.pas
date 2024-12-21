@@ -25,6 +25,7 @@ var
   b: byte;
   i, h, m, s: word;
 begin
+  h := 0; m := 0; s := 0; i := 0;
   gettime(h, m, s, i);
   for b := 1 to 4 do
     with crontable[b] do

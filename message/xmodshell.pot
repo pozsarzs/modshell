@@ -733,6 +733,10 @@ msgstr ""
 msgid "Cannot define more macro!"
 msgstr ""
 
+#: frmmain.err61
+msgid "Cannot create Modbus traffic log file!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -809,8 +813,28 @@ msgstr ""
 msgid "ID   FC  DATA"
 msgstr ""
 
+#: frmmain.msg108
+msgid "Use 'Modbus/Show serial Modbus traffic' on GUI version."
+msgstr ""
+
+#: frmmain.msg109
+msgid "Discrete input contacts"
+msgstr ""
+
 #: frmmain.msg11
 msgid " protocol:        "
+msgstr ""
+
+#: frmmain.msg110
+msgid "Discrete output coils"
+msgstr ""
+
+#: frmmain.msg111
+msgid "Analog input registers"
+msgstr ""
+
+#: frmmain.msg112
+msgid "Analog output holding registers"
 msgstr ""
 
 #: frmmain.msg12
@@ -877,7 +901,7 @@ msgid "Local register type (dinp/coil/ireg/hreg: 1/2/3/4): "
 msgstr ""
 
 #: frmmain.msg27
-msgid "Start address (0-9990): "
+msgid "Start data address (0-9990): "
 msgstr ""
 
 #: frmmain.msg28
@@ -1013,7 +1037,7 @@ msgid "registers"
 msgstr ""
 
 #: frmmain.msg60
-msgid "start address"
+msgid "start data address"
 msgstr ""
 
 #: frmmain.msg61
@@ -2115,6 +2139,10 @@ msgctxt "tform1.menuitem8.caption"
 msgid "&Operation"
 msgstr ""
 
+#: tform1.menuitem80.caption
+msgid "Register table.."
+msgstr ""
+
 #: tform1.menuitem9.caption
 msgid "&Utilities"
 msgstr ""
@@ -2311,5 +2339,9 @@ msgstr ""
 #: tform6.menuitem4.caption
 msgctxt "tform6.menuitem4.caption"
 msgid "Clear screen"
+msgstr ""
+
+#: tform7.caption
+msgid "Form7"
 msgstr ""
 

@@ -59,8 +59,8 @@ begin
   assignfile(ftb, fpn);
   try 
     reset(ftb);
-    for i := 1 to 9999 do read(ftb, dinp[i]);
-    for i := 1 to 9999 do read(ftb, coil[i]);
+    for i := 0 to 9998 do read(ftb, dinp[i]);
+    for i := 0 to 9998 do read(ftb, coil[i]);
     closefile(ftb);
   except
     // Cannot load register content!
@@ -74,8 +74,8 @@ begin
   assignfile(ftw, fpn);
   try 
     reset(ftw);
-    for i := 1 to 9999 do read(ftw, ireg[i]);
-    for i := 1 to 9999 do read(ftw, hreg[i]);
+    for i := 0 to 9998 do read(ftw, ireg[i]);
+    for i := 0 to 9998 do read(ftw, hreg[i]);
     closefile(ftw);
   except
     // Cannot load register content!

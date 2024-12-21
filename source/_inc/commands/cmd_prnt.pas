@@ -116,10 +116,10 @@ begin
     if length(s2) = 0 then s2 := p2;
     i2 := strtointdef(s2, 1); // start address
   end;
-  if (i2 < 1 ) or (i2 > 9999) then
+  if (i2 < 0 ) or (i2 > 9998) then
   begin
     // What is the 2nd parameter?
-    {$IFNDEF X} writeln(NUM2 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999'); {$ENDIF}
+    {$IFNDEF X} writeln(NUM2 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + AVR); {$ENDIF}
     result := 1;
     exit;
   end;
@@ -133,15 +133,15 @@ begin
     if length(s3) = 0 then s3 := p3;
     i3 := strtointdef(s3, 1); // count
   end;
-  if (i3 < 1 ) or (i3 > 9999) then
+  if (i3 < 0 ) or (i3 > 9998) then
   begin
     // What is the 2nd parameter?
-    {$IFNDEF X} writeln(NUM3 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 1-9999'); {$ENDIF}
+    {$IFNDEF X} writeln(NUM3 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + AVR); {$ENDIF}
     result := 1;
     exit;
   end;
   // RANGE CHECK
-  if (i2 + i3) > 9999 then i3 := (i2 + i3) - 9999;
+  if (i2 + i3) > 9998 then i3 := (i2 + i3) - 9998;
   // PRIMARY MISSION
   s := '';
   textcolor(printcolors[0]);

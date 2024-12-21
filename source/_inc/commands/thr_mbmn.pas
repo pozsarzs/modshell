@@ -13,9 +13,9 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0      p1
-  --------------
-  mbmon   [con?]
+  p0    p1
+  ------------
+  mbmon [con?]
 }
 
 // COMMAND MBMON
@@ -69,7 +69,7 @@ begin
           if ser_canread then
           begin
             s := ser_recvstring;
-            sendmessage(decodetelegram(PROT_TYPE[prot[conn[p1].prot].prottype],
+            sendmessage(mbdecodetelegram(PROT_TYPE[prot[conn[p1].prot].prottype],
                     inttostr(prot[conn[p1].prot].id), s), true);
           end;    
           sleep(100);

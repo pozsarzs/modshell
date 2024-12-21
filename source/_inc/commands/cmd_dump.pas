@@ -89,10 +89,10 @@ begin
     if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
     if length(s2) = 0 then s2 := p2;
     i2 := strtointdef(s2, -1);
-    if (i2 < 1) or (i2 > 9990) then
+    if (i2 < 0) or (i2 > 9990) then
     begin
       // What is the 3rd parameter?
-      {$IFNDEF X} writeln(NUM2 + MSG05 + ' 1-9990'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9990'); {$ENDIF}
+      {$IFNDEF X} writeln(NUM2 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + AVR); {$ENDIF}
       result := 1;
       exit;
     end;
@@ -178,7 +178,7 @@ begin
           exit;
         end;
         for b := 255 downto 1 do
-          if s[b] <> #32 then break else delete(s,b,1);
+          if s[b] <> #32 then break else delete(s, b, 1);
         Form1.Memo1.Lines.Add(s);
     end;
   {$ENDIF}

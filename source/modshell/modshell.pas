@@ -67,7 +67,10 @@ procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
-{$I lockfile.pas}
+{$IFDEF UNIX}
+  {$I lockfile.pas}
+{$ENDIF}
+
 {$I validity.pas}
 
 {$I network.pas}
@@ -76,9 +79,9 @@ procedure version(h: boolean); forward;
 {$I dcon.pas}
 {$I hart.pas}
 {$I mbascii.pas}
-{$I mbdectgm.pas}
 {$I mbrtu.pas}
 {$I mbtcp.pas}
+{$I mbutil.pas}
 {$I modbus.pas}
 
 {$I cmd_aplg.pas}

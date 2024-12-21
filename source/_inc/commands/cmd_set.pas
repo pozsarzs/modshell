@@ -285,12 +285,12 @@ var
     begin
       // What is the 2nd parameter?
       s := NUM2 + MSG05;
-      s := s + ' ' + PREFIX[0] + '[0-7]';
+      s := s + ' ' + PREFIX[0] + SVR;
       {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
       error := 1;
       exit;
     end;
-    if length(p2) >= 4 then i2 := strtointdef(p2[4],-1) else
+    if length(p2) >= 4 then i2 := strtointdef(p2[4], -1) else
     begin
       // Device number must be 0-7!
       {$IFNDEF X} writeln(ERR01); {$ELSE} Form1.Memo1.Lines.Add(ERR01); {$ENDIF}
@@ -303,12 +303,12 @@ var
     begin
       // What is the 3rd parameter?
       s := NUM3 + MSG05;
-      s := s + ' ' + PREFIX[1] + '[0-7]';
+      s := s + ' ' + PREFIX[1] + SVR;
       {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
       error := 1;
       exit;
     end;
-    if length(p3) >= 4 then i3 := strtointdef(p3[4],-1) else
+    if length(p3) >= 4 then i3 := strtointdef(p3[4], -1) else
     begin
       // Protocol number must be 0-7!
       {$IFNDEF X} writeln(ERR02); {$ELSE} Form1.Memo1.Lines.Add(ERR02); {$ENDIF}
@@ -505,7 +505,7 @@ var
     s: string = '';
   begin
     s := NUM1 + MSG05;
-    for b := 0 to 2 do  s := s + ' ' + PREFIX[b] + '[0-7]';
+    for b := 0 to 2 do  s := s + ' ' + PREFIX[b] + SVR;
     s := s + ' ' + PREFIX[3];
     s := s + ' ' + PREFIX[4];
     // What is the 1st parameter?
@@ -558,7 +558,7 @@ begin
   if length(p1) >= 4 then
   begin
     // PRIMARY MISSION
-    i1 := strtointdef(p1[4],-1);
+    i1 := strtointdef(p1[4], -1);
     if (i1 >= 0) and (i1 < 8)
     then
       case pr of

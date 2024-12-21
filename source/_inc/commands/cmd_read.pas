@@ -42,12 +42,12 @@ begin
   if PREFIX[2] <> s1 then
   begin
     s := NUM1 + MSG05; // What is the 1nd parameter?
-    s := s + ' ' + PREFIX[2] + '[0-7]';
+    s := s + ' ' + PREFIX[2] + SVR;
     {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
-  if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
+  if length(p1) >= 4 then i1 := strtointdef(p1[4], -1) else
   begin
     // Device number must be 0-7!
     {$IFNDEF X} writeln(ERR01); {$ELSE} Form1.Memo1.Lines.Add(ERR01); {$ENDIF}
@@ -77,10 +77,10 @@ begin
   if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
   if length(s3) = 0 then s3 := p3;
   i3 := strtointdef(s3, -1);
-  if (i3 < 1) or (i3 > 9999) then
+  if (i3 < 0) or (i3 > 9998) then
   begin
     // What is the 3rd parameter?
-    {$IFNDEF X} writeln(NUM3 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 1-9999'); {$ENDIF}
+    {$IFNDEF X} writeln(NUM3 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + AVR); {$ENDIF}
     result := 1;
     exit;
   end;

@@ -251,12 +251,12 @@ BUILTIN COMMANDS
        copyreg con? dinp|coil con? coil? [$]ADDRESS [[$]COUNT]
               Copies logical data between connections (con?). Number of connection (con?)
               must  be  between 0-7, register start ADDRESS and the COUNT must be between
-              1-9999.
+              0-9998.
 
        copyreg con? ireg|hreg con? hreg? [$]ADDRESS [[$]COUNT]
               Copies numeral data between connections (con?). Number of connection (con?)
               must  be  between 0-7, register start ADDRESS and the COUNT must be between
-              1-9999.
+              0-9998.
 
        dcon con? $TXARRAY $RXARRAY
               Reads or writes data from/to remote device with DCON protocol. The  command
@@ -290,7 +290,7 @@ BUILTIN COMMANDS
 
        readreg con? dinp|coil|ireg|hreg [$]ADDRESS [ICOUNT]
               Reads one or more remote registers. Number of connection  (con?)   must  be
-              between 0-7, register start ADDRESS and the COUNT must be between 1-9999.
+              between 0-7, register start ADDRESS and the COUNT must be between 0-9998.
 
        sercons [dev?]
               Opens a simple serial console. Data traffic is logged to the project direc‐
@@ -342,8 +342,8 @@ BUILTIN COMMANDS
 
        writereg con? coil|hreg [$]ADDRESS [[$]COUNT]
               Writes  data  to  one or more remote registers. Number of connection (con?)
-              must be between 0-7, register start address and the count must  be  between
-              1-9999.
+              must be between 0-7, register start ADDRESS and the count must  be  between
+              0-9998.
 
    Configuration commands
        get dev?|pro?|con?|project|timeout
@@ -520,7 +520,7 @@ BUILTIN COMMANDS
 
        print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]
               Prints content of the one or more registers. Register start ADDRESS and the
-              COUNT  must  be  between 1-9999. The -n parameter does not raise a line and
+              COUNT  must  be  between 0-9998. The -n parameter does not raise a line and
               the cursor does not return to the beginning of the line.
 
        print $VARIABLE [-n]
@@ -612,14 +612,14 @@ BUILTIN COMMANDS
               to a table.
 
        let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE
-              Sets value of a register. Register start address must  be  between  1-9999.
+              Sets value of a register. Register start address must  be  between  0-9998.
               If  register  type  is discrete input (dinp) and coil (coil), VALUE must be
               0/1, l/h or false/true. If it is input register (ireg) or holding  register
               (hreg), VALUE must be 0-65535.
 
        let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS
               Sets  value  of  a variable $VARIABLE from register content. Register start
-              address and must be between 1-9999, If  register  type  is  discrete  input
+              address and must be between 0-9998, If  register  type  is  discrete  input
               (dinp)  and  coil (coil), value will be 0/1, if it is input register (ireg)
               or holding register (hreg), value of the variable will be 0-65535.
 
@@ -743,18 +743,19 @@ EXAMPLES
    Communication commands
        copyreg con0 ireg con2 hreg 210 10
               Copy input register content of the connection #0 to holding  register  con‐
-              tent of the connection #2 from address 210 to 220.
+              tent of the connection #2 from data address 210 to 220.
 
        copyreg con0 ireg con2 hreg $a $b
               Copy  input  register content of the connection #0 to holding register con‐
-              tent of the connection #2 from address value of the $a to $a+$b.
+              tent of the connection #2 from data address value of the $a to $a+$b.
 
        readreg con0 hreg 100 15
-              Read remote holding registers of the connection #0 from address 100 to 115.
+              Read remote holding registers of the connection #0 from data address 100 to
+              115.
 
        readreg con0 hreg $a 15
-              Read remote holding registers of the connection #0 from  address  value  of
-              the $a to $a+15.
+              Read  remote holding registers of the connection #0 from data address value
+              of the $a to $a+15.
 
        sercons
               Open serial console with requesting device number.
@@ -775,10 +776,10 @@ EXAMPLES
               Write string from $message variable to dev0 device.
 
        writereg con2 coil 10
-              Write data from to coil address 10 of the connection #2.
+              Write data from to coil data address 10 of the connection #2.
 
        writereg con2 coil $c
-              Write data from to coil address value of the $c of the connection #2.
+              Write data from to coil data address value of the $c of the connection #2.
 
    Configuration commands
        get dev2
@@ -788,23 +789,23 @@ EXAMPLES
               Reset project name (project name will be 'default').
 
        set dev0 net /dev/enp0s7 192.168.10.11 502
-              Set  device  #0  to '/dev/enp0s7' ethernet device with 192.168.10.11 IP-ad‐
+              Set device #0 to '/dev/enp0s7' ethernet device  with  192.168.10.11  IP-ad‐
               dress and 502 port.
 
        set dev0 net /dev/enp0s7 $A $P
-              Set device #0 to '/dev/enp0s7' ethernet device with value of the $A  IP-ad‐
+              Set  device #0 to '/dev/enp0s7' ethernet device with value of the $A IP-ad‐
               dress and $P port.
 
        set dev1 ser ttyS0 9600 8 N 1
-              Set  device  #1  to  /dev/ttyS0  serial device, with 9600 baud, 8 databits,
+              Set device #1 to /dev/ttyS0 serial device,  with  9600  baud,  8  databits,
               without parity check and 1 stopbit.
 
        set dev1 ser COM1 9600 8 N 1
-              Set device #1 to COM1 serial device, with 9600 baud,  8  databits,  without
+              Set  device  #1  to COM1 serial device, with 9600 baud, 8 databits, without
               parity check and 1 stopbit.
 
        set dev1 ser $p $s $d $p $t
-              Set  device  #1  to  $p serial device, with $s baud, $d databits, $p parity
+              Set device #1 to $p serial device, with $s baud,  $d  databits,  $p  parity
               check and $t stopbit.
 
        set pro0 ascii 100
@@ -821,18 +822,18 @@ EXAMPLES
 
    File operation commands
        applog $LOGFILE "Measured values is $$1 V and $$2 A." 1 $vl2 $il2
-              Adds 2024.2.1. 17:20:36 MESSAGE Measured values is 243 V and 66 A. line  to
+              Adds  2024.2.1. 17:20:36 MESSAGE Measured values is 243 V and 66 A. line to
               logfile.
 
        exphis script
               Export command line history to project directory.
 
        expreg discrete_inputs.csv dinp 100 15
-              Export  values  of  discrete  input register from address 100 to 115 to CSV
-              file.
+              Export values of discrete input register from data address 100  to  115  to
+              CSV file.
 
        impreg discrete_inputs.xml
-              Import values from a XML file. The target and range are determined  by  the
+              Import  values  from a XML file. The target and range are determined by the
               contents of the file.
 
        loadcfg test1
@@ -897,7 +898,7 @@ EXAMPLES
               sult.
 
        or $result 1234 $b
-              Performs OR operation with 1234 and $b, and the result is  placed  in  $re‐
+              Performs  OR  operation  with 1234 and $b, and the result is placed in $re‐
               sult.
 
        not $result $a
@@ -908,35 +909,35 @@ EXAMPLES
               placed in $result.
 
    Register handler commands
-       dump   Start dump with requesting register type and start address.
+       dump   Start dump with requesting register type and start data address.
 
        dump hreg 1121
-              Start discrete input register dump from address 1121.
+              Start discrete input register dump from data address 1121.
 
        let dinp 10 1
-              Set value of the discrete input register address 10 to 1.
+              Set value of the discrete input register data address 10 to 1.
 
        let dinp 10 true
-              Set value of the discrete input register address 10 to 1.
+              Set value of the discrete input register data address 10 to 1.
 
        let dinp 10 H
-              Set value of the discrete input register address 10 to 1.
+              Set value of the discrete input register data address 10 to 1.
 
        let ireg 10 65535
-              Set value of the input register address 10 to 65535.
+              Set value of the input register data address 10 to 65535.
 
        let ireg $a $b
-              Set value of the input register (address value of the $a) to value  of  the
-              $b.
+              Set  value of the input register (data address value of the $a) to value of
+              the $b.
 
        let $a ireg 100
-              Set $a to input register address 100.
+              Set $a to input register data address 100.
 
        print ireg 10 10
-              Print value of the input register address 10 to 20.
+              Print value of the input register data address 10 to 20.
 
        print ireg $a $b
-              Print value of the input register address value of $a to value of $b.
+              Print value of the input register data address value of $a to value of $b.
 
    Script operation commands
        loadscr /home/username/Desktop/dt510
@@ -966,7 +967,7 @@ EXAMPLES
               Rename file in $LOGFILE to "backup.bak".
 
 HOTKEYS
-       Commands  with  function keys (F?) are executed immediately, modifier keys (ALT-?)
+       Commands with function keys (F?) are executed immediately, modifier  keys  (ALT-?)
        only make typing easier.
 
        UP     scroll up command line history
@@ -1045,9 +1046,9 @@ ENVIRONMENTAL VARIABLES
        LANG   This is the system language on DOS and Unix-like operating systems.
 
        PKTDRVINT
-              To access the network on DOS, the packet driver of the network card is  re‐
-              quired.  It  uses an x86 interrupt number (INT) between 0x60 and 0x80. This
-              variable tells the program this value. If there is no or it is empty,  then
+              To  access the network on DOS, the packet driver of the network card is re‐
+              quired. It uses an x86 interrupt number (INT) between 0x60 and  0x80.  This
+              variable  tells the program this value. If there is no or it is empty, then
               the default 0x60 will be used.
 
 FILES
@@ -1062,9 +1063,9 @@ FILES
               Decoded Modbus telegrams from serial modbus monitor.
 
        scriptfiles[.bat]
-              The script file is used for batch execution of ModShell commands. The  com‐
-              mands  must be entered in the same form as if we were working in the built-
-              in command line. If the first valuable character (not a space or tab) of  a
+              The  script file is used for batch execution of ModShell commands. The com‐
+              mands must be entered in the same form as if we were working in the  built-
+              in  command line. If the first valuable character (not a space or tab) of a
               line is a hash, then that line is not interpreted. You can find examples in
               the documents library.
 
@@ -1128,12 +1129,12 @@ FILES
                      prot: byte;            // assigned protocol: 0..7
                    end;
 
-       *.BDT  Saved boolean type register values in typed file with 2x9999  boolean  val‐
+       *.BDT  Saved  boolean  type register values in typed file with 2x9999 boolean val‐
               ues.
 
        *.WDT  Saved word type register values in typed file with 2x9999 word values.
 
-       *.CSV  Exported  boolean  or word type register values in CSV text file. Cannot be
+       *.CSV  Exported boolean or word type register values in CSV text file.  Cannot  be
               imported.  Internal structure:
                 dinp,1,0
                     ...
@@ -1215,7 +1216,7 @@ HOMEPAGE
 SEE ALSO
        xmodshell(1)   serialmbmonitor(1)   serialechoserver(1)   tcpechoserver(1)   udpe‐
        choserver(1)
-       and  files  in  document or /usr/share/doc/modshell/ folder (or equivalent on your
+       and files in document or /usr/share/doc/modshell/ folder (or  equivalent  on  your
        system).
 AUTHOR
        Pozsar Zsolt ⟨pozsarzs@gmail.com⟩

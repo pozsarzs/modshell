@@ -71,8 +71,8 @@ begin
   assignfile(ftb, fpn);
   try 
     rewrite(ftb);
-    for i := 1 to 9999 do write(ftb, dinp[i]);
-    for i := 1 to 9999 do write(ftb, coil[i]);
+    for i := 0 to 9998 do write(ftb, dinp[i]);
+    for i := 0 to 9998 do write(ftb, coil[i]);
     closefile(ftb);
   except
     // Cannot save register content!
@@ -86,8 +86,8 @@ begin
   assignfile(ftw, fpn);
   try 
     rewrite(ftw);
-    for i := 1 to 9999 do write(ftw, ireg[i]);
-    for i := 1 to 9999 do write(ftw, hreg[i]);
+    for i := 0 to 9998 do write(ftw, ireg[i]);
+    for i := 0 to 9998 do write(ftw, hreg[i]);
     closefile(ftw);
   except
     // Cannot save register content!

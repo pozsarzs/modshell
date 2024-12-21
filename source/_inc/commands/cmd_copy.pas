@@ -15,7 +15,7 @@
 {
   p0      p1   p2        p3   p4   p5         p6
   ------------------------------------------------------
-  copyreg con? di|coil   con? coil [$]ADDRESS [[$]COUNT]
+  copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]
   copyreg con? ireg|hreg con? hreg [$]ADDRESS [[$]COUNT]
 }
 
@@ -45,11 +45,11 @@ begin
   begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
-    s := s + ' ' + PREFIX[2] + '[0-7]';
+    s := s + ' ' + PREFIX[2] + SVR;
     {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     exit;
   end;
-  if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
+  if length(p1) >= 4 then i1 := strtointdef(p1[4], -1) else
   begin
     // Device number must be 0-7!
     {$IFNDEF X} writeln(ERR01); {$ELSE}  Form1.Memo1.Lines.Add(ERR19); {$ENDIF}
@@ -79,12 +79,12 @@ begin
   begin
     // What is the 3rd parameter?
     s := NUM2 + MSG05;
-    s := s + ' ' + PREFIX[2] + '[0-7]';
+    s := s + ' ' + PREFIX[2] + SVR;
     {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
     exit;
   end;
-  if length(p3) >= 4 then i3 := strtointdef(p3[4],-1) else
+  if length(p3) >= 4 then i3 := strtointdef(p3[4], -1) else
   begin
     // Device number must be 0-7!
     {$IFNDEF X} writeln(ERR01); {$ELSE} Form1.Memo1.Lines.Add(ERR01); {$ENDIF}
@@ -126,10 +126,10 @@ begin
   if boolisitvariablearray(p5) then s5 := isitvariablearray(p5);
   if length(s5) = 0 then s5 := p5;
   i5 := strtointdef(s5, -1);
-  if (i5 < 1) or (i5 > 9999) then
+  if (i5 < 0) or (i5 > 9998) then
   begin
     // What is the 5th parameter?
-    {$IFNDEF X} writeln(NUM5 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM5 + MSG05 + ' 1-9999'); {$ENDIF}
+    {$IFNDEF X} writeln(NUM5 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM5 + MSG05 + AVR); {$ENDIF}
     result := 1;
     exit;
   end;

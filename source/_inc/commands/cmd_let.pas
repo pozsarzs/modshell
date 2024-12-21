@@ -119,10 +119,10 @@ begin
       // CHANGE '\ ' TO SPACE IN P2
       s3 := stringreplace(s3, #92+#32, #32, [rfReplaceAll]);
       // RANGE CHECK
-      if (strtointdef(s3, -1) < 1 ) or (strtointdef(s3, -1) > 9999) then
+      if (strtointdef(s3, -1) < 0 ) or (strtointdef(s3, -1) > 9998) then
       begin
         // What is the 2nd parameter?
-        {$IFNDEF X} writeln(NUM3 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999'); {$ENDIF}
+        {$IFNDEF X} writeln(NUM3 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + AVR); {$ENDIF}
         result := 1;
         exit;
       end;
@@ -164,10 +164,10 @@ begin
   if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
   if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
   if length(s2) = 0 then s2 := p2;
-  if (strtointdef(s2, -1) < 1 ) or (strtointdef(s2, -1) > 9999) then
+  if (strtointdef(s2, -1) < 0 ) or (strtointdef(s2, -1) > 9998) then
   begin
     // What is the 2nd parameter?
-    {$IFNDEF X} writeln(NUM2 + MSG05 + ' 1-9999'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-9999'); {$ENDIF}
+    {$IFNDEF X} writeln(NUM2 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + AVR); {$ENDIF}
     result := 1;
     exit;
   end;

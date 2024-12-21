@@ -633,7 +633,7 @@ begin
         address := ord(tgm[3]) * 256 + ord(tgm[4]) ;
         count := ord(tgm[5]) * 256 + ord(tgm[6]) ;
         // check data
-        if (address < 1) or (address > 9999) then error := $02;
+        if (address < 0) or (address > 9998) then error := $02;
         if (count < 1) or (count > 125) then error := $03;
         if (function_code = FUNCTION_CODES_ALL[4]) and (length(tgm) < 10) then error := $04;
         if (function_code = FUNCTION_CODES_ALL[5]) and (length(tgm) < 11) then error := $04;

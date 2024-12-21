@@ -80,7 +80,7 @@ begin
          ini := tinifile.create(fpn);
          try
            for rt := 0 to 3 do
-             for i := 1 to 9999 do
+             for i := 0 to 9998 do
              begin
                s := ini.readstring(REG_TYPE[rt], 'reg' + inttostr(i),'x');
                case rt of

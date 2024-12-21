@@ -17,7 +17,6 @@
 unit uconfig;
 interface
 uses
- ucommon,
  sysutils,
  inifiles;
 var

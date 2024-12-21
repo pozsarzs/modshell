@@ -34,7 +34,7 @@ var
   begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
-    for b := 0 to 2 do s := s + ' ' + PREFIX[b] + '[0-7]';
+    for b := 0 to 2 do s := s + ' ' + PREFIX[b] + SVR;
     s := s + ' ' + PREFIX[3];
     {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
   end;

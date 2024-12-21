@@ -51,7 +51,7 @@ resourcestring
           '  - remote register: register of the connected device' + EOL;
   MSG25 = 'Select register type: ';
   MSG26 = 'Local register type (dinp/coil/ireg/hreg: 1/2/3/4): ';
-  MSG27 = 'Start address (0-9990): ';
+  MSG27 = 'Start data address (0-9990): ';
   MSG28 = 'Echo method: ';
   MSG29 = 'Mini serial console (exit: <F10>)';
   MSG30 = 'Device number (0-7): ';
@@ -84,7 +84,7 @@ resourcestring
   MSG57 = 'CSV file|*.csv|INI file|*.ini|XML file|*.xml';
   MSG58 = 'INI file|*.ini|XML file|*.xml';
   MSG59 = 'registers';
-  MSG60 = 'start address';
+  MSG60 = 'start data address';
   MSG61 = 'count';
   MSG62 = '&Export';
   MSG63 = '&Dump';
@@ -133,10 +133,10 @@ resourcestring
   MSG106 = '[-]  ';
   MSG107 = 'ID   FC  DATA';
   MSG108 = 'Use ''Modbus/Show serial Modbus traffic'' on GUI version.';
-  MSG109 = 'Coils';
-  MSG110 = 'Discrete inputs';
-  MSG111 = 'Input registers';
-  MSG112 = 'Holding registers';
+  MSG109 = 'Discrete input contacts';
+  MSG110 = 'Discrete output coils';
+  MSG111 = 'Analog input registers';
+  MSG112 = 'Analog output holding registers';
   // ERROR MESSAGES
   ERR00 = 'No such command!';
   ERR01 = 'Device number must be 0-7!';

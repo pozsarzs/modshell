@@ -28,6 +28,9 @@ const
   SHOWTIMEDELAY = 25;
   VARBUFFSIZE = 128;
   {$IFDEF UNIX} EOL = #10; {$ELSE} EOL = #13 + #10; {$ENDIF}
+  // VALUE RANGES
+  SVR = '0-7';
+  AVR = ' 0-9998';
   // VALID BOOLEAN VALUES
   BOOLVALUES: array[0..1,0..2] of string =
   (

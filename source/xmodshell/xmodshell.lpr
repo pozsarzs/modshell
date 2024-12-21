@@ -45,7 +45,7 @@ const
 procedure help(mode: boolean);
 var
   b: byte;
-  {$IFDEF WIN32} s: string; {$ENDIF}
+  {$IFDEF WINDOWS} s: string; {$ENDIF}
 begin
   if mode then
     ShowMessage('There are one or more bad parameters in command line.')
@@ -53,7 +53,7 @@ begin
   begin
     {$IFDEF UNIX}
       writeln('Usage:');
-      writeln(' ', fn, {$IFDEF WIN32}'.', fe,{$ENDIF}' [parameter]');
+      writeln(' ', fn, {$IFDEF WINDOWS}'.', fe,{$ENDIF}' [parameter]');
       writeln;
       writeln('parameters:');
       for b := 1 to 2 do
@@ -66,7 +66,7 @@ begin
       end;
       writeln;
     {$ENDIF}
-    {$IFDEF WIN32}
+    {$IFDEF WINDOWS}
       s := 'Usage:' + #13 + #10;
       s := s + ' ' + fn + ' [parameter]' + #13 + #10 + #13 + #10;
       s := s + 'parameters:';
@@ -79,7 +79,7 @@ begin
 end;
 
 procedure verinfo;
-{$IFDEF WIN32} var s: string; {$ENDIF}
+{$IFDEF WINDOWS} var s: string; {$ENDIF}
 begin
   {$IFDEF UNIX}
      writeln('X' + PRGNAME + ' v' + PRGVERSION);
@@ -89,7 +89,7 @@ begin
      writeln('Target OS:   ',{$I %FPCTARGETOS%});
      writeln('Target CPU:  ',{$I %FPCTARGETCPU%});
   {$ENDIF}
-  {$IFDEF WIN32}
+  {$IFDEF WINDOWS}
      s := 'X' + PRGNAME + ' v' + PRGVERSION + #13 + #10 + #13 + #10;
      s := s + 'This was compiled at ' + {$I %TIME%} +' on ' + {$I %DATE%} +' by ' + {$I %USERNAME%} +'.' + #13 + #10 + #13 + #10;
      s := s + 'FPC version: ' + {$I %FPCVERSION%} + #13 + #10;

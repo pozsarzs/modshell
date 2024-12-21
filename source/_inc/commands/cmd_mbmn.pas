@@ -48,12 +48,12 @@ begin
   begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
-    s := s + ' ' + PREFIX[2] + '[0-7]';
+    s := s + ' ' + PREFIX[2] + SVR;
     writeln(s);
     result := 1;
     exit;
   end;
-  if length(p1) >= 4 then i1 := strtointdef(p1[4],-1) else
+  if length(p1) >= 4 then i1 := strtointdef(p1[4], -1) else
   begin
     // Connection number must be 0-7!
     writeln(ERR03);
@@ -100,7 +100,7 @@ begin
           if ser.CanRead(0) then
           begin
             s := ser.RecvString(0);
-            writeln(decodetelegram(PROT_TYPE[prot[conn[i1].prot].prottype],
+            writeln(mbdecodetelegram(PROT_TYPE[prot[conn[i1].prot].prottype],
                     inttostr(prot[conn[i1].prot].id), s));
           end;    
           delay(100);

@@ -83,8 +83,8 @@ begin
       AnchorSideLeft.Control := LSpinEdit721;
       AnchorSideLeft.Side := asrRight;
       BorderSpacing.Left := 8;
-    MinValue := 1;
-    MaxValue := 9999;
+    MinValue := 0;
+    MaxValue := 9998;
     Name := 'LSpinEdit722';
     Parent := Form721;
     TabOrder := 1;
@@ -101,7 +101,7 @@ begin
       BorderSpacing.Left := 8;
       BorderSpacing.Right := 8;
     MinValue := 1;
-    MaxValue := 9999;
+    MaxValue := 125;
     Name := 'LSpinEdit723';
     Parent := Form721;
     TabOrder := 2;

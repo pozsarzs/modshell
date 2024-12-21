@@ -134,7 +134,7 @@ msgid "Local register type (dinp/coil/ireg/hreg: 1/2/3/4): "
 msgstr ""
 
 #: modshell:msg27
-msgid "Start address (0-9990): "
+msgid "Start data address (0-9990): "
 msgstr ""
 
 #: modshell:msg28
@@ -270,7 +270,7 @@ msgid "registers"
 msgstr ""
 
 #: modshell:msg60
-msgid "start address"
+msgid "start data address"
 msgstr ""
 
 #: modshell:msg61
@@ -463,6 +463,22 @@ msgstr ""
 
 #: modshell:msg108
 msgid "Use 'Modbus/Show serial Modbus traffic' on GUI version."
+msgstr ""
+
+#: modshell:msg109
+msgid "Discrete input contacts"
+msgstr ""
+
+#: modshell:msg110
+msgid "Discrete output coils"
+msgstr ""
+
+#: modshell:msg111
+msgid "Analog input registers"
+msgstr ""
+
+#: modshell:msg112
+msgid "Analog output holding registers"
 msgstr ""
 
 #: modshell:err00

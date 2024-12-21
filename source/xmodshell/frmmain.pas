@@ -328,9 +328,9 @@ procedure version(h: boolean); forward;
 {$I dcon.pas}
 {$I hart.pas}
 {$I mbascii.pas}
-{$I mbdectgm.pas}
 {$I mbrtu.pas}
 {$I mbtcp.pas}
+{$I mbutil.pas}
 {$I modbus.pas}
 
 {$I cmd_aplg.pas}
@@ -602,7 +602,7 @@ var
   cmd: string;
 begin
   cmd := COMMANDS[2] + ' dev';
-  Memo1.Lines.Add(fullprompt + cmd + '[0-7]');
+  Memo1.Lines.Add(fullprompt + cmd + SVR);
   for b := 0 to 7 do
     parsingcommands(cmd + inttostr(b));
 end;
@@ -620,7 +620,7 @@ var
   cmd: string;
 begin
   cmd := COMMANDS[2] + ' pro';
-  Memo1.Lines.Add(fullprompt + cmd + '[0-7]');
+  Memo1.Lines.Add(fullprompt + cmd + SVR);
   for b := 0 to 7 do
     parsingcommands(cmd + inttostr(b));
 end;
@@ -638,7 +638,7 @@ var
   cmd: string;
 begin
   cmd := COMMANDS[2] + ' con';
-  Memo1.Lines.Add(fullprompt + cmd + '[0-7]');
+  Memo1.Lines.Add(fullprompt + cmd + SVR);
   for b := 0 to 7 do
     parsingcommands(cmd + inttostr(b));
 end;
@@ -778,16 +778,17 @@ end;
 
 // SHOW REGISTER TABLE
 procedure TForm1.MenuItem80Click(Sender: TObject);
-var
-  b: byte;
 begin
   with Form7 do
   begin
     Caption := rmampdot(MenuItem80.Caption);
+    ComboBox1.Clear;
     ComboBox1.Items.Add(MSG109);
     ComboBox1.Items.Add(MSG110);
     ComboBox1.Items.Add(MSG111);
     ComboBox1.Items.Add(MSG112);
+    ComboBox1.ItemIndex := 0;
+    frmregtable.previi := ComboBox1.ItemIndex;
     ShowModal;
   end;
 end;

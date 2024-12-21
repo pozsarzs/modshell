@@ -17,6 +17,17 @@
 |TI   |Transaction Identifier                                            |
 |UI   |Unit Identifier (1-254)                                           |
 
+### Registers
+
+|data address|offset|reg. number|reg. type |table name                     |
+|:----------:|:----:|:---------:|:--------:|:------------------------------|
+|0000-9998   |00001 |00001-09999|read/write|discrete output coils          |
+|0000-9998   |10001 |10001-19999|read only |discrete input contacts        |
+|0000-9998   |30001 |30001-39999|read only |analog input registers         |
+|0000-9998   |40001 |40001-49999|read/write|analog output holding registers|
+
+The data addresses are used in the messages.
+
 ### Modbus/ASCII
 
 PDU = FC + data  
@@ -24,7 +35,7 @@ ADU = SA + PDU + LRC(SA + PDU)
 telegram = 0x3A + ADU + 0x0D + 0x0A  
 
 **PDU:**
-|part     |size|
+|part     |size       |
 |:-------:|----------:|
 |FC       |2 chars    |
 |data     |0-504 chars|
@@ -54,7 +65,7 @@ ADU = SA + PDU + CRC(SA + PDU)
 telegram = ADU  
 
 **PDU:**
-|part     |size|
+|part     |size      |
 |:-------:|---------:|
 |FC       |1 byte    |
 |data     |0-252 byte|
@@ -81,11 +92,11 @@ MBAP = TI + PI + L + UI
 telegram = MBAP + PDU  
 
 **PDU:**
-|part     |size|
+|part     |size       |
 |:-------:|----------:|
-|FC       |1 byte    |
-|data     |0-252 byte|
-|**total**|1-253 byte|
+|FC       |1 byte     |
+|data     |0-252 byte |
+|**total**|1-253 byte |
 
 **MBAP:**
 |part     |size  |

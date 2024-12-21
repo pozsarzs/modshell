@@ -16,14 +16,25 @@
 // SHOW VERSION AND BUILD INFORMATION
 procedure version(h: boolean);
 var
-  username: string = {$I %USER%};
+  {$IFDEF UNIX}
+    username: string = {$I %USER%};
+    hostname: string = {$I %HOSTNAME%};
+  {$ELSE}
+    username: string = {$I %USERNAME%};
+    hostname: string = {$I %COMPUTERNAME%};
+  {$ENDIF}
 begin
   {$IFNDEF X}
     writeln(PRGNAME + ' v' + PRGVERSION + ' * ' + MSG02);
     writeln(PRGCOPYRIGHT);
     writeln;
     writeln(MSG94, {$I %DATE%}, ' ', {$I %TIME%});
-    if length(username) > 0 then writeln(MSG95, username);
+    if length(username) > 0 then
+    begin
+      if length(hostname) > 0
+        then writeln(MSG95, username + '@' + hostname)
+        else writeln(MSG95, username);
+    end;
     writeln(MSG96, {$I %FPCVERSION%});
     write(MSG97, {$I %FPCTARGETOS%});
     if lowercase({$I %FPCTARGETOS%}) = 'go32v2' then write(' (DOS)');
@@ -36,7 +47,12 @@ begin
       Memo1.Lines.Add(PRGCOPYRIGHT);
       Memo1.Lines.Add('');
       Memo1.Lines.Add(MSG94 + {$I %DATE%} + ' ' + {$I %TIME%});
-      if length(username) > 0 then Memo1.Lines.Add(MSG95 + username);
+      if length(username) > 0 then
+      begin
+        if length(hostname) > 0
+          then Memo1.Lines.Add(MSG95 + username + '@' + hostname)
+          else Memo1.Lines.Add(MSG95 + username);
+      end;
       Memo1.Lines.Add(MSG96 + {$I %FPCVERSION%});
       Memo1.Lines.Add(MSG97 + {$I %FPCTARGETOS%});
       Memo1.Lines.Add(MSG98 + {$I %FPCTARGETCPU%});

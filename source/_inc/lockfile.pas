@@ -18,11 +18,10 @@ function checklockfile(device: string; message: boolean): boolean;
 var
   fn: string;
 begin
-  {$IFDEF UNIX}
-    // example: /var/lock/LCK..ttyUSB1
-    fn := stringreplace(device, '/dev/', 'LCK..', [rfReplaceAll]);
-    result := inttobool(length(filesearch(fn, DIR_LOCK)));
-  {$ENDIF}
+  result := false;
+  // example: /var/lock/LCK..ttyUSB1
+  fn := stringreplace(device, '/dev/', 'LCK..', [rfReplaceAll]);
+  result := inttobool(length(filesearch(fn, DIR_LOCK)));
   if result and message
     then {$IFNDEF X} writeln(ERR49); {$ELSE} Form1.Memo1.Lines.Add(ERR49); {$ENDIF}
 end;
@@ -33,11 +32,10 @@ var
   fn: string;
 begin
   result := false;
-  {$IFDEF UNIX}
-    // example: /var/lock/LCK..ttyUSB1
-    fn := stringreplace(device, '/dev/', 'LCK..', [rfReplaceAll]);
-    result := DeleteFile(DIR_LOCK + SLASH + fn);
-    if result
-      then {$IFNDEF X} writeln(ERR43); {$ELSE} Form1.Memo1.Lines.Add(ERR43); {$ENDIF}
-  {$ENDIF}
+  // example: /var/lock/LCK..ttyUSB1
+  fn := stringreplace(device, '/dev/', 'LCK..', [rfReplaceAll]);
+  result := DeleteFile(DIR_LOCK + SLASH + fn);
+  if result and message
+    then {$IFNDEF X} writeln(ERR43); {$ELSE} Form1.Memo1.Lines.Add(ERR43); {$ENDIF}
 end;
+

@@ -407,6 +407,7 @@ var
   end;
 
 begin
+  h1 := 0; m1 := 0; s1 := 0; ss1 := 0;
   h2 := 0; m2 := 0; s2 := 0;
   gettime(h1, m1, s1, ss1);
   if (h1 <> h2) or (m1 <> m2) or (s1 <> s2) then

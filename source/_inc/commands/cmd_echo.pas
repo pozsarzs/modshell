@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | cmd_echometh.pas                                                             | }
-{ | command 'echomethmeth'                                                       | }
+{ | cmd_echometh.pas                                                         | }
+{ | command 'echometh'                                                       | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it

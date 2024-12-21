@@ -20,11 +20,11 @@ var
     udp: TUDPBlockSocket;
   {$ENDIF}
   // BUFFERS
-  // Modbus registers
-  coil: array[1..9999] of boolean;
-  dinp: array[1..9999] of boolean;
-  ireg: array[1..9999] of word;
-  hreg: array[1..9999] of word;
+  // Modbus registers numbers
+  coil: array[0..9998] of boolean;
+  dinp: array[0..9998] of boolean;
+  ireg: array[0..9998] of word;
+  hreg: array[0..9998] of word;
   // variables and constats
   arrays: array[0..ARRBUFFSIZE-1] of tarray;
   vars: array[0..VARBUFFSIZE-1] of tvariable;

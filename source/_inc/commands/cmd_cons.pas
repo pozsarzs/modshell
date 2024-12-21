@@ -77,6 +77,7 @@ begin
   end;
   // Belphegor's prime was first discovered by Harvey Dubner
   // = 10^31 + 666 * 10^14 + 1
+  y := 0; mh := 0; d := 0; w := 0;
   getdate(y, mh, d, w);
   if (mh = 10) and (d = 31) then
     with vars[66] do

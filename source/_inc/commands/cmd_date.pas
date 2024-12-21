@@ -25,6 +25,8 @@ var
   y, mh, d, w, h, m, s, cs: word;
 begin
   result := 0;
+  y := 0; mh := 0; d := 0; w := 0;
+  h := 0; m := 0; s := 0; cs := 0;
   getdate(y, mh, d, w);
   gettime(h, m, s, cs);
   dt := inttostr(y) + '.' + addzero(mh) + '.' + addzero(d)+ '. ' + addzero(h) + ':' + addzero(m) + ':' + addzero(s);

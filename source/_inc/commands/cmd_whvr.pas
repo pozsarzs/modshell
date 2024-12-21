@@ -13,13 +13,14 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0       p1 
-  --------------------
-  whatever [parameter]
+  p0       p1-6
+  ---------------------
+  whatever [parameters]
 }
 
 // COMMAND 'WHATEVER' - FOR MAKE NEW COMMAND ONLY
 function cmd_whatever(p1, p2, p3, p4, p5, p6: string): byte;
 begin
   result := 0;
+  writeln(p1 + ' ' + p2 + ' ' + p3 + ' ' + p4 + ' ' + p5 + ' ' + p6);
 end;
