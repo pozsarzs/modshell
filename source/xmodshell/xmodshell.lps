@@ -8,7 +8,7 @@
         <Filename Value="xmodshell.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="6" Y="87"/>
+        <CursorPos X="2" Y="15"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
       </Unit>
@@ -30,7 +30,7 @@
         <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="8"/>
         <CursorPos Y="15"/>
         <UsageCount Value="219"/>
         <Loaded Value="True"/>
@@ -42,7 +42,7 @@
         <ComponentName Value="Form4"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="6"/>
         <CursorPos Y="15"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
@@ -61,9 +61,9 @@
         <ComponentName Value="Form5"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="7"/>
         <CursorPos X="2" Y="15"/>
-        <UsageCount Value="184"/>
+        <UsageCount Value="185"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -75,7 +75,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="15"/>
-        <UsageCount Value="68"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -86,8 +86,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
-        <CursorPos Y="15"/>
-        <UsageCount Value="42"/>
+        <CursorPos X="2" Y="15"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -111,9 +111,9 @@
         <ComponentName Value="Form3"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <CursorPos X="2" Y="15"/>
-        <UsageCount Value="90"/>
+        <UsageCount Value="91"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -247,10 +247,11 @@
       </Unit>
       <Unit>
         <Filename Value="../_ppu/uconfig.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="9"/>
-        <CursorPos Y="20"/>
-        <UsageCount Value="10"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="45"/>
+        <CursorPos X="34" Y="52"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/lib/lazarus/2.2.6/lcl/grids.pas"/>
@@ -324,19 +325,7 @@
         <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="26">
-      <Position>
-        <Filename Value="frmregtable.pas"/>
-        <Caret Line="49" TopLine="40"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="15" Column="2"/>
-      </Position>
-      <Position>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="785" Column="11" TopLine="779"/>
-      </Position>
+    <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="frmmain.pas"/>
       </Position>
@@ -431,6 +420,30 @@
       <Position>
         <Filename Value="frmregtable.pas"/>
         <Caret Line="63" Column="79" TopLine="52"/>
+      </Position>
+      <Position>
+        <Filename Value="frmregtable.pas"/>
+        <Caret Line="15"/>
+      </Position>
+      <Position>
+        <Filename Value="frmregtable.pas"/>
+        <Caret Line="80" Column="3" TopLine="78"/>
+      </Position>
+      <Position>
+        <Filename Value="frmregtable.pas"/>
+        <Caret Line="82" Column="8" TopLine="68"/>
+      </Position>
+      <Position>
+        <Filename Value="frmregtable.pas"/>
+        <Caret Line="89" TopLine="77"/>
+      </Position>
+      <Position>
+        <Filename Value="frmregtable.pas"/>
+        <Caret Line="86" Column="10" TopLine="75"/>
+      </Position>
+      <Position>
+        <Filename Value="frmregtable.pas"/>
+        <Caret Line="87" Column="73" TopLine="75"/>
       </Position>
     </JumpHistory>
     <RunParams>

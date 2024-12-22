@@ -352,8 +352,112 @@ object Form7: TForm7
     ExtendedSelect = False
     FixedColor = 16775122
     Flat = True
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goEditing, goDblClickAutoSize, goSmoothScroll, goFixedColSizing]
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goEditing, goDblClickAutoSize, goSmoothScroll, goFixedColSizing]
     RowCount = 101
     TabOrder = 1
+    OnEditingDone = StringGrid1EditingDone
+    ColWidths = (
+      64
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      4
+      89
+    )
   end
 end

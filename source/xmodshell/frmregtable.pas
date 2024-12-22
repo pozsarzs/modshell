@@ -37,6 +37,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure CopyReg(direction: boolean; registertype: byte);
+    procedure StringGrid1EditingDone(Sender: TObject);
   private
   public
   end;
@@ -72,6 +73,21 @@ begin
                then StringGrid1.Cells[x + 1, y + 1] := inttostr(hreg[x + y * 100])
                else hreg[x + y * 100] := strtoint(StringGrid1.Cells[x + 1, y + 1]);
       end;
+end;
+
+// CHECK VALUE AFTER EDIT A CELL
+procedure TForm7.StringGrid1EditingDone(Sender: TObject);
+begin
+  with StringGrid1 do
+    case ComboBox1.ItemIndex of
+      0, 1: if strtointdef(Cells[Col, Row], 0) > 1
+              then Cells[Col, Row] := '1'
+              else Cells[Col, Row] := '0';
+      2, 3: begin
+              if strtointdef(Cells[Col, Row], -1) < 0 then Cells[Col, Row] := '0';
+              if strtointdef(Cells[Col, Row], 0) > 65535 then Cells[Col, Row] := '65535';
+            end;
+     end;
 end;
 
 // SHOW REGISTER TABLE WINDOW
