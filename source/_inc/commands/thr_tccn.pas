@@ -21,10 +21,9 @@
 // COMMAND 'TCPCONS'
 function TLThread.thr_tcpcons(p1: byte): byte;
 var
+  b: byte;
   fpn, fp: string;
-  lf: text;
-  srx: string = '';
-  stx: string = '';
+  lf: file of char;
 
 {$I sendmesg.pas}
 
@@ -56,35 +55,38 @@ begin
     repeat
       if tcp_open(ipaddress, inttostr(port))  then
       begin
+        // send a char
         if keyprd then
         begin
           keyprd := false;
-          if prdkey = #13 then
+          if udp_canwrite then
           begin
-            // send a string
-            if tcp_canwrite then
-            begin
-              tcp_sendstring(stx);
-              sendmessage('', true);
-              try
-                writeln(lf, stx);
-              except
-              end;
-              stx := '';
-            end else sendmessage(ERR27, true);
-          end else
-          begin
-            sendmessage(prdkey, false);
-            stx := stx + prdkey;
-          end;
+            udp_sendbyte(ord(prdkey));
+            // echo method
+            case uconfig.echometh of
+              1: sendmessage(prdkey, false);
+              2: sendmessage(addsomezero(2, deztohex(inttostr(ord(prdkey)))) + ' ', false);
+            end;
+            // write to console.log
+            try
+              write(lf, prdkey);
+            except
+            end;
+            if prdkey = #13 then sendmessage('', true);
+          end else sendmessage(ERR27, true);
         end;
-        // receive a string
-        if tcp_canread then
+        // receive a char
+        if udp_canread then
         begin
-          srx := tcp_recvpacket;
-          sendmessage(srx, true);
+          b := udp_recvbyte;
+          // echo method
+          case uconfig.echometh of
+            1: sendmessage(char(b), false);
+            2: sendmessage(addsomezero(2, deztohex(inttostr(b))) + ' ', false);
+          end;
+          // write to console.log
           try
-            writeln(lf, srx);
+            write(lf, char(b));
           except
           end;
         end;

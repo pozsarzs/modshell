@@ -26,6 +26,8 @@ uses
   Menus,
   StdCtrls,
   SysUtils,
+  convert,
+  ucommon,
   uconfig;
 type
   { TLThread }

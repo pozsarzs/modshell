@@ -94,6 +94,7 @@ begin
         begin
           wait := 0;
           b := udp_recvbyte;
+          // echo method
           case uconfig.echometh of
             1: sendmessage(char(b), false);
             2: sendmessage(addsomezero(2, deztohex(inttostr(b))) + ' ', false);

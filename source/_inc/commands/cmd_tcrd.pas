@@ -93,6 +93,7 @@ begin
         begin
           wait := 0;
           b := tcp_recvbyte;
+          // echo method
           {$IFNDEF X}
             textcolor(uconfig.colors[2]);
             case uconfig.echometh of

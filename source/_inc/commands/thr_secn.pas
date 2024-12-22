@@ -63,7 +63,12 @@ begin
           if ser_canwrite then
           begin
             ser_sendstring(prdkey);
-            sendmessage(prdkey, false);
+            // echo method
+            case uconfig.echometh of
+              1: sendmessage(prdkey, false);
+              2: sendmessage(addsomezero(2, deztohex(inttostr(ord(prdkey)))) + ' ', false);
+            end;
+            // write to console.log
             try
               write(lf, prdkey);
             except
@@ -75,7 +80,12 @@ begin
         if ser_canread then
         begin
           b := ser_recvbyte;
-          sendmessage(char(b), false);
+          // echo method
+          case uconfig.echometh of
+            1: sendmessage(char(b), false);
+            2: sendmessage(addsomezero(2, deztohex(inttostr(b))) + ' ', false);
+          end;
+          // write to console.log
           try
             write(lf, char(b));
           except

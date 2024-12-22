@@ -26,6 +26,7 @@ uses
   StdCtrls,
   SysUtils,
   synaser,
+  convert,
   ucommon,
   uconfig;
 type

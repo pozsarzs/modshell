@@ -96,7 +96,12 @@ begin
           begin
             udp_sendstring(c);
             textcolor(uconfig.colors[3]);
-            write(c);
+            // echo method
+            case uconfig.echometh of
+              1: write(c);
+              2: write(addsomezero(2, deztohex(inttostr(ord(c)))) + ' ');
+            end;
+            // write to console.log
             try
               write(lf, c);
             except
@@ -109,7 +114,12 @@ begin
         begin
           b := udp_recvbyte;
           textcolor(uconfig.colors[2]);
-          write(char(b));
+          // echo method
+          case uconfig.echometh of
+            1: write(char(b));
+            2: write(addsomezero(2, deztohex(inttostr(b))) + ' ');
+          end;
+          // write to console.log
           try
             write(lf, char(b));
           except
