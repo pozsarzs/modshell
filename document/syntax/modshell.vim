@@ -39,6 +39,7 @@ syn keyword modshellPredefined an chr oct off rtu ser str swap tcp xml
 syn match modshellSymbolOperator "[<>]=\="
 syn match modshellSymbolOperator "="
 syn match modshellSymbolOperator "<>"
+syn match modshellSymbolOperator "=="
 
 syn match modshellDevice "dev[0-7]"
 syn match modshellDevice "pro[0-7]"

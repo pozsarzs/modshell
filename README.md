@@ -452,26 +452,27 @@ can be selected.
 
 **Predefined constants**
 
-|name    |value                                         |
-|--------|----------------------------------------------|
-|$?      |exit value of the commands                    |
-|$ARGx   |OS command line arguments in interpreter mode |
-|$B01    |150 (baud)                                    |
-|$B03    |300 (baud)                                    |
-|$B06    |600 (baud)                                    |
-|$B1     |1200 (baud)                                   |
-|$B2     |2400 (baud)                                   |
-|$B4     |4800 (baud)                                   |
-|$B9     |9600 (baud)                                   |
-|$B19    |19200 (baud)                                  |
-|$B38    |38400 (baud)                                  |
-|$B57    |57600 (baud)                                  |
-|$B115   |115200 (baud)                                 |
-|$EULER  |value of e (2.7182818284590452354)            |
-|$HOME   |user's home directory                         |
-|$PI     |value of Pi (3.1415926535897932385)           |
-|$PRJDIR |directory of the actual project               |
-|$PRJNAME|name of the actual project                    |
+|name    |value                                                      |
+|--------|-----------------------------------------------------------|
+|$?      |exit value of the commands                                 |
+|$ARGx   |OS command line arguments in interpreter mode              |
+|$ARGCNT |number of the OS command line arguments in interpreter mode|
+|$B01    |150 (baud)                                                 |
+|$B03    |300 (baud)                                                 |
+|$B06    |600 (baud)                                                 |
+|$B1     |1200 (baud)                                                |
+|$B2     |2400 (baud)                                                |
+|$B4     |4800 (baud)                                                |
+|$B9     |9600 (baud)                                                |
+|$B19    |19200 (baud)                                               |
+|$B38    |38400 (baud)                                               |
+|$B57    |57600 (baud)                                               |
+|$B115   |115200 (baud)                                              |
+|$EULER  |value of e (2.7182818284590452354)                         |
+|$HOME   |user's home directory                                      |
+|$PI     |value of Pi (3.1415926535897932385)                        |
+|$PRJDIR |directory of the actual project                            |
+|$PRJNAME|name of the actual project                                 |
 
 **Predefined macros**
 

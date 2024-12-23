@@ -385,9 +385,13 @@ begin
   end;
   // pass command line arguments
   if appmode = 4 then
+  begin
+    cmd_const('ARGCNT', inttostr(paramcount - 2));
+    cmd_const('ARG0', paramstr(2));
     if paramcount > 2 then
       for b := 3 to paramcount do
         cmd_const('ARG' + inttostr(b - 2), paramstr(b));
+  end;
   // run main function
   case appmode of
     0: simplecommandline;

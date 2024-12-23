@@ -504,7 +504,7 @@ Exits from program.
 \fBgetarrsize\fP \fIARRAY\fP \fI$TARGET\fP
 Gets size of an array and placed in _$TARGET_.
 .TP
-\fBgoto\fP \fILABEL\fP
+\fBgoto\fP \fI[$]LABEL\fP
 Jumps to specified label (only in script).
 .TP
 \fBfor\fP \fI$VARIABLE\fP \fI[$]VALUE1\fP \fBto\fP \fI[$]VALUE2\fP \fBdo\fP \fICOMMAND\fP
@@ -515,7 +515,7 @@ and does \fICOMMAND\fP.
 Shows description or usage of the builtin commands.
 .TP
 \fBif\fP \fI[$]VALUE1\fP \fBRELATIONAL_SIGN\fP \fI[$]VALUE2\fP \fBthen\fP \fICOMMAND\fP
-Selection statement (only in script). \fBRELATIONAL_SIGN\fP: < <= = >= >.
+Selection statement (only in script). \fBRELATIONAL_SIGN\fP: < <= = >= > <> and == for strings.
 .TP
 \fBinputmeth\fP [\fIan\fP|\fIhex\fP|\fIswap\fP]
 Queries or changes local input method for connection.

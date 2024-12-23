@@ -44,7 +44,7 @@ icolor brightred "\<(bin|coil|csv|dec|dinp|hex|hreg|ini|ireg|net)\>"
 icolor brightred "\<(an|chr|oct|off|rtu|ser|str|swap|tcp|xml)\>"
 
 ## group #4
-color brightwhite "<" "<=" "=" ">=" ">" "<>"
+color brightwhite "<" "<=" "=" ">=" ">" "<>" "=="
 
 ## strings
 color brightyellow "["][^"]*[^\\]["]"

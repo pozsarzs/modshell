@@ -78,7 +78,7 @@ begin
             then vars[intisitconstant(p1)].vvalue := s2
             else {$IFNDEF X} writeln(ERR51); {$ELSE} Form1.Memo1.Lines.Add(ERR51); {$ENDIF}
         if boolisitconstantarray(p1) then
-          if length(arrays[intisitconstant(p1)].aitems[intisitconstantarrayelement(p1)]) = 0
+          if length(arrays[intisitconstantarray(p1)].aitems[intisitconstantarrayelement(p1)]) = 0
             then arrays[intisitconstantarray(p1)].aitems[intisitconstantarrayelement(p1)] := s2
             else {$IFNDEF X} writeln(ERR51); {$ELSE} Form1.Memo1.Lines.Add(ERR51); {$ENDIF}
         exit;

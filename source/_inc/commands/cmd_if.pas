@@ -21,7 +21,7 @@
 // COMMAND 'IF'
 function cmd_if(p1, p2, p3, p4, p5: string): byte;
 const
-  RS: array[0..5] of string = ('<','<=','=','=>','>','<>');
+  RS: array[0..6] of string = ('<','<=','=','=>','>','<>','==');
 var
   i1, i2, i3: integer; // parameters in other type
   s: string;
@@ -39,10 +39,13 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
+  if boolisitconstant(p1) then s1 := isitconstant(p1);
   if boolisitvariable(p1) then s1 := isitvariable(p1);
+  if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
   if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
   if length(s1) = 0 then s1 := p1;
   i1 := strtointdef(s1, -1);
+{ 
   if (i1 < 0) or (i1 > 65535) then
   begin
     // What is the 1st parameter?
@@ -50,8 +53,9 @@ begin
     result := 1;
     exit;
   end;
+}
   // CHECK P2 PARAMETER
-  for i2 := 0 to 5 do
+  for i2 := 0 to 6 do
     if p2 = RS[i2] then
     begin
       valid := true;
@@ -60,7 +64,7 @@ begin
   if not valid then
   begin
     s := NUM2 + MSG05;
-    for i2 := 0 to 5 do s := s + ' ' + RS[i2];
+    for i2 := 0 to 6 do s := s + ' ' + RS[i2];
     // What is the 2nd parameter?
     {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
@@ -73,6 +77,7 @@ begin
   if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
   if length(s3) = 0 then s3 := p3;
   i3 := strtointdef(s3, -1);
+{ 
   if (i3 < 0) or (i3 > 65535) then
   begin
     // What is the 3rd parameter?
@@ -80,6 +85,7 @@ begin
     result := 1;
     exit;
   end;
+}
   // CHECK P4 PARAMETER
   if lowercase(p4) <> 'then' then
   begin
@@ -96,6 +102,7 @@ begin
     3: if i1 >= i3 then valid := true else valid := false;
     4: if i1 > i3  then valid := true else valid := false;
     5: if i1 <> i3 then valid := true else valid := false;
+    6: if s1 = s3 then valid := true else valid := false;
   end;
   p5 := stringreplace(p5, 'if ' + p1 + ' ' + p2 + ' ' + p3 + ' ' + p4 + ' ', '', [rfReplaceAll]);
   if valid then parsingcommands(p5);

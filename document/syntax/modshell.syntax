@@ -167,6 +167,7 @@ context default brightcyan
     keyword whole >= white
     keyword whole > white
     keyword whole <> white
+    keyword whole == white
     # start lines
     keyword whole linestart #!\[\s\]*\n brightcyan black
     keyword whole linestart :eof brightcyan black

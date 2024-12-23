@@ -82,7 +82,7 @@ begin
   if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
   if length(s2) = 0 then s2 := p2;
   // CHECK P3 PARAMETER
-  if op = 63 then
+  if (op = 63) or (op = 83) or (op = 84) or (op = 86) or (op = 87) then
   begin
     if boolisitconstant(p3) then s3 := isitconstant(p3);
     if boolisitvariable(p3) then s3 := isitvariable(p3);
