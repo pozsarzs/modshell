@@ -320,13 +320,12 @@ begin
       writeln('Usage: ' + BASENAME + ' [parameter]');
       writeln;
       writeln('parameters:');
-      for b := 0 to 2 do
+      for b := 0 to 3 do
       begin
         write('  ',CMDLINEPARAMS[b, 0]);
         gotoxy(8, wherey); write(CMDLINEPARAMS[b, 1]);
         gotoxy(30, wherey); writeln(CMDLINEPARAMS[b, 2]);
       end;
-      writeln;
     end;
   quit(0, false, '');
 end;

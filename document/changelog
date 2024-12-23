@@ -2,6 +2,7 @@ modshell (0.1-beta1) unstable; urgency=low
 
 * First user test release will be with the following changes:
 * Elimination of confusion between the terms 'register number' and 'data address'.
+* passing parameters from the operating system command line to the script in interpreter mode;
 * ANSI escape sequences support (only DOS and *nix like systems);
 * command `color` -> `set color`, sets all default colors (CLI and TUI);
 * command `echo` -> `echometh`, parameters: off|on|hex|swap -> off|an|hex|swap;

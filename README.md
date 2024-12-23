@@ -89,6 +89,7 @@ HART protocols.
 _v0.1-beta1:_  
 _First user test release_ will be with the following changes:  
  - [x] Elimination of confusion between the terms 'register number' and 'data address';
+ - [ ] passing parameters from the operating system command line to the script in interpreter mode;
  - [x] ANSI escape sequences support (only DOS and *nix like systems);
  - [x] command `color` -> `set color`, sets all default colors (CLI and TUI);  
  - [x] command `echo` -> `echometh`, parameters: off|on|hex|swap -> off|an|hex|swap;
@@ -448,25 +449,26 @@ can be selected.
 
 **Predefined constants**
 
-|name    |value                              |
-|--------|-----------------------------------|
-|$?      |exit value of the commands         |
-|$B01    |150 (baud)                         |
-|$B03    |300 (baud)                         |
-|$B06    |600 (baud)                         |
-|$B1     |1200 (baud)                        |
-|$B2     |2400 (baud)                        |
-|$B4     |4800 (baud)                        |
-|$B9     |9600 (baud)                        |
-|$B19    |19200 (baud)                       |
-|$B38    |38400 (baud)                       |
-|$B57    |57600 (baud)                       |
-|$B115   |115200 (baud)                      |
-|$EULER  |value of e (2.7182818284590452354) |
-|$HOME   |user's home directory              |
-|$PI     |value of Pi (3.1415926535897932385)|
-|$PRJDIR |directory of the actual project    |
-|$PRJNAME|name of the actual project         |
+|name    |value                                         |
+|--------|----------------------------------------------|
+|$?      |exit value of the commands                    |
+|$ARGx   |OS command line arguments in interpreter mode |
+|$B01    |150 (baud)                                    |
+|$B03    |300 (baud)                                    |
+|$B06    |600 (baud)                                    |
+|$B1     |1200 (baud)                                   |
+|$B2     |2400 (baud)                                   |
+|$B4     |4800 (baud)                                   |
+|$B9     |9600 (baud)                                   |
+|$B19    |19200 (baud)                                  |
+|$B38    |38400 (baud)                                  |
+|$B57    |57600 (baud)                                  |
+|$B115   |115200 (baud)                                 |
+|$EULER  |value of e (2.7182818284590452354)            |
+|$HOME   |user's home directory                         |
+|$PI     |value of Pi (3.1415926535897932385)           |
+|$PRJDIR |directory of the actual project               |
+|$PRJNAME|name of the actual project                    |
 
 **Predefined macros**
 

@@ -28,7 +28,9 @@ uses
   frmsecn,
   frmtccn,
   frmudcn,
-  frmvrmn, frmregtable;
+  frmvrmn,
+  frmregtable,
+  ucommon;
 var
   b: byte;
   fn: string;
@@ -52,8 +54,7 @@ begin
   else
   begin
     {$IFDEF UNIX}
-      writeln('Usage:');
-      writeln(' ', fn, {$IFDEF WINDOWS}'.', fe,{$ENDIF}' [parameter]');
+      writeln('Usage: ', fn, {$IFDEF WINDOWS}'.', fe,{$ENDIF}' [parameter]');
       writeln;
       writeln('parameters:');
       for b := 1 to 2 do
@@ -78,27 +79,7 @@ begin
   halt(0);
 end;
 
-procedure verinfo;
-{$IFDEF WINDOWS} var s: string; {$ENDIF}
-begin
-  {$IFDEF UNIX}
-     writeln('X' + PRGNAME + ' v' + PRGVERSION);
-     writeln;
-     writeln('This application was compiled at ',{$I %TIME%}, ' on ',{$I %DATE%}, ' by ',{$I %USER%});
-     writeln('FPC version: ',{$I %FPCVERSION%});
-     writeln('Target OS:   ',{$I %FPCTARGETOS%});
-     writeln('Target CPU:  ',{$I %FPCTARGETCPU%});
-  {$ENDIF}
-  {$IFDEF WINDOWS}
-     s := 'X' + PRGNAME + ' v' + PRGVERSION + #13 + #10 + #13 + #10;
-     s := s + 'This was compiled at ' + {$I %TIME%} +' on ' + {$I %DATE%} +' by ' + {$I %USERNAME%} +'.' + #13 + #10 + #13 + #10;
-     s := s + 'FPC version: ' + {$I %FPCVERSION%} + #13 + #10;
-     s := s + 'Target OS:   ' + {$I %FPCTARGETOS%} + #13 + #10;
-     s := s + 'Target CPU:  ' + {$I %FPCTARGETCPU%};
-     ShowMessage(s);
-  {$ENDIF}
-  halt(0);
-end;
+{$I version.pas}
 
 begin
   fn := extractfilename(ParamStr(0));
@@ -117,7 +98,7 @@ begin
   case opmode of
     0: help(True);
     10: help(False);
-    20: verinfo;
+    20: version(true);
   end;
   RequireDerivedFormResource:=True;
   Application.Title:='XModShell';

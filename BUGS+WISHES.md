@@ -17,6 +17,7 @@ section of the README.md.)
 |  U  |SerialEchoServer has not been tested yet.                               |
 |  U  |SerialMBMonitor has not been tested yet.                                |
 |  X  |Menu item 'Modbus/Show serial Modbus traffic' has not been tested yet.  |
+|  B  |R/W and console commands were not tested after the modification.        |
 
 **Where:**
   - M: ModShell
