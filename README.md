@@ -285,6 +285,9 @@ deleted. It is also possible to observe the values of up to four variables
 during runtime and to keep the final values​of constants and variables created
 during runtime.
 
+In interpreter mode, operating system command line arguments are available as
+predefined constants.
+
 **Raw serial connection**
 
 The program provides the possibility to send and receive raw data via a

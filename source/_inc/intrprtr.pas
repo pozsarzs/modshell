@@ -16,7 +16,7 @@
 // SCRIPT INTERPRETER
 procedure interpreter(f: string);
 var
-  s: string;
+ s: string;
   sf: textfile;
 
 begin

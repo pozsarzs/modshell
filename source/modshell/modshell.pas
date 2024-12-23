@@ -383,6 +383,11 @@ begin
     originaldirectory := getcurrentdir;
     setcurrentdir(vars[11].vvalue + PRGNAME);
   end;
+  // pass command line arguments
+  if appmode = 4 then
+    if paramcount > 2 then
+      for b := 3 to paramcount do
+        cmd_const('ARG' + inttostr(b - 2), paramstr(b));
   // run main function
   case appmode of
     0: simplecommandline;
