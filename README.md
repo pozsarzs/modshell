@@ -12,7 +12,8 @@ Copyright (C) 2023-2024 Pozsár Zsolt <pozsarzs@gmail.com>
 
 ModShell is a utility built around a command interpreter, which with the
 connected peripherals communicates via various ports using the Modbus, DCON and
-HART protocols.  
+HART protocols. (The Modbus/TCP and HART support feature will be available from
+v0.1-beta2 release.) 
 
 |features                |                                                                                            |
 |------------------------|--------------------------------------------------------------------------------------------|
@@ -76,10 +77,12 @@ HART protocols.
  <summary><i>v0.1-beta2:</i></summary>
  <i>Second user test release</i> will be with the following changes:
  <ul>
+  <li>HART protocol support;</li>
   <li>compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);</li>
-  <li>TCP-Modbus/TCP-UDP communication on DOS;</li>
+ -<li>Modbus/TCP communication;</li>
+  <li>TCP/UDP communication on DOS;</li>
   <li>graphical monitoring the change of values over time (only XModShell);</li>
-  <li>converter between Modbus register number and type/address;</li>
+  <li>internal converter between Modbus register number/type and address;</li>
   <li>implementation of additional Modbus functions.</li>
  </ul>
  Only a source package will be released.
@@ -97,10 +100,8 @@ _First user test release_ will be with the following changes:
  - [x] commands `sercons`, `tcpcons`, `udpcons`: character-to-character or string sending, with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;  
  - [x] commands `serwrite`, `tcpwrite`, `udpwrite`: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo;
  - [x] DCON protocol support;  
- - [ ] HART protocol support;  
  - [x] main menu for all consoles in GUI version;  
  - [x] Modbus register number/address converter utilitys (in your own scripting language);
- - [ ] Modbus/TCP communication on Unix-like OS and Windows;  
  - [x] modified source code structure of XModshell;  
  - [x] new command `chkdevlock`/`rmdevlock` (only *nix systems);  
  - [x] new command `exist`;  
