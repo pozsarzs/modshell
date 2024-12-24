@@ -13,8 +13,9 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-program xmodshell;
 {$MODE OBJFPC}{$H+}
+
+program xmodshell;
 uses
   {$IFDEF UNIX} cthreads, cmem, {$ENDIF}
   Interfaces,
@@ -49,9 +50,7 @@ var
   b: byte;
   {$IFDEF WINDOWS} s: string; {$ENDIF}
 begin
-  if mode then
-    ShowMessage('There are one or more bad parameters in command line.')
-  else
+  if mode then ShowMessage('There are one or more bad parameters in command line.') else
   begin
     {$IFDEF UNIX}
       writeln('Usage: ', fn, {$IFDEF WINDOWS}'.', fe,{$ENDIF}' [parameter]');

@@ -14,6 +14,7 @@
 }
 
 {$MODE OBJFPC}{$H+}
+
 unit ucommon;
 interface
 uses
@@ -56,14 +57,14 @@ const
     $4E00, $8EC1, $8F81, $4F40, $8D01, $4DC0, $4C80, $8C41,
     $4400, $84C1, $8581, $4540, $8701, $47C0, $4680, $8641,
     $8201, $42C0, $4380, $8341, $4100, $81C1, $8081, $4040);
-{$IFDEF WINDOWS}
-  CSIDL_PROFILE = 40;
-  SHGFP_TYPE_CURRENT = 0;
-{$ENDIF}
+  {$IFDEF WINDOWS}
+    CSIDL_PROFILE = 40;
+    SHGFP_TYPE_CURRENT = 0;
+  {$ENDIF}
 var
-{$IFDEF WINDOWS}
-  buffer: array[0..MAX_PATH] of char;
-{$ENDIF}
+  {$IFDEF WINDOWS}
+    buffer: array[0..MAX_PATH] of char;
+  {$ENDIF}
   termmaxx, termmaxy: byte;
 
 function addzero(v: word): string;
@@ -94,16 +95,16 @@ procedure xywrite(x, y: byte; c: boolean; s: string);
 implementation
 
 {$IFDEF WINDOWS}
-function SHGetFolderPath(hwndOwner: HWND; nFolder: Integer; hToken: THandle;
-         dwFlags: DWORD; pszPath: LPTSTR): HRESULT; stdcall;
-         external 'Shell32.dll' name 'SHGetFolderPathA';
+  function SHGetFolderPath(hwndOwner: HWND; nFolder: Integer; hToken: THandle;
+           dwFlags: DWORD; pszPath: LPTSTR): HRESULT; stdcall;
+           external 'Shell32.dll' name 'SHGetFolderPathA';
 
-function getuserprofile: string;
-begin
-  fillchar(buffer, sizeof(buffer), 0);
-  ShGetFolderPath(0, CSIDL_PROFILE, 0, SHGFP_TYPE_CURRENT, buffer);
-  Result := string(PChar(@buffer));
-end;
+  function getuserprofile: string;
+  begin
+    fillchar(buffer, sizeof(buffer), 0);
+    ShGetFolderPath(0, CSIDL_PROFILE, 0, SHGFP_TYPE_CURRENT, buffer);
+    Result := string(PChar(@buffer));
+  end;
 {$ENDIF}
 
 // FORMAT TELEGRAM FOR ECHO 
@@ -273,10 +274,10 @@ end;
 // GET SYSTEM LANGUAGE
 function getlang: string;
 var
-{$IFDEF WINDOWS}
-  buffer: PChar;
-  size: integer;
-{$ENDIF}
+  {$IFDEF WINDOWS}
+    buffer: PChar;
+    size: integer;
+  {$ENDIF}
   s: string;
 
 begin

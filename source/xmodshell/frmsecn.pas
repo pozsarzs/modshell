@@ -13,8 +13,9 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-unit frmsecn;
 {$MODE OBJFPC}{$H+}{$MACRO ON}
+
+unit frmsecn;
 interface
 uses
   Classes,

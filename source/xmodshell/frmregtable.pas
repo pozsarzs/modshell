@@ -13,8 +13,9 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-unit frmregtable;
 {$MODE OBJFPC}{$H+}
+
+unit frmregtable;
 interface
 uses
   Classes,

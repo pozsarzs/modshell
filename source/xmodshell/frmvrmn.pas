@@ -13,8 +13,9 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-unit frmvrmn;
 {$MODE ObjFPC}{$H+}
+
+unit frmvrmn;
 interface
 uses
   Classes,

@@ -11,6 +11,7 @@ modshell (0.1-beta1) unstable; urgency=low
 * DCON protocol support;
 * HART protocol support;
 * main menu for all consoles in GUI version;
+* Modbus register number/address converter utilitys (in your own scripting language);
 * Modbus/TCP communication on Unix-like OS and Windows;
 * modified source code structure of XModshell;
 * new command `chkdevlock`/`rmdevlock` (only *nix systems);

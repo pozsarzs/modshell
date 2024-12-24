@@ -15,6 +15,7 @@
 
 {$IFDEF GO32V2}{$ERROR "Cannot compile on this system." }{$ENDIF}
 {$MODE OBJFPC}{$H+}{$MACRO ON}
+
 program serialechoserver;
 uses
   Synaser,
@@ -92,26 +93,25 @@ procedure help(mode: boolean);
 var
   b: byte;
 begin
-  if mode then
-    writeln('There are one or more bad parameter in command line.') else
+  if mode then writeln('There are one or more bad parameter in command line.') else
+  begin
+    writeln('Usage: ' + BASENAME + ' [device] [baudrate] [databit(s)] [parity] [stopbit(s)]');
+    writeln('       ' + BASENAME + ' [parameter]');
+    writeln;
+    writeln('parameters:');
+    for b := 0 to 1 do
     begin
-      writeln('Usage: ' + BASENAME + ' [device] [baudrate] [databit(s)] [parity] [stopbit(s)]');
-      writeln('       ' + BASENAME + ' [parameter]');
-      writeln;
-      writeln('parameters:');
-      for b := 0 to 1 do
-      begin
-        write('  ',CMDLINEPARAMS[b, 0]);
-        gotoxy(8, wherey); write(CMDLINEPARAMS[b, 1]);
-        gotoxy(30, wherey); writeln(CMDLINEPARAMS[b, 2]);
-      end;
-      writeln;
+      write('  ',CMDLINEPARAMS[b, 0]);
+      gotoxy(8, wherey); write(CMDLINEPARAMS[b, 1]);
+      gotoxy(30, wherey); writeln(CMDLINEPARAMS[b, 2]);
     end;
+    writeln;
+  end;
   quit(0, false, '');
 end;
 
-{$I version.pas}
 {$I lockfile.pas}
+{$I version.pas}
 
 begin
   // DETECT LANGUAGE
@@ -251,12 +251,14 @@ begin
   end else stopbit := paramstr(5);
   if not ((strtointdef(stopbit, -1) >= 1) and (strtointdef(stopbit, -1) <= 2))
     then quit(1, false, ERR01 + ERR05);
+
   writeln;
   writeln(MSG12 + device + ' ' + baudrate + ' ' + databit + upcase(parity) + stopbit);
   writeln;
   writeln(MSG04);
+
+  // check lockfile
   {$IFDEF UNIX}
-    // check lockfile
     if checklockfile('/dev/' + device, false)
       then quit(3, false, ERR01 + ERR49 + device);
   {$ENDIF}

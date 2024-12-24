@@ -14,6 +14,7 @@
 }
 
 {$MODE OBJFPC}{$H+}{$MACRO ON}
+
 unit uconfig;
 interface
 uses
@@ -59,11 +60,14 @@ const
                                     'gui-colors',
                                     'others',
                                     'positions');
-{$IFDEF UNIX}
-  {$DEFINE SLASH := #47}
-{$ELSE}
-  {$DEFINE SLASH := #92}
-{$ENDIF}
+
+// {$IFDEF UNIX}  
+//   {$DEFINE SLASH := #47}
+// {$ELSE}
+//  {$DEFINE SLASH := #92}
+// {$ENDIF}
+
+{$DEFINE SLASH := DirectorySeparator}
 
 function loadconfiguration(basename, extension: string): boolean;
 function saveconfiguration(basename, extension: string): boolean;

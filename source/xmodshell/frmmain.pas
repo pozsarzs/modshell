@@ -13,8 +13,10 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-unit frmmain;
+{$DEFINE X}
 {$MODE OBJFPC}{$H+}{$MACRO ON}
+
+unit frmmain;
 interface
 uses
   BlckSock,
@@ -284,8 +286,6 @@ var
   LSynAnySyn1: TSynAnySyn;
   fp: string;
   thrdcmd: tthrdcmd;
-
-{$DEFINE X}
 
 {$I type.pas}
 {$I const.pas}

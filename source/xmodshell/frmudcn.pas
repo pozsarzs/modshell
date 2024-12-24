@@ -13,8 +13,9 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-unit frmudcn;
 {$MODE OBJFPC}{$H+}{$MACRO ON}
+
+unit frmudcn;
 interface
 uses
   BlckSock,

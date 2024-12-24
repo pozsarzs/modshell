@@ -13,10 +13,10 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{DEFINE PROGTEST}
-
+{_DEFINE PROGTEST}
 {$IFDEF GO32V2}{$ERROR "Cannot compile on this system." }{$ENDIF}
 {$MODE OBJFPC}{$H+}{$MACRO ON}
+
 program serialmbmonitor;
 uses
   Synaser,
@@ -29,10 +29,12 @@ var
   {$IFNDEF PROGTEST}
     ser: TBlockSerial;
     s: string;
+  {$ELSE}
+    x, y: byte;
   {$ENDIF}
   appmode: byte;
   baudrate: string = '';
-  b, x, y: byte;
+  b: byte;
   c: char;
   databit: string = '';
   device: string = '';
@@ -81,9 +83,7 @@ const
 
 {$DEFINE BASENAME := lowercase(PRGNAME)}
 {$DEFINE SLASH := DirectorySeparator}
-{$IFDEF UNIX}
-  {$DEFINE DIR_LOCK := '/var/lock'}
-{$ENDIF}
+{$IFDEF UNIX}{$DEFINE DIR_LOCK := '/var/lock'}{$ENDIF}
 
 {$R *.res}
 
@@ -127,9 +127,9 @@ resourcestring
   ERR43 = 'Cannot erase file!';
   ERR49 = 'Locked device: ';
 
-{$I version.pas}
-{$I lockfile.pas}
 {$I mbutil.pas}
+{$I lockfile.pas}
+{$I version.pas}
 
 {$IFDEF PROGTEST}
   // MAKE A TEST TELEGRAM
@@ -137,18 +137,18 @@ resourcestring
   var
     error: byte;
 
-  // CONVERT ASCII PDU TO RTU PDU
-  function converta2r(a: string): string;
-  var
-    b: byte;
-  begin
-    b := 1;
-    result := '';
-    repeat
-      result := result + char(strtoint('$' + a[b] + a[b + 1]));
-      b := b + 2;
-    until b >= (length(a) + 1);
-  end;
+    // CONVERT ASCII PDU TO RTU PDU
+    function converta2r(a: string): string;
+    var
+      b: byte;
+    begin
+      b := 1;
+      result := '';
+      repeat
+        result := result + char(strtoint('$' + a[b] + a[b + 1]));
+        b := b + 2;
+      until b >= (length(a) + 1);
+    end;
     
   begin
     error := random(150);
@@ -197,21 +197,20 @@ procedure help(mode: boolean);
 var
   b: byte;
 begin
-  if mode then
-    writeln('There are one or more bad parameter in command line.') else
+  if mode then writeln('There are one or more bad parameter in command line.') else
+  begin
+    writeln('Usage: ' + BASENAME + ' [device] [baudrate] [databit(s)] [parity] [stopbit(s)] [protocol] [id]');
+    writeln('       ' + BASENAME + ' [parameter]');
+    writeln;
+    writeln('parameters:');
+    for b := 0 to 1 do
     begin
-      writeln('Usage: ' + BASENAME + ' [device] [baudrate] [databit(s)] [parity] [stopbit(s)] [protocol] [id]');
-      writeln('       ' + BASENAME + ' [parameter]');
-      writeln;
-      writeln('parameters:');
-      for b := 0 to 1 do
-      begin
-        write('  ',CMDLINEPARAMS[b, 0]);
-        gotoxy(8, wherey); write(CMDLINEPARAMS[b, 1]);
-        gotoxy(30, wherey); writeln(CMDLINEPARAMS[b, 2]);
-      end;
-      writeln;
+      write('  ',CMDLINEPARAMS[b, 0]);
+      gotoxy(8, wherey); write(CMDLINEPARAMS[b, 1]);
+      gotoxy(30, wherey); writeln(CMDLINEPARAMS[b, 2]);
     end;
+    writeln;
+  end;
   quit(0, false, '');
 end;
 
@@ -407,8 +406,9 @@ begin
   writeln(MSG15 +  uppercase(protocol) + ' #' + deviceid);
   writeln;
   writeln(MSG04);
+  
+  // check lockfile
   {$IFDEF UNIX}
-    // check lockfile
     if checklockfile('/dev/' + device, false)
       then quit(3, false, ERR01 + ERR49 + device);
   {$ENDIF}
@@ -457,7 +457,7 @@ begin
     begin
       write(MSG20);
       c := readkey;
-      gotoxy(1,wherey); clreol;
+      gotoxy(1, wherey); clreol;
     end;
   until c = #27;
   {$IFNDEF PROGTEST}

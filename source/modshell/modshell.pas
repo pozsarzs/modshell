@@ -14,6 +14,7 @@
 }
 
 {$MODE OBJFPC}{$H+}{$MACRO ON}
+
 program modshell;
 uses
   {$IFDEF GO32V2} protcom, {$ELSE} synaser, {$ENDIF}
@@ -67,9 +68,7 @@ procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
-{$IFDEF UNIX}
-  {$I lockfile.pas}
-{$ENDIF}
+{$IFDEF UNIX}{$I lockfile.pas}{$ENDIF}
 
 {$I validity.pas}
 
@@ -228,7 +227,7 @@ begin
         if c = #66 then
           begin command := COMMANDS[12]; c:=#13; end;                         // F8
         if c = #67 then
-          begin command := COMMANDS[38] + #32 + METHOD[3]; c:=#13; end;     // F9
+          begin command := COMMANDS[38] + #32 + METHOD[3]; c:=#13; end;       // F9
         if c = #68 then
           begin command := COMMANDS[1]; c:=#13; end;                          // F10
         if c = #133 then
@@ -314,19 +313,18 @@ procedure help(mode: boolean);
 var
   b: byte;
 begin
-  if mode then
-    writeln('There are one or more bad parameter in command line.') else
+  if mode then writeln('There are one or more bad parameter in command line.') else
+  begin
+    writeln('Usage: ' + BASENAME + ' [parameter]');
+    writeln;
+    writeln('parameters:');
+    for b := 0 to 3 do
     begin
-      writeln('Usage: ' + BASENAME + ' [parameter]');
-      writeln;
-      writeln('parameters:');
-      for b := 0 to 3 do
-      begin
-        write('  ',CMDLINEPARAMS[b, 0]);
-        gotoxy(8, wherey); write(CMDLINEPARAMS[b, 1]);
-        gotoxy(30, wherey); writeln(CMDLINEPARAMS[b, 2]);
-      end;
+      write('  ',CMDLINEPARAMS[b, 0]);
+      gotoxy(8, wherey); write(CMDLINEPARAMS[b, 1]);
+      gotoxy(30, wherey); writeln(CMDLINEPARAMS[b, 2]);
     end;
+  end;
   quit(0, false, '');
 end;
 

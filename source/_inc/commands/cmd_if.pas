@@ -45,15 +45,6 @@ begin
   if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
   if length(s1) = 0 then s1 := p1;
   i1 := strtointdef(s1, -1);
-{ 
-  if (i1 < 0) or (i1 > 65535) then
-  begin
-    // What is the 1st parameter?
-    {$IFNDEF X} writeln(NUM1 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 0-65535'); {$ENDIF}
-    result := 1;
-    exit;
-  end;
-}
   // CHECK P2 PARAMETER
   for i2 := 0 to 6 do
     if p2 = RS[i2] then
@@ -77,15 +68,6 @@ begin
   if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
   if length(s3) = 0 then s3 := p3;
   i3 := strtointdef(s3, -1);
-{ 
-  if (i3 < 0) or (i3 > 65535) then
-  begin
-    // What is the 3rd parameter?
-    {$IFNDEF X} writeln(NUM3 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-65535'); {$ENDIF}
-    result := 1;
-    exit;
-  end;
-}
   // CHECK P4 PARAMETER
   if lowercase(p4) <> 'then' then
   begin

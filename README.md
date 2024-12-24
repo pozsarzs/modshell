@@ -30,6 +30,7 @@ HART protocols.
 |macros                  |max. 32                                                                                     |
 |script size             |max. 1024 line                                                                              |
 |example scripts         |10 scripts (shellscript and batch file versions)                                            |
+|utility scripts         |1 script (only shellscript)                                                                 |
 |load from file          |registers, script, settings                                                                 |
 |save to file            |command history, console and Modbus traffic, registers, communication settings, user log    |
 |auto save to file       |general settings and console traffic                                                        |
@@ -89,7 +90,7 @@ HART protocols.
 _v0.1-beta1:_  
 _First user test release_ will be with the following changes:  
  - [x] Elimination of confusion between the terms 'register number' and 'data address';
- - [ ] passing parameters from the operating system command line to the script in interpreter mode;
+ - [x] passing parameters from the operating system command line to the script in interpreter mode;
  - [x] ANSI escape sequences support (only DOS and *nix like systems);
  - [x] command `color` -> `set color`, sets all default colors (CLI and TUI);  
  - [x] command `echo` -> `echometh`, parameters: off|on|hex|swap -> off|an|hex|swap;
@@ -98,6 +99,7 @@ _First user test release_ will be with the following changes:
  - [x] DCON protocol support;  
  - [ ] HART protocol support;  
  - [x] main menu for all consoles in GUI version;  
+ - [x] Modbus register number/address converter utilitys (in your own scripting language);
  - [ ] Modbus/TCP communication on Unix-like OS and Windows;  
  - [x] modified source code structure of XModshell;  
  - [x] new command `chkdevlock`/`rmdevlock` (only *nix systems);  
