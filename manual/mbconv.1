@@ -1,0 +1,48 @@
+.TH MBConv 1 "2024 December 24" ""
+.SH NAME
+mbconv \- Modbus register number/address converter utility
+.SH SYNOPSIS
+.B mbconv
+[options]
+.SH COPYRIGHT
+MBConv is Copyright (C) 2024 by Pozsar Zsolt.
+.SH DESCRIPTION
+This utility is part of ModShell and can be used to convert between Modbus
+address/register type and register number. The is utility is designed for
+Unix-like operating systems.
+.SH OPTIONS
+.TP
+.B register_number
+The register number can be 1-9999, 10001-19999, 30001-39999 and 40001-49999.
+.B register_type address
+The register type can be c, d, i and h (discrete output \fBc\fPoils, \fBd\fPiscrete
+input contacts, analog \fBi\fPnput registers, analog output \fBh\fPolding registers.
+The address can be 0-9998.
+.SH EXIT STATUS
+.TP
+.B 0
+Normal exit.
+.SH HOMEPAGE
+.UR http://www.pozsarzs.hu
+.UE
+.PP
+.UR https://pozsarzs.github.io/modshell
+.UE
+.PP
+.UR https://github.com/pozsarzs/modshell
+.UE
+.SH SEE ALSO
+.PD 0
+.LP
+\fBmbconv\fP(1)
+\fBmodshell\fP(1)
+\fBserialechoserver\fP(1)
+\fBserialmbmonitor\fP(1)
+\fBudpechoserver\fP(1)
+\fBxmodshell\fP(1)
+.LP
+and files in document or /usr/share/doc/modshell/ folder (or equivalent on your system).
+.SH AUTHOR
+Pozsar Zsolt
+.MT pozsarzs@gmail.com
+.ME

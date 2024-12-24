@@ -77,7 +77,11 @@ label num2addr
   add $i $i 1
   sub $raddress $rnumber $i
   strrepl $msg[12] X $raddress
-  print $msg[12]  
+  conv $i dec hex $raddress
+  concat $msg[12] $msg[12] \ (
+  concat $msg[12] $msg[12] $i
+  concat $msg[12] $msg[12] h)
+  print $msg[12] 
   exit
   # error messages
   label error_bad_number
@@ -89,7 +93,7 @@ label num2addr
 label addr2num
   let $valid 255
   # check register type
-  for $b 0 to 4 do if $ARG1 == $REGTYPE[$b] then let $valid $b
+  for $i 0 to 4 do if $ARG1 == $REGTYPE[$i] then let $valid $i
   if $valid = 2 then let $valid 255
   if $valid = 255 then goto error_bad_type
   let $rtype $valid
@@ -99,6 +103,10 @@ label addr2num
   if $valid = 255 then goto error_bad_address
   let $raddress $ARG2
   # print register address
+  conv $i dec hex $raddress
+  concat $msg[12] $msg[12] \ (
+  concat $msg[12] $msg[12] $i
+  concat $msg[12] $msg[12] h)
   strrepl $msg[12] X $raddress
   print $msg[12]  
   # print register type
