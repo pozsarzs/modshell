@@ -21,10 +21,13 @@ all:
 	  if [ -d $$x ]; \
 	  then \
 	    cd $$x; \
-            if [ ! $(cui) = "no" ]; then \
+            if [ ! $(cui) = "no" ] && [ $$x = "modshell" ];  then \
 	      if [ -f $$x.pas ]; then $(fpc) $(fpcargs) $$x.pas; fi; \
 	    fi; \
-            if [ $(lclunits) = yes ] && [ ! $(gui) = no ]; then \
+            if [ ! $(util) = "no" ] && [ ! $$x = "modshell" ] && [ ! $$x = "xmodshell" ]; then \
+              if [ -f $$x.pas ]; then $(fpc) $(fpcargs) $$x.pas; fi; \
+	    fi; \
+            if [ ! $(gui) = "no" ] && [ $(lclunits) = "yes" ]; then \
               if [ -f $$x.lpr ]; then $(fpc) $(fpcargs) $$x.lpr; fi; \
 	    fi; \
 	    cd ..; \

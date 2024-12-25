@@ -75,6 +75,7 @@ if test "$stagedir" != ""; then mandir="$prefix/man"; fi
 if (test "$cui" = "") || (test $cui != "no"); then cui="yes"; fi
 if (test "$gui" = "") || (test $gui != "no"); then gui="yes"; fi
 if (test $lclunits = "no"); then gui="no"; fi
+if (test "$util" = "") || (test $util != "no"); then util="yes"; fi
 
 dnl -- SUBSTITUTION IN FILES --
 AC_SUBST(architecture)
@@ -83,6 +84,7 @@ AC_SUBST(bprefix)
 AC_SUBST(copyright)
 AC_SUBST(cui)
 AC_SUBST(gui)
+AC_SUBST(util)
 AC_SUBST(datarootdir)
 AC_SUBST(fpc)
 AC_SUBST(fpcargs)
@@ -113,13 +115,18 @@ Summary:
   target op. system         $os
   target processor          $architecture
   target directory          $prefix
-  compilation ModShell      $cui
-  compilation XModShell     $gui
-
-Type '${make}' for compilation and then '${make} install'.
+  ModShell compilation      $cui
+  XModShell compilation     $gui
+  utilities compilation     $util
 
 Notes:
-  configure cui=no        disable compilation of ModShell
-  configure gui=no        disable compilation of XModShell
-  configure stagedir=...  install to FreeBSD stage directory
+  disable compilation of ModShell       configure cui=no
+  disable compilation of XModShell      configure gui=no
+  disable compilation of utilities      configure util=no
+  install to FreeBSD stage directory    configure stagedir=...
+
+  compile program                       make
+  install program                       make install
+  remove program                        make uninstall
+  convert files for DOS                 make convert
 "

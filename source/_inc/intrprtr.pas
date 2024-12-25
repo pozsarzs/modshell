@@ -16,7 +16,7 @@
 // SCRIPT INTERPRETER
 procedure interpreter(f: string);
 var
- s: string;
+  s: string;
   sf: textfile;
 
 begin
@@ -33,7 +33,7 @@ begin
         // remove space and tab from start of line
         while (s[1] = #32) or (s[1] = #9) do
           delete(s, 1, 1);
-        if s[1] <> COMMENT then
+        if (length(s) > 0) and (s[1] <> COMMENT) then
         begin
           if scriptline <= int(SCRBUFFSIZE - 1) then
           begin

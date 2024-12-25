@@ -91,7 +91,9 @@ OPERATION
        syntax  highlighting  instead of the line editor.  Variables and constants defined
        before running the script will be deleted.  It is also  possible  to  observe  the
        values of up to four variables during runtime and to keep the final valuesof con‐
-       stants and variables created during runtime.
+       stants and variables created during runtime.  In interpreter mode, parameters  are
+       passed  from  the OS command line to the script and the script's exit value is re‐
+       turned to the OS. This parameters are available as predefined constants.
 
    Serial console
        The program also provides the possibility to send and receive raw data via  a  se‐

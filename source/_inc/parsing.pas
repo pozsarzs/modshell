@@ -73,6 +73,7 @@ begin
           {$IFDEF X} Form1.ComboBox1.Enabled := false; {$ENDIF}
           case b of
              0: exitcode := cmd_copyreg(splitted[1], splitted[2], splitted[3], splitted[4], splitted[5], splitted[6]);
+             1: scriptexitcode := strtointdef(splitted[1], 0);
              2: exitcode := cmd_get(splitted[1]);
              3: exitcode := cmd_help(splitted[1]);
              4: exitcode := cmd_let(splitted[1], splitted[2], splitted[3]);

@@ -40,6 +40,7 @@ unix2dos	= @unix2dos@
 lclunits        = @lclunits@
 cui             = @cui@
 gui             = @gui@
+util            = @util@
 
 fpcargs		= -T@os@ \
                   -MObjFPC \

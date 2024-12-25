@@ -42,10 +42,11 @@ var
   originaldirectory: string;
   printcolors: array[0..1] of integer;
   sbuffer: array[0..SCRBUFFSIZE - 1] of string;
-  scriptline: integer;
+  scriptexitcode: byte;
+  scriptisloaded: boolean = false;
   scriptlabel: integer;
   scriptlastline: integer;
-  scriptisloaded: boolean = false;
+  scriptline: integer;
   varmon: boolean = false;
   // CRON
   crontable: array[1..4] of tcron;

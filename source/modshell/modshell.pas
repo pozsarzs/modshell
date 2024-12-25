@@ -401,5 +401,5 @@ begin
   saveconfiguration(BASENAME, '.ini');
   // restore directory
   if appmode <> 4 then setcurrentdir(originaldirectory);
-  quit(0, false, '');
+  if appmode <> 4 then quit(0, false, '') else quit(scriptexitcode, false, '');
 end.

@@ -8,7 +8,7 @@
 include ../Makefile.global
 
 title="scripts       "
-removetargetdir=1
+removetargetdir=0
 sourcedir="."
 targetdir=$(bindir)
 filemode=$(binmode)
