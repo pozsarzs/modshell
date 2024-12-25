@@ -1,12 +1,12 @@
 Package: modshell
-Version: 0.1alpha3
+Version: 0.1beta1
 Section: comm
 Priority: standard
 Depends: libc6
 Architecture: amd64
-Installed-Size: 1.6 MB
+Installed-Size: 0.0 MB
 Maintainer: Pozsar Zsolt <pozsarzs@gmail.com>
-Homepage: http://www.pozsarzs.hu
+Homepage: https://pozsarzs.github.io/modshell/
 Description: Command-driven scriptable Modbus utility
  This is a utility that can be used on several
  operating systems, which can communicate with

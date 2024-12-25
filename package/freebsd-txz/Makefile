@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	modshell
-PORTVERSION=	0.1alpha3
+PORTVERSION=	0.1beta1
 CATEGORIES=	net
 MASTER_SITES=	http://www.pozsarzs.hu/packages/software/modshell/
 

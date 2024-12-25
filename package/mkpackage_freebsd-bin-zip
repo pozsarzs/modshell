@@ -4,8 +4,8 @@
 #
 
 NAME="modshell"
-LABEL="ModShell v0.1-alpha2"
-VERSION="0.1alpha2"
+LABEL="ModShell v0.1-beta1"
+VERSION="0.1beta1"
 OS="freebsd"
 
 if [ `whoami` != 'root' ]

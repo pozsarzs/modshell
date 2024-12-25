@@ -70,10 +70,10 @@ do
     ln -s $INSTDIR/$f.desktop $LINKDIR/share/applications/$f.desktop 2> /dev/null
     echo "  "$INSTDIR/$f.desktop' --> '$LINKDIR/share/applications/$f.desktop
   fi
-  if [ -f $INSTDIR/$f.xpm ];
+  if [ -f $INSTDIR/$f.png ];
   then
-    ln -s $INSTDIR/$f.xpm $LINKDIR/share/pixmaps/$f.xpm 2> /dev/null
-    echo "  "$INSTDIR/$f.xpm' --> '$LINKDIR/share/pixmaps/$f.xpm
+    ln -s $INSTDIR/$f.png $LINKDIR/share/pixmaps/$f.png 2> /dev/null
+    echo "  "$INSTDIR/$f.png' --> '$LINKDIR/share/pixmaps/$f.png
   fi
   ln -s $INSTDIR/manuals/"$f"_en.1 $LINKDIR/share/man/man1/$f.1 2> /dev/null
   echo "  "$INSTDIR/manuals/"$f"_en.1' --> '$LINKDIR/share/man/man1/$f.1

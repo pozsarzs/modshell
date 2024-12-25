@@ -12,7 +12,12 @@ SWV=`cat documents/VERSION`
 CR=`cat documents/copyright`
 INSTDIR=/opt/modshell
 LINKDIR=/usr/local
-BINFILES="modshell xmodshell"
+BINFILES="modshell \
+          serialechoserver \
+          serialmbmonitor \
+          tcpechoserver \
+          udpechoserver \
+          xmodshell"
 
 # link remover
 clear
@@ -34,10 +39,10 @@ do
     rm -f $LINKDIR/share/applications/$f.desktop 2> /dev/null
     echo "  $LINKDIR/share/applications/$f.desktop"
   fi
-  if [ -f $f.xpm ];
+  if [ -f $f.png ];
   then
-    rm -f $LINKDIR/share/pixmaps/$f.xpm 2> /dev/null
-    echo "  $LINKDIR/share/pixmaps/$f.xpm"
+    rm -f $LINKDIR/share/pixmaps/$f.png 2> /dev/null
+    echo "  $LINKDIR/share/pixmaps/$f.png"
   fi
   rm -f $LINKDIR/man/man1/$f.1 2> /dev/null
   echo "  $LINKDIR/man/man1/$f.1"

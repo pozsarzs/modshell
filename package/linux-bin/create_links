@@ -15,8 +15,13 @@ SYSDIRS="$LINKDIR/bin \
          $LINKDIR/share/applications \
          $LINKDIR/share/man/man1 \
          $LINKDIR/share/pixmaps"
-BINFILES="modshell xmodshell"
-README=./README
+BINFILES="modshell \
+          serialechoserver \
+          serialmbmonitor \
+          tcpechoserver \
+          udpechoserver \
+          xmodshell"
+README=./README.md
 
 # installer
 clear
@@ -50,10 +55,10 @@ do
     ln -s `pwd`/$f.desktop $LINKDIR/share/applications/$f.desktop 2> /dev/null
     echo "  "`pwd`/$f.desktop' --> '$LINKDIR/share/applications/$f.desktop
   fi
-  if [ -f `pwd`/$f.xpm ];
+  if [ -f `pwd`/$f.png ];
   then
-    ln -s `pwd`/$f.xpm $LINKDIR/share/pixmaps/$f.xpm 2> /dev/null
-    echo "  "`pwd`/$f.xpm' --> '$LINKDIR/share/pixmaps/$f.xpm
+    ln -s `pwd`/$f.png $LINKDIR/share/pixmaps/$f.png 2> /dev/null
+    echo "  "`pwd`/$f.png' --> '$LINKDIR/share/pixmaps/$f.png
   fi
   ln -s `pwd`/manual/"$f"_en.1 $LINKDIR/share/man/man1/$f.1 2> /dev/null
   echo "  "`pwd`/manual/"$f"_en.1' --> '$LINKDIR/share/man/man1/$f.1
