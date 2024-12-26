@@ -3,25 +3,43 @@
 mbconv \- Modbus register number/address converter utility
 .SH SYNOPSIS
 .B mbconv
-[options]
+register_number
+.br
+.B mbconv
+register_type address
 .SH COPYRIGHT
 MBConv is Copyright (C) 2024 by Pozsar Zsolt.
 .SH DESCRIPTION
 This utility is part of ModShell and can be used to convert between Modbus
-address/register type and register number. The is utility is designed for
+address/register type and register number. This utility is designed for
 Unix-like operating systems.
 .SH OPTIONS
 .TP
 .B register_number
 The register number can be 1-9999, 10001-19999, 30001-39999 and 40001-49999.
+.TP
 .B register_type address
 The register type can be c, d, i and h (discrete output \fBc\fPoils, \fBd\fPiscrete
 input contacts, analog \fBi\fPnput registers, analog output \fBh\fPolding registers.
+.TP
+.B address
 The address can be 0-9998.
 .SH EXIT STATUS
 .TP
 .B 0
 Normal exit.
+.TP
+.B 1
+No parameter.
+.TP
+.B 2
+Bad register number.
+.TP
+.B 3
+Bad register type.
+.TP
+.B 4
+Bad address value.
 .SH HOMEPAGE
 .UR http://www.pozsarzs.hu
 .UE
@@ -34,10 +52,11 @@ Normal exit.
 .SH SEE ALSO
 .PD 0
 .LP
-\fBmbconv\fP(1)
 \fBmodshell\fP(1)
+\fBnumconv\fP(1)
 \fBserialechoserver\fP(1)
 \fBserialmbmonitor\fP(1)
+\fBtcpechoserver\fP(1)
 \fBudpechoserver\fP(1)
 \fBxmodshell\fP(1)
 .LP

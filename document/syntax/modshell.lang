@@ -35,7 +35,6 @@
       <keyword>applog</keyword>
       <keyword>arrclear</keyword>
       <keyword>arrfill</keyword>
-      <keyword>arrsize</keyword>
       <keyword>avg</keyword>
       <keyword>beep</keyword>
       <keyword>bit</keyword>
@@ -70,6 +69,7 @@
       <keyword>exp</keyword>
       <keyword>for</keyword>
       <keyword>get</keyword>
+      <keyword>getarrsize</keyword>
       <keyword>goto</keyword>
       <keyword>hart</keyword>
       <keyword>help</keyword>
@@ -125,6 +125,7 @@
       <keyword>serread</keyword>
       <keyword>serwrite</keyword>
       <keyword>set</keyword>
+      <keyword>setarrsize</keyword>
       <keyword>shl</keyword>
       <keyword>shr</keyword>
       <keyword>sin</keyword>

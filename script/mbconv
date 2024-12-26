@@ -5,6 +5,13 @@
 # | mbconv                                                                     |
 # | MBConv v0.1 * Modbus register number/address converter utility             |
 # +----------------------------------------------------------------------------+
+#
+#  This program is free software: you can redistribute it and/or modify it
+#  under the terms of the European Union Public License 1.2 version.
+#
+#  This program is distributed in the hope that it will be useful, but WITHOUT
+#  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+#  FOR A PARTICULAR PURPOSE.
 
 # VARIABLES AND CONSTANTS
 # general variables
@@ -87,7 +94,7 @@ label num2addr
   label error_bad_number
     concat $msg[7] $msg[7] $msg[15]
     print $msg[7]
-    exit
+    exit 2
 
 # convert address to register number
 label addr2num
@@ -126,11 +133,11 @@ label addr2num
   label error_bad_type
     concat $msg[7] $msg[7] $msg[13]
     print $msg[7]
-    exit
+    exit 3
   label error_bad_address
     concat $msg[7] $msg[7] $msg[14]
     print $msg[7]
-    exit
+    exit 4
 
 # print usage
 label usage
@@ -139,4 +146,4 @@ label usage
   print $msg[2]
   print $msg[3]
   print $msg[4]
-  exit
+  exit 1

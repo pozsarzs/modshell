@@ -1,0 +1,54 @@
+.TH NumConv 1 "2024 December 26" ""
+.SH NAME
+numconv \- Number converter utility
+.SH SYNOPSIS
+.B numconv
+input_value numeral_system_from numeral_system_to
+.SH COPYRIGHT
+NumConv is Copyright (C) 2024 by Pozsar Zsolt.
+.SH DESCRIPTION
+This utility is part of ModShell and can be used to convert numbers between
+different numeral systems. This utility is designed for Unix-like operating systems.
+.SH OPTIONS
+.TP
+.B input_value
+Input value, depending on the number system, can only contain the characters [0-9] and [a-f].
+.TP
+.B numeral_system_from numeral_system_to
+The original number system of the input value and the target number system. Their
+designations are: \fIbin\fP|\fIoct\fP|\fIdec\fP|\fIhex\fP.
+.SH EXIT STATUS
+.TP
+.B 0
+Normal exit.
+.TP
+.B 1
+No parameter.
+.TP
+.B 2
+Wrong input value.
+.SH HOMEPAGE
+.UR http://www.pozsarzs.hu
+.UE
+.PP
+.UR https://pozsarzs.github.io/modshell
+.UE
+.PP
+.UR https://github.com/pozsarzs/modshell
+.UE
+.SH SEE ALSO
+.PD 0
+.LP
+\fBmbconv\fP(1)
+\fBmodshell\fP(1)
+\fBserialechoserver\fP(1)
+\fBserialmbmonitor\fP(1)
+\fBtcpechoserver\fP(1)
+\fBudpechoserver\fP(1)
+\fBxmodshell\fP(1)
+.LP
+and files in document or /usr/share/doc/modshell/ folder (or equivalent on your system).
+.SH AUTHOR
+Pozsar Zsolt
+.MT pozsarzs@gmail.com
+.ME

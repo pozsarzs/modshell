@@ -173,7 +173,7 @@ and the result is placed in \fI$TARGET\fP.
 \fBavg\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP \fI[[$]VALUE3...6]\fP
 Calculates average of 2-5 numbers and the result is placed in \fI$TARGET\fP.
 .TP
-\fBconv\fP \fI$TARGET\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fI[$]VALUE\fP
+\fBconv\fP \fI$TARGET\fP \fI$FROM\fP|\fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fI$TO\fP|\fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fI[$]VALUE\fP
 Converts numbers between binary, decimal, hexadecimal and octal numeral system. Result is placed in \fI$TARGET\fP variable.
 \fIVALUE\fP must be between 0 and 65535
 .TP
@@ -502,8 +502,8 @@ Shows or write into \fI$TARGET\fP variable system date and time.
 Queries or changes local echo method for connection.
 AN means alphanumerical, hex means the hexadecimal representation of the bytes.
 .TP
-\fBexit\fP
-Exits from program.
+\fBexit\fP [\fI[$]EXIT_CODE\fP]
+Exits from program or script.
 .TP
 \fBgetarrsize\fP \fIARRAY\fP \fI$TARGET\fP
 Gets size of an array and placed in _$TARGET_.
@@ -1317,8 +1317,9 @@ Script buffer is full.
 .PD 0
 .LP
 \fBmbconv\fP(1)
-\fBserialmbmonitor\fP(1)
+\fBnumconv\fP(1)
 \fBserialechoserver\fP(1)
+\fBserialmbmonitor\fP(1)
 \fBtcpechoserver\fP(1)
 \fBudpechoserver\fP(1)
 \fBxmodshell\fP(1)

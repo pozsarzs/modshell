@@ -168,7 +168,7 @@ BUILTIN COMMANDS
        avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]
               Calculates average of 2-5 numbers and the result is placed in $TARGET.
 
-       conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
+       conv $TARGET $FROM|bin|dec|hex|oct $TO|bin|dec|hex|oct [$]VALUE
               Converts numbers between binary, decimal,  hexadecimal  and  octal  numeral
               system.  Result is placed in $TARGET variable.  VALUE must be between 0 and
               65535
@@ -484,7 +484,8 @@ BUILTIN COMMANDS
               Queries or changes local echo method for connection.  AN means alphanumeri‐
               cal, hex means the hexadecimal representation of the bytes.
 
-       exit   Exits from program.
+       exit [[$]EXIT_CODE]
+              Exits from program or script.
 
        getarrsize ARRAY $TARGET
               Gets size of an array and placed in _$TARGET_.
@@ -1218,8 +1219,8 @@ HOMEPAGE
        ⟨https://github.com/pozsarzs/modshell⟩
 
 SEE ALSO
-       mbconv(1) serialmbmonitor(1) serialechoserver(1) tcpechoserver(1) udpechoserver(1)
-       xmodshell(1)
+       mbconv(1) numconv(1) serialechoserver(1) serialmbmonitor(1) tcpechoserver(1) udpe‐
+       choserver(1) xmodshell(1)
        and files in document or /usr/share/doc/modshell/ folder (or  equivalent  on  your
        system).
 AUTHOR

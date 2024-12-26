@@ -16,6 +16,7 @@
   p0   p1      p2              p3              p4
   -----------------------------------------------------
   conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
+  conv $TARGET $NUMSYS_FROM $NUMSYS_TO [$]VALUE
 }
 
 // COMMAND 'CONV'
@@ -23,7 +24,7 @@ function cmd_conv(p1, p2, p3, p4: string): byte;
 var
   ns1, ns2: byte; // numerical system
   s: string;
-  s4: string; // parameter in other type
+  s2, s3, s4: string; // parameter in other type
   valid: boolean = false;
 begin
   result := 0;
@@ -44,26 +45,14 @@ begin
     result := 1;
     exit;
   end;
+  if boolisitconstant(p2) then s2 := isitconstant(p2);
+  if boolisitvariable(p2) then s2 := isitvariable(p2);
+  if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+  if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+  if length(s2) = 0 then s2 := p2;
   // CHECK P2 PARAMETER
   for ns1 := 0 to 3 do
-    if NUM_SYS[ns1] = p2 then
-    begin
-      valid := true;
-      break;
-    end;
-  if not valid then
-  begin
-    // What is the 1st parameter?
-    s := NUM1 + MSG05;
-    for ns1 := 0 to 3 do s := s + ' ' + NUM_SYS[ns1];
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
-    result := 1;
-    exit;
-  end;
-  valid := false;
-  // CHECK P3 PARAMETER
-  for ns2 := 0 to 3 do
-    if NUM_SYS[ns2] = p3 then
+    if NUM_SYS[ns1] = s2 then
     begin
       valid := true;
       break;
@@ -72,6 +61,28 @@ begin
   begin
     // What is the 2nd parameter?
     s := NUM2 + MSG05;
+    for ns1 := 0 to 3 do s := s + ' ' + NUM_SYS[ns1];
+    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    result := 1;
+    exit;
+  end;
+  valid := false;
+  if boolisitconstant(p3) then s3 := isitconstant(p3);
+  if boolisitvariable(p3) then s3 := isitvariable(p3);
+  if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
+  if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
+  if length(s3) = 0 then s3 := p3;
+  // CHECK P3 PARAMETER
+  for ns2 := 0 to 3 do
+    if NUM_SYS[ns2] = s3 then
+    begin
+      valid := true;
+      break;
+    end;
+  if not valid then
+  begin
+    // What is the 3rd parameter?
+    s := NUM3 + MSG05;
     for ns2 := 0 to 3 do s := s + ' ' + NUM_SYS[ns2];
     {$IFNDEF X} writeln(s); {$ELSE}  Form1.Memo1.Lines.Add(s); {$ENDIF}
     result := 1;
@@ -88,9 +99,9 @@ begin
          s := BinToDez(s4);
          if DezToBin(s) <> s4 then
          begin
-           // What is the 3rd parameter?
+           // What is the 4th parameter?
            {$IFNDEF X}
-             writeln(NUM3 + MSG05 + ' 0-1111111111111111');
+             writeln(NUM4 + MSG05 + ' 0-1111111111111111');
            {$ELSE}
              Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-1111111111111111');
            {$ENDIF}
@@ -100,7 +111,7 @@ begin
        end;
     1: if (strtointdef(s4, -1) < 0 ) or (strtointdef(p4, -1) > 65535) then
        begin
-         // What is the 4rd parameter?
+         // What is the 4th parameter?
          {$IFNDEF X} writeln(NUM4 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-655535'); {$ENDIF}
          result := 1;
          exit;
@@ -109,7 +120,7 @@ begin
          s := HexToDez(s4);
          if DezToHex(s) <> uppercase(s4) then
          begin
-           // What is the 4rd parameter?
+           // What is the 4th parameter?
            {$IFNDEF X} writeln(NUM4 + MSG05 + ' 0-FFFF'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-FFFF'); {$ENDIF}
            result := 1;
            exit;
@@ -119,7 +130,7 @@ begin
          s := OktToDez(s4);
          if DezToOkt(s) <> s4 then
          begin
-           // What is the 4d parameter?
+           // What is the 4th parameter?
            {$IFNDEF X}  writeln(NUM4 + MSG05 + ' 0-0-177777'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-0-177777'); {$ENDIF}
            result := 1;
            exit;

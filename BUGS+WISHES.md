@@ -13,19 +13,22 @@ section of the README.md.)
 
 |where|what                                                                    |
 |:---:|:-----------------------------------------------------------------------|
-|  M  |Command `mbmon` has not been tested yet.                                |
+|  C  |Command `mbmon` has not been tested yet.                                |
 |  U  |SerialEchoServer has not been tested yet.                               |
 |  U  |SerialMBMonitor has not been tested yet.                                |
 |  X  |Menu item 'Modbus/Show serial Modbus traffic' has not been tested yet.  |
 |  B  |R/W and console commands were not tested after the modification.        |
+|  C  |Common command verbose level setting (all/errors only/none) is required.|
+|  C  |Variable content type detection command is required.                    |
 
 **Where:**
   - M: ModShell
-  - B: Both of them
   - X: XModShell
+  - B: Both of them
+  - U: Utilities
+  - C: Commands
   - D: Documentation
   - E: Used external library
   - P: Installer packages
   - T: Translate
-  - U: Utilities
   - O: Other

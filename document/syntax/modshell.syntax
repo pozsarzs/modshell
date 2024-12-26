@@ -19,7 +19,6 @@ context default brightcyan
     keyword whole applog white
     keyword whole arrclear white
     keyword whole arrfill white
-    keyword whole arrsize white
     keyword whole ascii\n white
     keyword whole avg white
     keyword whole beep white
@@ -55,6 +54,7 @@ context default brightcyan
     keyword whole exp white
     keyword whole for white
     keyword whole get white
+    keyword whole getarrsize white
     keyword whole goto white
     keyword whole hart white
     keyword whole help white
@@ -110,6 +110,7 @@ context default brightcyan
     keyword whole serread white
     keyword whole serwrite white
     keyword whole set white
+    keyword whole setarrsize white
     keyword whole shl white
     keyword whole shr white
     keyword whole sin white
