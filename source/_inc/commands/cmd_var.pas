@@ -19,7 +19,19 @@
   var NAME [[$]VALUE]
 }
 
-// CLEAR ALL VARIABLES
+// SET PREDEFINED VARIABLES
+procedure setdefaultvariables;
+begin
+  with vars[14] do
+  begin
+    vname := 'verbose';
+    vvalue := 'ALL';
+    vreadonly := false;
+    vmonitored := false;
+  end;
+end;
+
+// CLEAR ALL VARIABLES AND SET PREDEFINED ONES
 procedure clearallvariables;
 var
   i: byte;
@@ -34,6 +46,7 @@ begin
         vmonitored := false;
       end;
     end;
+  setdefaultvariables;
 end;
 
 // IF IT IS A VARIABLE, IT RETURNS THEIRS NUMBER

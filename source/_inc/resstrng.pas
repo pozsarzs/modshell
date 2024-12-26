@@ -324,6 +324,9 @@ resourcestring
   DES119='SHIFT-F9 query or change input method';
   DES120='CTRL-F9  query or change send method';
   DES121='         create one-line macro';
+  DES122='mbmon';
+  DES123='mbconv';
+  DES124='datatype';
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -371,7 +374,7 @@ resourcestring
   USG14='loadcfg [$]PATH_AND_FILENAME';
   USG15='expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
   USG16='exphis [$]PATH_AND_FILENAME';
-  USG17='conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE';
+  USG17='conv $TARGET $FROM|bin|dec|hex|oct $TO|bin|dec|hex|oct [$]VALUE';
   USG18='savereg [$]PATH_AND_FILENAME';
   USG19='loadreg [$]PATH_AND_FILENAME';
   USG20='var' + EOL +
@@ -525,3 +528,6 @@ resourcestring
   USG119='inputmeth [an|hex|swap]';
   USG120='sendmeth [chr|str|swap]';
   USG121='macro NAME command with parameters';
+  USG122='mbmon';
+  USG123='mbconv';
+  USG124='datatype';

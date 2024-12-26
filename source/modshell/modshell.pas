@@ -71,6 +71,7 @@ procedure version(h: boolean); forward;
 {$IFDEF UNIX}{$I lockfile.pas}{$ENDIF}
 
 {$I validity.pas}
+{$I verbosity.pas}
 
 {$I network.pas}
 {$I serport.pas}
@@ -92,6 +93,7 @@ procedure version(h: boolean); forward;
 {$I cmd_conv.pas}
 {$I cmd_copy.pas}
 {$I cmd_cron.pas}
+{$I cmd_dttp.pas}
 {$I cmd_date.pas}
 {$I cmd_dcon.pas}
 {$I cmd_dump.pas}
@@ -119,6 +121,7 @@ procedure version(h: boolean); forward;
 {$I cmd_lscr.pas}
 {$I cmd_math.pas}
 {$I cmd_mcro.pas}
+{$I cmd_mbcv.pas}
 {$I cmd_mbmn.pas}
 {$I cmd_paus.pas}
 {$I cmd_pclr.pas}

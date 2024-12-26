@@ -1221,6 +1221,18 @@ msgstr ""
 msgid "         create one-line macro"
 msgstr ""
 
+#: modshell:des122
+msgid "mbmon"
+msgstr ""
+
+#: modshell:des123
+msgid "mbconv"
+msgstr ""
+
+#: modshell:des124
+msgid "datatype"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
@@ -1326,7 +1338,7 @@ msgid "exphis [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg17
-msgid "conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
+msgid "conv $TARGET $FROM|bin|dec|hex|oct $TO|bin|dec|hex|oct [$]VALUE"
 msgstr ""
 
 #: modshell:usg18
@@ -1813,5 +1825,17 @@ msgstr ""
 
 #: modshell:usg121
 msgid "macro NAME command with parameters"
+msgstr ""
+
+#: modshell:usg122
+msgid "mbmon"
+msgstr ""
+
+#: modshell:usg123
+msgid "mbconv"
+msgstr ""
+
+#: modshell:usg124
+msgid "datatype"
 msgstr ""
 

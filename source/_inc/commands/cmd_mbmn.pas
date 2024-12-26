@@ -2,7 +2,7 @@
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_mbmn.pas                                                             | }
-{ | serial Modbus traffic monitor (same as SerialMBMonitor utility)          | }
+{ | command 'mbmon' (same as SerialMBMonitor utility)                        | }
 { +--------------------------------------------------------------------------+ }
 {
   This program is free software: you can redistribute it and/or modify it
@@ -18,7 +18,7 @@
   mbmon   [con?]
 }
 
-// COMMAND MBMON
+// COMMAND 'MBMON'
 function cmd_mbmon(p1: string): byte;
 var
   c: char;
