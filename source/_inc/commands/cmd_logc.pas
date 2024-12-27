@@ -34,13 +34,21 @@ begin
   // What is the 2nd parameter?
   if (w < 0) or (w > 65535) then
   begin
-    {$IFNDEF X} writeln(NUM2 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 0-65535'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM2 + MSG05 + ' 0-65535');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 0-65535');
+    {$ENDIF}
     exit;
   end;
   if (n < 0) or (n > 15) then
   begin
     // What is the 3rd parameter?
-    {$IFNDEF X} writeln(NUM3 + MSG05 + ' 0-15'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-15'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM3 + MSG05 + ' 0-15');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-15');
+    {$ENDIF}
     exit;
   end;
   s := addsomezero(16, deztobin(inttostr(w)));
@@ -57,7 +65,11 @@ begin
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -65,7 +77,11 @@ begin
     if (length(p3) = 0) then
     begin
       // Parameter(s) required!
-      {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR05);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR05);
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -74,7 +90,11 @@ begin
      (not boolisitvariablearray(p1)) then
   begin
     // No such variable!
-    {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR19 + p1);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR19 + p1);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -124,7 +144,11 @@ begin
         end;
   except
     // Calculating error!
-    {$IFNDEF X} writeln(ERR20); {$ELSE} Form1.Memo1.Lines.Add(ERR20); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR20);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR20);
+    {$ENDIF}
     result := 1;
   end;
 end;

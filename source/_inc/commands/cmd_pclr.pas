@@ -46,7 +46,7 @@ begin
   if ((i1 < 0) or (i1 > 15)) and (i1 <> 255) then
   begin
     // What is the 1st parameter?
-    writeln(NUM1 + MSG05 + ' 0-15|255');
+    if verbosity(2) then writeln(NUM1 + MSG05 + ' 0-15|255');
     result := 1;
     exit;
   end;
@@ -59,7 +59,7 @@ begin
   if ((i2 < 0) or (i2 > 15)) and (i2 <> 255) then
   begin
     // What is the 2nd parameter?
-    writeln(NUM2 + MSG05 + ' 0-15|255');
+    if verbosity(2) then writeln(NUM2 + MSG05 + ' 0-15|255');
     result := 1;
     exit;
   end;

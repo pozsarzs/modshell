@@ -34,7 +34,11 @@ begin
      (length(p4) = 0) or (length(p5) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -46,13 +50,22 @@ begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
     s := s + ' ' + PREFIX[2] + SVR;
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
+    result := 1;
     exit;
   end;
   if length(p1) >= 4 then i1 := strtointdef(p1[4], -1) else
   begin
     // Device number must be 0-7!
-    {$IFNDEF X} writeln(ERR01); {$ELSE}  Form1.Memo1.Lines.Add(ERR19); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR01);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR19);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -68,7 +81,11 @@ begin
     // What is the 2nd parameter?
     s := NUM2 + MSG05;
     for rt := 0 to 3 do s := s + ' ' + REG_TYPE[rt];
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -78,16 +95,24 @@ begin
   if PREFIX[2] <> s1 then
   begin
     // What is the 3rd parameter?
-    s := NUM2 + MSG05;
+    s := NUM3 + MSG05;
     s := s + ' ' + PREFIX[2] + SVR;
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   if length(p3) >= 4 then i3 := strtointdef(p3[4], -1) else
   begin
     // Device number must be 0-7!
-    {$IFNDEF X} writeln(ERR01); {$ELSE} Form1.Memo1.Lines.Add(ERR01); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR01);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR01);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -107,13 +132,13 @@ begin
     if rt <= 1
     then
       {$IFNDEF X}
-        writeln(NUM4 + MSG05 + ' ' + REG_TYPE[1])
+        if verbosity(2) then writeln(NUM4 + MSG05 + ' ' + REG_TYPE[1])
       {$ELSE}
         Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' ' + REG_TYPE[1])
       {$ENDIF}
     else
       {$IFNDEF X}
-        writeln(NUM4 + MSG05 + ' ' + REG_TYPE[3]);
+        if verbosity(2) then writeln(NUM4 + MSG05 + ' ' + REG_TYPE[3]);
       {$ELSE}
         Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' ' + REG_TYPE[3]);
       {$ENDIF}
@@ -129,7 +154,11 @@ begin
   if (i5 < 0) or (i5 > 9998) then
   begin
     // What is the 5th parameter?
-    {$IFNDEF X} writeln(NUM5 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM5 + MSG05 + AVR); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM5 + MSG05 + AVR);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM5 + MSG05 + AVR);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -145,7 +174,11 @@ begin
     if (i6 < 1 ) or (i6 > 125) then
     begin
       // What is the 6th parameter?
-      {$IFNDEF X} writeln(NUM6 + MSG05 + ' 1-125'); {$ELSE} Form1.Memo1.Lines.Add(NUM6 + MSG05 + ' 1-125'); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(NUM6 + MSG05 + ' 1-125');
+      {$ELSE}
+        Form1.Memo1.Lines.Add(NUM6 + MSG05 + ' 1-125');
+      {$ENDIF}
       result := 1;
       exit;
     end;

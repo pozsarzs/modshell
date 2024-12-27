@@ -26,7 +26,12 @@ begin
     fn := stringreplace(device, '/dev/', 'LCK..', [rfReplaceAll]);
     result := inttobool(length(filesearch(fn, DIR_LOCK)));
     if result and message
-      then {$IFNDEF X} writeln(ERR49); {$ELSE} Form1.Memo1.Lines.Add(ERR49); {$ENDIF}
+      then
+        {$IFNDEF X}
+          writeln(ERR49);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR49);
+        {$ENDIF}
   {$ENDIF}
 end;
 
@@ -43,6 +48,11 @@ begin
     fn := stringreplace(device, '/dev/', 'LCK..', [rfReplaceAll]);
     result := DeleteFile(DIR_LOCK + SLASH + fn);
     if result and message
-      then {$IFNDEF X} writeln(ERR43); {$ELSE} Form1.Memo1.Lines.Add(ERR43); {$ENDIF}
+      then
+        {$IFNDEF X}
+          writeln(ERR43);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR43);
+        {$ENDIF}
   {$ENDIF}
 end;

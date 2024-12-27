@@ -38,7 +38,11 @@ begin
     if strtointdef(s1, -1) > -1 then delay(strtoint(s1) * 1000) else
     begin
       // What is the 1st parameter?
-      {$IFNDEF X} writeln(NUM1 + MSG05 + ' 1-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 1-65535'); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(NUM1 + MSG05 + ' 1-65535');
+      {$ELSE}
+        Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 1-65535');
+      {$ENDIF}
       result := 1;
     end;
   end;

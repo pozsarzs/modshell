@@ -93,7 +93,7 @@ _v0.1-beta1:_
 _First user test release_ will be with the following changes:  
  - [x] Elimination of confusion between the terms 'register number' and 'data address';
  - [x] in interpreter mode, passing parameters from the OS command line to the script and returning the script's exit value to the OS;
- - [ ] command verbosity level setting with a predefined variable;
+ - [x] in interpreter mode, command verbosity level setting with a predefined variable;
  - [x] ANSI escape sequences support (only DOS and *nix like systems);
  - [x] command `color` -> `set color`, sets all default colors (CLI and TUI);  
  - [x] command `echo` -> `echometh`, parameters: off|on|hex|swap -> off|an|hex|swap;

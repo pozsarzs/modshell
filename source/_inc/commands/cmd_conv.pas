@@ -32,7 +32,11 @@ begin
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -41,7 +45,11 @@ begin
      (not boolisitvariablearray(p1)) then
   begin
     // No such variable!
-    {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR19 + p1);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR19 + p1);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -62,7 +70,11 @@ begin
     // What is the 2nd parameter?
     s := NUM2 + MSG05;
     for ns1 := 0 to 3 do s := s + ' ' + NUM_SYS[ns1];
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -84,7 +96,11 @@ begin
     // What is the 3rd parameter?
     s := NUM3 + MSG05;
     for ns2 := 0 to 3 do s := s + ' ' + NUM_SYS[ns2];
-    {$IFNDEF X} writeln(s); {$ELSE}  Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -101,7 +117,7 @@ begin
          begin
            // What is the 4th parameter?
            {$IFNDEF X}
-             writeln(NUM4 + MSG05 + ' 0-1111111111111111');
+             if verbosity(2) then writeln(NUM4 + MSG05 + ' 0-1111111111111111');
            {$ELSE}
              Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-1111111111111111');
            {$ENDIF}
@@ -112,7 +128,11 @@ begin
     1: if (strtointdef(s4, -1) < 0 ) or (strtointdef(p4, -1) > 65535) then
        begin
          // What is the 4th parameter?
-         {$IFNDEF X} writeln(NUM4 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-655535'); {$ENDIF}
+         {$IFNDEF X}
+           if verbosity(2) then writeln(NUM4 + MSG05 + ' 0-65535');
+         {$ELSE}
+           Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-655535');
+         {$ENDIF}
          result := 1;
          exit;
        end;
@@ -121,7 +141,11 @@ begin
          if DezToHex(s) <> uppercase(s4) then
          begin
            // What is the 4th parameter?
-           {$IFNDEF X} writeln(NUM4 + MSG05 + ' 0-FFFF'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-FFFF'); {$ENDIF}
+           {$IFNDEF X}
+             if verbosity(2) then writeln(NUM4 + MSG05 + ' 0-FFFF');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-FFFF');
+           {$ENDIF}
            result := 1;
            exit;
          end;
@@ -131,7 +155,11 @@ begin
          if DezToOkt(s) <> s4 then
          begin
            // What is the 4th parameter?
-           {$IFNDEF X}  writeln(NUM4 + MSG05 + ' 0-0-177777'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-0-177777'); {$ENDIF}
+           {$IFNDEF X}
+             if verbosity(2) then writeln(NUM4 + MSG05 + ' 0-0-177777');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-0-177777');
+           {$ENDIF}
            result := 1;
            exit;
          end;

@@ -30,7 +30,10 @@ begin
   if (length(p1) = 0) then
   begin
     {$IFNDEF X}
-      writeln(METHOD[sendmeth]); {$ELSE} Form1.Memo1.Lines.Add(METHOD[sendmeth]); {$ENDIF}
+      writeln(METHOD[sendmeth]);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(METHOD[sendmeth]);
+    {$ENDIF}
     exit;
   end;
   // CHECK P1 PARAMETER
@@ -46,7 +49,11 @@ begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
     for ea := 3 to 5 do s := s + ' ' + METHOD[ea];
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;

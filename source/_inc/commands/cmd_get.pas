@@ -120,7 +120,11 @@ var
     for b := 0 to 2 do  s := s + ' ' + PREFIX[b] + SVR;
     s := s + ' ' + PREFIX[3];
     s := s + ' ' + PREFIX[4];
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
   end;
 
 begin
@@ -129,20 +133,32 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   // CHECK P1 PARAMETERS
   if p1 = PREFIX[3] then
   begin
-    {$IFNDEF X} writeln(vars[12].vvalue); {$ELSE} Form1.Memo1.Lines.Add(vars[12].vvalue); {$ENDIF}
+    {$IFNDEF X}
+      writeln(vars[12].vvalue);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(vars[12].vvalue);
+    {$ENDIF}
     result := 0;
     exit;
   end;
   if p1 = PREFIX[4] then
   begin
-    {$IFNDEF X} writeln(timeout, ' s'); {$ELSE} Form1.Memo1.Lines.Add(inttostr(timeout) + ' s'); {$ENDIF}
+    {$IFNDEF X}
+      writeln(timeout, ' s');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(inttostr(timeout) + ' s');
+    {$ENDIF}
     result := 0;
     exit;
   end;

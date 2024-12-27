@@ -53,7 +53,11 @@ begin
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -84,7 +88,11 @@ begin
   if (i3 < 0) or (i3 > 4) then
   begin
     // What is the 3rd parameter?
-    {$IFNDEF X} writeln(NUM3 + MSG05 + ' 0-4'); {$ELSE} Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 0-7'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM3 + MSG05 + ' 0-4');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-7');
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -149,7 +157,11 @@ begin
     closefile(tf);
   except
     // Cannot write log record!
-    {$IFNDEF X} writeln(ERR36 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR36 + fpn + '!'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR36 + fpn + '!');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR36 + fpn + '!');
+    {$ENDIF}
     result := 1;
     exit;
   end;

@@ -31,7 +31,11 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -43,14 +47,22 @@ begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
     s := s + ' ' + PREFIX[2] + SVR;
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   if length(p1) >= 4 then i1 := strtointdef(p1[4], -1) else
   begin
     // Device number must be 0-7!
-    {$IFNDEF X} writeln(ERR01); {$ELSE} Form1.Memo1.Lines.Add(ERR01); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR01);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR01);
+    {$ENDIF}
     result := 1;
     exit;
   end;

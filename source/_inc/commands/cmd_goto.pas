@@ -30,7 +30,11 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -53,7 +57,11 @@ begin
     if not valid then
     begin
       // No such label!
-      {$IFNDEF X} writeln(ERR35 + s1); {$ELSE} Form1.Memo1.Lines.Add(ERR35 + s1); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR35 + s1);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR35 + s1);
+      {$ENDIF}
       result := 1;
     end;
   end;

@@ -34,7 +34,11 @@ begin
      (length(p4) = 0) or (length(p5) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -57,7 +61,11 @@ begin
     s := NUM2 + MSG05;
     for i2 := 0 to 6 do s := s + ' ' + RS[i2];
     // What is the 2nd parameter?
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -72,7 +80,11 @@ begin
   if lowercase(p4) <> 'then' then
   begin
     // What is the 4th parameter?
-    {$IFNDEF X} writeln(NUM4 + MSG05+'  then'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05+'  then'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM4 + MSG05+'  then');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM4 + MSG05+'  then');
+    {$ENDIF}
     result := 1;
     exit;
   end;

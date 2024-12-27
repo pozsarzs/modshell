@@ -49,7 +49,11 @@ begin
       // What is the 1st parameter?
       s := NUM1 + MSG05;
       for ns := 1 to 2 do s := s + ' ' + NUM_SYS[ns];
-      {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(s);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(s);
+      {$ENDIF}
       result := 1;
       exit;
     end;

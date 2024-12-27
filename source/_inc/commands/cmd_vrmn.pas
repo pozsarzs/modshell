@@ -69,7 +69,11 @@ begin
   if (length(p1) = 0) then
   begin
     // show status Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end else
@@ -88,7 +92,11 @@ begin
         // What is the 1st parameter?
         s := NUM1 + MSG05;
         for b := 0 to 1 do s := s + ' ' + METHOD[b];
-        {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+        {$IFNDEF X}
+          if verbosity(2) then writeln(s);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(s);
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -102,7 +110,11 @@ begin
       if not boolisitvariable(p1) then
       begin
         // No such variable!
-        {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
+        {$IFNDEF X}
+          if verbosity(2) then writeln(ERR19 + p1);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR19 + p1);
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -119,7 +131,11 @@ begin
         // What is the 2nd parameter?
         s := NUM2 + MSG05;
         for b := 0 to 1 do s := s + ' ' + METHOD[b];
-        {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+        {$IFNDEF X}
+          if verbosity(2) then writeln(s);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(s);
+        {$ENDIF}
         result := 1;
         exit;
       end;

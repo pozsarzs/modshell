@@ -32,7 +32,11 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -81,9 +85,17 @@ begin
     closefile(tf);
   except
     // Cannot export command line history!
-    {$IFNDEF X} writeln(ERR07 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR07 + fpn + '!'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR07 + fpn + '!');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR07 + fpn + '!');
+    {$ENDIF}
     result := 1;
     exit;
   end;
-  {$IFNDEF X} writeln(MSG15 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG15 + fpn + '.'); {$ENDIF}
+  {$IFNDEF X}
+    if verbosity(1) then writeln(MSG15 + fpn + '.');
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG15 + fpn + '.');
+  {$ENDIF}
 end;

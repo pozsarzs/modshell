@@ -24,11 +24,13 @@ const
   LEVELS: array[0..2] of string = ('all','error','nothing');
 begin
   result := true;
-  for b := 0 to 2 do
-    if lowercase(vars[16].vvalue) = LEVELS[b] then verbositylevel := b;
-  case verbositylevel of
-    0: result := true;
-    1: if messagelevel < 2 then result := false;
-    2: result := false;
+  if appmode = 4 then
+  begin
+    for b := 0 to 2 do
+      if lowercase(vars[16].vvalue) = LEVELS[b] then verbositylevel := b;
+    case verbositylevel of
+      1: if messagelevel < 2 then result := false;
+      2: result := false;
+    end;
   end;
 end;

@@ -43,7 +43,11 @@ begin
   if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(MSG05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -87,7 +91,11 @@ begin
     // What is the file extension?
     s := MSG22; 
     for ft := 0 to 2 do s := s + ' ' + FILE_TYPE[ft];
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -104,7 +112,11 @@ begin
     // What is the 2nd parameter?
     s := NUM2 + MSG05;
     for rt := 0 to 3 do s := s + ' ' + REG_TYPE[rt];
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -118,7 +130,11 @@ begin
   if (i3 < 0) or (i3 > 9998) then
   begin
     // What is the 3rd parameter?
-    {$IFNDEF X} writeln(NUM3 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + AVR); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM3 + MSG05 + AVR);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM3 + MSG05 + AVR);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -134,7 +150,11 @@ begin
     if (i4 < 0 ) or (i4 > 9998) then
     begin
       // What is the 4rd parameter?
-      {$IFNDEF X} writeln(NUM4 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + AVR); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(NUM4 + MSG05 + AVR);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(NUM4 + MSG05 + AVR);
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -158,7 +178,11 @@ begin
            closefile(tf);  
          except
            // Cannot export register content!
-           {$IFNDEF X}  writeln(ERR10 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR10 + fpn + '!'); {$ENDIF}
+           {$IFNDEF X}
+             if verbosity(2) then writeln(ERR10 + fpn + '!');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(ERR10 + fpn + '!');
+           {$ENDIF}
            result := 1;
            exit;
          end;
@@ -179,7 +203,11 @@ begin
            end;
          except
            // Cannot export register content!
-           {$IFNDEF X} writeln(ERR10 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR10 + fpn + '!'); {$ENDIF}
+           {$IFNDEF X}
+             if verbosity(2) then writeln(ERR10 + fpn + '!');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(ERR10 + fpn + '!');
+           {$ENDIF}
            result := 1;
          end;
          ini.free;
@@ -236,11 +264,19 @@ begin
            writexmlfile(xml, fpn);
          except
            // Cannot export register content!
-           {$IFNDEF X} writeln(ERR10 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR10 + fpn + '!'); {$ENDIF}
+           {$IFNDEF X}
+             if verbosity(2) then writeln(ERR10 + fpn + '!');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(ERR10 + fpn + '!');
+           {$ENDIF}
            result := 1;
          end;
          xml.free;
        end;
   end;
-  {$IFNDEF X} writeln(MSG18 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG18 + fpn + '.'); {$ENDIF}
+  {$IFNDEF X}
+    if verbosity(1) then writeln(MSG18 + fpn + '.');
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG18 + fpn + '.');
+  {$ENDIF}
 end;

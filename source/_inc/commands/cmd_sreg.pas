@@ -33,7 +33,11 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -76,11 +80,19 @@ begin
     closefile(ftb);
   except
     // Cannot save register content!
-    {$IFNDEF X} writeln(ERR12 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR12 + fpn + '!'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR12 + fpn + '!');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR12 + fpn + '!');
+    {$ENDIF}
     result := 1;
     exit;
   end;
-  {$IFNDEF X} writeln(MSG20 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG20 + fpn + '.'); {$ENDIF}
+  {$IFNDEF X}
+    if verbosity(1) then writeln(MSG20 + fpn + '.');
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG20 + fpn + '.');
+  {$ENDIF}
   // save ireg and hreg
   fpn := fp + fn + '.wdt';
   assignfile(ftw, fpn);
@@ -91,9 +103,17 @@ begin
     closefile(ftw);
   except
     // Cannot save register content!
-    {$IFNDEF X} writeln(ERR12 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR12 + fpn + '!'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR12 + fpn + '!');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR12 + fpn + '!');
+    {$ENDIF}
     result := 1;
     exit;
   end;
-  {$IFNDEF X} writeln(MSG20 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG20 + fpn + '.'); {$ENDIF}
+  {$IFNDEF X}
+    if verbosity(1) then writeln(MSG20 + fpn + '.');
+  {$ELSE}
+    Form1.Memo1.Lines.Add(MSG20 + fpn + '.'); 
+  {$ENDIF}
 end;

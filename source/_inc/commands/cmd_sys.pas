@@ -88,7 +88,11 @@ begin
       else SetCurrentDir(p1);
   except
     // Cannot change directory!
-    {$IFNDEF X} writeln(ERR40); {$ELSE} Form1.Memo1.Lines.Add(ERR40); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR40);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR40);
+    {$ENDIF}
     result := 1;
   end;
 end;
@@ -99,7 +103,11 @@ begin
   if CreateDir(p1) then result := 0 else
   begin
     // Cannot make directory!
-    {$IFNDEF X} writeln(ERR41); {$ELSE} Form1.Memo1.Lines.Add(ERR41); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR41);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR41);
+    {$ENDIF}
     result := 1;
   end;
 end;
@@ -110,7 +118,11 @@ begin
   if RemoveDir(p1) then result := 0 else
   begin
     // Cannot remove directory!
-    {$IFNDEF X} writeln(ERR42); {$ELSE} Form1.Memo1.Lines.Add(ERR42); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR42);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR42);
+    {$ENDIF}
     result := 1;
   end;
 end;
@@ -121,7 +133,11 @@ begin
   if not SysUtils.DeleteFile(p1) then
   begin
     // Cannot remove file!
-    {$IFNDEF X} writeln(ERR43); {$ELSE} Form1.Memo1.Lines.Add(ERR43); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR43);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR43);
+    {$ENDIF}
     result := 1;
   end else result := 0;
 end;
@@ -155,7 +171,11 @@ begin
     {$ELSE} Form1.Memo1.Lines.Add(StringList1.Strings[i]); {$ENDIF}
   except
     // Cannot type file content!
-    {$IFNDEF X} writeln(ERR44); {$ELSE} Form1.Memo1.Lines.Add(ERR44); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR44);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR44);
+    {$ENDIF}
     result := 1;
   end;
   StringList1.Free;
@@ -174,7 +194,11 @@ begin
     result := 0;
   except
     // Cannot copy file!
-    {$IFNDEF X} writeln(ERR45); {$ELSE} Form1.Memo1.Lines.Add(ERR45); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR45);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR45);
+    {$ENDIF}
   end;
   MemoryStream1.Free
 end;
@@ -185,7 +209,11 @@ begin
   if not RenameFile(p1, p2) then
   begin
     // Cannot rename file!
-    {$IFNDEF X} writeln(ERR46); {$ELSE} Form1.Memo1.Lines.Add(ERR46); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR46);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR46);
+    {$ENDIF}
     result := 1;
   end else result := 0;
 end;
@@ -208,7 +236,11 @@ begin
     if (length(p1) = 0) or (length(p2) = 0) then
     begin
       // Parameter(s) required!
-      {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR05);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR05);
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -217,7 +249,11 @@ begin
     if (length(p1) = 0) and (op >= 96) then
     begin
       // Parameter(s) required!
-      {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR05);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR05);
+      {$ENDIF}
       result := 1;
       exit;
     end;

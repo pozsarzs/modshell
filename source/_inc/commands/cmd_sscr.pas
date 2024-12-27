@@ -32,7 +32,11 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -71,7 +75,11 @@ begin
     closefile(sf);
   except
     // Cannot save script!
-    {$IFNDEF X} writeln(ERR37 + fpn); {$ELSE} Form1.Memo1.Lines.Add(ERR37 + fpn); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR37 + fpn);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR37 + fpn);
+    {$ENDIF}
     result := 1;
   end;
 end;

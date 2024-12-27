@@ -30,7 +30,11 @@ begin
      (length(p4) = 0) or (length(p5) = 0) or (length(p6) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -38,7 +42,11 @@ begin
   if not boolisitvariable(p1) then
   begin
     // No such variable!
-    {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR19 + p1);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR19 + p1);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -52,7 +60,11 @@ begin
   if (i2 < 0) or (i2 > 65535) then
   begin
     // What is the 2nd parameter?
-    {$IFNDEF X} writeln(NUM2 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 0-65535'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM2 + MSG05 + ' 0-65535');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 0-65535');
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -60,7 +72,11 @@ begin
   if lowercase(p3) <> 'to' then
   begin
     // What is the 3rd parameter?
-    {$IFNDEF X} writeln(NUM3 + MSG05+'  to'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05+'  to'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM3 + MSG05+'  to');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM3 + MSG05+'  to');
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -74,7 +90,11 @@ begin
   if (i4 < 0) or (i4 > 65535) then
   begin
     // What is the 4th parameter?
-    {$IFNDEF X} writeln(NUM4 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-65535'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM4 + MSG05 + ' 0-65535');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-65535');
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -82,7 +102,11 @@ begin
   if lowercase(p5) <> 'do' then
   begin
     // What is the 5th parameter?
-    {$IFNDEF X} writeln(NUM5 + MSG05+'  do'); {$ELSE}  Form1.Memo1.Lines.Add(NUM5 + MSG05+'  do'); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM5 + MSG05+'  do');
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM5 + MSG05+'  do');
+    {$ENDIF}
     result := 1;
     exit;
   end;

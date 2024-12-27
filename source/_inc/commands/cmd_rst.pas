@@ -36,7 +36,11 @@ var
     s := NUM1 + MSG05;
     for b := 0 to 2 do s := s + ' ' + PREFIX[b] + SVR;
     s := s + ' ' + PREFIX[3];
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
   end;
 
 begin
@@ -45,7 +49,11 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -87,9 +95,9 @@ begin
     else
       case pr of
         {$IFNDEF X}
-          0: writeln(ERR01); // Device number must be 0-7!
-          1: writeln(ERR02); // Protocol number must be 0-7!
-          2: writeln(ERR03); // Connection number must be 0-7!
+          0: if verbosity(2) then writeln(ERR01); // Device number must be 0-7!
+          1: if verbosity(2) then writeln(ERR02); // Protocol number must be 0-7!
+          2: if verbosity(2) then writeln(ERR03); // Connection number must be 0-7!
         {$ELSE}
           0: Form1.Memo1.Lines.Add(ERR01);
           1: Form1.Memo1.Lines.Add(ERR02);

@@ -52,7 +52,11 @@ begin
   if length(p1) = 0 then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -60,7 +64,11 @@ begin
     if (length(p2) = 0) then
     begin
       // Parameter(s) required!
-      {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR05);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR05);
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -68,7 +76,11 @@ begin
     if (length(p3) = 0) then
     begin
       // Parameter(s) required!
-      {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR05);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR05);
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -76,7 +88,11 @@ begin
     if (length(p4) = 0) then
     begin
       // Parameter(s) required!
-      {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR05);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR05);
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -85,7 +101,11 @@ begin
      (not boolisitvariablearray(p1)) then
   begin
     // No such variable!
-    {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR19 + p1);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR19 + p1);
+    {$ENDIF}
     result := 1;
     exit;
   end else s1 := isitvariable(p1);
@@ -181,7 +201,11 @@ begin
         end;
   except
     // Calculating error!
-    {$IFNDEF X} writeln(ERR20); {$ELSE} Form1.Memo1.Lines.Add(ERR20); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR20);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR20);
+    {$ENDIF}
     result := 1;
   end;
 end;

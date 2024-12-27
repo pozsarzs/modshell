@@ -40,7 +40,11 @@ begin
   if (length(p1) = 0) or (length(p2) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -76,11 +80,21 @@ begin
         if boolisitconstant(p1) then
           if length(vars[intisitconstant(p1)].vvalue) = 0
             then vars[intisitconstant(p1)].vvalue := s2
-            else {$IFNDEF X} writeln(ERR51); {$ELSE} Form1.Memo1.Lines.Add(ERR51); {$ENDIF}
+            else
+              {$IFNDEF X}
+                if verbosity(2) then writeln(ERR51);
+              {$ELSE}
+                Form1.Memo1.Lines.Add(ERR51);
+              {$ENDIF}
         if boolisitconstantarray(p1) then
           if length(arrays[intisitconstantarray(p1)].aitems[intisitconstantarrayelement(p1)]) = 0
             then arrays[intisitconstantarray(p1)].aitems[intisitconstantarrayelement(p1)] := s2
-            else {$IFNDEF X} writeln(ERR51); {$ELSE} Form1.Memo1.Lines.Add(ERR51); {$ENDIF}
+            else
+              {$IFNDEF X}
+                if verbosity(2) then writeln(ERR51);
+              {$ELSE}
+                Form1.Memo1.Lines.Add(ERR51);
+              {$ENDIF}
         exit;
       end else
       begin
@@ -102,11 +116,15 @@ begin
         end;
       if not valid then
       begin
-        // What is the 1st parameter?
+        // What is the 2nd parameter?
         s := NUM2 + MSG05;
         for x := 0 to 3 do s := s + ' ' + REG_TYPE[x];
         s := s + MSG83;
-        {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+        {$IFNDEF X}
+          if verbosity(2) then writeln(s);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(s);
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -116,13 +134,17 @@ begin
       if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
       if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
       if length(s3) = 0 then s3 := p3;
-      // CHANGE '\ ' TO SPACE IN P2
+      // CHANGE '\ ' TO SPACE IN P3
       s3 := stringreplace(s3, #92+#32, #32, [rfReplaceAll]);
       // RANGE CHECK
       if (strtointdef(s3, -1) < 0 ) or (strtointdef(s3, -1) > 9998) then
       begin
-        // What is the 2nd parameter?
-        {$IFNDEF X} writeln(NUM3 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + AVR); {$ENDIF}
+        // What is the 3rd parameter?
+        {$IFNDEF X}
+          if verbosity(2) then writeln(NUM3 + MSG05 + AVR);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(NUM3 + MSG05 + AVR);
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -154,7 +176,11 @@ begin
     s := NUM1 + MSG05;
     for x := 0 to 3 do s := s + ' ' + REG_TYPE[x];
     s := s + MSG83;
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -167,7 +193,11 @@ begin
   if (strtointdef(s2, -1) < 0 ) or (strtointdef(s2, -1) > 9998) then
   begin
     // What is the 2nd parameter?
-    {$IFNDEF X} writeln(NUM2 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + AVR); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM2 + MSG05 + AVR);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM2 + MSG05 + AVR);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -181,7 +211,11 @@ begin
     if (strtointdef(s3, -1) < 0 ) or (strtointdef(s3, -1) > 65535) then
     begin
       // What is the 3rd parameter?
-      {$IFNDEF X} writeln(NUM3 + MSG05 + ' 0-65535'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 1-65535'); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(NUM3 + MSG05 + ' 0-65535');
+      {$ELSE}
+        Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-65535');
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -202,7 +236,11 @@ begin
       for x := 0 to 1 do
         for y := 0 to 2 do
           s := s + ' ' + BOOLVALUES[x, y];
-        {$IFNDEF X} writeln(s); {$ELSE}  Form1.Memo1.Lines.Add(s); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(s);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(s);
+      {$ENDIF}
       result := 1;
       exit;
     end;

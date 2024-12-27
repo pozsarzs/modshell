@@ -78,7 +78,11 @@ begin
       // What is the 2nd parameter?
       s := NUM1 + MSG05;
       for rt := 0 to 3 do s := s + ' ' + REG_TYPE[rt];
-      {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(s);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(s);
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -92,7 +96,11 @@ begin
     if (i2 < 0) or (i2 > 9990) then
     begin
       // What is the 3rd parameter?
-      {$IFNDEF X} writeln(NUM2 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + AVR); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(NUM2 + MSG05 + AVR);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(NUM2 + MSG05 + AVR);
+      {$ENDIF}
       result := 1;
       exit;
     end;

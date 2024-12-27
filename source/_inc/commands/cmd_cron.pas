@@ -91,13 +91,21 @@ begin
       if p1 <> R then
       begin
         // What is the 2nd parameter?
-        {$IFNDEF X} writeln(NUM1 + MSG05 + ' ' + R); {$ELSE} Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' ' + R); {$ENDIF}
+        {$IFNDEF X}
+          if verbosity(2) then writeln(NUM2 + MSG05 + ' ' + R);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' ' + R);
+        {$ENDIF}
         result := 1;
         exit;
       end else
       begin
         // Parameter(s) required!
-        {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+        {$IFNDEF X}
+          if verbosity(2) then writeln(ERR05);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR05);
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -107,7 +115,11 @@ begin
       if p1 <> R then
       begin
         // What is the 1st parameter?
-        {$IFNDEF X} writeln(NUM1 + MSG05 + ' ' + R); {$ELSE} Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' ' + R); {$ENDIF}
+        {$IFNDEF X}
+          if verbosity(2) then writeln(NUM1 + MSG05 + ' ' + R);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' ' + R);
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -116,7 +128,11 @@ begin
       if (i2 < 1) or (i2 > 4) then
       begin
         // What is the 2nd parameter?
-        {$IFNDEF X} writeln(NUM2 + MSG05 + ' 1-4'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-4'); {$ENDIF}
+        {$IFNDEF X}
+          if verbosity(2) then writeln(NUM2 + MSG05 + ' 1-4');
+        {$ELSE}
+          Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 1-4');
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -134,8 +150,12 @@ begin
       i1 := strtointdef(p1, -1);
       if (i1 < 1) or (i1 > 4) then
       begin
-        // What is the 2nd parameter?
-        {$IFNDEF X} writeln(NUM1 + MSG05 + ' 1-4'); {$ELSE} Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 1-4'); {$ENDIF}
+        // What is the 1st parameter?
+        {$IFNDEF X}
+          if verbosity(2) then writeln(NUM1 + MSG05 + ' 1-4');
+        {$ELSE}
+          Form1.Memo1.Lines.Add(NUM1 + MSG05 + ' 1-4');
+        {$ENDIF}
         result := 1;
         exit;
       end;
@@ -146,7 +166,11 @@ begin
         if (i2 < 0) or (i2 > 23) then
         begin
           // What is the 2nd parameter?
-          {$IFNDEF X} writeln(NUM2 + MSG05 + ' 0-23'); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 0-23'); {$ENDIF}
+          {$IFNDEF X}
+            if verbosity(2) then writeln(NUM2 + MSG05 + ' 0-23');
+          {$ELSE}
+            Form1.Memo1.Lines.Add(NUM2 + MSG05 + ' 0-23');
+          {$ENDIF}
           result := 1;
           exit;
         end;
@@ -158,7 +182,11 @@ begin
         if (i3 < 0) or (i3 > 59) then
         begin
           // What is the 3rd parameter?
-          {$IFNDEF X} writeln(NUM3 + MSG05 + ' 0-59'); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-59'); {$ENDIF}
+          {$IFNDEF X}
+            if verbosity(2) then writeln(NUM3 + MSG05 + ' 0-59');
+          {$ELSE}
+            Form1.Memo1.Lines.Add(NUM3 + MSG05 + ' 0-59');
+          {$ENDIF}
           result := 1;
           exit;
         end;

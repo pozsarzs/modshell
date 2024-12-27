@@ -224,8 +224,14 @@ begin
       if s1[b] = chr(bb) then valid := false;
   end;
   if not valid then
+  begin
     // Illegal character in the constant name!
-    {$IFNDEF X} writeln(ERR33) {$ELSE} Form1.Memo1.Lines.Add(ERR33) {$ENDIF} else
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR33);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR33);
+    {$ENDIF}
+  end else
   begin
     // COMPARING EXISTING NAMES WITH THE NEW ONE
     valid := true;
@@ -236,7 +242,11 @@ begin
     if not valid then
     begin
       // There is already a variable or a constant with that name.
-      {$IFNDEF X} writeln(ERR17); {$ELSE} Form1.Memo1.Lines.Add(ERR17); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR17);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR17);
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -251,7 +261,11 @@ begin
     if not valid then
     begin
       // Cannot define more constant!
-      {$IFNDEF X} writeln(ERR34); {$ELSE} Form1.Memo1.Lines.Add(ERR34); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR34);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR34);
+      {$ENDIF}
       result := 1;
       exit;
     end;

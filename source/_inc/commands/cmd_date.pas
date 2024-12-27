@@ -38,7 +38,11 @@ begin
          (not boolisitvariablearray(p1)) then
       begin
         // No such variable!
-        {$IFNDEF X} writeln(ERR19 + p1); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p1); {$ENDIF}
+        {$IFNDEF X}
+          if verbosity(2) then writeln(ERR19 + p1);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR19 + p1);
+        {$ENDIF}
         result := 1;
         exit;
       end;

@@ -144,8 +144,14 @@ begin
       if s1[b] = chr(bb) then valid := false;
   end;
   if not valid then
+  begin
     // Illegal character in the variable name!
-    {$IFNDEF X} writeln(ERR59) {$ELSE} Form1.Memo1.Lines.Add(ERR59) {$ENDIF} else
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR59);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR59);
+    {$ENDIF}
+  end else
   begin
     // COMPARING EXISTING NAMES WITH THE NEW ONE
     valid := true;
@@ -168,7 +174,11 @@ begin
       if not valid then
       begin
         // Cannot define more variable!
-        {$IFNDEF X} writeln(ERR60); {$ELSE} Form1.Memo1.Lines.Add(ERR60); {$ENDIF}
+        {$IFNDEF X}
+          if verbosity(2) then writeln(ERR60);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR60);
+        {$ENDIF}
         result := 1;
         exit;
       end;

@@ -34,7 +34,11 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -79,11 +83,19 @@ begin
              closefile(ftd);
            except
              // Cannot save settings!
-             {$IFNDEF X} writeln(ERR08 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR08 + fpn + '!'); {$ENDIF}
+             {$IFNDEF X}
+               if verbosity(2) then writeln(ERR08 + fpn + '!');
+             {$ELSE}
+               Form1.Memo1.Lines.Add(ERR08 + fpn + '!');
+             {$ENDIF}
              result := 1;
              exit;
            end;
-           {$IFNDEF X} writeln(MSG16 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG16 + fpn + '.'); {$ENDIF}
+           {$IFNDEF X}
+             if verbosity(1) then writeln(MSG16 + fpn + '.');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(MSG16 + fpn + '.');
+           {$ENDIF}
          end;
       1: begin
            assignfile(ftp, fpn);
@@ -94,11 +106,19 @@ begin
              closefile(ftp);
            except
              // Cannot save settings!
-             {$IFNDEF X} writeln(ERR08 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR08 + fpn + '!'); {$ENDIF}
+             {$IFNDEF X}
+               if verbosity(2) then writeln(ERR08 + fpn + '!');
+             {$ELSE}
+               Form1.Memo1.Lines.Add(ERR08 + fpn + '!');
+             {$ENDIF}
              result := 1;
              exit;
            end;
-           {$IFNDEF X} writeln(MSG16 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG16 + fpn + '.'); {$ENDIF}
+           {$IFNDEF X}
+             if verbosity(1) then writeln(MSG16 + fpn + '.');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(MSG16 + fpn + '.');
+           {$ENDIF}
          end;
       2: begin
            assignfile(ftc, fpn);
@@ -109,11 +129,19 @@ begin
              closefile(ftc);
            except
              // Cannot save settings!
-             {$IFNDEF X} writeln(ERR08 + fpn + '!'); {$ELSE} Form1.Memo1.Lines.Add(ERR08 + fpn + '!'); {$ENDIF}
+             {$IFNDEF X}
+               if verbosity(2) then writeln(ERR08 + fpn + '!');
+             {$ELSE}
+               Form1.Memo1.Lines.Add(ERR08 + fpn + '!');
+             {$ENDIF}
              result := 1;
              exit;
            end;
-           {$IFNDEF X} writeln(MSG16 + fpn + '.'); {$ELSE} Form1.Memo1.Lines.Add(MSG16 + fpn + '.'); {$ENDIF}
+           {$IFNDEF X}
+             if verbosity(1) then writeln(MSG16 + fpn + '.');
+           {$ELSE}
+             Form1.Memo1.Lines.Add(MSG16 + fpn + '.');
+           {$ENDIF}
          end;
       end;
   end;

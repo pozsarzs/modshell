@@ -32,7 +32,11 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -71,7 +75,11 @@ begin
           end else
           begin
             // Script buffer is full!
-            {$IFNDEF X} writeln(ERR23); {$ELSE} Form1.Memo1.Lines.Add(ERR23); {$ENDIF}
+            {$IFNDEF X}
+              if verbosity(2) then writeln(ERR23);
+            {$ELSE}
+              Form1.Memo1.Lines.Add(ERR23);
+            {$ENDIF}
             result := 1;
             exit;
           end;
@@ -82,7 +90,11 @@ begin
     scriptlastline := line;
   except
     // Cannot load script!
-    {$IFNDEF X} writeln(ERR22 + fpn); {$ELSE} Form1.Memo1.Lines.Add(ERR22 + fpn); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR22 + fpn);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR22 + fpn);
+    {$ENDIF}
     result := 1;
   end;
 end;

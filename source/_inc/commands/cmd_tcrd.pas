@@ -35,7 +35,11 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -54,19 +58,31 @@ begin
     // What is the 1st parameter?
     ss := NUM1 + MSG05;
     ss := ss + ' ' + PREFIX[0] + SVR;
-    {$IFNDEF X} writeln(ss); {$ELSE} Form1.Memo1.Lines.Add(ss); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ss);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ss);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   if not dev[i1].valid then
   begin
-    {$IFNDEF X} writeln(PREFIX[0], i1, MSG06); {$ELSE} Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(PREFIX[0], i1, MSG06);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(PREFIX[0] + inttostr(i1) + MSG06);
+    {$ENDIF}
     result := 1;
     exit;
   end;
   if not (dev[i1].devtype = 0) then
   begin
-    {$IFNDEF X} writeln(ERR25); {$ELSE} Form1.Memo1.Lines.Add(ERR25); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR25);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR25);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -77,7 +93,11 @@ begin
        (not boolisitvariablearray(p2)) then
     begin
       // No such variable!
-      {$IFNDEF X} writeln(ERR19 + p2); {$ELSE} Form1.Memo1.Lines.Add(ERR19 + p2); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR19 + p2);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR19 + p2);
+      {$ENDIF}
       result := 1;
       exit;
     end;
@@ -127,7 +147,11 @@ begin
     end else
     begin
       // Cannot initialize socket!
-      {$IFNDEF X} writeln(ERR58); {$ELSE} Form1.Memo1.Lines.Add(ERR58); {$ENDIF}
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR58);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR58);
+      {$ENDIF}
       result := 1;
     end;
 end;

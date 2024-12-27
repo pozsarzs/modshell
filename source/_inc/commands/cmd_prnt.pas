@@ -43,7 +43,11 @@ begin
   if (length(p1) = 0) then
   begin
     // Parameter(s) required!
-    {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -102,7 +106,11 @@ begin
     s := NUM1 + MSG05;
     for i := 0 to 3 do s := s + ' ' + REG_TYPE[i];
     s := s + MSG83 + MSG84 + '.';
-    {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -119,7 +127,11 @@ begin
   if (i2 < 0 ) or (i2 > 9998) then
   begin
     // What is the 2nd parameter?
-    {$IFNDEF X} writeln(NUM2 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM2 + MSG05 + AVR); {$ENDIF}
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM2 + MSG05 + AVR);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM2 + MSG05 + AVR);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -135,8 +147,12 @@ begin
   end;
   if (i3 < 0 ) or (i3 > 9998) then
   begin
-    // What is the 2nd parameter?
-    {$IFNDEF X} writeln(NUM3 + MSG05 + AVR); {$ELSE} Form1.Memo1.Lines.Add(NUM3 + MSG05 + AVR); {$ENDIF}
+    // What is the 3rd parameter?
+    {$IFNDEF X}
+      if verbosity(2) then writeln(NUM3 + MSG05 + AVR);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(NUM3 + MSG05 + AVR);
+    {$ENDIF}
     result := 1;
     exit;
   end;

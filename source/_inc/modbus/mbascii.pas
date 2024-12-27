@@ -50,7 +50,8 @@ begin
       {$IFNDEF X} textcolor(uconfig.colors[3]); {$ENDIF}
       if uconfig.echometh > 0 then {$IFNDEF X} writeln(formattelegram(true, s)); {$ELSE} Form1.Memo1.Lines.Add(formattelegram(true, s)); {$ENDIF}
       {$IFNDEF X} textcolor(uconfig.colors[0]); {$ENDIF}
-    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27); {$ENDIF}
+    end else {$IFNDEF X} writeln(ERR27); {$ELSE} Form1.Memo1.Lines.Add(ERR27);
+      {$ENDIF}
     // receive response
     s := '';
     tgm := '';

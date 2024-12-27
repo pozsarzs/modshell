@@ -35,14 +35,4 @@ end;
 function hart_readwrite(connection: integer; txdata: string; checksum: boolean): string;
 begin
   result := '';
-  // check validity
-  if not validity(2, connection) then exit;
-  if not validity(1, conn[connection].prot) then exit;
-  if not validity(0, conn[connection].dev) then exit;
-  // check device lock file
-  if checklockfile(dev[conn[connection].dev].device, true) then exit;
-  // call next procedure
-  if prot[conn[connection].prot].prottype = 4
-    then result := dc_readwrite(conn[connection].prot, conn[connection].dev, txdata, checksum)
-    else {$IFNDEF X} writeln(ERR56); {$ELSE} Form1.Memo1.Lines.Add(ERR56); {$ENDIF}
 end;
