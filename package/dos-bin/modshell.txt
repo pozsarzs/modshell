@@ -488,7 +488,7 @@ BUILTIN COMMANDS
               1-4.
 
        datatype [$]VALUE
-              Specifies the type of the value ([$]VALUE'). The result will be in the exit
+              Specifies the type of the value ([$]VALUE). The result will be in the  exit
               code: 0: string, 1: floating-point value, 1: integer value.
 
        date [$TARGET]

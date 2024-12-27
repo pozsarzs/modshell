@@ -157,6 +157,18 @@ msgstr "CTRL-F9  küldési mód lekérdezése vagy cseréje"
 msgid "         create one-line macro"
 msgstr "         egysoros makró létrehozása"
 
+#: frmmain.des122
+msgid "         serial Modbus traffic monitor"
+msgstr "         soros Modbus forgalom monitor segédprogram"
+
+#: frmmain.des123
+msgid "         Modbus register number/address converter"
+msgstr "         Modbus regiszterszám/cím konverter"
+
+#: frmmain.des124
+msgid "         specify the type of the value"
+msgstr "         az érték típusának megadása"
+
 #: frmmain.des13
 msgid "F2       save settings of device, protocol and connection"
 msgstr "F2       eszköz-, protokoll- és kapcsolatbeállítások mentése"
@@ -751,8 +763,6 @@ msgid "Cannot define more macro!"
 msgstr "Nem lehet létrehozni több makrót!"
 
 #: frmmain.err61
-#, fuzzy
-#| msgid "Cannot create console log file!"
 msgid "Cannot create Modbus traffic log file!"
 msgstr "Nem lehet létrehozni a Modbus forgalom naplófájlját!"
 
@@ -837,15 +847,11 @@ msgid "ID   FC  DATA"
 msgstr "ID   FC  ADAT"
 
 #: frmmain.msg108
-#, fuzzy
-#| msgid "Show serial Modbus traffic.."
 msgid "Use 'Modbus/Show serial Modbus traffic' on GUI version."
 msgstr ""
 "Használja az 'Modbus/Soros Modbus forgalom monitorozása'-t a GUI változatnál."
 
 #: frmmain.msg109
-#, fuzzy
-#| msgid "Read discrete inputs.."
 msgid "Discrete input contacts"
 msgstr "Diszkrét bemeneti érintkező"
 
@@ -1531,6 +1537,30 @@ msgstr "sendmeth [chr|str|swap]"
 msgid "macro NAME command with parameters"
 msgstr "macro NÉV parancs a paraméterekkel"
 
+#: frmmain.usg122
+msgid "mbmon [con?]"
+msgstr "mbmon [con?]"
+
+#: frmmain.usg123
+msgid ""
+"mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER\n"
+"  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS"
+msgstr ""
+"mbconv $CÉL_REGISZTER_TÍPUS $CÉL_CÍM [$]REGISZTER_SZÁM\n"
+"  mbconv $CÉL_SZÁM [$]REGISZTER_TÍPUS [$]CÍM"
+
+#: frmmain.usg124
+msgid ""
+"datatype [$]VALUE\n"
+"Notes:\n"
+"  - The result will be in the exit code:\n"
+"  0: string, 1: floating-point value, 1: integer value."
+msgstr ""
+"datatype [$]ÉRTÉK\n"
+"Megjegyzés:\n"
+"  - Az eredményt a kilépési kód hordozza:\n"
+"  0: karakterlánc, 1: lebegőpontos szám, 1: egész szám."
+
 #: frmmain.usg13
 msgid "savecfg [$]PATH_AND_FILENAME"
 msgstr "savecfg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
@@ -1549,8 +1579,8 @@ msgid "exphis [$]PATH_AND_FILENAME"
 msgstr "exphis [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: frmmain.usg17
-msgid "conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
-msgstr "conv $CÉL bin|dec|hex|oct bin|dec|hex|oct [$]ÉRTÉK"
+msgid "conv $TARGET $FROM|bin|dec|hex|oct $TO|bin|dec|hex|oct [$]VALUE"
+msgstr "conv $CÉL $EBBŐL|bin|dec|hex|oct $EBBE|bin|dec|hex|oct [$]ÉRTÉK"
 
 #: frmmain.usg18
 msgid "savereg [$]PATH_AND_FILENAME"

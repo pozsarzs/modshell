@@ -141,6 +141,18 @@ msgstr ""
 msgid "         create one-line macro"
 msgstr ""
 
+#: frmmain.des122
+msgid "         serial Modbus traffic monitor"
+msgstr ""
+
+#: frmmain.des123
+msgid "         Modbus register number/address converter"
+msgstr ""
+
+#: frmmain.des124
+msgid "         specify the type of the value"
+msgstr ""
+
 #: frmmain.des13
 msgid "F2       save settings of device, protocol and connection"
 msgstr ""
@@ -1428,6 +1440,24 @@ msgstr ""
 msgid "macro NAME command with parameters"
 msgstr ""
 
+#: frmmain.usg122
+msgid "mbmon [con?]"
+msgstr ""
+
+#: frmmain.usg123
+msgid ""
+"mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER\n"
+"  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS"
+msgstr ""
+
+#: frmmain.usg124
+msgid ""
+"datatype [$]VALUE\n"
+"Notes:\n"
+"  - The result will be in the exit code:\n"
+"  0: string, 1: floating-point value, 1: integer value."
+msgstr ""
+
 #: frmmain.usg13
 msgid "savecfg [$]PATH_AND_FILENAME"
 msgstr ""
@@ -1445,7 +1475,7 @@ msgid "exphis [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: frmmain.usg17
-msgid "conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
+msgid "conv $TARGET $FROM|bin|dec|hex|oct $TO|bin|dec|hex|oct [$]VALUE"
 msgstr ""
 
 #: frmmain.usg18

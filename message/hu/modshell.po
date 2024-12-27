@@ -1249,6 +1249,18 @@ msgstr "CTRL-F9  küldési mód lekérdezése vagy cseréje"
 msgid "         create one-line macro"
 msgstr "         egysoros makró létrehozása"
 
+#: modshell:des122
+msgid "         serial Modbus traffic monitor"
+msgstr "         soros Modbus forgalom monitor segédprogram"
+
+#: modshell:des123
+msgid "         Modbus register number/address converter"
+msgstr "         Modbus regiszterszám/cím konverter"
+
+#: modshell:des124
+msgid "         specify the type of the value"
+msgstr "         az érték típusának megadása"
+
 #: modshell:usg00
 msgid ""
 "copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
@@ -1391,8 +1403,8 @@ msgid "exphis [$]PATH_AND_FILENAME"
 msgstr "exphis [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: modshell:usg17
-msgid "conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE"
-msgstr "conv $CÉL bin|dec|hex|oct bin|dec|hex|oct [$]ÉRTÉK"
+msgid "conv $TARGET $FROM|bin|dec|hex|oct $TO|bin|dec|hex|oct [$]VALUE"
+msgstr "conv $CÉL $EBBŐL|bin|dec|hex|oct $EBBE|bin|dec|hex|oct [$]ÉRTÉK"
 
 #: modshell:usg18
 msgid "savereg [$]PATH_AND_FILENAME"
@@ -1949,6 +1961,30 @@ msgstr "sendmeth [chr|str|swap]"
 #: modshell:usg121
 msgid "macro NAME command with parameters"
 msgstr "macro NÉV parancs a paraméterekkel"
+
+#: modshell:usg122
+msgid "mbmon [con?]"
+msgstr "mbmon [con?]"
+
+#: modshell:usg123
+msgid ""
+"mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER\n"
+"  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS"
+msgstr ""
+"mbconv $CÉL_REGISZTER_TÍPUS $CÉL_CÍM [$]REGISZTER_SZÁM\n"
+"  mbconv $CÉL_SZÁM [$]REGISZTER_TÍPUS [$]CÍM"
+
+#: modshell:usg124
+msgid ""
+"datatype [$]VALUE\n"
+"Notes:\n"
+"  - The result will be in the exit code:\n"
+"  0: string, 1: floating-point value, 1: integer value."
+msgstr ""
+"datatype [$]ÉRTÉK\n"
+"Megjegyzés:\n"
+"  - Az eredményt a kilépési kód hordozza:\n"
+"  0: karakterlánc, 1: lebegőpontos szám, 1: egész szám."
 
 #~ msgid "Cannot initialize network device: "
 #~ msgstr "Nem lehet inicializálni a hálózati eszközt: "
