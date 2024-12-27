@@ -25,7 +25,7 @@ const
 begin
   result := true;
   for b := 0 to 2 do
-    if lowercase(vars[14].vvalue) = LEVELS[b] then verbositylevel := b;
+    if lowercase(vars[16].vvalue) = LEVELS[b] then verbositylevel := b;
   case verbositylevel of
     0: result := true;
     1: if messagelevel < 2 then result := false;

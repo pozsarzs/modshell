@@ -298,6 +298,15 @@ are resized by the command.
 \fBmbgw\fP \fIcon?\fP \fIcon?\fP
 Start internal Modbus slave/server for remote access own registers.
 .TP
+\fBmbconv\fP \fI$TARGET_REGISTER_TYPE\fP \fI$TARGET_ADDRESS\fP \fI[$]REGISTER_NUMBER\fP
+Converts Modbus register number to register type and address. Register number
+(\fI[$]REGISTER_NUMBER\fP) must be 1-9999, 10001-19999, 30001-39999 and 40001-49999.
+.TP
+\fBmbconv\fP \fI$TARGET_NUMBER\fP \fI[$]REGISTER_TYPE\fP \fI[$]ADDRESS\fP
+Converts Modbus register type and address to register number.
+Register type (\fI$REGISTER_TYPE\fP) must be coil, dinp, ireg and hreg. Address
+(\fI[$]ADDRESS\fP) must be 0-9998.
+.TP
 \fBmbmon\fP \fI[con?]\fP
 Opens a simple serial monitor for decode Modbus/ASCII or RTU telegrams.
 The decoded traffic is saved to the project directory named \fImbmon.log\fP.
@@ -494,6 +503,10 @@ Adds new record to crontable. \fIrec_num\fP may be 1-4.
 .TP
 \fBcron\fP [\fI-r rec_num\fP]
 Shows all or removes specified record from the crontable. \fIrec_num\fP may be 1-4.
+.TP
+\fBdatatype\fP \fI[$]VALUE\fP
+Specifies the type of the value (\fI[$]VALUE\fP). The result will be in the exit
+code: 0: string, 1: floating-point value, 1: integer value.
 .TP
 \fBdate\fP [\fI$TARGET\fP]
 Shows or write into \fI$TARGET\fP variable system date and time.

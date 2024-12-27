@@ -105,7 +105,7 @@ _First user test release_ will be with the following changes:
  - [x] Number converter utility (in your own scripting language);
  - [x] modified source code structure of XModshell;  
  - [x] new command `chkdevlock`/`rmdevlock` (only *nix systems);  
- - [ ] new command `datatype`;  
+ - [x] new command `datatype`;  
  - [x] new command `exist`;  
  - [x] new command `inputmeth`;  
  - [x] new command `macro`;
@@ -121,6 +121,7 @@ _First user test release_ will be with the following changes:
  - [x] serial echo server utility for testing connectivity;  
  - [x] serial ModBus traffic monitor utility;
  - [x] support for variable and constant arrays;  
+ - [x] new predefined constants;
  - [x] syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows only) and Vim/Neovim;
  - [x] TCP and UPD echo server utilities for testing connectivity.  
  Only a source package will be released.

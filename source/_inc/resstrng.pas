@@ -324,9 +324,9 @@ resourcestring
   DES119='SHIFT-F9 query or change input method';
   DES120='CTRL-F9  query or change send method';
   DES121='         create one-line macro';
-  DES122='mbmon';
-  DES123='mbconv';
-  DES124='datatype';
+  DES122='         serial Modbus traffic monitor';
+  DES123='         Modbus register number/address converter';
+  DES124='         specify the type of the value';  
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -528,6 +528,10 @@ resourcestring
   USG119='inputmeth [an|hex|swap]';
   USG120='sendmeth [chr|str|swap]';
   USG121='macro NAME command with parameters';
-  USG122='mbmon';
-  USG123='mbconv';
-  USG124='datatype';
+  USG122='mbmon [con?]';
+  USG123='mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER' + EOL +
+         '  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS';
+  USG124='datatype [$]VALUE' + EOL +
+        'Notes:' + EOL +
+        '  - The result will be in the exit code:' + EOL +
+        '  0: string, 1: floating-point value, 1: integer value.';

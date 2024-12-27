@@ -31,6 +31,7 @@ modshell (0.1-beta1) unstable; urgency=low
 * serial echo server utility for testing connectivity;  
 * serial ModBus traffic monitor utility;
 * support for variable and constant arrays;  
+* new predefined constants;  
 * syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows only) and Vim/Neovim;
 * TCP and UPD echo server utilities for testing connectivity.
  

@@ -75,6 +75,20 @@ begin
     vreadonly := true;
     vmonitored := false;
   end;
+  with vars[14] do
+  begin
+    vname := 'sqrt2';
+    vvalue := floattostr(sqrt(2));
+    vreadonly := true;
+    vmonitored := false;
+  end;
+  with vars[15] do
+  begin
+    vname := 'sqrt3';
+    vvalue := floattostr(sqrt(3));
+    vreadonly := true;
+    vmonitored := false;
+  end;
   // Belphegor's prime was first discovered by Harvey Dubner
   // = 10^31 + 666 * 10^14 + 1
   y := 0; mh := 0; d := 0; w := 0;

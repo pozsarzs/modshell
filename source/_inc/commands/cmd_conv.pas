@@ -29,7 +29,7 @@ var
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
-  if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0)then
+  if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0) then
   begin
     // Parameter(s) required!
     {$IFNDEF X} writeln(ERR05); {$ELSE} Form1.Memo1.Lines.Add(ERR05); {$ENDIF}

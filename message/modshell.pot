@@ -1222,15 +1222,15 @@ msgid "         create one-line macro"
 msgstr ""
 
 #: modshell:des122
-msgid "mbmon"
+msgid "         serial Modbus traffic monitor"
 msgstr ""
 
 #: modshell:des123
-msgid "mbconv"
+msgid "         Modbus register number/address converter"
 msgstr ""
 
 #: modshell:des124
-msgid "datatype"
+msgid "         specify the type of the value"
 msgstr ""
 
 #: modshell:usg00
@@ -1828,14 +1828,20 @@ msgid "macro NAME command with parameters"
 msgstr ""
 
 #: modshell:usg122
-msgid "mbmon"
+msgid "mbmon [con?]"
 msgstr ""
 
 #: modshell:usg123
-msgid "mbconv"
+msgid ""
+"mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER\n"
+"  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS"
 msgstr ""
 
 #: modshell:usg124
-msgid "datatype"
+msgid ""
+"datatype [$]VALUE\n"
+"Notes:\n"
+"  - The result will be in the exit code:\n"
+"  0: string, 1: floating-point value, 1: integer value."
 msgstr ""
 
