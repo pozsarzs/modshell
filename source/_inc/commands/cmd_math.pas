@@ -45,7 +45,7 @@
 // MATHEMATICAL OPERATIONS
 function cmd_math(op: byte; p1, p2, p3, p4: string): byte;
 var
-  s1, s2, s3, s4: string; // parameters in other type
+  s2, s3, s4: string; // parameters in other type
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -108,7 +108,7 @@ begin
     {$ENDIF}
     result := 1;
     exit;
-  end else s1 := isitvariable(p1);
+  end;
   // CHECK P2 PARAMETER
   if ((op <> 45) and (op <> 49)) then
   begin
@@ -148,11 +148,11 @@ begin
           42: vars[intisitvariable(p1)].vvalue := floattostr(round2(strtofloatdef(s2, 0), strtointdef(s3, 0)));
           43: vars[intisitvariable(p1)].vvalue := floattostr(cos(strtofloatdef(s2, 0)));
           44: vars[intisitvariable(p1)].vvalue := floattostr(cot(strtofloatdef(s2, 0)));
-          45: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s1, 0) - 1);
+          45: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(vars[intisitvariable(p1)].vvalue, 0) - 1);
           46: vars[intisitvariable(p1)].vvalue := floattostr(exp(strtofloatdef(s2, 0)));
           47: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) div strtointdef(s3, 1));
           48: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s2, 0) mod strtointdef(s3, 1));
-          49: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(s1, 0) + 1);
+          49: vars[intisitvariable(p1)].vvalue := inttostr(strtointdef(vars[intisitvariable(p1)].vvalue, 0) + 1);
           50: vars[intisitvariable(p1)].vvalue := floattostr(ln(strtofloatdef(s2, 0)));
           51: if strtofloatdef(s2, 0) > 0 then vars[intisitvariable(p1)].vvalue := floattostr(1 / (strtofloatdef(s2, 0)));
           52: if odd(strtointdef(s2, 0)) then vars[intisitvariable(p1)].vvalue := '1' else vars[intisitvariable(p1)].vvalue := '0';
@@ -178,11 +178,11 @@ begin
           42: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(round2(strtofloatdef(s2, 0), strtointdef(s3, 0)));
           43: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(cos(strtofloatdef(s2, 0)));
           44: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(cot(strtofloatdef(s2, 0)));
-          45: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s1, 0) - 1);
+          45: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)], 0) - 1);
           46: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(exp(strtofloatdef(s2, 0)));
           47: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s2, 0) div strtointdef(s3, 1));
           48: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s2, 0) mod strtointdef(s3, 1));
-          49: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(s1, 0) + 1);
+          49: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(strtointdef(arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)], 0) + 1);
           50: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(ln(strtofloatdef(s2, 0)));
           51: if strtofloatdef(s2, 0) > 0 then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := floattostr(1 / (strtofloatdef(s2, 0)));
           52: if odd(strtointdef(s2, 0)) then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := '1' else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := '0';

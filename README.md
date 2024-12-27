@@ -79,7 +79,7 @@ v0.1-beta2 release.)
  <ul>
   <li>HART protocol support;</li>
   <li>compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);</li>
- -<li>Modbus/TCP communication;</li>
+  <li>Modbus/TCP communication;</li>
   <li>TCP/UDP communication on DOS;</li>
   <li>graphical monitoring the change of values over time (only XModShell);</li>
   <li>implementation of additional Modbus functions.</li>
