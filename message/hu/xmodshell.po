@@ -766,6 +766,22 @@ msgstr "Nem lehet létrehozni több makrót!"
 msgid "Cannot create Modbus traffic log file!"
 msgstr "Nem lehet létrehozni a Modbus forgalom naplófájlját!"
 
+#: frmmain.err62
+msgid "There is no value in the array cell: "
+msgstr "Nincs adat ebben a cellában: "
+
+#: frmmain.err63
+msgid "Wrong register number"
+msgstr "Rossz regiszter szám"
+
+#: frmmain.err64
+msgid "Wrong register type"
+msgstr "Rossz regiszter típus"
+
+#: frmmain.err65
+msgid "Wrong address"
+msgstr "Rossz cím"
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -1542,12 +1558,8 @@ msgid "mbmon [con?]"
 msgstr "mbmon [con?]"
 
 #: frmmain.usg123
-msgid ""
-"mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER\n"
-"  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS"
-msgstr ""
-"mbconv $CÉL_REGISZTER_TÍPUS $CÉL_CÍM [$]REGISZTER_SZÁM\n"
-"  mbconv $CÉL_SZÁM [$]REGISZTER_TÍPUS [$]CÍM"
+msgid "mbconv n2a|a2n $ARRAY"
+msgstr "mbconv n2a|a2n $TÖMB"
 
 #: frmmain.usg124
 msgid ""
@@ -2516,6 +2528,13 @@ msgstr "Képernyőtörlés"
 #: tform7.caption
 msgid "Form7"
 msgstr "Form7"
+
+#~ msgid ""
+#~ "mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER\n"
+#~ "  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS"
+#~ msgstr ""
+#~ "mbconv $CÉL_REGISZTER_TÍPUS $CÉL_CÍM [$]REGISZTER_SZÁM\n"
+#~ "  mbconv $CÉL_SZÁM [$]REGISZTER_TÍPUS [$]CÍM"
 
 #~ msgid "&Modbus"
 #~ msgstr "&Modbus"

@@ -200,6 +200,10 @@ resourcestring
   ERR59 = 'Illegal character in the macro name!';
   ERR60 = 'Cannot define more macro!';
   ERR61 = 'Cannot create Modbus traffic log file!';
+  ERR62 = 'There is no value in the array cell: ';
+  ERR63 = 'Wrong register number';
+  ERR64 = 'Wrong register type';
+  ERR65 = 'Wrong address';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='         copy one or more remote reg. between two connections';
@@ -529,8 +533,7 @@ resourcestring
   USG120='sendmeth [chr|str|swap]';
   USG121='macro NAME command with parameters';
   USG122='mbmon [con?]';
-  USG123='mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER' + EOL +
-         '  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS';
+  USG123='mbconv n2a|a2n $ARRAY';
   USG124='datatype [$]VALUE' + EOL +
         'Notes:' + EOL +
         '  - The result will be in the exit code:' + EOL +

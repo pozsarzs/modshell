@@ -109,7 +109,7 @@ _First user test release_ will be with the following changes:
  - [x] new command `exist`;  
  - [x] new command `inputmeth`;  
  - [x] new command `macro`;
- - [ ] new command `mbconv`;  
+ - [x] new command `mbconv`;  
  - [x] new command `mbmon`;  
  - [x] new command `printcolor`(only CLI and TUI);  
  - [x] new command `sendmeth`;  

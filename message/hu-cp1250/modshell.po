@@ -752,6 +752,22 @@ msgstr "Nem lehet létrehozni több makrót!"
 msgid "Cannot create Modbus traffic log file!"
 msgstr "Nem lehet létrehozni a Modbus forgalom naplófájlját!"
 
+#: modshell:err62
+msgid "There is no value in the array cell: "
+msgstr "Nincs adat ebben a cellában: "
+
+#: modshell:err63
+msgid "Wrong register number"
+msgstr "Rossz regiszter szám"
+
+#: modshell:err64
+msgid "Wrong register type"
+msgstr "Rossz regiszter típus"
+
+#: modshell:err65
+msgid "Wrong address"
+msgstr "Rossz cím"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"
@@ -1967,12 +1983,8 @@ msgid "mbmon [con?]"
 msgstr "mbmon [con?]"
 
 #: modshell:usg123
-msgid ""
-"mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER\n"
-"  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS"
-msgstr ""
-"mbconv $CÉL_REGISZTER_TÍPUS $CÉL_CÍM [$]REGISZTER_SZÁM\n"
-"  mbconv $CÉL_SZÁM [$]REGISZTER_TÍPUS [$]CÍM"
+msgid "mbconv n2a|a2n $ARRAY"
+msgstr "mbconv n2a|a2n $TÖMB"
 
 #: modshell:usg124
 msgid ""
@@ -1985,6 +1997,13 @@ msgstr ""
 "Megjegyzés:\n"
 "  - Az eredményt a kilépési kód hordozza:\n"
 "  0: karakterlánc, 1: lebegõpontos szám, 1: egész szám."
+
+#~ msgid ""
+#~ "mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER\n"
+#~ "  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS"
+#~ msgstr ""
+#~ "mbconv $CÉL_REGISZTER_TÍPUS $CÉL_CÍM [$]REGISZTER_SZÁM\n"
+#~ "  mbconv $CÉL_SZÁM [$]REGISZTER_TÍPUS [$]CÍM"
 
 #~ msgid "Cannot initialize network device: "
 #~ msgstr "Nem lehet inicializálni a hálózati eszközt: "

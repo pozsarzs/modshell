@@ -268,29 +268,36 @@ BUILTIN COMMANDS
               are resized by the command.
 
               $$TXARRAY:
-              [0]  delimiter [$, #, %, @]
-              [1]  command
-              [2]  input data
-              [3]  checksum enable/disable [1/0]
+                [0]  delimiter [$, #, %, @]
+                [1]  command
+                [2]  input data
+                [3]  checksum enable/disable [1/0]
 
               $$RXARRAY:
-              [0]  delimiter [!, ?, >]
-              [1]  command (non used)
-              [2]  output data
-              [3]  checksum, output data is correct or not [1/0]
+                [0]  delimiter [!, ?, >]
+                [1]  command (non used)
+                [2]  output data
+                [3]  checksum, output data is correct or not [1/0]
 
        mbgw con? con?
               Start internal Modbus slave/server for remote access own registers.
 
-       mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER
-              Converts Modbus register number to register type and address. Register num‐
-              ber  ([$]REGISTER_NUMBER)  must  be  1-9999,  10001-19999,  30001-39999 and
-              40001-49999.
+       mbconv n2a|a2n $ARRAY
+              Converts Modbus register type and address to register number.  The  command
+              takes  the  input  data from the $ARRAY array, the output data is placed in
+              the same variable array.
 
-       mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS
-              Converts Modbus register type and address  to  register  number.   Register
-              type  ($REGISTER_TYPE)  must  be coil, dinp, ireg and hreg. Address ([$]AD‐
-              DRESS) must be 0-9998.
+              Variables in the array:
+                [0]  register number;
+                [1]  register type;
+                [2]  address.
+
+              Register number:     1- 9999;
+                               10001-19999;
+                               30001-39999;
+                               40001-49999.
+              Register type:   coil; dinp; ireg; hreg.
+              Address:             0- 9998.
 
        mbmon [con?]
               Opens a simple serial monitor for decode  Modbus/ASCII  or  RTU  telegrams.

@@ -282,30 +282,41 @@ are resized by the command.
 .EX
 
 \fI$$TXARRAY\fP:
-[0]  delimiter [$, #, %, @]
-[1]  command
-[2]  input data
-[3]  checksum enable/disable [1/0]
+  [0]  delimiter [$, #, %, @]
+  [1]  command
+  [2]  input data
+  [3]  checksum enable/disable [1/0]
 
 \fI$$RXARRAY\fP:
-[0]  delimiter [!, ?, >]
-[1]  command (non used)
-[2]  output data
-[3]  checksum, output data is correct or not [1/0]
+  [0]  delimiter [!, ?, >]
+  [1]  command (non used)
+  [2]  output data
+  [3]  checksum, output data is correct or not [1/0]
 
 .EE
 .TP
 \fBmbgw\fP \fIcon?\fP \fIcon?\fP
 Start internal Modbus slave/server for remote access own registers.
 .TP
-\fBmbconv\fP \fI$TARGET_REGISTER_TYPE\fP \fI$TARGET_ADDRESS\fP \fI[$]REGISTER_NUMBER\fP
-Converts Modbus register number to register type and address. Register number
-(\fI[$]REGISTER_NUMBER\fP) must be 1-9999, 10001-19999, 30001-39999 and 40001-49999.
-.TP
-\fBmbconv\fP \fI$TARGET_NUMBER\fP \fI[$]REGISTER_TYPE\fP \fI[$]ADDRESS\fP
-Converts Modbus register type and address to register number.
-Register type (\fI$REGISTER_TYPE\fP) must be coil, dinp, ireg and hreg. Address
-(\fI[$]ADDRESS\fP) must be 0-9998.
+\fBmbconv\fP \fIn2a\fP|\fIa2n\fP \fI$ARRAY\fP
+Converts Modbus register type and address to register number. The command takes
+the input data from the \fI$ARRAY\fP array, the output data is placed in the same
+variable array.
+.EX
+
+Variables in the array:
+  [0]  register number;
+  [1]  register type;
+  [2]  address.
+
+Register number:     1- 9999;
+                 10001-19999; 
+                 30001-39999; 
+                 40001-49999. 
+Register type:   coil; dinp; ireg; hreg.
+Address:             0- 9998.
+
+.EE
 .TP
 \fBmbmon\fP \fI[con?]\fP
 Opens a simple serial monitor for decode Modbus/ASCII or RTU telegrams.

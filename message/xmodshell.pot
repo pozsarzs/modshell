@@ -749,6 +749,22 @@ msgstr ""
 msgid "Cannot create Modbus traffic log file!"
 msgstr ""
 
+#: frmmain.err62
+msgid "There is no value in the array cell: "
+msgstr ""
+
+#: frmmain.err63
+msgid "Wrong register number"
+msgstr ""
+
+#: frmmain.err64
+msgid "Wrong register type"
+msgstr ""
+
+#: frmmain.err65
+msgid "Wrong address"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""
@@ -1445,9 +1461,7 @@ msgid "mbmon [con?]"
 msgstr ""
 
 #: frmmain.usg123
-msgid ""
-"mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER\n"
-"  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS"
+msgid "mbconv n2a|a2n $ARRAY"
 msgstr ""
 
 #: frmmain.usg124
