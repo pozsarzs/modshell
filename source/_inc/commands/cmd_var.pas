@@ -17,6 +17,11 @@
   -------------------
   var
   var NAME [[$]VALUE]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |  x  |     |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // SET PREDEFINED VARIABLES

@@ -16,6 +16,11 @@
   p0         p1                p2
   ----------------------------------------------
   printcolor [$]FOREGROUND|255 [$]BACKGROUND|255
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |     |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'PRINTCOLOR'

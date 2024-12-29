@@ -17,6 +17,11 @@
   ---------------------
   mbconv n2a|a2n $ARRAY
 
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
+  p2 |     |     |  x  |     |     |     |
+
   Variables in the array:
   [0]  register number
   [1]  register type

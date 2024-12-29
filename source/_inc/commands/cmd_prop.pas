@@ -16,6 +16,15 @@
   p0   p1      p2     p3     p4      p5      p6
   ---------------------------------------------------
   prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |     |  x  |     |     |     |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
+  p3 |  x  |  x  |  x  |  x  |  x  |     |
+  p4 |  x  |  x  |  x  |  x  |  x  |     |
+  p5 |  x  |  x  |  x  |  x  |  x  |     |
+  p6 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 function cmd_prop(p1, p2, p3, p4, p5, p6: string): byte;

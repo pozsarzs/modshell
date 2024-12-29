@@ -13,17 +13,22 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0    p1
-  ---------------------------------------------------
+  p0    p1                          p2
+  ----------------------------------------------------------
   cd    [[$]PATH_AND_DIRECTORYNAME]
-  copy  [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME
+  copy  [$]PATH_AND_FILENAME        [$]NEW_PATH_AND_FILENAME
   del   [$]PATH_AND_FILENAME
   dir   [[$]PATH_AND_DIRECTORYNAME]
   exist [$]PATH_AND_FILENAME
   md    [$]PATH_AND_DIRECTORYNAME
   rd    [$]PATH_AND_DIRECTORYNAME
-  ren   [$]PATH_AND_FILENAME [$]NEW_FILENAME
+  ren   [$]PATH_AND_FILENAME        [$]NEW_FILENAME
   type  [$]PATH_AND_FILENAME
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |     |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // LIST DIRECTORY CONTENT

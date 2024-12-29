@@ -16,6 +16,10 @@
   p0      p1
   ----------------------------
   loadscr [$]PATH_AND_FILENAME
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'LOADSCR'

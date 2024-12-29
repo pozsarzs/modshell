@@ -18,6 +18,11 @@
   varr
   varr NAME
   varr NAME SIZE
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  -  |  -  |  -  |  -  |  +  |  -  |
+  p2 |  -  |  -  |  -  |  -  |  +  |  -  |
 }
 
 // CLEAR ALL VARIABLE ARRAYS

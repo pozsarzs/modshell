@@ -16,6 +16,10 @@
   p0        p1
   -----------------------
   sendmeth [chr|str|swap]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'SENDMETH'

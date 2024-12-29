@@ -16,6 +16,10 @@
   p0      p1
   --------------
   udpcons [dev?]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'UDPCONS'

@@ -16,6 +16,10 @@
   p0   p1
   -----------------
   help [[$]COMMAND]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'HELP'

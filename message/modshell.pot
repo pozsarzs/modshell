@@ -1259,7 +1259,8 @@ msgstr ""
 
 #: modshell:usg00
 msgid ""
-"copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
@@ -1296,7 +1297,7 @@ msgid ""
 msgstr ""
 
 #: modshell:usg06
-msgid "readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgid "readreg con? $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
 msgstr ""
 
 #: modshell:usg07
@@ -1336,7 +1337,7 @@ msgstr ""
 
 #: modshell:usg11
 msgid ""
-"writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"writereg con? $REGTYPE|coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
@@ -1354,7 +1355,7 @@ msgid "loadcfg [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: modshell:usg15
-msgid "expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgid "expreg [$]PATH_AND_FILENAME $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
 msgstr ""
 
 #: modshell:usg16
@@ -1435,7 +1436,7 @@ msgid "div $TARGET [$]VALUE1 [$]VALUE2"
 msgstr ""
 
 #: modshell:usg33
-msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
+msgid "dump [$REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS]"
 msgstr ""
 
 #: modshell:usg34
@@ -1591,7 +1592,7 @@ msgid "pow $TARGET [$]BASE [$]EXPONENT"
 msgstr ""
 
 #: modshell:usg69
-msgid "goto LABEL"
+msgid "goto [$]LABEL"
 msgstr ""
 
 #: modshell:usg70
@@ -1637,7 +1638,7 @@ msgid "pow2 $TARGET [$]EXPONENT"
 msgstr ""
 
 #: modshell:usg79
-msgid "ascii [dec|hex]"
+msgid "ascii [$NUMSYS|dec|hex]"
 msgstr ""
 
 #: modshell:usg80

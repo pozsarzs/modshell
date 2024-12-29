@@ -101,7 +101,7 @@ _First user test release_ will be with the following changes:
  - [x] commands `sercons`, `tcpcons`, `udpcons`: character-to-character or string sending, with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;  
  - [x] commands `serwrite`, `tcpwrite`, `udpwrite`: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo;
  - [x] DCON protocol support;  
- - [ ] keywords (coil, hreg, asc, hex, etc.) should also be specified from variables;
+ - [x] keywords (coil, hreg, asc, hex, etc.) should also be specified from variables;
  - [x] main menu for all consoles in GUI version;  
  - [x] Modbus register number/address converter utility (in your own scripting language);
  - [x] Number converter utility (in your own scripting language);

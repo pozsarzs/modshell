@@ -16,6 +16,10 @@
   p0        p1
   -----------------------
   inputmeth [an|hex|swap]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'INPUTMETH'

@@ -23,6 +23,16 @@
   set color   [$]FOREGROUND  [$]BACKGROUND [$]RECEIVEDTEXT [$]TRANSMITTEDTEXT [$]VARMON
   set project [$]PROJECTNAME
   set timeout [$]TIMEOUT
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
+  p2 |  x  |  x  |  x  |  x  |  x  |  x  |
+  p3 |  x  |  x  |  x  |  x  |  x  |  x  |
+  p4 |  x  |  x  |  x  |  x  |  x  |     |
+  p5 |  x  |  x  |  x  |  x  |  x  |     |
+  p6 |  x  |  x  |  x  |  x  |  x  |     |
+  p7 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'SET'

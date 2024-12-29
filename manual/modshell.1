@@ -174,7 +174,7 @@ Notes:
 Adds the two values or variables (\fI[$]VALUE1\fP \fI[$]VALUE2\fP)
 and the result is placed in \fI$TARGET\fP.
 .TP
-\fBavg\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP \fI[[$]VALUE3...6]\fP
+\fBavg\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP [\fI[$]VALUE3...6\fP]
 Calculates average of 2-5 numbers and the result is placed in \fI$TARGET\fP.
 .TP
 \fBconv\fP \fI$TARGET\fP \fI$FROM\fP|\fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fI$TO\fP|\fIbin\fP|\fIdec\fP|\fIhex\fP|\fIoct\fP \fI[$]VALUE\fP
@@ -268,12 +268,12 @@ the result is placed in \fI$TARGET\fP.
 
 .SS Communication commands
 .TP
-\fBcopyreg\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP \fIcon?\fP \fIcoil?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
+\fBcopyreg\fP \fIcon?\fP \fI$REGTYPE\fP|\fIdinp\fP|\fIcoil\fP \fIcon?\fP \fI$REGTYPE\fP|\fIcoil?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Copies logical data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
 \fICOUNT\fP must be between 0-9998.
 .TP
-\fBcopyreg\fP \fIcon?\fP \fIireg\fP|\fIhreg\fP \fIcon?\fP \fIhreg?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
+\fBcopyreg\fP \fIcon?\fP \fI$REGTYPE\fP|\fIireg\fP|\fIhreg\fP \fIcon?\fP \fI$REGTYPE\fP|\fIhreg?\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Copies numeral data between connections (\fIcon?\fP). Number of connection
 (\fIcon?\fP) must be between 0-7, register start \fIADDRESS\fP and the
 \fICOUNT\fP must be between 0-9998.
@@ -331,7 +331,7 @@ Number of connection (\fIcon?\fP) must be between 0-7.
 Start internal Modbus gateway for access other remote device's registers with
 different communication and/or protocol.
 .TP
-\fBreadreg\fP \fIcon?\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\f[$]ICOUNT\fP]
+\fBreadreg\fP \fIcon?\fP \fI$REGTYPE\fP|\fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\f[$]ICOUNT\fP]
 Reads one or more remote registers. Number of connection (\fIcon?\fP)
 must be between 0-7, register start \fIADDRESS\fP and the \fICOUNT\fP must be
 between 0-9998.
@@ -381,7 +381,7 @@ Number of device (\fIdev?\fP) must be between 0-7.
 \fBudpwrite\fP \fI[dev?]\fP \fI"MESSAGE"\fP
 Writes "MESSAGE" to network device with UDP. Number of device (\fIdev?\fP) must be between 0-7.
 .TP
-\fBwritereg\fP \fIcon?\fP \fIcoil\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
+\fBwritereg\fP \fIcon?\fP \fI$REGTYPE\fP|\fIcoil\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Writes data to one or more remote registers. Number of connection
 (\fIcon?\fP) must be between 0-7, register start ADDRESS and the count must be
 between 0-9998.
@@ -449,12 +449,12 @@ The specified parameter does not contain a path, the file will be saved in the
 project directory in the user's home directory (on DOS, in project directory
 in the program directory).
 .TP
-\fBapplog\fP \fI[$]LOGFILE\fP \fI$TEXT\fP \fI[$]LEVEL\fP \fI[[$]VALUE1]\fP ... \fI[[$]VALUE4]\fP
+\fBapplog\fP \fI[$]LOGFILE\fP \fI$TEXT\fP \fI[$]LEVEL\fP [\fI[$]VALUE1\fP] ... [\fI[$]VALUE4\fP]
 Appends a record to \fI$LOGFILE\fP. The record contains timestamp, message level and the
 text. The level can be 0-4: NOTE, MESSAGE, WARNING, ERROR, DEBUG. The text contains
 the level can contain $$1-$4 variables, these can be specified on the command line.
 .TP
-\fBapplog\fP \fI[$]LOGFILE\fP "TEXT\ $$1\ TEXT"\fP \fI[$]LEVEL\fP \fI[[$]VALUE1]\fP
+\fBapplog\fP \fI[$]LOGFILE\fP "TEXT\ $$1\ TEXT"\fP \fI[$]LEVEL\fP [\fI[$]VALUE1\fP]
 Appends a record to \fI$LOGFILE\fP. The record contains timestamp, message level and the
 text. The level can be 0-4: NOTE, MESSAGE, WARNING, ERROR, DEBUG. The text contains
 the level can contain $$1-$4 variables, these can be specified on the command line.
@@ -462,7 +462,7 @@ the level can contain $$1-$4 variables, these can be specified on the command li
 \fBexphis\fP \fI[$]PATH_AND_FILENAME\fP
 Exports command line history to a text file.
 .TP
-\fBexpreg\fP \fI[$]PATH_AND_FILENAME\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
+\fBexpreg\fP \fI[$]PATH_AND_FILENAME\fP \fI$REGTYPE\fP|\fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP]
 Exports content of the one or more registers to a text file in CSV, INI
 or XML format. The file format is specified by the destination file extension.
 If the file exists, it will overwrite or append the new data.
@@ -491,7 +491,7 @@ Clears content of an array.
 \fBarrfill\fP \fIARRAY\fP \fI[$]DATA\fP
 Fills an array with \fI[$]DATA\fP.
 .TP
-\fBascii\fP \fI[dec|hex]\fP
+\fBascii\fP \fI[$NUMSYS|dec|hex]\fP
 Shows ASCII table (0-127 characters) with decimal or hexadecimal numbers.
 .TP
 \fBbeep\fP
@@ -543,7 +543,7 @@ Jumps to specified label (only in script).
 Loop iteration (only in script). Increments \fI$VARIABLE\fP from \fI[$]VALUE1\fP to \fI[$]VALUE2\fP
 and does \fICOMMAND\fP.
 .TP
-\fBhelp\fP \fI[[$]COMMAND]\fP
+\fBhelp\fP [\fI[$]COMMAND\fP]
 Shows description or usage of the builtin commands.
 .TP
 \fBif\fP \fI[$]VALUE1\fP \fBRELATIONAL_SIGN\fP \fI[$]VALUE2\fP \fBthen\fP \fICOMMAND\fP
@@ -565,7 +565,7 @@ Clear \fI$VARIABLE\fP variable content.
 \fBmacro\fP \fINAME\fP \fIcommand with parameters\fP
 Make one-line macro.
 .TP
-\fBpause\fP \fI[[$]TIME]\fP
+\fBpause\fP [\fI[$]TIME\fP]
 Waits for a keystroke or specified time.
 .TP
 \fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP] [\fI-n\fP]
@@ -597,7 +597,7 @@ Value \fI255\fP sets color to default.
 Queries or changes send method for connection.
 Chr means char-to-char, str means string sending.
 .TP
-\fBsetarrsize\fP \fIARRAY\fP \fI[[$]SIZE]\fP
+\fBsetarrsize\fP \fIARRAY\fP [\fI[$]SIZE\fP]
 Sets size of an array.
 .TP
 \fBvar\fP
@@ -667,7 +667,7 @@ Performs the XOR operation between the two values or variables
 
 .SS Register handler commands
 .TP
-\fBdump\fP [\fI[dinp|coil|ireg|hreg] [$]ADDRESS\fP]
+\fBdump\fP [\fI$REGTYPE\fP|\fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP]
 Dumps one page register content from \fIADDRESS\fP in binary/hexadecimal format
 to a table.
 .TP
@@ -748,14 +748,14 @@ Converts string (\fI[$]VALUE\fP) to uppercase and the result is placed in \fI$TA
 
 .SS File and directory management system commands
 .TP
-\fBdir\fP \fI[[$]PATH_AND_DIRECTORYNAME]\fP
-Lists content of actual or \fI[[$]PATH_AND_DIRECTORYNAME]\fP directory.
+\fBdir\fP [\fI[$]PATH_AND_DIRECTORYNAME\fP]
+Lists content of actual or \fI[$]PATH_AND_DIRECTORYNAME\fP directory.
 .TP
 \fBcd\fP
 Gets name of the actual directory.
 .TP
-\fBcd\fP \fI[[$]PATH_AND_DIRECTORYNAME]\fP
-Changes actual directory to \fI[[$]PATH_AND_DIRECTORYNAME]\fP.
+\fBcd\fP [\fI[$]PATH_AND_DIRECTORYNAME\fP]
+Changes actual directory to \fI[$]PATH_AND_DIRECTORYNAME\fP.
 .TP
 \fBchkdevlock\fP \fI[$]DEVICE\fP
 Check \fI[$]DEVICE\fP device lock file.

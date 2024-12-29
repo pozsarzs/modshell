@@ -16,6 +16,10 @@
   p0    p1
   ----------
   mbsrv con?
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'MBSRW'

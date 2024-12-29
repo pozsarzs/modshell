@@ -16,7 +16,10 @@
   p0    p1
   ---------------
   pause [[$]TIME]
-  pause [[$]TIME]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'PAUSE'

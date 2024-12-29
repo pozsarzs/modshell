@@ -16,6 +16,13 @@
   p0   p1      p2                           p3                         p4
   -----------------------------------------------------------------------------
   conv $TARGET $NUMSYS_FROM|bin|dec|hex|oct $NUMSYS_TO|bin|dec|hex|oct [$]VALUE
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |     |  x  |     |     |     |
+  p2 |  x  |  x  |  x  |  x  |     |  x  |
+  p3 |  x  |  x  |  x  |  x  |     |  x  |
+  p4 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'CONV'

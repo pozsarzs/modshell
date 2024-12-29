@@ -17,6 +17,11 @@
   -----------------------
   varmon on|off
   varmon $VARIABLE on|off
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |     |     |     |     |  x  |
+  p2 |     |     |     |     |     |  x  |
 }
 
 // SHOW VARIABLE MONITOR

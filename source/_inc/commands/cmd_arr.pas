@@ -19,6 +19,11 @@
   arrfill     ARRAY [$]DATA
   getarrsize  ARRAY $TARGET
   setarrsize  ARRAY [$]SIZE
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |  x  |     |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // RETURN WITH ARRAY INDEX

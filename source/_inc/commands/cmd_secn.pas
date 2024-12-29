@@ -16,6 +16,10 @@
   p0     p1
   --------------
   sercons [dev?]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'SERCONS'

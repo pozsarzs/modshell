@@ -13,13 +13,17 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0   p1
+  p0       p1
   ------------------
   datatype [$]VALUE
 
   exit code: 0: string
              1: floating-point number
              2: integer number
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'DATATYPE'

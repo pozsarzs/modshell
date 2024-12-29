@@ -16,6 +16,10 @@
   p0       p1
   --------------------------
   echometh [off|an|hex|swap]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'ECHOMETH'

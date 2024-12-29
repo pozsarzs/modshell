@@ -169,6 +169,14 @@ msgstr "         Modbus regiszterszám/cím konverter"
 msgid "         specify the type of the value"
 msgstr "         az érték típusának megadása"
 
+#: frmmain.des125
+msgid "         read a byte from an I/O port"
+msgstr "         egy bájt olvasása az I/O portról"
+
+#: frmmain.des126
+msgid "         write a byte to an I/O port"
+msgstr "         egy bájt írása az I/O portra"
+
 #: frmmain.des13
 msgid "F2       save settings of device, protocol and connection"
 msgstr "F2       eszköz-, protokoll- és kapcsolatbeállítások mentése"
@@ -1279,11 +1287,13 @@ msgstr "Hetedik "
 
 #: frmmain.usg00
 msgid ""
-"copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"copyreg con? dinp|coil con? coil [$]CÍM [[$]MENNYISÉG]\n"
+"copyreg con? $REGTÍPUS|dinp|coil con? $REGTÍPUS|coil CÍM [MENNYISÉG]\n"
+"copyreg con? $REGTÍPUS|ireg|hreg con? $REGTÍPUS|hreg CÍM [MENNYISÉG]\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -1330,8 +1340,8 @@ msgstr ""
 "  print \"single\\ line\\ message\" [-n]"
 
 #: frmmain.usg06
-msgid "readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
-msgstr "readreg con? dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
+msgid "readreg con? $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr "readreg con? $REGTÍPUS|dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
 
 #: frmmain.usg07
 msgid ""
@@ -1441,11 +1451,11 @@ msgstr "getarrsize TÖMB $CÉL"
 
 #: frmmain.usg11
 msgid ""
-"writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"writereg con? $REGTYPE|coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"writereg con? coil|hreg [$]CÍM [[$]MENNYISÉG]\n"
+"writereg con? $REGTÍPUS|coil|hreg [$]CÍM [[$]MENNYISÉG]\n"
 "Megjegyzés:\n"
 "  - A '?' értéke 0-7 lehet."
 
@@ -1573,6 +1583,14 @@ msgstr ""
 "  - Az eredményt a kilépési kód hordozza:\n"
 "  0: karakterlánc, 1: lebegőpontos szám, 1: egész szám."
 
+#: frmmain.usg125
+msgid "ioread [$]BYTE [$]PORT"
+msgstr "ioread [$]BÁJT [$]PORT"
+
+#: frmmain.usg126
+msgid "iowrite [$]PORT [$]BYTE"
+msgstr "iowrite [$]PORT [$]BÁJT"
+
 #: frmmain.usg13
 msgid "savecfg [$]PATH_AND_FILENAME"
 msgstr "savecfg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
@@ -1582,9 +1600,11 @@ msgid "loadcfg [$]PATH_AND_FILENAME"
 msgstr "loadcfg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV"
 
 #: frmmain.usg15
-msgid "expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgid ""
+"expreg [$]PATH_AND_FILENAME $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
 msgstr ""
-"expreg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV dinp|coil|ireg|hreg [$]CÍM [[$]MENNYISÉG]"
+"expreg [$]ELÉRÉSI_ÚT_ÉS_FÁJLNÉV $REGTÍPUS|dinp|coil|ireg|hreg [$]CÍM "
+"[[$]MENNYISÉG]"
 
 #: frmmain.usg16
 msgid "exphis [$]PATH_AND_FILENAME"
@@ -1673,8 +1693,8 @@ msgid "div $TARGET [$]VALUE1 [$]VALUE2"
 msgstr "div $CÉL [$]ÉRTÉK1 [$]ÉRTÉK2"
 
 #: frmmain.usg33
-msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
-msgstr "dump [[dinp|coil|ireg|hreg] [$]CÍM]"
+msgid "dump [$REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS]"
+msgstr "dump [$REGTÍPUS|dinp|coil|ireg|hreg [$]CÍM]"
 
 #: frmmain.usg34
 msgid "pause [[$]TIME]"
@@ -1841,8 +1861,8 @@ msgid "pow $TARGET [$]BASE [$]EXPONENT"
 msgstr "pow $CÉL [$]ALAP [$]KITEVŐ"
 
 #: frmmain.usg69
-msgid "goto LABEL"
-msgstr "goto CÍMKE"
+msgid "goto [$]LABEL"
+msgstr "goto [$]CÍMKE"
 
 #: frmmain.usg70
 msgid "if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND"
@@ -1893,8 +1913,8 @@ msgid "pow2 $TARGET [$]EXPONENT"
 msgstr "pow2 $CÉL [$]KITEVŐ"
 
 #: frmmain.usg79
-msgid "ascii [dec|hex]"
-msgstr "ascii [dec|hex]"
+msgid "ascii [$NUMSYS|dec|hex]"
+msgstr "ascii [$SZÁMRENDSZER|dec|hex]"
 
 #: frmmain.usg80
 msgid "beep"

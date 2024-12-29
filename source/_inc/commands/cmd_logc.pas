@@ -24,6 +24,12 @@
   shl  $TARGET [$]VALUE1 [$]VALUE2
   shr  $TARGET [$]VALUE1 [$]VALUE2
   xor  $TARGET [$]VALUE1 [$]VALUE2
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |     |  x  |     |     |     |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
+  p3 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // return with value of the specified bit (LSB)

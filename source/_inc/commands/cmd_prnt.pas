@@ -19,6 +19,13 @@
   print $VARIABLE                    [-n]
   print "Hello\ world!"              [-n]
   print "^[1;31mHello\ world!^[1;0m" [-n]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |  x  |
+  p2 |  x  |  x  |  x  |  x  |  x  |  x  |
+  p3 |  x  |  x  |  x  |  x  |  x  |     |
+  p4 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'PRINT'

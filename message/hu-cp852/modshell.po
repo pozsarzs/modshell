@@ -1277,13 +1277,23 @@ msgstr "         Modbus regisztersz†m/c°m konverter"
 msgid "         specify the type of the value"
 msgstr "         az ÇrtÇk t°pus†nak megad†sa"
 
+#: modshell:des125
+msgid "         read a byte from an I/O port"
+msgstr "         egy b†jt olvas†sa az I/O portr¢l"
+
+#: modshell:des126
+msgid "         write a byte to an I/O port"
+msgstr "         egy b†jt °r†sa az I/O portra"
+
 #: modshell:usg00
 msgid ""
-"copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"copyreg con? dinp|coil con? coil [$]C÷M [[$]MENNYISêG]\n"
+"copyreg con? $REGT÷PUS|dinp|coil con? $REGT÷PUS|coil C÷M [MENNYISêG]\n"
+"copyreg con? $REGT÷PUS|ireg|hreg con? $REGT÷PUS|hreg C÷M [MENNYISêG]\n"
 "MegjegyzÇs:\n"
 "  - A '?' ÇrtÇke 0-7 lehet."
 
@@ -1330,8 +1340,8 @@ msgstr ""
 "  print \"single\\ line\\ message\" [-n]"
 
 #: modshell:usg06
-msgid "readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
-msgstr "readreg con? dinp|coil|ireg|hreg [$]C÷M [[$]MENNYISêG]"
+msgid "readreg con? $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgstr "readreg con? $REGT÷PUS|dinp|coil|ireg|hreg [$]C÷M [[$]MENNYISêG]"
 
 #: modshell:usg07
 msgid ""
@@ -1389,11 +1399,11 @@ msgstr "ver"
 
 #: modshell:usg11
 msgid ""
-"writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"writereg con? $REGTYPE|coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
-"writereg con? coil|hreg [$]C÷M [[$]MENNYISêG]\n"
+"writereg con? $REGT÷PUS|coil|hreg [$]C÷M [[$]MENNYISêG]\n"
 "MegjegyzÇs:\n"
 "  - A '?' ÇrtÇke 0-7 lehet."
 
@@ -1410,9 +1420,11 @@ msgid "loadcfg [$]PATH_AND_FILENAME"
 msgstr "loadcfg [$]ELêRêSI_ÈT_êS_FµJLNêV"
 
 #: modshell:usg15
-msgid "expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgid ""
+"expreg [$]PATH_AND_FILENAME $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
 msgstr ""
-"expreg [$]ELêRêSI_ÈT_êS_FµJLNêV dinp|coil|ireg|hreg [$]C÷M [[$]MENNYISêG]"
+"expreg [$]ELêRêSI_ÈT_êS_FµJLNêV $REGT÷PUS|dinp|coil|ireg|hreg [$]C÷M "
+"[[$]MENNYISêG]"
 
 #: modshell:usg16
 msgid "exphis [$]PATH_AND_FILENAME"
@@ -1501,8 +1513,8 @@ msgid "div $TARGET [$]VALUE1 [$]VALUE2"
 msgstr "div $CêL [$]êRTêK1 [$]êRTêK2"
 
 #: modshell:usg33
-msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
-msgstr "dump [[dinp|coil|ireg|hreg] [$]C÷M]"
+msgid "dump [$REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS]"
+msgstr "dump [$REGT÷PUS|dinp|coil|ireg|hreg [$]C÷M]"
 
 #: modshell:usg34
 msgid "pause [[$]TIME]"
@@ -1669,8 +1681,8 @@ msgid "pow $TARGET [$]BASE [$]EXPONENT"
 msgstr "pow $CêL [$]ALAP [$]KITEVä"
 
 #: modshell:usg69
-msgid "goto LABEL"
-msgstr "goto C÷MKE"
+msgid "goto [$]LABEL"
+msgstr "goto [$]C÷MKE"
 
 #: modshell:usg70
 msgid "if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND"
@@ -1721,8 +1733,8 @@ msgid "pow2 $TARGET [$]EXPONENT"
 msgstr "pow2 $CêL [$]KITEVä"
 
 #: modshell:usg79
-msgid "ascii [dec|hex]"
-msgstr "ascii [dec|hex]"
+msgid "ascii [$NUMSYS|dec|hex]"
+msgstr "ascii [$SZµMRENDSZER|dec|hex]"
 
 #: modshell:usg80
 msgid "beep"
@@ -1998,6 +2010,23 @@ msgstr ""
 "  - Az eredmÇnyt a kilÇpÇsi k¢d hordozza:\n"
 "  0: karakterl†nc, 1: lebegãpontos sz†m, 1: egÇsz sz†m."
 
+#: modshell:usg125
+msgid "ioread [$]BYTE [$]PORT"
+msgstr "ioread [$]BµJT [$]PORT"
+
+#: modshell:usg126
+msgid "iowrite [$]PORT [$]BYTE"
+msgstr "iowrite [$]PORT [$]BµJT"
+
+#~ msgid ""
+#~ "copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+#~ "Notes:\n"
+#~ "  - The '?' value can be 0-7."
+#~ msgstr ""
+#~ "copyreg con? dinp|coil con? coil [$]C÷M [[$]MENNYISêG]\n"
+#~ "MegjegyzÇs:\n"
+#~ "  - A '?' ÇrtÇke 0-7 lehet."
+
 #~ msgid ""
 #~ "mbconv $TARGET_REGISTER_TYPE $TARGET_ADDRESS [$]REGISTER_NUMBER\n"
 #~ "  mbconv $TARGET_NUMBER [$]REGISTER_TYPE [$]ADDRESS"
@@ -2041,15 +2070,6 @@ msgstr ""
 #~ "let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE\n"
 #~ "MegjegyzÇs:\n"
 #~ "  - A '$' jel jelzi, hogy ez v†ltoz¢ Çs nem kîzvetlen ÇrtÇk."
-
-#~ msgid ""
-#~ "copy con? dinp|coil con? coil ADDRESS [COUNT]\n"
-#~ "  copy con? ireg|hreg con? hreg ADDRESS [COUNT]\n"
-#~ "  ?: [0-7]"
-#~ msgstr ""
-#~ "copy con? dinp|coil con? coil C÷M [MENNYISêG]\n"
-#~ "  copy con? ireg|hreg con? hreg C÷M [MENNYISêG]\n"
-#~ "  ?: [0-7]"
 
 #~ msgid "let dinp|coil|ireg|hreg ADDRESS|$VARIABLE VALUE|$VARIABLE"
 #~ msgstr "let dinp|coil|ireg|hreg C÷M|$VµLTOZ‡ êRTêK|$VµLTOZ‡"

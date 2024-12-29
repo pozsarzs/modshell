@@ -17,6 +17,11 @@
   -----------------------
   ioread  [$]BYTE [$]PORT
   iowrite [$]PORT [$]BYTE
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |     |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // DIRECT I/O ACCESS COMMANDS  

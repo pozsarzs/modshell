@@ -13,9 +13,14 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0   p1                   p2
-  -------------------------------------
-  dump [dinp|coil|ireg|hreg [$]ADDRESS]
+  p0   p1                            p2
+  ----------------------------------------------
+  dump [$REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |     |  x  |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'DUMP'
@@ -27,6 +32,7 @@ var
   i2: integer = 0; // parameter in other type
   s: string;
   {$IFDEF X} ss: string; {$ENDIF}
+  s1: string = ''; // parameter in other type
   s2: string = ''; // parameter in other type
   rt: byte; // register type
   valid: boolean = false;
@@ -67,8 +73,13 @@ begin
   end else
   begin
     // CHECK P1 PARAMETER
+    if boolisitconstant(p1) then s1 := isitconstant(p1);
+    if boolisitvariable(p1) then s1 := isitvariable(p1);
+    if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
+    if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
+    if length(s1) = 0 then s1 := p1;
     for rt := 0 to 3 do
-      if REG_TYPE[rt] = p1 then
+      if REG_TYPE[rt] = s1 then
       begin
         valid := true;
         break;

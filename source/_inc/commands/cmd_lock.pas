@@ -17,6 +17,10 @@
   --------------------
   chkdevlock [$]DEVICE
   rmdevlock  [$]DEVICE
+  
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'chkdevlock'

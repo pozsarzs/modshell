@@ -40,6 +40,13 @@
   sqrt    $TARGET   [$]VALUE
   sub     $TARGET   [$]VALUE1   [$]VALUE2
   tan     $TARGET   [$]VALUE
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |     |  x  |     |     |     |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
+  p3 |  x  |  x  |  x  |  x  |  x  |     |
+  p4 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // MATHEMATICAL OPERATIONS

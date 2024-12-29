@@ -13,9 +13,16 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0       p1   p2        p3         p4
-  ---------------------------------------------
-  writereg con? coil|hreg [$]ADDRESS [[$]COUNT]
+  p0       p1   p2                 p3         p4
+  ------------------------------------------------------
+  writereg con? $REGTYPE|coil|hreg [$]ADDRESS [[$]COUNT]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
+  p2 |  x  |  x  |  x  |  x  |     |  x  |
+  p3 |  x  |  x  |  x  |  x  |  x  |     |
+  p4 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'WRITEREG'
@@ -24,7 +31,7 @@ var
   i1, i3, i4: integer; // parameters other type
   rt: byte = 1; // register type
   s: string;
-  s1, s3, s4: string; // parameters in other type
+  s1, s2, s3, s4: string; // parameters in other type
   valid: boolean = false;
 begin
   result := 0;
@@ -68,9 +75,14 @@ begin
     exit;
   end;
   // CHECK P2 PARAMETER
+  if boolisitconstant(p2) then s2 := isitconstant(p2);
+  if boolisitvariable(p2) then s2 := isitvariable(p2);
+  if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+  if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+  if length(s2) = 0 then s2 := p2;
   while rt < 4 do
   begin
-    if REG_TYPE[rt] = p2 then
+    if REG_TYPE[rt] = s2 then
     begin
       valid := true;
       break;

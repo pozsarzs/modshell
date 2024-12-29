@@ -16,6 +16,14 @@
   p0  p1       p2              p3        p4   p5
   ---------------------------------------------------
   if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |     |
+  p2 |     |     |     |     |     |  x  |
+  p3 |  x  |  x  |  x  |  x  |  x  |     |
+  p4 |     |     |     |     |     |  x  |
+  p5 |     |     |     |     |  x  |     |
 }
 
 // COMMAND 'IF'

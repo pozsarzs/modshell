@@ -16,6 +16,10 @@
   p0  p1
   ----------------------------------
   get dev?|pro?|con?|project|timeout
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'GET'

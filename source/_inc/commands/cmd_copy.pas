@@ -13,10 +13,19 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0      p1   p2        p3   p4   p5         p6
-  ------------------------------------------------------
-  copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]
-  copyreg con? ireg|hreg con? hreg [$]ADDRESS [[$]COUNT]
+  p0      p1   p2                 p3   p4            p5         p6
+  ------------------------------------------------------------------------
+  copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]
+  copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg [$]ADDRESS [[$]COUNT]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
+  p2 |  x  |  x  |  x  |  x  |     |  x  |
+  p3 |     |     |     |     |     |  x  |
+  p4 |  x  |  x  |  x  |  x  |     |  x  |
+  p5 |  x  |  x  |  x  |  x  |  x  |     |
+  p6 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'COPYREG'
@@ -25,7 +34,7 @@ var
   i1, i3, i5, i6: integer; // parameters in other type
   rt: byte; // register type
   s: string;
-  s1, s3, s5, s6: string; // parameters in other type
+  s1, s2, s3, s4, s5, s6: string; // parameters in other type
   valid: boolean = false;
 begin
   result := 0;
@@ -70,8 +79,16 @@ begin
     exit;
   end;
   // CHECK P2 PARAMETER
+  if (length(p2) > 0) then
+  begin
+    if boolisitconstant(p2) then s2 := isitconstant(p2);
+    if boolisitvariable(p2) then s2 := isitvariable(p2);
+    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    if length(s2) = 0 then s2 := p2;
+  end;
   for rt := 0 to 3 do
-    if REG_TYPE[rt] = p2 then
+    if REG_TYPE[rt] = s2 then
     begin
       valid := true;
       break;
@@ -118,12 +135,20 @@ begin
   end;
   valid := false;
   // CHECK P4 PARAMETER
+  if (length(p4) > 0) then
+  begin
+    if boolisitconstant(p4) then s4 := isitconstant(p4);
+    if boolisitvariable(p4) then s4 := isitvariable(p4);
+    if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
+    if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
+    if length(s4) = 0 then s4 := p4;
+  end;
   if rt <= 1 then
   begin
-    if REG_TYPE[1] = p4 then valid := true
+    if REG_TYPE[1] = s4 then valid := true
   end else
   begin
-    if REG_TYPE[3] = p4 then valid := true;
+    if REG_TYPE[3] = s4 then valid := true;
   end;
   if not valid then
   begin

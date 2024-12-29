@@ -16,6 +16,10 @@
   p0     p1
   ---------------------------
   exphis [$]PATH_AND_FILENAME
+  
+     | var |const|varr |carr |text |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'EXPHIS'

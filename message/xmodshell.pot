@@ -153,6 +153,14 @@ msgstr ""
 msgid "         specify the type of the value"
 msgstr ""
 
+#: frmmain.des125
+msgid "         read a byte from an I/O port"
+msgstr ""
+
+#: frmmain.des126
+msgid "         write a byte to an I/O port"
+msgstr ""
+
 #: frmmain.des13
 msgid "F2       save settings of device, protocol and connection"
 msgstr ""
@@ -1250,7 +1258,8 @@ msgstr ""
 
 #: frmmain.usg00
 msgid ""
-"copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]\n"
+"copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
@@ -1287,7 +1296,7 @@ msgid ""
 msgstr ""
 
 #: frmmain.usg06
-msgid "readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgid "readreg con? $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
 msgstr ""
 
 #: frmmain.usg07
@@ -1373,7 +1382,7 @@ msgstr ""
 
 #: frmmain.usg11
 msgid ""
-"writereg con? coil|hreg [$]ADDRESS [[$]COUNT]\n"
+"writereg con? $REGTYPE|coil|hreg [$]ADDRESS [[$]COUNT]\n"
 "Notes:\n"
 "  - The '?' value can be 0-7."
 msgstr ""
@@ -1472,6 +1481,14 @@ msgid ""
 "  0: string, 1: floating-point value, 1: integer value."
 msgstr ""
 
+#: frmmain.usg125
+msgid "ioread [$]BYTE [$]PORT"
+msgstr ""
+
+#: frmmain.usg126
+msgid "iowrite [$]PORT [$]BYTE"
+msgstr ""
+
 #: frmmain.usg13
 msgid "savecfg [$]PATH_AND_FILENAME"
 msgstr ""
@@ -1481,7 +1498,7 @@ msgid "loadcfg [$]PATH_AND_FILENAME"
 msgstr ""
 
 #: frmmain.usg15
-msgid "expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
+msgid "expreg [$]PATH_AND_FILENAME $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]"
 msgstr ""
 
 #: frmmain.usg16
@@ -1562,7 +1579,7 @@ msgid "div $TARGET [$]VALUE1 [$]VALUE2"
 msgstr ""
 
 #: frmmain.usg33
-msgid "dump [[dinp|coil|ireg|hreg] [$]ADDRESS]"
+msgid "dump [$REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS]"
 msgstr ""
 
 #: frmmain.usg34
@@ -1718,7 +1735,7 @@ msgid "pow $TARGET [$]BASE [$]EXPONENT"
 msgstr ""
 
 #: frmmain.usg69
-msgid "goto LABEL"
+msgid "goto [$]LABEL"
 msgstr ""
 
 #: frmmain.usg70
@@ -1764,7 +1781,7 @@ msgid "pow2 $TARGET [$]EXPONENT"
 msgstr ""
 
 #: frmmain.usg79
-msgid "ascii [dec|hex]"
+msgid "ascii [$NUMSYS|dec|hex]"
 msgstr ""
 
 #: frmmain.usg80

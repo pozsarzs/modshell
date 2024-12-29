@@ -16,6 +16,15 @@
   p0  p1        p2        p3 p4        p5 p6
   -----------------------------------------------
   for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND  
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |     |     |     |     |     |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
+  p3 |     |     |     |     |     |  x  |
+  p4 |  x  |  x  |  x  |  x  |  x  |     |
+  p5 |     |     |     |     |     |  x  |
+  p6 |     |     |     |     |  x  |     |
 }
 
 // COMMAND 'FOR'

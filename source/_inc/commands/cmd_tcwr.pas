@@ -17,6 +17,11 @@
   -----------------------
   tcpwrite dev? "MESSAGE"
   tcpwrite dev? $MESSAGE
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'TCPWRITE'

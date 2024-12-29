@@ -23,6 +23,12 @@
   let $VARARRAY[NUM]      NUL
   let $CONSTARRAY[NUM]    [$]VALUE
   let $VARIABLE           dinp|coil|ireg|hreg [$]ADDRESS
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |     |  x  |
+  p2 |  x  |  x  |  x  |  x  |  x  |  x  |
+  p3 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'LET'

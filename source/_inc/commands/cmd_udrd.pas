@@ -16,6 +16,11 @@
   p0      p1   p2
   -----------------------
   udpread dev? [$TARGET]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
+  p2 |  x  |     |  x  |     |     |     |
 }
 
 // COMMAND 'UDPREAD'

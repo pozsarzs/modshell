@@ -16,6 +16,11 @@
   p0   p1   p2
   --------------
   mbgw con? con?
+
+     | var |const|varr |carr |text |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
+  p2 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'MBGW'

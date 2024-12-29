@@ -16,6 +16,10 @@
   p0   p1
   --------------
   date [$TARGET]
+  
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |     |  x  |     |     |     |
 }
 
 // COMMAND 'DATE'

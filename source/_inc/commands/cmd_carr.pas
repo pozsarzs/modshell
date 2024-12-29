@@ -18,6 +18,11 @@
   carr
   carr NAME
   carr NAME SIZE
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |  x  |     |
+  p2 |     |     |     |     |  x  |     |
 }
 
 // CLEAR ALL CONSTANT ARRAYS

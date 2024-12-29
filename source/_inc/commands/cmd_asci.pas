@@ -14,9 +14,13 @@
 }
 {
   p0    p1 
-  ---------------
+  -----------------------
   ascii 
-  ascii [dec|hex] 
+  ascii $NUMSYS|[dec|hex] 
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |     |  x  |
 }
 
 // COMMAND 'ASCII'
@@ -26,6 +30,7 @@ var
   col, row: byte;
   ns: byte = 2;
   s: string = '';
+  s1: string; // parameter in other type
   valid: boolean;
 const
   SPC2 = '  ';
@@ -37,9 +42,14 @@ begin
   if (length(p1) > 0) then
   begin
     // CHECK P1 PARAMETER
+    if boolisitconstant(p1) then s1 := isitconstant(p1);
+    if boolisitvariable(p1) then s1 := isitvariable(p1);
+    if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
+    if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
+    if length(s1) = 0 then s1 := p1;
     valid := false;
     for ns := 1 to 2 do
-    if NUM_SYS[ns] = p1 then
+    if NUM_SYS[ns] = s1 then
     begin
       valid := true;
       break;

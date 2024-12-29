@@ -16,6 +16,10 @@
   p0      p1
   --------------
   mbmon   [con?]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'MBMON'

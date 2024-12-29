@@ -17,6 +17,12 @@
   ---------------------------
   dcon con? $TXARRAY $RXARRAY
 
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
+  p2 |     |     |  x  |     |     |     |
+  p3 |     |     |  x  |     |     |     |
+
   $TXARRAY:
   [0]  delimiter [$, #, %, @]
   [1]  command

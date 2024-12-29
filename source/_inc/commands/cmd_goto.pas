@@ -14,8 +14,12 @@
 }
 {
   p0   p1
-  ----------
-  goto LABEL
+  -------------
+  goto [$]LABEL
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // COMMAND 'GOTO'

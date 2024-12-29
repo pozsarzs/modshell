@@ -16,6 +16,10 @@
   p0    p1  
   ----------
   label NAME
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |  x  |     |
 }
 
 // COMMAND 'LABEL'

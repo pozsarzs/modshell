@@ -16,6 +16,10 @@
   p0      p1
   --------------
   tcpcons [dev?]
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'TCPCONS'

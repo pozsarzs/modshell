@@ -113,6 +113,11 @@ OPERATION
        and received data can be turned off or raw text and hexadecimal viewing can be se‐
        lected.
 
+   Direct I/O access
+       The program provides direct, byte-sized reading and writing of hardware I/O ports.
+       On Windows operating systems, it uses the included external dynamically linked li‐
+       brary.
+
 PREDEFINED CONSTANTS
        $?     Exit value of the commands.
 
@@ -251,12 +256,12 @@ BUILTIN COMMANDS
               Calculates tangent of [$]VALUE and the result is placed in $TARGET.
 
    Communication commands
-       copyreg con? dinp|coil con? coil? [$]ADDRESS [[$]COUNT]
+       copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil? [$]ADDRESS [[$]COUNT]
               Copies logical data between connections (con?). Number of connection (con?)
               must be between 0-7, register start ADDRESS and the COUNT must  be  between
               0-9998.
 
-       copyreg con? ireg|hreg con? hreg? [$]ADDRESS [[$]COUNT]
+       copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg? [$]ADDRESS [[$]COUNT]
               Copies numeral data between connections (con?). Number of connection (con?)
               must be between 0-7, register start ADDRESS and the COUNT must  be  between
               0-9998.
@@ -308,7 +313,7 @@ BUILTIN COMMANDS
               Start internal Modbus gateway for access other  remote  device's  registers
               with different communication and/or protocol.
 
-       readreg con? dinp|coil|ireg|hreg [$]ADDRESS [ICOUNT]
+       readreg con? $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [ICOUNT]
               Reads  one  or  more remote registers. Number of connection (con?)  must be
               between 0-7, register start ADDRESS and the COUNT must be between 0-9998.
 
@@ -360,7 +365,7 @@ BUILTIN COMMANDS
               Writes  "MESSAGE"  to network device with UDP. Number of device (dev?) must
               be between 0-7.
 
-       writereg con? coil|hreg [$]ADDRESS [[$]COUNT]
+       writereg con? $REGTYPE|coil|hreg [$]ADDRESS [[$]COUNT]
               Writes data to one or more remote registers. Number  of  connection  (con?)
               must  be  between 0-7, register start ADDRESS and the count must be between
               0-9998.
@@ -440,7 +445,7 @@ BUILTIN COMMANDS
        exphis [$]PATH_AND_FILENAME
               Exports command line history to a text file.
 
-       expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
+       expreg [$]PATH_AND_FILENAME $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]
               Exports  content of the one or more registers to a text file in CSV, INI or
               XML format. The file format is specified by the destination file extension.
               If the file exists, it will overwrite or append the new data.
@@ -468,7 +473,7 @@ BUILTIN COMMANDS
        arrfill ARRAY [$]DATA
               Fills an array with [$]DATA.
 
-       ascii [dec|hex]
+       ascii [$NUMSYS|dec|hex]
               Shows ASCII table (0-127 characters) with decimal or hexadecimal numbers.
 
        beep   Make a beep.
@@ -633,7 +638,7 @@ BUILTIN COMMANDS
               [$]VALUE2) and the result is placed in $TARGET.
 
    Register handler commands
-       dump [[dinp|coil|ireg|hreg] [$]ADDRESS]
+       dump [$REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS]
               Dumps one page register content from ADDRESS in  binary/hexadecimal  format
               to a table.
 
@@ -713,12 +718,12 @@ BUILTIN COMMANDS
 
    File and directory management system commands
        dir [[$]PATH_AND_DIRECTORYNAME]
-              Lists content of actual or [[$]PATH_AND_DIRECTORYNAME] directory.
+              Lists content of actual or [$]PATH_AND_DIRECTORYNAME directory.
 
        cd     Gets name of the actual directory.
 
        cd [[$]PATH_AND_DIRECTORYNAME]
-              Changes actual directory to [[$]PATH_AND_DIRECTORYNAME].
+              Changes actual directory to [$]PATH_AND_DIRECTORYNAME.
 
        chkdevlock [$]DEVICE
               Check [$]DEVICE device lock file.
@@ -731,6 +736,12 @@ BUILTIN COMMANDS
 
        exist [$]PATH_AND_FILENAME
               Existence of [$]PATH_AND_FILENAME file or directory.
+
+       ioread [$]BYTE [$]PORT
+              Read a byte from an I/O port.
+
+       iowrite [$]PORT [$]BYTE
+              Write a byte to an I/O port.
 
        md [$]PATH_AND_DIRECTORYNAME
               Makes a directory.

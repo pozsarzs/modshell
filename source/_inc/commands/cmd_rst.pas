@@ -16,6 +16,10 @@
   p0    p1
   ----------------------------
   reset dev?|pro?|con?|project
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |     |  x  |
 }
 
 // COMMAND 'RESET'

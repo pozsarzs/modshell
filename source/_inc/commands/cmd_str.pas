@@ -28,6 +28,12 @@
   stritem $TARGET [$]VALUE1 [$]VALUE2
   strrepl $TARGET [$]OLD    [$]NEW
   upcase  $TARGET [$]VALUE
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |  x  |     |  x  |     |     |     |
+  p2 |  x  |  x  |  x  |  x  |  x  |     |
+  p3 |  x  |  x  |  x  |  x  |  x  |     |
 }
 
 // IF IT IS A MESSAGE, IT RETURNS ITS VALUE

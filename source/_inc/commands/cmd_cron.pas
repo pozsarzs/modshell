@@ -13,10 +13,16 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0   p1       p2     p3
-  -------------------------
+  p0   p1       p2       p3
+  ---------------------------
   cron [-r      rec_num]
-  cron rec_num  minute hour
+  cron rec_num  minute   hour
+
+     | var |const|varr |carr |data |keyw.|
+  ---+-----+-----+-----+-----+-----+-----+
+  p1 |     |     |     |     |  x  |  x  |
+  p2 |     |     |     |     |  x  |     |
+  p3 |     |     |     |     |  x  |     |
 }
 
 // SCRIPT RUN SCHEDULER

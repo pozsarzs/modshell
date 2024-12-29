@@ -334,7 +334,8 @@ resourcestring
   DES125='         read a byte from an I/O port';  
   DES126='         write a byte to an I/O port';  
   // COMMAND USAGE
-  USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
+  USG00='copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]' + EOL +
+        'copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG01='exit';
@@ -350,7 +351,7 @@ resourcestring
   USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]' + EOL +
         '  print $VARIABLE [-n]' + EOL +
         '  print "single\ line\ message" [-n]';
-  USG06='readreg con? dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
+  USG06='readreg con? $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
   USG07='reset dev?|pro?|con?|project' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
@@ -372,13 +373,13 @@ resourcestring
         '      3: cyan   7: lightgray  11: lightcyan   15: white';
   USG09='date [$TARGET]';
   USG10='ver';
-  USG11='writereg con? coil|hreg [$]ADDRESS [[$]COUNT]' + EOL +
+  USG11='writereg con? $REGTYPE|coil|hreg [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
         '  - The ''?'' value can be 0-7.';
   USG12='cls';
   USG13='savecfg [$]PATH_AND_FILENAME';
   USG14='loadcfg [$]PATH_AND_FILENAME';
-  USG15='expreg [$]PATH_AND_FILENAME dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
+  USG15='expreg [$]PATH_AND_FILENAME $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
   USG16='exphis [$]PATH_AND_FILENAME';
   USG17='conv $TARGET $FROM|bin|dec|hex|oct $TO|bin|dec|hex|oct [$]VALUE';
   USG18='savereg [$]PATH_AND_FILENAME';
@@ -403,7 +404,7 @@ resourcestring
   USG30='sub $TARGET [$]VALUE1 [$]VALUE2';
   USG31='mul $TARGET [$]VALUE1 [$]VALUE2';
   USG32='div $TARGET [$]VALUE1 [$]VALUE2';
-  USG33='dump [[dinp|coil|ireg|hreg] [$]ADDRESS]';
+  USG33='dump [$REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS]';
   USG34='pause [[$]TIME]';
   USG35='sercons [dev?]' + EOL +
         'Notes:' + EOL +
@@ -447,7 +448,7 @@ resourcestring
         '  const NAME [[$]VALUE]';
   USG67='bit $TARGET [$]VALUE1 [$]VALUE2';
   USG68='pow $TARGET [$]BASE [$]EXPONENT';
-  USG69='goto LABEL';
+  USG69='goto [$]LABEL';
   USG70='if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND';
   USG71='for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND';
   USG72='label NAME';
@@ -461,7 +462,7 @@ resourcestring
   USG76='mklrc $TARGET [$]STRING';
   USG77='mkcrc $TARGET [$]STRING';
   USG78='pow2 $TARGET [$]EXPONENT';
-  USG79='ascii [dec|hex]';
+  USG79='ascii [$NUMSYS|dec|hex]';
   USG80='beep';
   USG81='avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]';
   USG82='prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE';
