@@ -18,7 +18,7 @@
 unit ucommon;
 interface
 uses
-  {$IFDEF WINDOWS} windows, {$ENDIF}
+  {$IFDEF WINDOWS} Windows, {$ENDIF}
   crt,
   dos,
   math,

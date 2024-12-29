@@ -19,6 +19,8 @@
 unit frmmain;
 interface
 uses
+  {$IFDEF UNIX} ports, {$ENDIF}
+  {$IFDEF WINDOWS} Windows, {$ENDIF}
   BlckSock,
   Classes,
   ColorBox,
@@ -36,7 +38,6 @@ uses
   StdCtrls,
   SynEdit,
   SysUtils,
-  {$IFDEF WINDOWS} Windows, {$ENDIF}
   convert,
   crt,
   dom,
@@ -319,10 +320,16 @@ procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
+{$IFDEF UNIX}
+  function ioperm(from: Cardinal; num: Cardinal; turn_on: Integer): Integer;
+           cdecl; external 'libc';
+{$ENDIF}
+
 {$I lockfile.pas}
 {$I validity.pas}
 {$I verbosity.pas}
 
+{$I io.pas}
 {$I network.pas}
 {$I serport.pas}
 

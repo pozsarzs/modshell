@@ -19,13 +19,14 @@ program modshell;
 uses
   {$IFDEF GO32V2} protcom, {$ELSE} synaser, {$ENDIF}
   {$IFDEF GO32V2} {$ELSE} BlckSock, {$ENDIF}
+  {$IFDEF UNIX} ports, {$ENDIF}
+  {$IFDEF WINDOWS} Windows, {$ENDIF}
   Classes,
   GetText,
   INIFiles,
   Math,
   Strings,
   SysUtils,
-  {$IFDEF WINDOWS} Windows, {$ENDIF}
   convert,
   crt,
   dom,
@@ -68,11 +69,17 @@ procedure interpreter(f: string); forward;
 procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
+{$IFDEF UNIX}
+  function ioperm(from: Cardinal; num: Cardinal; turn_on: Integer): Integer;
+           cdecl; external 'libc';
+{$ENDIF}
+
 {$IFDEF UNIX}{$I lockfile.pas}{$ENDIF}
 
 {$I validity.pas}
 {$I verbosity.pas}
 
+{$I io.pas}
 {$I network.pas}
 {$I serport.pas}
 
