@@ -359,6 +359,7 @@ procedure version(h: boolean); forward;
 {$I cmd_hart.pas}
 {$I cmd_help.pas}
 {$I cmd_if.pas}
+{$I cmd_io.pas}
 {$I cmd_inpt.pas}
 {$I cmd_impr.pas}
 {$I cmd_labl.pas}

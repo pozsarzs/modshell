@@ -27,7 +27,7 @@ v0.1-beta2 release.)
 |running modes           |normal or interpreter                                                                       |
 |variables               |max. 128 variables or constants (stored as string)                                          |
 |arrays                  |max. 32 dynamic size array of variables or constants (elements stored as string)            |
-|built-in commands       |125 commands in 10 categories with macro and script options)                                |
+|built-in commands       |127 commands in 10 categories with macro and script options)                                |
 |macros                  |max. 32                                                                                     |
 |script size             |max. 1024 line                                                                              |
 |example scripts         |10 scripts (shellscript and batch file versions)                                            |
@@ -48,6 +48,7 @@ v0.1-beta2 release.)
 |                        |internal server for remote access to own registers                                          |
 |                        |gateway to access devices using other ports or protocols                                    |
 |                        |internal serial monitor for decode ASCII or RTU telegrams                                   |
+|direct I/O port access  |supported, on Windows with external freeware DLL                                            |
 |local Modbus registers  |2x9999 boolean and 2x9999 word type                                                         |
 |script syntax plugins   |for editors using GtkSourceView, MCEdit, Micro, Nano, Notepad++, NeoVim and Vim             |
 |utility scripts         |2 script (only *nix systems)                                                                |
@@ -100,6 +101,7 @@ _First user test release_ will be with the following changes:
  - [x] commands `sercons`, `tcpcons`, `udpcons`: character-to-character or string sending, with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;  
  - [x] commands `serwrite`, `tcpwrite`, `udpwrite`: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo;
  - [x] DCON protocol support;  
+ - [ ] keywords (coil, hreg, asc, hex, etc.) should also be specified from variables;
  - [x] main menu for all consoles in GUI version;  
  - [x] Modbus register number/address converter utility (in your own scripting language);
  - [x] Number converter utility (in your own scripting language);
@@ -118,6 +120,7 @@ _First user test release_ will be with the following changes:
  - [x] new menu items in the main menu for quick execution of Modbus R/W commands;  
  - [x] new menu items for show and edit all register's value in a big table;  
  - [x] new serial baudrates: 150, 300, 600 baud;
+ - [ ] direct I/O port access;
  - [x] serial echo server utility for testing connectivity;  
  - [x] serial ModBus traffic monitor utility;
  - [x] support for variable and constant arrays;  
@@ -205,12 +208,17 @@ Variable monitor
  - _ProtCOM v0.1 Protected mode serial port handler for DOS_ [^2]  
    Unit for FreePascal  
    Creative Common Zero Universal v1.0, Copyright (C) 2024 Pozsar Zsolt  
+ - _InpOut32 v1.0.07 Driver Interface DLL_ [^3]  
+   Windows Dynamic Link Library (DLL)  
+   Open source/freeware 
+   Copyright (C) 2003-2015 Phil Gibbons
+   Copyright (C) 2000 <logix4u.net>
 
 #### 3. About
 
 This is a utility that can be used on several operating systems, which can
 communicate with connected equipment using Modbus/ASCII,
-Modbus/RTU and Modbus/TCP protocols [^3]. The basic communication protocol
+Modbus/RTU and Modbus/TCP protocols [^4]. The basic communication protocol
 of the program is Modbus, but DCON  and HART was also implemented due to
 communication with other devices. The range of foreign protocols may be expanded
 later. The program can - even automatically - read, write or copy data from one
@@ -226,7 +234,7 @@ arrow keys.
 
 The XModShell program has a *graphical interface (GUI)*, which helps to perform
 several operations with dialog windows, but the original command line input
-remained available for them (e.g. file selection, settings, etc.) [^4].
+remained available for them (e.g. file selection, settings, etc.) [^5].
 
 **Operating principle**
 
@@ -325,6 +333,12 @@ The program provides the possibility to send and receive raw data via network
 device with UDP, and also includes a very simple UDP console. The display of
 sent and received data can be turned off or raw text and hexadecimal viewing
 can be selected.
+
+**Direct I/O access**
+
+The program provides direct, byte-sized reading and writing of hardware I/O
+ports. On Windows operating systems, it uses the included external dynamically
+linked library.  
 
 **Already implemented commands:**
 
@@ -450,11 +464,13 @@ can be selected.
 |118|`del`       |system       |        |remove file                                                          |
 |119|`dir`       |system       |        |list directory content                                               |
 |120|`exist`     |system       |        |existence of a file or directory                                     |
-|121|`md`        |system       |        |make directory                                                       |
-|122|`rd`        |system       |        |remove directory                                                     |
-|123|`ren`       |system       |        |rename file                                                          |
-|124|`rmdevlock` |system       |        |remove device lock file                                              |
-|125|`type`      |system       |        |type file                                                            |
+|121|`ioread`    |system       |        |read a byte from an I/O port                                         |
+|122|`iowrite`   |system       |        |write a byte to an I/O port                                          |
+|123|`md`        |system       |        |make directory                                                       |
+|124|`rd`        |system       |        |remove directory                                                     |
+|125|`ren`       |system       |        |rename file                                                          |
+|126|`rmdevlock` |system       |        |remove device lock file                                              |
+|127|`type`      |system       |        |type file                                                            |
 
 (Commands with function keys (F?) are executed immediately, modifier keys
 (ALT-?) only make typing easier.)  
@@ -566,5 +582,6 @@ questions, or suggest new features.
 
 [^1]: [Synapse Github repository](https://github.com/geby/synapse)
 [^2]: [ProtCOM Github repository](https://github.com/pozsarzs/protcom)
-[^3]: [Modbus](https://modbus.org)
-[^4]: [Wiki - Differents between CUI and GUI version](https://github.com/pozsarzs/modshell/wiki/c.-Differents-between-CUI-and-GUI-version)
+[^3]: [InpOut32 Github repository](https://github.com/ellysh/InpOut32)
+[^4]: [Modbus](https://modbus.org)
+[^5]: [Wiki - Differents between CUI and GUI version](https://github.com/pozsarzs/modshell/wiki/c.-Differents-between-CUI-and-GUI-version)

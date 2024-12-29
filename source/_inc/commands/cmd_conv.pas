@@ -13,10 +13,9 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0   p1      p2              p3              p4
-  -----------------------------------------------------
-  conv $TARGET bin|dec|hex|oct bin|dec|hex|oct [$]VALUE
-  conv $TARGET $NUMSYS_FROM $NUMSYS_TO [$]VALUE
+  p0   p1      p2                           p3                         p4
+  -----------------------------------------------------------------------------
+  conv $TARGET $NUMSYS_FROM|bin|dec|hex|oct $NUMSYS_TO|bin|dec|hex|oct [$]VALUE
 }
 
 // COMMAND 'CONV'

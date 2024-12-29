@@ -171,6 +171,18 @@ begin
        112: buffer[b] := buffer[b] + DES112;
        113: buffer[b] := buffer[b] + DES113;
        114: buffer[b] := buffer[b] + DES114;
+       115: buffer[b] := buffer[b] + DES115;
+       116: buffer[b] := buffer[b] + DES116;
+       117: buffer[b] := buffer[b] + DES117;
+       118: buffer[b] := buffer[b] + DES118;
+       119: buffer[b] := buffer[b] + DES119;
+       120: buffer[b] := buffer[b] + DES120;
+       121: buffer[b] := buffer[b] + DES121;
+       122: buffer[b] := buffer[b] + DES122;
+       123: buffer[b] := buffer[b] + DES123;
+       124: buffer[b] := buffer[b] + DES124;
+       125: buffer[b] := buffer[b] + DES125;
+       126: buffer[b] := buffer[b] + DES126;
       end;
     end;
     shorting;
@@ -335,6 +347,18 @@ begin
          112: writeln(USG112);
          113: writeln(USG113);
          114: writeln(USG114);
+         115: writeln(USG115);
+         116: writeln(USG116);
+         117: writeln(USG117);
+         118: writeln(USG118);
+         129: writeln(USG119);
+         120: writeln(USG120);
+         121: writeln(USG121);
+         122: writeln(USG122);
+         123: writeln(USG123);
+         124: writeln(USG124);
+         125: writeln(USG125);
+         126: writeln(USG126);
         end;
       {$ELSE}
         with Form1 do
@@ -456,6 +480,18 @@ begin
          112: Memo1.Lines.Add('   ' + USG112);
          113: Memo1.Lines.Add('   ' + USG113);
          114: Memo1.Lines.Add('   ' + USG114);
+         115: Memo1.Lines.Add('   ' + USG115);
+         116: Memo1.Lines.Add('   ' + USG116);
+         117: Memo1.Lines.Add('   ' + USG117);
+         118: Memo1.Lines.Add('   ' + USG118);
+         119: Memo1.Lines.Add('   ' + USG119);
+         120: Memo1.Lines.Add('   ' + USG120);
+         121: Memo1.Lines.Add('   ' + USG121);
+         122: Memo1.Lines.Add('   ' + USG122);
+         123: Memo1.Lines.Add('   ' + USG123);
+         124: Memo1.Lines.Add('   ' + USG124);
+         125: Memo1.Lines.Add('   ' + USG125);
+         126: Memo1.Lines.Add('   ' + USG126);
         end;
       end;
      {$ENDIF}

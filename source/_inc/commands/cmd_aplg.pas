@@ -13,11 +13,20 @@
   FOR A PARTICULAR PURPOSE.
 }
 {
-  p0     p1         p2                p3       p4          p5          p6          p7
+  p0     p1         p2                      p3       p4          p5          p6          p7
   --------------------------------------------------------------------------------------------
-  applog [$]LOGFILE $TEXT             [$]LEVEL [[$]VALUE1] [[$]VALUE2] [[$]VALUE3] [[$]VALUE4]
-  applog [$]LOGFILE "TEXT\ $$1\ TEXT" [$]LEVEL [[$]VALUE1] [[$]VALUE2] [[$]VALUE3] [[$]VALUE4]
-}
+  applog [$]LOGFILE $TEXT|"TEXT\ $$1\ TEXT" [$]LEVEL [[$]VALUE1] [[$]VALUE2] [[$]VALUE3] [[$]VALUE4]
+
+     |text | var |const|varr |carr |
+  ---+-----+-----+-----+-----+-----+
+  p1 |  +  |  +  |  +  |  +  |  +  |
+  p2 |  -  |  +  |  +  |  +  |  +  |
+  p3 |  -  |  +  |  +  |  +  |  +  |
+  p4 |  -  |  +  |  +  |  +  |  +  |
+  p5 |  -  |  +  |  +  |  +  |  +  |
+  p6 |  -  |  +  |  +  |  +  |  +  |
+  p7 |  -  |  +  |  +  |  +  |  +  |
+}  
 
 // COMMAND 'CRON'
 function cmd_applog(p1, p2, p3, p4, p5, p6, p7: string): byte;

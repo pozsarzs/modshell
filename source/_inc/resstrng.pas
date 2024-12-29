@@ -331,6 +331,8 @@ resourcestring
   DES122='         serial Modbus traffic monitor';
   DES123='         Modbus register number/address converter';
   DES124='         specify the type of the value';  
+  DES125='         read a byte from an I/O port';  
+  DES126='         write a byte to an I/O port';  
   // COMMAND USAGE
   USG00='copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]' + EOL +
         'Notes:' + EOL +
@@ -538,3 +540,5 @@ resourcestring
         'Notes:' + EOL +
         '  - The result will be in the exit code:' + EOL +
         '  0: string, 1: floating-point value, 1: integer value.';
+  USG125='ioread [$]BYTE [$]PORT';
+  USG126='iowrite [$]PORT [$]BYTE';

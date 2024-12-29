@@ -1249,6 +1249,14 @@ msgstr ""
 msgid "         specify the type of the value"
 msgstr ""
 
+#: modshell:des125
+msgid "         read a byte from an I/O port"
+msgstr ""
+
+#: modshell:des126
+msgid "         write a byte to an I/O port"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"
@@ -1857,5 +1865,13 @@ msgid ""
 "Notes:\n"
 "  - The result will be in the exit code:\n"
 "  0: string, 1: floating-point value, 1: integer value."
+msgstr ""
+
+#: modshell:usg125
+msgid "ioread [$]BYTE [$]PORT"
+msgstr ""
+
+#: modshell:usg126
+msgid "iowrite [$]PORT [$]BYTE"
 msgstr ""
 

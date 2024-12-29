@@ -167,6 +167,8 @@ begin
             if (b >= 103) and (b <= 104) then exitcode := cmd_devlock(b, splitted[1]);
             // array handler functions
             if (b >= 107) and (b <= 110) then exitcode := cmd_arr(b, splitted[1], splitted[2]);
+            // direct i/o access functions
+            if (b >= 125) and (b <= 126) then exitcode := cmd_io(b, splitted[1], splitted[2]);
            end;
         end;
         vars[0].vvalue := inttostr(exitcode);
