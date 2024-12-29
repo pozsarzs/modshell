@@ -10,6 +10,7 @@ modshell (0.1-beta1) unstable; urgency=low
 * commands `sercons`, `tcpcons`, `udpcons`: character-to-character or string sending, with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;  
 * commands `serwrite`, `tcpwrite`, `udpwrite`: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo;
 * DCON protocol support;  
+* keywords (coil, hreg, asc, hex, etc.) should also be specified from variables;
 * main menu for all consoles in GUI version;  
 * Modbus register number/address converter utility (in your own scripting language);
 * Number converter utility (in your own scripting language);
@@ -28,6 +29,7 @@ modshell (0.1-beta1) unstable; urgency=low
 * new menu items in the main menu for quick execution of Modbus R/W commands;  
 * new menu items for show and edit all register's value in a big table;  
 * new serial baudrates: 150, 300, 600 baud;
+* direct I/O port access;
 * serial echo server utility for testing connectivity;  
 * serial ModBus traffic monitor utility;
 * support for variable and constant arrays;  
