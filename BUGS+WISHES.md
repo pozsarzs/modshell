@@ -18,8 +18,7 @@ section of the README.md.)
 |  U  |SerialMBMonitor has not been tested yet.                                |
 |  X  |Menu item 'Modbus/Show serial Modbus traffic' has not been tested yet.  |
 |  B  |R/W and console commands were not tested after the modification.        |
-|  C  |Common command verbose level setting (all/errors only/none) is required.|
-|  C  |Variable content type detection command is required.                    |
+|  B  |Pre-release testing has not yet been performed.                         |
 
 **Where:**
   - M: ModShell
