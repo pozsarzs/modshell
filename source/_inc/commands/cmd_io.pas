@@ -26,6 +26,69 @@
 
 // DIRECT I/O ACCESS COMMANDS  
 function cmd_io(op: byte; p1, p2: string): byte;
+var
+  s1: string = ''; // parameters in other format 
+  s2: string; // parameters in other format
 begin
-  result := 1;
+  result := 0;
+  // CHECK LENGTH OF PARAMETERS
+  if (length(p1) = 0) or (length(p2) = 0) then
+  begin
+    // Parameter(s) required!
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
+    result := 1;
+    exit;
+  end;
+  if op = 0 then
+  begin
+    // CHECK P1 PARAMETER
+    if (not boolisitvariable(p1)) and
+       (not boolisitvariablearray(p1)) then
+    begin
+      // No such variable!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR19 + p1);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR19 + p1);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
+  end else
+  begin
+    // CHECK P1 PARAMETER
+    if boolisitconstant(p1) then s2 := isitconstant(p1);
+    if boolisitvariable(p1) then s2 := isitvariable(p1);
+    if boolisitconstantarray(p1) then s2 := isitconstantarray(p1);
+    if boolisitvariablearray(p1) then s2 := isitvariablearray(p1);
+    if length(s1) = 0 then s1 := p1;
+  end;
+  // CHECK P2 PARAMETER
+  if boolisitconstant(p2) then s2 := isitconstant(p2);
+  if boolisitvariable(p2) then s2 := isitvariable(p2);
+  if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
+  if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+  if length(s2) = 0 then s2 := p2;
+  // PRIMARY MISSION
+  try
+    case op of
+      0: if boolisitvariable(p1)
+           then vars[intisitvariable(p1)].vvalue := inttostr(readbytefromioport(strtoint(s2)))
+           else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] :=
+                inttostr(readbytefromioport(strtoint(s2)));
+      1: result := writebytetoioport(strtoint(s1), strtoint(s2));
+    end;
+  except
+    // Operating error
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR48);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR48);
+    {$ENDIF}
+    result := 1;
+  end;
 end;
