@@ -1276,7 +1276,7 @@ begin
   lang := getlang;
   {$IFDEF WINDOWS}
     // load a dll
-    if not loadinpout32dll then ShowMessage(MSG98);
+    if not loadinpout32dll then ShowMessage(ERR98);
   {$ENDIF}
   loadconfiguration(BASENAME,'.ini');
   // set default constants

@@ -352,7 +352,7 @@ begin
   // parse command line parameters
   {$IFDEF WINDOWS}
     // load a dll
-    if not loadinpout32dll then writeln(MSG98);
+    if not loadinpout32dll then writeln(ERR98);
   {$ENDIF}
   appmode := 0;
   { appmode #0: simple command line
