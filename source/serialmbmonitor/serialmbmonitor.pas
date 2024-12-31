@@ -14,6 +14,7 @@
 }
 
 {_DEFINE PROGTEST}
+{$APPTYPE CONSOLE}
 {$IFDEF GO32V2}{$ERROR "Cannot compile on this system." }{$ENDIF}
 {$MODE OBJFPC}{$H+}{$MACRO ON}
 

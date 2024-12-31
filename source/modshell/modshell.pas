@@ -13,6 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 
+{$APPTYPE CONSOLE}
 {$MODE OBJFPC}{$H+}{$MACRO ON}
 
 program modshell;
