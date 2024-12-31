@@ -14,7 +14,7 @@
 }
 
 {$DEFINE X}
-{$MODE OBJFPC}{$H+}{$MACRO ON}
+{$MODE OBJFPC} {$H+} {$MACRO ON}
 
 unit frmmain;
 interface

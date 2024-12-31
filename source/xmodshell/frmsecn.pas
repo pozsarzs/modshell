@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{$MODE OBJFPC}{$H+}{$MACRO ON}
+{$MODE OBJFPC} {$H+} {$MACRO ON}
 
 unit frmsecn;
 interface

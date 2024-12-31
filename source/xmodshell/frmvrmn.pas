@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{$MODE ObjFPC}{$H+}
+{$MODE OBJFPC} {$H+}
 
 unit frmvrmn;
 interface

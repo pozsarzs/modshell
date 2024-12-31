@@ -14,9 +14,9 @@
 }
 
 {_DEFINE PROGTEST}
-{$APPTYPE CONSOLE}
-{$IFDEF GO32V2}{$ERROR "Cannot compile on this system." }{$ENDIF}
-{$MODE OBJFPC}{$H+}{$MACRO ON}
+{$IFDEF GO32V2} {$ERROR "Cannot compile on this system." } {$ENDIF}
+{$IFDEF WINDOWS} {$APPTYPE CONSOLE} {$ENDIF}
+{$MODE OBJFPC} {$H+} {$MACRO ON}
 
 program serialmbmonitor;
 uses

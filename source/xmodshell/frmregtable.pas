@@ -13,7 +13,7 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{$MODE OBJFPC}{$H+}
+{$MODE OBJFPC} {$H+}
 
 unit frmregtable;
 interface

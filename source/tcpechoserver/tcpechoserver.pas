@@ -13,8 +13,8 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{$APPTYPE CONSOLE}
-{$IFDEF GO32V2}{$ERROR "Cannot compile on this system." }{$ENDIF}
+{$IFDEF GO32V2} {$ERROR "Cannot compile on this system." } {$ENDIF}
+{$IFDEF WINDOWS} {$APPTYPE CONSOLE} {$ENDIF}
 {$MODE OBJFPC}{$H+}{$MACRO ON}
 
 program tcpechoserver;
