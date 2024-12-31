@@ -204,6 +204,7 @@ resourcestring
   ERR63 = 'Wrong register number';
   ERR64 = 'Wrong register type';
   ERR65 = 'Wrong address';
+  ERR98 = 'Cannot load DLL: ';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
   DES00='         copy one or more remote reg. between two connections';

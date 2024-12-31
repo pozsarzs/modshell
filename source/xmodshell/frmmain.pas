@@ -329,6 +329,7 @@ procedure version(h: boolean); forward;
 {$I validity.pas}
 {$I verbosity.pas}
 
+{$I dll.pas}
 {$I io.pas}
 {$I network.pas}
 {$I serport.pas}
@@ -1250,6 +1251,10 @@ begin
   // save configuration
   uconfig.lastproject := vars[12].vvalue;
   saveconfiguration(BASENAME,'.ini');
+  {$IFDEF WINDOWS}
+    // unload a dll
+    unloadinpout32dll;
+  {$ENDIF}
   // restore directory
   setcurrentdir(originaldirectory);
   CanClose := true;
@@ -1269,6 +1274,10 @@ begin
   randomize;
   // detect language
   lang := getlang;
+  {$IFDEF WINDOWS}
+    // load a dll
+    if not loadinpout32dll then ShowMessage(MSG98);
+  {$ENDIF}
   loadconfiguration(BASENAME,'.ini');
   // set default constants
   vars[12].vvalue := uconfig.lastproject;

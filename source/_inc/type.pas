@@ -14,6 +14,10 @@
 }
     
 type
+  {$IFDEF WINDOWS}
+    TInp32 = function(Address: SmallInt): SmallInt; stdcall;
+    TOut32 = procedure(Address: SmallInt; Data: SmallInt); stdcall;
+  {$ENDIF}
   // constant and variable
   tvariable = record
     vname: string[16];            // name
@@ -61,6 +65,3 @@ type
     dev: byte;                    // 0..7
     prot: byte;                   // 0..7
   end;
-
-
-

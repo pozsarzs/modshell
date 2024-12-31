@@ -74,8 +74,8 @@ procedure version(h: boolean); forward;
            cdecl; external 'libc';
 {$ENDIF}
 
-{$IFDEF UNIX}{$I lockfile.pas}{$ENDIF}
-
+{$I dll.pas}
+{$I lockfile.pas}
 {$I validity.pas}
 {$I verbosity.pas}
 
@@ -350,6 +350,10 @@ begin
   // check size of terminal
   if not terminalsize(MINTERMX, MINTERMY) then quit(1, false, ERR99);
   // parse command line parameters
+  {$IFDEF WINDOWS}
+    // load a dll
+    if not loadinpout32dll then writeln(MSG98);
+  {$ENDIF}
   appmode := 0;
   { appmode #0: simple command line
     appmode #1: show useable parameters
@@ -410,6 +414,10 @@ begin
   // save configuration
   uconfig.lastproject := vars[12].vvalue;
   saveconfiguration(BASENAME, '.ini');
+  {$IFDEF WINDOWS}
+    // unload a dll
+    unloadinpout32dll;
+  {$ENDIF}
   // restore directory
   if appmode <> 4 then setcurrentdir(originaldirectory);
   if appmode <> 4 then quit(0, false, '') else quit(scriptexitcode, false, '');

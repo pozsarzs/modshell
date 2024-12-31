@@ -1,0 +1,140 @@
+@modshell.exe -r %0
+@goto :eof
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | getdt510.bat                                                               |
+# | Example script * Read Datcon DT510 power meter                             |
+# +----------------------------------------------------------------------------+
+
+# constants and variables
+const ID 1
+const COUNTS 3
+const WAIT 1
+var count 0
+var p
+var q
+var s
+var u
+var i
+var cosfi
+var tpf
+var avg_p 0
+var avg_q 0
+var avg_s 0
+var avg_u 0
+var avg_i 0
+
+# header
+cls
+print "Example\ script\ -\ Read\ Datcon\ DT510\ power\ meter"
+print "----------------------------------------------"
+print "Protocol:\ Modbus/ASCII"
+print "ID:\ " -n
+print $ID
+echometh an
+
+# settings
+# set device on DOS/Windows:
+set dev0 ser COM1 9600 7 e 1
+set pro0 ascii $ID
+set con0 dev0 pro0
+
+# measuring loop
+label loop
+inc $count $count
+print "\ "
+print "Number\ of\ measure:\ " -n
+print $count
+
+# read remote data
+print "\ "
+print "-\ telegrams:"
+readreg con0 hreg 100 7
+
+# calculations
+let $p hreg 100
+let $q hreg 101
+let $s hreg 102
+let $u hreg 103
+let $i hreg 104
+let $cosfi hreg 105
+let $tpf hreg 106
+prop $p 0 32767 0 3000 $p
+prop $q 0 32767 0 3000 $q
+prop $s 0 32767 0 3000 $s
+prop $u 0 32767 0 367.7 $u
+prop $i 0 32767 0 8.17 $i
+prop $cosfi 0 32767 0 1 $cosfi
+prop $tpf 0 32767 0 1 $tpf
+round $p $p 1
+round $q $q 1
+round $s $s 1
+round $u $u 1
+round $i $i 3
+round $cosfi $cosfi 3
+round $tpf $tpf 3
+add $avg_p $avg_p $p
+add $avg_q $avg_q $q
+add $avg_s $avg_s $s
+add $avg_u $avg_u $u
+add $avg_i $avg_i $i
+
+# print part result
+print "\ "
+print "-\ measured\ data:"
+print "P:\ " -n
+print $p -n
+print "\ W"
+print "Q:\ " -n
+print $q -n
+print "\ VAr"
+print "S:\ " -n
+print $s -n
+print "\ VA"
+print "U:\ " -n
+print $u -n
+print "\ V"
+print "I:\ " -n
+print $i -n
+print "\ A"
+print "cosFI:\ " -n
+print $cosfi
+print "TPF:\ " -n
+print $tpf
+
+pause $WAIT
+
+if $count < $COUNTS then goto loop
+
+div $avg_p $avg_p $COUNTS
+div $avg_q $avg_q $COUNTS
+div $avg_s $avg_s $COUNTS
+div $avg_u $avg_u $COUNTS
+div $avg_i $avg_i $COUNTS
+round $avg_p $avg_p 1
+round $avg_q $avg_q 1
+round $avg_s $avg_s 1
+round $avg_u $avg_u 1
+round $avg_i $avg_i 3
+
+# print average result
+print "\ "
+print "-\ average\ measured\ data:"
+print "Pa:\ " -n
+print $avg_p -n
+print "\ W"
+print "Qa:\ " -n
+print $avg_q -n
+print "\ VAr"
+print "Sa:\ " -n
+print $avg_s -n
+print "\ VA"
+print "Ua:\ " -n
+print $avg_u -n
+print "\ V"
+print "Ia:\ " -n
+print $avg_i -n
+print "\ A"
+
+:eof

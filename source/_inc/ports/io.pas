@@ -26,7 +26,7 @@ begin
       port[address] := outdata;
     {$ENDIF}
     {$IFDEF WINDOWS}
-      Out32(address, outdata);
+      out32(address, outdata);
     {$ENDIF}
   except
     result := 1;
@@ -45,7 +45,7 @@ begin
       result := port[address];
     {$ENDIF}
     {$IFDEF WINDOWS}
-      result := Inp32(address);
+      result := inp32(address);
     {$ENDIF}
   except
     result := 0;

@@ -1,0 +1,152 @@
+@modshell.exe -r %0
+@goto :eof
+# +----------------------------------------------------------------------------+
+# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
+# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | mbconv                                                                     |
+# | MBConv v0.1 * Modbus register number/address converter utility             |
+# +----------------------------------------------------------------------------+
+#
+#  This program is free software: you can redistribute it and/or modify it
+#  under the terms of the European Union Public License 1.2 version.
+#
+#  This program is distributed in the hope that it will be useful, but WITHOUT
+#  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+#  FOR A PARTICULAR PURPOSE.
+
+# VARIABLES AND CONSTANTS
+# general variables
+var i
+var valid
+# register parameters
+var raddress
+var rtype
+var rnumber
+# messages
+varr msg 17
+  let msg[0] MBConv\ v0.1\ *\ Modbus\ register\ number/address\ converter\ utility
+  let msg[1] (C)\ 2024\ Pozsar\ Zsolt\ <http://www.pozsarzs.hu>
+  let msg[2] Usage:
+  let msg[3] \ \ register_number
+  let msg[4] \ \ d|c|i|h\ address
+  let msg[5] discrete\ output\ coils
+  let msg[6] discrete\ input\ contacts
+  let msg[7] ERROR:
+  let msg[8] analog\ input\ registers
+  let msg[9] analog\ output\ holding\ registers
+  let msg[10] \ \ register\ number:\ \ X
+  let msg[11] \ \ register\ type:\ \ \ \ X
+  let msg[12] \ \ register\ address:\ X
+  let msg[13] \ The\ register\ type\ can\ be\ c,\ d,\ i\ and\ h.
+  let msg[14] \ The\ address\ can\ be\ 0-9998.
+  let msg[15] \ The\ register\ number\ can\ be\ 1-9999,\ 10001-19999,\ 30001-39999\ and\ 40001-49999.
+  let msg[16] \ \ -------------------------------------------------
+# register types
+const OFFSET 10000
+carr REGTYPE 5
+  let $REGTYPE[0] c
+  let $REGTYPE[1] d
+  let $REGTYPE[2] _
+  let $REGTYPE[3] i
+  let $REGTYPE[4] h
+
+# MAIN
+# print header and select operation mode
+if $ARGCNT < 1 then goto usage
+print $msg[0]
+print $msg[1]
+print "\ "
+if $ARGCNT = 1 then goto num2addr
+if $ARGCNT > 1 then goto addr2num
+
+# convert register number to address
+label num2addr
+  let $valid 255
+  let $raddress 0
+  let $rtype 5
+  # check register number
+  if $ARG1 => 1 then if $ARG1 <= 9999 then let $valid 0
+  if $ARG1 => 10001 then if $ARG1 <= 19999 then let $valid 1
+  if $ARG1 => 30001 then if $ARG1 <= 39999 then let $valid 3
+  if $ARG1 => 40001 then if $ARG1 <= 49999 then let $valid 4
+  if $valid = 255 then goto error_bad_number
+  let $rnumber $ARG1
+  # print register number
+  strrepl $msg[10] X $rnumber
+  print $msg[10]
+  # print splitter
+  print $msg[16]
+  # print register type
+  add $rtype $rtype $valid
+  strrepl $msg[11] X msg[$rtype]
+  print $msg[11]  
+  # print register address
+  mul $i $OFFSET $valid
+  add $i $i 1
+  sub $raddress $rnumber $i
+  strrepl $msg[12] X $raddress
+  conv $i dec hex $raddress
+  concat $msg[12] $msg[12] \ (
+  concat $msg[12] $msg[12] $i
+  concat $msg[12] $msg[12] h)
+  print $msg[12] 
+  exit
+  # error messages
+  label error_bad_number
+    concat $msg[7] $msg[7] $msg[15]
+    print $msg[7]
+    exit 2
+
+# convert address to register number
+label addr2num
+  let $valid 255
+  # check register type
+  for $i 0 to 4 do if $ARG1 == $REGTYPE[$i] then let $valid $i
+  if $valid = 2 then let $valid 255
+  if $valid = 255 then goto error_bad_type
+  let $rtype $valid
+  # check address
+  let $valid 255
+  if $ARG2 => 0 then if $ARG2 <= 9998 then let $valid 0
+  if $valid = 255 then goto error_bad_address
+  let $raddress $ARG2
+  # print register address
+  conv $i dec hex $raddress
+  concat $msg[12] $msg[12] \ (
+  concat $msg[12] $msg[12] $i
+  concat $msg[12] $msg[12] h)
+  strrepl $msg[12] X $raddress
+  print $msg[12]  
+  # print register type
+  add $i $rtype 5
+  strrepl $msg[11] X msg[$i]
+  print $msg[11]  
+  # print splitter
+  print $msg[16]
+  # print register number
+  mul $rnumber $OFFSET $rtype
+  add $rnumber $rnumber 1
+  add $rnumber $rnumber $raddress
+  strrepl $msg[10] X $rnumber
+  print $msg[10]  
+  exit
+  # error messages
+  label error_bad_type
+    concat $msg[7] $msg[7] $msg[13]
+    print $msg[7]
+    exit 3
+  label error_bad_address
+    concat $msg[7] $msg[7] $msg[14]
+    print $msg[7]
+    exit 4
+
+# print usage
+label usage
+  strins $msg[3] 2 $ARG0
+  strins $msg[4] 2 $ARG0
+  print $msg[2]
+  print $msg[3]
+  print $msg[4]
+  exit 1
+
+:eof

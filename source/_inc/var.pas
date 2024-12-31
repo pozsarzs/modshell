@@ -19,6 +19,11 @@ var
     tcp: TTCPBlockSocket;
     udp: TUDPBlockSocket;
   {$ENDIF}
+  {$IFDEF WINDOWS}
+    inpout32: THandle;
+    inp32: TInp32;
+    out32: TOut32;
+  {$ENDIF}
   // BUFFERS
   // Modbus registers numbers
   coil: array[0..9998] of boolean;
