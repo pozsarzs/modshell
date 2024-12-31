@@ -21,7 +21,7 @@ fpcargs = -T$(os) \
           -Fu../_ppu \
           -Fu../_ext/* \
           -Fu$(outdir) \
-          -FE$(outdir) \
+          -FE$(outdir)
 
 all:
 	@if not exist ..\_lib\nul md ..\_lib
