@@ -13,12 +13,22 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-// LOAD 'inpout32.dll'
+// LOAD 'inpout.dll'
 function loadinpout32dll: boolean;
+const
+  {$IFDEF WIN32}
+    filename: string = 'inpout32.dll';
+  {$ENDIF}
+  {$IFDEF WIN64}
+    filename: string = 'inpoutx64.dll';
+  {$ENDIF}
+  libdir: string = 'library\inpout32\';
 begin
   result := true;
   {$IFDEF WINDOWS}
-    inpout32 := loadlibrary('inpout32.dll');
+    if fileexists(libdir + filename)
+      then inpout32 := loadlibrary(pchar(libdir + filename))
+      else inpout32 := loadlibrary(pchar(filename));
     if (inpout32 <> 0) then
     begin
      inp32 := tinp32(getprocaddress(inpout32, 'inp32'));
