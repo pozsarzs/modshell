@@ -1,0 +1,166 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pozsár Zsolt <pozsarzs@gmail.com>\n"
+"Language-Team: \n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=cp1250\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: serialmbmonitor:msg01
+msgid "[press space]"
+msgstr "[nyomj szóközt]"
+
+#: serialmbmonitor:msg02
+msgid "Serial Modbus traffic monitor utility"
+msgstr "Soros Modbus forgalom monitor segédprogram"
+
+#: serialmbmonitor:msg03
+msgid "device:      "
+msgstr "eszköz:      "
+
+#: serialmbmonitor:msg04
+msgid "Press [SPACE] to pause or [ESC] to exit."
+msgstr "Nyomj [SPACE]-t a szünethez vagy [ESC]-et a kilépéshez."
+
+#: serialmbmonitor:msg05
+msgid "Monitor running..."
+msgstr "A monitor fut..."
+
+#: serialmbmonitor:msg06
+msgid "message: "
+msgstr "üzenet: "
+
+#: serialmbmonitor:msg07
+msgid "baudrate:    "
+msgstr "sebesség:    "
+
+#: serialmbmonitor:msg08
+msgid "databit(s):  "
+msgstr "adatbit(ek): "
+
+#: serialmbmonitor:msg09
+msgid "parity:      "
+msgstr "paritás:     "
+
+#: serialmbmonitor:msg10
+msgid "stopbit(s):  "
+msgstr "stopbit(ek): "
+
+#: serialmbmonitor:msg11
+msgid "protocol: "
+msgstr "protokoll:"
+
+#: serialmbmonitor:msg12
+msgid "device ID: "
+msgstr "eszköz ID: "
+
+#: serialmbmonitor:msg13
+msgid "Monitor stopped."
+msgstr "Monitor megállítva."
+
+#: serialmbmonitor:msg14
+msgid "Serial port: "
+msgstr "Soros port:  "
+
+#: serialmbmonitor:msg15
+msgid "Protocol:    "
+msgstr "Protokoll:   "
+
+#: serialmbmonitor:msg16
+msgid "RC  "
+msgstr "RC  "
+
+#: serialmbmonitor:msg17
+msgid "[+]  "
+msgstr "[+]  "
+
+#: serialmbmonitor:msg18
+msgid "[-]  "
+msgstr "[-]  "
+
+#: serialmbmonitor:msg19
+msgid "ID   FC  DATA"
+msgstr "ID   FC  ADAT"
+
+#: serialmbmonitor:msg20
+msgid "Monitor paused."
+msgstr "Monitor megállítva."
+
+#: serialmbmonitor:msg94
+msgid "Build date:  "
+msgstr "Fordítás ideje: "
+
+#: serialmbmonitor:msg95
+msgid "Builder:     "
+msgstr "Fordító:        "
+
+#: serialmbmonitor:msg96
+msgid "FPC version: "
+msgstr "FPC verzió:     "
+
+#: serialmbmonitor:msg97
+msgid "Target OS:   "
+msgstr "Cél OS:         "
+
+#: serialmbmonitor:msg98
+msgid "Target CPU:  "
+msgstr "Cél CPU:        "
+
+#: serialmbmonitor:err01
+msgid "ERROR: "
+msgstr "HIBA: "
+
+#: serialmbmonitor:err02
+msgid "The baudrate value can only be one of the following: "
+msgstr "A sebesség értéke a következõ lehet: "
+
+#: serialmbmonitor:err03
+msgid "The databit(s) value must be 7 or 8."
+msgstr "Az adatbitek száma 7 vagy 8 lehet."
+
+#: serialmbmonitor:err04
+msgid "The parity value can only be one of the following: "
+msgstr "A paritás a következõ lehet: "
+
+#: serialmbmonitor:err05
+msgid "The stopbit(s) value must be 1 or 2."
+msgstr "A stopbitek száma 1 vagy 2 lehet."
+
+#: serialmbmonitor:err06
+msgid "The protocol value can only be one of the following: "
+msgstr "A protokoll a következõ lehet: "
+
+#: serialmbmonitor:err07
+msgid "The device ID value must be 1-247, (0 means all ID)."
+msgstr "Az eszköz ID értéke 1-247 lehet, (a 0 az összes ID-t jelenti)."
+
+#: serialmbmonitor:err08
+msgid "Cannot open this serial port: "
+msgstr "Nem lehet inicializálni a soros portot: "
+
+#: serialmbmonitor:err09
+msgid "Telegram parsing error."
+msgstr "Telegram értelmezési hiba."
+
+#: serialmbmonitor:err43
+msgid "Cannot erase file!"
+msgstr "A fájl törlése nem sikerült!"
+
+#: serialmbmonitor:err49
+msgid "Locked device: "
+msgstr "Zárolt eszköz: "
+
+#~ msgid "CS test  "
+#~ msgstr "CS teszt "
+
+#~ msgid "[ok]     "
+#~ msgstr "[ok]     "
+
+#~ msgid "[error]  "
+#~ msgstr "[hiba]   "
