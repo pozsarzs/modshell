@@ -319,17 +319,17 @@ end;
 
 {$I intrprtr.pas}
 
-// - COMMAND LINE PARAMETERS --------------------------------------------------
-// SHOW USEABLE PARAMETERS
+// - COMMAND LINE ARGUMENTS --------------------------------------------------
+// SHOW USEABLE ARGUMENTS
 procedure help(mode: boolean);
 var
   b: byte;
 begin
-  if mode then writeln('There are one or more bad parameter in command line.') else
+  if mode then writeln('There are one or more bad argument in command line.') else
   begin
-    writeln('Usage: ' + BASENAME + ' [parameter]');
+    writeln('Usage: ' + BASENAME + ' [argument]');
     writeln;
-    writeln('parameters:');
+    writeln('arguments:');
     for b := 0 to 3 do
     begin
       write('  ',CMDLINEPARAMS[b, 0]);
@@ -350,14 +350,15 @@ begin
   translatemessages(LANG, BASENAME, '.mo');
   // check size of terminal
   if not terminalsize(MINTERMX, MINTERMY) then quit(1, false, ERR99);
-  // parse command line parameters
+  // parse command line arguments
   {$IFDEF WINDOWS}
-    // load a dll
-    if not loadinpout32dll then writeln(ERR98);
+    // load dlls
+    loaded_inpout32dll := loadinpout32dll;
+    if not loaded_inpout32dll then writeln(ERR98);
   {$ENDIF}
   appmode := 0;
   { appmode #0: simple command line
-    appmode #1: show useable parameters
+    appmode #1: show useable arguments
     appmode #2: show version and build information
     appmode #3: full sceen command line
     appmode #4: interpreter mode }
@@ -416,8 +417,8 @@ begin
   uconfig.lastproject := vars[12].vvalue;
   saveconfiguration(BASENAME, '.ini');
   {$IFDEF WINDOWS}
-    // unload a dll
-    unloadinpout32dll;
+    // unload inpout32.dll
+    if loaded-inpout32dll then unloadinpout32dll;
   {$ENDIF}
   // restore directory
   if appmode <> 4 then setcurrentdir(originaldirectory);

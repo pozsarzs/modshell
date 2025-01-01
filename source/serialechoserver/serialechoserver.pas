@@ -62,7 +62,7 @@ const
 resourcestring
   // messages
   MSG01 = '[press space]';
-  MSG02 = 'Serial Echo Server utility';
+  MSG02 = 'Serial echo server utility';
   MSG03 = 'device:      ';
   MSG04 = 'Press [ESC] to exit.';
   MSG05 = 'Server running...';
@@ -97,9 +97,9 @@ begin
   if mode then writeln('There are one or more bad parameter in command line.') else
   begin
     writeln('Usage: ' + BASENAME + ' [device] [baudrate] [databit(s)] [parity] [stopbit(s)]');
-    writeln('       ' + BASENAME + ' [parameter]');
+    writeln('       ' + BASENAME + ' [arguments]');
     writeln;
-    writeln('parameters:');
+    writeln('arguments:');
     for b := 0 to 1 do
     begin
       write('  ',CMDLINEPARAMS[b, 0]);
@@ -150,7 +150,7 @@ begin
       write(MSG03 + device);
     until ((length(device) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else device := paramstr(1);
 
   // baudrate
@@ -169,7 +169,7 @@ begin
       end;
     until ((length(baudrate) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else baudrate := paramstr(2);
   valid := false;
   for b := 0 to 10 do
@@ -198,7 +198,7 @@ begin
       end;
     until ((length(databit) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else databit := paramstr(3);  
   if not ((strtointdef(databit, -1) >= 7) and (strtointdef(databit, -1) <= 8))
     then quit(1, false, ERR01 + ERR03);
@@ -219,7 +219,7 @@ begin
       end;
     until ((length(parity) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else parity := lowercase(paramstr(4));
   valid := false;
   for b := 0 to 2 do
@@ -248,7 +248,7 @@ begin
       end;
     until ((length(stopbit) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else stopbit := paramstr(5);
   if not ((strtointdef(stopbit, -1) >= 1) and (strtointdef(stopbit, -1) <= 2))
     then quit(1, false, ERR01 + ERR05);

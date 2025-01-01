@@ -14,7 +14,7 @@ msgstr ""
 
 #: tcpechoserver:msg02
 msgid "TCP Echo Server utility"
-msgstr "TCP Echo Server segédprogram"
+msgstr "TCP echo szerver segédprogram"
 
 #: tcpechoserver:msg03
 msgid "port: "

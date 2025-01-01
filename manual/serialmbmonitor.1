@@ -3,7 +3,10 @@
 serialmbmonitor \- Simple serial Modbus traffic monitor
 .SH SYNOPSIS
 .B serialmbmonitor
-[options]
+[device] [baudrate] [databit(s)] [parity] [stopbit(s)]
+.br
+.B serialmbmonitor
+[-h|--help|-v|-version]
 .SH COPYRIGHT
 SerialMBMonitor is Copyright (C) 2024 by Pozsar Zsolt.
 .SH DESCRIPTION
@@ -65,7 +68,6 @@ Serial port is locked.
 \fBtcpechoserver\fP(1)
 \fBudpechoserver\fP(1)
 \fBxmodshell\fP(1)
-.LP
 and files in document or /usr/share/doc/modshell/ folder (or equivalent on your system).
 .SH AUTHOR
 Pozsar Zsolt

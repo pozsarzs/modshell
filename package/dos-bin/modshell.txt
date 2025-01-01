@@ -1252,9 +1252,8 @@ HOMEPAGE
 
 SEE ALSO
        mbconv(1) numconv(1) serialechoserver(1) serialmbmonitor(1) tcpechoserver(1) udpe‐
-       choserver(1) xmodshell(1)
-       and  files  in  document or /usr/share/doc/modshell/ folder (or equivalent on your
-       system).
+       choserver(1) xmodshell(1) and files in document or /usr/share/doc/modshell/ folder
+       (or equivalent on your system).
 AUTHOR
        Pozsar Zsolt ⟨pozsarzs@gmail.com⟩
 

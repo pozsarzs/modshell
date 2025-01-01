@@ -3,7 +3,7 @@ msgid "[press space]"
 msgstr ""
 
 #: serialechoserver:msg02
-msgid "Serial Echo Server utility"
+msgid "Serial echo server utility"
 msgstr ""
 
 #: serialechoserver:msg03

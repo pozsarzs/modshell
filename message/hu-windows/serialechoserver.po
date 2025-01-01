@@ -17,8 +17,8 @@ msgid "[press space]"
 msgstr "[nyomj szóközt]"
 
 #: serialechoserver:msg02
-msgid "Serial Echo Server utility"
-msgstr "Serial Echo Server segédprogram"
+msgid "Serial echo server utility"
+msgstr "Soros echo szerver segédprogram"
 
 #: serialechoserver:msg03
 msgid "device:      "

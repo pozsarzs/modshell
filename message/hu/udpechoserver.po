@@ -14,7 +14,7 @@ msgstr ""
 
 #: udpechoserver:msg02
 msgid "UDP Echo Server utility"
-msgstr "UDP Echo Server segédprogram"
+msgstr "UDP echo szerver segédprogram"
 
 #: udpechoserver:msg03
 msgid "port: "

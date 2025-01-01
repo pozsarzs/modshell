@@ -16,12 +16,12 @@ languages=hu
 
 # convert encoding and line-ending of the .po file for DOS
 define conv_encode
-  $(install) -d $(2)-cp$(3); \
-  $(iconv) -f utf8 -t cp$(3) $(2)/$(1).po > $(2)-cp$(3)/out.po; \
-  cat $(2)-cp$(3)/out.po | sed s/"charset=UTF-8"/"charset=cp$(3)"/ > $(2)-cp$(3)/$(1).po; \
-  $(rm) $(2)-cp$(3)/out.po; \
-  $(unix2dos) $(2)-cp$(3)/$(1).po; \
-  $(msgfmt) $(2)-cp$(3)/$(1).po -o $(2)-cp$(3)/$(1).mo
+  $(install) -d $(2)-$(4); \
+  $(iconv) -f utf8 -t cp$(3) $(2)/$(1).po > $(2)-$(4)/out.po; \
+  cat $(2)-$(4)/out.po | sed s/"charset=UTF-8"/"charset=cp$(3)"/ > $(2)-$(4)/$(1).po; \
+  $(rm) $(2)-$(4)/out.po; \
+  $(unix2dos) $(2)-$(4)/$(1).po; \
+  $(msgfmt) $(2)-$(4)/$(1).po -o $(2)-$(4)/$(1).mo
 endef
 
 all:
@@ -43,6 +43,22 @@ install:
 	  then \
 	    $(install) -d $(targetdir)/$$x/LC_MESSAGES/; \
 	    $(install) -m $(filemode) $(sourcedir)/$$x/x$(name).mo $(targetdir)/$$x/LC_MESSAGES/; \
+	    echo -n "#"; \
+	  fi; \
+	done
+	@for x in $(languages); do \
+	  if [ -f $$x/serialechoserver.mo ]; \
+	  then \
+	    $(install) -d $(targetdir)/$$x/LC_MESSAGES/; \
+	    $(install) -m $(filemode) $(sourcedir)/$$x/serialechoserver.mo $(targetdir)/$$x/LC_MESSAGES/; \
+	    echo -n "#"; \
+	  fi; \
+	done
+	@for x in $(languages); do \
+	  if [ -f $$x/serialmbmonitor.mo ]; \
+	  then \
+	    $(install) -d $(targetdir)/$$x/LC_MESSAGES/; \
+	    $(install) -m $(filemode) $(sourcedir)/$$x/serialmbmonitor.mo $(targetdir)/$$x/LC_MESSAGES/; \
 	    echo -n "#"; \
 	  fi; \
 	done
@@ -89,12 +105,12 @@ uninstall:
 convert:
 	@if [ $(iconv) != "no" ] && [ $(msgfmt) != "no" ] && [ $(unix2dos) != "no" ]; \
 	then \
-	  $(call conv_encode,modshell,hu,852); \
-	  $(call conv_encode,modshell,hu,1250); \
-	  $(call conv_encode,serialechoserver,hu,1250); \
-	  $(call conv_encode,serialmbmonitor,hu,1250); \
-	  $(call conv_encode,tcpechoserver,hu,1250); \
-	  $(call conv_encode,udpechoserver,hu,1250); \
+	  $(call conv_encode,modshell,hu,852,dos); \
+	  $(call conv_encode,modshell,hu,1250,windows); \
+	  $(call conv_encode,serialechoserver,hu,1250,windows); \
+	  $(call conv_encode,serialmbmonitor,hu,1250,windows); \
+	  $(call conv_encode,tcpechoserver,hu,1250,windows); \
+	  $(call conv_encode,udpechoserver,hu,1250,windows); \
 	else \
 	  echo "To create message file for DOS and Windows, install the necessary tools."; \
 	fi

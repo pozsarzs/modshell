@@ -33,7 +33,7 @@ var
   port: string = '';
   s: string;
 const
-  // COMMAND LINE PARAMETERS
+  // COMMAND LINE ARGUMENTS
   CMDLINEPARAMS: array[0..1, 0..2] of string =
   (
     ('-h','--help','show help'),
@@ -65,17 +65,17 @@ resourcestring
   ERR01 = 'ERROR: ';
   ERR02 = 'The port value must be between 0-65535.';
 
-// SHOW USEABLE PARAMETERS
+// SHOW USEABLE ARGUMENTS
 procedure help(mode: boolean);
 var
   b: byte;
 begin
-  if mode then writeln('There are one or more bad parameter in command line.') else
+  if mode then writeln('There are one or more bad argument in command line.') else
   begin
     writeln('Usage: ' + BASENAME + ' [port]');
-    writeln('       ' + BASENAME + ' [parameter]');
+    writeln('       ' + BASENAME + ' [argument]');
     writeln;
-    writeln('parameters:');
+    writeln('arguments:');
     for b := 0 to 1 do
     begin
       write('  ',CMDLINEPARAMS[b, 0]);
@@ -93,10 +93,10 @@ begin
   // detect language
   lang := getlang;
   translatemessages(LANG, BASENAME, '.mo');
-  // command line parameters
+  // command line arguments
   appmode := 0;
   { appmode #0: normal run
-    appmode #1: show useable parameters
+    appmode #1: show useable arguments
     appmode #2: show version and build information }
   if paramcount > 0 then
   begin
@@ -126,7 +126,7 @@ begin
       gotoxy(1, wherey); clreol;
       write(MSG03 + port);
     until ((length(port) > 0) and (c = #13)) or (c = #27);
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else port := paramstr(1);
   writeln;
   // check port number

@@ -38,16 +38,20 @@ implementation
 function translatemessages(lang, basename, extension: string): boolean;
 var
   b: byte;
-  i18file: array[0..2] of string;
+  i18file: array[0..3] of string;
 begin
   result := false;
-  i18file[0] := getexedir + 'message' + SLASH + lang + SLASH + basename + extension; // DOS, Windows, Unix-like
-  i18file[1] := '/usr/share/locale/' + lang + '/LC_MESSAGES/' + basename + extension; // Unix-like only
-  i18file[2] := '/usr/local/share/locale/' + lang + '/LC_MESSAGES/' + basename + extension; // Unix-like only
-  for b := 0 to 2 do
+  {$IFDEF WINDOWS}
+    i18file[0] := getexedir + 'message' + SLASH + lang + '-windows' + SLASH + basename + extension; // Windows
+  {$ENDIF}
+  i18file[1] := getexedir + 'message' + SLASH + lang + SLASH + basename + extension; // DOS, Windows, Unix-like
+  i18file[2] := '/usr/share/locale/' + lang + '/LC_MESSAGES/' + basename + extension; // Unix-like only
+  i18file[3] := '/usr/local/share/locale/' + lang + '/LC_MESSAGES/' + basename + extension; // Unix-like only
+  for b := 0 to 3 do
     if fileexists(i18file[b]) then
     begin
       translateresourcestrings(i18file[b]);
+      break;
       result := true;
     end;
 end;

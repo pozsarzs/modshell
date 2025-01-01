@@ -3,7 +3,10 @@
 serialechoserver \- Simple serial echo server
 .SH SYNOPSIS
 .B serialechoserver
-[options]
+[device] [baudrate] [databit(s)] [parity] [stopbit(s)]
+.br
+.B serialechoserver
+[-h|--help|-v|-version]
 .SH COPYRIGHT
 SerialEchoServer is Copyright (C) 2024 by Pozsar Zsolt.
 .SH DESCRIPTION
@@ -23,13 +26,13 @@ Set serial port name.
 .B baudrate
 Set baudrate (150-115200).
 .TP
-.B databit
+.B databit(s)
 Set number of databits (7|8).
 .TP
 .B parity
 Set parity type (e|n|o).
 .TP
-.B stopbit
+.B stopbit(s)
 Set number of stopbits (1|2).
 .SH EXIT STATUS
 .TP
@@ -63,7 +66,6 @@ Serial port is locked.
 \fBtcpechoserver\fP(1)
 \fBudpechoserver\fP(1)
 \fBxmodshell\fP(1)
-.LP
 and files in document or /usr/share/doc/modshell/ folder (or equivalent on your system).
 .SH AUTHOR
 Pozsar Zsolt

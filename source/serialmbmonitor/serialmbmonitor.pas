@@ -46,7 +46,7 @@ var
   stopbit: string = '';
   valid: boolean;
 const
-  // COMMAND LINE PARAMETERS
+  // COMMAND LINE ARGUMENTS
   CMDLINEPARAMS: array[0..1, 0..2] of string =
   (
     ('-h','--help','show help'),
@@ -193,17 +193,17 @@ resourcestring
   end;
 {$ENDIF}
 
-// SHOW USEABLE PARAMETERS
+// SHOW USEABLE ARGUMENTS
 procedure help(mode: boolean);
 var
   b: byte;
 begin
-  if mode then writeln('There are one or more bad parameter in command line.') else
+  if mode then writeln('There are one or more bad argument in command line.') else
   begin
     writeln('Usage: ' + BASENAME + ' [device] [baudrate] [databit(s)] [parity] [stopbit(s)] [protocol] [id]');
-    writeln('       ' + BASENAME + ' [parameter]');
+    writeln('       ' + BASENAME + ' [argument]');
     writeln;
-    writeln('parameters:');
+    writeln('arguments:');
     for b := 0 to 1 do
     begin
       write('  ',CMDLINEPARAMS[b, 0]);
@@ -252,7 +252,7 @@ begin
       write(MSG03 + device);
     until ((length(device) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else device := paramstr(1);
 
   // baudrate
@@ -271,7 +271,7 @@ begin
       end;
     until ((length(baudrate) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else baudrate := paramstr(2);
   valid := false;
   for b := 0 to 10 do
@@ -300,7 +300,7 @@ begin
       end;
     until ((length(databit) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else databit := paramstr(3);  
   if not ((strtointdef(databit, -1) >= 7) and (strtointdef(databit, -1) <= 8))
     then quit(1, false, ERR01 + ERR03);
@@ -321,7 +321,7 @@ begin
       end;
     until ((length(parity) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else parity := lowercase(paramstr(4));
   valid := false;
   for b := 0 to 2 do
@@ -350,7 +350,7 @@ begin
       end;
     until ((length(stopbit) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else stopbit := paramstr(5);
   if not ((strtointdef(stopbit, -1) >= 1) and (strtointdef(stopbit, -1) <= 2))
     then quit(1, false, ERR01 + ERR05);
@@ -371,7 +371,7 @@ begin
       end;
     until ((length(protocol) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else protocol := lowercase(paramstr(6));
   valid := false;
   for b := 0 to 1 do
@@ -397,7 +397,7 @@ begin
       write(MSG12 + deviceid);
     until ((length(protocol) > 0) and (c = #13)) or (c = #27);
     writeln;
-    if c = #27 then halt(0);
+    if c = #27 then quit(0, false, #13);
   end else deviceid := paramstr(7);
   if not ((strtointdef(deviceid, -1) >= 0) and (strtointdef(deviceid, -1) <= 247))
     then quit(1, false, ERR01 + ERR07);

@@ -15,17 +15,21 @@
 
 // LOAD 'inpout.dll'
 function loadinpout32dll: boolean;
-const
-  {$IFDEF WIN32}
+{$IFDEF WINDOWS}
+  var
+    libdir: string = 'library\inpout32\';
+  const
+{$ENDIF}
+{$IFDEF WIN32}
     filename: string = 'inpout32.dll';
-  {$ENDIF}
-  {$IFDEF WIN64}
+{$ENDIF}
+{$IFDEF WIN64}
     filename: string = 'inpoutx64.dll';
-  {$ENDIF}
-  libdir: string = 'library\inpout32\';
+{$ENDIF}
 begin
   result := true;
   {$IFDEF WINDOWS}
+    libdir := 'library\inpout32\';
     if fileexists(libdir + filename)
       then inpout32 := loadlibrary(pchar(libdir + filename))
       else inpout32 := loadlibrary(pchar(filename));

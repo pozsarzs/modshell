@@ -23,6 +23,7 @@ var
     inpout32: THandle;
     inp32: TInp32;
     out32: TOut32;
+    loaded_inpout32dll: boolean;
   {$ENDIF}
   // BUFFERS
   // Modbus registers numbers
