@@ -51,6 +51,8 @@ function boolisitconstantarray(s: string): boolean; forward;
 function boolisitconstant(s: string): boolean; forward;
 function boolisitvariablearray(s: string): boolean; forward;
 function boolisitvariable(s: string): boolean; forward;
+function boolvalidconstantarraycell(s: string): boolean; forward;
+function boolvalidvariablearraycell(s: string): boolean; forward;
 function cmd_run(p1, p2: string): byte; forward;
 function intisitconstantarrayelement(s: string): integer; forward;
 function intisitconstantarray(s: string): integer; forward;

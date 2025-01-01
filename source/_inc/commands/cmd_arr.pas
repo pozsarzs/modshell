@@ -133,8 +133,11 @@ begin
   begin
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
-    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    if boolisitconstantarray(p2) then
+      if boolvalidconstantarraycell(p2) then s2 := isitconstantarray(p2) else result := 1;
+    if boolvalidvariablearraycell(p2) then
+      if boolvalidvariablearraycell(p2) then s2 := isitvariablearray(p2) else result := 1;
+    if result = 1 then exit;
     if length(s2) = 0 then s2 := p2;
   end;
   // PRIMARY MISSION

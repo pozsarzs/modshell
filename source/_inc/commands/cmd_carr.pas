@@ -93,6 +93,20 @@ begin
       then result := idx;
 end;
 
+// CHECK SPECIFIED CELL NUMBER
+function boolvalidconstantarraycell(s: string): boolean;
+begin
+  if intisitconstantarrayelement(s) > (length(arrays[intisitconstantarray(s)].aitems) - 1) then
+  begin
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR66 + s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR66 + s);
+    {$ENDIF}
+     result := false
+  end else result := true;
+end;
+
 // COMMAND 'carr'
 function cmd_carr(p1, p2: string): byte;
 var

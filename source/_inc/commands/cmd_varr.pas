@@ -78,6 +78,7 @@ begin
     if (arrays[i].aname = lowercase(s)) and not arrays[i].areadonly
       then result := stringreplace(arrays[i].aitems[idx], #92 + #32 , #32, [rfReplaceAll]);
 end;
+
 // IF IT IS A VARIABLE ARRAY, IT RETURNS THEIRS ELEMENT NUMBER
 function intisitvariablearrayelement(s: string): integer;
 var
@@ -90,6 +91,20 @@ begin
   for i := 0 to ARRBUFFSIZE - 1 do
     if (arrays[i].aname = lowercase(s)) and not arrays[i].areadonly
       then result := idx;
+end;
+
+// CHECK SPECIFIED CELL NUMBER
+function boolvalidvariablearraycell(s: string): boolean;
+begin
+  if intisitvariablearrayelement(s) > (length(arrays[intisitvariablearray(s)].aitems) - 1) then
+  begin
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR66 + s);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR66 + s);
+    {$ENDIF}
+    result := false
+  end else result := true;
 end;
 
 // COMMAND 'varr'

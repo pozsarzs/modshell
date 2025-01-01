@@ -55,7 +55,7 @@ if $ARGCNT < 3 then goto usage
     print $msg[3]
     exit 1
   label converr
-    print msg[4]
+    print msg[a]
     exit 2
   label convert
     let $i 0

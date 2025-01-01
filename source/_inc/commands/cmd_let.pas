@@ -84,17 +84,15 @@ begin
         if boolisitvariable(p1) then vars[intisitvariable(p1)].vvalue := s2;
         if boolisitvariablearray(p1) then
         begin
-          if intisitvariablearrayelement(p1) > (length(arrays[intisitvariablearray(p1)].aitems) - 1) then
-          begin
-            {$IFNDEF X}
-              if verbosity(2) then writeln(ERR66 + p1);
-            {$ELSE}
-              Form1.Memo1.Lines.Add(ERR66 + p1);
-            {$ENDIF}
+          if boolvalidvariablearraycell(p1)
+            then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := s2 else
+            begin
+              {$IFNDEF X}
+                if verbosity(2) then writeln(ERR66 + p1);
+              {$ELSE}
+                Form1.Memo1.Lines.Add(ERR66 + p1);
+              {$ENDIF}
             result := 1;
-          end else
-          begin
-            arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := s2;
           end;
         end;
         if boolisitconstant(p1) then
@@ -110,21 +108,17 @@ begin
             end;
         if boolisitconstantarray(p1) then
           if length(arrays[intisitconstantarray(p1)].aitems[intisitconstantarrayelement(p1)]) = 0 then
-          begin
-            if intisitconstantarrayelement(p1) > (length(arrays[intisitconstantarray(p1)].aitems) - 1) then
-            begin
-              {$IFNDEF X}
-                if verbosity(2) then writeln(ERR66 + p1);
-              {$ELSE}
-                Form1.Memo1.Lines.Add(ERR66 + p1);
-              {$ENDIF}
-              result := 1;
-            end else
-            begin
-              arrays[intisitconstantarray(p1)].aitems[intisitconstantarrayelement(p1)] := s2;
-            end;
-          end;
-          exit;
+            if boolvalidconstantarraycell(p1)
+              then arrays[intisitconstantarray(p1)].aitems[intisitconstantarrayelement(p1)] := s2 else
+              begin
+                {$IFNDEF X}
+                  if verbosity(2) then writeln(ERR66 + p1);
+                {$ELSE}
+                  Form1.Memo1.Lines.Add(ERR66 + p1);
+                {$ENDIF}
+                result := 1;
+              end;
+        exit;
       end else
       begin
         // CLEAR VARIABLE CONTENT

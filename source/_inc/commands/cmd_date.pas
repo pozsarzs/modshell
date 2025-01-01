@@ -26,6 +26,7 @@
 function cmd_date(p1: string): byte;
 var
   dt: string;
+  s1: string; // parameter in other format
   y, mh, d, w, h, m, s, cs: word;
 begin
   result := 0;
@@ -34,24 +35,30 @@ begin
   getdate(y, mh, d, w);
   gettime(h, m, s, cs);
   dt := inttostr(y) + '.' + addzero(mh) + '.' + addzero(d)+ '. ' + addzero(h) + ':' + addzero(m) + ':' + addzero(s);
-  if length(p1) = 0
-    then {$IFNDEF X} writeln(dt) {$ELSE} Form1.Memo1.Lines.Add(dt) {$ENDIF} else
+  if length(p1) = 0 then {$IFNDEF X} writeln(dt) {$ELSE} Form1.Memo1.Lines.Add(dt) {$ENDIF} else
+  begin
+    // CHECK P1 PARAMETER
+    if (not boolisitvariable(p1)) and
+       (not boolisitvariablearray(p1)) then
     begin
-      // CHECK P1 PARAMETER
-      if (not boolisitvariable(p1)) and
-         (not boolisitvariablearray(p1)) then
+      // No such variable!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR19 + p1);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR19 + p1);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
+    if boolisitvariablearray(p1) then
+      if not boolvalidvariablearraycell(p1) then
       begin
-        // No such variable!
-        {$IFNDEF X}
-          if verbosity(2) then writeln(ERR19 + p1);
-        {$ELSE}
-          Form1.Memo1.Lines.Add(ERR19 + p1);
-        {$ENDIF}
         result := 1;
         exit;
       end;
-      if boolisitvariable(p1)
-        then vars[intisitvariable(p1)].vvalue := dt
-        else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := dt;
-    end;
+    // PRIMARY MISSION
+    if boolisitvariable(p1)
+      then vars[intisitvariable(p1)].vvalue := dt
+      else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := dt;
+  end;
 end;
