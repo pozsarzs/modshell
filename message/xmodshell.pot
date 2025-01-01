@@ -773,6 +773,14 @@ msgstr ""
 msgid "Wrong address"
 msgstr ""
 
+#: frmmain.err66
+msgid "No such array cell: "
+msgstr ""
+
+#: frmmain.err98
+msgid "Cannot load inpout32.dll!"
+msgstr ""
+
 #: frmmain.err99
 msgid "Minimal terminal size is 80x25!"
 msgstr ""

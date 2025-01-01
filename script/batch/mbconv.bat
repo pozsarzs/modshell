@@ -1,4 +1,4 @@
-@modshell.exe -r %0
+@modshell.exe -r %0 %1 %2
 @goto :eof
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |

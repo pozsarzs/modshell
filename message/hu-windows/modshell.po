@@ -768,6 +768,14 @@ msgstr "Rossz regiszter típus"
 msgid "Wrong address"
 msgstr "Rossz cím"
 
+#: modshell:err66
+msgid "No such array cell: "
+msgstr "Nincs ilyen cella a tömbben: "
+
+#: modshell:err98
+msgid "Cannot load inpout32.dll!"
+msgstr "Nem lehet betölteni a inpout32.dll-t!"
+
 #: modshell:err99
 msgid "Minimal terminal size is 80x25!"
 msgstr "A legkisebb terminál méret 80x25!"

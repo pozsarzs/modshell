@@ -50,12 +50,12 @@ var
   b: byte;
   {$IFDEF WINDOWS} s: string; {$ENDIF}
 begin
-  if mode then ShowMessage('There are one or more bad parameters in command line.') else
+  if mode then ShowMessage('There are one or more bad arguments in command line.') else
   begin
     {$IFDEF UNIX}
-      writeln('Usage: ', fn, {$IFDEF WINDOWS}'.', fe,{$ENDIF}' [parameter]');
+      writeln('Usage: ', fn, {$IFDEF WINDOWS}'.', fe,{$ENDIF}' [argument]');
       writeln;
-      writeln('parameters:');
+      writeln('arguments:');
       for b := 1 to 2 do
       begin
         Write('  ', params[b, 1]);
@@ -68,8 +68,8 @@ begin
     {$ENDIF}
     {$IFDEF WINDOWS}
       s := 'Usage:' + #13 + #10;
-      s := s + ' ' + fn + ' [parameter]' + #13 + #10 + #13 + #10;
-      s := s + 'parameters:';
+      s := s + ' ' + fn + ' [argument]' + #13 + #10 + #13 + #10;
+      s := s + 'arguments:';
       for b := 1 to 2 do
         s := s + #13 + #10 + '  ' + params[b, 1] + ', ' + params[b, 2] + ': ' + params[b, 3];
       ShowMessage(s);

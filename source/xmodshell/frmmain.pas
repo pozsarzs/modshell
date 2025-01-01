@@ -1252,8 +1252,8 @@ begin
   uconfig.lastproject := vars[12].vvalue;
   saveconfiguration(BASENAME,'.ini');
   {$IFDEF WINDOWS}
-    // unload a dll
-    unloadinpout32dll;
+    // unload dlls
+    if loaded_inpout32dll then unloadinpout32dll;
   {$ENDIF}
   // restore directory
   setcurrentdir(originaldirectory);
@@ -1275,8 +1275,9 @@ begin
   // detect language
   lang := getlang;
   {$IFDEF WINDOWS}
-    // load a dll
-    if not loadinpout32dll then ShowMessage(ERR98);
+    // load dlls
+    loaded_inpout32dll := loadinpout32dll;
+    if not loaded_inpout32dll then ShowMessage(ERR98);
   {$ENDIF}
   loadconfiguration(BASENAME,'.ini');
   // set default constants

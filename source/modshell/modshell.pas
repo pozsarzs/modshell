@@ -417,8 +417,8 @@ begin
   uconfig.lastproject := vars[12].vvalue;
   saveconfiguration(BASENAME, '.ini');
   {$IFDEF WINDOWS}
-    // unload inpout32.dll
-    if loaded-inpout32dll then unloadinpout32dll;
+    // unload dlls
+    if loaded_inpout32dll then unloadinpout32dll;
   {$ENDIF}
   // restore directory
   if appmode <> 4 then setcurrentdir(originaldirectory);

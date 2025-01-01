@@ -745,6 +745,10 @@ msgstr ""
 msgid "Wrong address"
 msgstr ""
 
+#: modshell:err66
+msgid "No such array cell: "
+msgstr ""
+
 #: modshell:err98
 msgid "Cannot load inpout32.dll!"
 msgstr ""

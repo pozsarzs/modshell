@@ -1,4 +1,4 @@
-@modshell.exe -r %0
+@modshell.exe -r %0 %1 %2 %3
 @goto :eof
 # +----------------------------------------------------------------------------+
 # | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
@@ -23,7 +23,7 @@ var inpval
 var numsys_from
 var numsys_to
 # messages
-varr msg 4
+varr msg 5
   let msg[0] NumConv\ v0.1\ *\ Number\ converter\ utility
   let msg[1] (C)\ 2024\ Pozsar\ Zsolt\ <http://www.pozsarzs.hu>
   let msg[2] Usage:
