@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_aplg.pas                                                             | }
 { | command 'applog'                                                         | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0     p1         p2                      p3       p4          p5          p6          p7
   --------------------------------------------------------------------------------------------------
   applog [$]LOGFILE $TEXT|"TEXT\ $$1\ TEXT" [$]LEVEL [[$]VALUE1] [[$]VALUE2] [[$]VALUE3] [[$]VALUE4]
@@ -26,9 +26,9 @@
   p5 |  x  |  x  |  x  |  x  |     |     |
   p6 |  x  |  x  |  x  |  x  |     |     |
   p7 |  x  |  x  |  x  |  x  |     |     |
-}  
+}
 
-// COMMAND 'CRON'
+// COMMAND 'APPLOG'
 function cmd_applog(p1, p2, p3, p4, p5, p6, p7: string): byte;
 const
   LEVEL: array[0..4] of string=('NOTE   ',
@@ -38,9 +38,9 @@ const
                                 'DEBUG  ');
 var
   b: byte;
-  i3: integer; // parameter in other type
+  i3: integer;
   fpn, fp, fn, fx: string;
-  s: array[1..7] of string; // parameters in other type
+  s: array[1..7] of string;
   tf: text;
 
   // CREATE TIMESTAMP
@@ -73,33 +73,49 @@ begin
   // CHECK P1 PARAMETER
   if boolisitconstant(p1) then s[1] := isitconstant(p1);
   if boolisitvariable(p1) then s[1] := isitvariable(p1);
+  // No such array cell!
   if boolisitconstantarray(p1) then
-    if boolvalidconstantarraycell(p1) then s[1] := isitconstantarray(p1) else result := 1;
+    if boolvalidconstantarraycell(p1)
+      then s[1] := isitconstantarray(p1)
+      else result := 1;
   if boolisitvariablearray(p1) then
-    if boolvalidvariablearraycell(p1) then s[1] := isitvariablearray(p1) else result := 1;
+    if boolvalidvariablearraycell(p1)
+      then s[1] := isitvariablearray(p1)
+      else result := 1;
   if result = 1 then exit;
   if length(s[1]) = 0 then s[1] := p1;
-  // CHECK P2 PARAMETER: IS IT A MESSAGE?
+  // CHECK P2 PARAMETER
+  // Is it a message?
   s[2] := isitmessage(p2);
   if length(s[2]) = 0 then
   begin
-    // CHECK P2 PARAMETER: IS IT VARIABLE?
+    // Is it variable?
     if boolisitconstant(p2) then s[2] := isitconstant(p2);
     if boolisitvariable(p2) then s[2] := isitvariable(p2);
-  if boolisitconstantarray(p2) then
-    if boolvalidconstantarraycell(p2) then s[2] := isitconstantarray(p2) else result := 1;
-  if boolisitvariablearray(p2) then
-    if boolvalidvariablearraycell(p2) then s[2] := isitvariablearray(p2) else result := 1;
-  if result = 1 then exit;
+    // No such array cell!
+    if boolisitconstantarray(p2) then
+      if boolvalidconstantarraycell(p2)
+        then s[2] := isitconstantarray(p2)
+        else result := 1;
+    if boolisitvariablearray(p2) then
+      if boolvalidvariablearraycell(p2)
+        then s[2] := isitvariablearray(p2)
+        else result := 1;
+    if result = 1 then exit;
     if length(s[2]) = 0 then s[2] := p2;
   end;
   // CHECK P3 PARAMETER
   if boolisitconstant(p3) then s[3] := isitconstant(p3);
   if boolisitvariable(p3) then s[3] := isitvariable(p3);
+  // No such array cell!
   if boolisitconstantarray(p3) then
-    if boolvalidconstantarraycell(p3) then s[3] := isitconstantarray(p3) else result := 1;
+    if boolvalidconstantarraycell(p3)
+      then s[3] := isitconstantarray(p3)
+      else result := 1;
   if boolisitvariablearray(p3) then
-    if boolvalidvariablearraycell(p3) then s[3] := isitvariablearray(p3) else result := 1;
+    if boolvalidvariablearraycell(p3)
+      then s[3] := isitvariablearray(p3)
+      else result := 1;
   if result = 1 then exit;
   if length(s[3]) = 0 then s[3] := p3;
   i3 := strtointdef(s[3], -1);
@@ -119,11 +135,16 @@ begin
   begin
     if boolisitconstant(p4) then s[4] := isitconstant(p4);
     if boolisitvariable(p4) then s[4] := isitvariable(p4);
-  if boolisitconstantarray(p4) then
-    if boolvalidconstantarraycell(p4) then s[4] := isitconstantarray(p4) else result := 1;
-  if boolisitvariablearray(p4) then
-    if boolvalidvariablearraycell(p4) then s[4] := isitvariablearray(p4) else result := 1;
-  if result = 1 then exit;
+    // No such array cell!
+    if boolisitconstantarray(p4) then
+      if boolvalidconstantarraycell(p4)
+        then s[4] := isitconstantarray(p4)
+        else result := 1;
+    if boolisitvariablearray(p4) then
+      if boolvalidvariablearraycell(p4)
+        then s[4] := isitvariablearray(p4)
+        else result := 1;
+    if result = 1 then exit;
     if length(s[4]) = 0 then s[4] := p4;
   end;
   // CHECK P5 PARAMETER
@@ -131,11 +152,16 @@ begin
   begin
     if boolisitconstant(p5) then s[5] := isitconstant(p5);
     if boolisitvariable(p5) then s[5] := isitvariable(p5);
-  if boolisitconstantarray(p5) then
-    if boolvalidconstantarraycell(p5) then s[5] := isitconstantarray(p5) else result := 1;
-  if boolisitvariablearray(p5) then
-    if boolvalidvariablearraycell(p5) then s[5] := isitvariablearray(p5) else result := 1;
-  if result = 1 then exit;
+    // No such array cell!
+    if boolisitconstantarray(p5) then
+      if boolvalidconstantarraycell(p5)
+        then s[5] := isitconstantarray(p5)
+        else result := 1;
+    if boolisitvariablearray(p5) then
+      if boolvalidvariablearraycell(p5)
+        then s[5] := isitvariablearray(p5)
+        else result := 1;
+    if result = 1 then exit;
     if length(s[5]) = 0 then s[5] := p5;
   end;
   // CHECK P6 PARAMETER
@@ -143,10 +169,15 @@ begin
   begin
     if boolisitconstant(p6) then s[6] := isitconstant(p6);
     if boolisitvariable(p6) then s[6] := isitvariable(p6);
+    // No such array cell!
     if boolisitconstantarray(p6) then
-      if boolvalidconstantarraycell(p6) then s[6] := isitconstantarray(p6) else result := 1;
+      if boolvalidconstantarraycell(p6)
+        then s[6] := isitconstantarray(p6)
+        else result := 1;
     if boolisitvariablearray(p6) then
-      if boolvalidvariablearraycell(p6) then s[6] := isitvariablearray(p6) else result := 1;
+      if boolvalidvariablearraycell(p6)
+        then s[6] := isitvariablearray(p6)
+        else result := 1;
     if result = 1 then exit;
     if length(s[6]) = 0 then s[6] := p6;
   end;
@@ -155,11 +186,16 @@ begin
   begin
     if boolisitconstant(p7) then s[7] := isitconstant(p7);
     if boolisitvariable(p7) then s[7] := isitvariable(p7);
-  if boolisitconstantarray(p7) then
-    if boolvalidconstantarraycell(p7) then s[7] := isitconstantarray(p7) else result := 1;
-  if boolisitvariablearray(p7) then
-    if boolvalidvariablearraycell(p7) then s[7] := isitvariablearray(p7) else result := 1;
-  if result = 1 then exit;
+    // No such array cell!
+    if boolisitconstantarray(p7) then
+      if boolvalidconstantarraycell(p7)
+        then s[7] := isitconstantarray(p7)
+        else result := 1;
+    if boolisitvariablearray(p7) then
+      if boolvalidvariablearraycell(p7)
+        then s[7] := isitvariablearray(p7)
+        else result := 1;
+    if result = 1 then exit;
     if length(s[7]) = 0 then s[7] := p7;
   end;
   fp := extractfilepath(s[1]);
@@ -178,7 +214,7 @@ begin
   // PRIMARY MISSION
   assignfile(tf, fpn);
   try
-    // CHECK EXIST
+    // check exist
     if fileexists(fpn) then append(tf) else rewrite(tf);
     s[2] := timestamp + ' ' + LEVEL[strtoint(s[3])] + ' ' + s[2];
     for b:= 4 to 7 do

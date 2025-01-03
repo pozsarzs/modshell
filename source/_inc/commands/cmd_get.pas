@@ -4,7 +4,7 @@
 { | cmd_get.pas                                                              | }
 { | command 'get'                                                            | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0  p1
   ----------------------------------
   get dev?|pro?|con?|project|timeout
@@ -27,7 +27,7 @@ function cmd_get(p1: string): byte;
 var
   i: integer;
   pr: byte;
-  s1: string; // parameter in other type
+  s1: string;
   valid: boolean;
 
   // SHOW SETTINGS
@@ -61,7 +61,9 @@ var
                  Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
                  Form1.Memo1.Lines.Add(MSG07 + device);
                  Form1.Memo1.Lines.Add(MSG09 + DEV_SPEED[speed]);
-                 Form1.Memo1.Lines.Add(MSG10 + inttostr(databit) + upcase(DEV_PARITY[parity]) + inttostr(stopbit));
+                 Form1.Memo1.Lines.Add(MSG10 + inttostr(databit) +
+                                       upcase(DEV_PARITY[parity]) +
+                                       inttostr(stopbit));
                {$ENDIF}
              end;
            end else
@@ -81,7 +83,9 @@ var
              {$ELSE}
                Form1.Memo1.Lines.Add(PREFIX[pr] + inttostr(n) + ':');
                Form1.Memo1.Lines.Add(MSG11 + PROT_TYPE[prottype]);
-               if prottype = 3 then Form1.Memo1.Lines.Add(MSG86 + inttostr(id)) else Form1.Memo1.Lines.Add(MSG13 + inttostr(id));
+               if prottype = 3
+                 then Form1.Memo1.Lines.Add(MSG86 + inttostr(id))
+                 else Form1.Memo1.Lines.Add(MSG13 + inttostr(id));
              {$ENDIF}
            end;
          end else

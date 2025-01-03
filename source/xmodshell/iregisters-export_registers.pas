@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | iregisters-export_registers.pas                                          | }
 { | include file                                                             | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -185,7 +185,9 @@ begin
         if Execute then
         begin
           if fileexists(FileName) then
-            if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem31.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+            if Application.MessageBox(PChar(MSG14),
+                                      PChar(rmampdot(MenuItem31.Caption)),
+                                      MB_ICONQUESTION + MB_YESNO) = IDNO then
             begin
               Free;
               exit;

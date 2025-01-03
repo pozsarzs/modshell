@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_edit.pas                                                             | }
 { | command 'edit'                                                           | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0   p1
   ------------------
   edit [LINE_NUMBER]
@@ -28,8 +28,8 @@ var
   b, bb: byte;
   c: char;
   en: byte;
-  i1: integer; // parameter in other format
-  s1: string; // parameter in other format
+  i1: integer;
+  s1: string;
   shift: byte = 0;
   tp: byte = 1;
   txt: string;
@@ -199,9 +199,3 @@ begin
   until c = #27;
   writeln;
 end;
-
-
-
-
-
-

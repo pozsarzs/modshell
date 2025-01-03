@@ -1,8 +1,8 @@
 @modshell.exe -r %0
 @goto :eof
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | copyset1.bat                                                               |
 # | Example script * Copy settings between same devices                        |
 # +----------------------------------------------------------------------------+

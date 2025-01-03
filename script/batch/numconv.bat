@@ -1,9 +1,9 @@
 @modshell.exe -r %0 %1 %2 %3
 @goto :eof
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
-# | mbconv                                                                     |
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | numconv                                                                    |
 # | NumConv v0.1 * Number converter utility                                    |
 # +----------------------------------------------------------------------------+
 #
@@ -25,7 +25,7 @@ var numsys_to
 # messages
 varr msg 5
   let msg[0] NumConv\ v0.1\ *\ Number\ converter\ utility
-  let msg[1] (C)\ 2024\ Pozsar\ Zsolt\ <http://www.pozsarzs.hu>
+  let msg[1] (C)\ 2024-2025\ Pozsar\ Zsolt\ <http://www.pozsarzs.hu>
   let msg[2] Usage:
   let msg[3] \ \ input_value\ bin|oct|dec|hex\ bin|oct|dec|hex
   let msg[4] ERROR:\ Wrong\ input\ value.

@@ -1,7 +1,7 @@
 #!/usr/local/bin/modshell -r
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | getpm9c1                                                                   |
 # | Example script * Read Schneider PM9C power meter 1.                        |
 # +----------------------------------------------------------------------------+

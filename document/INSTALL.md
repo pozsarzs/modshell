@@ -12,7 +12,7 @@ required to compile both of them programs.
   
   Build and install:
   ```
-  $ ./configure [cui=no] [gui=no] [stagedir=...]  
+  $ ./configure [cui=no] [gui=no] [util=no] [stagedir=...]  
   $ make
   # make install
   ```
@@ -26,7 +26,7 @@ required to compile both of them programs.
   Build:
   ```
   > cd source
-  > buildw??.bat [/nocui] [/nogui]
+  > buildw??.bat [/nocui] [/nogui] [/noutil]
   ```  
 
 ### 3. On DOS

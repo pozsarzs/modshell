@@ -4,7 +4,7 @@
 { | cmd_let.pas                                                              | }
 { | command 'let'                                                            | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0  p1                  p2                  p3
   ------------------------------------------------------
   let dinp|coil|ireg|hreg [$]ADDRESS          [$]VALUE
@@ -36,7 +36,7 @@ function cmd_let(p1, p2, p3: string): byte;
 var
   rt: byte; // register type
   s: string;
-  s2, s3: string; // parameters in other type
+  s2, s3: string;
   x, y: byte;
   valid: boolean = false;
   clear: boolean = false;
@@ -72,8 +72,16 @@ begin
       // CHECK P2 PARAMETER
       if boolisitconstant(p2) then s2 := isitconstant(p2);
       if boolisitvariable(p2) then s2 := isitvariable(p2);
-      if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-      if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+      // No such array cell!
+      if boolisitconstantarray(p2) then
+        if boolvalidconstantarraycell(p2)
+          then s2 := isitconstantarray(p2)
+          else result := 1;
+      if boolisitvariablearray(p2) then
+        if boolvalidvariablearraycell(p2)
+          then s2 := isitvariablearray(p2)
+          else result := 1;
+      if result = 1 then exit;
       if length(s2) = 0 then s2 := p2;
       // CHANGE '\ ' TO SPACE IN P2
       s2 := stringreplace(s2, #92+#32, #32, [rfReplaceAll]);
@@ -122,8 +130,10 @@ begin
       end else
       begin
         // CLEAR VARIABLE CONTENT
-        if boolisitvariable(p1) then vars[intisitvariable(p1)].vvalue := '';
-        if boolisitvariablearray(p1) then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := '';
+        if boolisitvariable(p1)
+          then vars[intisitvariable(p1)].vvalue := '';
+        if boolisitvariablearray(p1)
+          then arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := '';
         exit;
       end;
     end else
@@ -154,8 +164,16 @@ begin
       // CHECK P3 PARAMETER
       if boolisitconstant(p3) then s3 := isitconstant(p3);
       if boolisitvariable(p3) then s3 := isitvariable(p3);
-      if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
-      if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
+      // No such array cell!
+      if boolisitconstantarray(p3) then
+        if boolvalidconstantarraycell(p3)
+          then s3 := isitconstantarray(p3)
+          else result := 1;
+      if boolisitvariablearray(p3) then
+        if boolvalidvariablearraycell(p3)
+          then s3 := isitvariablearray(p3)
+          else result := 1;
+      if result = 1 then exit;
       if length(s3) = 0 then s3 := p3;
       // CHANGE '\ ' TO SPACE IN P3
       s3 := stringreplace(s3, #92+#32, #32, [rfReplaceAll]);
@@ -173,8 +191,12 @@ begin
       end;
       // PRIMARY MISSION
       case rt of
-        0: if dinp[strtoint(s3)] then vars[intisitvariable(p1)].vvalue := '1' else vars[intisitvariable(p1)].vvalue := '0';
-        1: if coil[strtoint(s3)] then vars[intisitvariable(p1)].vvalue := '1' else vars[intisitvariable(p1)].vvalue := '0';
+        0: if dinp[strtoint(s3)]
+             then vars[intisitvariable(p1)].vvalue := '1'
+             else vars[intisitvariable(p1)].vvalue := '0';
+        1: if coil[strtoint(s3)]
+             then vars[intisitvariable(p1)].vvalue := '1'
+             else vars[intisitvariable(p1)].vvalue := '0';
         2: if boolisitvariable(p1)
              then vars[intisitvariable(p1)].vvalue := inttostr(ireg[strtoint(s3)])
              else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := inttostr(ireg[strtoint(s3)]);
@@ -210,8 +232,16 @@ begin
   // CHECK P2 PARAMETER
   if boolisitconstant(p2) then s2 := isitconstant(p2);
   if boolisitvariable(p2) then s2 := isitvariable(p2);
-  if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-  if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+  // No such array cell!
+  if boolisitconstantarray(p2) then
+    if boolvalidconstantarraycell(p2)
+      then s2 := isitconstantarray(p2)
+      else result := 1;
+  if boolisitvariablearray(p2) then
+    if boolvalidvariablearraycell(p2)
+      then s2 := isitvariablearray(p2)
+      else result := 1;
+  if result = 1 then exit;
   if length(s2) = 0 then s2 := p2;
   if (strtointdef(s2, -1) < 0 ) or (strtointdef(s2, -1) > 9998) then
   begin
@@ -227,8 +257,16 @@ begin
   // CHECK P3 PARAMETER
   if boolisitconstant(p3) then s3 := isitconstant(p3);
   if boolisitvariable(p3) then s3 := isitvariable(p3);
-  if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
-  if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
+  // No such array cell!
+  if boolisitconstantarray(p3) then
+    if boolvalidconstantarraycell(p3)
+      then s3 := isitconstantarray(p3)
+      else result := 1;
+  if boolisitvariablearray(p3) then
+    if boolvalidvariablearraycell(p3)
+      then s3 := isitvariablearray(p3)
+      else result := 1;
+  if result = 1 then exit;
   if length(s3) = 0 then s3 := p3;
   if rt > 1 then
     if (strtointdef(s3, -1) < 0 ) or (strtointdef(s3, -1) > 65535) then

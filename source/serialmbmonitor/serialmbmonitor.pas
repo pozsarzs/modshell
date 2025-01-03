@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | serialmbmonitor.pas                                                      | }
 { | Serial Modbus traffic monitor utility                                    | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -56,7 +56,9 @@ const
   PRGCOPYRIGHT = '(C) 2024 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'SerialMBMonitor';
   PRGVERSION = '0.1';
-  DEV_SPEED: array[0..10] of string = ('150', '300', '600', '1200', '2400', '4800', '9600', '19200', '38400', '57600', '115200');
+  DEV_SPEED: array[0..10] of string = ('150', '300', '600', '1200', '2400',
+                                       '4800', '9600', '19200', '38400',
+                                       '57600', '115200');
   DEV_PARITY: array[0..2] of char = ('e','n','o');
   PROT_TYPE: array[0..1] of string = ('ascii','rtu');
   EOL: string = #13 + #10;
@@ -83,7 +85,6 @@ const
   {$ENDIF}
 
 {$DEFINE BASENAME := lowercase(PRGNAME)}
-{$DEFINE SLASH := DirectorySeparator}
 {$IFDEF UNIX}{$DEFINE DIR_LOCK := '/var/lock'}{$ENDIF}
 
 {$R *.res}
@@ -134,7 +135,8 @@ resourcestring
 
 {$IFDEF PROGTEST}
   // MAKE A TEST TELEGRAM
-  function testtelegram(protocol: string; id, number: byte; respreq: boolean): string;
+  function testtelegram(protocol: string; id, number: byte;
+           respreq: boolean): string;
   var
     error: byte;
 
@@ -161,14 +163,16 @@ resourcestring
       //   TGM = 0x3A + ADU + 0x0D + 0x0A
       if respreq
         then result := uppercase(#58 + hex1(2, id) + PDU_REQUEST[number] +
-                                 hex1(2, lrc(hex1(2, id) + PDU_REQUEST[number])) +
+                                 hex1(2,lrc(hex1(2, id) + PDU_REQUEST[number])) +
                                  EOL)
         else
           if error < 130
-            then result := uppercase(#58 + hex1(2, id) + PDU_RESPONSE[number] +
+            then result := uppercase(#58 + hex1(2, id) +
+                                     PDU_RESPONSE[number] +
                                      hex1(2, lrc(hex1(2, id) + PDU_RESPONSE[number])) +
                                      EOL)
-            else result := uppercase(#58 + hex1(2, id) + PDU_ERROR_RESPONSE[number] +
+            else result := uppercase(#58 + hex1(2, id) +
+                                     PDU_ERROR_RESPONSE[number] +
                                      hex1(2, lrc(hex1(2, id) + PDU_ERROR_RESPONSE[number])) +
                                      EOL);
     end else
@@ -179,16 +183,23 @@ resourcestring
       //   TGM = ADU
       if respreq
         then result := char(id) + converta2r(PDU_REQUEST[number]) +
-                       char(lo(crc16(char(id) + converta2r(PDU_REQUEST[number])))) +
-                       char(hi(crc16(char(id) + converta2r(PDU_REQUEST[number]))))
+                       char(lo(crc16(char(id) +
+                            converta2r(PDU_REQUEST[number])))) +
+                       char(hi(crc16(char(id) +
+                            converta2r(PDU_REQUEST[number]))))
         else
           if error < 130
             then result := char(id) + converta2r(PDU_RESPONSE[number]) +
-                           char(lo(crc16(char(id) + converta2r(PDU_RESPONSE[number])))) +
-                           char(hi(crc16(char(id) + converta2r(PDU_RESPONSE[number]))))
-            else result := char(id) + converta2r(PDU_ERROR_RESPONSE[number]) +
-                           char(lo(crc16(char(id) + converta2r(PDU_ERROR_RESPONSE[number])))) +
-                           char(hi(crc16(char(id) + converta2r(PDU_ERROR_RESPONSE[number]))));
+                           char(lo(crc16(char(id) +
+                                converta2r(PDU_RESPONSE[number])))) +
+                           char(hi(crc16(char(id) +
+                                converta2r(PDU_RESPONSE[number]))))
+            else result := char(id) +
+                           converta2r(PDU_ERROR_RESPONSE[number]) +
+                           char(lo(crc16(char(id) +
+                                converta2r(PDU_ERROR_RESPONSE[number])))) +
+                           char(hi(crc16(char(id) +
+                                converta2r(PDU_ERROR_RESPONSE[number]))));
     end;
   end;
 {$ENDIF}
@@ -198,7 +209,8 @@ procedure help(mode: boolean);
 var
   b: byte;
 begin
-  if mode then writeln('There are one or more bad argument in command line.') else
+  if mode
+    then writeln('There are one or more bad argument in command line.') else
   begin
     writeln('Usage: ' + BASENAME + ' [device] [baudrate] [databit(s)] [parity] [stopbit(s)] [protocol] [id]');
     writeln('       ' + BASENAME + ' [argument]');
@@ -392,18 +404,21 @@ begin
       c := readkey;
       if (ord(c) >= 48) and (ord(c) <= 57) and
          (strtoint(deviceid + c) <= 247) then deviceid := deviceid + c;
-      if (c = #8) and (length(deviceid) > 0) then delete(deviceid,length(deviceid), 1);
+      if (c = #8) and (length(deviceid) > 0)
+        then delete(deviceid,length(deviceid), 1);
       gotoxy(1, wherey); clreol;
       write(MSG12 + deviceid);
     until ((length(protocol) > 0) and (c = #13)) or (c = #27);
     writeln;
     if c = #27 then quit(0, false, #13);
   end else deviceid := paramstr(7);
-  if not ((strtointdef(deviceid, -1) >= 0) and (strtointdef(deviceid, -1) <= 247))
+  if not ((strtointdef(deviceid, -1) >= 0) and
+          (strtointdef(deviceid, -1) <= 247))
     then quit(1, false, ERR01 + ERR07);
 
   writeln;
-  writeln(MSG14 + device + ' ' + baudrate + ' ' + databit + uppercase(parity) + stopbit);
+  writeln(MSG14 + device + ' ' + baudrate + ' ' + databit +
+          uppercase(parity) + stopbit);
   writeln(MSG15 +  uppercase(protocol) + ' #' + deviceid);
   writeln;
   writeln(MSG04);
@@ -418,7 +433,8 @@ begin
     ser := TBlockSerial.Create;
     try
       ser.Connect(device);
-      ser.Config(strtoint(baudrate), strtoint(databit), parity[1], strtoint(stopbit), false, false);
+      ser.Config(strtoint(baudrate), strtoint(databit), parity[1],
+                 strtoint(stopbit), false, false);
     except
       quit(2, false, ERR01 + ERR08 + device);
     end;
@@ -444,9 +460,11 @@ begin
         y := random(246) + 1;
         try
           // test request
-          writeln(mbdecodetelegram(protocol, deviceid, testtelegram(protocol, y, x, true)));
+          writeln(mbdecodetelegram(protocol, deviceid,
+                  testtelegram(protocol, y, x, true)));
           // test response
-          writeln(mbdecodetelegram(protocol, deviceid, testtelegram(protocol, y, x, false)));
+          writeln(mbdecodetelegram(protocol, deviceid,
+                  testtelegram(protocol, y, x, false)));
         except
           writeln(ERR01 + ERR09);
         end;

@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_conv.pas                                                             | }
 { | command 'conv'                                                           | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0   p1      p2                           p3                         p4
   -----------------------------------------------------------------------------
   conv $TARGET $NUMSYS_FROM|bin|dec|hex|oct $NUMSYS_TO|bin|dec|hex|oct [$]VALUE
@@ -30,12 +30,13 @@ function cmd_conv(p1, p2, p3, p4: string): byte;
 var
   ns1, ns2: byte; // numerical system
   s: string;
-  s2, s3, s4: string; // parameter in other type
+  s2, s3, s4: string;
   valid: boolean = false;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
-  if (length(p1) = 0) or (length(p2) = 0) or (length(p3) = 0) or (length(p4) = 0) then
+  if (length(p1) = 0) or (length(p2) = 0) or
+     (length(p3) = 0) or (length(p4) = 0) then
   begin
     // Parameter(s) required!
     {$IFNDEF X}
@@ -59,12 +60,27 @@ begin
     result := 1;
     exit;
   end;
+  if boolisitvariablearray(p1) then
+    if not boolvalidvariablearraycell(p1) then
+    begin
+      // No such array cell!
+      result := 1;
+      exit;
+    end;
+  // CHECK P2 PARAMETER
   if boolisitconstant(p2) then s2 := isitconstant(p2);
   if boolisitvariable(p2) then s2 := isitvariable(p2);
-  if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-  if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+  // No such array cell!
+  if boolisitconstantarray(p2) then
+    if boolvalidconstantarraycell(p2)
+      then s2 := isitconstantarray(p2)
+      else result := 1;
+  if boolisitvariablearray(p2) then
+    if boolvalidvariablearraycell(p2)
+      then s2 := isitvariablearray(p2)
+      else result := 1;
+  if result = 1 then exit;
   if length(s2) = 0 then s2 := p2;
-  // CHECK P2 PARAMETER
   for ns1 := 0 to 3 do
     if NUM_SYS[ns1] = s2 then
     begin
@@ -84,13 +100,21 @@ begin
     result := 1;
     exit;
   end;
+  // CHECK P3 PARAMETER
   valid := false;
   if boolisitconstant(p3) then s3 := isitconstant(p3);
   if boolisitvariable(p3) then s3 := isitvariable(p3);
-  if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
-  if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
+  // No such array cell!
+  if boolisitconstantarray(p3) then
+    if boolvalidconstantarraycell(p3)
+      then s3 := isitconstantarray(p3)
+      else result := 1;
+  if boolisitvariablearray(p3) then
+    if boolvalidvariablearraycell(p3)
+      then s3 := isitvariablearray(p3)
+      else result := 1;
+  if result = 1 then exit;
   if length(s3) = 0 then s3 := p3;
-  // CHECK P3 PARAMETER
   for ns2 := 0 to 3 do
     if NUM_SYS[ns2] = s3 then
     begin
@@ -113,8 +137,16 @@ begin
   // CHECK P4 PARAMETER
   if boolisitconstant(p4) then s4 := isitconstant(p4);
   if boolisitvariable(p4) then s4 := isitvariable(p4);
-  if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
-  if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
+  // No such array cell!
+  if boolisitconstantarray(p4) then
+    if boolvalidconstantarraycell(p4)
+      then s4 := isitconstantarray(p4)
+      else result := 1;
+  if boolisitvariablearray(p4) then
+    if boolvalidvariablearraycell(p4)
+      then s4 := isitvariablearray(p4)
+      else result := 1;
+  if result = 1 then exit;
   if length(s4) = 0 then s4 := p4;
   case ns1 of
     0: begin
@@ -162,9 +194,9 @@ begin
          begin
            // What is the 4th parameter?
            {$IFNDEF X}
-             if verbosity(2) then writeln(NUM4 + MSG05 + ' 0-0-177777');
+             if verbosity(2) then writeln(NUM4 + MSG05 + ' 0-177777');
            {$ELSE}
-             Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-0-177777');
+             Form1.Memo1.Lines.Add(NUM4 + MSG05 + ' 0-177777');
            {$ENDIF}
            result := 1;
            exit;

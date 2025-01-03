@@ -4,7 +4,7 @@
 { | cmd_list.pas                                                             | }
 { | command 'list'                                                           | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0
   ----
   list
@@ -28,7 +28,11 @@ begin
   if not scriptisloaded then
   begin
     // No script loaded.
-    {$IFNDEF X} writeln(MSG38); {$ELSE} Form1.Memo1.Lines.Add(MSG38); {$ENDIF}
+    {$IFNDEF X}
+      writeln(MSG38);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG38);
+    {$ENDIF}
     result := 1;
     exit;
   end;
@@ -49,7 +53,8 @@ begin
           y := 0;
         end;
       {$ELSE}
-        Form1.Memo1.Lines.Add(addsomezero(4, inttostr(line + 1)) + ' ' + sbuffer[line]);
+        Form1.Memo1.Lines.Add(addsomezero(4, inttostr(line + 1)) + ' ' +
+                              sbuffer[line]);
       {$ENDIF}
     end;
 end;

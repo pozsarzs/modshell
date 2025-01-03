@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | intrprpt.pas                                                             | }
 { | script interpreter                                                       | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -18,7 +18,6 @@ procedure interpreter(f: string);
 var
   s: string;
   sf: textfile;
-
 begin
   if not fileexists(f) then quit(2, false, ERR21 + f + '!');
   for scriptline := 0 to SCRBUFFSIZE - 1 do sbuffer[scriptline] := '';
@@ -31,8 +30,7 @@ begin
       if length(s) > 0 then
       begin
         // remove space and tab from start of line
-        while (s[1] = #32) or (s[1] = #9) do
-          delete(s, 1, 1);
+        while (s[1] = #32) or (s[1] = #9) do delete(s, 1, 1);
         if (length(s) > 0) and (s[1] <> COMMENT) then
         begin
           if scriptline <= int(SCRBUFFSIZE - 1) then

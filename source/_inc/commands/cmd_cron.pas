@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_cron.pas                                                             | }
 { | command 'cron'                                                           | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0   p1       p2       p3
   ---------------------------
   cron [-r      rec_num]
@@ -47,7 +47,7 @@ function cmd_cron(p1, p2, p3: string): byte;
 const
   R: string[2] = '-r';
 var
-  i1, i2, i3: integer;  // parameters in other type
+  i1, i2, i3: integer;
   b: byte;
   s: string;
 begin
@@ -68,7 +68,8 @@ begin
         with crontable[b] do
         begin
           s := ' ';  write(s);
-          gotoxy(length(s) + 2 + length(MSG34) div 2, wherey); write(inttostr(b));
+          gotoxy(length(s) + 2 + length(MSG34) div 2, wherey);
+          write(inttostr(b));
           s := s + MSG34; gotoxy(length(s) + 4 + length(MSG35) div 2, wherey);
           if chour = 255 then write('*') else write(chour);
           s := s + MSG35; gotoxy(length(s) + 6 + length(MSG36) div 2, wherey);
@@ -85,9 +86,15 @@ begin
         with crontable[b] do
         begin
           s := ' ' + inttostr(b);
-          if chour = 255 then  s := s + #9 +'*' else s := s  + #9 + inttostr(chour);
-          if cminute = 255 then  s := s + #9 +'*' else s := s  + #9 + inttostr(cminute);
-          if cenable then s := s + #9 +'+' else s := s + #9 +'-';
+          if chour = 255
+            then s := s + #9 +'*'
+            else s := s  + #9 + inttostr(chour);
+          if cminute = 255
+            then s := s + #9 +'*'
+            else s := s  + #9 + inttostr(cminute);
+          if cenable
+            then s := s + #9 +'+'
+            else s := s + #9 +'-';
           Form1.Memo1.Lines.Add(s);
       end;
     {$ENDIF}

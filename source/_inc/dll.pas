@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | dll.pas                                                                  | }
 { | DLL handler procedures and functions                                     | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -13,23 +13,23 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-// LOAD 'inpout.dll'
+// LOAD 'inpout32.dll'
 function loadinpout32dll: boolean;
 {$IFDEF WINDOWS}
   var
-    libdir: string = 'library\inpout32\';
+    libdir: string;
   const
-{$ENDIF}
-{$IFDEF WIN32}
-    filename: string = 'inpout32.dll';
-{$ENDIF}
-{$IFDEF WIN64}
-    filename: string = 'inpoutx64.dll';
+    {$IFDEF WIN32}
+      filename: string = 'inpout32.dll';
+    {$ENDIF}
+    {$IFDEF WIN64}
+      filename: string = 'inpoutx64.dll';
+    {$ENDIF}
 {$ENDIF}
 begin
   result := true;
   {$IFDEF WINDOWS}
-    libdir := 'library\inpout32\';
+    libdir := 'library' + SLASH + 'inpout32' + SLASH;
     if fileexists(libdir + filename)
       then inpout32 := loadlibrary(pchar(libdir + filename))
       else inpout32 := loadlibrary(pchar(filename));

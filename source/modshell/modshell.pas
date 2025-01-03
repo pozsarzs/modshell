@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | modshell.pas                                                             | }
 { | main program                                                             | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -18,25 +18,25 @@
 
 program modshell;
 uses
-  {$IFDEF GO32V2} protcom, {$ELSE} synaser, {$ENDIF}
+  {$IFDEF GO32V2} protcom, {$ELSE} Synaser, {$ENDIF}
   {$IFDEF GO32V2} {$ELSE} BlckSock, {$ENDIF}
-  {$IFDEF UNIX} ports, {$ENDIF}
+  {$IFDEF UNIX} Ports, {$ENDIF}
   {$IFDEF WINDOWS} Windows, {$ENDIF}
   Classes,
+  DOM,
   GetText,
   INIFiles,
   Math,
   Strings,
   SysUtils,
+  XMLRead,
+  XMLWrite,
   convert,
   crt,
-  dom,
   dos,
   ucommon,
   uconfig,
-  utranslt,
-  xmlread,
-  xmlwrite;
+  utranslt;
 
 {$I type.pas}
 {$I const.pas}
@@ -269,7 +269,8 @@ begin
             dec(uconfig.histitem);
           end;
         if c = #80 then                                                       // DOWN
-          if (uconfig.histitem < 255) and (length(uconfig.histbuff[uconfig.histitem + 1]) > 0) then
+          if (uconfig.histitem < 255) and
+             (length(uconfig.histbuff[uconfig.histitem + 1]) > 0) then
           begin
             inc(uconfig.histitem);
             command := uconfig.histbuff[uconfig.histitem];
@@ -327,7 +328,8 @@ procedure help(mode: boolean);
 var
   b: byte;
 begin
-  if mode then writeln('There are one or more bad argument in command line.') else
+  if mode
+    then writeln('There are one or more bad argument in command line.') else
   begin
     writeln('Usage: ' + BASENAME + ' [argument]');
     writeln;

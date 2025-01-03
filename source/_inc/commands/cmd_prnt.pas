@@ -4,7 +4,7 @@
 { | cmd_prnt.pas                                                             | }
 { | command 'print'                                                          | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0    p1                           p2         p3         p4
   -------------------------------------------------------------
   print dinp|coil|ireg|hreg          [$]ADDRESS [[$]COUNT] [-n]
@@ -34,9 +34,9 @@ const
   N: string[2] = '-n';
 var
   crlf: boolean = true; // carriage return and line feed
-  i, i2, i3: integer; // parameters in other type
+  i, i2, i3: integer;
   rt: byte; // register type
-  s1, s2, s3: string; // parameters in other type
+  s1, s2, s3: string;
   s: string;
   valid: boolean = false;
 begin
@@ -80,8 +80,16 @@ begin
   // CHECK P1 PARAMETER: IS IT A VARIABLE?
   if boolisitconstant(p1) then s1 := isitconstant(p1);
   if boolisitvariable(p1) then s1 := isitvariable(p1);
-  if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
-  if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
+  // No such array cell!
+  if boolisitconstantarray(p1) then
+    if boolvalidconstantarraycell(p1)
+      then s1 := isitconstantarray(p1)
+      else result := 1;
+  if boolisitvariablearray(p1) then
+    if boolvalidvariablearraycell(p1)
+      then s1 := isitvariablearray(p1)
+      else result := 1;
+  if result = 1 then exit;
   s := '';
   // PRIMARY MISSION
   if length(s1) > 0 then 
@@ -126,8 +134,16 @@ begin
   begin
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
-    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+  // No such array cell!
+  if boolisitconstantarray(p2) then
+    if boolvalidconstantarraycell(p2)
+      then s2 := isitconstantarray(p2)
+      else result := 1;
+  if boolisitvariablearray(p2) then
+    if boolvalidvariablearraycell(p2)
+      then s2 := isitvariablearray(p2)
+      else result := 1;
+  if result = 1 then exit;
     if length(s2) = 0 then s2 := p2;
     i2 := strtointdef(s2, 1); // start address
   end;
@@ -147,8 +163,16 @@ begin
   begin
     if boolisitconstant(p3) then s3 := isitconstant(p3);
     if boolisitvariable(p3) then s3 := isitvariable(p3);
-    if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
-    if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
+  // No such array cell!
+  if boolisitconstantarray(p3) then
+    if boolvalidconstantarraycell(p3)
+      then s3 := isitconstantarray(p3)
+      else result := 1;
+  if boolisitvariablearray(p3) then
+    if boolvalidvariablearraycell(p3)
+      then s3 := isitvariablearray(p3)
+      else result := 1;
+  if result = 1 then exit;
     if length(s3) = 0 then s3 := p3;
     i3 := strtointdef(s3, 1); // count
   end;
@@ -171,12 +195,32 @@ begin
   textbackground(printcolors[1]);
   for i2 := i2  to i2 + i3 - 1 do
     case rt of
-      0: {$IFNDEF X} write(dinp[i2], ' '); {$ELSE} s := s + booltostr(dinp[i2]) + ' '; {$ENDIF}
-      1: {$IFNDEF X} write(coil[i2], ' '); {$ELSE} s := s + booltostr(coil[i2]) + ' '; {$ENDIF}
-      2: {$IFNDEF X} write(ireg[i2], ' '); {$ELSE} s := s + inttostr(ireg[i2]) + ' '; {$ENDIF}
-      3: {$IFNDEF X} write(hreg[i2], ' '); {$ELSE} s := s + inttostr(hreg[i2]) + ' '; {$ENDIF}
+      0: {$IFNDEF X}
+           write(dinp[i2], ' ');
+         {$ELSE}
+           s := s + booltostr(dinp[i2]) + ' ';
+         {$ENDIF}
+      1: {$IFNDEF X}
+           write(coil[i2], ' ');
+         {$ELSE}
+           s := s + booltostr(coil[i2]) + ' ';
+         {$ENDIF}
+      2: {$IFNDEF X}
+           write(ireg[i2], ' ');
+         {$ELSE}
+           s := s + inttostr(ireg[i2]) + ' ';
+         {$ENDIF}
+      3: {$IFNDEF X}
+           write(hreg[i2], ' ');
+         {$ELSE}
+           s := s + inttostr(hreg[i2]) + ' ';
+         {$ENDIF}
     end;
     textcolor(uconfig.colors[0]);
     textbackground(uconfig.colors[1]);
-    {$IFNDEF X} if crlf then writeln; {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+    {$IFNDEF X}
+      if crlf then writeln;
+    {$ELSE}
+      Form1.Memo1.Lines.Add(s);
+    {$ENDIF}
 end;

@@ -4,7 +4,7 @@
 { | cmd_if.pas                                                               | }
 { | command 'if'                                                             | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0  p1       p2              p3        p4   p5
   ---------------------------------------------------
   if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND
@@ -31,9 +31,9 @@ function cmd_if(p1, p2, p3, p4, p5: string): byte;
 const
   RS: array[0..6] of string = ('<','<=','=','=>','>','<>','==');
 var
-  i1, i2, i3: integer; // parameters in other type
+  i1, i2, i3: integer;
   s: string;
-  s1, s3: string; // parameters in other type
+  s1, s3: string;
   valid: boolean = false;
 begin
   result := 0;
@@ -53,8 +53,16 @@ begin
   // CHECK P1 PARAMETER
   if boolisitconstant(p1) then s1 := isitconstant(p1);
   if boolisitvariable(p1) then s1 := isitvariable(p1);
-  if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
-  if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
+  // No such array cell!
+  if boolisitconstantarray(p1) then
+    if boolvalidconstantarraycell(p1)
+      then s1 := isitconstantarray(p1)
+      else result := 1;
+  if boolisitvariablearray(p1) then
+    if boolvalidvariablearraycell(p1)
+      then s1 := isitvariablearray(p1)
+      else result := 1;
+  if result = 1 then exit;
   if length(s1) = 0 then s1 := p1;
   i1 := strtointdef(s1, -1);
   // CHECK P2 PARAMETER
@@ -80,8 +88,16 @@ begin
   // CHECK P3 PARAMETER
   if boolisitconstant(p3) then s3 := isitconstant(p3);
   if boolisitvariable(p3) then s3 := isitvariable(p3);
-  if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
-  if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
+  // No such array cell!
+  if boolisitconstantarray(p3) then
+    if boolvalidconstantarraycell(p3)
+      then s3 := isitconstantarray(p3)
+      else result := 1;
+  if boolisitvariablearray(p3) then
+    if boolvalidvariablearraycell(p3)
+      then s3 := isitvariablearray(p3)
+      else result := 1;
+  if result = 1 then exit;
   if length(s3) = 0 then s3 := p3;
   i3 := strtointdef(s3, -1);
   // CHECK P4 PARAMETER
@@ -106,6 +122,7 @@ begin
     5: if i1 <> i3 then valid := true else valid := false;
     6: if s1 = s3 then valid := true else valid := false;
   end;
-  p5 := stringreplace(p5, 'if ' + p1 + ' ' + p2 + ' ' + p3 + ' ' + p4 + ' ', '', [rfReplaceAll]);
+  p5 := stringreplace(p5, 'if ' + p1 + ' ' + p2 + ' ' + p3 + ' ' + p4 + ' ',
+                      '', [rfReplaceAll]);
   if valid then parsingcommands(p5);
 end;

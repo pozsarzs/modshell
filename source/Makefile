@@ -1,6 +1,6 @@
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | Makefile                                                                   |
 # | Make file for source code                                                  |
 # +----------------------------------------------------------------------------+
@@ -13,7 +13,8 @@ sourcedir=_lib/$(architecture)-$(os)
 podir=_po
 targetdir=$(bindir)
 filemode=$(binmode)
-projectdirs=modshell serialechoserver serialmbmonitor tcpechoserver udpechoserver xmodshell
+projectdirs=modshell serialechoserver serialmbmonitor tcpechoserver \
+            udpechoserver xmodshell
 
 all:
 	@mkdir -p $(sourcedir)/

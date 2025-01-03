@@ -1,7 +1,7 @@
 #!/usr/local/bin/modshell -r
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | adam4018                                                                   |
 # | Example script * Read data with DCON protocol from ADAM-4018               |
 # +----------------------------------------------------------------------------+

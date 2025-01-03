@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | uconfig.pas                                                              | }
 { | configuration file handler                                               | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -18,22 +18,22 @@
 unit uconfig;
 interface
 uses
- sysutils,
- inifiles;
+  INIFiles,
+  SysUtils;
 var
   ini: TINIFile;
   confdir: string;
   // settings from/to ini file
   colors: array[0..4] of integer;
   echometh: byte = 0;
-  inputmeth: byte = 1;
-  sendmeth: byte = 4;
   formpositions: array[0..7, 0..3] of integer;
   guicolors: array[0..1] of integer;
   histbuff: array[0..255] of string;
   histitem: integer;
   histlast: integer;
+  inputmeth: byte = 1;
   lastproject: string;
+  sendmeth: byte = 4;
 const
   KEY: array[0..14] of string = ('foreground',
                                 'background',
@@ -61,12 +61,6 @@ const
                                     'others',
                                     'positions');
 
-// {$IFDEF UNIX}  
-//   {$DEFINE SLASH := #47}
-// {$ELSE}
-//  {$DEFINE SLASH := #92}
-// {$ENDIF}
-
 {$DEFINE SLASH := DirectorySeparator}
 
 function loadconfiguration(basename, extension: string): boolean;
@@ -81,10 +75,11 @@ begin
     confdir := getexedir + 'settings';
   {$ELSE}
     {$IFDEF WINDOWS}
-      confdir := getuserdir + '\Appdata\Local\' + basename;
+      confdir := getuserdir + SLASH + 'Appdata' + SLASH +
+                 'Local' + SLASH + basename;
     {$ELSE}
       {$IFDEF UNIX}
-        confdir := getuserdir + '/.config/' + basename;
+        confdir := getuserdir + SLASH + '.config' + SLASH + basename;
       {$ELSE}
         {$FATAL Not supported operation system!}
       {$ENDIF}

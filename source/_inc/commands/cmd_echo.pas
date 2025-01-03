@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_echometh.pas                                                         | }
 { | command 'echometh'                                                       | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0       p1
   --------------------------
   echometh [off|an|hex|swap]
@@ -34,7 +34,10 @@ begin
   if (length(p1) = 0) then
   begin
     {$IFNDEF X}
-      writeln(METHOD[echometh]); {$ELSE} Form1.Memo1.Lines.Add(METHOD[echometh]); {$ENDIF}
+      writeln(METHOD[echometh]);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(METHOD[echometh]);
+    {$ENDIF}
     exit;
   end;
   // CHECK P1 PARAMETER

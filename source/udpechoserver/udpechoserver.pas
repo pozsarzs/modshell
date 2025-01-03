@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | udpechoserver.pas                                                        | }
 { | UDP echo server utility                                                  | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -70,20 +70,21 @@ procedure help(mode: boolean);
 var
   b: byte;
 begin
-  if mode then writeln('There are one or more bad argument in command line.') else
-  begin
-    writeln('Usage: ' + BASENAME + ' [port]');
-    writeln('       ' + BASENAME + ' [argument]');
-    writeln;
-    writeln('arguments:');
-    for b := 0 to 1 do
+  if mode
+    then writeln('There are one or more bad argument in command line.') else
     begin
-      write('  ',CMDLINEPARAMS[b, 0]);
-      gotoxy(8, wherey); write(CMDLINEPARAMS[b, 1]);
-      gotoxy(30, wherey); writeln(CMDLINEPARAMS[b, 2]);
-    end;
-    writeln;
-    end;
+      writeln('Usage: ' + BASENAME + ' [port]');
+      writeln('       ' + BASENAME + ' [argument]');
+      writeln;
+      writeln('arguments:');
+      for b := 0 to 1 do
+      begin
+        write('  ',CMDLINEPARAMS[b, 0]);
+        gotoxy(8, wherey); write(CMDLINEPARAMS[b, 1]);
+        gotoxy(30, wherey); writeln(CMDLINEPARAMS[b, 2]);
+      end;
+      writeln;
+      end;
   quit(0, false, '');
 end;
 

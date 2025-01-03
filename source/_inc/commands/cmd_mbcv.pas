@@ -4,7 +4,7 @@
 { | cmd_mbcv.pas                                                             | }
 { | command 'mbconv'                                                         | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0     p1      p2
   ---------------------
   mbconv n2a|a2n $ARRAY

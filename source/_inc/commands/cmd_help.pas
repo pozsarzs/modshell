@@ -4,7 +4,7 @@
 { | cmd_help.pas                                                             | }
 { | command 'help'                                                           | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0   p1
   -----------------
   help [[$]COMMAND]
@@ -28,7 +28,7 @@ var
   b, bb: byte;
   buffer: array[0..COMMARRSIZE + 5] of string;
   {$IFNDEF X} line: byte; {$ENDIF}
-  s1: string; // parameters in other type
+  s1: string;
   valid: boolean;
 
   // SHORTING CONTENT OF BUFFER
@@ -53,7 +53,11 @@ begin
   if length(p1) = 0 then
   begin
     // How to use help with command list.
-    {$IFNDEF X} writeln(MSG03); {$ELSE} Form1.Memo1.Lines.Add(MSG03); {$ENDIF}
+    {$IFNDEF X}
+      writeln(MSG03);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(MSG03);
+    {$ENDIF}
     for b := 0 to COMMARRSIZE - 2 do
     begin
       buffer[b] := '  ' + COMMANDS[b];
@@ -214,8 +218,16 @@ begin
     // CHECK P1 PARAMETER
   if boolisitconstant(p1) then s1 := isitconstant(p1);
   if boolisitvariable(p1) then s1 := isitvariable(p1);
-  if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
-  if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
+  // No such array cell!
+  if boolisitconstantarray(p1) then
+    if boolvalidconstantarraycell(p1)
+      then s1 := isitconstantarray(p1)
+      else result := 1;
+  if boolisitvariablearray(p1) then
+    if boolvalidvariablearraycell(p1)
+      then s1 := isitvariablearray(p1)
+      else result := 1;
+  if result = 1 then exit;
     if length(s1) = 0 then s1 := p1;
     valid := false;
     for b := 0 to COMMARRSIZE - 2 do
@@ -227,7 +239,11 @@ begin
     if not valid then
     begin
       // No such command!
-      {$IFNDEF X} writeln(ERR00); {$ELSE} Form1.Memo1.Lines.Add(ERR00); {$ENDIF}
+      {$IFNDEF X}
+        writeln(ERR00);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR00);
+      {$ENDIF}
       result := 1;
     end else
     begin

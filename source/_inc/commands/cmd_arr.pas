@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_arr.pas                                                              | }
 { | array handler commands                                                   | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0          p1    p2
   -------------------------
   arrclear    ARRAY
@@ -33,12 +33,12 @@ var
   idx: string = '';
 begin
   try
-  for b := 1 to length(s) do
-    if s[b] = '[' then break;
-  for b := b + 1 to length(s) do
-    if s[b] <> ']' then  idx := idx + s[b] else break;
-  if boolisitconstant(idx) then idx := isitconstant(idx);
-  if boolisitvariable(idx) then idx := isitvariable(idx);
+    for b := 1 to length(s) do
+      if s[b] = '[' then break;
+    for b := b + 1 to length(s) do
+      if s[b] <> ']' then  idx := idx + s[b] else break;
+    if boolisitconstant(idx) then idx := isitconstant(idx);
+    if boolisitvariable(idx) then idx := isitvariable(idx);
   except
   end;
   result := strtointdef(idx, 0);
@@ -60,7 +60,7 @@ var
   b, bb: byte;
   valid: boolean;
   i: integer;
-  s1,s2: string; // parameter in other format
+  s1, s2: string;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -87,7 +87,8 @@ begin
       result := 1;
       exit;
     end;
-  // SEARCH ILLEGAL CHARACTERS IN P1
+  // CHECK P1 PARAMETER
+  // search illegal characters in p1
   s1 := p1;
   valid := true;
   for b := 1 to length(s1) do
@@ -114,8 +115,7 @@ begin
       Form1.Memo1.Lines.Add(ERR15);
     {$ENDIF}
     exit;
-  end; 
-  // CHECK P1 PARAMETER
+  end;
   if (not boolisitvariablearray(p1)) and
      (not boolisitconstantarray(p1)) then
   begin
@@ -128,15 +128,26 @@ begin
     result := 1;
     exit;
   end;
+  // No such array cell!
+  if boolisitconstantarray(p1) then
+    if not boolvalidconstantarraycell(p1) then result := 1;
+  if boolisitvariablearray(p1) then
+    if not boolvalidvariablearraycell(p1) then result := 1;
+  if result = 1 then exit;
   // CHECK P2 PARAMETER
   if op >= 108 then
   begin
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
+    // No such array cell!
     if boolisitconstantarray(p2) then
-      if boolvalidconstantarraycell(p2) then s2 := isitconstantarray(p2) else result := 1;
-    if boolvalidvariablearraycell(p2) then
-      if boolvalidvariablearraycell(p2) then s2 := isitvariablearray(p2) else result := 1;
+      if boolvalidconstantarraycell(p2)
+        then s2 := isitconstantarray(p2)
+        else result := 1;
+    if boolisitvariablearray(p2) then
+      if boolvalidvariablearraycell(p2)
+        then s2 := isitvariablearray(p2)
+        else result := 1;
     if result = 1 then exit;
     if length(s2) = 0 then s2 := p2;
   end;
@@ -154,10 +165,12 @@ begin
                    then arrays[intisitconstantarray(p1)].aitems[i] := p2;
       109: if boolisitvariablearray(p1) then
            begin
-             if boolisitvariable(p2) then
-               vars[intisitvariable(p2)].vvalue := inttostr(length(arrays[intisitvariablearray(p1)].aitems));
-             if boolisitvariablearray(p2) then
-               arrays[intisitvariablearray(p2)].aitems[intisitvariablearrayelement(p1)] := inttostr(length(arrays[intisitvariablearray(p1)].aitems));
+             if boolisitvariable(p2)
+               then vars[intisitvariable(p2)].vvalue :=
+                      inttostr(length(arrays[intisitvariablearray(p1)].aitems));
+             if boolisitvariablearray(p2)
+               then arrays[intisitvariablearray(p2)].aitems[intisitvariablearrayelement(p1)] :=
+                      inttostr(length(arrays[intisitvariablearray(p1)].aitems));
            end;
       110: if boolisitvariablearray(p1)
              then setlength(arrays[intisitvariablearray(p1)].aitems, strtoint(s2))

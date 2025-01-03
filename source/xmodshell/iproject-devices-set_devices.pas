@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | iproject-connections-set_devices.pas                                     | }
 { | include file                                                             | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -23,14 +23,20 @@ var
 begin
   if Sender is TSpinEdit then
   begin
-    LComboBox391 := TComboBox(TForm(TComboBox(Sender).Parent).FindComponent('LComboBox391'));
-    LComboBox392 := TComboBox(TForm(TComboBox(Sender).Parent).FindComponent('LComboBox392'));
-    LComboBox393 := TComboBox(TForm(TComboBox(Sender).Parent).FindComponent('LComboBox393'));
+    LComboBox391 :=
+      TComboBox(TForm(TComboBox(Sender).Parent).FindComponent('LComboBox391'));
+    LComboBox392 :=
+      TComboBox(TForm(TComboBox(Sender).Parent).FindComponent('LComboBox392'));
+    LComboBox393 :=
+      TComboBox(TForm(TComboBox(Sender).Parent).FindComponent('LComboBox393'));
     LEdit391 := TEdit(TForm(TComboBox(Sender).Parent).FindComponent('LEdit391'));
     LEdit392 := TEdit(TForm(TComboBox(Sender).Parent).FindComponent('LEdit392'));
-    LSpinEdit392 := TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit392'));
-    LSpinEdit393 := TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit393'));
-    LSpinEdit394 := TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit394'));
+    LSpinEdit392 :=
+      TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit392'));
+    LSpinEdit393 :=
+      TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit393'));
+    LSpinEdit394 :=
+      TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit394'));
     if assigned(LComboBox391) and dev[TSpinEdit(Sender).Value].valid
       then LComboBox391.ItemIndex := dev[TSpinEdit(Sender).Value].devtype
       else LComboBox391.ItemIndex := 1;
@@ -84,12 +90,17 @@ var
 begin
   if Sender is TCombobox then
   begin
-    LComboBox392 := TComboBox(TForm(TComboBox(Sender).Parent).FindComponent('LComboBox392'));
-    LComboBox393 := TComboBox(TForm(TComboBox(Sender).Parent).FindComponent('LComboBox393'));
+    LComboBox392 :=
+      TComboBox(TForm(TComboBox(Sender).Parent).FindComponent('LComboBox392'));
+    LComboBox393 :=
+      TComboBox(TForm(TComboBox(Sender).Parent).FindComponent('LComboBox393'));
     LEdit392 := TEdit(TForm(TComboBox(Sender).Parent).FindComponent('LEdit392'));
-    LSpinEdit392 := TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit392'));
-    LSpinEdit393 := TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit393'));
-    LSpinEdit394 := TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit394'));
+    LSpinEdit392 :=
+      TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit392'));
+    LSpinEdit393 :=
+      TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit393'));
+    LSpinEdit394 :=
+      TSpinEdit(TForm(TComboBox(Sender).Parent).FindComponent('LSpinEdit394'));
     LComboBox392.Enabled := inttobool(TComboBox(Sender).ItemIndex);
     LComboBox393.Enabled := LComboBox392.Enabled;
     LEdit392.Enabled := not LComboBox392.Enabled;
@@ -106,10 +117,11 @@ var
   LButton391, LButton392: TButton;
   LComboBox391, LComboBox392, LComboBox393: TComboBox;
   LEdit391, LEdit392: TEdit;
-  LLabel391, LLabel392, LLabel393, LLabel394, LLabel395, LLabel396, LLabel397, LLabel398: TLabel;
+  LLabel391, LLabel392, LLabel393, LLabel394, LLabel395, LLabel396: TLabel;
+  LLabel397, LLabel398: TLabel;
   LSpinEdit391, LSpinEdit392, LSpinEdit393, LSpinEdit394: TSpinEdit;
-  cmd: string;
   b: byte;
+  cmd: string;
 begin
   Form391 := TForm.Create(Nil);
   LBevel391 := TBevel.Create(Form391);

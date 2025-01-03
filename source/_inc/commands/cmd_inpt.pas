@@ -4,7 +4,7 @@
 { | cmd_inpt.pas                                                             | }
 { | command 'inputmeth'                                                      | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0        p1
   -----------------------
   inputmeth [an|hex|swap]
@@ -34,7 +34,10 @@ begin
   if (length(p1) = 0) then
   begin
     {$IFNDEF X}
-      writeln(METHOD[inputmeth]); {$ELSE} Form1.Memo1.Lines.Add(METHOD[inputmeth]); {$ENDIF}
+      writeln(METHOD[inputmeth]);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(METHOD[inputmeth]);
+    {$ENDIF}
     exit;
   end;
   // CHECK P1 PARAMETER

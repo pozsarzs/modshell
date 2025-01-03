@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | iproject-connections-set_connections.pas                                 | }
 { | include file                                                             | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -21,8 +21,10 @@ var
 begin
   if Sender is TSpinEdit then
   begin
-    LSpinEdit412 := TSpinEdit(TForm(TSpinEdit(Sender).Parent).FindComponent('LSpinEdit412'));
-    LSpinEdit413 := TSpinEdit(TForm(TSpinEdit(Sender).Parent).FindComponent('LSpinEdit413'));
+    LSpinEdit412 :=
+      TSpinEdit(TForm(TSpinEdit(Sender).Parent).FindComponent('LSpinEdit412'));
+    LSpinEdit413 :=
+      TSpinEdit(TForm(TSpinEdit(Sender).Parent).FindComponent('LSpinEdit413'));
     if assigned(LSpinEdit412) and conn[TSpinEdit(Sender).Value].valid
       then LSpinEdit412.Value := conn[TSpinEdit(Sender).Value].dev
       else LSpinEdit412.Value := 0;

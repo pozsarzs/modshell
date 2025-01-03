@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | version.pas                                                              | }
-{ | show version and other information                                       | }
+{ | show version and build information                                       | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -17,11 +17,11 @@
 procedure version(h: boolean);
 var
   {$IFDEF UNIX}
-    username: string = {$I %USER%};
     hostname: string = {$I %HOSTNAME%};
+    username: string = {$I %USER%};
   {$ELSE}
-    username: string = {$I %USERNAME%};
     hostname: string = {$I %COMPUTERNAME%};
+    username: string = {$I %USERNAME%};
   {$ENDIF}
 begin
   {$IFNDEF X}

@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | mbutil.pas                                                               | }
 { | Modbus utilities                                                         | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -36,9 +36,11 @@ begin
         begin
           fc := telegram[4] + telegram[5];
           for i := 6 to length(telegram) - 4 do data := data + telegram[i];
-          cs := strtoint('$' + telegram[length(telegram) - 3] + telegram[length(telegram) - 2]);
+          cs := strtoint('$' + telegram[length(telegram) - 3] +
+                telegram[length(telegram) - 2]);
           // checksum test
-          cs_ok := checklrc(telegram[2] + telegram[3] + telegram[4] + telegram[5] + data, cs);
+          cs_ok := checklrc(telegram[2] + telegram[3] + telegram[4] +
+                   telegram[5] + data, cs);
           show_cscheck := true;
         end else data := '[...]';
       end;
@@ -49,8 +51,10 @@ begin
     if (filter = '0') or (filter = id) then
     begin
       fc := addsomezero(2, deztohex(inttostr(ord(telegram[2]))));
-      for i := 3 to length(telegram) - 2 do data := data + addsomezero(2, deztohex(inttostr(ord(telegram[i]))));
-      cs := ord(telegram[length(telegram) - 1]) + ord(telegram[length(telegram)]) * 256;
+      for i := 3 to length(telegram) - 2 do
+        data := data + addsomezero(2, deztohex(inttostr(ord(telegram[i]))));
+      cs := ord(telegram[length(telegram) - 1]) +
+            ord(telegram[length(telegram)]) * 256;
       // checksum test
       s := telegram;
       delete(s, length(telegram) - 1, 2);

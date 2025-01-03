@@ -1,70 +1,80 @@
 modshell (0.1-beta1) unstable; urgency=low
 
-* First user test release will be with the following changes:
-* Elimination of confusion between the terms 'register number' and 'data address';
-* in interpreter mode, passing parameters from the OS command line to the script and returning the script's exit value to the OS;
-* in interpreter mode, command verbosity level setting with a predefined variable;
-* ANSI escape sequences support (only DOS and *nix like systems);
-* command `color` -> `set color`, sets all default colors (CLI and TUI);  
-* command `echo` -> `echometh`, parameters: off|on|hex|swap -> off|an|hex|swap;
-* commands `sercons`, `tcpcons`, `udpcons`: character-to-character or string sending, with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;  
-* commands `serwrite`, `tcpwrite`, `udpwrite`: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo;
-* DCON protocol support;  
-* keywords (coil, hreg, asc, hex, etc.) should also be specified from variables;
-* main menu for all consoles in GUI version;  
-* Modbus register number/address converter utility (in your own scripting language);
-* Number converter utility (in your own scripting language);
-* modified source code structure of XModshell;  
-* new command `chkdevlock`/`rmdevlock` (only *nix systems);  
-* new command `datatype`;  
-* new command `exist`;  
-* new command `inputmeth`;  
-* new command `macro`;
-* new command `mbconv`;  
-* new command `mbmon`;  
-* new command `printcolor`(only CLI and TUI);  
-* new command `sendmeth`;  
-* new command `tcpcons`, `tcpread`, `tcpwrite`;  
-* new command `udpcons`, `udpread`, `udpwrite`;  
-* new commands `ioread` and `iowrite`;
-* new menu items in the main menu for quick execution of Modbus R/W commands;  
-* new menu items for show and edit all register's value in a big table;  
-* new serial baudrates: 150, 300, 600 baud;  
-* serial echo server utility for testing connectivity;  
-* serial ModBus traffic monitor utility;
-* support for variable and constant arrays;  
-* new predefined constants;  
-* syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows only) and Vim/Neovim;
-* TCP and UPD echo server utilities for testing connectivity.
+  * First user test release will be with the following changes:
+  * Elimination of confusion between the terms 'register number' and 'data
+    address';
+  * in interpreter mode, passing parameters from the OS command line to the
+    script and returning the script's exit value to the OS;
+  * in interpreter mode, command verbosity level setting with a predefined
+    variable;
+  * ANSI escape sequences support (only DOS and *nix like systems);
+  * command `color` -> `set color`, sets all default colors (CLI and TUI);  
+  * command `echo` -> `echometh`, parameters: off|on|hex|swap -> off|an|hex|swap;
+  * commands `sercons`, `tcpcons`, `udpcons`: character-to-character or string
+    sending, with alphanumerical or hexadecimal input, with or without
+    alphanumerical or hexhexadecimal echo;  
+  * commands `serwrite`, `tcpwrite`, `udpwrite`: alphanumerical or hexadecimal
+    input, with or without alphanumerical or hexadecimal echo;
+  * DCON protocol support;  
+  * keywords (coil, hreg, asc, hex, etc.) should also be specified from
+    variables;
+  * main menu for all consoles in GUI version;  
+  * Modbus register number/address converter utility (in your own scripting
+    language);
+  * Number converter utility (in your own scripting language);
+  * modified source code structure of XModshell;  
+  * new command `chkdevlock`/`rmdevlock` (only *nix systems);  
+  * new command `datatype`;  
+  * new command `exist`;  
+  * new command `inputmeth`;  
+  * new command `macro`;
+  * new command `mbconv`;  
+  * new command `mbmon`;  
+  * new command `printcolor`(only CLI and TUI);  
+  * new command `sendmeth`;  
+  * new command `tcpcons`, `tcpread`, `tcpwrite`;  
+  * new command `udpcons`, `udpread`, `udpwrite`;  
+  * new commands `ioread` and `iowrite`;
+  * new menu items in the main menu for quick execution of Modbus R/W commands;  
+  * new menu items for show and edit all register's value in a big table;  
+  * new serial baudrates: 150, 300, 600 baud;  
+  * serial echo server utility for testing connectivity;  
+  * serial ModBus traffic monitor utility;
+  * support for variable and constant arrays;  
+  * new predefined constants;  
+  * syntax highlighter file for applications using GTKSourceView (for example:
+    Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows
+    only) and Vim/Neovim;
+  * TCP and UPD echo server utilities for testing connectivity.
  
- -- Pozsár Zsolt <pozsarzs@gmail.com>Tue, 31 Dec 2024 23:59:59
+ -- Pozsár Zsolt <pozsarzs@gmail.com> Wed, 01 Jan 2025 00:00:00
 
 modshell (0.1-alpha3) unstable; urgency=low
 
-* Next developer test release.
-* New source code directory structure;
-* new commands;
-* new predefined constants;
-* bug fixes;
-* GUI (except DOS);
-* script syntax highlighting file for MCEdit and Nano.
+  * Next developer test release.
+  * New source code directory structure;
+  * new commands;
+  * new predefined constants;
+  * bug fixes;
+  * GUI (except DOS);
+  * script syntax highlighting file for MCEdit and Nano.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>Sun, 20 Oct 2024 09:37:44
+ -- Pozsár Zsolt <pozsarzs@gmail.com> Sun, 20 Oct 2024 09:37:44
  
 modshell (0.1-alpha2) unstable; urgency=low
 
-* Next developer test release.
-* Bug fixes;
-* Modbus/ASCII and Modbus/RTU communication;
-* handling of constants;
-* three predefined constants;
-* 28 new command (total: 94);
-* script syntax highlighting file for Micro.
+  * Next developer test release.
+  * Bug fixes;
+  * Modbus/ASCII and Modbus/RTU communication;
+  * handling of constants;
+  * three predefined constants;
+  * 28 new command (total: 94);
+  * script syntax highlighting file for Micro.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>Mon, 12 Feb 2024 00:00:00
+ -- Pozsár Zsolt <pozsarzs@gmail.com> Mon, 12 Feb 2024 00:00:00
 
 modshell (0.1-alpha1) unstable; urgency=low
 
-* Initial release.
+  * Initial release.
 
- -- Pozsár Zsolt <pozsarzs@gmail.com>Fri, 16 Jan 2024 21:12:00
+ -- Pozsár Zsolt <pozsarzs@gmail.com> Fri, 16 Jan 2024 21:12:00

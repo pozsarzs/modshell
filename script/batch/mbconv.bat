@@ -1,8 +1,8 @@
 @modshell.exe -r %0 %1 %2
 @goto :eof
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | mbconv                                                                     |
 # | MBConv v0.1 * Modbus register number/address converter utility             |
 # +----------------------------------------------------------------------------+
@@ -25,7 +25,7 @@ var rnumber
 # messages
 varr msg 17
   let msg[0] MBConv\ v0.1\ *\ Modbus\ register\ number/address\ converter\ utility
-  let msg[1] (C)\ 2024\ Pozsar\ Zsolt\ <http://www.pozsarzs.hu>
+  let msg[1] (C)\ 2024-2025\ Pozsar\ Zsolt\ <http://www.pozsarzs.hu>
   let msg[2] Usage:
   let msg[3] \ \ register_number
   let msg[4] \ \ d|c|i|h\ address

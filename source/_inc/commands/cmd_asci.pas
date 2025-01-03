@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_asci.pas                                                             | }
 { | command 'ascii'                                                          | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0    p1 
   -----------------------
   ascii 
@@ -30,7 +30,7 @@ var
   col, row: byte;
   ns: byte = 2;
   s: string = '';
-  s1: string; // parameter in other type
+  s1: string;
   valid: boolean;
 const
   SPC2 = '  ';
@@ -44,10 +44,15 @@ begin
     // CHECK P1 PARAMETER
     if boolisitconstant(p1) then s1 := isitconstant(p1);
     if boolisitvariable(p1) then s1 := isitvariable(p1);
+    // No such array cell!
     if boolisitconstantarray(p1) then
-      if boolvalidconstantarraycell(p1) then s1 := isitconstantarray(p1) else result := 1;
-    if boolvalidvariablearraycell(p1) then
-      if boolvalidvariablearraycell(p1) then s1 := isitvariablearray(p1) else result := 1;
+      if boolvalidconstantarraycell(p1)
+        then s1 := isitconstantarray(p1)
+        else result := 1;
+    if boolisitvariablearray(p1) then
+      if boolvalidvariablearraycell(p1)
+        then s1 := isitvariablearray(p1)
+        else result := 1;
     if result = 1 then exit;
     if length(s1) = 0 then s1 := p1;
     valid := false;
@@ -111,14 +116,18 @@ begin
       for bb := 0 to col do
         if ns = 2 then
         begin
-          if ((b * 16 + bb) >= 32) and ((b * 16 + bb) < 127) then write(chr(b * 16 + bb) + SPC3);
-          if ((b * 16 + bb) <= 31) then write('^' + chr(b * 16 + bb + 64) + SPC2);
+          if ((b * 16 + bb) >= 32) and ((b * 16 + bb) < 127)
+            then write(chr(b * 16 + bb) + SPC3);
+          if ((b * 16 + bb) <= 31)
+            then write('^' + chr(b * 16 + bb + 64) + SPC2);
           if ((b * 16 + bb) = 127) then write('DEL');
           if ((b * 16 + bb) >= 128) then write(SPC4);
         end else
         begin
-          if ((b * 10 + bb) >= 32) and ((b * 10 + bb) < 127) then write(chr(b * 10 + bb) + SPC3);
-          if ((b * 10 + bb) <= 31) then write('^' + chr(b * 10 + bb + 64) + SPC2);
+          if ((b * 10 + bb) >= 32) and ((b * 10 + bb) < 127)
+            then write(chr(b * 10 + bb) + SPC3);
+          if ((b * 10 + bb) <= 31)
+            then write('^' + chr(b * 10 + bb + 64) + SPC2);
           if ((b * 10 + bb) = 127) then write('DEL');
           if ((b * 10 + bb) >= 128) then write(SPC4);
         end;
@@ -143,14 +152,18 @@ begin
       for bb := 0 to col do
         if ns = 2 then
         begin
-          if ((b * 16 + bb) >= 32) and ((b * 16 + bb) < 127) then s := s + chr(b * 16 + bb) + SPC3;
-          if ((b * 16 + bb) <= 31) then  s := s + '^' + chr(b * 16 + bb + 64) + SPC2;
+          if ((b * 16 + bb) >= 32) and ((b * 16 + bb) < 127)
+            then s := s + chr(b * 16 + bb) + SPC3;
+          if ((b * 16 + bb) <= 31)
+            then  s := s + '^' + chr(b * 16 + bb + 64) + SPC2;
           if ((b * 16 + bb) = 127) then  s := s + 'DEL';
           if ((b * 16 + bb) >= 128) then  s := s + SPC4;
         end else
         begin
-          if ((b * 10 + bb) >= 32) and ((b * 10 + bb) < 127) then  s := s + chr(b * 10 + bb) + SPC3;
-          if ((b * 10 + bb) <= 31) then  s := s + '^' + chr(b * 10 + bb + 64) + SPC2;
+          if ((b * 10 + bb) >= 32) and ((b * 10 + bb) < 127)
+            then  s := s + chr(b * 10 + bb) + SPC3;
+          if ((b * 10 + bb) <= 31)
+            then  s := s + '^' + chr(b * 10 + bb + 64) + SPC2;
           if ((b * 10 + bb) = 127) then  s := s + 'DEL';
           if ((b * 10 + bb) >= 128) then  s := s + SPC4;
         end;

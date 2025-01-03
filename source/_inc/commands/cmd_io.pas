@@ -4,7 +4,7 @@
 { | cmd_io.pas                                                               | }
 { | direct I/O access commands                                               | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0      p1      p2
   -----------------------
   ioread  [$]BYTE [$]PORT
@@ -27,8 +27,8 @@
 // DIRECT I/O ACCESS COMMANDS  
 function cmd_io(op: byte; p1, p2: string): byte;
 var
-  s1: string = ''; // parameters in other format 
-  s2: string; // parameters in other format
+  s1: string = '';
+  s2: string;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -43,9 +43,9 @@ begin
     result := 1;
     exit;
   end;
+  // CHECK P1 PARAMETER
   if op = 0 then
   begin
-    // CHECK P1 PARAMETER
     if (not boolisitvariable(p1)) and
        (not boolisitvariablearray(p1)) then
     begin
@@ -57,27 +57,50 @@ begin
       {$ENDIF}
       result := 1;
       exit;
+      if boolisitvariablearray(p1) then
+        if not boolvalidvariablearraycell(p1) then
+        begin
+          // No such array cell!
+          result := 1;
+          exit;
+        end;
     end;
   end else
   begin
-    // CHECK P1 PARAMETER
-    if boolisitconstant(p1) then s2 := isitconstant(p1);
-    if boolisitvariable(p1) then s2 := isitvariable(p1);
-    if boolisitconstantarray(p1) then s2 := isitconstantarray(p1);
-    if boolisitvariablearray(p1) then s2 := isitvariablearray(p1);
+    if boolisitconstant(p1) then s1 := isitconstant(p1);
+    if boolisitvariable(p1) then s1 := isitvariable(p1);
+  // No such array cell!
+  if boolisitconstantarray(p1) then
+    if boolvalidconstantarraycell(p1)
+      then s1 := isitconstantarray(p1)
+      else result := 1;
+  if boolisitvariablearray(p1) then
+    if boolvalidvariablearraycell(p1)
+      then s1 := isitvariablearray(p1)
+      else result := 1;
+  if result = 1 then exit;
     if length(s1) = 0 then s1 := p1;
   end;
   // CHECK P2 PARAMETER
   if boolisitconstant(p2) then s2 := isitconstant(p2);
   if boolisitvariable(p2) then s2 := isitvariable(p2);
-  if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-  if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+  if boolisitconstantarray(p2) then
+    if boolvalidconstantarraycell(p2)
+      then s2 := isitconstantarray(p2)
+      else result := 1;
+  if boolisitvariablearray(p2) then
+    if boolvalidvariablearraycell(p2)
+      then s2 := isitvariablearray(p2)
+      else result := 1;
+  // No such array cell!
+  if result = 1 then exit;
   if length(s2) = 0 then s2 := p2;
   // PRIMARY MISSION
   try
     case op of
       0: if boolisitvariable(p1)
-           then vars[intisitvariable(p1)].vvalue := inttostr(readbytefromioport(strtoint(s2)))
+           then vars[intisitvariable(p1)].vvalue :=
+                  inttostr(readbytefromioport(strtoint(s2)))
            else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] :=
                 inttostr(readbytefromioport(strtoint(s2)));
       1: result := writebytetoioport(strtoint(s1), strtoint(s2));

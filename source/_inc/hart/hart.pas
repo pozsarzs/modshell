@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | hart.pas                                                                 | }
 { | HART protocol procedures and functions                                   | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -26,13 +26,15 @@ begin
 end;
 
 // READ AND WRITE FROM/TO A REMOTE DEVICE
-function hr_readwrite(protocol, device: word; txdata: string; checksum: boolean): string;
+function hr_readwrite(protocol, device: word; txdata: string;
+                      checksum: boolean): string;
 begin
   result := '';
 end;
 
 // READ AND WRITE HART DCON PROTOCOL
-function hart_readwrite(connection: integer; txdata: string; checksum: boolean): string;
+function hart_readwrite(connection: integer; txdata: string;
+                        checksum: boolean): string;
 begin
   result := '';
 end;

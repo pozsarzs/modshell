@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | ucommon.pas                                                              | }
 { | common procedures and functions                                          | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -13,16 +13,16 @@
   FOR A PARTICULAR PURPOSE.
 }
 
-{$MODE OBJFPC} {$H+}
+{$MODE OBJFPC} {$H+} {$MACRO ON}
 
 unit ucommon;
 interface
 uses
   {$IFDEF WINDOWS} Windows, {$ENDIF}
+  Math,
+  SysUtils,
   crt,
-  dos,
-  math,
-  sysutils;
+  dos;
 const
   CRC16TABLE: array[0..255] of word = (
     $0000, $C0C1, $C181, $0140, $C301, $03C0, $0280, $C241,
@@ -66,6 +66,8 @@ var
     buffer: array[0..MAX_PATH] of char;
   {$ENDIF}
   termmaxx, termmaxy: byte;
+
+{$DEFINE SLASH := DirectorySeparator}
 
 function addzero(v: word): string;
 function addsomezero(n: byte; s: string): string;
@@ -279,7 +281,6 @@ var
     size: integer;
   {$ENDIF}
   s: string;
-
 begin
   {$IFDEF GO32V2}
     s := getenvironmentvariable('LANG');
@@ -320,10 +321,10 @@ begin
     result := getexedir;
   {$ELSE}
     {$IFDEF WINDOWS}
-      result := getuserprofile + '\';
+      result := getuserprofile + SLASH;
     {$ELSE}
       {$IFDEF UNIX}
-        result := getenvironmentvariable('HOME') + '/';
+        result := getenvironmentvariable('HOME') + SLASH;
       {$ELSE}
         {$FATAL Not supported operation system!}
       {$ENDIF}

@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | serialechoserver.pas                                                     | }
 { | Serial echo server utility                                               | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -48,11 +48,11 @@ const
   PRGCOPYRIGHT = '(C) 2024 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'SerialEchoServer';
   PRGVERSION = '0.1';
-  DEV_SPEED: array[0..10] of string = ('150','300','600','1200','2400','4800','9600','19200','38400','57600','115200');
+  DEV_SPEED: array[0..10] of string = ('150','300','600','1200','2400','4800',
+                                       '9600','19200','38400','57600','115200');
   DEV_PARITY: array[0..2] of char = ('e','n','o');
 
 {$DEFINE BASENAME := lowercase(PRGNAME)}
-{$DEFINE SLASH := DirectorySeparator}
 {$IFDEF UNIX}
   {$DEFINE DIR_LOCK := '/var/lock'}
 {$ENDIF}
@@ -94,7 +94,8 @@ procedure help(mode: boolean);
 var
   b: byte;
 begin
-  if mode then writeln('There are one or more bad parameter in command line.') else
+  if mode
+    then writeln('There are one or more bad parameter in command line.') else
   begin
     writeln('Usage: ' + BASENAME + ' [device] [baudrate] [databit(s)] [parity] [stopbit(s)]');
     writeln('       ' + BASENAME + ' [arguments]');
@@ -254,7 +255,8 @@ begin
     then quit(1, false, ERR01 + ERR05);
 
   writeln;
-  writeln(MSG12 + device + ' ' + baudrate + ' ' + databit + upcase(parity) + stopbit);
+  writeln(MSG12 + device + ' ' + baudrate + ' ' + databit +
+          upcase(parity) + stopbit);
   writeln;
   writeln(MSG04);
 
@@ -267,7 +269,8 @@ begin
   ser := TBlockSerial.Create;
   try
     ser.Connect(device);
-    ser.Config(strtoint(baudrate), strtoint(databit), parity[1], strtoint(stopbit), false, false);
+    ser.Config(strtoint(baudrate), strtoint(databit), parity[1],
+               strtoint(stopbit), false, false);
   except
     quit(2, false, ERR01 + ERR06 + device);
   end;

@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | frmregtable.pas                                                          | }
 { | Register table window                                                    | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -62,17 +62,25 @@ begin
       if (x + y * 100) < 9999 then
         case registertype of
           0: if direction
-               then StringGrid1.Cells[x + 1, y + 1] := inttostr(booltoint(dinp[x + y * 100]))
-               else dinp[x + y * 100] := inttobool(strtoint(StringGrid1.Cells[x + 1, y + 1]));
+               then StringGrid1.Cells[x + 1, y + 1] :=
+                      inttostr(booltoint(dinp[x + y * 100]))
+               else dinp[x + y * 100] :=
+                      inttobool(strtoint(StringGrid1.Cells[x + 1, y + 1]));
           1: if direction
-               then StringGrid1.Cells[x + 1, y + 1] := inttostr(booltoint(coil[x + y * 100]))
-               else coil[x + y * 100] := inttobool(strtoint(StringGrid1.Cells[x + 1, y + 1]));
+               then StringGrid1.Cells[x + 1, y + 1] :=
+                      inttostr(booltoint(coil[x + y * 100]))
+               else coil[x + y * 100] :=
+                      inttobool(strtoint(StringGrid1.Cells[x + 1, y + 1]));
           2: if direction
-               then StringGrid1.Cells[x + 1, y + 1] := inttostr(ireg[x + y * 100])
-               else ireg[x + y * 100] := strtoint(StringGrid1.Cells[x + 1, y + 1]);
+               then StringGrid1.Cells[x + 1, y + 1] :=
+                      inttostr(ireg[x + y * 100])
+               else ireg[x + y * 100] :=
+                    strtoint(StringGrid1.Cells[x + 1, y + 1]);
           3: if direction
-               then StringGrid1.Cells[x + 1, y + 1] := inttostr(hreg[x + y * 100])
-               else hreg[x + y * 100] := strtoint(StringGrid1.Cells[x + 1, y + 1]);
+               then StringGrid1.Cells[x + 1, y + 1] :=
+                    inttostr(hreg[x + y * 100])
+               else hreg[x + y * 100] :=
+                    strtoint(StringGrid1.Cells[x + 1, y + 1]);
       end;
 end;
 
@@ -85,8 +93,10 @@ begin
               then Cells[Col, Row] := '1'
               else Cells[Col, Row] := '0';
       2, 3: begin
-              if strtointdef(Cells[Col, Row], -1) < 0 then Cells[Col, Row] := '0';
-              if strtointdef(Cells[Col, Row], 0) > 65535 then Cells[Col, Row] := '65535';
+              if strtointdef(Cells[Col, Row], -1) < 0 then
+                Cells[Col, Row] := '0';
+              if strtointdef(Cells[Col, Row], 0) > 65535 then
+                Cells[Col, Row] := '65535';
             end;
      end;
 end;

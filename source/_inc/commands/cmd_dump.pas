@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_dump.pas                                                             | }
 { | command 'dump'                                                           | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0   p1                            p2
   ----------------------------------------------
   dump [$REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS]
@@ -29,11 +29,11 @@ var
   b, line, column: byte;
   {$IFDEF X} bb: byte; {$ENDIF}
   {$IFNDEF X} c: char; {$ENDIF}
-  i2: integer = 0; // parameter in other type
+  i2: integer = 0;
   s: string;
   {$IFDEF X} ss: string; {$ENDIF}
-  s1: string = ''; // parameter in other type
-  s2: string = ''; // parameter in other type
+  s1: string = '';
+  s2: string = '';
   rt: byte; // register type
   valid: boolean = false;
 begin
@@ -75,8 +75,16 @@ begin
     // CHECK P1 PARAMETER
     if boolisitconstant(p1) then s1 := isitconstant(p1);
     if boolisitvariable(p1) then s1 := isitvariable(p1);
-    if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
-    if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
+    // No such array cell!
+    if boolisitconstantarray(p1) then
+      if boolvalidconstantarraycell(p1)
+        then s1 := isitconstantarray(p1)
+        else result := 1;
+    if boolisitvariablearray(p1) then
+      if boolvalidvariablearraycell(p1)
+        then s1 := isitvariablearray(p1)
+        else result := 1;
+    if result = 1 then exit;
     if length(s1) = 0 then s1 := p1;
     for rt := 0 to 3 do
       if REG_TYPE[rt] = s1 then
@@ -100,8 +108,16 @@ begin
     // CHECK P2 PARAMETER
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
-    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    // No such array cell!
+    if boolisitconstantarray(p2) then
+      if boolvalidconstantarraycell(p2)
+        then s2 := isitconstantarray(p2)
+        else result := 1;
+    if boolisitvariablearray(p2) then
+      if boolvalidvariablearraycell(p2)
+        then s2 := isitvariablearray(p2)
+        else result := 1;
+    if result = 1 then exit;
     if length(s2) = 0 then s2 := p2;
     i2 := strtointdef(s2, -1);
     if (i2 < 0) or (i2 > 9990) then
@@ -137,10 +153,16 @@ begin
         if ((i2 + column) + line * 10) < 10000 then
         begin
           case rt of
-            0: xywrite((5 * (column + 1)) + 2, wherey, false, inttostr(booltoint(dinp[(i2 + column) + line * 10])));
-            1: xywrite((5 * (column + 1)) + 2, wherey, false, inttostr(booltoint(coil[(i2 + column) + line * 10])));
-            2: xywrite((5 * (column + 1)) + 2, wherey, false, addsomezero(4, deztohex(inttostr(ireg[(i2 + column) + line * 10]))));
-            3: xywrite((5 * (column + 1)) + 2, wherey, false, addsomezero(4, deztohex(inttostr(hreg[(i2 + column) + line * 10]))));
+            0: xywrite((5 * (column + 1)) + 2, wherey, false,
+                       inttostr(booltoint(dinp[(i2 + column) + line * 10])));
+            1: xywrite((5 * (column + 1)) + 2, wherey, false,
+                       inttostr(booltoint(coil[(i2 + column) + line * 10])));
+            2: xywrite((5 * (column + 1)) + 2, wherey, false,
+                       addsomezero(4, deztohex(inttostr(ireg[(i2 + column) +
+                                   line * 10]))));
+            3: xywrite((5 * (column + 1)) + 2, wherey, false,
+                       addsomezero(4, deztohex(inttostr(hreg[(i2 + column) +
+                                   line * 10]))));
           end;
         end else
         begin
@@ -181,12 +203,14 @@ begin
                    s[(5 * (column + 1)) + 2 + bb - 1] := ss[bb];
                end;
             2: begin
-                 ss := addsomezero(4, deztohex(inttostr(ireg[(i2 + column) + line * 10])));
+                 ss := addsomezero(4, deztohex(inttostr(ireg[(i2 + column) +
+                                   line * 10])));
                  for bb := 1 to length(ss) do
                    s[(5 * (column + 1)) + 2 + bb - 1] := ss[bb];
                end;
             3: begin
-                 ss := addsomezero(4, deztohex(inttostr(hreg[(i2 + column) + line * 10])));
+                 ss := addsomezero(4, deztohex(inttostr(hreg[(i2 + column) +
+                                   line * 10])));
                  for bb := 1 to length(ss) do
                    s[(5 * (column + 1)) + 2 + bb - 1] := ss[bb];
                end;

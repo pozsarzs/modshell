@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | xmodshell.lpr                                                            | }
 { | project file                                                             | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -17,13 +17,16 @@
 
 program xmodshell;
 uses
-  {$IFDEF UNIX} cthreads, cmem, {$ENDIF}
-  Interfaces,
+  {$IFDEF UNIX}
+    CMem,
+    CThreads,
+  {$ENDIF}
   Dialogs,
   Forms,
+  Interfaces,
   ModLCLTranslator,
+  SySUtils,
   crt,
-  sysutils,
   frmmain,
   frmmbmn,
   frmsecn,
@@ -50,7 +53,9 @@ var
   b: byte;
   {$IFDEF WINDOWS} s: string; {$ENDIF}
 begin
-  if mode then ShowMessage('There are one or more bad arguments in command line.') else
+  if mode
+    then ShowMessage('There are one or more bad arguments in command line.')
+    else
   begin
     {$IFDEF UNIX}
       writeln('Usage: ', fn, {$IFDEF WINDOWS}'.', fe,{$ENDIF}' [argument]');
@@ -71,7 +76,8 @@ begin
       s := s + ' ' + fn + ' [argument]' + #13 + #10 + #13 + #10;
       s := s + 'arguments:';
       for b := 1 to 2 do
-        s := s + #13 + #10 + '  ' + params[b, 1] + ', ' + params[b, 2] + ': ' + params[b, 3];
+        s := s + #13 + #10 + '  ' + params[b, 1] + ', ' + params[b, 2] + ': ' +
+             params[b, 3];
       ShowMessage(s);
     {$ENDIF}
   end;
@@ -99,9 +105,9 @@ begin
     10: help(False);
     20: version(true);
   end;
-  RequireDerivedFormResource:=True;
-  Application.Title:='XModShell';
-  Application.Scaled:=True;
+  RequireDerivedFormResource := true;
+  Application.Title := 'XModShell';
+  Application.Scaled := true;
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TForm2, Form2);

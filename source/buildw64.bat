@@ -1,6 +1,6 @@
 @echo off
-rem ModShell 0.1 * Command-driven scriptable Modbus utility
-rem Copyright (C) 2023-2024 Pozsar Zsolt pozsarzs@gmail.com
+rem ModShell v0.1 * Command-driven scriptable Modbus utility
+rem Copyright (C) 2023-2025 Pozsar Zsolt pozsarzs@gmail.com
 rem buildwin64.bat
 rem Build program for 64 bit Windows
 

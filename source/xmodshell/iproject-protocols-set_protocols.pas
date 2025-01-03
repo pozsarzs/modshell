@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | iproject-connections-set_protocols.pas                                   | }
 { | include file                                                             | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -22,8 +22,10 @@ var
 begin
   if Sender is TSpinEdit then
   begin
-    LComboBox401 := TComboBox(TForm(TSpinEdit(Sender).Parent).FindComponent('LComboBox401'));
-    LSpinEdit402 := TSpinEdit(TForm(TSpinEdit(Sender).Parent).FindComponent('LSpinEdit402'));
+    LComboBox401 :=
+      TComboBox(TForm(TSpinEdit(Sender).Parent).FindComponent('LComboBox401'));
+    LSpinEdit402 :=
+      TSpinEdit(TForm(TSpinEdit(Sender).Parent).FindComponent('LSpinEdit402'));
     if assigned(LComboBox401) and prot[TSpinEdit(Sender).Value].valid
       then LComboBox401.ItemIndex := prot[TSpinEdit(Sender).Value].prottype
       else LComboBox401.ItemIndex := 0;

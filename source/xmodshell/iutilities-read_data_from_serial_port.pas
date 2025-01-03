@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | iutilities-read_data_from_serial_port.pas                                | }
 { | include file                                                             | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -175,7 +175,9 @@ begin
     begin
       thrdcmd.c := 36;
       thrdcmd.p1 := 'dev' + inttostr(LSpinEdit161.Value);
-        if length(LEdit161.Text) > 0 then thrdcmd.p2 := LEdit161.Text else thrdcmd.p2 := '';
+        if length(LEdit161.Text) > 0
+          then thrdcmd.p2 := LEdit161.Text
+          else thrdcmd.p2 := '';
     end;
     LThread161 := TLThread.Create(true);
     with LThread161 do

@@ -8,7 +8,7 @@
 
 **Command-driven scriptable Modbus utility**
 
-Copyright (C) 2023-2024 Pozsár Zsolt <pozsarzs@gmail.com>  
+Copyright (C) 2023-2025 Pozsár Zsolt <pozsarzs@gmail.com>  
 
 ModShell is a utility built around a command interpreter, which with the
 connected peripherals communicates via various ports using the Modbus, DCON and

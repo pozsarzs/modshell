@@ -1,13 +1,14 @@
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | Makefile                                                                   |
 # | Makefile for Unix-like systems                                             |
 # +----------------------------------------------------------------------------+
 
 include ./Makefile.global
 
-dirs =	desktop document/example document/in_brief document/picture document/syntax document manual message script source
+dirs=desktop document/example document/in_brief document/picture \
+     document/syntax document manual message script source
 
 all:
 	@echo "Compiling source code..."

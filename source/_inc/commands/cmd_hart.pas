@@ -4,7 +4,7 @@
 { | cmd_hart.pas                                                             | }
 { | command 'hart'                                                           | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0   p1   p2       p3
   ---------------------------
   hart con? $TXARRAY $RXARRAY
@@ -33,11 +33,11 @@
 // COMMAND 'HART'
 function cmd_hart(p1, p2, p3: string): byte;
 var
-  i1: integer; // parameters other type
-  txdata: string = '';
+  i1: integer;
   rxdata: string = '';
   s: string;
-  s1: string; // parameters in other type
+  s1: string;
+  txdata: string = '';
 begin
   result := 0;
   // CHECK ALL PARAMETERS

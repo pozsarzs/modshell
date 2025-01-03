@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | frmmain.pas                                                              | }
 { | main form                                                                | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -19,7 +19,7 @@
 unit frmmain;
 interface
 uses
-  {$IFDEF UNIX} ports, {$ENDIF}
+  {$IFDEF UNIX} Ports, {$ENDIF}
   {$IFDEF WINDOWS} Windows, {$ENDIF}
   BlckSock,
   Classes,
@@ -27,20 +27,26 @@ uses
   ComCtrls,
   Controls,
   Dialogs,
+  Dom,
   ExtCtrls,
   Forms,
+  GetText,
   Graphics,
+  INIFiles,
   LCLType,
+  Math,
   Menus,
   MODSynHighlighterAny,
   Process,
   Spin,
   StdCtrls,
+  Synaser,
   SynEdit,
   SysUtils,
+  XMLRead,
+  XMLWrite,
   convert,
   crt,
-  dom,
   dos,
   frmmbmn,
   frmregtable,
@@ -48,14 +54,8 @@ uses
   frmtccn,
   frmudcn,
   frmvrmn,
-  gettext,
-  inifiles,
-  math,
-  synaser,
   ucommon,
-  uconfig,
-  xmlread,
-  xmlwrite;
+  uconfig;
 type
   { TLThread }
   TLThread = class(TThread)
@@ -302,6 +302,8 @@ function boolisitconstantarray(s: string): boolean; forward;
 function boolisitconstant(s: string): boolean; forward;
 function boolisitvariablearray(s: string): boolean; forward;
 function boolisitvariable(s: string): boolean; forward;
+function boolvalidconstantarraycell(s: string): boolean; forward;
+function boolvalidvariablearraycell(s: string): boolean; forward;
 function cmd_run(p1, p2: string): byte; forward;
 function intisitconstantarrayelement(s: string): integer; forward;
 function intisitconstantarray(s: string): integer; forward;
@@ -550,7 +552,9 @@ begin
         if fileexists(fpn) then exists := true;
       end;
       if exists then
-        if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem36.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+        if Application.MessageBox(PChar(MSG14), 
+                                  PChar(rmampdot(MenuItem36.Caption)),
+                                  MB_ICONQUESTION + MB_YESNO) = IDNO then
         begin
           Free;
           exit;
@@ -746,7 +750,9 @@ begin
     fpn := fp + fn + '.' + PREFIX[b][1] + 'wdt';
     if fileexists(fpn) then exists := true;
     if exists then
-      if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem14.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+      if Application.MessageBox(PChar(MSG14),
+                                PChar(rmampdot(MenuItem14.Caption)),
+                                MB_ICONQUESTION + MB_YESNO) = IDNO then
       begin
         LSaveDialog1.Free;
         exit;
@@ -859,7 +865,9 @@ begin
     if Execute then
     begin
       if FileExists(FileName) then
-        if Application.MessageBox(PChar(MSG14), PChar(rmampdot(MenuItem11.Caption)), MB_ICONQUESTION + MB_YESNO) = IDNO then
+        if Application.MessageBox(PChar(MSG14),
+                                  PChar(rmampdot(MenuItem11.Caption)),
+                                  MB_ICONQUESTION + MB_YESNO) = IDNO then
         begin
           Free;
           exit;

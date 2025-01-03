@@ -1,8 +1,8 @@
 @modshell.exe -r %0
 @goto :eof
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | getpm9c2.bat                                                               |
 # | Example script * Read Schneider PM9C power meter 2.                        |
 # +----------------------------------------------------------------------------+

@@ -1,6 +1,6 @@
 dnl +------------------------------------------------------------------------+
-dnl | ModShell 0.1 * Command-driven scriptable Modbus utility                |
-dnl | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>              |
+dnl | ModShell v0.1 * Command-driven scriptable Modbus utility               |
+dnl | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>              |
 dnl | configure.in                                                           |
 dnl | Autoconf input file                                                    |
 dnl +------------------------------------------------------------------------+

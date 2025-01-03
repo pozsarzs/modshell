@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | iregisters-dump_registers.pas                                            | }
 { | include file                                                             | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -141,7 +141,8 @@ begin
   begin
     with Form151 do
     begin
-      cmd := COMMANDS[33] + ' ' + REG_TYPE[LRadioGroup151.ItemIndex] + ' ' + inttostr(LSpinEdit151.Value);
+      cmd := COMMANDS[33] + ' ' + REG_TYPE[LRadioGroup151.ItemIndex] + ' ' +
+             inttostr(LSpinEdit151.Value);
       Memo1.Lines.Add(fullprompt + cmd);
       parsingcommands(cmd);
     end;

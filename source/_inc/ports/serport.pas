@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | serport.pas                                                              | }
 { | serial port handler procedures and functions                             | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -74,7 +74,8 @@ begin
 end;
 
 // OPEN SERIAL PORT
-function ser_open(device: string; speed: byte; databit: byte; parity: byte; stopbit: byte): boolean;
+function ser_open(device: string; speed: byte; databit: byte; parity: byte;
+         stopbit: byte): boolean;
 begin
   result := true;
   {$IFDEF GO32V2}
@@ -84,7 +85,8 @@ begin
     ser := TBlockSerial.Create;
     try
       ser.Connect(device);
-      ser.Config(strtoint(DEV_SPEED[speed]), databit, DEV_PARITY[parity], stopbit, False, False);
+      ser.Config(strtoint(DEV_SPEED[speed]), databit, DEV_PARITY[parity],
+                 stopbit, False, False);
     except
       result := false;
     end;

@@ -1,8 +1,8 @@
 @modshell.exe -r %0
 @goto :eof
 # +----------------------------------------------------------------------------+
-# | ModShell 0.1 * Command-driven scriptable Modbus utility                    |
-# | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
 # | setdt510.bat                                                               |
 # | Example script * Set ID of the Datcon DT510 power meter                    |
 # +----------------------------------------------------------------------------+

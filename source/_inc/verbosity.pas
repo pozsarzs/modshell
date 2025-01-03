@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | verbosity.pas                                                            | }
 { | enable/disable a message                                                 | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -15,13 +15,16 @@
 
 // ENABLE/DISABLE A MESSAGE
 function verbosity(messagelevel: byte): boolean;
-// messagelevel = 1: normal message
-// messagelevel = 2: error message
+{ 
+ messagelevel:
+   1: normal message
+   2: error message
+}
 var
   b: byte;
   verbositylevel: byte = 0;
 const
-  LEVELS: array[0..2] of string = ('all','error','nothing');
+  LEVELS: array[0..2] of string = ('all', 'error', 'nothing');
 begin
   result := true;
   if appmode = 4 then

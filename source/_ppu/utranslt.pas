@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | utranslt.pas                                                             | }
 { | translate messages                                                       | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -18,15 +18,9 @@
 unit utranslt;
 interface
 uses
- gettext,
- ucommon,
- sysutils;
-
-// {$IFDEF UNIX}  
-//   {$DEFINE SLASH := #47}
-// {$ELSE}
-//  {$DEFINE SLASH := #92}
-// {$ENDIF}
+  GetText,
+  SysUtils,
+  ucommon;
 
 {$DEFINE SLASH := DirectorySeparator}
 
@@ -41,12 +35,18 @@ var
   i18file: array[0..3] of string;
 begin
   result := false;
+  i18file[1] := getexedir + 'message' + SLASH + lang + SLASH +
+                basename + extension;
   {$IFDEF WINDOWS}
-    i18file[0] := getexedir + 'message' + SLASH + lang + '-windows' + SLASH + basename + extension; // Windows
+    i18file[0] := getexedir + 'message\' + lang + '-windows\' +
+                  basename + extension;
   {$ENDIF}
-  i18file[1] := getexedir + 'message' + SLASH + lang + SLASH + basename + extension; // DOS, Windows, Unix-like
-  i18file[2] := '/usr/share/locale/' + lang + '/LC_MESSAGES/' + basename + extension; // Unix-like only
-  i18file[3] := '/usr/local/share/locale/' + lang + '/LC_MESSAGES/' + basename + extension; // Unix-like only
+  {$IFDEF UNIX}
+    i18file[2] := '/usr/share/locale/' + lang + '/LC_MESSAGES/' +
+                  basename + extension;
+    i18file[3] := '/usr/local/share/locale/' + lang + '/LC_MESSAGES/' +
+                  basename + extension;
+  {$ENDIF}
   for b := 0 to 3 do
     if fileexists(i18file[b]) then
     begin

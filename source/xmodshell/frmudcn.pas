@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | frmudcn.pas                                                              | }
 { | mini UDP console window                                                  | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -164,7 +164,8 @@ var
         with StatusBar1.Panels do
         begin
           Items[3].Text := dev[device].device;
-          Items[4].Text := dev[device].ipaddress + ':' + inttostr(dev[device].port);
+          Items[4].Text := dev[device].ipaddress + ':' +
+                             inttostr(dev[device].port);
         end;
       end;
     // new threads for I/O operation

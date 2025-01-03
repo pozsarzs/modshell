@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | cmd_copy.pas                                                             | }
 { | command 'copyreg'                                                        | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0      p1   p2                 p3   p4            p5         p6
   ------------------------------------------------------------------------
   copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]
@@ -31,10 +31,10 @@
 // COMMAND 'COPYREG'
 function cmd_copyreg(p1, p2, p3, p4, p5, p6: string): byte;
 var
-  i1, i3, i5, i6: integer; // parameters in other type
+  i1, i3, i5, i6: integer;
   rt: byte; // register type
   s: string;
-  s1, s2, s3, s4, s5, s6: string; // parameters in other type
+  s1, s2, s3, s4, s5, s6: string;
   valid: boolean = false;
 begin
   result := 0;
@@ -83,8 +83,16 @@ begin
   begin
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
-    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    // No such array cell!
+    if boolisitconstantarray(p2) then
+      if boolvalidconstantarraycell(p2)
+        then s2 := isitconstantarray(p2)
+        else result := 1;
+    if boolisitvariablearray(p2) then
+      if boolvalidvariablearraycell(p2)
+        then s2 := isitvariablearray(p2)
+        else result := 1;
+    if result = 1 then exit;
     if length(s2) = 0 then s2 := p2;
   end;
   for rt := 0 to 3 do
@@ -139,8 +147,16 @@ begin
   begin
     if boolisitconstant(p4) then s4 := isitconstant(p4);
     if boolisitvariable(p4) then s4 := isitvariable(p4);
-    if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
-    if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
+    // No such array cell!
+    if boolisitconstantarray(p4) then
+      if boolvalidconstantarraycell(p4)
+        then s4 := isitconstantarray(p4)
+        else result := 1;
+    if boolisitvariablearray(p4) then
+      if boolvalidvariablearraycell(p4)
+        then s4 := isitvariablearray(p4)
+        else result := 1;
+    if result = 1 then exit;
     if length(s4) = 0 then s4 := p4;
   end;
   if rt <= 1 then
@@ -172,8 +188,16 @@ begin
   // CHECK P5 PARAMETER
   if boolisitconstant(p5) then s5 := isitconstant(p5);
   if boolisitvariable(p5) then s5 := isitvariable(p5);
-  if boolisitconstantarray(p5) then s5 := isitconstantarray(p5);
-  if boolisitvariablearray(p5) then s5 := isitvariablearray(p5);
+    // No such array cell!
+    if boolisitconstantarray(p5) then
+      if boolvalidconstantarraycell(p5)
+        then s5 := isitconstantarray(p5)
+        else result := 1;
+    if boolisitvariablearray(p5) then
+      if boolvalidvariablearraycell(p5)
+        then s5 := isitvariablearray(p5)
+        else result := 1;
+    if result = 1 then exit;
   if length(s5) = 0 then s5 := p5;
   i5 := strtointdef(s5, -1);
   if (i5 < 0) or (i5 > 9998) then
@@ -192,8 +216,16 @@ begin
   begin
   if boolisitconstant(p6) then s6 := isitconstant(p6);
   if boolisitvariable(p6) then s6 := isitvariable(p6);
-  if boolisitconstantarray(p6) then s6 := isitconstantarray(p6);
-  if boolisitvariablearray(p6) then s6 := isitvariablearray(p6);
+    // No such array cell!
+    if boolisitconstantarray(p6) then
+      if boolvalidconstantarraycell(p6)
+        then s6 := isitconstantarray(p6)
+        else result := 1;
+    if boolisitvariablearray(p6) then
+      if boolvalidvariablearraycell(p6)
+        then s6 := isitvariablearray(p6)
+        else result := 1;
+    if result = 1 then exit;
     if length(s6) = 0 then s6 := p6;
     i6 := strtointdef(s6, -1);
     if (i6 < 1 ) or (i6 > 125) then

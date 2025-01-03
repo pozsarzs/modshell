@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | type.pas                                                                 | }
 { | declaring types                                                          | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -47,7 +47,7 @@ type
   tdevice = record
     valid: boolean;               // false|true: invalid|valid
     devtype: byte;                // 0..1 -> DEV_TYPE
-    device: string[15];           // /dev/ttySx, /dev/ttyUSBx, /dev/ttyAMAx, COMx, etc.
+    device: string[15];           // /dev/ttySx, ..ttyUSBx, ..ttyAMAx, COMx
     ipaddress: string[15];        // a.b.c.d
     port: word;                   // 0-65535
     speed: byte;                  // 0..7 -> DEV_SPEED

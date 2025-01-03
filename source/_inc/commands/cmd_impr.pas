@@ -4,7 +4,7 @@
 { | cmd_impr.pas                                                             | }
 { | command 'impreg'                                                         | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0     p1               
   ---------------------------
   impreg [$]PATH_AND_FILENAME
@@ -32,7 +32,7 @@ var
   childnode: TDOMNode; 
   rt: byte; // register type
   s: string;
-  s1: string; // parameters in other type
+  s1: string;
   valid: boolean = false;
   xml: TXMLDocument;
 begin
@@ -52,8 +52,16 @@ begin
   // CHECK P1 PARAMETER
   if boolisitconstant(p1) then s1 := isitconstant(p1);
   if boolisitvariable(p1) then s1 := isitvariable(p1);
-  if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
-  if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
+  // No such array cell!
+  if boolisitconstantarray(p1) then
+    if boolvalidconstantarraycell(p1)
+      then s1 := isitconstantarray(p1)
+      else result := 1;
+  if boolisitvariablearray(p1) then
+    if boolvalidvariablearraycell(p1)
+      then s1 := isitvariablearray(p1)
+      else result := 1;
+  if result = 1 then exit;
   if length(s1) = 0 then s1 := p1;
   fp := extractfilepath(s1);
   fn := extractfilename(s1);
@@ -126,7 +134,8 @@ begin
                  begin
                    valid := false;
                    for rt := 0 to 3 do
-                     if REG_TYPE[rt] = lowercase(utf8encode(childnode.nodename)) then
+                     if REG_TYPE[rt] = lowercase(utf8encode(childnode.nodename))
+                     then
                      begin
                        valid := true;
                        break;
@@ -135,10 +144,14 @@ begin
                      if (strtointdef(utf8encode(item[j].attributes.item[0].textcontent), 0) > 0) and
                         (strtointdef(utf8encode(item[j].attributes.item[0].textcontent), 0) < 10000) then
                        case rt of
-                         0: dinp[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] := strtobooldef(utf8encode(item[j].firstchild.nodevalue), false);
-                         1: coil[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] := strtobooldef(utf8encode(item[j].firstchild.nodevalue), false);
-                         2: ireg[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] := strtointdef(utf8encode(item[j].firstchild.nodevalue), 0);
-                         3: hreg[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] := strtointdef(utf8encode(item[j].firstchild.nodevalue), 0);
+                         0: dinp[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] :=
+                              strtobooldef(utf8encode(item[j].firstchild.nodevalue), false);
+                         1: coil[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] :=
+                              strtobooldef(utf8encode(item[j].firstchild.nodevalue), false);
+                         2: ireg[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] :=
+                              strtointdef(utf8encode(item[j].firstchild.nodevalue), 0);
+                         3: hreg[strtoint(utf8encode(item[j].attributes.item[0].textcontent))] :=
+                              strtointdef(utf8encode(item[j].firstchild.nodevalue), 0);
                        end;
                  end;
                end;

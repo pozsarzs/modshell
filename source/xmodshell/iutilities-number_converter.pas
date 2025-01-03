@@ -1,10 +1,10 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | iutilities-number_converter.pas                                          | }
 { | include file                                                             | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -25,8 +25,10 @@ begin
   begin
     LEdit261 := TEdit(TForm(TEdit(Sender).Parent).FindComponent('LEdit261'));
     LEdit262 := TEdit(TForm(TEdit(Sender).Parent).FindComponent('LEdit262'));
-    LRadioGroup261 := TRadioGroup(TForm(TEdit(Sender).Parent).FindComponent('LRadioGroup261'));
-    LRadioGroup262 := TRadioGroup(TForm(TEdit(Sender).Parent).FindComponent('LRadioGroup262'));
+    LRadioGroup261 :=
+      TRadioGroup(TForm(TEdit(Sender).Parent).FindComponent('LRadioGroup261'));
+    LRadioGroup262 :=
+      TRadioGroup(TForm(TEdit(Sender).Parent).FindComponent('LRadioGroup262'));
     if (assigned(LEdit261)) and
        (assigned(LEdit262)) and
        (assigned(LRadioGroup261)) and
@@ -75,7 +77,8 @@ var
 begin
   if Sender is TEdit then
   begin
-    LButton262 := TButton(TForm(TEdit(Sender).Parent).FindComponent('LButton262'));
+    LButton262 := 
+      TButton(TForm(TEdit(Sender).Parent).FindComponent('LButton262'));
     if assigned(LButton262) then
     begin
       if length(TEdit(Sender).Text) > 0

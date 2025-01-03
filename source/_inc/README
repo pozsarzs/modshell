@@ -11,3 +11,23 @@
  - define.pas            definitions of symbol names
  - resstrng.pas          declaration of resource strings
  - *.pas                 other procedures and functions
+commands
+const.pas
+dcon
+define.pas
+dll.pas
+fllprmpt.pas
+hart
+intrprtr.pas
+lockfile.pas
+modbus
+parsing.pas
+ports
+README
+resstrng.pas
+sendmesg.pas
+type.pas
+validity.pas
+var.pas
+verbosity.pas
+version.pas
