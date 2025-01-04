@@ -4,7 +4,7 @@
 { | thr_sewr.pas                                                             | }
 { | command 'serwrite'                                                       | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0       p1   p2
   -----------------------
   serwrite dev? "MESSAGE"
@@ -23,9 +23,9 @@
 function TLThread.thr_serwrite(p1, p2: string): byte;
 var
   b: byte;
-  i1: integer; // parameters other type
+  i1: integer;
   s: string;
-  s1, s2: string; // parameters in other type
+  s1, s2: string;
   valid: boolean = false;
 
 {$I sendmesg.pas}
@@ -78,8 +78,16 @@ begin
     // CHECK P2 PARAMETER
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
-    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    // No such array cell!
+    if boolisitconstantarray(p2) then
+      if boolvalidconstantarraycell(p2)
+        then s2 := isitconstantarray(p2)
+        else result := 1;
+    if boolisitvariablearray(p2) then
+      if boolvalidvariablearraycell(p2)
+        then s2 := isitvariablearray(p2)
+        else result := 1;
+    if result = 1 then
     if length(s2) = 0 then
     begin
     // No such variable!

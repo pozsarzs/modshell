@@ -216,18 +216,18 @@ begin
   end else
   begin
     // CHECK P1 PARAMETER
-  if boolisitconstant(p1) then s1 := isitconstant(p1);
-  if boolisitvariable(p1) then s1 := isitvariable(p1);
-  // No such array cell!
-  if boolisitconstantarray(p1) then
-    if boolvalidconstantarraycell(p1)
-      then s1 := isitconstantarray(p1)
-      else result := 1;
-  if boolisitvariablearray(p1) then
-    if boolvalidvariablearraycell(p1)
-      then s1 := isitvariablearray(p1)
-      else result := 1;
-  if result = 1 then exit;
+    if boolisitconstant(p1) then s1 := isitconstant(p1);
+    if boolisitvariable(p1) then s1 := isitvariable(p1);
+    // No such array cell!
+    if boolisitconstantarray(p1) then
+      if boolvalidconstantarraycell(p1)
+        then s1 := isitconstantarray(p1)
+        else result := 1;
+    if boolisitvariablearray(p1) then
+      if boolvalidvariablearraycell(p1)
+        then s1 := isitvariablearray(p1)
+        else result := 1;
+    if result = 1 then exit;
     if length(s1) = 0 then s1 := p1;
     valid := false;
     for b := 0 to COMMARRSIZE - 2 do

@@ -14,8 +14,8 @@
 }
 { 
   p0      p1
-  ----------
-  tcpcons ?
+  ------------
+  tcpcons dev?
 }
 
 // COMMAND 'TCPCONS'
@@ -65,7 +65,8 @@ begin
             // echo method
             case uconfig.echometh of
               1: sendmessage(prdkey, false);
-              2: sendmessage(addsomezero(2, deztohex(inttostr(ord(prdkey)))) + ' ', false);
+              2: sendmessage(addsomezero(2, deztohex(inttostr(ord(prdkey)))) +
+                                         ' ', false);
             end;
             // write to console.log
             try

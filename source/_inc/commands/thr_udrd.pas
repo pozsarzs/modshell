@@ -4,7 +4,7 @@
 { | thr_udrd.pas                                                             | }
 { | command 'udpread'                                                        | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0      p1   p2
   ----------------------
   udpread dev? [$TARGET]
@@ -22,10 +22,10 @@
 function TLThread.thr_udpread(p1, p2: string; no_timeout_error: boolean): byte;
 var
   b: byte;
-  i1: integer; // parameters other type
+  i1: integer;
   s: string = '';
   ss: string;
-  s1: string; // parameters in other type
+  s1: string;
   valid: boolean = false;
   wait: integer = 0;
 
@@ -83,14 +83,15 @@ begin
       result := 1;
       exit;
     end;
+    if boolisitvariablearray(p2) then
+      if not boolvalidvariablearraycell(p2) then
+      begin
+        // No such array cell!
+        sendmessage(ERR66 + p2, true);
+        result := 1;
+        exit;
+      end;
   end;
-  if boolisitvariablearray(p2) then
-    if not boolvalidvariablearraycell(p2) then
-    begin
-      // No such array cell!
-      result := 1;
-      exit;
-    end;
   // PRIMARY MISSION
   with dev[i1] do
     if udp_open(ipaddress, inttostr(port)) then

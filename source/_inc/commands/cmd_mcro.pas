@@ -17,6 +17,7 @@
   ----------------------------------
   macro
   macro NAME command with parameters
+
      | var |const|varr |carr |text |keyw.|
   ---+-----+-----+-----+-----+-----+-----+
   p1 |  +  |  +  |  +  |  +  |  -  |  -  |

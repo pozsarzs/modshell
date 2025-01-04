@@ -188,16 +188,16 @@ begin
   // CHECK P5 PARAMETER
   if boolisitconstant(p5) then s5 := isitconstant(p5);
   if boolisitvariable(p5) then s5 := isitvariable(p5);
-    // No such array cell!
-    if boolisitconstantarray(p5) then
-      if boolvalidconstantarraycell(p5)
-        then s5 := isitconstantarray(p5)
-        else result := 1;
-    if boolisitvariablearray(p5) then
-      if boolvalidvariablearraycell(p5)
-        then s5 := isitvariablearray(p5)
-        else result := 1;
-    if result = 1 then exit;
+  // No such array cell!
+  if boolisitconstantarray(p5) then
+    if boolvalidconstantarraycell(p5)
+      then s5 := isitconstantarray(p5)
+      else result := 1;
+  if boolisitvariablearray(p5) then
+    if boolvalidvariablearraycell(p5)
+      then s5 := isitvariablearray(p5)
+      else result := 1;
+  if result = 1 then exit;
   if length(s5) = 0 then s5 := p5;
   i5 := strtointdef(s5, -1);
   if (i5 < 0) or (i5 > 9998) then
@@ -214,8 +214,8 @@ begin
   // CHECK P6 PARAMETER
   if length(p6) > 0 then
   begin
-  if boolisitconstant(p6) then s6 := isitconstant(p6);
-  if boolisitvariable(p6) then s6 := isitvariable(p6);
+    if boolisitconstant(p6) then s6 := isitconstant(p6);
+    if boolisitvariable(p6) then s6 := isitvariable(p6);
     // No such array cell!
     if boolisitconstantarray(p6) then
       if boolvalidconstantarraycell(p6)
