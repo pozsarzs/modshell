@@ -4,7 +4,7 @@
 { | cmd_sys.pas                                                              | }
 { | directory and file handler commands                                      | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0    p1                          p2
   ----------------------------------------------------------
   cd    [[$]PATH_AND_DIRECTORYNAME]
@@ -38,7 +38,7 @@ var
   StringList1, StringList2: TStringList;
   i: integer;
   {$IFNDEF X} line: integer; {$ENDIF}
-  s1: string; // parameter in other format
+  s1: string;
 begin
   if length(p1) > 0 then
     if (p1 <> SLASH) then
@@ -78,7 +78,9 @@ begin
         line := 0;
       end;
     end;
-  {$ELSE} Form1.Memo1.Lines.Add(StringList1.Strings[i]); {$ENDIF}
+  {$ELSE}
+    Form1.Memo1.Lines.Add(StringList1.Strings[i]);
+  {$ENDIF}
   StringList1.Free;
   result := 0;
 end;
@@ -89,7 +91,12 @@ begin
   result := 0;
   try
     if length(p1) = 0
-      then {$IFNDEF X} writeln(GetCurrentDir) {$ELSE} Form1.Memo1.Lines.Add(GetCurrentDir) {$ENDIF}
+      then
+        {$IFNDEF X}
+          writeln(GetCurrentDir)
+        {$ELSE}
+          Form1.Memo1.Lines.Add(GetCurrentDir)
+        {$ENDIF}
       else SetCurrentDir(p1);
   except
     // Cannot change directory!
@@ -173,7 +180,9 @@ begin
           line := 0;
         end;
       end;
-    {$ELSE} Form1.Memo1.Lines.Add(StringList1.Strings[i]); {$ENDIF}
+    {$ELSE}
+      Form1.Memo1.Lines.Add(StringList1.Strings[i]);
+    {$ENDIF}
   except
     // Cannot type file content!
     {$IFNDEF X}
@@ -232,7 +241,7 @@ end;
 
 function cmd_sys(op: byte; p1, p2: string): byte;
 var
-  s1, s2: string; // parameters in other type
+  s1, s2: string;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -268,8 +277,16 @@ begin
   begin
     if boolisitconstant(p1) then s1 := isitconstant(p1);
     if boolisitvariable(p1) then s1 := isitvariable(p1);
-    if boolisitconstantarray(p1) then s1 := isitconstantarray(p1);
-    if boolisitvariablearray(p1) then s1 := isitvariablearray(p1);
+    // No such array cell!
+    if boolisitconstantarray(p1) then
+      if boolvalidconstantarraycell(p1)
+        then s1 := isitconstantarray(p1)
+        else result := 1;
+    if boolisitvariablearray(p1) then
+      if boolvalidvariablearraycell(p1)
+        then s1 := isitvariablearray(p1)
+        else result := 1;
+    if result = 1 then exit;
     if length(s1) = 0 then s1 := p1;
   end;
   // CHECK P2 PARAMETER
@@ -277,8 +294,16 @@ begin
   begin
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
-    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    // No such array cell!
+    if boolisitconstantarray(p2) then
+      if boolvalidconstantarraycell(p2)
+        then s2 := isitconstantarray(p2)
+        else result := 1;
+    if boolisitvariablearray(p2) then
+      if boolvalidvariablearraycell(p2)
+        then s2 := isitvariablearray(p2)
+        else result := 1;
+    if result = 1 then exit;
     if length(s2) = 0 then s2 := p2;
   end;
   // PRIMARY MISSION

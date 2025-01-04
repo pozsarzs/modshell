@@ -4,7 +4,7 @@
 { | cmd_tcrd.pas                                                             | }
 { | command 'tcpread'                                                        | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0      p1   p2
   -----------------------
   tcpread dev? [$TARGET]
@@ -28,10 +28,10 @@ function cmd_tcpread(p1, p2: string): byte;
 var
   b: byte;
   {$IFNDEF X} c: char; {$ENDIF}
-  i1: integer; // parameters other type
+  i1: integer;
   s: string = '';
   ss: string;
-  s1: string; // parameters in other type
+  s1: string;
   valid: boolean = false;
   wait: integer = 0;
 begin
@@ -107,6 +107,13 @@ begin
       exit;
     end;
   end;
+  if boolisitvariablearray(p2) then
+    if not boolvalidvariablearraycell(p2) then
+    begin
+      // No such array cell!
+      result := 1;
+      exit;
+    end;
   // PRIMARY MISSION
   with dev[i1] do
     if tcp_open(ipaddress, inttostr(port)) then
@@ -129,22 +136,39 @@ begin
           {$ELSE}
             case uconfig.echometh of
               1: Form1.Memo1.Text := Form1.Memo1.Text + char(b);
-              2: Form1.Memo1.Text := Form1.Memo1.Text + addsomezero(2, deztohex(inttostr(b))) + ' ';
+              2: Form1.Memo1.Text := Form1.Memo1.Text +
+                   addsomezero(2, deztohex(inttostr(b))) + ' ';
             end;
           {$ENDIF}
           s := s + char(b);
           if (uconfig.echometh = 1) and (b = 13) then
           begin
-            {$IFNDEF X} write(EOL); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + EOL; {$ENDIF}
+            {$IFNDEF X}
+              write(EOL);
+            {$ELSE}
+              Form1.Memo1.Text := Form1.Memo1.Text + EOL;
+            {$ENDIF}
           end;
         end else
           if wait < 6000 then inc(wait);
         {$IFNDEF X} if keypressed then c := readkey; {$ENDIF}
-      until {$IFNDEF X} (c = #27) or {$ENDIF} (length(s) = 255) or (wait = timeout * 100);
+      until {$IFNDEF X} (c = #27) or {$ENDIF}
+            (length(s) = 255) or (wait = timeout * 100);
       tcp_close;
       if (uconfig.echometh > 0)
-        then {$IFNDEF X} writeln; {$ELSE} Form1.Memo1.Lines.Add(''); {$ENDIF}      
-      if length(p2) = 0 then {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+        then
+          {$IFNDEF X}
+            writeln;
+          {$ELSE}
+            Form1.Memo1.Lines.Add('');
+          {$ENDIF}      
+      if length(p2) = 0
+        then
+          {$IFNDEF X}
+            writeln(s);
+          {$ELSE}
+            Form1.Memo1.Lines.Add(s);
+          {$ENDIF}
       if length(p2) > 0 then
         if boolisitvariable(p2)
           then vars[intisitvariable(p2)].vvalue := s

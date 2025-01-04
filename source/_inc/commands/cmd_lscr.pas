@@ -29,7 +29,7 @@ var
   fpn, fp, fn: string;
   s: string;
   sf: textfile;
-  s1: string; // parameters in other type
+  s1: string;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER

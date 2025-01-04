@@ -4,7 +4,7 @@
 { | cmd_run.pas                                                              | }
 { | command 'run'                                                            | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0  p1
   -------------
   run [-h] [-s]
@@ -59,7 +59,11 @@ begin
       if sbuffer[line][1] <> COMMENT then parsingcommands(sbuffer[line]);
       if stepbystep then
       begin
-        {$IFNDEF X} readkey; {$ELSE} ShowMessage(MSG78); {$ENDIF}
+        {$IFNDEF X}
+          readkey;
+        {$ELSE}
+          ShowMessage(MSG78);
+        {$ENDIF}
       end;
     end;
   if not holdvariables then

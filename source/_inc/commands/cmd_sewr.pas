@@ -4,7 +4,7 @@
 { | cmd_sewr.pas                                                             | }
 { | command 'serwrite'                                                       | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0       p1   p2
   -----------------------
   serwrite dev? "MESSAGE"
@@ -28,9 +28,9 @@
 function cmd_serwrite(p1, p2: string): byte;
 var
   b: byte;
-  i1: integer; // parameters other type
+  i1: integer;
   s: string;
-  s1, s2: string; // parameters in other type
+  s1, s2: string;
   valid: boolean = false;
 begin
   result := 0;
@@ -96,8 +96,16 @@ begin
     // CHECK P2 PARAMETER
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
-    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    // No such array cell!
+    if boolisitconstantarray(p2) then
+      if boolvalidconstantarraycell(p2)
+        then s2 := isitconstantarray(p2)
+        else result := 1;
+    if boolisitvariablearray(p2) then
+      if boolvalidvariablearraycell(p2)
+        then s2 := isitvariablearray(p2)
+        else result := 1;
+    if result = 1 then exit;
     if length(s2) = 0 then
     begin
       // No such variable!
@@ -140,22 +148,44 @@ begin
                  ser_sendbyte(ord(s2[b]));
                  // echo method
                  case uconfig.echometh of
-                   1: {$IFNDEF X} write(s2[b]); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + s2[b]; {$ENDIF}
-                   2: {$IFNDEF X} write(addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' '); {$ELSE} Form1.Memo1.Text := Form1.Memo1.Text + addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' '; {$ENDIF}
+                   1: {$IFNDEF X}
+                        write(s2[b]);
+                      {$ELSE}
+                        Form1.Memo1.Text := Form1.Memo1.Text + s2[b];
+                      {$ENDIF}
+                   2: {$IFNDEF X}
+                        write(addsomezero(2, deztohex(inttostr(ord(s2[b])))) +
+                                          ' ');
+                      {$ELSE}
+                        Form1.Memo1.Text := Form1.Memo1.Text +
+                                            addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ';
+                      {$ENDIF}
                  end;
                end;
-               {$IFNDEF X} writeln(''); {$ELSE} Form1.Memo1.Lines.Add(''); {$ENDIF}
+               {$IFNDEF X}
+                 writeln('');
+               {$ELSE}
+                 Form1.Memo1.Lines.Add('');
+               {$ENDIF}
              end;
           5: begin
                ser_sendstring(s2);
                // echo method
                case uconfig.echometh of
-                 1: {$IFNDEF X} writeln(s2); {$ELSE} Form1.Memo1.Lines.Add(s2); {$ENDIF}
+                 1: {$IFNDEF X}
+                      writeln(s2);
+                    {$ELSE}
+                      Form1.Memo1.Lines.Add(s2);
+                    {$ENDIF}
                  2: begin
                       s := '';
                       for b := 1 to length(s2) do
                         s := s + addsomezero(2, deztohex(inttostr(ord(s2[b])))) + ' ';
-                      {$IFNDEF X} writeln(s); {$ELSE} Form1.Memo1.Lines.Add(s); {$ENDIF}
+                      {$IFNDEF X}
+                        writeln(s);
+                      {$ELSE}
+                        Form1.Memo1.Lines.Add(s);
+                      {$ENDIF}
                     end;
                end;
              end;

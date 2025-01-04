@@ -32,7 +32,7 @@ var
   count: byte = 2; // number of the input values
   b: byte;
   f: float = 0;
-  s: array[2..6] of string; // parameters in other type
+  s: array[2..6] of string;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS

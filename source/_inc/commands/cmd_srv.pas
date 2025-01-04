@@ -4,7 +4,7 @@
 { | cmd_srv.pas                                                              | }
 { | command 'mbsrv'                                                          | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0    p1
   ----------
   mbsrv con?
@@ -22,13 +22,13 @@
   p1 |     |     |     |     |     |  x  |
 }
 
-// COMMAND 'MBSRW'
+// COMMAND 'MBSRV'
 function cmd_mbsrv(p1: string): byte;
 var
-  i1: integer; // parameter in other type
+  i1: integer;
   loop: boolean;
   s: string;
-  s1: string; // parameter in other type
+  s1: string;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETER

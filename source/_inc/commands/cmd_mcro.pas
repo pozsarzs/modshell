@@ -103,7 +103,7 @@ var
   l: byte;
   {$IFNDEF X} line: integer; {$ENDIF}
   {$IFDEF X} s: string; {$ENDIF}
-  s1, s2: string; // parameters in other type
+  s1, s2: string;
   valid: boolean = true;
 begin
   result := 0;

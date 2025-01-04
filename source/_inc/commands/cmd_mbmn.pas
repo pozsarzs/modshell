@@ -27,10 +27,10 @@ function cmd_mbmon(p1: string): byte;
 var
   c: char;
   fpn, fp: string;
-  i1: integer; // parameter in other type
+  i1: integer;
   lf: textfile;
   s: string;
-  s1: string; // parameter in other type
+  s1: string;
 begin
   result := 0;
   {$IFDEF X}

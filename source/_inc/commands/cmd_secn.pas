@@ -4,7 +4,7 @@
 { | cmd_secn.pas                                                             | }
 { | command 'sercons'                                                        | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0     p1
   --------------
   sercons [dev?]
@@ -28,9 +28,9 @@ var
   b: byte;
   c: char;
   fpn, fp: string;
-  i1: integer; // parameters other type
+  i1: integer;
   lf: file of char;
-  s1: string; // parameters in other type
+  s1: string;
   s: string;
   valid: boolean = false;
 begin

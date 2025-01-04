@@ -25,7 +25,7 @@
 // COMMAND 'PAUSE'
 function cmd_pause(p1: string): byte;
 var
-  s1: string; // parameter in other type
+  s1: string;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS

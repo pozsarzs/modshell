@@ -4,7 +4,7 @@
 { | cmd_vrmn.pas                                                             | }
 { | command 'varmon'                                                         | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0     p1         p2
   -----------------------
   varmon on|off
@@ -108,7 +108,11 @@ begin
       // PRIMARY MISSION
       // on/off variable monitor
       varmon := inttobool(b);
-      {$IFNDEF X} writeln(MSG32 + METHOD[b]); {$ELSE} Form1.Memo1.Lines.Add(MSG32 + METHOD[b]); {$ENDIF}
+      {$IFNDEF X}
+        writeln(MSG32 + METHOD[b]);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(MSG32 + METHOD[b]);
+      {$ENDIF}
     end else
     begin
       // CHECK P1 PARAMETER

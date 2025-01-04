@@ -4,7 +4,7 @@
 { | cmd_varr.pas                                                             | }
 { | command 'varr'                                                           | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0   p1   p2
   ----------------
   varr
@@ -45,7 +45,8 @@ var
   i: integer;
 begin
   result := 0;  
-  if (s[1] = #36) and (length(s) > 1) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
+  if (s[1] = #36) and (length(s) > 1)
+    then s := stringreplace(s, #36 , '', [rfReplaceAll]);
   s := removearrayindex(s);
   for i := 0 to ARRBUFFSIZE - 1 do
     if (arrays[i].aname = lowercase(s)) and not arrays[i].areadonly
@@ -58,7 +59,8 @@ var
   i: integer;
 begin
   result := false;
-  if (s[1] = #36) and (length(s) > 1) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
+  if (s[1] = #36) and (length(s) > 1)
+    then s := stringreplace(s, #36 , '', [rfReplaceAll]);
   s := removearrayindex(s);
   for i := 0 to ARRBUFFSIZE - 1 do
     if (arrays[i].aname = lowercase(s)) and not arrays[i].areadonly
@@ -72,11 +74,13 @@ var
 begin
   result := '';
   idx := arrayindex(s);
-  if (s[1] = #36) and (length(s) > 1) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
+  if (s[1] = #36) and (length(s) > 1)
+    then s := stringreplace(s, #36 , '', [rfReplaceAll]);
   s := removearrayindex(s);
   for i := 0 to ARRBUFFSIZE - 1 do
     if (arrays[i].aname = lowercase(s)) and not arrays[i].areadonly
-      then result := stringreplace(arrays[i].aitems[idx], #92 + #32 , #32, [rfReplaceAll]);
+      then result := stringreplace(arrays[i].aitems[idx],
+             #92 + #32 , #32, [rfReplaceAll]);
 end;
 
 // IF IT IS A VARIABLE ARRAY, IT RETURNS THEIRS ELEMENT NUMBER
@@ -86,7 +90,8 @@ var
 begin
   result := 0;
   idx := arrayindex(s);
-  if (s[1] = #36) and (length(s) > 1) then s := stringreplace(s, #36 , '', [rfReplaceAll]);
+  if (s[1] = #36) and (length(s) > 1)
+    then s := stringreplace(s, #36 , '', [rfReplaceAll]);
   s := removearrayindex(s);
   for i := 0 to ARRBUFFSIZE - 1 do
     if (arrays[i].aname = lowercase(s)) and not arrays[i].areadonly
@@ -96,7 +101,8 @@ end;
 // CHECK SPECIFIED CELL NUMBER
 function boolvalidvariablearraycell(s: string): boolean;
 begin
-  if intisitvariablearrayelement(s) > (length(arrays[intisitvariablearray(s)].aitems) - 1) then
+  if intisitvariablearrayelement(s) >
+     (length(arrays[intisitvariablearray(s)].aitems) - 1) then
   begin
     {$IFNDEF X}
       if verbosity(2) then writeln(ERR66 + s);
@@ -114,7 +120,7 @@ var
   l: byte;
   {$IFNDEF X} line: integer; {$ENDIF}
   {$IFDEF X} s: string; {$ENDIF}
-  s1, s2: string; // parameters in other type
+  s1, s2: string;
   valid: boolean = true;
 begin
   result := 0;
@@ -127,7 +133,8 @@ begin
       begin
         {$IFNDEF X}
           xywrite(2, wherey, false, '$' + arrays[l].aname);
-          xywrite(20, wherey, false, '[0..' + inttostr(length(arrays[l].aitems)) + ']');
+          xywrite(20, wherey, false, '[0..' +
+                  inttostr(length(arrays[l].aitems)) + ']');
           writeln;
           inc(line);
           if line >= (termheight - 4) then
@@ -213,8 +220,16 @@ begin
     begin
       if boolisitconstant(p2) then s2 := isitconstant(p2);
       if boolisitvariable(p2) then s2 := isitvariable(p2);
-      if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-      if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+      // No such array cell!
+      if boolisitconstantarray(p2) then
+        if boolvalidconstantarraycell(p2)
+          then s2 := isitconstantarray(p2)
+          else result := 1;
+      if boolisitvariablearray(p2) then
+        if boolvalidvariablearraycell(p2)
+          then s2 := isitvariablearray(p2)
+          else result := 1;
+      if result = 1 then exit;
       if length(s2) = 0 then s2 := p2;
     end;
     // PRIMARY MISSION

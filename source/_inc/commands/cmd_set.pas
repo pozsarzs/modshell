@@ -4,7 +4,7 @@
 { | cmd_set.pas                                                              | }
 { | command 'set'                                                            | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,7 +12,7 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0  p1      p2             p3            p4              p5                 p6        p7
   ------------------------------------------------------------------------------------------------
   set dev?    net            [$]DEVICE     [$]IP_ADDRESS   [$]PORT
@@ -38,19 +38,19 @@
 // COMMAND 'SET'
 function cmd_set(p1, p2, p3, p4, p5, p6, p7: string): byte;
 var
-  i1: integer; // parameters in other type
+  i1: integer;
   error: byte = 0;
   pr: byte;
-  s1: string; // parameters in other type
+  s1: string;
   valid: boolean = false;
 
   // COMMAND 'SET DEV'
   procedure cmd_set_dev(n, p2, p3, p4, p5, p6, p7: string);
   var
     dvt, i: integer;
-    i4, i6: integer; // parameters in other type
+    i4, i6: integer;
     s: string;
-    s4, s5, s6, s7: string; // parameters in other type
+    s4, s5, s6, s7: string;
   begin
     // 1ST CHECK LENGTH OF PARAMETERS
     if (length(p2) = 0) or (length(p3) = 0) or
@@ -91,8 +91,16 @@ var
       // CHECK P4 PARAMETER
       if boolisitconstant(p4) then s4 := isitconstant(p4);
       if boolisitvariable(p4) then s4 := isitvariable(p4);
-      if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
-      if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
+      // No such array cell!
+      if boolisitconstantarray(p4) then
+        if boolvalidconstantarraycell(p4)
+          then s4 := isitconstantarray(p4)
+          else result := 1;
+      if boolisitvariablearray(p4) then
+        if boolvalidvariablearraycell(p4)
+          then s4 := isitvariablearray(p4)
+          else result := 1;
+      if result = 1 then exit;
       if length(s4) = 0 then s4 := p4;
       if not checkipaddress(p4) then
       begin
@@ -108,8 +116,16 @@ var
       // CHECK P5 PARAMETER
       if boolisitconstant(p5) then s5 := isitconstant(p5);
       if boolisitvariable(p5) then s5 := isitvariable(p5);
-      if boolisitconstantarray(p5) then s5 := isitconstantarray(p5);
-      if boolisitvariablearray(p5) then s5 := isitvariablearray(p5);
+      // No such array cell!
+      if boolisitconstantarray(p5) then
+        if boolvalidconstantarraycell(p5)
+          then s5 := isitconstantarray(p5)
+          else result := 1;
+      if boolisitvariablearray(p5) then
+        if boolvalidvariablearraycell(p5)
+          then s5 := isitvariablearray(p5)
+          else result := 1;
+      if result = 1 then exit;
       if length(s5) = 0 then s5 := p5;
       if (strtointdef(s5, -1) < 0 ) or (strtointdef(s5, -1) > 65535) then
       begin
@@ -149,8 +165,16 @@ var
       // CHECK P4 PARAMETER
       if boolisitconstant(p4) then s4 := isitconstant(p4);
       if boolisitvariable(p4) then s4 := isitvariable(p4);
-      if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
-      if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
+      // No such array cell!
+      if boolisitconstantarray(p4) then
+        if boolvalidconstantarraycell(p4)
+          then s4 := isitconstantarray(p4)
+          else result := 1;
+      if boolisitvariablearray(p4) then
+        if boolvalidvariablearraycell(p4)
+          then s4 := isitvariablearray(p4)
+          else result := 1;
+      if result = 1 then exit;
       if length(s4) = 0 then s4 := p4;
       for i4 := 0 to 10 do
         if DEV_SPEED[i4] = p4 then
@@ -174,8 +198,16 @@ var
       // CHECK P5 PARAMETER
       if boolisitconstant(p5) then s5 := isitconstant(p5);
       if boolisitvariable(p5) then s5 := isitvariable(p5);
-      if boolisitconstantarray(p5) then s5 := isitconstantarray(p5);
-      if boolisitvariablearray(p5) then s5 := isitvariablearray(p5);
+      // No such array cell!
+      if boolisitconstantarray(p5) then
+        if boolvalidconstantarraycell(p5)
+          then s5 := isitconstantarray(p5)
+          else result := 1;
+      if boolisitvariablearray(p5) then
+        if boolvalidvariablearraycell(p5)
+          then s5 := isitvariablearray(p5)
+          else result := 1;
+      if result = 1 then exit;
       if length(s5) = 0 then s5 := p5;
       if (strtointdef(s5, -1) < 7 ) or (strtointdef(s5, -1) > 8) then
       begin
@@ -191,8 +223,16 @@ var
       // CHECK P6 PARAMETER
       if boolisitconstant(p6) then s6 := isitconstant(p6);
       if boolisitvariable(p6) then s6 := isitvariable(p6);
-      if boolisitconstantarray(p6) then s6 := isitconstantarray(p6);
-      if boolisitvariablearray(p6) then s6 := isitvariablearray(p6);
+      // No such array cell!
+      if boolisitconstantarray(p6) then
+        if boolvalidconstantarraycell(p6)
+          then s6 := isitconstantarray(p6)
+          else result := 1;
+      if boolisitvariablearray(p6) then
+        if boolvalidvariablearraycell(p6)
+          then s6 := isitvariablearray(p6)
+          else result := 1;
+      if result = 1 then exit;
       if length(s6) = 0 then s6 := p6;
       for i6 := 0 to 2 do
         if DEV_PARITY[i6] = lowercase(s6) then
@@ -216,8 +256,16 @@ var
       // CHECK P7 PARAMETER
       if boolisitconstant(p7) then s7 := isitconstant(p7);
       if boolisitvariable(p7) then s7 := isitvariable(p7);
-      if boolisitconstantarray(p7) then s7 := isitconstantarray(p7);
-      if boolisitvariablearray(p7) then s7 := isitvariablearray(p7);
+      // No such array cell!
+      if boolisitconstantarray(p7) then
+        if boolvalidconstantarraycell(p7)
+          then s7 := isitconstantarray(p7)
+          else result := 1;
+      if boolisitvariablearray(p7) then
+        if boolvalidvariablearraycell(p7)
+          then s7 := isitvariablearray(p7)
+          else result := 1;
+      if result = 1 then exit;
       if length(s7) = 0 then s7 := p7;
       if (strtointdef(s7, -1) < 1 ) or (strtointdef(s7, -1) > 2) then
       begin
@@ -250,7 +298,7 @@ var
     i: integer;
     prt: byte;
     s: string;
-    s3: string; // parameter in other type
+    s3: string;
     valid: boolean = false;
   begin
     // CHECK LENGTH OF PARAMETERS
@@ -288,8 +336,16 @@ var
     // CHECK P3 PARAMETER
     if boolisitconstant(p3) then s3 := isitconstant(p3);
     if boolisitvariable(p3) then s3 := isitvariable(p3);
-    if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
-    if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
+    // No such array cell!
+    if boolisitconstantarray(p3) then
+      if boolvalidconstantarraycell(p3)
+        then s3 := isitconstantarray(p3)
+        else result := 1;
+    if boolisitvariablearray(p3) then
+      if boolvalidvariablearraycell(p3)
+        then s3 := isitvariablearray(p3)
+        else result := 1;
+    if result = 1 then exit;
     if length(s3) = 0 then s3 := p3;
     if prt < 3 then
       if (strtointdef(s3, -1) < 1) or (strtointdef(s3, -1) > 247) then
@@ -414,8 +470,8 @@ var
   // SET DEFAULT COLORS
   procedure cmd_set_color(p2, p3, p4, p5, p6: string);
   var
-    i2, i3, i4, i5, i6: integer; // parameters in other type
-    s2, s3, s4, s5, s6: string; // parameters in other type
+    i2, i3, i4, i5, i6: integer;
+    s2, s3, s4, s5, s6: string;
   begin
     result := 0;
     {$IFDEF X}
@@ -433,8 +489,16 @@ var
     // CHECK P2 PARAMETER
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
-    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    // No such array cell!
+    if boolisitconstantarray(p2) then
+      if boolvalidconstantarraycell(p2)
+        then s2 := isitconstantarray(p2)
+        else result := 1;
+    if boolisitvariablearray(p2) then
+      if boolvalidvariablearraycell(p2)
+        then s2 := isitvariablearray(p2)
+        else result := 1;
+    if result = 1 then exit;
     if length(s2) = 0 then s2 := p2;
     i2 := strtointdef(s2, -1);
     if (i2 < 0) or (i2 > 15) then
@@ -447,8 +511,16 @@ var
   // CHECK P3 PARAMETER
   if boolisitconstant(p3) then s3 := isitconstant(p3);
   if boolisitvariable(p3) then s3 := isitvariable(p3);
-  if boolisitconstantarray(p3) then s3 := isitconstantarray(p3);
-  if boolisitvariablearray(p3) then s3 := isitvariablearray(p3);
+  // No such array cell!
+  if boolisitconstantarray(p3) then
+    if boolvalidconstantarraycell(p3)
+      then s3 := isitconstantarray(p3)
+      else result := 1;
+  if boolisitvariablearray(p3) then
+    if boolvalidvariablearraycell(p3)
+      then s3 := isitvariablearray(p3)
+      else result := 1;
+  if result = 1 then exit;
   i3 := strtointdef(s3, -1);
   if (i3 < 0) or (i3 > 15) then
   begin
@@ -460,8 +532,16 @@ var
   // CHECK P4 PARAMETER
   if boolisitconstant(p4) then s4 := isitconstant(p4);
   if boolisitvariable(p4) then s4 := isitvariable(p4);
-  if boolisitconstantarray(p4) then s4 := isitconstantarray(p4);
-  if boolisitvariablearray(p4) then s4 := isitvariablearray(p4);
+  // No such array cell!
+  if boolisitconstantarray(p4) then
+    if boolvalidconstantarraycell(p4)
+      then s4 := isitconstantarray(p4)
+      else result := 1;
+  if boolisitvariablearray(p4) then
+    if boolvalidvariablearraycell(p4)
+      then s4 := isitvariablearray(p4)
+      else result := 1;
+  if result = 1 then exit;
   if length(s4) = 0 then s4 := p4;
   i4 := strtointdef(s4, -1);
   if (i4 < 0) or (i4 > 15) then
@@ -474,8 +554,16 @@ var
     // CHECK P5 PARAMETER
     if boolisitconstant(p5) then s5 := isitconstant(p5);
     if boolisitvariable(p5) then s5 := isitvariable(p5);
-    if boolisitconstantarray(p5) then s4 := isitconstantarray(p5);
-    if boolisitvariablearray(p5) then s4 := isitvariablearray(p5);
+    // No such array cell!
+    if boolisitconstantarray(p5) then
+      if boolvalidconstantarraycell(p5)
+        then s5 := isitconstantarray(p5)
+        else result := 1;
+    if boolisitvariablearray(p5) then
+      if boolvalidvariablearraycell(p5)
+        then s5 := isitvariablearray(p5)
+        else result := 1;
+    if result = 1 then exit;
     if length(s5) = 0 then s5 := p5;
     i5 := strtointdef(s5, -1);
     if (i5 < 0) or (i5 > 15) then
@@ -488,8 +576,16 @@ var
     // CHECK P6 PARAMETER
     if boolisitconstant(p6) then s6 := isitconstant(p6);
     if boolisitvariable(p6) then s6 := isitvariable(p6);
-    if boolisitconstantarray(p6) then s6 := isitconstantarray(p6);
-    if boolisitvariablearray(p6) then s6 := isitvariablearray(p6);
+    // No such array cell!
+    if boolisitconstantarray(p6) then
+      if boolvalidconstantarraycell(p6)
+        then s6 := isitconstantarray(p6)
+        else result := 1;
+    if boolisitvariablearray(p6) then
+      if boolvalidvariablearraycell(p6)
+        then s6 := isitvariablearray(p6)
+        else result := 1;
+    if result = 1 then exit;
     if length(s6) = 0 then s6 := p6;
     i6 := strtointdef(s6, -1);
     if (i6 < 0) or (i6 > 15) then
@@ -511,15 +607,23 @@ var
   procedure cmd_set_project(p2: string);
   var
     b, bb: byte;
-    s2: string; // parameter in other type
+    s2: string;
     {$IFDEF GO32V2} s: string[8]; {$ELSE} s: string[16]; {$ENDIF}
     valid : boolean = true;  
   begin
     // SEARCH ILLEGAL CHARACTERS
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
-    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    // No such array cell!
+    if boolisitconstantarray(p2) then
+      if boolvalidconstantarraycell(p2)
+        then s2 := isitconstantarray(p2)
+        else result := 1;
+    if boolisitvariablearray(p2) then
+      if boolvalidvariablearraycell(p2)
+        then s2 := isitvariablearray(p2)
+        else result := 1;
+    if result = 1 then exit;
     if length(s2) = 0 then s2 := p2;
     s := s2;
     for b := 1 to length(s) do
@@ -560,13 +664,21 @@ var
   // SET CONNECTION TIMEOUT
   procedure cmd_set_timeout(p2: string);
   var
-    s2: string; // parameter in other type
+    s2: string;
   begin
     // SEARCH ILLEGAL CHARACTERS
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
-    if boolisitconstantarray(p2) then s2 := isitconstantarray(p2);
-    if boolisitvariablearray(p2) then s2 := isitvariablearray(p2);
+    // No such array cell!
+    if boolisitconstantarray(p2) then
+      if boolvalidconstantarraycell(p2)
+        then s2 := isitconstantarray(p2)
+        else result := 1;
+    if boolisitvariablearray(p2) then
+      if boolvalidvariablearraycell(p2)
+        then s2 := isitvariablearray(p2)
+        else result := 1;
+    if result = 1 then exit;
     if length(s2) = 0 then s2 := p2;
     if (strtointdef(s2, -1) < 1 ) or (strtointdef(s2, -1) > 60) then
     begin

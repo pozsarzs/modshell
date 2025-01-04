@@ -4,7 +4,7 @@
 { | thr_secn.pas                                                             | }
 { | command 'sercons'                                                        | }
 { +--------------------------------------------------------------------------+ }
-{
+{ 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the European Union Public License 1.2 version.
 
@@ -12,10 +12,10 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
-{
+{ 
   p0      p1
   ------------
-  sercons ?
+  sercons dev?
 }
 
 // COMMAND 'SERCONS'
@@ -66,7 +66,8 @@ begin
             // echo method
             case uconfig.echometh of
               1: sendmessage(prdkey, false);
-              2: sendmessage(addsomezero(2, deztohex(inttostr(ord(prdkey)))) + ' ', false);
+              2: sendmessage(addsomezero(2,
+                             deztohex(inttostr(ord(prdkey)))) + ' ', false);
             end;
             // write to console.log
             try

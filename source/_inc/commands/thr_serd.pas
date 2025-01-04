@@ -84,6 +84,13 @@ begin
       exit;
     end;
   end;
+  if boolisitvariablearray(p2) then
+  if not boolvalidvariablearraycell(p2) then
+  begin
+    // No such array cell!
+    result := 1;
+    exit;
+  end;
   // PRIMARY MISSION
   if checklockfile(dev[i1].device, false) then
   begin
