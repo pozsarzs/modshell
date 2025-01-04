@@ -13,15 +13,16 @@ section of the README.md.)
 
 |where|what                                                                    |
 |:---:|:-----------------------------------------------------------------------|
+|  B  |Pre-release testing has not yet been performed.                         |
+|  B  |Prevent a script from running internally or externally.                 |
+|  B  |R/W and console commands were not tested after the modification.        |
+|  B  |Specifying command line arguments when running a script internally.     |
 |  C  |Command `mbmon` has not been tested yet.                                |
+|  D  |Missing from the manual: predefined macros, variables.                  |
 |  U  |SerialEchoServer has not been tested yet.                               |
 |  U  |SerialMBMonitor has not been tested yet.                                |
+|  X  |Don't always print the prompt while running a script internally.        |
 |  X  |Menu item 'Modbus/Show serial Modbus traffic' has not been tested yet.  |
-|  B  |R/W and console commands were not tested after the modification.        |
-|  B  |Pre-release testing has not yet been performed.                         |
-|  B  |Specifying command line arguments when running a script internally.     |
-|  B  |Prevent a script from running internally or externally.                 |
-|  D  |Missing from the manual: predefined macros, variables.                  |
 
 **Where:**
   - M: ModShell
