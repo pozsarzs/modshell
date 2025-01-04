@@ -128,12 +128,6 @@ begin
     result := 1;
     exit;
   end;
-  // No such array cell!
-  if boolisitconstantarray(p1) then
-    if not boolvalidconstantarraycell(p1) then result := 1;
-  if boolisitvariablearray(p1) then
-    if not boolvalidvariablearraycell(p1) then result := 1;
-  if result = 1 then exit;
   // CHECK P2 PARAMETER
   if op >= 108 then
   begin
@@ -167,14 +161,14 @@ begin
            begin
              if boolisitvariable(p2)
                then vars[intisitvariable(p2)].vvalue :=
-                      inttostr(length(arrays[intisitvariablearray(p1)].aitems));
+                      inttostr(length(arrays[intisitvariablearray(p1)].aitems) + 1);
              if boolisitvariablearray(p2)
                then arrays[intisitvariablearray(p2)].aitems[intisitvariablearrayelement(p1)] :=
-                      inttostr(length(arrays[intisitvariablearray(p1)].aitems));
+                      inttostr(length(arrays[intisitvariablearray(p1)].aitems) + 1);
            end;
       110: if boolisitvariablearray(p1)
-             then setlength(arrays[intisitvariablearray(p1)].aitems, strtoint(s2))
-             else setlength(arrays[intisitconstantarray(p1)].aitems, strtoint(s2));
+             then setlength(arrays[intisitvariablearray(p1)].aitems, strtoint(s2) - 1)
+             else setlength(arrays[intisitconstantarray(p1)].aitems, strtoint(s2) - 1);
     end;
   except
     // Operating error

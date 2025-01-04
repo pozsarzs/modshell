@@ -20,7 +20,7 @@ const
   MCRBUFFSIZE = 32;
   MINTERMX = 80;
   MINTERMY = 25;
-  PRGCOPYRIGHT = '(C) 2023-2024 Pozsar Zsolt <http://www.pozsarzs.hu>';
+  PRGCOPYRIGHT = '(C) 2023-2025 Pozsar Zsolt <http://www.pozsarzs.hu>';
   PRGNAME = 'ModShell';
   PRGVERSION = '0.1';
   PROMPT = 'MODSH|_>';

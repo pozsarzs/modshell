@@ -212,7 +212,7 @@ msgstr "         az összes változó kiírása vagy új létrehozása"
 #: frmmain.des21
 msgid ""
 "         set temporary foreground and background colors for print command"
-msgstr "       ideiglenes előtér- és a háttérszín beállítása a print parancshoz"
+msgstr "         ideiglenes előtér- és a háttérszín beállítása a print parancshoz"
 
 #: frmmain.des22
 msgid "ALT-I    import value of the one or more registers"

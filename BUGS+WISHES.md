@@ -19,6 +19,9 @@ section of the README.md.)
 |  X  |Menu item 'Modbus/Show serial Modbus traffic' has not been tested yet.  |
 |  B  |R/W and console commands were not tested after the modification.        |
 |  B  |Pre-release testing has not yet been performed.                         |
+|  B  |Specifying command line arguments when running a script internally.     |
+|  B  |Prevent a script from running internally or externally.                 |
+|  D  |Missing from the manual: predefined macros, variables.                  |
 
 **Where:**
   - M: ModShell

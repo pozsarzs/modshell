@@ -542,12 +542,12 @@ questions, or suggest new features.
 
 **Source packages**
 
-|name                                                                                         |version    |
-|---------------------------------------------------------------------------------------------|:---------:|
-|[source package](https://github.com/pozsarzs/modshell/archive/refs/heads/main.zip)           |latest     |
-|[source package](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha3.tar.gz)|v0.1-alpha3|
-|[source package](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha2.tar.gz)|v0.1-alpha2|
-|[source package](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha1.tar.gz)|v0.1-alpha1|
+|name                                                                                                    |version    |
+|--------------------------------------------------------------------------------------------------------|:---------:|
+|[main.zip](https://github.com/pozsarzs/modshell/archive/refs/heads/main.zip)                            |latest     |
+|[modshell-0.1alpha3.tar.gz](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha3.tar.gz)|v0.1-alpha3|
+|[modshell-0.1alpha2.tar.gz](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha2.tar.gz)|v0.1-alpha2|
+|[modshell-0.1alpha1.tar.gz](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha1.tar.gz)|v0.1-alpha1|
 
 **Binaries and installer packages for several OS and architecture**
 
