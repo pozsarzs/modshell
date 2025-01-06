@@ -28,7 +28,7 @@ rules:
   - statement: "\\b(not)\\b"
   - statement: "\\b(odd|ord|or)\\b"
   - statement: "\\b(pause|pow2|pow|print|printcolor|prop)\\b"
-  - statement: "\\b(rd|readreg|ren|reset|rmdevlock|rnd|roll|rolr|round|run)\\b"
+  - statement: "\\b(rd|readreg|ren|reset|rmdevlock|rnd|roll|rolr|round|run|runmeth)\\b"
   - statement: "\\b(savecfg|savereg|savescr|sendmeth|sercons|serread|serwrite|set|setarrsize|shl|shr|sin|sqrt|sqr|strdel|strfind|strins|stritem|strrepl|sub)\\b"
   - statement: "\\b(tan|tcpcons|tcpread|tcpwrite|then|to|type)\\b"
   - statement: "\\b(udpcons|udpread|udpwrite|upcase)\\b"

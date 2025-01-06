@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
 { | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
 { | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | cmd_inpt.pas                                                             | }
-{ | command 'inputmeth'                                                      | }
+{ | cmd_sdmt.pas                                                             | }
+{ | command 'sendmeth'                                                       | }
 { +--------------------------------------------------------------------------+ }
 { 
   This program is free software: you can redistribute it and/or modify it
@@ -15,15 +15,15 @@
 { 
   p0        p1
   -----------------------
-  inputmeth [an|hex|swap]
+  sendmeth [chr|str|swap]
 
      | var |const|varr |carr |data |keyw.|
   ---+-----+-----+-----+-----+-----+-----+
   p1 |     |     |     |     |     |  x  |
 }
 
-// COMMAND 'INPUTMETH'
-function cmd_inputmeth(p1: string): byte;
+// COMMAND 'SENDMETH'
+function cmd_sendmeth(p1: string): byte;
 var
   ea: byte;
   s: string = '';
@@ -34,15 +34,15 @@ begin
   if (length(p1) = 0) then
   begin
     {$IFNDEF X}
-      writeln(METHOD[inputmeth]);
+      writeln(METHOD[sendmeth]);
     {$ELSE}
-      Form1.Memo1.Lines.Add(METHOD[inputmeth]);
+      Form1.Memo1.Lines.Add(METHOD[sendmeth]);
     {$ENDIF}
     exit;
   end;
   // CHECK P1 PARAMETER
   valid := false;
-  for ea := 1 to 3 do
+  for ea := 3 to 5 do
     if METHOD[ea] = p1 then
     begin
       valid := true;
@@ -52,7 +52,7 @@ begin
   begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
-    for ea := 1 to 3 do s := s + ' ' + METHOD[ea];
+    for ea := 3 to 5 do s := s + ' ' + METHOD[ea];
     {$IFNDEF X}
       if verbosity(2) then writeln(s);
     {$ELSE}
@@ -64,16 +64,17 @@ begin
   // PRIMARY MISSION
   if ea = 3 then
   begin
-    inc(inputmeth);
-    if inputmeth = 3 then inputmeth := 1;
-  end else inputmeth := ea;
+    if sendmeth < 4 then sendmeth := 4;
+    inc(sendmeth);
+    if sendmeth = 6 then sendmeth := 4;
+  end else sendmeth := ea;
   {$IFNDEF X}
-    writeln(MSG89 + METHOD[inputmeth]);
+    writeln(MSG90 + METHOD[sendmeth]);
   {$ELSE}
-    Form1.Memo1.Lines.Add(MSG89 + METHOD[inputmeth]);
-    Form1.StatusBar1.Panels[0].Text := upcase(METHOD[inputmeth]);
-    Form3.StatusBar1.Panels[0].Text := upcase(METHOD[inputmeth]);
-    Form4.StatusBar1.Panels[0].Text := upcase(METHOD[inputmeth]);
-    Form5.StatusBar1.Panels[0].Text := upcase(METHOD[inputmeth]);
+    Form1.Memo1.Lines.Add(MSG90 + METHOD[sendmeth]);
+    Form1.StatusBar1.Panels[2].Text := upcase(METHOD[sendmeth]);
+    Form3.StatusBar1.Panels[2].Text := upcase(METHOD[sendmeth]);
+    Form4.StatusBar1.Panels[2].Text := upcase(METHOD[sendmeth]);
+    Form5.StatusBar1.Panels[2].Text := upcase(METHOD[sendmeth]);
   {$ENDIF}
 end;

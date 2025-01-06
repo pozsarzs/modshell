@@ -357,8 +357,8 @@ procedure version(h: boolean); forward;
 {$I cmd_dttp.pas}
 {$I cmd_dcon.pas}
 {$I cmd_dump.pas}
-{$I cmd_echo.pas}
 {$I cmd_edit.pas}
+{$I cmd_ehmt.pas}
 {$I cmd_eras.pas}
 {$I cmd_exph.pas}
 {$I cmd_expr.pas}
@@ -370,8 +370,8 @@ procedure version(h: boolean); forward;
 {$I cmd_help.pas}
 {$I cmd_if.pas}
 {$I cmd_io.pas}
-{$I cmd_inpt.pas}
 {$I cmd_impr.pas}
+{$I cmd_inmt.pas}
 {$I cmd_labl.pas}
 {$I cmd_lcfg.pas}
 {$I cmd_let.pas}
@@ -392,8 +392,9 @@ procedure version(h: boolean); forward;
 {$I cmd_rst.pas}
 {$I cmd_run.pas}
 {$I cmd_scfg.pas}
+{$I cmd_rnmt.pas}
+{$I cmd_sdmt.pas}
 {$I cmd_secn.pas}
-{$I cmd_send.pas}
 {$I cmd_serd.pas}
 {$I cmd_set.pas}
 {$I cmd_sewr.pas}

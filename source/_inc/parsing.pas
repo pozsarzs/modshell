@@ -160,6 +160,7 @@ begin
             122: exitcode := cmd_mbmon(splitted[1]);
             123: exitcode := cmd_mbconv(splitted[1], splitted[2]);
             124: exitcode := cmd_datatype(splitted[1]);
+            127: exitcode := cmd_runmeth;
             COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2],
                                                       splitted[3], splitted[4],
                                                       splitted[5], splitted[6]);

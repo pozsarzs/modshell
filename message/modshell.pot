@@ -1265,6 +1265,10 @@ msgstr ""
 msgid "         write a byte to an I/O port"
 msgstr ""
 
+#: modshell:des127
+msgid "         get running method"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]\n"
@@ -1882,5 +1886,13 @@ msgstr ""
 
 #: modshell:usg126
 msgid "iowrite [$]PORT [$]BYTE"
+msgstr ""
+
+#: modshell:usg127
+msgid ""
+"runmeth\n"
+"Notes:\n"
+"  - The result will be in the exit code:\n"
+"  0: in the ModShell, 1: from the shell."
 msgstr ""
 

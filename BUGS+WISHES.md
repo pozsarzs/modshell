@@ -14,11 +14,9 @@ section of the README.md.)
 |where|what                                                                    |
 |:---:|:-----------------------------------------------------------------------|
 |  B  |Pre-release testing has not yet been performed.                         |
-|  B  |Prevent a script from running internally or externally.                 |
 |  B  |R/W and console commands were not tested after the modification.        |
-|  B  |Specifying command line arguments when running a script internally.     |
 |  C  |Command `mbmon` has not been tested yet.                                |
-|  D  |Missing from the manual: predefined macros, variables.                  |
+|  D  |Missing from the manual: predefined macros, variables, runmeth command. |
 |  U  |SerialEchoServer has not been tested yet.                               |
 |  U  |SerialMBMonitor has not been tested yet.                                |
 |  X  |Don't always print the prompt while running a script internally.        |

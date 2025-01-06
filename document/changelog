@@ -31,6 +31,7 @@ modshell (0.1-beta1) unstable; urgency=low
   * new command `mbconv`;  
   * new command `mbmon`;  
   * new command `printcolor`(only CLI and TUI);  
+  * new command `runmeth`;  
   * new command `sendmeth`;  
   * new command `tcpcons`, `tcpread`, `tcpwrite`;  
   * new command `udpcons`, `udpread`, `udpwrite`;  

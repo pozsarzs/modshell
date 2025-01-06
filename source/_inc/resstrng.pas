@@ -335,6 +335,7 @@ resourcestring
   DES124='         specify the type of the value';  
   DES125='         read a byte from an I/O port';  
   DES126='         write a byte to an I/O port';  
+  DES127='         get running method';  
   // COMMAND USAGE
   USG00='copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]' + EOL +
         'copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg [$]ADDRESS [[$]COUNT]' + EOL +
@@ -545,3 +546,7 @@ resourcestring
         '  0: string, 1: floating-point value, 1: integer value.';
   USG125='ioread [$]BYTE [$]PORT';
   USG126='iowrite [$]PORT [$]BYTE';
+  USG127='runmeth' + EOL +
+        'Notes:' + EOL +
+        '  - The result will be in the exit code:' + EOL +
+        '  0: in the ModShell, 1: from the shell.';

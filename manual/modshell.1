@@ -42,10 +42,16 @@ It must be defined the I/O devices, then the protocols and the connections.
 There can be eight of each. The data traffic takes place between the preset
 connections. In all cases, the data is sent to or read from the internal buffer.
 The size of the buffer is suitable for storing 2*9999 logical and word values of
-the same size. One hundred and twenty-eight variables or constants can be created
+the same size.
+.PP
+One hundred and twenty-eight variables or constants can be created
 in the program, to which we can assign a value of any type (eg.: message, boolean
 or integer register value, etc.) Variables and constants can be used to perform
 logical and basic mathematical operations, and can be used to pass values to commands.
+.PP
+It is possible to create 32 single-line macros to replace frequently used longer
+commands. The program includes 3 pre-created macros, the content of which can
+also be changed.
 .SS Projects
 In the program, you can create projects for easier management of settings and
 data. The name of the current project is shown in the prompt. The project
@@ -107,10 +113,24 @@ hexadecimal viewing can be selected.
 The program provides direct, byte-sized reading and writing of hardware I/O
 ports. On Windows operating systems, it uses the included external dynamically
 linked library.  
+
+.SH PREDEFINED VARIABLES
+.TP
+\fB$verbose\fP
+Verbosity level (values: NOTHING|ERROR|ALL)
+.TP
+Empty and any other variable value are equivalent to ALL.
+
 .SH PREDEFINED CONSTANTS
 .TP
 \fB$?\fP
 Exit value of the commands.
+.TP
+\fB$ARGx\fP
+OS command line arguments (interpreter mode).
+.TP
+\fB$ARGCNT\fP
+Number of the OS command line arguments (interpreter mode).
 .TP
 \fB$B01\fP
 150 (baud).
@@ -127,7 +147,7 @@ Exit value of the commands.
 \fB$B2\fP
 2400 (baud).
 .TP
-\fB$B41\fP
+\fB$B4\fP
 4800 (baud).
 .TP
 \fB$B8\fP
@@ -145,20 +165,38 @@ Exit value of the commands.
 \fB$B115\fP
 115200 (baud).
 .TP
-\fB$PI\fP
-Value of Pi (3.1415926535897932385).
-.TP
 \fB$EULER\fP
 Value of e  (2.7182818284590452354).
 .TP
 \fB$HOME\fP
 User's home directory.
 .TP
+\fB$PI\fP
+Value of Pi (3.1415926535897932385).
+.TP
 \fB$PRJDIR\fP
 Directory of the actual project.
 .TP
 \fB$PRJNAME\fP
 Name of the actual project.
+.TP
+\fB$SQRT2\fP
+Value of square root of 2.
+.TP
+\fB$SQRT3\fP
+Value of square root of 3.
+
+.SH PREDEFINED MACROS
+.TP
+\fBmydev0\fP
+Set dev0 set /dev/ttyUSB0 9600 8 n 1.
+\fB|mypro0\fP
+Set pro0 rtu 1.
+\fB|mycon0\fP
+Set con0 dev0 pro0.
+.TP
+These macros can also be changed.
+
 .SH BUILTIN COMMANDS
 Notes:
   - Register is the local buffer register, and remote register is the register of the connected device.
@@ -592,6 +630,10 @@ Value \fI255\fP sets color to default.
 2: green  6: brown      10: lightgreen  14: yellow
 3: cyan   7: lightgray  11: lightcyan   15: white
 .EE
+
+.TP
+\fIrunmeth\fP
+Gets running method (0: in the ModShell, 1: from the shell).
 .TP
 \fBsendmeth\fP [\fIchr\fP|\fIstr\fP|\fIswap\fP]
 Queries or changes send method for connection.

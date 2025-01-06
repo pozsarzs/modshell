@@ -1,8 +1,8 @@
 { +--------------------------------------------------------------------------+ }
-{ | ModShell 0.1 * Command-driven scriptable Modbus utility                  | }
-{ | Copyright (C) 2023-2024 Pozsar Zsolt <pozsarzs@gmail.com>                | }
-{ | cmd_send.pas                                                             | }
-{ | command 'sendmeth'                                                       | }
+{ | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
+{ | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
+{ | cmd_ehmt.pas                                                             | }
+{ | command 'echometh'                                                       | }
 { +--------------------------------------------------------------------------+ }
 { 
   This program is free software: you can redistribute it and/or modify it
@@ -13,17 +13,17 @@
   FOR A PARTICULAR PURPOSE.
 }
 { 
-  p0        p1
-  -----------------------
-  sendmeth [chr|str|swap]
+  p0       p1
+  --------------------------
+  echometh [off|an|hex|swap]
 
      | var |const|varr |carr |data |keyw.|
   ---+-----+-----+-----+-----+-----+-----+
   p1 |     |     |     |     |     |  x  |
 }
 
-// COMMAND 'SENDMETH'
-function cmd_sendmeth(p1: string): byte;
+// COMMAND 'ECHOMETH'
+function cmd_echometh(p1: string): byte;
 var
   ea: byte;
   s: string = '';
@@ -34,15 +34,15 @@ begin
   if (length(p1) = 0) then
   begin
     {$IFNDEF X}
-      writeln(METHOD[sendmeth]);
+      writeln(METHOD[echometh]);
     {$ELSE}
-      Form1.Memo1.Lines.Add(METHOD[sendmeth]);
+      Form1.Memo1.Lines.Add(METHOD[echometh]);
     {$ENDIF}
     exit;
   end;
   // CHECK P1 PARAMETER
   valid := false;
-  for ea := 3 to 5 do
+  for ea := 0 to 3 do
     if METHOD[ea] = p1 then
     begin
       valid := true;
@@ -52,7 +52,7 @@ begin
   begin
     // What is the 1st parameter?
     s := NUM1 + MSG05;
-    for ea := 3 to 5 do s := s + ' ' + METHOD[ea];
+    for ea := 0 to 3 do s := s + ' ' + METHOD[ea];
     {$IFNDEF X}
       if verbosity(2) then writeln(s);
     {$ELSE}
@@ -64,17 +64,16 @@ begin
   // PRIMARY MISSION
   if ea = 3 then
   begin
-    if sendmeth < 4 then sendmeth := 4;
-    inc(sendmeth);
-    if sendmeth = 6 then sendmeth := 4;
-  end else sendmeth := ea;
+    inc(echometh);
+    if echometh = 3 then echometh := 0;
+  end else echometh := ea;
   {$IFNDEF X}
-    writeln(MSG90 + METHOD[sendmeth]);
+    writeln(MSG28 + METHOD[echometh]);
   {$ELSE}
-    Form1.Memo1.Lines.Add(MSG90 + METHOD[sendmeth]);
-    Form1.StatusBar1.Panels[2].Text := upcase(METHOD[sendmeth]);
-    Form3.StatusBar1.Panels[2].Text := upcase(METHOD[sendmeth]);
-    Form4.StatusBar1.Panels[2].Text := upcase(METHOD[sendmeth]);
-    Form5.StatusBar1.Panels[2].Text := upcase(METHOD[sendmeth]);
+    Form1.Memo1.Lines.Add(MSG28 + METHOD[echometh]);
+    Form1.StatusBar1.Panels[1].Text := upcase(METHOD[echometh]);
+    Form3.StatusBar1.Panels[1].Text := upcase(METHOD[echometh]);
+    Form4.StatusBar1.Panels[1].Text := upcase(METHOD[echometh]);
+    Form5.StatusBar1.Panels[1].Text := upcase(METHOD[echometh]);
   {$ENDIF}
 end;

@@ -25,7 +25,7 @@ syn keyword modshellFunction mbgw mbmon mbsrv md mkcrc mklrc mulinv mul
 syn keyword modshellFunction not
 syn keyword modshellFunction odd ord or
 syn keyword modshellFunction pause pow2 pow print printcolor prop
-syn keyword modshellFunction rd readreg ren reset rmdevlock rnd roll rolr round run
+syn keyword modshellFunction rd readreg ren reset rmdevlock rnd roll rolr round run runmeth
 syn keyword modshellFunction savecfg savereg savescr sendmeth sercons serread serwrite set setarrsize shl shr sin sqrt sqr strdel strfind strins stritem strrepl sub
 syn keyword modshellFunction tan tcpcons tcpread tcpwrite then to type
 syn keyword modshellFunction udpcons udpread udpwrite upcase

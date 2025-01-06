@@ -22,7 +22,7 @@ var raddress
 var rtype
 var rnumber
 # messages
-varr msg 17
+varr msg 18
   let msg[0] MBConv\ v0.1\ *\ Modbus\ register\ number/address\ converter\ utility
   let msg[1] (C)\ 2024-2025\ Pozsar\ Zsolt\ <http://www.pozsarzs.hu>
   let msg[2] Usage:
@@ -40,6 +40,7 @@ varr msg 17
   let msg[14] \ The\ address\ can\ be\ 0-9998.
   let msg[15] \ The\ register\ number\ can\ be\ 1-9999,\ 10001-19999,\ 30001-39999\ and\ 40001-49999.
   let msg[16] \ \ -------------------------------------------------
+  let msg[17] ERROR:\ Can\ only\ be\ run\ from\ the\ shell.
 # register types
 const OFFSET 10000
 carr REGTYPE 5
@@ -50,6 +51,9 @@ carr REGTYPE 5
   let $REGTYPE[4] h
 
 # MAIN
+# check running method
+runmeth $i
+if $i = 0 then goto runerr
 # print header and select operation mode
 if $ARGCNT < 1 then goto usage
 print $msg[0]
@@ -138,6 +142,11 @@ label addr2num
     concat $msg[7] $msg[7] $msg[14]
     print $msg[7]
     exit 4
+
+# bad running mode
+label runerr
+  print msg[17]
+  exit 5
 
 # print usage
 label usage

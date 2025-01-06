@@ -22,12 +22,13 @@ var inpval
 var numsys_from
 var numsys_to
 # messages
-varr msg 5
+varr msg 6
   let msg[0] NumConv\ v0.1\ *\ Number\ converter\ utility
   let msg[1] (C)\ 2024-2025\ Pozsar\ Zsolt\ <http://www.pozsarzs.hu>
   let msg[2] Usage:
   let msg[3] \ \ input_value\ bin|oct|dec|hex\ bin|oct|dec|hex
   let msg[4] ERROR:\ Wrong\ input\ value.
+  let msg[5] ERROR:\ Can\ only\ be\ run\ from\ the\ shell.
 # numeral systems
 carr NUMSYS 4
   let $NUMSYS[0] bin
@@ -36,6 +37,9 @@ carr NUMSYS 4
   let $NUMSYS[3] hex
 
 # MAIN
+# check running method
+runmeth $i
+if $i = 0 then goto runerr
 # select operation mode
 if $ARGCNT < 3 then goto usage
   let $inpval $ARG1
@@ -54,9 +58,15 @@ if $ARGCNT < 3 then goto usage
     strins $msg[3] 2 $ARG0
     print $msg[3]
     exit 1
+  # converting error
   label converr
-    print msg[a]
+    print msg[4]
     exit 2
+  # bad running mode
+  label runerr
+    print msg[5]
+    exit 5
+  # convert number
   label convert
     let $i 0
     conv $i $numsys_from $numsys_to $inpval

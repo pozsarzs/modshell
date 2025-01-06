@@ -102,6 +102,7 @@ context default brightcyan
     keyword whole rolr white
     keyword whole round white
     keyword whole run white
+    keyword whole runmeth white    
     keyword whole savecfg white
     keyword whole savereg white
     keyword whole savescr white
