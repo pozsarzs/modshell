@@ -549,4 +549,9 @@ resourcestring
   USG127='runmeth' + EOL +
         'Notes:' + EOL +
         '  - The result will be in the exit code:' + EOL +
-        '  0: in the ModShell, 1: from the shell.';
+        '  0: simple command line' + EOL +
+        '  1: show useable arguments' + EOL +
+        '  2: show version and build information' + EOL +
+        '  3: full sceen command line' + EOL +
+        '  4: interpreter mode' + EOL +
+        '  5: GUI mode';

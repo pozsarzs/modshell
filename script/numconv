@@ -28,7 +28,7 @@ varr msg 6
   let msg[2] Usage:
   let msg[3] \ \ input_value\ bin|oct|dec|hex\ bin|oct|dec|hex
   let msg[4] ERROR:\ Wrong\ input\ value.
-  let msg[5] ERROR:\ Can\ only\ be\ run\ from\ the\ shell.
+  let msg[5] ERROR:\ Can\ only\ be\ run\ this\ script\ from\ the\ shell.
 # numeral systems
 carr NUMSYS 4
   let $NUMSYS[0] bin
@@ -38,8 +38,8 @@ carr NUMSYS 4
 
 # MAIN
 # check running method
-runmeth $i
-if $i = 0 then goto runerr
+runmeth
+if $ <> 4 then goto runerr
 # select operation mode
 if $ARGCNT < 3 then goto usage
   let $inpval $ARG1

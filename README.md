@@ -91,7 +91,7 @@ v0.1-beta2 release.)
 **Releases**  
 
 _v0.1-beta1:_  
-_First user test release_ will be with the following changes:  
+_First user test release_ with the following changes:  
  - [x] Elimination of confusion between the terms 'register number' and 'data address';
  - [x] in interpreter mode, passing parameters from the OS command line to the script and returning the script's exit value to the OS;
  - [x] in interpreter mode, command verbosity level setting with a predefined variable;

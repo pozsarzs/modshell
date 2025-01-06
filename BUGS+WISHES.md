@@ -8,19 +8,15 @@
 
 ### Known but not fixed bugs during development and other notes, wishes, etc.
 
-It only includes implemented features (which are X-marked in the **Releases** 
-section of the README.md.)  
+Bugs that were noticed during testing but have not yet been fixed will appear
+in this table. It only includes implemented features (which are X-marked in
+the **Releases** section of the README.md.)  
+
+**If you have the time and/or opportunity, please help with debugging.**
 
 |where|what                                                                    |
 |:---:|:-----------------------------------------------------------------------|
-|  B  |Pre-release testing has not yet been performed.                         |
-|  B  |R/W and console commands were not tested after the modification.        |
-|  C  |Command `mbmon` has not been tested yet.                                |
-|  D  |Missing from the manual: predefined macros, variables, runmeth command. |
-|  U  |SerialEchoServer has not been tested yet.                               |
-|  U  |SerialMBMonitor has not been tested yet.                                |
-|  X  |Don't always print the prompt while running a script internally.        |
-|  X  |Menu item 'Modbus/Show serial Modbus traffic' has not been tested yet.  |
+|     |                         |
 
 **Where:**
   - M: ModShell

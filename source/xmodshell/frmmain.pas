@@ -304,7 +304,9 @@ function boolisitvariablearray(s: string): boolean; forward;
 function boolisitvariable(s: string): boolean; forward;
 function boolvalidconstantarraycell(s: string): boolean; forward;
 function boolvalidvariablearraycell(s: string): boolean; forward;
+function cmd_set(p1, p2, p3, p4, p5, p6, p7: string): byte; forward;
 function cmd_run(p1, p2: string): byte; forward;
+function fullprompt: string; forward;
 function intisitconstantarrayelement(s: string): integer; forward;
 function intisitconstantarray(s: string): integer; forward;
 function intisitconstant(s: string): integer; forward;
@@ -316,10 +318,10 @@ function isitconstant(s: string): string; forward;
 function isitmessage(s: string): string; forward;
 function isitvariablearray(s: string): string; forward;
 function isitvariable(s: string): string; forward;
+function parsingcommands(command: string): byte; forward;
 procedure clearallconstants; forward;
 procedure clearallvariables; forward;
 procedure interpreter(f: string); forward;
-procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
 {$IFDEF UNIX}
@@ -579,8 +581,6 @@ begin
     cmd := COMMANDS[8] + ' project ' + cmd;
     Memo1.Lines.Add(fullprompt + cmd);
     parsingcommands(cmd);
-    Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vvalue;
-    Label1.Caption := fullprompt;
   end;
 end;
 
@@ -1174,9 +1174,9 @@ var
   cmd: string;
 begin
   cmd := ComboBox1.Text;
-  Memo1.Lines.Add(fullprompt + cmd);
   if length(ComboBox1.Text) > 0 then
   begin
+    Memo1.Lines.Add(fullprompt + cmd);
     ComboBox1.Items.Add(cmd);
     ComboBox1.Text := '';
     if cmd = COMMANDS[1] then Form1.Close else
@@ -1280,6 +1280,7 @@ procedure TForm1.FormCreate(Sender: TObject);
 var
   b: byte;
 begin
+  runmethod := 5;
   randomize;
   // detect language
   lang := getlang;

@@ -14,7 +14,7 @@
 }
 
 // PARSING COMMANDS
-procedure parsingcommands(command: string);
+function parsingcommands(command: string): byte;
 var
  a, b: byte;
  s: string;
@@ -72,6 +72,7 @@ begin
         if o then
         begin
           {$IFDEF X} Form1.ComboBox1.Enabled := false; {$ENDIF}
+          result := b;
           case b of
              0: exitcode := cmd_copyreg(splitted[1], splitted[2], splitted[3],
                                         splitted[4], splitted[5], splitted[6]);
@@ -160,7 +161,7 @@ begin
             122: exitcode := cmd_mbmon(splitted[1]);
             123: exitcode := cmd_mbconv(splitted[1], splitted[2]);
             124: exitcode := cmd_datatype(splitted[1]);
-            127: exitcode := cmd_runmeth;
+            127: exitcode := runmethod;
             COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2],
                                                       splitted[3], splitted[4],
                                                       splitted[5], splitted[6]);

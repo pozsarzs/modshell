@@ -53,8 +53,8 @@ carr REGTYPE 5
 
 # MAIN
 # check running method
-runmeth $i
-if $i = 0 then goto runerr
+runmeth
+if $ <> 4 then goto runerr
 # print header and select operation mode
 if $ARGCNT < 1 then goto usage
 print $msg[0]

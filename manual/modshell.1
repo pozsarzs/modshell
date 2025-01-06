@@ -633,7 +633,18 @@ Value \fI255\fP sets color to default.
 
 .TP
 \fIrunmeth\fP
-Gets running method (0: in the ModShell, 1: from the shell).
+Gets running method.
+.EX
+
+\fIExit code:\fP
+0: simple command line
+1: show useable arguments
+2: show version and build information
+3: full sceen command line
+4: interpreter mode
+5: GUI mode
+.EE
+
 .TP
 \fBsendmeth\fP [\fIchr\fP|\fIstr\fP|\fIswap\fP]
 Queries or changes send method for connection.

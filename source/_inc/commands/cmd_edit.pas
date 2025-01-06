@@ -98,7 +98,7 @@ begin
         if b <= length(txt) then write(txt[b]);
     end;
     repeat
-      if appmode = 3 then showtime(colors[0], colors[1]);
+      if runmethod = 3 then showtime(colors[0], colors[1]);
       gotoxy(x, wherey);
       delay(SHOWTIMEDELAY)
     until keypressed;

@@ -25,9 +25,9 @@
 // COMMAND 'RUN'
 function cmd_run(p1, p2: string): byte;
 var
-  line: integer;
-  stepbystep: boolean;
   holdvariables: boolean;
+  projectname: string;
+  stepbystep: boolean;
 begin
   result := 0;
   if not scriptisloaded then
@@ -50,26 +50,34 @@ begin
      ((length(p2) > 0) and (p2 = '-s')) 
     then stepbystep := true 
     else stepbystep := false;
+  projectname := vars[12].vvalue;
   clearallconstants;
   clearallmacros;
   clearallvariables;
-  for line := 0 to SCRBUFFSIZE - 1 do
-    if length(sbuffer[line]) > 0 then
+  // parsing script
+  scriptline := 0;
+  repeat
+    if length(sbuffer[scriptline]) > 0 then parsingcommands(sbuffer[scriptline]);
+    // execute goto command
+    if scriptlabel = 0 then inc(scriptline) else
     begin
-      if sbuffer[line][1] <> COMMENT then parsingcommands(sbuffer[line]);
-      if stepbystep then
-      begin
-        {$IFNDEF X}
-          readkey;
-        {$ELSE}
-          ShowMessage(MSG78);
-        {$ENDIF}
-      end;
+      scriptline := scriptlabel;
+      scriptlabel := 0;
     end;
+    if stepbystep then
+    begin
+      {$IFNDEF X}
+        readkey;
+      {$ELSE}
+        ShowMessage(MSG78);
+      {$ENDIF}
+    end;
+  until (scriptline = SCRBUFFSIZE - 1) or (splitted[0] = COMMANDS[1]);
   if not holdvariables then
   begin
     clearallconstants;
     clearallmacros;
     clearallvariables;
   end;
+  cmd_set('project', projectname, '', '', '', '', '');
 end;

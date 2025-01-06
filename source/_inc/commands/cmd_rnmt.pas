@@ -21,6 +21,6 @@
 // COMMAND 'RUNMETH'
 function cmd_runmeth: byte;
 begin
-  result := 0;
   // PRIMARY MISSION
+  result := runmethod;
 end;

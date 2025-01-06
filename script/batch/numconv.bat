@@ -39,8 +39,8 @@ carr NUMSYS 4
 
 # MAIN
 # check running method
-runmeth $i
-if $i = 0 then goto runerr
+runmeth
+if $ <> 4 then goto runerr
 # select operation mode
 if $ARGCNT < 3 then goto usage
   let $inpval $ARG1

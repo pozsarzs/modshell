@@ -42,7 +42,7 @@ var
   conn: array[0..7] of tconnection;
   // OTHERS
   b: byte;
-  appmode: byte = 0;
+  runmethod: byte = 0;
   exitcode: byte;
   lang: string;
   originaldirectory: string;

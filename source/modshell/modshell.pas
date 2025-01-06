@@ -12,6 +12,14 @@
   ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   FOR A PARTICULAR PURPOSE.
 }
+{ 
+  run methode #0: simple command line
+              #1: show useable arguments
+              #2: show version and build information
+              #3: full sceen command line
+              #4: interpreter mode
+              #5: GUI mode
+}
 
 {$IFDEF WINDOWS} {$APPTYPE CONSOLE} {$ENDIF}
 {$MODE OBJFPC} {$H+} {$MACRO ON}
@@ -53,6 +61,7 @@ function boolisitvariablearray(s: string): boolean; forward;
 function boolisitvariable(s: string): boolean; forward;
 function boolvalidconstantarraycell(s: string): boolean; forward;
 function boolvalidvariablearraycell(s: string): boolean; forward;
+function cmd_set(p1, p2, p3, p4, p5, p6, p7: string): byte; forward;
 function cmd_run(p1, p2: string): byte; forward;
 function intisitconstantarrayelement(s: string): integer; forward;
 function intisitconstantarray(s: string): integer; forward;
@@ -65,11 +74,11 @@ function isitconstant(s: string): string; forward;
 function isitmessage(s: string): string; forward;
 function isitvariablearray(s: string): string; forward;
 function isitvariable(s: string): string; forward;
+function parsingcommands(command: string): byte; forward;
 procedure clearallconstants; forward;
 procedure clearallmacros; forward;
 procedure clearallvariables; forward;
 procedure interpreter(f: string); forward;
-procedure parsingcommands(command: string); forward;
 procedure version(h: boolean); forward;
 
 {$IFDEF UNIX}
@@ -174,9 +183,9 @@ var
   command: string;
   c: char;
 begin
-  if appmode = 0 then writeln(PRGNAME + ' v' + PRGVERSION);
+  if runmethod = 0 then writeln(PRGNAME + ' v' + PRGVERSION);
   repeat
-    if appmode = 3 then
+    if runmethod = 3 then
     begin
       textbackground(uconfig.colors[1]);
       textcolor(uconfig.colors[0]);
@@ -184,13 +193,13 @@ begin
     write(fullprompt);
     command := '';
     repeat
-      if appmode = 3 then showtime(colors[0], colors[1]);
+      if runmethod = 3 then showtime(colors[0], colors[1]);
       scheduler;
       delay(SHOWTIMEDELAY);
     until keypressed;
     repeat
       repeat
-        if appmode = 3 then showtime(colors[0], colors[1]);
+        if runmethod = 3 then showtime(colors[0], colors[1]);
         delay(SHOWTIMEDELAY);
       until keypressed;
       c := readkey;
@@ -198,7 +207,7 @@ begin
       if c = #0 then
       begin
         repeat
-          if appmode = 3 then showtime(colors[0], colors[1]);
+          if runmethod = 3 then showtime(colors[0], colors[1]);
           delay(SHOWTIMEDELAY);
         until keypressed;
         c := readkey;
@@ -302,7 +311,7 @@ begin
     {$IFNDEF X} writeln; {$ENDIF}
     parsingcommands(command);
     varmon_viewer;
-  until command = COMMANDS[1]; // exit
+  until command = COMMANDS[1]; // exit to OS
 end;
 
 // FULL SCREEN COMMAND LINE
@@ -361,20 +370,15 @@ begin
     loaded_inpout32dll := loadinpout32dll;
     if not loaded_inpout32dll then writeln(ERR98);
   {$ENDIF}
-  appmode := 0;
-  { appmode #0: simple command line
-    appmode #1: show useable arguments
-    appmode #2: show version and build information
-    appmode #3: full sceen command line
-    appmode #4: interpreter mode }
+  runmethod := 0;
   if length(paramstr(1)) <> 0 then
   begin
     for b := 0 to 3 do
     begin
-      if paramstr(1) = CMDLINEPARAMS[b, 0] then appmode := b + 1;
-      if paramstr(1) = CMDLINEPARAMS[b, 1] then appmode := b + 1;
+      if paramstr(1) = CMDLINEPARAMS[b, 0] then runmethod := b + 1;
+      if paramstr(1) = CMDLINEPARAMS[b, 1] then runmethod := b + 1;
     end;
-    case appmode of
+    case runmethod of
       1: help(false);
       2: version(true);
       0: help(true);
@@ -398,13 +402,13 @@ begin
   {$ENDIF}
   // make, store and set directories
   ForceDirectories(vars[13].vvalue);
-  if appmode <> 4 then
+  if runmethod <> 4 then
   begin
     originaldirectory := getcurrentdir;
     setcurrentdir(vars[11].vvalue + PRGNAME);
   end;
   // pass command line arguments
-  if appmode = 4 then
+  if runmethod = 4 then
   begin
     cmd_const('ARGCNT', inttostr(paramcount - 2));
     cmd_const('ARG0', paramstr(2));
@@ -413,7 +417,7 @@ begin
         cmd_const('ARG' + inttostr(b - 2), paramstr(b));
   end;
   // run main function
-  case appmode of
+  case runmethod of
     0: simplecommandline;
     3: fullscreencommandline;
     4: interpreter(paramstr(2));
@@ -426,6 +430,7 @@ begin
     if loaded_inpout32dll then unloadinpout32dll;
   {$ENDIF}
   // restore directory
-  if appmode <> 4 then setcurrentdir(originaldirectory);
-  if appmode <> 4 then quit(0, false, '') else quit(scriptexitcode, false, '');
+  if runmethod <> 4 then setcurrentdir(originaldirectory);
+  // set own or script's exit code
+  if runmethod <> 4 then quit(0, false, '') else quit(scriptexitcode, false, '');
 end.

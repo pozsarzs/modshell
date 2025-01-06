@@ -871,7 +871,8 @@ msgstr "         az ”sszes v ltoz¢ ki¡r sa vagy £j l‚trehoz sa"
 #: modshell:des21
 msgid ""
 "         set temporary foreground and background colors for print command"
-msgstr "         ideiglenes el‹t‚r- ‚s a h tt‚rsz¡n be ll¡t sa a print parancshoz"
+msgstr ""
+"         ideiglenes el‹t‚r- ‚s a h tt‚rsz¡n be ll¡t sa a print parancshoz"
 
 #: modshell:des22
 msgid "ALT-I    import value of the one or more registers"
@@ -1292,6 +1293,10 @@ msgstr "         egy b jt olvas sa az I/O portr¢l"
 #: modshell:des126
 msgid "         write a byte to an I/O port"
 msgstr "         egy b jt ¡r sa az I/O portra"
+
+#: modshell:des127
+msgid "         get running method"
+msgstr "         futtat si m¢dszer lek‚rdez‚se"
 
 #: modshell:usg00
 msgid ""
@@ -2025,6 +2030,39 @@ msgstr "ioread [$]BµJT [$]PORT"
 #: modshell:usg126
 msgid "iowrite [$]PORT [$]BYTE"
 msgstr "iowrite [$]PORT [$]BµJT"
+
+#: modshell:usg127
+msgid ""
+"runmeth\n"
+"Notes:\n"
+"  - The result will be in the exit code:\n"
+"  0: simple command line\n"
+"  1: show useable arguments\n"
+"  2: show version and build information\n"
+"  3: full sceen command line\n"
+"  4: interpreter mode\n"
+"  5: GUI mode"
+msgstr ""
+"runmeth\n"
+"Megjegyz‚sek:\n"
+"  - Az eredm‚nyt a kil‚p‚si k¢d hordozza:\n"
+"  0: egyszerû parancsor\n"
+"  1: haszn lhat¢ argumentumok megjelen¡t‚se\n"
+"  2: vezi¢ ‚s ford¡t si inform ci¢k megjelen¡t‚se\n"
+"  3: teljes k‚perny‹s parancssor\n"
+"  4: parancs‚rtelmez‹ m¢d\n"
+"  5: GUI m¢d"
+
+#~ msgid ""
+#~ "runmeth\n"
+#~ "Notes:\n"
+#~ "  - The result will be in the exit code:\n"
+#~ "  0: in the ModShell, 1: from the shell."
+#~ msgstr ""
+#~ "runmeth\n"
+#~ "Megjegyz‚s:\n"
+#~ "  - Az eredm‚nyt a kil‚p‚si k¢d hordozza:\n"
+#~ "  0: karakterl nc, 1: lebeg‹pontos sz m, 1: eg‚sz sz m."
 
 #~ msgid ""
 #~ "copyreg con? dinp|coil con? coil [$]ADDRESS [[$]COUNT]\n"

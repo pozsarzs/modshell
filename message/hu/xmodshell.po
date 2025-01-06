@@ -177,6 +177,10 @@ msgstr "         egy bájt olvasása az I/O portról"
 msgid "         write a byte to an I/O port"
 msgstr "         egy bájt írása az I/O portra"
 
+#: frmmain.des127
+msgid "         get running method"
+msgstr "         futtatási módszer lekérdezése"
+
 #: frmmain.des13
 msgid "F2       save settings of device, protocol and connection"
 msgstr "F2       eszköz-, protokoll- és kapcsolatbeállítások mentése"
@@ -212,7 +216,8 @@ msgstr "         az összes változó kiírása vagy új létrehozása"
 #: frmmain.des21
 msgid ""
 "         set temporary foreground and background colors for print command"
-msgstr "         ideiglenes előtér- és a háttérszín beállítása a print parancshoz"
+msgstr ""
+"         ideiglenes előtér- és a háttérszín beállítása a print parancshoz"
 
 #: frmmain.des22
 msgid "ALT-I    import value of the one or more registers"
@@ -1598,6 +1603,28 @@ msgstr "ioread [$]BÁJT [$]PORT"
 #: frmmain.usg126
 msgid "iowrite [$]PORT [$]BYTE"
 msgstr "iowrite [$]PORT [$]BÁJT"
+
+#: frmmain.usg127
+msgid ""
+"runmeth\n"
+"Notes:\n"
+"  - The result will be in the exit code:\n"
+"  0: simple command line\n"
+"  1: show useable arguments\n"
+"  2: show version and build information\n"
+"  3: full sceen command line\n"
+"  4: interpreter mode\n"
+"  5: GUI mode"
+msgstr ""
+"runmeth\n"
+"Megjegyzések:\n"
+"  - Az eredményt a kilépési kód hordozza:\n"
+"  0: egyszerű parancsor\n"
+"  1: használható argumentumok megjelenítése\n"
+"  2: vezió és fordítási információk megjelenítése\n"
+"  3: teljes képernyős parancssor\n"
+"  4: parancsértelmező mód\n"
+"  5: GUI mód"
 
 #: frmmain.usg13
 msgid "savecfg [$]PATH_AND_FILENAME"

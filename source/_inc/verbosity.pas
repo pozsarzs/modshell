@@ -27,7 +27,7 @@ const
   LEVELS: array[0..2] of string = ('all', 'error', 'nothing');
 begin
   result := true;
-  if appmode = 4 then
+  if runmethod = 4 then
   begin
     for b := 0 to 2 do
       if lowercase(vars[16].vvalue) = LEVELS[b] then verbositylevel := b;

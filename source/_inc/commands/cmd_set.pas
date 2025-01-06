@@ -658,6 +658,10 @@ var
       {$ELSE}
         vars[13].vvalue := vars[11].vvalue + PRGNAME + SLASH + vars[12].vvalue;
       {$ENDIF}
+      {$IFDEF X}
+        Form1.Caption := 'X' + PRGNAME + ' | ' + vars[12].vvalue;
+        Form1.Label1.Caption := fullprompt;
+      {$ENDIF}
     end;
   end;
 

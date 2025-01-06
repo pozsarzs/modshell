@@ -56,25 +56,22 @@ begin
   if result = 1 then exit;
   if length(s1) = 0 then s1 := p1;
   scriptlabel := 0;
-  if appmode <> 4 then writeln(MSG33) else
+  for line := 0 to SCRBUFFSIZE - 1 do
+    if length(sbuffer[line]) > 0 then
+      if COMMANDS[72] + s1 = stringreplace(sbuffer[line], #32, '', [rfReplaceAll]) then
+      begin
+        scriptlabel := line;
+        valid := true;
+        break;
+      end;
+  if not valid then
   begin
-    for line := 0 to SCRBUFFSIZE - 1 do
-      if length(sbuffer[line]) > 0 then
-        if COMMANDS[72] + s1 = stringreplace(sbuffer[line], #32, '', [rfReplaceAll]) then
-        begin
-          scriptlabel := line;
-          valid := true;
-          break;
-        end;
-    if not valid then
-    begin
-      // No such label!
-      {$IFNDEF X}
-        if verbosity(2) then writeln(ERR35 + s1);
-      {$ELSE}
-        Form1.Memo1.Lines.Add(ERR35 + s1);
-      {$ENDIF}
-      result := 1;
-    end;
+    // No such label!
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR35 + s1);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR35 + s1);
+    {$ENDIF}
+    result := 1;
   end;
 end;
