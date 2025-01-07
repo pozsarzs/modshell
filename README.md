@@ -97,7 +97,7 @@ _First user test release_ with the following changes:
  - [x] in interpreter mode, command verbosity level setting with a predefined variable;
  - [x] ANSI escape sequences support (only DOS and *nix like systems);
  - [x] command `color` -> `set color`, sets all default colors (CLI and TUI);  
- - [x] command `echo` -> `echometh`, parameters: off|on|hex|swap -> off|an|hex|swap;
+ - [x] command `echo` -> `echometh`, parameters: off/on/hex/swap -> off/an/hex/swap;
  - [x] commands `sercons`, `tcpcons`, `udpcons`: character-to-character or string sending, with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo;  
  - [x] commands `serwrite`, `tcpwrite`, `udpwrite`: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo;
  - [x] DCON protocol support;  
@@ -548,6 +548,7 @@ questions, or suggest new features.
 |name                                                                                                    |version    |
 |--------------------------------------------------------------------------------------------------------|:---------:|
 |[main.zip](https://github.com/pozsarzs/modshell/archive/refs/heads/main.zip)                            |latest     |
+|[modshell-0.1beta1.tar.gz](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1beta1.tar.gz)|v0.1-beta1|
 |[modshell-0.1alpha3.tar.gz](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha3.tar.gz)|v0.1-alpha3|
 |[modshell-0.1alpha2.tar.gz](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha2.tar.gz)|v0.1-alpha2|
 |[modshell-0.1alpha1.tar.gz](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha1.tar.gz)|v0.1-alpha1|
