@@ -16,16 +16,19 @@ the **Releases** section of the README.md.)
 
 |where|what                                                                    |
 |:---:|:-----------------------------------------------------------------------|
-|     |                         |
+|B, S | <=/=> =>/=< problem.                                                   |
+|B, S | No command for console input.                                          |
+|O    | Source code headers in the 'source/_inc/commands' directory.           |
 
 **Where:**
-  - M: ModShell
-  - X: XModShell
-  - B: Both of them
-  - U: Utilities
+  - B: ModShell and XModShell
   - C: Commands
   - D: Documentation
   - E: Used external library
-  - P: Installer packages
-  - T: Translate
+  - M: ModShell
   - O: Other
+  - P: Installer packages
+  - S: Script
+  - T: Translate
+  - U: Utilities
+  - X: XModShell

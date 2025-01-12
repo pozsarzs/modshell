@@ -27,7 +27,7 @@ varr msg 18
   let msg[1] (C)\ 2024-2025\ Pozsar\ Zsolt\ <http://www.pozsarzs.hu>
   let msg[2] Usage:
   let msg[3] \ \ register_number
-  let msg[4] \ \ d|c|i|h\ address
+  let msg[4] \ \ c|d|i|h\ address
   let msg[5] discrete\ output\ coils
   let msg[6] discrete\ input\ contacts
   let msg[7] ERROR:

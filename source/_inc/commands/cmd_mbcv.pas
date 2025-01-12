@@ -114,7 +114,7 @@ begin
       if (regnumber >= 1) and (regnumber <= 9999 ) then b := 0;
       if (regnumber >= 10001) and (regnumber <= 19999 ) then b := 1;
       if (regnumber >= 30001) and (regnumber <= 39999 ) then b := 3;
-      if (regnumber >= 40001) and (regnumber <= 439999 ) then b := 4;
+      if (regnumber >= 40001) and (regnumber <= 49999 ) then b := 4;
       if b = 255 then
       begin
         // Wrong register number
