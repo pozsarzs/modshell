@@ -90,42 +90,43 @@ _Second user test release_ will be with the following changes:
  <summary><i>v0.1-beta1:</i></summary>  
  <i>First user test release</i> with the following changes:  
  <ul>
-  <il>Elimination of confusion between the terms 'register number' and 'data address'</il>  
-  <il>in interpreter mode, passing parameters from the OS command line to the script and returning the script's exit value to the OS</il>  
-  <il>in interpreter mode, command verbosity level setting with a predefined variable</il>  
-  <il>ANSI escape sequences support (only DOS and *nix like systems)</il>  
-  <il>command `color` -> `set color`, sets all default colors (CLI and TUI)</il>    
-  <il>command `echo` -> `echometh`, parameters: off/on/hex/swap -> off/an/hex/swap</il>  
-  <il>commands `sercons`, `tcpcons`, `udpcons`: character-to-character or string sending, with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo</il>    
-  <il>commands `serwrite`, `tcpwrite`, `udpwrite`: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo</il>  
-  <il>DCON protocol support</il>    
-  <il>keywords (coil, hreg, asc, hex, etc.) should also be specified from variables</il>  
-  <il>main menu for all consoles in GUI version</il>    
-  <il>Modbus register number/address converter utility (in your own scripting language)</il>  
-  <il>Number converter utility (in your own scripting language)</il>  
-  <il>modified source code structure of XModshell</il>    
-  <il>new command `chkdevlock`/`rmdevlock` (only *nix systems)</il>    
-  <il>new command `datatype`</il>    
-  <il>new command `exist`</il>    
-  <il>new command `inputmeth`</il>    
-  <il>new command `macro`</il>  
-  <il>new command `mbconv`</il>    
-  <il>new command `mbmon`</il>    
-  <il>new command `printcolor`(only CLI and TUI)</il>    
-  <il>new command `runmeth`</il>    
-  <il>new command `sendmeth`</il>    
-  <il>new command `tcpcons`, `tcpread`, `tcpwrite`</il>    
-  <il>new command `udpcons`, `udpread`, `udpwrite`</il>    
-  <il>new commands `ioread` and `iowrite`</il>  
-  <il>new menu items in the main menu for quick execution of Modbus R/W commands</il>    
-  <il>new menu items for show and edit all register's value in a big table</il>    
-  <il>new serial baudrates: 150, 300, 600 baud</il>  
-  <il>serial echo server utility for testing connectivity</il>    
-  <il>serial ModBus traffic monitor utility</il>  
-  <il>support for variable and constant arrays</il>    
-  <il>new predefined constants</il>  
-  <il>syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows only) and Vim/Neovim</il>  
-  <il>TCP and UPD echo server utilities for testing connectivity.</il>  
+  <li>Elimination of confusion between the terms 'register number' and 'data address'</li>  
+  <li>in interpreter mode, passing parameters from the OS command line to the script and returning the script's exit value to the OS</li>  
+  <li>in interpreter mode, command verbosity level setting with a predefined variable</li>  
+  <li>ANSI escape sequences support (only DOS and *nix like systems)</li>  
+  <li>command `color` -> `set color`, sets all default colors (CLI and TUI)</li>    
+  <li>command `echo` -> `echometh`, parameters: off/on/hex/swap -> off/an/hex/swap</li>  
+  <li>commands `sercons`, `tcpcons`, `udpcons`: character-to-character or string sending, with alphanumerical or hexadecimal input, with or without alphanumerical or hexhexadecimal echo</li>    
+  <li>commands `serwrite`, `tcpwrite`, `udpwrite`: alphanumerical or hexadecimal input, with or without alphanumerical or hexadecimal echo</li>  
+  <li>DCON protocol support</li>    
+  <li>keywords (coil, hreg, asc, hex, etc.) should also be specified from variables</li>  
+  <li>main menu for all consoles in GUI version</li>    
+  <li>Modbus register number/address converter utility (in your own scripting language)</li>  
+  <li>Number converter utility (in your own scripting language)</li>  
+  <li>modified source code structure of XModshell</li>    
+  <li>new command `chkdevlock`/`rmdevlock` (only *nix systems)</li>    
+  <li>new command `datatype`</li>    
+  <li>new command `exist`</li>    
+  <li>new command `inputmeth`</li>    
+  <li>new command `macro`</li>  
+  <li>new command `mbconv`</li>    
+  <li>new command `mbmon`</li>    
+  <li>new command `printcolor`(only CLI and TUI)</li>    
+  <li>new command `runmeth`</li>    
+  <li>new command `sendmeth`</li>    
+  <li>new command `tcpcons`, `tcpread`, `tcpwrite`</li>    
+  <li>new command `udpcons`, `udpread`, `udpwrite`</li>    
+  <li>new commands `ioread` and `iowrite`</li>  
+  <li>new menu items in the main menu for quick execution of Modbus R/W commands</li>    
+  <li>new menu items for show and edit all register's value in a big table</li>    
+  <li>new serial baudrates: 150, 300, 600 baud</li>  
+  <li>serial echo server utility for testing connectivity</li>    
+  <li>serial ModBus traffic monitor utility</li>  
+  <li>support for variable and constant arrays</li>    
+  <li>new predefined constants</li>  
+  <li>syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows only) and Vim/Neovim</li>  
+  <li>TCP and UPD echo server utilities for testing connectivity.</li>  
+ </ul>  
  Only a source package will be released.
 </details>
  
