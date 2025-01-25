@@ -16,10 +16,11 @@ context default brightcyan
     keyword whole timeout brightblue
     # group #2
     keyword whole add white
+    keyword whole and white
     keyword whole applog white
     keyword whole arrclear white
     keyword whole arrfill white
-    keyword whole ascii\n white
+    keyword whole ascii white
     keyword whole avg white
     keyword whole beep white
     keyword whole bit white
@@ -31,27 +32,27 @@ context default brightcyan
     keyword whole concat white
     keyword whole const white
     keyword whole conv white
-    keyword whole copyreg white
     keyword whole copy white
+    keyword whole copyreg white
     keyword whole cos white
     keyword whole cotan white
     keyword whole cron white
+    keyword whole datatype white
     keyword whole date white
     keyword whole dcon white
     keyword whole dec white
     keyword whole del white
     keyword whole dir white
     keyword whole div white
-    keyword whole do white
     keyword whole dump white
     keyword whole echometh white
     keyword whole edit white
     keyword whole erasescr white
     keyword whole exist white
     keyword whole exit white
+    keyword whole exp white
     keyword whole exphis white
     keyword whole expreg white
-    keyword whole exp white
     keyword whole for white
     keyword whole get white
     keyword whole getarrsize white
@@ -63,8 +64,11 @@ context default brightcyan
     keyword whole imod white
     keyword whole impreg white
     keyword whole inc white
+    keyword whole input white
     keyword whole inputmeth white
     keyword whole inrange white
+    keyword whole ioread white
+    keyword whole iowrite white
     keyword whole label white
     keyword whole length white
     keyword whole let white
@@ -74,21 +78,23 @@ context default brightcyan
     keyword whole loadreg white
     keyword whole loadscr white
     keyword whole lowcase white
+    keyword whole macro white
+    keyword whole mbconv white
     keyword whole mbgw white
     keyword whole mbmon white
     keyword whole mbsrv white
     keyword whole md white
     keyword whole mkcrc white
     keyword whole mklrc white
-    keyword whole mulinv white
     keyword whole mul white
+    keyword whole mulinv white
     keyword whole not white
     keyword whole odd white
-    keyword whole ord white
     keyword whole or white
+    keyword whole ord white
     keyword whole pause white
-    keyword whole pow2 white
     keyword whole pow white
+    keyword whole pow2 white
     keyword whole print white
     keyword whole printcolor white
     keyword whole prop white
@@ -102,7 +108,7 @@ context default brightcyan
     keyword whole rolr white
     keyword whole round white
     keyword whole run white
-    keyword whole runmeth white    
+    keyword whole runmeth white
     keyword whole savecfg white
     keyword whole savereg white
     keyword whole savescr white
@@ -115,8 +121,8 @@ context default brightcyan
     keyword whole shl white
     keyword whole shr white
     keyword whole sin white
-    keyword whole sqrt white
     keyword whole sqr white
+    keyword whole sqrt white
     keyword whole strdel white
     keyword whole strfind white
     keyword whole strins white
@@ -134,9 +140,9 @@ context default brightcyan
     keyword whole udpread white
     keyword whole udpwrite white
     keyword whole upcase white
+    keyword whole var white
     keyword whole varmon white
     keyword whole varr white
-    keyword whole var white
     keyword whole ver white
     keyword whole writereg white
     keyword whole xor white
@@ -147,8 +153,10 @@ context default brightcyan
     keyword whole chr brightred
     keyword whole coil brightred
     keyword whole csv brightred
+    keyword whole dcon brightred
     keyword whole dec brightred
     keyword whole dinp brightred
+    keyword whole hart brightred
     keyword whole hex brightred
     keyword whole hreg brightred
     keyword whole ini brightred
@@ -165,11 +173,13 @@ context default brightcyan
     # group #4
     keyword whole < white
     keyword whole <= white
+    keyword whole =< white
     keyword whole = white
+    keyword whole == white
     keyword whole >= white
+    keyword whole => white
     keyword whole > white
     keyword whole <> white
-    keyword whole == white
     # start lines
     keyword whole linestart #!\[\s\]*\n brightcyan black
     keyword whole linestart :eof brightcyan black

@@ -7,10 +7,10 @@
 
 include ../../Makefile.global
 
-title="syntax info   "
+title="syntax files  "
 removetargetdir=1
 sourcedir="."
-targetdir=$(datarootdir)/doc/$(name)/syntax
+targetdir=$(datarootdir)/$(name)
 filemode=$(txtmode)
 files=`ls $(sourcedir) | grep -v Makefile`
 

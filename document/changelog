@@ -1,3 +1,11 @@
+modshell (0.1-beta2) unstable; urgency=low
+
+  * Second user test release will be with the following changes:
+  * New command `input`;  
+  * (...)
+
+ -- Pozsár Zsolt <pozsarzs@gmail.com> dow, dd Mmm 2025 00:00:00
+
 modshell (0.1-beta1) unstable; urgency=low
 
   * First user test release will be with the following changes:

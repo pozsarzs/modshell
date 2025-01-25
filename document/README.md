@@ -7,8 +7,7 @@ communicate with connected equipment using Modbus/ASCII and -/RTU
 protocols. The program can - even automatically - read, write or copy data from
 one device to another (e.g. transferring settings). The basic communication
 protocol of the program is Modbus, but DCON and HART was also implemented due to
-communication with other devices. (The Modbus/TCP and HART support feature will
-be available from v0.1-beta2 release.)
+communication with other devices.
 
 ### 2. How to get installer package for my OS?
 

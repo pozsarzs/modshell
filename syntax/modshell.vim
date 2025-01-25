@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	ModShell script
 " Maintainer:	Pozsar Zsolt <pozsarzs@gmail.com>
-" Last Change:	2024 Oct 28
+" Last Change:	2025 Jan 25
 
 " Quit when a (custom) syntax file was already loaded
 if exists("b:current_syntax")
@@ -11,32 +11,43 @@ endif
 syn case ignore
 syn sync lines=250
 
-syn keyword modshellFunction add and applog arrclear arrcopy arrfill ascii avg
+syn keyword modshellFunction add and applog arrclear arrfill ascii avg
 syn keyword modshellFunction beep bit
-syn keyword modshellFunction cd chkdevlock chr cls carr concat const conv copyreg copy cos cotan cron
-syn keyword modshellFunction date dcon dec del dir div do dump
-syn keyword modshellFunction echometh edit erasescr exist exit exphis expreg exp
+syn keyword modshellFunction carr cd chkdevlock chr cls concat const conv copy copyreg cos cotan cron
+syn keyword modshellFunction datatype date dcon dec del dir div dump
+syn keyword modshellFunction echometh edit erasescr exist exit exp exphis expreg
 syn keyword modshellFunction for
 syn keyword modshellFunction get getarrsize goto
 syn keyword modshellFunction hart help
-syn keyword modshellFunction idiv if imod impreg inc inputmeth inrange
+syn keyword modshellFunction idiv if imod impreg inc input inputmeth inrange ioread iowrite
 syn keyword modshellFunction label length let list ln loadcfg loadreg loadscr lowcase
-syn keyword modshellFunction mbgw mbmon mbsrv md mkcrc mklrc mulinv mul
+syn keyword modshellFunction macro mbconv mbgw mbmon mbsrv md mkcrc mklrc mul mulinv
 syn keyword modshellFunction not
-syn keyword modshellFunction odd ord or
-syn keyword modshellFunction pause pow2 pow print printcolor prop
+syn keyword modshellFunction odd or ord
+syn keyword modshellFunction pause pow pow2 print printcolor prop
 syn keyword modshellFunction rd readreg ren reset rmdevlock rnd roll rolr round run runmeth
-syn keyword modshellFunction savecfg savereg savescr sendmeth sercons serread serwrite set setarrsize shl shr sin sqrt sqr strdel strfind strins stritem strrepl sub
+syn keyword modshellFunction savecfg savereg savescr sendmeth sercons serread serwrite set setarrsize shl shr sin sqr sqrt strdel strfind strins stritem strrepl sub
 syn keyword modshellFunction tan tcpcons tcpread tcpwrite then to type
 syn keyword modshellFunction udpcons udpread udpwrite upcase
-syn keyword modshellFunction varmon var varr ver
+syn keyword modshellFunction var varmon varr ver
 syn keyword modshellFunction writereg
 syn keyword modshellFunction xor
 
-syn keyword modshellPredefined bin coil csv dec dinp hex hreg ini ireg net
-syn keyword modshellPredefined an chr oct off rtu ser str swap tcp xml
+syn keyword modshellPredefined an ascii
+syn keyword modshellPredefined bin
+syn keyword modshellPredefined chr coil csv
+syn keyword modshellPredefined dcon dec dinp
+syn keyword modshellPredefined hart hex hreg
+syn keyword modshellPredefined ini ireg
+syn keyword modshellPredefined net
+syn keyword modshellPredefined oct off
+syn keyword modshellPredefined rtu
+syn keyword modshellPredefined ser str swap
+syn keyword modshellPredefined tcp
+syn keyword modshellPredefined xml
 
 syn match modshellSymbolOperator "[<>]=\="
+syn match modshellSymbolOperator "=\=[<>]"
 syn match modshellSymbolOperator "="
 syn match modshellSymbolOperator "<>"
 syn match modshellSymbolOperator "=="

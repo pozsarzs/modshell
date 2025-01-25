@@ -32,9 +32,11 @@
     </context>
     <context id="keyword" style-ref="keyword">
       <keyword>add</keyword>
+      <keyword>and</keyword>
       <keyword>applog</keyword>
       <keyword>arrclear</keyword>
       <keyword>arrfill</keyword>
+      <keyword>ascii</keyword>
       <keyword>avg</keyword>
       <keyword>beep</keyword>
       <keyword>bit</keyword>
@@ -64,9 +66,9 @@
       <keyword>erasescr</keyword>
       <keyword>exist</keyword>
       <keyword>exit</keyword>
+      <keyword>exp</keyword>
       <keyword>exphis</keyword>
       <keyword>expreg</keyword>
-      <keyword>exp</keyword>
       <keyword>for</keyword>
       <keyword>get</keyword>
       <keyword>getarrsize</keyword>
@@ -78,8 +80,11 @@
       <keyword>imod</keyword>
       <keyword>impreg</keyword>
       <keyword>inc</keyword>
+      <keyword>input</keyword>
       <keyword>inputmeth</keyword>
       <keyword>inrange</keyword>
+      <keyword>ioread</keyword>
+      <keyword>iowrite</keyword>
       <keyword>label</keyword>
       <keyword>length</keyword>
       <keyword>let</keyword>
@@ -89,6 +94,8 @@
       <keyword>loadreg</keyword>
       <keyword>loadscr</keyword>
       <keyword>lowcase</keyword>
+      <keyword>macro</keyword>
+      <keyword>mbconv</keyword>
       <keyword>mbgw</keyword>
       <keyword>mbmon</keyword>
       <keyword>mbsrv</keyword>
@@ -149,9 +156,9 @@
       <keyword>udpread</keyword>
       <keyword>udpwrite</keyword>
       <keyword>upcase</keyword>
+      <keyword>var</keyword>
       <keyword>varmon</keyword>
       <keyword>varr</keyword>
-      <keyword>var</keyword>
       <keyword>ver</keyword>
       <keyword>writereg</keyword>
       <keyword>xor</keyword>
@@ -160,11 +167,13 @@
       <keyword>an</keyword>
       <keyword>ascii</keyword>
       <keyword>bin</keyword>
-      <keyword>coil</keyword>
       <keyword>chr</keyword>
+      <keyword>coil</keyword>
       <keyword>csv</keyword>
+      <keyword>dcon</keyword>
       <keyword>dec</keyword>
       <keyword>dinp</keyword>
+      <keyword>hart</keyword>
       <keyword>hex</keyword>
       <keyword>hreg</keyword>
       <keyword>ini</keyword>
