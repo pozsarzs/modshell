@@ -5,7 +5,7 @@
 # | Makefile for many files of the same type                                   |
 # +----------------------------------------------------------------------------+
 
-include ../../Makefile.global
+include ../Makefile.global
 
 title="syntax files  "
 removetargetdir=1

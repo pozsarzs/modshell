@@ -27,39 +27,45 @@ function cmd_input(p1: string): byte;
 var
   s1: string;
 begin
-  result := 0;
-  if length(p1) = 0
-    then
-      {$IFNDEF X}
-        writeln(dt)
-      {$ELSE}
-        Form1.Memo1.Lines.Add(dt)
-      {$ENDIF}
-    else
+  // CHECK LENGTH OF PARAMETERS
+  if length(p1) = 0 then
+  begin
+    // Parameter(s) required!
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR05);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR05);
+    {$ENDIF}
+    result := 1;
+    exit;
+  end;
+  // CHECK P1 PARAMETER
+  if (not boolisitvariable(p1)) and
+     (not boolisitvariablearray(p1)) then
+  begin
+    // No such variable!
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR19 + p1);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR19 + p1);
+    {$ENDIF}
+    result := 1;
+    exit;
+  end;
+  if boolisitvariablearray(p1) then
+    if not boolvalidvariablearraycell(p1) then
     begin
-      // CHECK P1 PARAMETER
-      if (not boolisitvariable(p1)) and
-         (not boolisitvariablearray(p1)) then
-      begin
-        // No such variable!
-        {$IFNDEF X}
-          if verbosity(2) then writeln(ERR19 + p1);
-        {$ELSE}
-          Form1.Memo1.Lines.Add(ERR19 + p1);
-        {$ENDIF}
-        result := 1;
-        exit;
-      end;
-      if boolisitvariablearray(p1) then
-        if not boolvalidvariablearraycell(p1) then
-        begin
-          // No such array cell!
-          result := 1;
-          exit;
-        end;
-      // PRIMARY MISSION
-      if boolisitvariable(p1)
-        then vars[intisitvariable(p1)].vvalue := dt
-        else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := dt;
+      // No such array cell!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR66 + p1);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR66 + p1);
+      {$ENDIF}
+      result := 1;
+      exit;
     end;
+  // PRIMARY MISSION
+//  if boolisitvariable(p1)
+//    then vars[intisitvariable(p1)].vvalue := s
+//    else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := s;
 end;

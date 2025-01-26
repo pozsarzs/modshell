@@ -47,7 +47,6 @@ begin
   // CHECK P1 PARAMETER
   if boolisitconstant(p1) then s1 := isitconstant(p1);
   if boolisitvariable(p1) then s1 := isitvariable(p1);
-  // No such array cell!
   if boolisitconstantarray(p1) then
     if boolvalidconstantarraycell(p1)
       then s1 := isitconstantarray(p1)
@@ -56,7 +55,17 @@ begin
     if boolvalidvariablearraycell(p1)
       then s1 := isitvariablearray(p1)
       else result := 1;
-    if result = 1 then exit;
+  if result = 1 then
+  begin
+    // No such array cell!
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR66 + p1);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR66 + p1);
+    {$ENDIF}
+    result := 1;
+    exit;
+  end;
   if length(s1) = 0 then s1 := p1;
   fp := extractfilepath(s1);
   fn := extractfilename(s1);

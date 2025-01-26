@@ -207,7 +207,6 @@ begin
     begin
       if boolisitconstant(p2) then s2 := isitconstant(p2);
       if boolisitvariable(p2) then s2 := isitvariable(p2);
-      // No such array cell!
       if boolisitconstantarray(p2) then
         if boolvalidconstantarraycell(p2)
           then s2 := isitconstantarray(p2)
@@ -216,7 +215,17 @@ begin
         if boolvalidvariablearraycell(p2)
           then s2 := isitvariablearray(p2)
           else result := 1;
-      if result = 1 then exit;
+      if result = 1 then
+      begin
+        // No such array cell!
+        {$IFNDEF X}
+          if verbosity(2) then writeln(ERR66 + p2);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR66 + p2);
+        {$ENDIF}
+        result := 1;
+        exit;
+      end;
       if length(s2) = 0 then s2 := p2;
     end;
     // CHANGE '\ ' TO SPACE IN P2

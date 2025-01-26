@@ -107,12 +107,18 @@ begin
       exit;
     end;
     if boolisitvariablearray(p2) then
-      if not boolvalidvariablearraycell(p2) then
-      begin
-        // No such array cell!
-        result := 1;
-        exit;
-      end;
+      if not boolvalidvariablearraycell(p2) then result := 1;
+    if result = 1 then
+    begin
+      // No such array cell!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR66 + p2);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR66 + p2);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
   end;
   // PRIMARY MISSION
   with dev[i1] do

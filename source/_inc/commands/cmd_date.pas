@@ -26,7 +26,6 @@
 function cmd_date(p1: string): byte;
 var
   dt: string;
-  s1: string;
   y, mh, d, w, h, m, s, cs: word;
 begin
   result := 0;
@@ -59,12 +58,18 @@ begin
         exit;
       end;
       if boolisitvariablearray(p1) then
-        if not boolvalidvariablearraycell(p1) then
-        begin
-          // No such array cell!
-          result := 1;
-          exit;
-        end;
+        if not boolvalidvariablearraycell(p1) then result := 1;
+      if result = 1 then
+      begin
+        // No such array cell!
+        {$IFNDEF X}
+          if verbosity(2) then writeln(ERR66 + p1);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR66 + p1);
+        {$ENDIF}
+        result := 1;
+        exit;
+      end;
       // PRIMARY MISSION
       if boolisitvariable(p1)
         then vars[intisitvariable(p1)].vvalue := dt

@@ -29,7 +29,7 @@
 // COMMAND 'IF'
 function cmd_if(p1, p2, p3, p4, p5: string): byte;
 const
-  RS: array[0..6] of string = ('<','<=','=','>=','>','<>','==','=<','=>');
+  RS: array[0..8] of string = ('<','<=','=','>=','>','<>','==','=<','=>');
 var
   i1, i2, i3: integer;
   s: string;
@@ -53,7 +53,6 @@ begin
   // CHECK P1 PARAMETER
   if boolisitconstant(p1) then s1 := isitconstant(p1);
   if boolisitvariable(p1) then s1 := isitvariable(p1);
-  // No such array cell!
   if boolisitconstantarray(p1) then
     if boolvalidconstantarraycell(p1)
       then s1 := isitconstantarray(p1)
@@ -62,7 +61,17 @@ begin
     if boolvalidvariablearraycell(p1)
       then s1 := isitvariablearray(p1)
       else result := 1;
-  if result = 1 then exit;
+  if result = 1 then
+  begin
+    // No such array cell!
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR66 + p1);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR66 + p1);
+    {$ENDIF}
+    result := 1;
+    exit;
+  end;
   if length(s1) = 0 then s1 := p1;
   i1 := strtointdef(s1, -1);
   // CHECK P2 PARAMETER
@@ -88,7 +97,6 @@ begin
   // CHECK P3 PARAMETER
   if boolisitconstant(p3) then s3 := isitconstant(p3);
   if boolisitvariable(p3) then s3 := isitvariable(p3);
-  // No such array cell!
   if boolisitconstantarray(p3) then
     if boolvalidconstantarraycell(p3)
       then s3 := isitconstantarray(p3)
@@ -97,7 +105,17 @@ begin
     if boolvalidvariablearraycell(p3)
       then s3 := isitvariablearray(p3)
       else result := 1;
-  if result = 1 then exit;
+  if result = 1 then
+  begin
+    // No such array cell!
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR66 + p3);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR66 + p3);
+    {$ENDIF}
+    result := 1;
+    exit;
+  end;
   if length(s3) = 0 then s3 := p3;
   i3 := strtointdef(s3, -1);
   // CHECK P4 PARAMETER

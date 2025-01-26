@@ -57,28 +57,43 @@ begin
       {$ENDIF}
       result := 1;
       exit;
-      if boolisitvariablearray(p1) then
-        if not boolvalidvariablearraycell(p1) then
-        begin
-          // No such array cell!
-          result := 1;
-          exit;
-        end;
+    end;
+    if boolisitvariablearray(p1) then
+      if not boolvalidvariablearraycell(p1) then result := 1;
+    if result = 1 then
+    begin
+      // No such array cell!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR66 + p1);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR66 + p1);
+      {$ENDIF}
+      result := 1;
+      exit;
     end;
   end else
   begin
     if boolisitconstant(p1) then s1 := isitconstant(p1);
     if boolisitvariable(p1) then s1 := isitvariable(p1);
-  // No such array cell!
-  if boolisitconstantarray(p1) then
-    if boolvalidconstantarraycell(p1)
-      then s1 := isitconstantarray(p1)
-      else result := 1;
-  if boolisitvariablearray(p1) then
-    if boolvalidvariablearraycell(p1)
-      then s1 := isitvariablearray(p1)
-      else result := 1;
-  if result = 1 then exit;
+    if boolisitconstantarray(p1) then
+      if boolvalidconstantarraycell(p1)
+        then s1 := isitconstantarray(p1)
+        else result := 1;
+    if boolisitvariablearray(p1) then
+      if boolvalidvariablearraycell(p1)
+        then s1 := isitvariablearray(p1)
+        else result := 1;
+    if result = 1 then
+    begin
+      // No such array cell!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR66 + p1);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR66 + p1);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
     if length(s1) = 0 then s1 := p1;
   end;
   // CHECK P2 PARAMETER
@@ -92,8 +107,17 @@ begin
     if boolvalidvariablearraycell(p2)
       then s2 := isitvariablearray(p2)
       else result := 1;
-  // No such array cell!
-  if result = 1 then exit;
+  if result = 1 then
+  begin
+    // No such array cell!
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR66 + p2);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR66 + p2);
+    {$ENDIF}
+    result := 1;
+    exit;
+  end;
   if length(s2) = 0 then s2 := p2;
   // PRIMARY MISSION
   try

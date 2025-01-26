@@ -72,7 +72,6 @@ begin
       // CHECK P2 PARAMETER
       if boolisitconstant(p2) then s2 := isitconstant(p2);
       if boolisitvariable(p2) then s2 := isitvariable(p2);
-      // No such array cell!
       if boolisitconstantarray(p2) then
         if boolvalidconstantarraycell(p2)
           then s2 := isitconstantarray(p2)
@@ -81,7 +80,17 @@ begin
         if boolvalidvariablearraycell(p2)
           then s2 := isitvariablearray(p2)
           else result := 1;
-      if result = 1 then exit;
+      if result = 1 then
+      begin
+        // No such array cell!
+        {$IFNDEF X}
+          if verbosity(2) then writeln(ERR66 + p2);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR66 + p2);
+        {$ENDIF}
+        result := 1;
+        exit;
+      end;
       if length(s2) = 0 then s2 := p2;
       // CHANGE '\ ' TO SPACE IN P2
       s2 := stringreplace(s2, #92+#32, #32, [rfReplaceAll]);
@@ -101,7 +110,7 @@ begin
                 Form1.Memo1.Lines.Add(ERR66 + p1);
               {$ENDIF}
             result := 1;
-          end;
+            end;
         end;
         if boolisitconstant(p1) then
           if length(vars[intisitconstant(p1)].vvalue) = 0
@@ -164,7 +173,6 @@ begin
       // CHECK P3 PARAMETER
       if boolisitconstant(p3) then s3 := isitconstant(p3);
       if boolisitvariable(p3) then s3 := isitvariable(p3);
-      // No such array cell!
       if boolisitconstantarray(p3) then
         if boolvalidconstantarraycell(p3)
           then s3 := isitconstantarray(p3)
@@ -173,7 +181,17 @@ begin
         if boolvalidvariablearraycell(p3)
           then s3 := isitvariablearray(p3)
           else result := 1;
-      if result = 1 then exit;
+      if result = 1 then
+      begin
+        // No such array cell!
+        {$IFNDEF X}
+          if verbosity(2) then writeln(ERR66 + p3);
+        {$ELSE}
+          Form1.Memo1.Lines.Add(ERR66 + p3);
+        {$ENDIF}
+        result := 1;
+        exit;
+      end;
       if length(s3) = 0 then s3 := p3;
       // CHANGE '\ ' TO SPACE IN P3
       s3 := stringreplace(s3, #92+#32, #32, [rfReplaceAll]);
@@ -232,7 +250,6 @@ begin
   // CHECK P2 PARAMETER
   if boolisitconstant(p2) then s2 := isitconstant(p2);
   if boolisitvariable(p2) then s2 := isitvariable(p2);
-  // No such array cell!
   if boolisitconstantarray(p2) then
     if boolvalidconstantarraycell(p2)
       then s2 := isitconstantarray(p2)
@@ -241,7 +258,17 @@ begin
     if boolvalidvariablearraycell(p2)
       then s2 := isitvariablearray(p2)
       else result := 1;
-  if result = 1 then exit;
+  if result = 1 then
+  begin
+    // No such array cell!
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR66 + p2);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR66 + p2);
+    {$ENDIF}
+    result := 1;
+    exit;
+  end;
   if length(s2) = 0 then s2 := p2;
   if (strtointdef(s2, -1) < 0 ) or (strtointdef(s2, -1) > 9998) then
   begin
@@ -257,7 +284,6 @@ begin
   // CHECK P3 PARAMETER
   if boolisitconstant(p3) then s3 := isitconstant(p3);
   if boolisitvariable(p3) then s3 := isitvariable(p3);
-  // No such array cell!
   if boolisitconstantarray(p3) then
     if boolvalidconstantarraycell(p3)
       then s3 := isitconstantarray(p3)
@@ -266,7 +292,17 @@ begin
     if boolvalidvariablearraycell(p3)
       then s3 := isitvariablearray(p3)
       else result := 1;
-  if result = 1 then exit;
+  if result = 1 then
+  begin
+    // No such array cell!
+    {$IFNDEF X}
+      if verbosity(2) then writeln(ERR66 + p3);
+    {$ELSE}
+      Form1.Memo1.Lines.Add(ERR66 + p3);
+    {$ENDIF}
+    result := 1;
+    exit;
+  end;
   if length(s3) = 0 then s3 := p3;
   if rt > 1 then
     if (strtointdef(s3, -1) < 0 ) or (strtointdef(s3, -1) > 65535) then

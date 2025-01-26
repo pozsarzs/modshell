@@ -78,7 +78,6 @@ begin
     // CHECK P2 PARAMETER
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
-    // No such array cell!
     if boolisitconstantarray(p2) then
       if boolvalidconstantarraycell(p2)
         then s2 := isitconstantarray(p2)
@@ -89,6 +88,7 @@ begin
         else result := 1;
     if result = 1 then
     begin
+      // No such array cell!
       sendmessage(ERR66 + p2, true);
       exit;
     end;
