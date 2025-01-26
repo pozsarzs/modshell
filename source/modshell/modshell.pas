@@ -89,7 +89,7 @@ procedure version(h: boolean); forward;
 {$I dll.pas}
 {$I lockfile.pas}
 {$I validity.pas}
-{$I verbosity.pas}
+{$I vrbosity.pas}
 
 {$I io.pas}
 {$I network.pas}

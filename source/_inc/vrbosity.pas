@@ -2,7 +2,7 @@
 { | ModShell v0.1 * Command-driven scriptable Modbus utility                 | }
 { | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                | }
 { | verbosity.pas                                                            | }
-{ | enable/disable a message                                                 | }
+{ | allow/disallow a message according to verbosity                          | }
 { +--------------------------------------------------------------------------+ }
 { 
   This program is free software: you can redistribute it and/or modify it

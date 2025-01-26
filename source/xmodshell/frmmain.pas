@@ -331,7 +331,7 @@ procedure version(h: boolean); forward;
 
 {$I lockfile.pas}
 {$I validity.pas}
-{$I verbosity.pas}
+{$I vrbosity.pas}
 
 {$I dll.pas}
 {$I io.pas}
