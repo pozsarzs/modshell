@@ -4,7 +4,7 @@
 
 <img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon" src="desktop/modshell.png">   
 
-## Modshell
+# Modshell
 
 **Command-driven scriptable Modbus utility**
 
@@ -13,6 +13,8 @@ Copyright (C) 2023-2025 Pozsár Zsolt <pozsarzs@gmail.com>
 ModShell is a utility built around a command interpreter, which with the
 connected peripherals communicates via various ports using the Modbus, DCON and
 HART protocols.
+
+## I. Features
 
 |features                |                                                                                            |
 |------------------------|--------------------------------------------------------------------------------------------|
@@ -53,12 +55,14 @@ HART protocols.
 |utility scripts         |2 script                                                                                    |
 |other utility programs  |command line serial Modbus traffic monitor, serial, TCP and UDP echo servers                |
 
-**Planned releases**  
+## II. Releases
+
+### Planned next releases  
 
 ...that either will or won't.  
 
 <details>
- <summary><i>v0.1:</i></summary>
+ <summary><i>v0.1</i></summary>
  This is <i>first unstable release</i>.<br>
  Unstable, but it is already complete in its intended functionality.
  The software will not include any new features compared to the previous
@@ -67,15 +71,15 @@ HART protocols.
 </details>
 
 <details>
- <summary><i>v0.1-beta3:</i></summary>
+ <summary><i>v0.1-beta3</i></summary>
  <i>Third user test release</i>.<br>
  The software will not include any new features compared to the previous
  release, only bug fixes. Only a source package will be released.  
 </details>
 
-**Releases**  
+### Actual release  
 
-_0.1-beta2:_
+_0.1-beta2_
 _Second user test release_ will be with the following changes:
  - [ ] new command `input`;  
  - [ ] HART protocol support;  
@@ -86,8 +90,10 @@ _Second user test release_ will be with the following changes:
  - [ ] implementation of additional Modbus functions.  
  Only a source package will be released.
 
+### Previous releases  
+
 <details>
- <summary><i>v0.1-beta1:</i></summary>  
+ <summary><i>v0.1-beta1</i></summary>  
  <i>First user test release</i> with the following changes:  
  <ul>
   <li>Elimination of confusion between the terms 'register number' and 'data address'</li>  
@@ -131,7 +137,7 @@ _Second user test release_ will be with the following changes:
 </details>
  
 <details>
- <summary><i>v0.1-alpha3:</i></summary>  
+ <summary><i>v0.1-alpha3</i></summary>  
  <i>Third and last developer test release</i> with the following changes:
  <ul>
   <li>New source code directory structure;</li>
@@ -145,7 +151,7 @@ _Second user test release_ will be with the following changes:
 </details>
 
 <details>
- <summary><i>v0.1-alpha2:</i></summary>
+ <summary><i>v0.1-alpha2</i></summary>
  <i>Second developer test release</i> with the following changes:
  <ul>
   <li>Bug fixes;</li>
@@ -159,7 +165,7 @@ _Second user test release_ will be with the following changes:
 </details>
 
 <details>
- <summary><i>v0.1-alpha1:</i></summary>
+ <summary><i>v0.1-alpha1</i></summary>
  <i>First developer test release</i> is not yet suitable for work, although it is
  functional, but it can only communicate via Modbus/ASCII. The purpose of this
  release is to test the program's construction, operation, packaging, and package
@@ -168,9 +174,9 @@ _Second user test release_ will be with the following changes:
  will be released.  
 </details>
 
-#### 1. Screenshots
+## III. Screenshots
 
-**ModShell**
+### ModShell  
 
 Normal command line
 ![CLI](document/picture/modshell.png)
@@ -181,7 +187,7 @@ Fullscreen command line
 Run example script on bash with ModShell interpreter
 ![script running](document/picture/modshell-r.png)
 
-**XModShell**
+### XModShell  
 
 Dump input registers  
 ![dump input registers](document/picture/xmodshell-dump.png)
@@ -198,7 +204,7 @@ Script editor
 Variable monitor  
 ![variable monitor](document/picture/xmodshell-varmon.png)
 
-#### 2. Used external libraries
+## IV. Used external libraries
 
  - _Convert - Bin/Oct/Dec/Hex number converter_  
    Unit for Turbo Pascal v3.0  
@@ -215,7 +221,7 @@ Variable monitor
    Copyright (C) 2003-2015 Phil Gibbons
    Copyright (C) 2000 <logix4u.net>
 
-#### 3. About
+## V. About the program in a nutshell
 
 This is a utility that can be used on several operating systems, which can
 communicate with connected equipment using Modbus/ASCII,
@@ -237,7 +243,7 @@ The XModShell program has a *graphical interface (GUI)*, which helps to perform
 several operations with dialog windows, but the original command line input
 remained available for them (e.g. file selection, settings, etc.) [^5].
 
-**Operating principle**
+### Operating principle  
 
 It must be defined the I/O devices, then the protocols and the connections.
 There can be eight of each. The data traffic takes place between the preset
@@ -255,7 +261,7 @@ It is possible to create 32 single-line macros to replace frequently used longer
 commands. The program includes 3 pre-created macros, the content of which can
 also be changed.
 
-**Projects**
+### Projects  
 
 In the program, you can create projects for easier management of settings and
 data. The name of the current project is shown in the prompt. The project
@@ -264,7 +270,7 @@ directory in the user's home directory on all other systems. If only filename
 is specified during file operations (without path), this directory will be the
 source/destination directory.
 
-**File operations**
+### File operations  
 
 The command line history can be exported to a text file and provides it with
 the appropriate 'shebang' for the installation method and operating system. You
@@ -287,7 +293,7 @@ On exit, the command line history, input and echo mode and colors are preserved.
 
 The program also has basic file and directory management commands.
 
-**Script operations**
+### Script operations  
 
 The script on the disc can be loaded into the already running program and
 started manually.
@@ -304,44 +310,44 @@ during runtime.
 In interpreter mode, operating system command line arguments are available as
 predefined constants.
 
-**Raw serial connection**
+### Raw serial connection  
 
 The program provides the possibility to send and receive raw data via a
 serial port, and also includes a very simple serial console. The display of sent
 and received data can be turned off or raw text and hexadecimal viewing can be
 selected.
 
-**Serial connection with DCON protocol**
+### Serial connection with DCON protocol  
 
 The program also provides the possibility to send and receive data with DCON
 protocol via a serial port.
 
-**Serial connection with HART protocol**
+### Serial connection with HART protocol  
 
 The program also provides the possibility to send and receive data with HART
 protocol via a serial port. A serial/HART gateway may be required for connection.
 
-**Raw TCP connection**
+### Raw TCP connection  
 
 The program provides the possibility to send and receive raw data via network
 device with TCP, and also includes a very simple TCP console. The display of
 sent and received data can be turned off or raw text and hexadecimal viewing
 can be selected.
 
-**Raw UDP connection**
+### Raw UDP connection  
 
 The program provides the possibility to send and receive raw data via network
 device with UDP, and also includes a very simple UDP console. The display of
 sent and received data can be turned off or raw text and hexadecimal viewing
 can be selected.
 
-**Direct I/O access**
+### Direct I/O access  
 
 The program provides direct, byte-sized reading and writing of hardware I/O
 ports. On Windows operating systems, it uses the included external dynamically
 linked library.  
 
-**Already implemented commands:**
+## VI. Implemented commands  
 
 |   |command     |category     |hotkey  |description                                                          |
 |--:|:----------:|:-----------:|:------:|---------------------------------------------------------------------|
@@ -478,7 +484,9 @@ linked library.
 (Commands with function keys (F?) are executed immediately, modifier keys
 (ALT-?) only make typing easier.)  
 
-**Predefined variables**
+## VII. Predefined things
+
+### Predefined variables  
 
 |name    |value                                      |
 |:-------|:------------------------------------------|
@@ -486,7 +494,7 @@ linked library.
 
 Empty and any other variable value are equivalent to ALL.
 
-**Predefined constants**
+### Predefined constants  
 
 |name    |value                                                     |
 |:-------|:---------------------------------------------------------|
@@ -512,7 +520,7 @@ Empty and any other variable value are equivalent to ALL.
 |$SQRT2  |value of square root of 2                                 |
 |$SQRT3  |value of square root of 3                                 |
 
-**Predefined macros**
+### Predefined macros  
 
 |name    |value                               |
 |:-------|:-----------------------------------|
@@ -522,7 +530,7 @@ Empty and any other variable value are equivalent to ALL.
 
 These macros can also be changed.
 
-**Documentation and Help**
+## VIII. Documentation and Help  
 
 Modshell and XModShell has a minimal built-in help which you can access by
 typing help. Additionally, you can view the manual page from *nix shell
@@ -531,20 +539,20 @@ typing help. Additionally, you can view the manual page from *nix shell
 In the graphical version, the Online Wiki can be opened directly from the 'Help'
 menu.  
 
-**Contributing**
+## IX. Contributing  
 
 If you find any bugs, please report them! I am also happy to accept pull
 requests from anyone. You can use the GitHub issue tracker to report bugs, ask
 questions, or suggest new features.  
 
-**Links**
+## X. Links  
 
  - [Homepage](http://www.pozsarzs.hu)  
  - [GitHub repository](https://github.com/pozsarzs/modshell)  
  - [Project webpage on Github](https://pozsarzs.github.io/modshell)  
  - [Online manual on Github](https://github.com/pozsarzs/modshell/wiki)  
 
-**Source packages**
+### Source packages  
 
 |name                                                                                                    |version    |
 |--------------------------------------------------------------------------------------------------------|:---------:|
@@ -554,9 +562,10 @@ questions, or suggest new features.
 |[modshell-0.1alpha2.tar.gz](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha2.tar.gz)|v0.1-alpha2|
 |[modshell-0.1alpha1.tar.gz](http://www.pozsarzs.hu/packages/software/modshell/modshell-0.1alpha1.tar.gz)|v0.1-alpha1|
 
-**Binaries and installer packages for several OS and architecture**
+### Binaries and installer packages for several OS and architecture
 
-Not all test versions have binary or installation packages. To download, visit [Modshell's webpage](http://www.pozsarzs.hu/software/modshell_en.html).
+Not all test versions have binary or installation packages.
+To download, visit [Modshell's webpage](http://www.pozsarzs.hu/software/modshell_en.html).
 
 [^1]: [Synapse Github repository](https://github.com/geby/synapse)
 [^2]: [ProtCOM Github repository](https://github.com/pozsarzs/protcom)
