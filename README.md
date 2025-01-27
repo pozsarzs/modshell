@@ -81,7 +81,7 @@ HART protocols.
 
 _0.1-beta2_
 _Second user test release_ will be with the following changes:
- - [ ] new command `input`;  
+ - [x] new command `input`;  
  - [ ] HART protocol support;  
  - [ ] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
  - [ ] Modbus/TCP communication;  

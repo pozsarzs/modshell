@@ -16,7 +16,7 @@ the **Releases** section of the README.md.)
 
 |where|what                                                                    |
 |:---:|:-----------------------------------------------------------------------|
-|B, S | No command for console input.                                          |
+|     |                                                                        |
 
 **Where:**
   - B: ModShell and XModShell

@@ -334,7 +334,7 @@ msgid "message"
 msgstr ""
 
 #: modshell:msg76
-msgid ""
+msgid "Data entry"
 msgstr ""
 
 #: modshell:msg77
@@ -1269,6 +1269,10 @@ msgstr ""
 msgid "         get running method"
 msgstr ""
 
+#: modshell:des128
+msgid "         show prompt and read data from console"
+msgstr ""
+
 #: modshell:usg00
 msgid ""
 "copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]\n"
@@ -1899,5 +1903,9 @@ msgid ""
 "  3: full sceen command line\n"
 "  4: interpreter mode\n"
 "  5: GUI mode"
+msgstr ""
+
+#: modshell:usg128
+msgid "input $TARGET [[$]PROMPT]"
 msgstr ""
 

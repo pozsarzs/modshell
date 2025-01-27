@@ -100,7 +100,7 @@ resourcestring
   MSG73 = 'connection';
   MSG74 = 'variable';
   MSG75 = 'message';
-  MSG76 = '';
+  MSG76 = 'Data entry';
   MSG77 = '&Read';
   MSG78 = 'Go on!';
   MSG79 = 'Variables';
@@ -336,6 +336,7 @@ resourcestring
   DES125='         read a byte from an I/O port';  
   DES126='         write a byte to an I/O port';  
   DES127='         get running method';  
+  DES128='         show prompt and read data from console';  
   // COMMAND USAGE
   USG00='copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]' + EOL +
         'copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg [$]ADDRESS [[$]COUNT]' + EOL +
@@ -555,3 +556,4 @@ resourcestring
         '  3: full sceen command line' + EOL +
         '  4: interpreter mode' + EOL +
         '  5: GUI mode';
+  USG128='input $TARGET [[$]PROMPT]';

@@ -571,15 +571,15 @@ AN means alphanumerical, hex means the hexadecimal representation of the bytes.
 \fBexit\fP [\fI[$]EXIT_CODE\fP]
 Exits from program or script.
 .TP
-\fBgetarrsize\fP \fIARRAY\fP \fI$TARGET\fP
-Gets size of an array and placed in _$TARGET_.
-.TP
-\fBgoto\fP \fI[$]LABEL\fP
-Jumps to specified label (only in script).
-.TP
 \fBfor\fP \fI$VARIABLE\fP \fI[$]VALUE1\fP \fBto\fP \fI[$]VALUE2\fP \fBdo\fP \fICOMMAND\fP
 Loop iteration (only in script). Increments \fI$VARIABLE\fP from \fI[$]VALUE1\fP to \fI[$]VALUE2\fP
 and does \fICOMMAND\fP.
+.TP
+\fBgetarrsize\fP \fIARRAY\fP \fI$TARGET\fP
+Gets size of an array and placed in \fI$TARGET\fP.
+.TP
+\fBgoto\fP \fI[$]LABEL\fP
+Jumps to specified label (only in script).
 .TP
 \fBhelp\fP [\fI[$]COMMAND\fP]
 Shows description or usage of the builtin commands.
@@ -590,6 +590,9 @@ Selection statement (only in script). \fBRELATIONAL_SIGN\fP: < <= = >= > <> and 
 \fBinputmeth\fP [\fIan\fP|\fIhex\fP|\fIswap\fP]
 Queries or changes local input method for connection.
 AN means alphanumerical, hex means the hexadecimal representation of the bytes.
+.TP
+\fBinput\fP \fI$TARGET\fP [\fI[$]PROMPT\fP]
+Shows prompt and reads data from console and and placed in \fI$TARGET\fP.
 .TP
 \fBlabel\fP \fILABEL\fP
 Define label (only in script).
