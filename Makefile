@@ -8,7 +8,7 @@
 include ./Makefile.global
 
 dirs=desktop document/example document/in_brief document/picture \
-     document/syntax document manual message script source syntax
+     document/syntax document help manual message script source syntax
 
 all:
 	@echo "Compiling source code..."

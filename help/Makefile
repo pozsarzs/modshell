@@ -7,12 +7,13 @@
 
 include ../Makefile.global
 
-title="syntax files  "
+title="help files    "
 removetargetdir=1
 sourcedir="."
-targetdir=$(datarootdir)/$(name)/syntax
+targetdir=$(datarootdir)/$(name)/help
 filemode=$(txtmode)
-files=`ls $(sourcedir) | grep -v Makefile`
+files=`ls $(sourcedir)/*.chm | grep -v Makefile`
+projectdirs=en
 
 all:
 

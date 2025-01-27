@@ -25,6 +25,7 @@ vardir		= @vardir@
 binmode		= 0755
 txtmode		= 0644
 
+chmcmd		= @chmcmd@
 fpc		= @fpc@
 iconv		= @iconv@
 install		= @install@

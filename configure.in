@@ -41,11 +41,12 @@ if test "$iconv" == "no"; then AC_MSG_WARN(Iconv text encoding converter tool no
 AC_PATH_PROG(fpc, fpc, no)
 if test "$fpc" == "no"; then AC_MSG_ERROR(Free Pascal compiler not found!); fi
 
+AC_PATH_PROG(chmcmd, chmcmd, no)
+if test "$chmcmd" == "no"; then AC_MSG_WARN(CHM compiler not found!); fi
 
 dnl -- DETECT ARCHITECTURE AND OS --
 os=`fpc -iSO`
 architecture=`fpc -iSP`
-
 
 dnl -- CHECK FILES AND DIRECTORIES --
 if test "$os" = "linux"; then lcldir=`find /usr/lib/lazarus -type d -name lcl | grep lazarus | grep -v doc | grep -v test`; fi
@@ -81,6 +82,7 @@ dnl -- SUBSTITUTION IN FILES --
 AC_SUBST(architecture)
 AC_SUBST(bindir)
 AC_SUBST(bprefix)
+AC_SUBST(chmcmd)
 AC_SUBST(copyright)
 AC_SUBST(cui)
 AC_SUBST(gui)
