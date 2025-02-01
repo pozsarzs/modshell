@@ -2,11 +2,14 @@
 Compatibility=1.1 or later
 Compiled file=modshell_en.chm
 Contents file=Table of Contents.hhc
+Default topic=Home.htm
 Display compile progress=No
 Index file=Index.hhk
-Language=0x409 English (United States)
-Title=ModShell Help
+Language=0x40e Hungarian (Hungary)
 
+
+[FILES]
+Home.htm
 
 [INFOTYPES]
 
