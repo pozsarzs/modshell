@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>modshell.ini</strong><br />&nbsp;
+        General configuration file in user's directory on Windows or Unix-like
+        system or in the settings folder of the program on DOS.</li>
+      <li><strong>console.log</strong><br />&nbsp;
+        Serial console traffic.</li>
+      <li><strong>mbmon.log</strong><br />&nbsp;
+        Decoded Modbus telegrams from serial modbus monitor.</li>
+      <li><strong>scriptfiles[.bat]</strong><br />&nbsp;
+        The script file is used for batch execution of ModShell commands. The
+        commands must be entered in the same form as if we were working in the
+        built-in command line. If the first valuable character (not a space or
+        tab) of a line is a hash, then that line is not interpreted. You can
+        find examples in the documents library.
+        A simple example on Unix-like OS:
+        
+          <code>#!/usr/local/bin/modshell -r</code><br />&nbsp;
+          <code># Example script * use of variables</code><br />&nbsp;
+          <code>print &quot;Example script - How to use variables?&quot;</code><br />&nbsp;
+          <code>print &quot;--------------------------------------------&quot;</code><br />&nbsp;
+          <code>var a 24</code><br />&nbsp;
+          <code>var b</code><br />&nbsp;
+          <code>var c</code><br />&nbsp;
+          <code>let $b 2</code><br />&nbsp;
+          <code>  (...)</code><br />&nbsp;
+          <code>print &quot;The sum of $A and $B:&quot;</code><br />&nbsp;
+          <code>print &quot;--------------------------------------------&quot;</code>
+        
+        A simple example on DOS and Windows OS:
+        
+          <code>@modshell.exe -r %0</code><br />&nbsp;
+          <code>@goto :eof</code><br />&nbsp;
+          <code># Example script * use of variables</code><br />&nbsp;
+          <code>print &quot;Example script - How to use variables?&quot;</code><br />&nbsp;
+          <code>print &quot;--------------------------------------------&quot;</code><br />&nbsp;
+          <code>var a 24</code><br />&nbsp;
+          <code>var b</code><br />&nbsp;
+          <code>var c</code><br />&nbsp;
+          <code>let $b 2</code><br />&nbsp;
+          <code>  (...)</code><br />&nbsp;
+          <code>print &quot;The sum of $A and $B:&quot;</code><br />&nbsp;
+          <code>print &quot;--------------------------------------------&quot;</code><br />&nbsp;
+          <code>:eof</code>
+      </li>
+      <li>*<strong>.DDT</strong><br />&nbsp;
+        Saved device setting in typed file with seven TDevice type values.
+        
+          <code>type TDevice = record</code><br />&nbsp;
+          <code>       valid: boolean;     // settings validity: false|true</code><br />&nbsp;
+          <code>       devtype: byte;      // type of device: 0..1 -&amp;gt; see DEV_TYPE</code><br />&nbsp;
+          <code>       device: string[15]; // device: /dev/ttySx, COMx, /dev/eth0 etc.</code><br />&nbsp;
+          <code>       port: word;         // ethernet port: 0-65535</code><br />&nbsp;
+          <code>       speed: byte;        // serial speed: 0..7 -&amp;gt; see DEV_SPEED</code><br />&nbsp;
+          <code>       databit: byte;      // serial databits: 7|8</code><br />&nbsp;
+          <code>       parity: byte;       // serial parity: 0..2 -&amp;gt; see DEV_PARITY</code><br />&nbsp;
+          <code>       stopbit: byte;      // serial stopbit: 1|2</code><br />&nbsp;
+          <code>     end;</code>
+      </li>
+      <li>*<strong>.PDT</strong><br />&nbsp;
+        Saved protocol setting in typed file with seven TProtocol type values.
+        
+          <code>type TProtocol = record</code><br />&nbsp;
+          <code>       valid: boolean;        // settings validity: false|true</code><br />&nbsp;
+          <code>       prottype: byte;        // type of protocol: 0..2 -&amp;gt; see PROT_TYPE</code><br />&nbsp;
+          <code>       ipaddress: string[15]; // IP address in a.b.c.d format</code><br />&nbsp;
+          <code>       uid: integer;          // Modbus Unit ID: 1..247</code><br />&nbsp;
+          <code>     end;</code>
+      </li>
+      <li>*<strong>.CDT</strong><br />&nbsp;
+        Saved connection setting in typed file with seven TConnection type
+        values.
+        
+          <code>type TConnection = record</code><br />&nbsp;
+          <code>       valid: boolean;        // settings validity: false|true</code><br />&nbsp;
+          <code>       dev: byte;             // assigned device: 0..7</code><br />&nbsp;
+          <code>       prot: byte;            // assigned protocol: 0..7</code><br />&nbsp;
+          <code>     end;</code>
+      </li>
+      <li>*<strong>.BDT</strong><br />&nbsp;
+        Saved boolean type register values in typed file with 2x9999 boolean
+        values.</li>
+      <li>*<strong>.WDT</strong><br />&nbsp;
+        Saved word type register values in typed file with 2x9999 word values.</li>
+      <li>*<strong>.CSV</strong><br />&nbsp;
+        Exported boolean or word type register values in CSV text file. Cannot
+        be imported. Internal structure:
+        
+          <code>dinp,0,0</code><br />&nbsp;
+          <code>    ...</code><br />&nbsp;
+          <code>dinp,9998,1</code><br />&nbsp;
+          <code>coil,0,0</code><br />&nbsp;
+          <code>    ...</code><br />&nbsp;
+          <code>coil,9998,1</code><br />&nbsp;
+          <code>ireg,0,102</code><br />&nbsp;
+          <code>    ...</code><br />&nbsp;
+          <code>ireg,9998,33332</code><br />&nbsp;
+          <code>hreg,0,5342</code><br />&nbsp;
+          <code>    ...</code><br />&nbsp;
+          <code>hreg,9998,12</code>
+      </li>
+      <li>*<strong>.INI</strong><br />&nbsp;
+        Exported register values in INI text file in this structure:
+        
+          <code>[dinp]</code><br />&nbsp;
+          <code>addr_0=0</code><br />&nbsp;
+          <code>  ...</code><br />&nbsp;
+          <code>addr_9998=1</code><br />&nbsp;
+          <code> </code><br />&nbsp;
+          <code>[coil]</code><br />&nbsp;
+          <code>addr_0=0</code><br />&nbsp;
+          <code>  ...</code><br />&nbsp;
+          <code>addr_9998=1</code><br />&nbsp;
+          <code> </code><br />&nbsp;
+          <code>[ireg]</code><br />&nbsp;
+          <code>addr_0=102</code><br />&nbsp;
+          <code>  ...</code><br />&nbsp;
+          <code>addr_9998=33332</code><br />&nbsp;
+          <code> </code><br />&nbsp;
+          <code>[hreg]</code><br />&nbsp;
+          <code>addr_0=5342</code><br />&nbsp;
+          <code>  ...</code><br />&nbsp;
+          <code>addr_9998=12</code>
+      </li>
+      <li>*<strong>.XML</strong><br />&nbsp;
+        Exported register values in XML text file in this structure:
+        
+          <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</code><br />&nbsp;
+          <code>  &lt;xml&gt;</code><br />&nbsp;
+          <code>    &lt;dinp&gt;</code><br />&nbsp;
+          <code>      &lt;reg addr=&quot;0&quot;&gt;0&lt;/reg&gt;</code><br />&nbsp;
+          <code>              ...</code><br />&nbsp;
+          <code>      &lt;reg addr=&quot;9998&quot;&gt;1&lt;/reg&gt;</code><br />&nbsp;
+          <code>    &lt;/dinp&gt;</code><br />&nbsp;
+          <code>    &lt;coil&gt;</code><br />&nbsp;
+          <code>      &lt;reg addr=&quot;0&quot;&gt;0&lt;/reg&gt;</code><br />&nbsp;
+          <code>              ...</code><br />&nbsp;
+          <code>      &lt;reg addr=&quot;9998&quot;&gt;1&lt;/reg&gt;</code><br />&nbsp;
+          <code>    &lt;/coil&gt;</code><br />&nbsp;
+          <code>    &lt;ireg&gt;</code><br />&nbsp;
+          <code>      &lt;reg addr=&quot;0&quot;&gt;102&lt;/reg&gt;</code><br />&nbsp;
+          <code>              ...</code><br />&nbsp;
+          <code>      &lt;reg addr=&quot;9998&quot;&gt;33332&lt;/reg&gt;</code><br />&nbsp;
+          <code>    &lt;/ireg&gt;</code><br />&nbsp;
+          <code>    &lt;hreg&gt;</code><br />&nbsp;
+          <code>      &lt;reg addr=&quot;0&quot;&gt;5342&lt;/reg&gt;</code><br />&nbsp;
+          <code>              ...</code><br />&nbsp;
+          <code>      &lt;reg addr=&quot;9998&quot;&gt;12&lt;/reg&gt;</code><br />&nbsp;
+          <code>    &lt;/hreg&gt;</code><br />&nbsp;
+          <code>  &lt;/xml&gt;</code>
+      </li>
+    </ul>
+  </body>
+</html>

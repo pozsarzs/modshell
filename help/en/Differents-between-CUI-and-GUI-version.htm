@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    The ModShell program has a command-line and is also suitable for
+    running pre-created scripts independently as a command interpreter.
+    The XModShell program has graphical interface (GUI), which helps to perform
+    several operations from menu. Command line input remained available to them,
+    but not always the same as the original solution. Commands are issued from a
+    menu, but interaction appears on the console, except for the request to
+    overwrite an existing file. The assignment of hotkeys remains unchanged.
+    It is important to know that it can run loaded script but can't run
+    independently as a command interpreter.
+    <h3>Menu entries with equivalent command</h3>
+    <table border="1" cellspacing="0px" cellpadding="4px">
+      <tr><th>main menu</th><th>menu entry</th><th>button</th><th>command</th><th>note</th></tr>
+      <tr><td>File</td><td>Set console colors</td><td>&nbsp;</td><td></td><td>with dialog</td></tr>
+      <tr><td>File</td><td>Restart</td><td>&nbsp;</td><td></td><td>&nbsp;</td></tr>
+      <tr><td>File</td><td>Exit</td><td>&nbsp;</td><td>exit</td><td>&nbsp;</td></tr>
+      <tr><td>Project</td><td>Load configuration</td><td align="center">yes</td><td>loadcfg</td><td>with file open dialog</td></tr>
+      <tr><td>Project</td><td>Save configuration</td><td align="center">yes</td><td>savecfg</td><td>with file open dialog</td></tr>
+      <tr><td>Project/Project name</td><td>Set project name</td><td>&nbsp;</td><td>set prj</td><td>with dialog</td></tr>
+      <tr><td>Project/Project name</td><td>Reset project name</td><td>&nbsp;</td><td>reset prj</td><td>&nbsp;</td></tr>
+      <tr><td>Project/Project name</td><td>Show project name</td><td>&nbsp;</td><td>get prj</td><td>&nbsp;</td></tr>
+      <tr><td>Project/Devices</td><td>Set devices</td><td>&nbsp;</td><td>set dev</td><td>with dialog</td></tr>
+      <tr><td>Project/Devices</td><td>Reset devices</td><td>&nbsp;</td><td>reset dev</td><td>delete all settings</td></tr>
+      <tr><td>Project/Devices</td><td>Show devices</td><td>&nbsp;</td><td>get dev</td><td>show all settings</td></tr>
+      <tr><td>Project/Protocols</td><td>Set protocols</td><td>&nbsp;</td><td>set pro</td><td>with dialog</td></tr>
+      <tr><td>Project/Protocols</td><td>Reset protocols</td><td>&nbsp;</td><td>reset pro</td><td>delete all settings</td></tr>
+      <tr><td>Project/Protocols</td><td>Show protocols</td><td>&nbsp;</td><td>get pro</td><td>show all settings</td></tr>
+      <tr><td>Project/Connections</td><td>Set connections</td><td>&nbsp;</td><td>set con</td><td>with dialog</td></tr>
+      <tr><td>Project/Connections</td><td>Reset connections</td><td>&nbsp;</td><td>reset con</td><td>delete all settings</td></tr>
+      <tr><td>Project/Connections</td><td>Show connections</td><td>&nbsp;</td><td>get con</td><td>show all settings</td></tr>
+      <tr><td>Project/Timeout</td><td>Set connection timeout</td><td>&nbsp;</td><td>set timeout</td><td>with dialog</td></tr>
+      <tr><td>Project/Timeout</td><td>Show connection timeout</td><td>&nbsp;</td><td>get timeout</td><td>show all settings</td></tr>
+      <tr><td>Modbus</td><td>Read discrete inputs</td><td>&nbsp;</td><td>readreg dinp</td><td>with dialog</td></tr>
+      <tr><td>Modbus</td><td>Read coils</td><td>&nbsp;</td><td>readreg coil</td><td>with dialog</td></tr>
+      <tr><td>Modbus</td><td>Write coils</td><td>&nbsp;</td><td>writereg coil</td><td>with dialog</td></tr>
+      <tr><td>Modbus</td><td>Read input registers</td><td>&nbsp;</td><td>readreg ireg</td><td>with dialog</td></tr>
+      <tr><td>Modbus</td><td>Read holding registers</td><td>&nbsp;</td><td>readreg hreg</td><td>with dialog</td></tr>
+      <tr><td>Modbus</td><td>Write holding registers</td><td>&nbsp;</td><td>writereg hreg</td><td>with dialog</td></tr>
+      <tr><td>Modbus</td><td>Show serial Modbus traffic</td><td></td><td>mbmon</td><td>with dialog</td></tr>
+      <tr><td>Registers</td><td>Load registers</td><td>&nbsp;</td><td>loadreg</td><td>with file open dialog</td></tr>
+      <tr><td>Registers</td><td>Save registers</td><td>&nbsp;</td><td>savereg</td><td>with file open dialog</td></tr>
+      <tr><td>Registers</td><td>Import registers</td><td>&nbsp;</td><td>impreg</td><td>with file open dialog</td></tr>
+      <tr><td>Registers</td><td>Export registers</td><td>&nbsp;</td><td>expreg</td><td>with file open dialog</td></tr>
+      <tr><td>Registers</td><td>Register table</td><td>&nbsp;</td><td></td><td>in other window</td></tr>
+      <tr><td>Registers</td><td>Dump registers</td><td align="center">yes</td><td>dump</td><td>with dialog</td></tr>
+      <tr><td>Script</td><td>Load script..</td><td align="center">yes</td><td>loadscr</td><td>with file open dialog</td></tr>
+      <tr><td>Script</td><td>Save script..</td><td>&nbsp;</td><td>savescr</td><td>with file open dialog</td></tr>
+      <tr><td>Script</td><td>List script</td><td align="center">yes</td><td>list</td><td>&nbsp;</td></tr>
+      <tr><td>Script</td><td>Edit script..</td><td>&nbsp;</td><td></td><td>in other window with syntax highlighing</td></tr>
+      <tr><td>Script</td><td>Erase script</td><td>&nbsp;</td><td>erasescr</td><td>&nbsp;</td></tr>
+      <tr><td>Script</td><td>Run script</td><td align="center">yes</td><td>run</td><td>&nbsp;</td></tr>
+      <tr><td>Operation</td><td>Clear screen</td><td align="center">yes</td><td>cls</td><td>&nbsp;</td></tr>
+      <tr><td>Operation</td><td>Swap input methode</td><td>&nbsp;</td><td>inputmeth swap</td><td>&nbsp;</td></tr>
+      <tr><td>Operation</td><td>Swap echo methode</td><td align="center">yes</td><td>echometh swap</td><td>&nbsp;</td></tr>
+      <tr><td>Operation</td><td>Swap send methode</td><td>&nbsp;</td><td>sendmeth swap</td><td>&nbsp;</td></tr>
+      <tr><td>Operation</td><td>Show all constants</td><td align="center">yes</td><td>const</td><td>&nbsp;</td></tr>
+      <tr><td>Operation</td><td>Show all variables</td><td align="center">yes</td><td>var</td><td>&nbsp;</td></tr>
+      <tr><td>Operation</td><td>Show all constants</td><td align="center">yes</td><td>carr</td><td>&nbsp;</td></tr>
+      <tr><td>Operation</td><td>Show all variables</td><td align="center">yes</td><td>varr</td><td>&nbsp;</td></tr>
+      <tr><td>Operation</td><td>Show all macros</td><td align="center">yes</td><td>macro</td><td>&nbsp;</td></tr>
+      <tr><td>Utilities/ASCII table</td><td>Decimal</td><td>&nbsp;</td><td>ascii dec</td><td>&nbsp;</td></tr>
+      <tr><td>Utilities/ASCII table</td><td>Hexadecimal</td><td>&nbsp;</td><td>ascii hex</td><td>&nbsp;</td></tr>
+      <tr><td>Utilities</td><td>Date and time</td><td>&nbsp;</td><td>date</td><td>&nbsp;</td></tr>
+      <tr><td>Utilities</td><td>Number converter</td><td align="center">yes</td><td>conv</td><td>with dialog</td></tr>
+      <tr><td>Utilities</td><td>Variable monitor</td><td align="center">yes</td><td>varmon</td><td>with dialog</td></tr>
+      <tr><td>Utilities</td><td>Mini serial console</td><td>&nbsp;</td><td></td><td>with dialog, in other window</td></tr>
+      <tr><td>Utilities</td><td>Read data from serial port<td></td><td>serread</td><td>with dialog, on other thread</td></tr>
+      <tr><td>Utilities</td><td>Write data to serial port</td><td>&nbsp;</td><td>serwrit</td><td>with dialog  on other thread</td></tr>
+      <tr><td>Utilities</td><td>Mini TCP console</td><td>&nbsp;</td><td></td><td>with dialog, in other window</td></tr>
+      <tr><td>Utilities</td><td>Read data with TCP</td><td>&nbsp;</td><td>udpwrite</td><td>with dialog, on other thread</td></tr>
+      <tr><td>Utilities</td><td>Write data with TCP</td><td>&nbsp;</td><td>tcpwrite</td><td>with dialog  on other thread</td></tr>
+      <tr><td>Utilities</td><td>Mini UDP console</td><td>&nbsp;</td><td></td><td>with dialog, in other window</td></tr>
+      <tr><td>Utilities</td><td>Read data with UDP</td><td>&nbsp;</td><td>udpread</td><td>with dialog, on other thread</td></tr>
+      <tr><td>Utilities</td><td>Write data with UDP</td><td>&nbsp;</td><td>udpwrite</td><td>with dialog  on other thread</td></tr>
+      <tr><td>Help</td><td>Commands</td><td align="center">yes</td><td>help</td><td>&nbsp;</td></tr>
+      <tr><td>Help</td><td>Online wiki</td><td>&nbsp;</td><td></td><td>&nbsp;</td></tr>
+      <tr><td>Help</td><td>Homepage</td><td>&nbsp;</td><td></td><td>&nbsp;</td></tr>
+      <tr><td>Help</td><td>Github</td><td>&nbsp;</td><td></td><td>&nbsp;</td></tr>
+      <tr><td>Help</td><td>About</td><td>&nbsp;</td><td>ver</td><td>&nbsp;</td></tr>
+    </table
+  </body>
+</html>

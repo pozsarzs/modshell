@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    Notes:
+    <ul>
+      <li>Register is the local buffer register, and remote register is the register of the connected device.</li>
+      <li>The '$' sign indicates value of a variable or constant not a direct value.</li>
+      <li>The symbol '[x]' indicates the element number of a variable or constant array.</li>
+      <li>The exit value of the commands is in the '$?' constant.</li>
+      <li>Enclose the string in '&quot;' characters, use '' before a space, and use '^[' in ANSI sequences.</li>
+    </ul>
+    <a name="arithmetical-commands"></a>
+    <h3>Arithmetical commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>add</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Adds the two values or variables (<em>[$]VALUE1</em> <em>[$]VALUE2</em>)
+        and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>avg</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em> [<em>[$]VALUE3...6</em>]<br />&nbsp;
+        Calculates average of 2-5 numbers and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>conv</strong> <em>$TARGET</em> <em>$FROM</em>|<em>bin</em>|<em>dec</em>|<em>hex</em>|<em>oct</em> <em>$TO</em>|<em>bin</em>|<em>dec</em>|<em>hex</em>|<em>oct</em> <em>[$]VALUE</em><br />&nbsp;
+        Converts numbers between binary, decimal, hexadecimal and octal numeral system.
+        Result placed in \fI$TARGET\fP variable. <em>VALUE</em> must be between 0 and 65535.</li>
+      <li><strong>cos</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Calculates cosine of <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>cotan</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Calculates cotangent of <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>dec</strong> <em>$VARIABLE</em><br />&nbsp;
+        Decrements <em>$VARIABLE</em> integer.</li>
+      <li><strong>div</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Divide <em>[$]VALUE1</em> by <em>[$]VALUE2</em> and the result is placed in <em>$TARGET</em>. (integer division)</li>
+      <li><strong>exp</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Calculates  natural  exponential of <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>idiv</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Divides <em>[$]VALUE1</em> by <em>[$]VALUE2</em> and the result is placed in <em>$TARGET</em>. (integer division)</li>
+      <li><strong>imod</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Divides <em>[$]VALUE1</em> by <em>[$]VALUE2</em> and the result is placed in <em>$TARGET</em>. (modulus division)</li>
+      <li><strong>inc</strong> <em>$ARIABLE</em><br />&nbsp;
+        Increments <em>$VARIABLE</em> integer.</li>
+      <li><strong>ln</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Calculates natural logarithm of <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>mul</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Multiply the two two values or variables (<em>[$]VALUE1</em> <em>[$]VALUE2</em>)
+        and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>mulinv</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Calculates  multiplicative inverse of <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>odd</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Decides whether the integer <em>[$]VALUE</em> is even or odd.</li>
+      <li><strong>pow</strong> <em>$TARGET</em> <em>[$]BASE</em> <em>[$]EXPONENT</em><br />&nbsp;
+        Calculates <em>[$]EXPONENT</em> exponentiation of the <em>[$]BASE</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>pow2</strong> <em>$TARGET</em> <em>[$]EXPONENT</em><br />&nbsp;
+        Calculates <em>[$]EXPONENT</em> exponentiation of two and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>prop</strong> <em>$TARGET</em> <em>[$]MIN</em> <em>[$]MAX</em> <em>[$]ZERO</em> <em>[$]SPAN</em> <em>[$]VALUE</em><br />&nbsp;
+        Propotional value calculation (for example: 4-20 mA current loop and measured value).</li>
+      <li><strong>rnd</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Makes random integer number between 0 and <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>round</strong> <em>$TARGET</em> <em>[$]VALUE</em> <em>[$]DECPLACES</em><br />&nbsp;
+        Round value or variable (<em>[$]VALUE)</em> to <em>[$]DECPLACES</em>
+        decimal places and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>sin</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Calculates sine of <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>sqr</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Calculates square of <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>sqrt</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Calculates square root of <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>sub</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Substract <em>[$]VALUE2</em> from <em>[$]VALUE1</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>tan</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Calculates tangent of <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
+    </ul>
+    <a name="communication-commands"></a>
+    <h3>Communication commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li>
+<strong>copyreg</strong> <em>con?</em> <em>$REGTYPE</em>|<em>dinp</em>|<em>coil</em> <em>con?</em> <em>$REGTYPE</em>|<em>coil?</em> <em>[$]ADDRESS</em> [<em>[$]COUNT</em>]<br />&nbsp;
+Copies logical data between connections (<em>con?</em>). Number of connection
+(<em>con?</em>) must be between 0-7, register start <em>ADDRESS</em> and the
+<em>COUNT</em> must be between 0-9998.
+</li>
+      <li>
+<strong>copyreg</strong> <em>con?</em> <em>$REGTYPE</em>|<em>ireg</em>|<em>hreg</em> <em>con?</em> <em>$REGTYPE</em>|<em>hreg?</em> <em>[$]ADDRESS</em> [<em>[$]COUNT</em>]<br />&nbsp;
+Copies numeral data between connections (<em>con?</em>). Number of connection
+(<em>con?</em>) must be between 0-7, register start <em>ADDRESS</em> and the
+<em>COUNT</em> must be between 0-9998.
+</li>
+      <li>
+<strong>dcon</strong> <em>con?</em> <em>$TXARRAY</em> <em>$RXARRAY</em><br />&nbsp;
+Reads or writes data from/to remote device with DCON protocol. The command
+takes the input data from the <em>$TXARRAY</em> array, the output data is placed in
+the <em>$RXARRAY</em>. Both arrays can only be variable arrays. If necessary, arrays
+are resized by the command.
+<em>$TXARRAY</em>:
+<code>[0]  delimiter [$, #, %, @]</code><br />&nbsp;
+<code>[1]  command</code><br />&nbsp;
+<code>[2]  input data</code><br />&nbsp;
+<code>[3]  checksum enable/disable [1/0]</code>
+<em>$RXARRAY</em>:
+<code>[0]  delimiter [!, ?, &gt;]</code><br />&nbsp;
+<code>[1]  command (non used)</code><br />&nbsp;
+<code>[2]  output data</code><br />&nbsp;
+<code>[3]  checksum, output data is correct or not [1/0]</code>
+</li>
+      <li>
+<strong>hart</strong> <em>con?</em> <em>$TXARRAY</em> <em>$RXARRAY</em><br />&nbsp;
+Reads or writes data from/to remote device with HART protocol. The command
+takes the input data from the <em>$TXARRAY</em> array, the output data is placed in
+the <em>$RXARRAY</em>. Both arrays can only be variable arrays. If necessary, arrays
+are resized by the command.
+</li>
+      <li>
+<strong>mbgw</strong> <em>con?</em> <em>con?</em><br />&nbsp;
+Start internal Modbus slave/server for remote access own registers.
+</li>
+      <li>
+<strong>mbconv</strong> <em>n2a</em>|<em>a2n</em> <em>$ARRAY</em>
+Converts Modbus register type and address to register number. The command takes
+the input data from the <em>$ARRAY</em> array, the output data is placed in the same
+variable array.
+Variables in the array:
+<code>[0]  register number</code><br />&nbsp;
+<code>[1]  register type</code><br />&nbsp;
+<code>[2]  address</code>
+Register number: 1- 9999; 10001-19999; 30001-39999 or 40001-49999.
+Register type: coil; dinp; ireg; hreg.<br />&nbsp;
+Address: 0- 9998.
+</li>
+      <li><strong>mbmon</strong> [<em>con?</em>]<br />&nbsp;
+        Opens a simple serial monitor for decode Modbus/ASCII or RTU telegrams.
+        The decoded traffic is saved to the project directory named <em>mbmon.log</em>.
+        Number of connection (<em>con?</em>) must be between 0-7.</li>
+      <li><strong>mbsrv</strong> <em>con?</em><br />&nbsp;
+        Start  internal  Modbus gateway for access other remote device's registers
+        with different communication and/or protocol.</li>
+      <li><strong>readreg</strong> <em>con?</em> <em>$REGTYPE</em>|<em>dinp</em>|<em>coil</em>|<em>ireg</em>|<em>hreg</em> <em>[$]ADDRESS</em> [<em>[$]ICOUNT</em>]<br />&nbsp;
+        Reads one or more remote registers. Number of connection (<em>con?</em>)
+        must be between 0-7, register start <em>ADDRESS</em> and the <em>COUNT</em> must be
+        between 0-9998.</li>
+      <li><strong>serread</strong> [<em>dev?</em>] [<em>$TARGET</em>]<br />&nbsp;
+        Reads string from serial device to variable <em>$TARGET</em> or write screen.
+        Number of device (<em>dev?</em>) must be between 0-7.</li>
+      <li><strong>serwrite</strong> [<em>dev?</em>] <em>$MESSAGE</em><br />&nbsp;
+        Writes string to serial device from <em>$MESSAGE</em>.
+        Number of device (\fIdev?\fP) must be between 0-7.</li>
+      <li><strong>serwrite</strong> [<em>dev?</em>] <em>&quot;MESSAGE&quot;</em><br />&nbsp;
+        Writes &quot;MESSAGE&quot; to serial device. Number of device (<em>dev?</em>) must be between 0-7.</li>
+      <li><strong>tcpcons</strong> [<em>dev?</em>]<br />&nbsp;
+        Opens a simple TCP console. Data traffic is logged to the project directory
+        named <em>console.log</em>. Number of device (<em>dev?</em>) must be between 0-7.</li>
+      <li><strong>tcpread</strong> [<em>dev?</em>] [<em>$TARGET</em>]<br />&nbsp;
+        Reads string with TCP from network device to variable <em>$TARGET</em> or write screen.
+        Number of device (<em>dev?</em>) must be between 0-7.</li>
+      <li><strong>tcpwrite</strong> [<em>dev?</em>] <em>$MESSAGE</em><br />&nbsp;
+        Writes string with TCP to network device from <em>$MESSAGE</em>.
+        Number of device (\fIdev?\fP) must be between 0-7.</li>
+      <li><strong>tcpwrite</strong> [<em>dev?</em>] <em>&quot;MESSAGE&quot;</em><br />&nbsp;
+        Writes &quot;MESSAGE&quot; with TCP to network device. Number of device (<em>dev?</em>) must be
+        between 0-7.</li>
+      <li><strong>udpcons</strong> [<em>dev?</em>]<br />&nbsp;
+        Opens a simple UDP console. Data traffic is logged to the project directory
+        named <em>console.log</em>. Number of device (<em>dev?</em>) must be between 0-7.</li>
+      <li><strong>udpread</strong> [<em>dev?</em>] [<em>$TARGET</em>]<br />&nbsp;
+        Reads string with UDP from network device to variable <em>$TARGET</em> or write screen.
+        Number of device (<em>dev?</em>) must be between 0-7.</li>
+      <li><strong>udpwrite</strong> [<em>dev?</em>] <em>$MESSAGE</em><br />&nbsp;
+        Writes string with UDP to network device from <em>$MESSAGE</em>.
+        Number of device (\fIdev?\fP) must be between 0-7.</li>
+      <li><strong>udpwrite</strong> [<em>dev?</em>] <em>&quot;MESSAGE&quot;</em><br />&nbsp;
+        Writes &quot;MESSAGE&quot; with UDP to network device. Number of device (<em>dev?</em>) must be
+        between 0-7.</li>
+      <li><strong>writereg</strong> <em>con?</em> <em>$REGTYPE</em>|<em>coil</em>|<em>hreg</em> <em>[$]ADDRESS</em> [<em>[$]COUNT</em>]<br />&nbsp;
+        Writes data to one or more remote registers. Number of connection
+        (<em>con?</em>) must be between 0-7, register start address and the count must be
+        between 0-9998.</li>
+    </ul>
+    <a name="configuration-commands"></a>
+    <h3>Configuration commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>get</strong> <em>dev?</em>|<em>pro?</em>|<em>con?</em>|<em>project</em>|<em>timeout</em><br />&nbsp;
+        Gets configuration of a device (<em>dev?</em>), protocol (<em>pro?</em>) or connection
+        (<em>con?</em>), or gets project name (<em>project</em>) or connection timeout (<em>timeout</em>).
+        ? number must be 0-7.</li>
+      <li><strong>reset</strong> <em>dev?</em>|<em>pro?</em>|<em>con?</em>|<em>project</em><br />&nbsp;
+        Resets configuration of a device (<em>dev?</em>), protocol (<em>pro?</em>) or connection
+        (<em>con?</em>), or reset project name (<em>project</em>). ? number must be 0-7.</li>
+      <li><strong>set</strong> <em>dev?</em> <em>net</em> <em>[$]DEVICE</em> <em>[$]IP_ADDRESS</em> <em>[$]PORT</em><br />&nbsp;
+        Sets device (<em>dev?</em>) to ethernet (<em>net</em>) device. Device number must be
+        between 0-7 and port number must be between 0-65535. Address of remote device
+        (<em>IP_ADDRESS</em>) must be in a.b.c.d format, with values between 1-255.
+        The <em>DEVICE</em> name on DOS is always PACKET, on other systems is the name of the adapter (e.g. eth0,
+        nfe0, etc.).</li>
+      <li><strong>set</strong> <em>dev?</em> <em>ser</em> <em>[$]DEVICE</em> <em>[$]BAUDRATE</em> <em>[$]DATABIT</em> <em>[$]PARITY</em> <em>[$]STOPBIT</em><br />&nbsp;
+        Sets device (<em>dev?</em>) to serial (<em>ser</em>) device. Device number must be
+        between 0-7. The <em>DEVICE</em> name is the name of the adapter (e.g. com1, ttyS0,
+        ttyUSB0, ttyAMA0 etc.). <em>BAUDRATE</em> must be: 150, 300, 600, 1200, 2400, 4800, 9600,
+        19200, 38400, 57600 or 115200. <em>DATABIT</em> must be 7 or 8, <em>PARITY</em> must be E/N/O
+        (even/none/odd). <em>STOPBIT</em> must be 1 or 2.</li>
+      <li><strong>set</strong> <em>pro?</em> <em>ascii</em>|<em>rtu</em>|<em>tcp</em> <em>[$]ID</em><br />&nbsp;
+        Sets protocol (<em>pro?</em>) and Unit ID. Unit ID (<em>ID</em>) must be between 1-247.      </li>
+      <li><strong>set</strong> <em>pro?</em> <em>dcon</em> <em>[$]ADDRESS</em><br />&nbsp;
+        Sets protocol (<em>pro?</em>) to DCON (<em>dcon</em>). Address of remote device
+        (<em>ADDRESS</em>) must be between 1-255.</li>
+      <li><strong>set</strong> <em>con?</em> <em>dev?</em> <em>pro?</em><br />&nbsp;
+        Assigns a device (<em>dev?</em>) and a protocol (<em>pro?</em>) to a connection
+        (<em>con?</em>). ? number must be 0-7.</li>
+      <li><strong>set</strong> <em>color</em> <em>[$]FOREGROUND</em> <em>[$]BACKGROUND</em>  <em>[$]RXDTEXT</em> <em>[$]TXDTEXT</em> <em>[$]VARMON</em><br />&nbsp;
+        Sets all default colors in CLI and TUI mode.
+        <em>Colors:</em><br />&nbsp;
+        <code>0: black  4: red         8: darkgray    12: lightred</code><br />&nbsp;
+        <code>1: blue   5: magenta:    9: lightblue   13: lightmagenta</code><br />&nbsp;
+        <code>2: green  6: brown      10: lightgreen  14: yellow</code><br />&nbsp;
+        <code>3: cyan   7: lightgray  11: lightcyan   15: white</code></li>
+      <li><strong>set</strong> <em>project</em> [$]PROJECT_NAME<br />&nbsp;
+        Sets the project name. The name cannot contain spaces or special characters.
+        The project directory will also be created with this name.</li>
+      <li><strong>set</strong> <em>timeout</em> [$]TIMEOUT<br />&nbsp;
+        Sets the connection timeout in s.
+        This number must be 1-60.</li>
+    </ul>
+    <a name="file-operation-commands"></a>
+    <h3>File operation commands</h3>
+    The specified parameter does not contain a path, the file will be saved in the
+    project directory in the user's home directory (on DOS, in project directory
+    in the program directory).
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>applog</strong> <em>[$]LOGFILE</em> <em>$TEXT</em> <em>[$]LEVEL</em> [<em>[$]VALUE1</em>] ... [<em>[$]VALUE4</em>]<br />&nbsp;
+        Appends a record to <em>$LOGFILE</em>. The record contains timestamp, message level and the
+        text. The level can be 0-4: NOTE, MESSAGE, WARNING, ERROR, DEBUG. The text contains
+        the level can contain $$1-$4 variables, these can be specified on the command line.</li>
+      <li><strong>applog</strong> <em>[$]LOGFILE</em> <em>&quot;TEXT\ $$1\ TEXT&quot;</em> <em>[$]LEVEL</em> <em>[[$]VALUE1]</em><br />&nbsp;
+        Appends a record to <em>$LOGFILE</em>. The record contains timestamp, message level and the
+        text. The level can be 0-4: NOTE, MESSAGE, WARNING, ERROR, DEBUG. The text contains
+        the level can contain $$1-$4 variables, these can be specified on the command line.</li>
+      <li><strong>exphis</strong> <em>PATH_AND_FILENAME</em><br />&nbsp;
+        Exports command line history to a text file.</li>
+      <li><strong>expreg</strong> <em>PATH_AND_FILENAME</em> <em>$REGTYPE</em>|<em>dinp</em>|<em>coil</em>|<em>ireg</em>|<em>hreg</em> <em>ADDRESS</em> [<em>COUNT</em>]<br />&nbsp;
+        Exports content of the one or more registers to a text file in CSV, INI
+        or XML format. The file format is specified by the destination file extension.
+        If the file exists, it will overwrite or append the new data.</li>
+      <li><strong>impreg</strong> <em>PATH_AND_FILENAME</em><br />&nbsp;
+        Imports content of the one or more registers from a text file in CSV, INI
+        or XML format. The file format is specified by the destination file extension.</li>
+      <li><strong>loadcfg</strong> <em>PATH_AND_FILENAME</em><br />&nbsp;
+        Loads settings of device, protocol and connection from own format files.</li>
+      <li><strong>loadreg</strong> <em>PATH_AND_FILENAME</em><br />&nbsp;
+        Loads all registers from own format files.</li>
+      <li><strong>savecfg</strong> <em>PATH_AND_FILENAME</em><br />&nbsp;
+        Saves settings of device, protocol and connection to four typed files.</li>
+      <li><strong>savereg</strong> <em>PATH_AND_FILENAME</em><br />&nbsp;
+        Saves all registers to four typed files.</li>
+    </ul>
+    <a name="general-commands"></a>
+    <h3>General commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>arrclear</strong> <em>ARRAY</em><br />&nbsp;
+        Clears content of an array.
+      </li>
+      <li><strong>arrfill</strong> <em>ARRAY</em> <em>[$]DATA</em><br />&nbsp;
+        Fills an array with <em>[$]DATA</em>.</li>
+      <li><strong>ascii</strong> [<em>$NUMSYS</em>|<em>dec</em>|<em>hex</em>]<br />&nbsp;
+        Shows ASCII table (0-127 characters) with decimal or hexadecimal numbers.</li>
+      <li><strong>beep</strong><br />&nbsp;
+        Makes a beep.</li>
+      <li><strong>carr</strong><br />&nbsp;
+        Prints all defined constant arrays with their size.</li>
+      <li><strong>carr</strong> <em>ARRAY</em><br />&nbsp;
+        Defines new zero size <em>ARRAY</em> constant array.</li>
+      <li><strong>carr</strong> <em>ARRAY</em> <em>SIZE</em><br />&nbsp;
+        Defines new <em>SIZE</em> size <em>ARRAY</em> constant array.</li>
+      <li><strong>cls</strong><br />&nbsp;
+        Clears screen.</li>
+      <li><strong>const</strong> <em>CONSTANT</em> [<em>[$]VALUE</em>]<br />&nbsp;
+        Defines new constant (<em>CONSTANT</em>) and assign value (<em>VALUE</em>). Use a backslash
+        before a space.</li>
+      <li><strong>cron</strong> <em>rec-num</em> <em>hour</em> <em>minute</em><br />&nbsp;
+        Adds new record to crontable. <em>rec-num</em> may be 1-4.</li>
+      <li><strong>cron</strong>  [-r <em>rec-num</em>]<br />&nbsp;
+        Shows all or removes specified record from the crontable. <em>rec-num</em> may be 1-4.</li>
+      <li><strong>datatype</strong> <em>[$]VALUE</em><br />&nbsp;
+        Specifies the type of the value (<em>[$]VALUE</em>). The result will be in the exit
+        code: 0: string, 1: floating-point value, 1: integer value.</li>
+      <li><strong>date</strong><br />&nbsp;
+        Shows system date and time.</li>
+      <li><strong>date</strong> [<em>$TARGET</em>]<br />&nbsp;
+        Shows or write into <em>$TARGET</em> variable system date and time.</li>
+      <li><strong>echometh</strong> [<em>off</em>|<em>an</em>|<em>hex</em>]<br />&nbsp;
+        Queries and change local echo method for connection.
+        <em>AN</em> means alphanumerical, <em>hex</em> means the hexadecimal representation of the bytes.</li>
+      <li><strong>exit</strong> [<em>[$]EXIT_CODE</em>]<br />&nbsp;
+        Exits from program or script.</li>
+      <li><strong>for</strong> <em>$VARIABLE</em> <em>[$]VALUE1</em> <strong>to</strong> <em>[$]VALUE2</em> <strong>do</strong> <em>COMMAND</em><br />&nbsp;
+        Loop iteration. Increments <em>$VARIABLE</em> from <em>[$]VALUE1</em> to  <em>[$]VALUE2</em> and does <em>COMMAND</em>.</li>
+      <li><strong>getarrsize</strong> <em>ARRAY</em> <em>$TARGET</em><br />&nbsp;
+        Gets size of an array and placed in <em>$TARGET</em>.</li>
+      <li><strong>goto</strong> <em>[$]LABEL</em><br />&nbsp;
+        Jumps to specified label (only in script).</li>
+      <li><strong>help</strong> [<em>[$]COMMAND</em>]<br />&nbsp;
+        Shows description or usage of the builtin commands.</li>
+      <li><strong>if</strong> <em>[$]VALUE1</em> <em>RELATIONAL_SIGN</em> <em>[$]VALUE2</em> <strong>then</strong> <em>COMMAND</em><br />&nbsp;
+        Selection statement. <em>RELATIONAL__SIGN</em>: &lt; &lt;= = &gt;= &gt; &lt;&gt; for numbers and == for strings.</li>
+      <li><strong>input</strong> <em>$TARGET</em>  [<em>[$]PROMPT</em>]<br />&nbsp;
+        Shows prompt and reads data from console and and placed in \fI$TARGET\fP.</li>
+      <li><strong>inputmeth</strong> [<em>an</em>|<em>hex</em>|<em>swap</em>]
+        Queries or changes local input method for connection.
+        <em>AN</em> means alphanumerical, <em>hex</em> means the hexadecimal representation of the bytes.</li>
+      <li><strong>label</strong> <em>LABEL</em><br />&nbsp;
+        Define label (only in script).</li>
+      <li><strong>let</strong> <em>$VARIABLE</em> <em>[$]VALUE</em><br />&nbsp;
+        Sets value of a variable or constant <em>$VARIABLE</em> to value <em>[$]VALUE</em>.</li>
+      <li><strong>let</strong> <em>$VARIABLE</em> <em>nul</em><br />&nbsp;
+        Clear  variable content.</li>
+      <li><strong>macro</strong> <em>NAME</em> <em>command with parameters</em>
+        Makes one-line macro.</li>
+      <li><strong>pause</strong> [<em>[$]TIME</em>]<br />&nbsp;
+        Waits for a keystroke or specified time.</li>
+      <li><strong>print</strong> <em>dinp</em>|<em>coil</em>|<em>ireg</em>|<em>hreg</em> <em>[$]ADDRESS</em> [<em>[$]COUNT</em>] <em>[-n]</em><br />&nbsp;
+        Prints content of the one or more registers. Register start <em>ADDRESS</em> and
+        the <em>COUNT</em> must be between 0-9998. The -n parameter does not raise a line
+        and the cursor does not return to the beginning of the line.</li>
+      <li><strong>print</strong> <em>$VARIABLE</em> [<em>-n</em>]<br />&nbsp;
+        Prints value of the <em>$VARIABLE</em>. The -n parameter does not raise a line
+        and the cursor does not return to the beginning of the line.</li>
+      <li><strong>print</strong> &quot;<em>message</em>&quot; [<em>-n</em>]<br />&nbsp;
+        Prints a single line message. The -n parameter does not raise a line
+        and the cursor does not return to the beginning of the line.</li>
+      <li><strong>printcolor</strong> <em>[$]FOREGROUND</em>|<em>255</em> <em>[$]BACKGROUND</em>|<em>255</em>
+        Sets temporary foreground and background colors for <code>print</code> command in CLI and TUI mode.
+        Value <em>255</em> sets color to default.
+        <em>Colors:</em><br />&nbsp;
+        <code>0: black  4: red         8: darkgray    12: lightred</code><br />&nbsp;
+        <code>1: blue   5: magenta:    9: lightblue   13: lightmagenta</code><br />&nbsp;
+        <code>2: green  6: brown      10: lightgreen  14: yellow</code><br />&nbsp;
+        <code>3: cyan   7: lightgray  11: lightcyan   15: white</code></li>
+      <li><strong>runmeth</strong><br />&nbsp;
+        Gets running method.
+        <em>Exit code:</em><br />&nbsp;
+        <code>0: simple command line</code><br />&nbsp;
+        <code>1: show useable arguments</code><br />&nbsp;
+        <code>2: show version and build information</code><br />&nbsp;
+        <code>3: full sceen command line</code><br />&nbsp;
+        <code>4: interpreter mode</code><br />&nbsp;
+        <code>5: GUI mode</code></li>
+      <li><strong>sendmeth</strong> [<em>chr</em>|<em>str</em>|<em>swap</em>]
+        Queries or changes send method for connection.
+        <em>Chr</em> means char-to-char, <em>str</em> means string sending.</li>
+      <li><strong>setarrsize</strong> <em>ARRAY</em> [<em>[$]SIZE</em>]<br />&nbsp;
+        Sets size of an array.</li>
+      <li><strong>var</strong><br />&nbsp;
+        Prints all defined variables with their values.</li>
+      <li><strong>var</strong> <em>VARIABLE</em> [<em>[$]VALUE</em>]<br />&nbsp;
+        Defines new variable (<em>VARIABLE</em>) and assign value (<em>VALUE</em>). Use
+        a backslash before a space.</li>
+      <li><strong>varmon</strong> <em>off</em>|<em>on</em><br />&nbsp;
+        Enable/disable variable monitor.</li>
+      <li><strong>varmon</strong> <em>$VARIABLE</em> <em>off</em>|<em>on</em><br />&nbsp;
+        Enable/disable monitoring of the specified variable.</li>
+      <li><strong>varr</strong><br />&nbsp;
+        Prints all defined variable arrays with their size.</li>
+      <li><strong>varr</strong> <em>ARRAY</em><br />&nbsp;
+        Defines new zero size <em>ARRAY</em> variable array.</li>
+      <li><strong>varr</strong> <em>ARRAY</em> <em>SIZE</em><br />&nbsp;
+        Defines new <em>SIZE</em> size <em>ARRAY</em> variable array.</li>
+      <li><strong>ver</strong><br />&nbsp;
+        Shows version and build information of this program.</li>
+    </ul>
+    <a name="logical-commands"></a>
+    <h3>Logical commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>and</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Performs the AND operation between the two values or variables
+        (<em>[$]VALUE1</em> <em>[$]VALUE2</em>) and the result is placed in
+        <em>$TARGET</em>.</li>
+      <li><strong>bit</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Returns with the specified bit <em>[$]VALUE2</em> of the <em>[$]VALUE1</em>.</li>
+      <li><strong>not</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Performs the NOT operation on value or variable (<em>[$]VALUE</em>)
+        and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>or</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Performs the OR operation between the two values or variables
+        (<em>[$]VALUE1</em> <em>[$]VALUE2</em>) and the result is placed in
+        <em>$TARGET</em>.</li>
+      <li><strong>roll</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Rolls bits of the [$]VALUE1 to the left by position [$]VALUE2 and the
+        result is placed in $TARGET.</li>
+      <li><strong>rols</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Rolls bits of the [$]VALUE1 to the right by position [$]VALUE2 and the
+        result is placed in $TARGET.</li>
+      <li><strong>shl</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Shifts bits of the <em>[$]VALUE1</em> to the left by position
+        <em>[$]VALUE2</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>shr</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Shifts bits of the <em>[$]VALUE1</em> to the right by position
+        <em>[$]VALUE2</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>xor</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Performs the XOR operation between the two values or variables
+        (<em>[$]VALUE1</em> <em>[$]VALUE2</em>) and the result is placed in
+        <em>$TARGET</em>.</li>
+    </ul>
+    <a name="register-handler-commands"></a>
+    <h3>Register handler commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>dump</strong> [<em>$REGTYPE</em>|<em>dinp</em>|<em>coil</em>|<em>ireg</em>|<em>hreg</em> <em>[$]ADDRESS</em>]<br />&nbsp;
+        Dumps one page register content from <em>ADDRESS</em> in binary/hexadecimal format
+        to a table.</li>
+      <li><strong>let</strong> <em>dinp</em>|<em>coil</em>|<em>ireg</em>|<em>hreg</em> <em>[$]ADDRESS</em> <em>[$]VALUE</em><br />&nbsp;
+        Sets value of a register. Register start address must be between 0-9998.
+        If register type is discrete input (<em>dinp</em>) and coil
+        (<em>coil</em>), <em>VALUE</em> must be 0/1, l/h or false/true. If it is input register
+        (<em>ireg</em>) or holding register (<em>hreg</em>), <em>VALUE</em> must be 0-65535.</li>
+      <li><strong>let</strong> <em>$VARIABLE</em> <em>dinp</em>|<em>coil</em>|<em>ireg</em>|<em>hreg</em> <em>[$]ADDRESS</em><br />&nbsp;
+        Set value of a variable <em>$VARIABLE</em> from register content. Register start address
+        and must be between 0-9998, If register type is discrete input (<em>dinp</em>) and coil
+        (<em>coil</em>), value will be 0/1, if it is input register
+        (<em>ireg</em>) or holding register (<em>hreg</em>), value of the variable will be 0-65535.</li>
+    </ul>
+    <a name="script-operation-commands"></a>
+    <h3>Script operation commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>edit</strong> [<em>LINE_NUM</em>]<br />&nbsp;
+        Edits loaded script with line editor.</li>
+      <li><strong>erasescr</strong><br />&nbsp;
+        Erases script from buffer.</li>
+      <li><strong>list</strong><br />&nbsp;
+        Lists loaded script.</li>
+      <li><strong>loadscr</strong> <em>[$]PATH_AND_FILENAME</em><br />&nbsp;
+        Loads settings of device, protocol and connection from own format files.</li>
+      <li><strong>run</strong> [<em>-s</em>]<br />&nbsp;
+        Runs loaded script. '-s' parameter means step-by-step program execution.</li>
+      <li><strong>savescr</strong> <em>[$]PATH_AND_FILENAME</em><br />&nbsp;
+        Saves loaded script to disc.</li>
+    </ul>
+    <a name="string-handler-commands"></a>
+    <h3>String handler commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>chr</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Converts byte value (<em>[$]VALUE</em>) to char value and the result is  placed  in <em>$TARGET</em>.</li>
+      <li><strong>concat</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Concatenates two string and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>length</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Puts length of the string (<em>[$]VALUE</em>) to <em>$TARGET</em>.</li>
+      <li><strong>lowcase</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Converts string (<em>[$]VALUE</em>) to lowercase and the result is placed in <em>$TARGET</em>.</li>
+      <li><strong>mklrc</strong> <em>$TARGET</em> <em>[$]STRING</em><br />&nbsp;
+        Makes LRC of the <em>[$]STRING</em></li>
+      <li><strong>mkcrc</strong> <em>$TARGET</em> <em>[$]STRING</em><br />&nbsp;
+        Makes CRC of the <em>[$]STRING</em></li>
+      <li><strong>ord</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Converts char value (<em>[$]VALUE</em>) to byte value and the result is  placed  in <em>$TARGET</em>.</li>
+      <li><strong>strdel</strong> <em>$TARGET</em> <em>[$]PLACE</em> <em>[$]COUNT</em><br />&nbsp;
+        Delete specified element(s) (<em>[$]PLACE</em> <em>[$]COUNT</em>) of the <em>$TARGET</em> variable.</li>
+      <li><strong>strfind</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Delete specified element (<em>[$]VALUE</em>) in the <em>$TARGET</em> variable.</li>
+      <li><strong>strins</strong> <em>$TARGET</em> <em>[$]PLACE</em> <em>[$]VALUE</em><br />&nbsp;
+        Insert specified element (<em>[$]VALUE</em>) into the <em>$TARGET</em> variable.</li>
+      <li><strong>stritem</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br />&nbsp;
+        Puts specified (<em>[$]VALUE2</em>) element of the string (<em>[$]VALUE1</em>) to <em>$TARGET</em>.</li>
+      <li><strong>strrepl</strong> <em>$TARGET</em> <em>[$]OLD</em> <em>[$]NEW</em><br />&nbsp;
+        Replace specified element (<em>[$]OLD</em>) to <em>[$]NEW</em> in the <em>$TARGET</em> variable.</li>
+      <li><strong>upcase</strong> <em>$TARGET</em> <em>[$]VALUE</em><br />&nbsp;
+        Converts  string (<em>[$]VALUE</em>) to uppercase and the result is placed in <em>$TARGET</em>.</li>
+    </ul>
+    <a name="file-and-directory-management-system-commands"></a>
+    <h3>File and directory management system commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>cd</strong><br />&nbsp;
+        Gets name of the actual directory.</li>
+      <li><strong>cd</strong> [<em>[$]PATH_AND_DIRECTORYNAME</em>]<br />&nbsp;
+        Changes actual directory to <em>[$]PATH_AND_DIRECTORYNAME</em>.</li>
+      <li><strong>chkdevlock</strong> <em>[$]DEVICE</em>
+        Check <em>[$]DEVICE</em> device lock file.</li>
+      <li><strong>copy</strong> <em>[$]PATH_AND_FILENAME</em> <em>[$]NEW_PATH_AND_FILENAME</em><br />&nbsp;
+        Copies <em>[$]PATH_AND_FILENAME</em> file to <em>[$]NEW_PATH_AND_FILENAME</em>.</li>
+      <li><strong>dir</strong> [<em>[$]PATH_AND_DIRECTORYNAME</em>]<br />&nbsp;
+        Lists content of actual or <em>[$]PATH_AND_DIRECTORYNAME</em> directory.</li>
+      <li><strong>del</strong> <em>[$]PATH_AND_FILENAME</em><br />&nbsp;
+        Removes <em>[$]PATH_AND_FILENAME</em> file.</li>
+      <li><strong>exist</strong> <em>[$]PATH_AND_FILENAME</em>
+        Existence of <em>[$]PATH_AND_FILENAME</em> file or directory.</li>
+      <li><strong>ioread</strong> <em>[$]BYTE</em> <em>[$]PORT</em><br />&nbsp;
+        Reads a byte from an I/O port.</li>
+      <li><strong>iowrite</strong> <em>[$]PORT</em> <em>[$]BYTE</em>
+        Writes a byte to an I/O port.</li>
+      <li><strong>md</strong> <em>[$]PATH_AND_DIRECTORYNAME</em><br />&nbsp;
+        Makes <em>[$]PATH_AND_DIRECTORYNAME</em> directory.</li>
+      <li><strong>rd</strong> <em>[$]PATH_AND_DIRECTORYNAME</em><br />&nbsp;
+        Removes <em>[$]PATH_AND_DIRECTORYNAME</em> directory if empty.</li>
+      <li><strong>ren</strong> <em>[$]PATH_AND_FILENAME</em> <em>[$]NEW_PATH_AND_FILENAME</em><br />&nbsp;
+        Renames a file from <em>[$]PATH_AND_FILENAME</em> to <em>[$]NEW_PATH_AND_FILENAME</em>.</li>
+      <li><strong>rmdevlock</strong> <em>[$]DEVICE</em>
+        Remove <em>[$]DEVICE</em> device lock file.</li>
+      <li><strong>type</strong> <em>[$]PATH_AND_FILENAME</em><br />&nbsp;
+        Lists content of the <em>[$]PATH_AND_FILENAME</em> file.</li>
+    </ul>
+  </body>
+</html>

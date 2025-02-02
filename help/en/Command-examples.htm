@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <a name="arithmetical-commands"></a>
+    <h3>Arithmetical commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>add</strong> $result 12 13<br />&nbsp;
+        Adds 12 and 13, and the result is placed in $result.</li>
+      <li><strong>conv</strong> $result bin hex 1011000010110100<br />&nbsp;
+        Convert 45236 in binary to hexadecimal, the result placed in $result (B0B4).</li>
+      <li><strong>conv</strong> $result hex dec $i<br />&nbsp;
+        Convert value of the $i in hexadecimal to decimal, result placed in $result.</li>
+      <li><strong>round</strong> $result 12.01023 2<br />&nbsp;
+        Round 12.01023 to decimal places, and the result (12.01) is placed in $result.</li>
+      <li><strong>subs</strong> $result 12 13<br />&nbsp;
+        Substract 13 from 12, and the result is placed in $result.</li>
+    </ul>
+    <a name="communication-commands"></a>
+    <h3>Communication commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>readreg</strong> con0 hreg 100 15<br />&nbsp;
+        Read remote holding registers of the connection #0 from address 100 to 115.</li>
+      <li><strong>readreg</strong> con0 hreg $a 15<br />&nbsp;
+        Read remote holding registers of the connection #0 from address value of the $a to $a+15.</li>
+      <li><strong>writereg</strong> con2 coil 10<br />&nbsp;
+        Write data from to coil address 10 of the connection #2.</li>
+      <li><strong>writereg</strong> con2 coil $c<br />&nbsp;
+        Write data from to coil address value of the $c of the connection #2.</li>
+      <li><strong>copyreg</strong> con0 ireg con2 hreg 210 10<br />&nbsp;
+        Copy input register content of the connection #0 to holding register content of the
+        connection #2 from address 210 to 220.</li>
+      <li><strong>copyreg</strong> con0 ireg con2 hreg $a $b<br />&nbsp;
+        Copy input register content of the connection #0 to holding register content of the
+        connection #2 from address value of the $a to $a+$b.</li>
+      <li><strong>sercons</strong><br />&nbsp;
+        Open serial console with requesting device number.</li>
+      <li><strong>sercons</strong> dev0<br />&nbsp;
+        Open serial console with dev0 device.</li>
+      <li><strong>serread</strong> dev0<br />&nbsp;
+        Read string from dev0 device and write to screen.</li>
+      <li><strong>serread</strong> dev0 $target<br />&nbsp;
+        Read string from dev0 device and write to $target variable.</li>
+      <li><strong>serwrite</strong> dev0 &quot;The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog.&quot;<br />&nbsp;
+        Write string to dev0 device.</li>
+      <li><strong>serwrite</strong> dev0 &quot;$message&quot;<br />&nbsp;
+        Write string from $message variable to dev0 device.</li>
+    </ul>
+    <a name="configuration-commands"></a>
+    <h3>Configuration commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>get</strong> dev2<br />&nbsp;
+        Get configuration of a device #2.</li>
+      <li><strong>reset</strong> project<br />&nbsp;
+        Reset project name (project name will be 'default').</li>
+      <li><strong>set</strong> dev0 net /dev/enp0s7 192.168.10.11 502<br />&nbsp;
+        Set device #0 to '/dev/enp0s7' ethernet device with 192.168.10.11 IP-address and 502 port.</li>
+      <li><strong>set</strong> dev0 net /dev/enp0s7 $A $P<br />&nbsp;
+        Set device #0 to '/dev/enp0s7' ethernet device with value of the $A IP-address and $P port.</li>
+      <li><strong>set</strong> dev1 ser ttyS0 9600 8 N 1<br />&nbsp;
+        Set device #1 to /dev/ttyS0 serial device, with 9600 baud, 8 databits,
+        without parity check and 1 stopbit.</li>
+      <li><strong>set</strong> dev1 ser COM1 9600 8 N 1<br />&nbsp;
+        Set device #1 to COM1 serial device, with 9600 baud, 8 databits,
+        without parity check and 1 stopbit.</li>
+      <li><strong>set</strong> dev1 ser $p $s $d $p $t<br />&nbsp;
+        Set device #1 to $p serial device, with $s baud, $d databits, $p
+        parity check and $t stopbit.</li>
+      <li><strong>set</strong> pro0 ascii 100<br />&nbsp;
+        Set protocol #0 to Modbus/ASCII with 100 unit ID (slave).</li>
+      <li><strong>set</strong> con0 dev0 pro2<br />&nbsp;
+        Assigns a device #0 and protocol #2 to connection #0.</li>
+      <li><strong>set</strong> project temp_meter<br />&nbsp;
+        Set the project name to 'temp_meter'.
+    <a name="file-operation-commands"></a></li>
+    </ul>
+    <h3>File operation commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>applog</strong> $LOGFILE &quot;Measured\ values\ is\ $$1\ V\ and\ $$2\ A.&quot; 1 $vl2 $il2
+        Adds <em>2024.2.1. 17:20:36 MESSAGE Measured values is 243 V and 66 A.</em> line to logfile.</li>
+      <li><strong>exphis</strong> script<br />&nbsp;
+        Export command line history to project directory.</li>
+      <li><strong>expreg</strong> discrete_inputs.csv dinp 100 15<br />&nbsp;
+        Export values of discrete input register from address 100 to 115
+        to CSV file.</li>
+      <li><strong>impreg</strong> discrete_inputs.xml<br />&nbsp;
+        Import values from a XML file. The target and range are determined by the
+        contents of the file.</li>
+      <li><strong>loadcfg</strong> test1<br />&nbsp;
+        Load settings of device, protocol and connection from project directory.</li>
+      <li><strong>loadreg</strong> /home/username/Desktop/test1<br />&nbsp;
+        Load all registers from other directory.</li>
+      <li><strong>savecfg</strong> test1<br />&nbsp;
+        Save settings of device, protocol and connection to project directory.</li>
+      <li><strong>savereg</strong> /home/username/Desktop/test1<br />&nbsp;
+        Save all registers to other directory.</li>
+    </ul>
+    <a name="general-commands"></a>
+    <h3>General commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>cron</strong> 2 15 *<br />&nbsp;
+        Run the loaded script at the 15th minute of every hour.</li>
+      <li><strong>cron</strong> -r 2<br />&nbsp;
+        Removes 2nd record from the crontable.</li>
+      <li><strong>echo</strong><br />&nbsp;
+        Query local echo status.</li>
+      <li><strong>echo</strong> an<br />&nbsp;
+        Enable local echo with alphanumerical representation of the bytes.</li>
+      <li><strong>echo</strong> hex<br />&nbsp;
+        Enable local echo with hexadecimal representation of the bytes.</li>
+      <li><strong>help</strong><br />&nbsp;
+        Show short description of the useable commands.</li>
+      <li><strong>help</strong> set<br />&nbsp;
+        Show usage of help command.</li>
+      <li><strong>let</strong> $a 10<br />&nbsp;
+        Set $a variable to 10.</li>
+      <li><strong>let</strong> $a $b<br />&nbsp;
+        Set $a variable to value of $b.</li>
+      <li><strong>let</strong> $numbers[11] $i<br />&nbsp;
+        Set 12th (0..11) element of the $numbers array to value of $i.</li>
+      <li><strong>pause</strong><br />&nbsp;
+        Wait for a key press.</li>
+      <li><strong>pause</strong> 5<br />&nbsp;
+        Wait for 5 sec.</li>
+      <li><strong>pause</strong> $time<br />&nbsp;
+        Wait for value of the $time sec.</li>
+      <li><strong>print</strong> $a -n<br />&nbsp;
+        Print value of the $a variable without new line.</li>
+      <li><strong>print</strong> &quot;Hello world!&quot;<br />&nbsp;
+        Print 'Hello world!' message.</li>
+      <li><strong>var</strong> A 12<br />&nbsp;
+        Define $a variable and assign 12 value to it.</li>
+      <li><strong>var</strong> B $a<br />&nbsp;
+        Define $b variable and assign value of the $a.</li>
+      <li><strong>varr</strong> numbers 20<br />&nbsp;
+        Define 20 size numbers array.</li>
+    </ul>
+    <a name="logical-commands"></a>
+    <h3>Logical commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>and</strong> $result 1234 1345<br />&nbsp;
+        Performs AND operation with 1234 and 1345, and the
+        result is placed in $result.</li>
+      <li><strong>or</strong> $result 1234 $b<br />&nbsp;
+        Performs OR operation with 1234 and $b, and the
+        result is placed in $result.</li>
+      <li><strong>not</strong> $result $a<br />&nbsp;
+        Performs negation on 1234 and the
+        result is placed in $result.</li>
+      <li><strong>shr</strong> $result $source $shift<br />&nbsp;
+        Shifts bits of the $source to the left by position
+        $shift and the result is placed in $result.</li>
+    </ul>
+    <a name="register-handler-commands"></a>
+    <h3>Register handler commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>dump</strong><br />&nbsp;
+        Start dump with requesting register type and start address.</li>
+      <li><strong>dump</strong> hreg 1121<br />&nbsp;
+        Start discrete input register dump from address 1121.</li>
+      <li><strong>let</strong> dinp 10 1<br />&nbsp;
+        Set value of the discrete input register address 10 to 1.</li>
+      <li><strong>let</strong> dinp 10 true<br />&nbsp;
+        Set value of the discrete input register address 10 to 1.</li>
+      <li><strong>let</strong> dinp 10 H<br />&nbsp;
+        Set value of the discrete input register address 10 to 1.</li>
+      <li><strong>let</strong> ireg 10 65535<br />&nbsp;
+        Set value of the input register address 10 to 65535.</li>
+      <li><strong>let</strong> ireg $a $b<br />&nbsp;
+        Set value of the input register (address value of the $a) to value of the $b.</li>
+      <li><strong>let</strong> $a ireg 100<br />&nbsp;
+        Set $a to input register address 100.</li>
+      <li><strong>print</strong> ireg 10 10<br />&nbsp;
+        Print value of the input register address 10 to 20.</li>
+      <li><strong>print</strong> ireg $a $b<br />&nbsp;
+        Print value of the input register address value of $a to value of $b.</li>
+    </ul>
+    <a name="script-operation-commands"></a>
+    <h3>Script operation commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>loadscr</strong> /home/username/Desktop/dt510<br />&nbsp;
+        Load dt510 scriptfile other directory.</li>
+      <li><strong>run</strong> -s<br />&nbsp;
+        Run loaded script step-by-step.</li>
+    </ul>
+    <a name="string-handler-commands"></a>
+    <h3>String handler commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>chr</strong> $ch $b<br />&nbsp;
+        Convert byte type value in $b to character and the result is placed in $ch.</li>
+      <li><strong>length</strong> $length &quot;abcdef&quot;<br />&nbsp;
+        Put length of the specified string to $length variable.</li>
+      <li><strong>stritem</strong> $char $name 5<br />&nbsp;
+        Put 5th element of the $name string to $char variable.</li>
+      <li><strong>upcase</strong> $target $title<br />&nbsp;
+        Convert string in title to uppercase and the result is placed in $target.</li>
+    </ul>
+    <a name="system-commands"></a>
+    <h3>System commands</h3>
+    <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><strong>type</strong> $LOGFILE<br />&nbsp;
+        List file in $LOGFILE to console.</li>
+      <li><strong>ren</strong> $LOGFILE backup<br />&nbsp;
+        Rename file in $LOGFILE to &quot;backup.bak&quot;.</li>
+    </ul>
+  </body>
+</html>

@@ -1,104 +1,104 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <p>The program can - even automatically - read, write or copy data from one
+    The program can - even automatically - read, write or copy data from one
     device to another (e.g. transferring settings). When copying, the source and
-    destination register areas can be different.</p>
-    <p>The ModShell program has a traditional (CLI) or full-screen (TUI)
+    destination register areas can be different.
+    The ModShell program has a traditional (CLI) or full-screen (TUI)
     command-line interface and is also suitable for running pre-created scripts
     independently (as a command interpreter). The program provides help on the
     commands that can be used, and offers possible values when the parameters are
     entered incorrectly. The issued commands are placed in history, which can be
-    browsed with the up/down arrow keys.</p>
-    <p>The XModShell program has graphical interface (GUI), which helps to
+    browsed with the up/down arrow keys.
+    The XModShell program has graphical interface (GUI), which helps to
     perform several operations with dialog windows, but the original command line
-    input remained available for them (e.g. file selection, settings, etc.).</p>
-    <p><a name="operating-principle"></a></p>
+    input remained available for them (e.g. file selection, settings, etc.).
+    <a name="operating-principle"></a>
     <h3>Operating principle</h3>
-    <p>It must be defined the I/O devices, then the protocols and the
+    It must be defined the I/O devices, then the protocols and the
     connections. There can be eight of each. The data traffic takes place between
     the preset connections. In all cases, the data is sent to or read from the
     internal buffer. The size of the buffer is suitable for storing 2*9999
-    logical and word values of the same size.</p>
-    <p>128 variables and 32 arrays (which can also be constants) can be created
+    logical and word values of the same size.
+    128 variables and 32 arrays (which can also be constants) can be created
     in the program, to which we can assign a value of any type (eg.: string,
     boolean or integer register value, real number, etc.). Variables and
     constants can be used to perform logical and arithmetical operations, and can
-    be used to pass values to commands.</p>
-    <p>It is possible to create 32 single-line macros to replace frequently used
+    be used to pass values to commands.
+    It is possible to create 32 single-line macros to replace frequently used
     longer commands. The program includes 3 pre-created macros, the content of
-    which can also be changed.</p>
-    <p><a name="projects"></a></p>
+    which can also be changed.
+    <a name="projects"></a>
     <h3>Projects</h3>
-    <p>In the program, you can create projects for easier management of settings
+    In the program, you can create projects for easier management of settings
     and data. The name of the current project is shown in the prompt. The project
     directory will be created in the program directory on DOS, and in the
     ModShell directory in the user's home directory on all other systems. If only
     filename is specified during file operations (without path), this directory
-    will be the source/destination directory.</p>
-    <p><a name="file-operations"></a></p>
+    will be the source/destination directory.
+    <a name="file-operations"></a>
     <h3>File operations</h3>
-    <p>The command line history can be exported to a text file and provides it
+    The command line history can be exported to a text file and provides it
     with the appropriate 'shebang' for all operating system. You can easily
-    create a script from this raw file.</p>
-    <p>Device, protocol and connection settings can be saved and loaded in their
+    create a script from this raw file.
+    Device, protocol and connection settings can be saved and loaded in their
     own format. During saving, three typed files are created, with the
-    following extensions: DDT, PDT, CDT.</p>
-    <p>All register values can be saved and loaded in their own format. During
+    following extensions: DDT, PDT, CDT.
+    All register values can be saved and loaded in their own format. During
     saving, two typed files are created, with the following extensions: BDT,
-    WDT.</p>
-    <p>One or more same type registers can be exported to file. During saving,
+    WDT.
+    One or more same type registers can be exported to file. During saving,
     one text file is created, with CSV, INI or XML extension. The program can
-    only import from INI and XML format files.</p>
-    <p>The program has a simple serial and a TCP console whose traffic is logged
-    in the project directory as console.log.</p>
-    <p>On exit, the command line history, input, echo and send method and colors
-    are preserved.</p>
-    <p>The program also has basic file and directory management commands.</p>
-    <p><a name="script-operations"></a></p>
+    only import from INI and XML format files.
+    The program has a simple serial and a TCP console whose traffic is logged
+    in the project directory as console.log.
+    On exit, the command line history, input, echo and send method and colors
+    are preserved.
+    The program also has basic file and directory management commands.
+    <a name="script-operations"></a>
     <h3>Script operations</h3>
-    <p>The script on the disc can be loaded into the already running program and
-    started manually.</p>
-    <p>The loaded script can be edited with a line editor, saved to disk or
+    The script on the disc can be loaded into the already running program and
+    started manually.
+    The loaded script can be edited with a line editor, saved to disk or
     deleted from the buffer. The graphical version has a simple editor window
-    with syntax highlighting instead of the line editor.</p>
-    <p>Variables, constants and macros defined before running the script will be
+    with syntax highlighting instead of the line editor.
+    Variables, constants and macros defined before running the script will be
     deleted. It is also possible to observe the values of up to four variables
     during runtime and to keep the final values​of constants and variables
-    created during runtime.</p>
-    <p>In interpreter mode, parameters are passed from the OS command line to the
+    created during runtime.
+    In interpreter mode, parameters are passed from the OS command line to the
     script and the script's exit value is returned to the OS. This parameters are
-    available as predefined constants.</p>
-    <p><a name="raw-serial-connection"></a></p>
+    available as predefined constants.
+    <a name="raw-serial-connection"></a>
     <h3>Raw serial connection</h3>
-    <p>The program provides the possibility to send and receive raw data via a
+    The program provides the possibility to send and receive raw data via a
     serial port, and also includes a very simple serial console. The display of
     sent and received data can be turned off or raw text and hexadecimal viewing
-    can be selected.</p>
-    <p><a name="serial-connection-with-dcon-protocol"></a></p>
+    can be selected.
+    <a name="serial-connection-with-dcon-protocol"></a>
     <h3>Serial connection with DCON protocol</h3>
-    <p>The program also provides the possibility to send and receive data with
-    DCON protocol via a serial port.</p>
-    <p><a name="serial-connection-with-hart-protocol"></a></p>
+    The program also provides the possibility to send and receive data with
+    DCON protocol via a serial port.
+    <a name="serial-connection-with-hart-protocol"></a>
     <h3>Serial connection with HART protocol</h3>
-    <p>The program also provides the possibility to send and receive data with
-    HART protocol via a serial port.</p>
-    <p><a name="raw-tcp-connection"></a></p>
+    The program also provides the possibility to send and receive data with
+    HART protocol via a serial port.
+    <a name="raw-tcp-connection"></a>
     <h3>Raw TCP connection</h3>
-    <p>The program provides the possibility to send and receive raw data via
+    The program provides the possibility to send and receive raw data via
     network device with TCP, and also includes a very simple TCP console. The
     display of sent and received data can be turned off or raw text and
-    hexadecimal viewing can be selected.</p>
-    <p><a name="raw-udp-connection"></a></p>
+    hexadecimal viewing can be selected.
+    <a name="raw-udp-connection"></a>
     <h3>Raw UDP connection</h3>
-    <p>The program provides the possibility to send and receive raw data via network
-    device with UDP, and also includes a very simple UDP console. The display of sent
-    and received data can be turned off or raw text and hexadecimal viewing can be
-    selected.</p>
-    <p><a name="direct-io-access"></a></p>
+    The program provides the possibility to send and receive raw data via
+    network device with UDP, and also includes a very simple UDP console. The
+    display of sent and received data can be turned off or raw text and
+    hexadecimal viewing can be selected.
+    <a name="direct-io-access"></a>
     <h3>Direct I/O access</h3>
-    <p>The program provides direct, byte-sized reading and writing of hardware
+    The program provides direct, byte-sized reading and writing of hardware
     I/O ports. On Windows operating systems, it uses the included external
-    dynamically linked library.</p>
+    dynamically linked library.
   </body>
 </html>

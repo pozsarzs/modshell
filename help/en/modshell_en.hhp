@@ -7,9 +7,22 @@ Display compile progress=No
 Index file=Index.hhk
 Language=0x40e Hungarian (Hungary)
 
-
 [FILES]
+Builtin-commands.htm
+Command-examples.htm
+Command-line-parameters.htm
+Differents-between-CUI-and-GUI-version.htm
+Environmental-variables.htm
+Exit-status.htm
+Files.htm
+Hotkeys.htm
+Installation-from-source-code.htm
+Operation.htm
+Packaging.htm
+Predefined-constants.htm
+Predefined-macros.htm
+Predefined-variables.htm
+Utilities.htm
 Home.htm
 
 [INFOTYPES]
-
