@@ -4,7 +4,6 @@ Compiled file=modshell_en.chm
 Contents file=Table of Contents.hhc
 Default topic=Home.htm
 Display compile progress=No
-Index file=Index.hhk
 Language=0x40e Hungarian (Hungary)
 
 [FILES]
@@ -15,6 +14,7 @@ Differents-between-CUI-and-GUI-version.htm
 Environmental-variables.htm
 Exit-status.htm
 Files.htm
+Home.htm
 Hotkeys.htm
 Installation-from-source-code.htm
 Operation.htm
@@ -23,6 +23,5 @@ Predefined-constants.htm
 Predefined-macros.htm
 Predefined-variables.htm
 Utilities.htm
-Home.htm
 
 [INFOTYPES]
