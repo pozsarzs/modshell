@@ -1009,6 +1009,14 @@ object Form1: TForm1
     end
     object MenuItem3: TMenuItem
       Caption = '&Help'
+      object MenuItem81: TMenuItem
+        Caption = 'Help'
+        ImageIndex = 8
+        ShortCut = 8304
+      end
+      object Separator17: TMenuItem
+        Caption = '-'
+      end
       object MenuItem6: TMenuItem
         Caption = 'Commands'
         ImageIndex = 8

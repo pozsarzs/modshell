@@ -131,4 +131,5 @@ Notes:
   install program                       make install
   remove program                        make uninstall
   convert files for DOS                 make convert
+  create CHM help file                  make createhelp
 "

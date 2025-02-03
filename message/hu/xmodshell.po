@@ -181,6 +181,10 @@ msgstr "         egy bájt írása az I/O portra"
 msgid "         get running method"
 msgstr "         futtatási módszer lekérdezése"
 
+#: frmmain.des128
+msgid "         show prompt and read data from console"
+msgstr "         prompt kiírás és adatbevitel a konzolról"
+
 #: frmmain.des13
 msgid "F2       save settings of device, protocol and connection"
 msgstr "F2       eszköz-, protokoll- és kapcsolatbeállítások mentése"
@@ -1178,6 +1182,10 @@ msgstr "változó"
 msgid "message"
 msgstr "üzenet"
 
+#: frmmain.msg76
+msgid "Data entry"
+msgstr "Adatbevitel"
+
 #: frmmain.msg77
 msgid "&Read"
 msgstr "Ol&vasás"
@@ -1625,6 +1633,10 @@ msgstr ""
 "  3: teljes képernyős parancssor\n"
 "  4: parancsértelmező mód\n"
 "  5: GUI mód"
+
+#: frmmain.usg128
+msgid "input $TARGET [[$]PROMPT]"
+msgstr "input $CÉL [[$]PROMPT]"
 
 #: frmmain.usg13
 msgid "savecfg [$]PATH_AND_FILENAME"
@@ -2381,6 +2393,10 @@ msgstr "Műkö&dés"
 #: tform1.menuitem80.caption
 msgid "Register table.."
 msgstr "Regisztertábla.."
+
+#: tform1.menuitem81.caption
+msgid "Help"
+msgstr "Segí­tség"
 
 #: tform1.menuitem9.caption
 msgid "&Utilities"

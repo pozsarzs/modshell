@@ -540,15 +540,15 @@ BUILTIN COMMANDS
        exit [[$]EXIT_CODE]
               Exits from program or script.
 
-       getarrsize ARRAY $TARGET
-              Gets size of an array and placed in _$TARGET_.
-
-       goto [$]LABEL
-              Jumps to specified label (only in script).
-
        for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND
               Loop  iteration  (only  in  script). Increments $VARIABLE from [$]VALUE1 to
               [$]VALUE2 and does COMMAND.
+
+       getarrsize ARRAY $TARGET
+              Gets size of an array and placed in $TARGET.
+
+       goto [$]LABEL
+              Jumps to specified label (only in script).
 
        help [[$]COMMAND]
               Shows description or usage of the builtin commands.
@@ -560,6 +560,9 @@ BUILTIN COMMANDS
        inputmeth [an|hex|swap]
               Queries or changes local input method for connection.  AN means alphanumer‐
               ical, hex means the hexadecimal representation of the bytes.
+
+       input $TARGET [[$]PROMPT]
+              Shows prompt and reads data from console and and placed in $TARGET.
 
        label LABEL
               Define label (only in script).

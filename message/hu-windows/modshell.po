@@ -359,6 +359,10 @@ msgstr "változó"
 msgid "message"
 msgstr "üzenet"
 
+#: modshell:msg76
+msgid "Data entry"
+msgstr "Adatbevitel"
+
 #: modshell:msg77
 msgid "&Read"
 msgstr "Ol&vasás"
@@ -1298,6 +1302,10 @@ msgstr "         egy bájt írása az I/O portra"
 msgid "         get running method"
 msgstr "         futtatási módszer lekérdezése"
 
+#: modshell:des128
+msgid "         show prompt and read data from console"
+msgstr "         prompt kiírás és adatbevitel a konzolról"
+
 #: modshell:usg00
 msgid ""
 "copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]\n"
@@ -2052,6 +2060,10 @@ msgstr ""
 "  3: teljes képernyõs parancssor\n"
 "  4: parancsértelmezõ mód\n"
 "  5: GUI mód"
+
+#: modshell:usg128
+msgid "input $TARGET [[$]PROMPT]"
+msgstr "input $CÉL [[$]PROMPT]"
 
 #~ msgid ""
 #~ "runmeth\n"

@@ -114,3 +114,5 @@ convert:
 	else \
 	  echo "To create message file for DOS and Windows, install the necessary tools."; \
 	fi
+
+createhelp:

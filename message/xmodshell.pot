@@ -165,6 +165,10 @@ msgstr ""
 msgid "         get running method"
 msgstr ""
 
+#: frmmain.des128
+msgid "         show prompt and read data from console"
+msgstr ""
+
 #: frmmain.des13
 msgid "F2       save settings of device, protocol and connection"
 msgstr ""
@@ -1148,6 +1152,10 @@ msgstr ""
 msgid "message"
 msgstr ""
 
+#: frmmain.msg76
+msgid "Data entry"
+msgstr ""
+
 #: frmmain.msg77
 msgid "&Read"
 msgstr ""
@@ -1512,6 +1520,10 @@ msgid ""
 "  3: full sceen command line\n"
 "  4: interpreter mode\n"
 "  5: GUI mode"
+msgstr ""
+
+#: frmmain.usg128
+msgid "input $TARGET [[$]PROMPT]"
 msgstr ""
 
 #: frmmain.usg13
@@ -2227,6 +2239,10 @@ msgstr ""
 
 #: tform1.menuitem80.caption
 msgid "Register table.."
+msgstr ""
+
+#: tform1.menuitem81.caption
+msgid "Help"
 msgstr ""
 
 #: tform1.menuitem9.caption

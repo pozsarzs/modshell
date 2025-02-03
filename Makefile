@@ -47,3 +47,10 @@ convert:
 	  if [ -e Makefile ]; then $(make) -s -C $$dir convert; fi; \
 	done
 	@echo "Done."
+
+createhelp:
+	@echo "Create compressed HTML help file"
+	@for dir in $(dirs); do \
+	  if [ -e Makefile ]; then $(make) -s -C $$dir createhelp; fi; \
+	done
+	@echo "Done."

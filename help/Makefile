@@ -44,3 +44,19 @@ uninstall:
 	@echo "]"
 
 convert:
+
+createhelp:
+	@if [ $(chmcmd) != "no" ]; \
+	then \
+	  for x in $(projectdirs); do \
+	    if [ -f $$x/$(name)_$$x.hhp ]; \
+	    then \
+	      cd $$x; \
+	      $(chmcmd) $(name)_$$x.hhp; \
+	      mv $(name)_$$x.chm ..; \
+	      cd ..; \
+	    fi; \
+	  done; \
+	else \
+	  echo "To create CHM help file, install the necessary tools."; \
+	fi

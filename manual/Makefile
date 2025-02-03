@@ -56,3 +56,5 @@ convert:
 	else \
 	  echo "To create manual page for DOS, install the necessary tools."; \
 	fi
+
+createhelp:
