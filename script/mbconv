@@ -13,6 +13,9 @@
 #  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 #  FOR A PARTICULAR PURPOSE.
 
+# set verbose level of ModShell
+let $verbose NOTHING
+
 # VARIABLES AND CONSTANTS
 # general variables
 var i

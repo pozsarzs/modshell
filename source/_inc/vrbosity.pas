@@ -30,7 +30,7 @@ begin
   if runmethod = 4 then
   begin
     for b := 0 to 2 do
-      if lowercase(vars[16].vvalue) = LEVELS[b] then verbositylevel := b;
+      if lowercase(vars[14].vvalue) = LEVELS[b] then verbositylevel := b;
     case verbositylevel of
       1: if messagelevel < 2 then result := false;
       2: result := false;

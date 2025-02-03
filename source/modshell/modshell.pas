@@ -411,6 +411,7 @@ begin
   // pass command line arguments
   if runmethod = 4 then
   begin
+    setdefaultvariables;
     cmd_const('ARGCNT', inttostr(paramcount - 2));
     cmd_const('ARG0', paramstr(2));
     if paramcount > 2 then

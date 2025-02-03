@@ -1,6 +1,6 @@
 ## ANSI Escape Sequences
 
-###Important screen control sequences
+### Important screen control sequences
 
 Used sequence type is _CSI_ (Control Sequence Introducer). This type starting
 with ESC[ (_\x1B[_) or CSI (_\x9B_).  
