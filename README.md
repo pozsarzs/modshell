@@ -85,7 +85,7 @@ HART protocols.
 
 ## II. Releases
 
-### Planned next releases to v0.1
+### Planned next releases up to v0.1
 
 ...that either will or won't.  
 
@@ -112,6 +112,7 @@ _Second user test release_ will be with the following changes:
  - [x] new command `input`;  
  - [ ] new command `swp`;  
  - [ ] new command `stack`;  
+ - [ ] new command `gpio` (Industrial PC and RaspberryPi GPIO port support);  
  - [ ] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
  - [ ] HART protocol support;  
  - [ ] Modbus/TCP communication;  
