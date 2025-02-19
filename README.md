@@ -574,7 +574,7 @@ menu.
 
 If you find any bugs, please report them! I am also happy to accept pull
 requests from anyone. You can use the GitHub issue tracker to report bugs, ask
-questions, or suggest new features. See ![CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+questions, or suggest new features. See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 for details.  
 
 ## X. Links  
