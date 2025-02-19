@@ -10,11 +10,39 @@
 
 Copyright (C) 2023-2025 Pozsár Zsolt <pozsarzs@gmail.com>  
 
-ModShell is a utility built around a command interpreter, which with the
-connected peripherals communicates via various ports using the Modbus, DCON and
-HART protocols.
+## About this project
+
+This project started in December 2023 as a Christmas project, to wind down the
+busy end-of-year period.The original goal was to create a utility that would
+allow multiple Modbus devices of the same type to be configured without using
+a touchpad.  
+
+The project has grown considerably in size over time, but many features have
+been implemented that make it more useful. With the growth, the goal has also
+been reformulated: the program must have multiple user interfaces, be usable on
+many operating systems, handle multiple communication channels and protocols, be
+suitable for many tasks, and even work automatically.  
+
+The next goal is to create a field (installed) or handheld (mobile) data
+collector, converter, processor, etc., as well as a data and traffic monitoring
+device that works reliably, using this program, a single-board computer, and a
+mini HMI.  
+
+The choice of source language fell on the outdated and neglected FreePascal.
+Partly because of its multiplatform nature ('Write once - compile everywhere'),
+partly because it is what I feel most comfortable with. I'm not sure it was the
+best choice, but you have to make the most of it.  
+
+The benefit of the project is not the finished product, as there are 'thousands'
+of similar products on the market. The biggest benefit is the development of
+logical thinking and the knowledge we gain while programming, but the greatest
+is the joy of creation. And this is not dependent on the programming language.  
 
 ## I. Features
+
+ModShell is a utility built around a command interpreter, which with the
+connected peripherals communicates via various ports using the Modbus, DCON and
+HART protocols.  
 
 |features                |                                                                                            |
 |------------------------|--------------------------------------------------------------------------------------------|
@@ -57,7 +85,7 @@ HART protocols.
 
 ## II. Releases
 
-### Planned next releases  
+### Planned next releases to v0.1
 
 ...that either will or won't.  
 
@@ -545,7 +573,8 @@ menu.
 
 If you find any bugs, please report them! I am also happy to accept pull
 requests from anyone. You can use the GitHub issue tracker to report bugs, ask
-questions, or suggest new features.  
+questions, or suggest new features. See ![CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+for details.  
 
 ## X. Links  
 
