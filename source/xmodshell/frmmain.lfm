@@ -1013,6 +1013,7 @@ object Form1: TForm1
         Caption = 'Help'
         ImageIndex = 8
         ShortCut = 8304
+        OnClick = MenuItem81Click
       end
       object Separator17: TMenuItem
         Caption = '-'
@@ -1251,5 +1252,13 @@ object Form1: TForm1
       2A533A996D8C57EB98F916135F96B730D72BF89ECCF2607EA6C710AFD513630B
       189B7D0A7B22DD6D880F871AE6FF0DF3FF86F97FC3FCFF74E7FFFF012980E95E
     }
+  end
+  object CHMHelpDatabase1: TCHMHelpDatabase
+    AutoRegister = True
+    Left = 472
+  end
+  object LHelpConnector1: TLHelpConnector
+    AutoRegister = True
+    Left = 504
   end
 end

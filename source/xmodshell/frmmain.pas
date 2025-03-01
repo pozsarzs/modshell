@@ -32,7 +32,10 @@ uses
   Forms,
   GetText,
   Graphics,
+  HelpIntfs,
   INIFiles,
+  LazHelpCHM,
+  LazHelpIntf,
   LCLType,
   Math,
   Menus,
@@ -75,6 +78,8 @@ type
   end;
   { TForm1 }
   TForm1 = class(TForm)
+    CHMHelpDatabase1: TCHMHelpDatabase;
+    LHelpConnector1: TLHelpConnector;
     ComboBox1: TComboBox;
     MainMenu1: TMainMenu;
     Memo1: TMemo;
@@ -275,6 +280,7 @@ type
     procedure LSpinEdit401Change(Sender: TObject);
     procedure LSpinEdit411Change(Sender: TObject);
     procedure MenuItem80Click(Sender: TObject);
+    procedure MenuItem81Click(Sender: TObject);
   private
   public
   end;
@@ -1081,6 +1087,11 @@ end;
 
 // -- MAIN MENU/Help -----------------------------------------------------------
 
+// SHOW HELP WINDOW
+procedure TForm1.MenuItem81Click(Sender: TObject);
+begin
+end;
+
 // RUN COMMAND 'help'
 procedure TForm1.MenuItem6Click(Sender: TObject);
 var
@@ -1280,6 +1291,7 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 var
   b: byte;
+  chmfile, chmviewer: string;
 begin
   runmethod := 5;
   randomize;
@@ -1367,6 +1379,34 @@ begin
     StringAttri.Style := [fsItalic];
     StringDelim := sdDoubleQuote;
     VariableAttri.Foreground := clNone;
+  end;
+  // set help system
+  // search help file
+  {$IFDEF UNIX}
+    chmfile := filesearch('modshell_' + lang + '.chm',
+      './;./help/;/usr/share/modshell/help/;/usr/local/share/modshell/help/');
+    if length(chmfile) = 0 then
+      chmfile := filesearch('modshell_en.chm',
+        './;./help/;/usr/share/modshell/help/;/usr/local/share/modshell/help/');
+  {$ELSE}
+    chmfile := filesearch('modshell_' + lang + '.chm','.\;.\help\');
+    if length(chmfile) = 0 then
+      chmfile := filesearch('modshell_en.chm','.\;.\help\');
+  {$ENDIF}
+  // search LHelp application
+  {$IFDEF UNIX}
+    chmviewer := filesearch('lhelp', getenvironmentvariable('PATH'));
+  {$ELSE}
+    chmviewer := filesearch('lhelp.exe', getenvironmentvariable('PATH'));
+  {$ENDIF}
+  // set help
+  if fileexists(chmfile) then
+  begin
+    CHMHelpDatabase1.Filename := chmfile;
+    CHMHelpDatabase1.KeywordPrefix := 'en';
+    CHMHelpDatabase1.AutoRegister:=True;
+    LHelpConnector1.LHelpPath := chmviewer;
+    LHelpConnector1.AutoRegister:=True;
   end;
 end;
 

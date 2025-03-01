@@ -1,0 +1,124 @@
+#!/usr/bin/python3
+# +----------------------------------------------------------------------------+
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | createhhk                                                                  |
+# | Create hhk index file                                                      |
+# +----------------------------------------------------------------------------+
+
+import glob
+import sys
+
+htmfiles = []
+
+# write top of the index file to file
+def writetoptofile(filename):
+  result = True
+  try:
+    with open(filename, 'w') as hhk:
+      hhk.write('<!doctype html public "-//ietf//dtd html//en">\n')
+      hhk.write('<html>\n')
+      hhk.write('  <head>\n')
+      hhk.write('  </head>\n')
+      hhk.write('  <body>\n')
+      hhk.write('    <ul>\n')
+      hhk.write('    </ul>\n')
+      hhk.close()
+  except:
+    result = False
+  return result
+
+# write keywords to index file
+def writekeywordstofile(filename):
+  result = True
+  try:
+    with open(filename, 'a') as hhk:
+      for i in range(0, len(keywords)):
+        hhk.write('      <li>\n')
+        hhk.write('        <object type="text/sitemap">\n')
+        hhk.write('          <param name="Name" value="' + keywords[i] + '">\n')
+        hhk.write('          <param name="Local" value="' + htmfile + '#' + keywords[i] + '">\n')
+        hhk.write('        </object>\n')
+        hhk.write('      </li>\n')
+      hhk.close()
+  except:
+    result = False
+  return result
+
+# write end of the index file to file
+def writeendtofile(filename):
+  result = True
+  try:
+    with open(filename, 'a') as hhk:
+      hhk.write('  </body>\n')
+      hhk.write('</html>\n')
+      hhk.close()
+  except:
+    result = False
+  return result
+
+# search keywords
+def searchkeyword(filename):
+  global keywords
+  global htmfile
+  result = True
+  ss = ''
+  keywords = []
+  htmfile = filename.split('/')[-1]
+  print(htmfile + ': ')
+  try:
+   with open(filename, 'r') as htm:
+     s = htm.read()
+     htm.close()
+  except:
+    result = False
+  # remove space and tabulator
+  for i in range(0, len(s)):
+    if (ord(s[i]) != 32) and (ord(s[i]) != 9):
+      ss = ss + s[i]
+  # search keywords
+  try:
+    i = 0
+    while i < len(ss):
+      j = ss.find('aname="', i)
+      if j > 0:
+        kw = ''
+        for k in range(j + 7, len(ss)):
+          if (ss[k] != '"'):
+            kw = kw + ss[k]
+          else:
+            print(' - ' + kw)
+            keywords.append(kw)
+            i = k
+            break
+      else:
+        i = i + 1      
+  except:
+    print()
+  return result
+
+# MAIN
+# command line arguments
+if (len(sys.argv) < 3):
+  print('Usage:', sys.argv[0], 'LANG filename.hhk')
+  print('       LANG: en, de, hu etc.')
+  exit(1)
+
+# search htm files
+htmfiles = glob.glob(sys.argv[1] + '/*.htm')
+if (len(htmfiles) == 0):
+  print('There are no HTML files in this directory:', sys.argv[1])
+  exit(2)
+
+# search keywords and create index file
+try:
+  writetoptofile(sys.argv[2])
+  for i in range(0, len(htmfiles)):
+    searchkeyword(htmfiles[i])
+    writekeywordstofile(sys.argv[2])
+  writeendtofile(sys.argv[2])
+except:
+  print('Cannot write this file:', sys.argv[2])
+  exit(3)
+
+exit(0)

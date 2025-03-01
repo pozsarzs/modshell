@@ -235,22 +235,25 @@ Script editor
 Variable monitor  
 ![variable monitor](document/picture/xmodshell-varmon.png)
 
-## IV. Used external libraries
+## IV. Used external libraries and programs
 
- - _Convert - Bin/Oct/Dec/Hex number converter_  
-   Unit for Turbo Pascal v3.0  
-   Public Domain, Copyright (C) 1993 Tom Wellige  
  - _Ararat Synapse Release 40_ [^1]  
    TCP/IP and serial library for FreePascal  
    Modified BSD style license, Copyright (C) 1999-2012 Lukas Gebauer  
- - _ProtCOM v0.1 Protected mode serial port handler for DOS_ [^2]  
+ - _Convert - Bin/Oct/Dec/Hex number converter_  
+   Unit for Turbo Pascal v3.0  
+   Public Domain, Copyright (C) 1993 Tom Wellige  
+ - _InpOut32 v1.0.07 Driver Interface DLL_ [^2]  
+   Windows Dynamic Link Library (DLL)  
+   Open source/freeware  
+   Copyright (C) 2003-2015 Phil Gibbons  
+   Copyright (C) 2000 <logix4u.net>  
+ - _LHelp v2021-02-12 CHM help viewer_  
+   Application  
+   GNU GPL v2.0 or later, Copyright (C) 2005-2014 Andrew Haines, Lazarus contributors  
+ - _ProtCOM v0.1 Protected mode serial port handler for DOS_ [^3]  
    Unit for FreePascal  
    Creative Common Zero Universal v1.0, Copyright (C) 2024 Pozsar Zsolt  
- - _InpOut32 v1.0.07 Driver Interface DLL_ [^3]  
-   Windows Dynamic Link Library (DLL)  
-   Open source/freeware 
-   Copyright (C) 2003-2015 Phil Gibbons
-   Copyright (C) 2000 <logix4u.net>
 
 ## V. About the program in a nutshell
 
@@ -600,7 +603,7 @@ Not all test versions have binary or installation packages.
 To download, visit [Modshell's webpage](http://www.pozsarzs.hu/software/modshell_en.html).
 
 [^1]: [Synapse Github repository](https://github.com/geby/synapse)
-[^2]: [ProtCOM Github repository](https://github.com/pozsarzs/protcom)
-[^3]: [InpOut32 Github repository](https://github.com/ellysh/InpOut32)
+[^2]: [InpOut32 Github repository](https://github.com/ellysh/InpOut32)
+[^3]: [ProtCOM Github repository](https://github.com/pozsarzs/protcom)
 [^4]: [Modbus](https://modbus.org)
 [^5]: [Wiki - Differents between CUI and GUI version](https://github.com/pozsarzs/modshell/wiki/c.-Differents-between-CUI-and-GUI-version)

@@ -1,0 +1,432 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+    <!-- Sitemap 1.0 -->
+  </head>
+<body>
+  <object type="text/site properties">
+    <param name="ImageType" value="Folder">
+  </object>
+  <ul>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="About program">
+        <param name="Local" value="Home.htm">
+      </object>
+    </li>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="Operation">
+        <param name="ImageNumber" value="2">
+        <param name="Local" value="Operation.htm">
+      </object>
+      <ul>
+        <li>
+          <object type="text/sitemap">
+          <param name="Name" value="Operating principle">
+          <param name="Local" value="Operation.htm#operating-principle">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Projects">
+            <param name="Local" value="Operation.htm#projects">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="File operations">
+            <param name="Local" value="Operation.htm#file-operations">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Script operations">
+            <param name="Local" value="Operation.htm#script-operations">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Raw serial connection">
+            <param name="Local" value="Operation.htm#raw-serial-connection">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Serial connection with DCON protocol">
+            <param name="Local" value="Operation.htm#serial-connection-with-dcon-protocol">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Serial connection with HART protocol">
+            <param name="Local" value="Operation.htm#serial-connection-with-hart-protocol">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Raw TCP connection">
+            <param name="Local" value="Operation.htm#raw-tcp-connection">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Raw UDP connection">
+            <param name="Local" value="Operation.htm#raw-udp-connection">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Direct I/O access">
+            <param name="Local" value="Operation.htm#direct-io-access">
+          </object>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="Commands">
+        <param name="ImageNumber" value="2">
+        <param name="Local" value="Builtin-commands.htm">
+      </object>
+      <ul>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Arithmetical commands">
+            <param name="Local" value="Builtin-commands.htm#arithmetical-commands">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Communication commands">
+            <param name="Local" value="Builtin-commands.htm#communication-commands">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Configuration commands">
+            <param name="Local" value="Builtin-commands.htm#configuration-commands">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="File operation commands">
+            <param name="Local" value="Builtin-commands.htm#file-operation-commands">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="General commands">
+            <param name="Local" value="Builtin-commands.htm#general-commands">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Logical commands">
+            <param name="Local" value="Builtin-commands.htm#logical-commands">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Register handler commands">
+            <param name="Local" value="Builtin-commands.htm#register-handler-commands">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Script operation commands">
+            <param name="Local" value="Builtin-commands.htm#script-operation-commands">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="String handler commands">
+            <param name="Local" value="Builtin-commands.htm#string-handler-commands">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="File and directory management system commands">
+            <param name="Local" value="Builtin-commands.htm#file-and-directory-management-system-commands">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Examples">
+            <param name="Local" value="Command-examples.htm">
+          </object>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="Hotkeys">
+        <param name="Local" value="Hotkeys.htm">
+      </object>
+    </li>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="Differents between CUI and GUI version">
+        <param name="Local" value="Differents-between-CUI-and-GUI-version.htm">
+      </object>
+    </li>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="Predefined things">
+        <param name="ImageNumber" value="2">
+        <param name="Local" value="Predefined-constants.htm">
+      </object>
+      <ul>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Constants">
+            <param name="Local" value="Predefined-constants.htm">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Variables">
+            <param name="Local" value="Predefined-variables.htm">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Macros">
+            <param name="Local" value="Predefined-macros.htm">
+          </object>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="Used filetypes">
+        <param name="Local" value="Files.htm">
+      </object>
+    </li>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="Utilities">
+        <param name="Local" value="Utilities.htm">
+      </object>
+      <ul>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="SerialEchoserver">
+            <param name="Local" value="Utilities.htm#serialechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="TCPEchoserver">
+            <param name="Local" value="Utilities.htm#tcpechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="UDPEchoserver">
+            <param name="Local" value="Utilities.htm#udpechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="SerialMBMonitor">
+            <param name="Local" value="Utilities.htm#serialmbmonitor">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="MBConv">
+            <param name="Local" value="Utilities.htm#mbconv">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="NumConv">
+            <param name="Local" value="Utilities.htm#numconv">
+          </object>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="Command line arguments">
+        <param name="ImageNumber" value="2">
+        <param name="Local" value="Command-line-parameters.htm">
+      </object>
+      <ul>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Modshell">
+            <param name="Local" value="Command-line-parameters.htm#modshell">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="XModshell">
+            <param name="Local" value="Command-line-parameters.htm#xmodshell">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="SerialEchoserver">
+            <param name="Local" value="Command-line-parameters.htm#serialechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="TCPEchoserver">
+            <param name="Local" value="Command-line-parameters.htm#tcpechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="UDPEchoserver">
+            <param name="Local" value="Command-line-parameters.htm#udpechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="SerialMBMonitor">
+            <param name="Local" value="Command-line-parameters.htm#serialmbmonitor">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="MBConv">
+            <param name="Local" value="Command-line-parameters.htm#mbconv">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="NumConv">
+            <param name="Local" value="Command-line-parameters.htm#numconv">
+          </object>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="Environmental variables">
+        <param name="ImageNumber" value="2">
+        <param name="Local" value="Environmental-variables.htm">
+      </object>
+      <ul>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Modshell">
+            <param name="Local" value="Environmental-variables.htm#modshell">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="XModshell">
+            <param name="Local" value="Environmental-variables.htm#xmodshell">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="SerialEchoServer">
+            <param name="Local" value="Environmental-variables.htm#serialechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="TCPEchoServer">
+            <param name="Local" value="Environmental-variables.htm#tcpechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="UDPEchoServer">
+            <param name="Local" value="Environmental-variables.htm#udpechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="SerialMBMonitor">
+            <param name="Local" value="Environmental-variables.htm#serialmbmonitor">
+          </object>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="Exit codes">
+        <param name="ImageNumber" value="2">
+        <param name="Local" value="Exit-status.htm">
+      </object>
+      <ul>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Modshell">
+            <param name="Local" value="Exit-status.htm#modshell">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="XModshell">
+            <param name="Local" value="Exit-status.htm#xmodshell">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="SerialEchoServer">
+            <param name="Local" value="Exit-status.htm#serialechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="TCPEchoServer">
+            <param name="Local" value="Exit-status.htm#tcpechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="UDPEchoServer">
+            <param name="Local" value="Exit-status.htm#udpechoserver">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="SerialMBMonitor">
+            <param name="Local" value="Exit-status.htm#serialmbmonitor">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="MBConv">
+            <param name="Local" value="Exit-status.htm#mbconv">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="NumConv">
+            <param name="Local" value="Exit-status.htm#numconv">
+          </object>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <object type="text/sitemap">
+        <param name="Name" value="Installation">
+        <param name="ImageNumber" value="2">
+        <param name="Local" value="Installation-from-source-code.htm">
+      </object>
+      <ul>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Installation from source code">
+            <param name="Local" value="Installation-from-source-code.htm">
+          </object>
+        </li>
+        <li>
+          <object type="text/sitemap">
+            <param name="Name" value="Available packages">
+            <param name="Local" value="Packaging.htm">
+          </object>
+        </li>
+      </ul>
+    </li>
+  </body>
+</html>

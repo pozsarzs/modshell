@@ -22,7 +22,7 @@ uses
     CThreads,
   {$ENDIF}
   Dialogs,
-  Forms,
+  Forms, lhelpcontrolpkg,
   Interfaces,
   ModLCLTranslator,
   SySUtils,
@@ -34,7 +34,8 @@ uses
   frmudcn,
   frmvrmn,
   frmregtable,
-  ucommon;
+  ucommon,
+  uconfig;
 var
   b: byte;
   fn: string;

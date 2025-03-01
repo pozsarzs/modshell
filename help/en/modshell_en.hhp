@@ -1,10 +1,14 @@
 [OPTIONS]
+Auto Index=Yes
+Auto TOC=9
 Compatibility=1.1 or later
 Compiled file=modshell_en.chm
-Contents file=Table of Contents.hhc
+Contents file=modshell_en.hhc
 Default topic=Home.htm
-Display compile progress=No
-Language=0x40e Hungarian (Hungary)
+Display compile progress=Yes
+Index file=modshell_en.hhk
+Language=0x409 angol (egyes�lt �llamokbeli)
+Title=ModShell Help
 
 [FILES]
 Builtin-commands.htm
@@ -25,3 +29,4 @@ Predefined-variables.htm
 Utilities.htm
 
 [INFOTYPES]
+
