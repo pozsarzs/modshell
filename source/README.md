@@ -1,3 +1,10 @@
+## Source code of external applications
+
+|name            |description                            |copyright                                         |licence               |
+|----------------|---------------------------------------|--------------------------------------------------|----------------------|
+|lhelp           |CHM help viewer application            |(C) 2005-2014 Andrew Haines, Lazarus contributors |GNU GPL v2.0 or later |
+
+
 ## Source code
 
 |name            |description                            |

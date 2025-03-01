@@ -1090,6 +1090,7 @@ end;
 // SHOW HELP WINDOW
 procedure TForm1.MenuItem81Click(Sender: TObject);
 begin
+  ShowHelpOrErrorForKeyword('','html/Home.htm');
 end;
 
 // RUN COMMAND 'help'
@@ -1384,10 +1385,10 @@ begin
   // search help file
   {$IFDEF UNIX}
     chmfile := filesearch('modshell_' + lang + '.chm',
-      './;./help/;/usr/share/modshell/help/;/usr/local/share/modshell/help/');
+      './:./help/:/usr/share/modshell/help/:/usr/local/share/modshell/help/');
     if length(chmfile) = 0 then
       chmfile := filesearch('modshell_en.chm',
-        './;./help/;/usr/share/modshell/help/;/usr/local/share/modshell/help/');
+        './:./help/:/usr/share/modshell/help/:/usr/local/share/modshell/help/');
   {$ELSE}
     chmfile := filesearch('modshell_' + lang + '.chm','.\;.\help\');
     if length(chmfile) = 0 then
@@ -1399,15 +1400,22 @@ begin
   {$ELSE}
     chmviewer := filesearch('lhelp.exe', getenvironmentvariable('PATH'));
   {$ENDIF}
-  // set help
-  if fileexists(chmfile) then
+  // set help system
+  if fileexists(chmfile) and fileexists(chmviewer) then
   begin
-    CHMHelpDatabase1.Filename := chmfile;
-    CHMHelpDatabase1.KeywordPrefix := 'en';
-    CHMHelpDatabase1.AutoRegister:=True;
-    LHelpConnector1.LHelpPath := chmviewer;
-    LHelpConnector1.AutoRegister:=True;
-  end;
+    CreateLCLHelpSystem;
+    with CHMHelpDatabase1 do
+    begin
+      Autoregister := true;
+      Filename := chmfile;
+      KeywordPrefix := 'html'
+    end;
+    with LHelpConnector1 do
+    begin
+      Autoregister := true;
+      LHelpPath := chmviewer;
+    end;
+  end else ShowMessage(ERR67);
 end;
 
 end.

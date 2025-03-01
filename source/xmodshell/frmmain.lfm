@@ -1012,7 +1012,7 @@ object Form1: TForm1
       object MenuItem81: TMenuItem
         Caption = 'Help'
         ImageIndex = 8
-        ShortCut = 8304
+        ShortCut = 112
         OnClick = MenuItem81Click
       end
       object Separator17: TMenuItem
@@ -1021,7 +1021,7 @@ object Form1: TForm1
       object MenuItem6: TMenuItem
         Caption = 'Commands'
         ImageIndex = 8
-        ShortCut = 112
+        ShortCut = 8304
         OnClick = MenuItem6Click
       end
       object Separator5: TMenuItem

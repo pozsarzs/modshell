@@ -14,7 +14,7 @@ podir=_po
 targetdir=$(bindir)
 filemode=$(binmode)
 projectdirs=modshell serialechoserver serialmbmonitor tcpechoserver \
-            udpechoserver xmodshell
+            udpechoserver xmodshell lhelp
 
 all:
 	@mkdir -p $(sourcedir)/

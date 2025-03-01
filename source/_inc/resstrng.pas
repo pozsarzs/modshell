@@ -205,6 +205,7 @@ resourcestring
   ERR64 = 'Wrong register type';
   ERR65 = 'Wrong address';
   ERR66 = 'No such array cell: ';
+  ERR67 = 'Help system is not accessible!';
   ERR98 = 'Cannot load inpout32.dll!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
