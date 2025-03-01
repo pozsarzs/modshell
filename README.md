@@ -109,11 +109,12 @@ HART protocols.
 
 _0.1-beta2_
 _Second user test release_ will be with the following changes:
- - [x] new command `input`;  
- - [ ] new command `swp`;  
- - [ ] new command `stack`;  
+ - [ ] new command `abs`;  
  - [ ] new command `gpio` (Industrial PC and RaspberryPi GPIO port support);  
- - [ ] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
+ - [x] new command `input`;  
+ - [ ] new command `stack`;  
+ - [ ] new command `swp`;  
+ - [x] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
  - [ ] HART protocol support;  
  - [ ] Modbus/TCP communication;  
  - [ ] TCP/UDP communication on DOS;  

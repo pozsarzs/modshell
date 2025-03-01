@@ -803,6 +803,10 @@ msgstr "Rossz cím"
 msgid "No such array cell: "
 msgstr "Nincs ilyen cella a tömbben: "
 
+#: frmmain.err67
+msgid "Help system is not accessible!"
+msgstr "A súgó nem elérhető!"
+
 #: frmmain.err98
 msgid "Cannot load inpout32.dll!"
 msgstr "Nem lehet betölteni a inpout32.dll-t!"

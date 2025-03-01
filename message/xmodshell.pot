@@ -785,6 +785,10 @@ msgstr ""
 msgid "No such array cell: "
 msgstr ""
 
+#: frmmain.err67
+msgid "Help system is not accessible!"
+msgstr ""
+
 #: frmmain.err98
 msgid "Cannot load inpout32.dll!"
 msgstr ""

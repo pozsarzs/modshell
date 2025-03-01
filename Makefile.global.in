@@ -54,8 +54,10 @@ fpcargs		= -T@os@ \
                   -Fu../_ppu/ \
                   -Fu. \
                   -Fu../_lib/@architecture@-@os@/ \
-                  -Fu@lcldir@/../components/synedit/ \
+                  -Fu@lcldir@/../components/chmhelp/packages/help/ \
                   -Fu@lcldir@/../components/lazutils/lib/@architecture@-@os@/ \
+                  -Fu@lcldir@/../components/turbopower_ipro/ \
+                  -Fu@lcldir@/../components/synedit/ \
                   -Fu@lcldir@/../packager/units/@architecture@-@os@/ \
                   -Fu@lcldir@/units/@architecture@-@os@/ \
                   -Fu@lcldir@/units/@architecture@-@os@/gtk2/ \

@@ -749,6 +749,10 @@ msgstr ""
 msgid "No such array cell: "
 msgstr ""
 
+#: modshell:err67
+msgid "Help system is not accessible!"
+msgstr ""
+
 #: modshell:err98
 msgid "Cannot load inpout32.dll!"
 msgstr ""
