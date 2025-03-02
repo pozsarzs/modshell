@@ -28,7 +28,10 @@ all:
             if [ ! $(util) = "no" ] && [ ! $$x = "modshell" ] && [ ! $$x = "xmodshell" ]; then \
               if [ -f $$x.pas ]; then $(fpc) $(fpcargs) $$x.pas; fi; \
 	    fi; \
-            if [ ! $(gui) = "no" ] && [ $(lclunits) = "yes" ]; then \
+            if [ ! $(gui) = "no" ] && [ $(lclunits) = "yes" ] && [ $$x = "xmodshell" ]; then \
+              if [ -f $$x.lpr ]; then $(fpc) $(fpcargs) $$x.lpr; fi; \
+	    fi; \
+            if [ ! $(gui) = "no" ] && [ ! $(lhelp) = "no" ] && [ $(lclunits) = "yes" ]; then \
               if [ -f $$x.lpr ]; then $(fpc) $(fpcargs) $$x.lpr; fi; \
 	    fi; \
 	    cd ..; \

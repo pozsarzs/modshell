@@ -78,6 +78,17 @@ install:
 	    echo -n "#"; \
 	  fi; \
 	done
+	@if [ ! $(lhelp) = "no" ]; \
+	then \
+	  for x in $(languages); do \
+	    if [ -f $$x/lhelp.mo ]; \
+	    then \
+	      $(install) -d $(targetdir)/$$x/LC_MESSAGES/; \
+	      $(install) -m $(filemode) $(sourcedir)/$$x/lhelp.mo $(targetdir)/$$x/LC_MESSAGES/; \
+	      echo -n "#"; \
+	    fi; \
+	  done; \
+	fi
 	@echo "]"
 
 uninstall:
@@ -95,6 +106,46 @@ uninstall:
 	    $(rm) $(targetdir)/$$x/LC_MESSAGES/x$(name).mo; \
 	    echo -n "#"; \
 	  fi; \
+	done
+	@for x in $(languages); do \
+	  if [ -f $$x/serialechoserver.mo ]; \
+	  then \
+	    $(rm) $(targetdir)/$$x/LC_MESSAGES/serialechoserver.mo; \
+	    echo -n "#"; \
+	  fi; \
+	done
+	@for x in $(languages); do \
+	  if [ -f $$x/serialmbmonitor.mo ]; \
+	  then \
+	    $(rm) $(targetdir)/$$x/LC_MESSAGES/serialmbmonitor.mo; \
+	    echo -n "#"; \
+	  fi; \
+	done
+	@for x in $(languages); do \
+	  if [ -f $$x/tcpechoserver.mo ]; \
+	  then \
+	    $(rm) $(targetdir)/$$x/LC_MESSAGES/tcpechoserver.mo; \
+	    echo -n "#"; \
+	  fi; \
+	done
+	@for x in $(languages); do \
+	  if [ -f $$x/udpechoserver.mo ]; \
+	  then \
+	    $(rm) $(targetdir)/$$x/LC_MESSAGES/udpechoserver.mo; \
+	    echo -n "#"; \
+	  fi; \
+	done
+	@if [ ! $(lhelp) = "no" ]; \
+	then \
+	  for x in $(languages); do \
+	    if [ -f $$x/lhelp.mo ]; \
+	    then \
+	      $(rm) $(targetdir)/$$x/LC_MESSAGES/lhelp.mo; \
+	      echo -n "#"; \
+	    fi; \
+	  done; \
+	fi
+	@for x in $(languages); do \
 	  if [ $(removetargetdir) -eq 1 ]; \
 	  then \
 	    if [ -d $(targetdir)/$$x/LC_MESSAGES ]; then $(rmdir) $(targetdir)/$$x/LC_MESSAGES; fi; \
