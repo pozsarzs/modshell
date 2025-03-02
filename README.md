@@ -100,9 +100,12 @@ HART protocols.
 
 <details>
  <summary><i>v0.1-beta3</i></summary>
- <i>Third user test release</i>.<br>
- The software will not include any new features compared to the previous
- release, only bug fixes. Only a source package will be released.  
+ <i>Third user test release</i> will be with the following changes:
+ <ul>
+   <li>graphical monitoring the change of values over time (only XModShell);</li>
+   <li>implementation of additional Modbus functions.</li>
+ </ul>
+ Only a source package will be released.  
 </details>
 
 ### Actual release  
@@ -118,8 +121,6 @@ _Second user test release_ will be with the following changes:
  - [ ] HART protocol support;  
  - [ ] Modbus/TCP communication;  
  - [ ] TCP/UDP communication on DOS;  
- - [ ] graphical monitoring the change of values over time (only XModShell);  
- - [ ] implementation of additional Modbus functions.  
  Only a source package will be released.
 
 ### Previous releases  
@@ -163,7 +164,7 @@ _Second user test release_ will be with the following changes:
   <li>support for variable and constant arrays</li>    
   <li>new predefined constants</li>  
   <li>syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows only) and Vim/Neovim</li>  
-  <li>TCP and UPD echo server utilities for testing connectivity.</li>  
+egzotikusTCP and UPD echo server utilities for testing connectivity.</li>  
  </ul>  
  Only a source package will be released.
 </details>

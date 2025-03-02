@@ -618,12 +618,13 @@ ac_subst_vars='LTLIBOBJS
 LIBOBJS
 version
 vardir
+util
 os
+lhelp
 lclunits
 lcldir
-fpcargs
-util
 gui
+fpcargs
 cui
 copyright
 bprefix
@@ -2695,8 +2696,15 @@ if test "$stagedir" != ""; then mandir="$prefix/man"; fi
 
 if (test "$cui" = "") || (test $cui != "no"); then cui="yes"; fi
 if (test "$gui" = "") || (test $gui != "no"); then gui="yes"; fi
-if (test $lclunits = "no"); then gui="no"; fi
 if (test "$util" = "") || (test $util != "no"); then util="yes"; fi
+if (test "$lhelp" = "") || (test $lhelp != "no"); then lhelp="yes"; fi
+if (test $lclunits = "no")
+then
+  gui="no"
+  util="no"
+  lhelp="no"
+fi
+
 
 
 
@@ -3888,16 +3896,19 @@ Summary:
   ModShell compilation      $cui
   XModShell compilation     $gui
   utilities compilation     $util
+  LHelp compilation         $lhelp
 
 Notes:
   disable compilation of ModShell       configure cui=no
   disable compilation of XModShell      configure gui=no
   disable compilation of utilities      configure util=no
+  disable compilation of LHelp          configure lhelp=no
   install to FreeBSD stage directory    configure stagedir=...
 
   compile program                       make
   install program                       make install
   remove program                        make uninstall
   convert files for DOS                 make convert
+  create CHM help file                  make createhelp
 "
 

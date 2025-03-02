@@ -42,6 +42,7 @@ lclunits        = @lclunits@
 cui             = @cui@
 gui             = @gui@
 util            = @util@
+lhelp           = @lhelp@
 
 fpcargs		= -T@os@ \
                   -MObjFPC \

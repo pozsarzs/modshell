@@ -75,8 +75,14 @@ if test "$stagedir" != ""; then mandir="$prefix/man"; fi
 
 if (test "$cui" = "") || (test $cui != "no"); then cui="yes"; fi
 if (test "$gui" = "") || (test $gui != "no"); then gui="yes"; fi
-if (test $lclunits = "no"); then gui="no"; fi
 if (test "$util" = "") || (test $util != "no"); then util="yes"; fi
+if (test "$lhelp" = "") || (test $lhelp != "no"); then lhelp="yes"; fi
+if (test $lclunits = "no")
+then
+  gui="no"
+  util="no"
+  lhelp="no"
+fi
 
 dnl -- SUBSTITUTION IN FILES --
 AC_SUBST(architecture)
@@ -85,15 +91,15 @@ AC_SUBST(bprefix)
 AC_SUBST(chmcmd)
 AC_SUBST(copyright)
 AC_SUBST(cui)
-AC_SUBST(gui)
-AC_SUBST(util)
 AC_SUBST(datarootdir)
 AC_SUBST(fpc)
 AC_SUBST(fpcargs)
+AC_SUBST(gui)
 AC_SUBST(iconv)
 AC_SUBST(install)
 AC_SUBST(lcldir)
 AC_SUBST(lclunits)
+AC_SUBST(lhelp)
 AC_SUBST(libdir)
 AC_SUBST(ln)
 AC_SUBST(make)
@@ -106,6 +112,7 @@ AC_SUBST(rm)
 AC_SUBST(rstconv)
 AC_SUBST(sysconfdir)
 AC_SUBST(unix2dos)
+AC_SUBST(util)
 AC_SUBST(vardir)
 AC_SUBST(version)
 AC_CONFIG_FILES([Makefile.global])
@@ -120,11 +127,13 @@ Summary:
   ModShell compilation      $cui
   XModShell compilation     $gui
   utilities compilation     $util
+  LHelp compilation         $lhelp
 
 Notes:
   disable compilation of ModShell       configure cui=no
   disable compilation of XModShell      configure gui=no
   disable compilation of utilities      configure util=no
+  disable compilation of LHelp          configure lhelp=no
   install to FreeBSD stage directory    configure stagedir=...
 
   compile program                       make

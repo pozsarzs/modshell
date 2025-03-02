@@ -12,7 +12,7 @@ removetargetdir=0
 sourcedir="."
 targetdir=$(localedir)
 filemode=$(txtmode)
-languages=hu
+languages=fi fr hu lt pl ru uk
 
 # convert encoding and line-ending of the .po file for DOS
 define conv_encode
