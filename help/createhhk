@@ -16,13 +16,11 @@ def writetoptofile(filename):
   result = True
   try:
     with open(filename, 'w') as hhk:
-      hhk.write('<!doctype html public "-//ietf//dtd html//en">\n')
-      hhk.write('<html>\n')
-      hhk.write('  <head>\n')
-      hhk.write('  </head>\n')
-      hhk.write('  <body>\n')
-      hhk.write('    <ul>\n')
-      hhk.write('    </ul>\n')
+      hhk.write('<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">\n')
+      hhk.write('<HTML>\n')
+      hhk.write('<HEAD>\n')
+      hhk.write('<UL>\n')
+      hhk.write('</UL>\n')
       hhk.close()
   except:
     result = False
@@ -34,12 +32,10 @@ def writekeywordstofile(filename):
   try:
     with open(filename, 'a') as hhk:
       for i in range(0, len(keywords)):
-        hhk.write('      <li>\n')
-        hhk.write('        <object type="text/sitemap">\n')
-        hhk.write('          <param name="Name" value="' + keywords[i] + '">\n')
-        hhk.write('          <param name="Local" value="' + htmfile + '#' + keywords[i] + '">\n')
-        hhk.write('        </object>\n')
-        hhk.write('      </li>\n')
+        hhk.write('        <LI> <OBJECT type="text/sitemap">\n')
+        hhk.write('                <PARAM name="Name" value="' + keywords[i] + '">\n')
+        hhk.write('                <PARAM name="Local" value="' + htmfile + '#' + keywords[i] + '">\n')
+        hhk.write('                </OBJECT>\n')
       hhk.close()
   except:
     result = False
@@ -50,8 +46,8 @@ def writeendtofile(filename):
   result = True
   try:
     with open(filename, 'a') as hhk:
-      hhk.write('  </body>\n')
-      hhk.write('</html>\n')
+      hhk.write('</UL>\n')
+      hhk.write('</BODY></HTML>\n')
       hhk.close()
   except:
     result = False

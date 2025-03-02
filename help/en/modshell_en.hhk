@@ -1,1527 +1,1022 @@
-<!doctype html public "-//ietf//dtd html//en">
-<html>
-  <head>
-  </head>
-  <body>
-    <ul>
-    </ul>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="arithmetical-commands">
-          <param name="Local" value="Command-examples.htm#arithmetical-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="add">
-          <param name="Local" value="Command-examples.htm#add">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="conv">
-          <param name="Local" value="Command-examples.htm#conv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="round">
-          <param name="Local" value="Command-examples.htm#round">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="subs">
-          <param name="Local" value="Command-examples.htm#subs">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="communication-commands">
-          <param name="Local" value="Command-examples.htm#communication-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="readreg">
-          <param name="Local" value="Command-examples.htm#readreg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="writereg">
-          <param name="Local" value="Command-examples.htm#writereg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="copyreg">
-          <param name="Local" value="Command-examples.htm#copyreg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="sercons">
-          <param name="Local" value="Command-examples.htm#sercons">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serread">
-          <param name="Local" value="Command-examples.htm#serread">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serwrite">
-          <param name="Local" value="Command-examples.htm#serwrite">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="configuration-commands">
-          <param name="Local" value="Command-examples.htm#configuration-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="get">
-          <param name="Local" value="Command-examples.htm#get">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="reset">
-          <param name="Local" value="Command-examples.htm#reset">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="set">
-          <param name="Local" value="Command-examples.htm#set">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="file-operation-commands">
-          <param name="Local" value="Command-examples.htm#file-operation-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="applog">
-          <param name="Local" value="Command-examples.htm#applog">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="exphis">
-          <param name="Local" value="Command-examples.htm#exphis">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="expreg">
-          <param name="Local" value="Command-examples.htm#expreg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="impreg">
-          <param name="Local" value="Command-examples.htm#impreg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="loadcfg">
-          <param name="Local" value="Command-examples.htm#loadcfg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="loadreg">
-          <param name="Local" value="Command-examples.htm#loadreg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="savecfg">
-          <param name="Local" value="Command-examples.htm#savecfg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="savereg">
-          <param name="Local" value="Command-examples.htm#savereg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="general-commands">
-          <param name="Local" value="Command-examples.htm#general-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="cron">
-          <param name="Local" value="Command-examples.htm#cron">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="echo">
-          <param name="Local" value="Command-examples.htm#echo">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="help">
-          <param name="Local" value="Command-examples.htm#help">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="let">
-          <param name="Local" value="Command-examples.htm#let">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="pause">
-          <param name="Local" value="Command-examples.htm#pause">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="print">
-          <param name="Local" value="Command-examples.htm#print">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="var">
-          <param name="Local" value="Command-examples.htm#var">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="varr">
-          <param name="Local" value="Command-examples.htm#varr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="logical-commands">
-          <param name="Local" value="Command-examples.htm#logical-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="and">
-          <param name="Local" value="Command-examples.htm#and">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="or">
-          <param name="Local" value="Command-examples.htm#or">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="not">
-          <param name="Local" value="Command-examples.htm#not">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="shr">
-          <param name="Local" value="Command-examples.htm#shr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="register-handler-commands">
-          <param name="Local" value="Command-examples.htm#register-handler-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="dump">
-          <param name="Local" value="Command-examples.htm#dump">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="let">
-          <param name="Local" value="Command-examples.htm#let">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="print">
-          <param name="Local" value="Command-examples.htm#print">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="script-operation-commands">
-          <param name="Local" value="Command-examples.htm#script-operation-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="loadscr">
-          <param name="Local" value="Command-examples.htm#loadscr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="run">
-          <param name="Local" value="Command-examples.htm#run">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="string-handler-commands">
-          <param name="Local" value="Command-examples.htm#string-handler-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="chr">
-          <param name="Local" value="Command-examples.htm#chr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="length">
-          <param name="Local" value="Command-examples.htm#length">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="stritem">
-          <param name="Local" value="Command-examples.htm#stritem">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="upcase">
-          <param name="Local" value="Command-examples.htm#upcase">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="system-commands">
-          <param name="Local" value="Command-examples.htm#system-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="type">
-          <param name="Local" value="Command-examples.htm#type">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="ren">
-          <param name="Local" value="Command-examples.htm#ren">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="modshell.ini">
-          <param name="Local" value="Files.htm#modshell.ini">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="console.log">
-          <param name="Local" value="Files.htm#console.log">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mbmon.log">
-          <param name="Local" value="Files.htm#mbmon.log">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="scriptfile[.mds]">
-          <param name="Local" value="Files.htm#scriptfile[.mds]">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="scriptfile[.bat]">
-          <param name="Local" value="Files.htm#scriptfile[.bat]">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value=".DDT">
-          <param name="Local" value="Files.htm#.DDT">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value=".PDT">
-          <param name="Local" value="Files.htm#.PDT">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value=".CDT">
-          <param name="Local" value="Files.htm#.CDT">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value=".BDT">
-          <param name="Local" value="Files.htm#.BDT">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value=".WDT">
-          <param name="Local" value="Files.htm#.WDT">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value=".CSV">
-          <param name="Local" value="Files.htm#.CSV">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value=".INI">
-          <param name="Local" value="Files.htm#.INI">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value=".XML">
-          <param name="Local" value="Files.htm#.XML">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="modshell">
-          <param name="Local" value="Environmental-variables.htm#modshell">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="xmodshell">
-          <param name="Local" value="Environmental-variables.htm#xmodshell">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serialechoserver">
-          <param name="Local" value="Environmental-variables.htm#serialechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="tcpechoserver">
-          <param name="Local" value="Environmental-variables.htm#tcpechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="udpechoserver">
-          <param name="Local" value="Environmental-variables.htm#udpechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serialmbmonitor">
-          <param name="Local" value="Environmental-variables.htm#serialmbmonitor">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="modshell">
-          <param name="Local" value="Command-line-parameters.htm#modshell">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="xmodshell">
-          <param name="Local" value="Command-line-parameters.htm#xmodshell">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serialechoserver">
-          <param name="Local" value="Command-line-parameters.htm#serialechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="tcpechoserver">
-          <param name="Local" value="Command-line-parameters.htm#tcpechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="udpechoserver">
-          <param name="Local" value="Command-line-parameters.htm#udpechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serialmbmonitor">
-          <param name="Local" value="Command-line-parameters.htm#serialmbmonitor">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mbconv">
-          <param name="Local" value="Command-line-parameters.htm#mbconv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="numconv">
-          <param name="Local" value="Command-line-parameters.htm#numconv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serialechoserver">
-          <param name="Local" value="Utilities.htm#serialechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="tcpechoserver">
-          <param name="Local" value="Utilities.htm#tcpechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="udpechoserver">
-          <param name="Local" value="Utilities.htm#udpechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serialmbmonitor">
-          <param name="Local" value="Utilities.htm#serialmbmonitor">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mbconv">
-          <param name="Local" value="Utilities.htm#mbconv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="numconv">
-          <param name="Local" value="Utilities.htm#numconv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="modshell">
-          <param name="Local" value="Exit-status.htm#modshell">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="xmodshell">
-          <param name="Local" value="Exit-status.htm#xmodshell">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serialechoserver">
-          <param name="Local" value="Exit-status.htm#serialechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="tcpechoserver">
-          <param name="Local" value="Exit-status.htm#tcpechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="udpechoserver">
-          <param name="Local" value="Exit-status.htm#udpechoserver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serialmbmonitor">
-          <param name="Local" value="Exit-status.htm#serialmbmonitor">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mbconv">
-          <param name="Local" value="Exit-status.htm#mbconv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="numconv">
-          <param name="Local" value="Exit-status.htm#numconv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="operating-principle">
-          <param name="Local" value="Operation.htm#operating-principle">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="projects">
-          <param name="Local" value="Operation.htm#projects">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="file-operations">
-          <param name="Local" value="Operation.htm#file-operations">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="script-operations">
-          <param name="Local" value="Operation.htm#script-operations">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="raw-serial-connection">
-          <param name="Local" value="Operation.htm#raw-serial-connection">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serial-connection-with-dcon-protocol">
-          <param name="Local" value="Operation.htm#serial-connection-with-dcon-protocol">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serial-connection-with-hart-protocol">
-          <param name="Local" value="Operation.htm#serial-connection-with-hart-protocol">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="raw-tcp-connection">
-          <param name="Local" value="Operation.htm#raw-tcp-connection">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="raw-udp-connection">
-          <param name="Local" value="Operation.htm#raw-udp-connection">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="direct-io-access">
-          <param name="Local" value="Operation.htm#direct-io-access">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="freebsd">
-          <param name="Local" value="Packaging.htm#freebsd">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="linux">
-          <param name="Local" value="Packaging.htm#linux">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="windows">
-          <param name="Local" value="Packaging.htm#windows">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="dos">
-          <param name="Local" value="Packaging.htm#dos">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="arithmetical-commands">
-          <param name="Local" value="Builtin-commands.htm#arithmetical-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="add">
-          <param name="Local" value="Builtin-commands.htm#add">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="avg">
-          <param name="Local" value="Builtin-commands.htm#avg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="conv">
-          <param name="Local" value="Builtin-commands.htm#conv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="cos">
-          <param name="Local" value="Builtin-commands.htm#cos">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="cotan">
-          <param name="Local" value="Builtin-commands.htm#cotan">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="dec">
-          <param name="Local" value="Builtin-commands.htm#dec">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="div">
-          <param name="Local" value="Builtin-commands.htm#div">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="exp">
-          <param name="Local" value="Builtin-commands.htm#exp">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="idiv">
-          <param name="Local" value="Builtin-commands.htm#idiv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="imod">
-          <param name="Local" value="Builtin-commands.htm#imod">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="inc">
-          <param name="Local" value="Builtin-commands.htm#inc">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="ln">
-          <param name="Local" value="Builtin-commands.htm#ln">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mul">
-          <param name="Local" value="Builtin-commands.htm#mul">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mulinv">
-          <param name="Local" value="Builtin-commands.htm#mulinv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="odd">
-          <param name="Local" value="Builtin-commands.htm#odd">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="pow">
-          <param name="Local" value="Builtin-commands.htm#pow">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="pow2">
-          <param name="Local" value="Builtin-commands.htm#pow2">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="prop">
-          <param name="Local" value="Builtin-commands.htm#prop">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="rnd">
-          <param name="Local" value="Builtin-commands.htm#rnd">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="round">
-          <param name="Local" value="Builtin-commands.htm#round">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="sin">
-          <param name="Local" value="Builtin-commands.htm#sin">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="sqr">
-          <param name="Local" value="Builtin-commands.htm#sqr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="sqrt">
-          <param name="Local" value="Builtin-commands.htm#sqrt">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="sub">
-          <param name="Local" value="Builtin-commands.htm#sub">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="tan">
-          <param name="Local" value="Builtin-commands.htm#tan">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="communication-commands">
-          <param name="Local" value="Builtin-commands.htm#communication-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="copyreg">
-          <param name="Local" value="Builtin-commands.htm#copyreg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="dcon">
-          <param name="Local" value="Builtin-commands.htm#dcon">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="hart">
-          <param name="Local" value="Builtin-commands.htm#hart">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mbgw">
-          <param name="Local" value="Builtin-commands.htm#mbgw">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mbconv">
-          <param name="Local" value="Builtin-commands.htm#mbconv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mbmon">
-          <param name="Local" value="Builtin-commands.htm#mbmon">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mbsrv">
-          <param name="Local" value="Builtin-commands.htm#mbsrv">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="readreg">
-          <param name="Local" value="Builtin-commands.htm#readreg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serread">
-          <param name="Local" value="Builtin-commands.htm#serread">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="serwrite">
-          <param name="Local" value="Builtin-commands.htm#serwrite">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="tcpcons">
-          <param name="Local" value="Builtin-commands.htm#tcpcons">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="tcpread">
-          <param name="Local" value="Builtin-commands.htm#tcpread">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="tcpwrite">
-          <param name="Local" value="Builtin-commands.htm#tcpwrite">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="udpcons">
-          <param name="Local" value="Builtin-commands.htm#udpcons">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="udpread">
-          <param name="Local" value="Builtin-commands.htm#udpread">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="udpwrite">
-          <param name="Local" value="Builtin-commands.htm#udpwrite">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="writereg">
-          <param name="Local" value="Builtin-commands.htm#writereg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="configuration-commands">
-          <param name="Local" value="Builtin-commands.htm#configuration-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="get">
-          <param name="Local" value="Builtin-commands.htm#get">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="reset">
-          <param name="Local" value="Builtin-commands.htm#reset">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="set">
-          <param name="Local" value="Builtin-commands.htm#set">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="file-operation-commands">
-          <param name="Local" value="Builtin-commands.htm#file-operation-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="applog">
-          <param name="Local" value="Builtin-commands.htm#applog">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="exphis">
-          <param name="Local" value="Builtin-commands.htm#exphis">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="expreg">
-          <param name="Local" value="Builtin-commands.htm#expreg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="impreg">
-          <param name="Local" value="Builtin-commands.htm#impreg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="loadcfg">
-          <param name="Local" value="Builtin-commands.htm#loadcfg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="loadreg">
-          <param name="Local" value="Builtin-commands.htm#loadreg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="savecfg">
-          <param name="Local" value="Builtin-commands.htm#savecfg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="savereg">
-          <param name="Local" value="Builtin-commands.htm#savereg">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="general-commands">
-          <param name="Local" value="Builtin-commands.htm#general-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="arrclear">
-          <param name="Local" value="Builtin-commands.htm#arrclear">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="arrfill">
-          <param name="Local" value="Builtin-commands.htm#arrfill">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="ascii">
-          <param name="Local" value="Builtin-commands.htm#ascii">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="beep">
-          <param name="Local" value="Builtin-commands.htm#beep">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="carr">
-          <param name="Local" value="Builtin-commands.htm#carr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="cls">
-          <param name="Local" value="Builtin-commands.htm#cls">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="const">
-          <param name="Local" value="Builtin-commands.htm#const">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="cron">
-          <param name="Local" value="Builtin-commands.htm#cron">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="datatype">
-          <param name="Local" value="Builtin-commands.htm#datatype">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="date">
-          <param name="Local" value="Builtin-commands.htm#date">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="echometh">
-          <param name="Local" value="Builtin-commands.htm#echometh">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="exit">
-          <param name="Local" value="Builtin-commands.htm#exit">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="for">
-          <param name="Local" value="Builtin-commands.htm#for">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="to">
-          <param name="Local" value="Builtin-commands.htm#to">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="do">
-          <param name="Local" value="Builtin-commands.htm#do">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="getarrsize">
-          <param name="Local" value="Builtin-commands.htm#getarrsize">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="goto">
-          <param name="Local" value="Builtin-commands.htm#goto">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="help">
-          <param name="Local" value="Builtin-commands.htm#help">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="if">
-          <param name="Local" value="Builtin-commands.htm#if">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="then">
-          <param name="Local" value="Builtin-commands.htm#then">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="input">
-          <param name="Local" value="Builtin-commands.htm#input">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="inputmeth">
-          <param name="Local" value="Builtin-commands.htm#inputmeth">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="label">
-          <param name="Local" value="Builtin-commands.htm#label">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="let">
-          <param name="Local" value="Builtin-commands.htm#let">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="macro">
-          <param name="Local" value="Builtin-commands.htm#macro">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="pause">
-          <param name="Local" value="Builtin-commands.htm#pause">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="print">
-          <param name="Local" value="Builtin-commands.htm#print">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="printcolor">
-          <param name="Local" value="Builtin-commands.htm#printcolor">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="runmeth">
-          <param name="Local" value="Builtin-commands.htm#runmeth">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="sendmeth">
-          <param name="Local" value="Builtin-commands.htm#sendmeth">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="setarrsize">
-          <param name="Local" value="Builtin-commands.htm#setarrsize">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="var">
-          <param name="Local" value="Builtin-commands.htm#var">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="varmon">
-          <param name="Local" value="Builtin-commands.htm#varmon">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="varr">
-          <param name="Local" value="Builtin-commands.htm#varr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="ver">
-          <param name="Local" value="Builtin-commands.htm#ver">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="logical-commands">
-          <param name="Local" value="Builtin-commands.htm#logical-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="and">
-          <param name="Local" value="Builtin-commands.htm#and">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="bit">
-          <param name="Local" value="Builtin-commands.htm#bit">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="not">
-          <param name="Local" value="Builtin-commands.htm#not">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="or">
-          <param name="Local" value="Builtin-commands.htm#or">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="roll">
-          <param name="Local" value="Builtin-commands.htm#roll">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="rols">
-          <param name="Local" value="Builtin-commands.htm#rols">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="shl">
-          <param name="Local" value="Builtin-commands.htm#shl">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="shr">
-          <param name="Local" value="Builtin-commands.htm#shr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="xor">
-          <param name="Local" value="Builtin-commands.htm#xor">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="register-handler-commands">
-          <param name="Local" value="Builtin-commands.htm#register-handler-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="dump">
-          <param name="Local" value="Builtin-commands.htm#dump">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="let">
-          <param name="Local" value="Builtin-commands.htm#let">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="script-operation-commands">
-          <param name="Local" value="Builtin-commands.htm#script-operation-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="edit">
-          <param name="Local" value="Builtin-commands.htm#edit">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="erasescr">
-          <param name="Local" value="Builtin-commands.htm#erasescr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="list">
-          <param name="Local" value="Builtin-commands.htm#list">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="loadscr">
-          <param name="Local" value="Builtin-commands.htm#loadscr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="run">
-          <param name="Local" value="Builtin-commands.htm#run">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="savescr">
-          <param name="Local" value="Builtin-commands.htm#savescr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="string-handler-commands">
-          <param name="Local" value="Builtin-commands.htm#string-handler-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="chr">
-          <param name="Local" value="Builtin-commands.htm#chr">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="concat">
-          <param name="Local" value="Builtin-commands.htm#concat">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="length">
-          <param name="Local" value="Builtin-commands.htm#length">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="lowcase">
-          <param name="Local" value="Builtin-commands.htm#lowcase">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mklrc">
-          <param name="Local" value="Builtin-commands.htm#mklrc">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="mkcrc">
-          <param name="Local" value="Builtin-commands.htm#mkcrc">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="ord">
-          <param name="Local" value="Builtin-commands.htm#ord">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="strdel">
-          <param name="Local" value="Builtin-commands.htm#strdel">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="strfind">
-          <param name="Local" value="Builtin-commands.htm#strfind">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="strins">
-          <param name="Local" value="Builtin-commands.htm#strins">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="stritem">
-          <param name="Local" value="Builtin-commands.htm#stritem">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="strrepl">
-          <param name="Local" value="Builtin-commands.htm#strrepl">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="upcase">
-          <param name="Local" value="Builtin-commands.htm#upcase">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="file-and-directory-management-system-commands">
-          <param name="Local" value="Builtin-commands.htm#file-and-directory-management-system-commands">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="cd">
-          <param name="Local" value="Builtin-commands.htm#cd">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="chkdevlock">
-          <param name="Local" value="Builtin-commands.htm#chkdevlock">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="copy">
-          <param name="Local" value="Builtin-commands.htm#copy">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="dir">
-          <param name="Local" value="Builtin-commands.htm#dir">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="del">
-          <param name="Local" value="Builtin-commands.htm#del">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="exist">
-          <param name="Local" value="Builtin-commands.htm#exist">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="ioread">
-          <param name="Local" value="Builtin-commands.htm#ioread">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="iowrite">
-          <param name="Local" value="Builtin-commands.htm#iowrite">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="md">
-          <param name="Local" value="Builtin-commands.htm#md">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="rd">
-          <param name="Local" value="Builtin-commands.htm#rd">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="ren">
-          <param name="Local" value="Builtin-commands.htm#ren">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="rmdevlock">
-          <param name="Local" value="Builtin-commands.htm#rmdevlock">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="type">
-          <param name="Local" value="Builtin-commands.htm#type">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="on-unix-like-systems">
-          <param name="Local" value="Installation-from-source-code.htm#on-unix-like-systems">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="on-windows">
-          <param name="Local" value="Installation-from-source-code.htm#on-windows">
-        </object>
-      </li>
-      <li>
-        <object type="text/sitemap">
-          <param name="Name" value="on-dos">
-          <param name="Local" value="Installation-from-source-code.htm#on-dos">
-        </object>
-      </li>
-  </body>
-</html>
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value=".BDT">
+	<param name="Local" value="Files.htm#.BDT">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value=".CDT">
+	<param name="Local" value="Files.htm#.CDT">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value=".CSV">
+	<param name="Local" value="Files.htm#.CSV">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value=".DDT">
+	<param name="Local" value="Files.htm#.DDT">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value=".INI">
+	<param name="Local" value="Files.htm#.INI">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value=".PDT">
+	<param name="Local" value="Files.htm#.PDT">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value=".WDT">
+	<param name="Local" value="Files.htm#.WDT">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value=".XML">
+	<param name="Local" value="Files.htm#.XML">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="add">
+	<param name="Local" value="Builtin-commands.htm#add">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="add">
+	<param name="Local" value="Command-examples.htm#add">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="and">
+	<param name="Local" value="Command-examples.htm#and">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="and">
+	<param name="Local" value="Builtin-commands.htm#and">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="applog">
+	<param name="Local" value="Command-examples.htm#applog">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="applog">
+	<param name="Local" value="Builtin-commands.htm#applog">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="arithmetical-commands">
+	<param name="Local" value="Command-examples.htm#arithmetical-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="arithmetical-commands">
+	<param name="Local" value="Builtin-commands.htm#arithmetical-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="arrclear">
+	<param name="Local" value="Builtin-commands.htm#arrclear">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="arrfill">
+	<param name="Local" value="Builtin-commands.htm#arrfill">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="ascii">
+	<param name="Local" value="Builtin-commands.htm#ascii">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="avg">
+	<param name="Local" value="Builtin-commands.htm#avg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="beep">
+	<param name="Local" value="Builtin-commands.htm#beep">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="bit">
+	<param name="Local" value="Builtin-commands.htm#bit">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="carr">
+	<param name="Local" value="Builtin-commands.htm#carr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="cd">
+	<param name="Local" value="Builtin-commands.htm#cd">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="chkdevlock">
+	<param name="Local" value="Builtin-commands.htm#chkdevlock">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="chr">
+	<param name="Local" value="Command-examples.htm#chr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="chr">
+	<param name="Local" value="Builtin-commands.htm#chr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="cls">
+	<param name="Local" value="Builtin-commands.htm#cls">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="communication-commands">
+	<param name="Local" value="Builtin-commands.htm#communication-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="communication-commands">
+	<param name="Local" value="Command-examples.htm#communication-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="concat">
+	<param name="Local" value="Builtin-commands.htm#concat">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="configuration-commands">
+	<param name="Local" value="Builtin-commands.htm#configuration-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="configuration-commands">
+	<param name="Local" value="Command-examples.htm#configuration-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="console.log">
+	<param name="Local" value="Files.htm#console.log">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="const">
+	<param name="Local" value="Builtin-commands.htm#const">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="conv">
+	<param name="Local" value="Command-examples.htm#conv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="conv">
+	<param name="Local" value="Builtin-commands.htm#conv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="copy">
+	<param name="Local" value="Builtin-commands.htm#copy">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="copyreg">
+	<param name="Local" value="Command-examples.htm#copyreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="copyreg">
+	<param name="Local" value="Builtin-commands.htm#copyreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="cos">
+	<param name="Local" value="Builtin-commands.htm#cos">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="cotan">
+	<param name="Local" value="Builtin-commands.htm#cotan">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="cron">
+	<param name="Local" value="Builtin-commands.htm#cron">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="cron">
+	<param name="Local" value="Command-examples.htm#cron">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="datatype">
+	<param name="Local" value="Builtin-commands.htm#datatype">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="date">
+	<param name="Local" value="Builtin-commands.htm#date">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="dcon">
+	<param name="Local" value="Builtin-commands.htm#dcon">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="dec">
+	<param name="Local" value="Builtin-commands.htm#dec">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="del">
+	<param name="Local" value="Builtin-commands.htm#del">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="dir">
+	<param name="Local" value="Builtin-commands.htm#dir">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="direct-io-access">
+	<param name="Local" value="Operation.htm#direct-io-access">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="div">
+	<param name="Local" value="Builtin-commands.htm#div">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="do">
+	<param name="Local" value="Builtin-commands.htm#do">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="dos">
+	<param name="Local" value="Packaging.htm#dos">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="dump">
+	<param name="Local" value="Command-examples.htm#dump">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="dump">
+	<param name="Local" value="Builtin-commands.htm#dump">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="echo">
+	<param name="Local" value="Command-examples.htm#echo">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="echometh">
+	<param name="Local" value="Builtin-commands.htm#echometh">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="edit">
+	<param name="Local" value="Builtin-commands.htm#edit">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="erasescr">
+	<param name="Local" value="Builtin-commands.htm#erasescr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="exist">
+	<param name="Local" value="Builtin-commands.htm#exist">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="exit">
+	<param name="Local" value="Builtin-commands.htm#exit">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="exp">
+	<param name="Local" value="Builtin-commands.htm#exp">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="exphis">
+	<param name="Local" value="Command-examples.htm#exphis">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="exphis">
+	<param name="Local" value="Builtin-commands.htm#exphis">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="expreg">
+	<param name="Local" value="Command-examples.htm#expreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="expreg">
+	<param name="Local" value="Builtin-commands.htm#expreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="file-and-directory-management-system-commands">
+	<param name="Local" value="Builtin-commands.htm#file-and-directory-management-system-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="file-operation-commands">
+	<param name="Local" value="Builtin-commands.htm#file-operation-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="file-operation-commands">
+	<param name="Local" value="Command-examples.htm#file-operation-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="file-operations">
+	<param name="Local" value="Operation.htm#file-operations">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="for">
+	<param name="Local" value="Builtin-commands.htm#for">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="freebsd">
+	<param name="Local" value="Packaging.htm#freebsd">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="general-commands">
+	<param name="Local" value="Builtin-commands.htm#general-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="general-commands">
+	<param name="Local" value="Command-examples.htm#general-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="get">
+	<param name="Local" value="Command-examples.htm#get">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="get">
+	<param name="Local" value="Builtin-commands.htm#get">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="getarrsize">
+	<param name="Local" value="Builtin-commands.htm#getarrsize">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="goto">
+	<param name="Local" value="Builtin-commands.htm#goto">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="hart">
+	<param name="Local" value="Builtin-commands.htm#hart">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="help">
+	<param name="Local" value="Builtin-commands.htm#help">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="help">
+	<param name="Local" value="Command-examples.htm#help">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="idiv">
+	<param name="Local" value="Builtin-commands.htm#idiv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="if">
+	<param name="Local" value="Builtin-commands.htm#if">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="imod">
+	<param name="Local" value="Builtin-commands.htm#imod">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="impreg">
+	<param name="Local" value="Builtin-commands.htm#impreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="impreg">
+	<param name="Local" value="Command-examples.htm#impreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="inc">
+	<param name="Local" value="Builtin-commands.htm#inc">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="input">
+	<param name="Local" value="Builtin-commands.htm#input">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="inputmeth">
+	<param name="Local" value="Builtin-commands.htm#inputmeth">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="ioread">
+	<param name="Local" value="Builtin-commands.htm#ioread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="iowrite">
+	<param name="Local" value="Builtin-commands.htm#iowrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="label">
+	<param name="Local" value="Builtin-commands.htm#label">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="length">
+	<param name="Local" value="Command-examples.htm#length">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="length">
+	<param name="Local" value="Builtin-commands.htm#length">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="let">
+	<param name="Local" value="Builtin-commands.htm#let">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="let">
+	<param name="Local" value="Command-examples.htm#let">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="let">
+	<param name="Local" value="Builtin-commands.htm#let">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="let">
+	<param name="Local" value="Command-examples.htm#let">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="linux">
+	<param name="Local" value="Packaging.htm#linux">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="list">
+	<param name="Local" value="Builtin-commands.htm#list">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="ln">
+	<param name="Local" value="Builtin-commands.htm#ln">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="loadcfg">
+	<param name="Local" value="Command-examples.htm#loadcfg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="loadcfg">
+	<param name="Local" value="Builtin-commands.htm#loadcfg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="loadreg">
+	<param name="Local" value="Command-examples.htm#loadreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="loadreg">
+	<param name="Local" value="Builtin-commands.htm#loadreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="loadscr">
+	<param name="Local" value="Builtin-commands.htm#loadscr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="loadscr">
+	<param name="Local" value="Command-examples.htm#loadscr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="logical-commands">
+	<param name="Local" value="Command-examples.htm#logical-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="logical-commands">
+	<param name="Local" value="Builtin-commands.htm#logical-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="lowcase">
+	<param name="Local" value="Builtin-commands.htm#lowcase">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="macro">
+	<param name="Local" value="Builtin-commands.htm#macro">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mbconv">
+	<param name="Local" value="Builtin-commands.htm#mbconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mbconv">
+	<param name="Local" value="Exit-status.htm#mbconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mbconv">
+	<param name="Local" value="Utilities.htm#mbconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mbconv">
+	<param name="Local" value="Command-line-parameters.htm#mbconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mbgw">
+	<param name="Local" value="Builtin-commands.htm#mbgw">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mbmon">
+	<param name="Local" value="Builtin-commands.htm#mbmon">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mbmon.log">
+	<param name="Local" value="Files.htm#mbmon.log">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mbsrv">
+	<param name="Local" value="Builtin-commands.htm#mbsrv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="md">
+	<param name="Local" value="Builtin-commands.htm#md">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mkcrc">
+	<param name="Local" value="Builtin-commands.htm#mkcrc">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mklrc">
+	<param name="Local" value="Builtin-commands.htm#mklrc">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="modshell">
+	<param name="Local" value="Environmental-variables.htm#modshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="modshell">
+	<param name="Local" value="Exit-status.htm#modshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="modshell">
+	<param name="Local" value="Command-line-parameters.htm#modshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="modshell.ini">
+	<param name="Local" value="Files.htm#modshell.ini">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mul">
+	<param name="Local" value="Builtin-commands.htm#mul">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="mulinv">
+	<param name="Local" value="Builtin-commands.htm#mulinv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="not">
+	<param name="Local" value="Builtin-commands.htm#not">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="not">
+	<param name="Local" value="Command-examples.htm#not">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="numconv">
+	<param name="Local" value="Utilities.htm#numconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="numconv">
+	<param name="Local" value="Exit-status.htm#numconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="numconv">
+	<param name="Local" value="Command-line-parameters.htm#numconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="odd">
+	<param name="Local" value="Builtin-commands.htm#odd">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="on-dos">
+	<param name="Local" value="Installation-from-source-code.htm#on-dos">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="on-unix-like-systems">
+	<param name="Local" value="Installation-from-source-code.htm#on-unix-like-systems">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="on-windows">
+	<param name="Local" value="Installation-from-source-code.htm#on-windows">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="operating-principle">
+	<param name="Local" value="Operation.htm#operating-principle">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="or">
+	<param name="Local" value="Builtin-commands.htm#or">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="or">
+	<param name="Local" value="Command-examples.htm#or">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="ord">
+	<param name="Local" value="Builtin-commands.htm#ord">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="pause">
+	<param name="Local" value="Command-examples.htm#pause">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="pause">
+	<param name="Local" value="Builtin-commands.htm#pause">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="pow">
+	<param name="Local" value="Builtin-commands.htm#pow">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="pow2">
+	<param name="Local" value="Builtin-commands.htm#pow2">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="print">
+	<param name="Local" value="Command-examples.htm#print">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="print">
+	<param name="Local" value="Command-examples.htm#print">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="print">
+	<param name="Local" value="Builtin-commands.htm#print">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="printcolor">
+	<param name="Local" value="Builtin-commands.htm#printcolor">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="projects">
+	<param name="Local" value="Operation.htm#projects">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="prop">
+	<param name="Local" value="Builtin-commands.htm#prop">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="raw-serial-connection">
+	<param name="Local" value="Operation.htm#raw-serial-connection">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="raw-tcp-connection">
+	<param name="Local" value="Operation.htm#raw-tcp-connection">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="raw-udp-connection">
+	<param name="Local" value="Operation.htm#raw-udp-connection">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="rd">
+	<param name="Local" value="Builtin-commands.htm#rd">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="readreg">
+	<param name="Local" value="Command-examples.htm#readreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="readreg">
+	<param name="Local" value="Builtin-commands.htm#readreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="register-handler-commands">
+	<param name="Local" value="Builtin-commands.htm#register-handler-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="register-handler-commands">
+	<param name="Local" value="Command-examples.htm#register-handler-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="ren">
+	<param name="Local" value="Builtin-commands.htm#ren">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="ren">
+	<param name="Local" value="Command-examples.htm#ren">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="reset">
+	<param name="Local" value="Command-examples.htm#reset">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="reset">
+	<param name="Local" value="Builtin-commands.htm#reset">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="rmdevlock">
+	<param name="Local" value="Builtin-commands.htm#rmdevlock">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="rnd">
+	<param name="Local" value="Builtin-commands.htm#rnd">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="roll">
+	<param name="Local" value="Builtin-commands.htm#roll">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="rols">
+	<param name="Local" value="Builtin-commands.htm#rols">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="round">
+	<param name="Local" value="Builtin-commands.htm#round">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="round">
+	<param name="Local" value="Command-examples.htm#round">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="run">
+	<param name="Local" value="Command-examples.htm#run">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="run">
+	<param name="Local" value="Builtin-commands.htm#run">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="runmeth">
+	<param name="Local" value="Builtin-commands.htm#runmeth">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="savecfg">
+	<param name="Local" value="Command-examples.htm#savecfg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="savecfg">
+	<param name="Local" value="Builtin-commands.htm#savecfg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="savereg">
+	<param name="Local" value="Builtin-commands.htm#savereg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="savereg">
+	<param name="Local" value="Command-examples.htm#savereg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="savescr">
+	<param name="Local" value="Builtin-commands.htm#savescr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="scriptfile[.bat]">
+	<param name="Local" value="Files.htm#scriptfile[.bat]">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="scriptfile[.mds]">
+	<param name="Local" value="Files.htm#scriptfile[.mds]">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="script-operation-commands">
+	<param name="Local" value="Command-examples.htm#script-operation-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="script-operation-commands">
+	<param name="Local" value="Builtin-commands.htm#script-operation-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="script-operations">
+	<param name="Local" value="Operation.htm#script-operations">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="sendmeth">
+	<param name="Local" value="Builtin-commands.htm#sendmeth">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="sercons">
+	<param name="Local" value="Command-examples.htm#sercons">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serial-connection-with-dcon-protocol">
+	<param name="Local" value="Operation.htm#serial-connection-with-dcon-protocol">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serial-connection-with-hart-protocol">
+	<param name="Local" value="Operation.htm#serial-connection-with-hart-protocol">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serialechoserver">
+	<param name="Local" value="Utilities.htm#serialechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serialechoserver">
+	<param name="Local" value="Environmental-variables.htm#serialechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serialechoserver">
+	<param name="Local" value="Command-line-parameters.htm#serialechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serialechoserver">
+	<param name="Local" value="Exit-status.htm#serialechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serialmbmonitor">
+	<param name="Local" value="Command-line-parameters.htm#serialmbmonitor">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serialmbmonitor">
+	<param name="Local" value="Environmental-variables.htm#serialmbmonitor">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serialmbmonitor">
+	<param name="Local" value="Exit-status.htm#serialmbmonitor">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serialmbmonitor">
+	<param name="Local" value="Utilities.htm#serialmbmonitor">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serread">
+	<param name="Local" value="Command-examples.htm#serread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serread">
+	<param name="Local" value="Builtin-commands.htm#serread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serwrite">
+	<param name="Local" value="Builtin-commands.htm#serwrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="serwrite">
+	<param name="Local" value="Command-examples.htm#serwrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="set">
+	<param name="Local" value="Command-examples.htm#set">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="set">
+	<param name="Local" value="Builtin-commands.htm#set">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="setarrsize">
+	<param name="Local" value="Builtin-commands.htm#setarrsize">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="shl">
+	<param name="Local" value="Builtin-commands.htm#shl">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="shr">
+	<param name="Local" value="Command-examples.htm#shr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="shr">
+	<param name="Local" value="Builtin-commands.htm#shr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="sin">
+	<param name="Local" value="Builtin-commands.htm#sin">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="sqr">
+	<param name="Local" value="Builtin-commands.htm#sqr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="sqrt">
+	<param name="Local" value="Builtin-commands.htm#sqrt">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="strdel">
+	<param name="Local" value="Builtin-commands.htm#strdel">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="strfind">
+	<param name="Local" value="Builtin-commands.htm#strfind">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="string-handler-commands">
+	<param name="Local" value="Command-examples.htm#string-handler-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="string-handler-commands">
+	<param name="Local" value="Builtin-commands.htm#string-handler-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="strins">
+	<param name="Local" value="Builtin-commands.htm#strins">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="stritem">
+	<param name="Local" value="Command-examples.htm#stritem">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="stritem">
+	<param name="Local" value="Builtin-commands.htm#stritem">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="strrepl">
+	<param name="Local" value="Builtin-commands.htm#strrepl">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="sub">
+	<param name="Local" value="Builtin-commands.htm#sub">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="subs">
+	<param name="Local" value="Command-examples.htm#subs">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="system-commands">
+	<param name="Local" value="Command-examples.htm#system-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="tan">
+	<param name="Local" value="Builtin-commands.htm#tan">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="tcpcons">
+	<param name="Local" value="Builtin-commands.htm#tcpcons">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="tcpechoserver">
+	<param name="Local" value="Utilities.htm#tcpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="tcpechoserver">
+	<param name="Local" value="Command-line-parameters.htm#tcpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="tcpechoserver">
+	<param name="Local" value="Exit-status.htm#tcpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="tcpechoserver">
+	<param name="Local" value="Environmental-variables.htm#tcpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="tcpread">
+	<param name="Local" value="Builtin-commands.htm#tcpread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="tcpwrite">
+	<param name="Local" value="Builtin-commands.htm#tcpwrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="then">
+	<param name="Local" value="Builtin-commands.htm#then">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="to">
+	<param name="Local" value="Builtin-commands.htm#to">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="type">
+	<param name="Local" value="Builtin-commands.htm#type">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="type">
+	<param name="Local" value="Command-examples.htm#type">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="udpcons">
+	<param name="Local" value="Builtin-commands.htm#udpcons">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="udpechoserver">
+	<param name="Local" value="Utilities.htm#udpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="udpechoserver">
+	<param name="Local" value="Command-line-parameters.htm#udpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="udpechoserver">
+	<param name="Local" value="Exit-status.htm#udpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="udpechoserver">
+	<param name="Local" value="Environmental-variables.htm#udpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="udpread">
+	<param name="Local" value="Builtin-commands.htm#udpread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="udpwrite">
+	<param name="Local" value="Builtin-commands.htm#udpwrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="upcase">
+	<param name="Local" value="Builtin-commands.htm#upcase">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="upcase">
+	<param name="Local" value="Command-examples.htm#upcase">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="var">
+	<param name="Local" value="Command-examples.htm#var">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="var">
+	<param name="Local" value="Builtin-commands.htm#var">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="varmon">
+	<param name="Local" value="Builtin-commands.htm#varmon">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="varr">
+	<param name="Local" value="Builtin-commands.htm#varr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="varr">
+	<param name="Local" value="Command-examples.htm#varr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="ver">
+	<param name="Local" value="Builtin-commands.htm#ver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="windows">
+	<param name="Local" value="Packaging.htm#windows">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="writereg">
+	<param name="Local" value="Builtin-commands.htm#writereg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="writereg">
+	<param name="Local" value="Command-examples.htm#writereg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="xmodshell">
+	<param name="Local" value="Exit-status.htm#xmodshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="xmodshell">
+	<param name="Local" value="Command-line-parameters.htm#xmodshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="xmodshell">
+	<param name="Local" value="Environmental-variables.htm#xmodshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="xor">
+	<param name="Local" value="Builtin-commands.htm#xor">
+	</OBJECT>
+</UL>
+</BODY></HTML>

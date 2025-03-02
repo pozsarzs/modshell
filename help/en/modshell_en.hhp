@@ -1,14 +1,14 @@
 [OPTIONS]
-Auto Index=Yes
-Auto TOC=9
 Compatibility=1.1 or later
 Compiled file=modshell_en.chm
 Contents file=modshell_en.hhc
 Default topic=Home.htm
 Display compile progress=Yes
+Error log file=modshell_en.log
 Index file=modshell_en.hhk
-Language=0x409 angol (egyes�lt �llamokbeli)
+Language=0x409 English (United States)
 Title=ModShell Help
+
 
 [FILES]
 Builtin-commands.htm
