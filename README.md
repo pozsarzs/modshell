@@ -79,7 +79,7 @@ HART protocols.
 |                        |internal serial monitor for decode ASCII or RTU telegrams                                   |
 |direct I/O port access  |supported, on Windows with external freeware DLL                                            |
 |local Modbus registers  |2x9999 boolean and 2x9999 word type                                                         |
-|script syntax plugins   |for editors using GtkSourceView, MCEdit, Micro, Nano, Notepad++, NeoVim and Vim             |
+|script syntax plugins   |for editors using GtkSourceView, MCEdit, Micro, Nano, Notepad++, (Neo)Vim and VSCode        |
 |utility scripts         |2 script                                                                                    |
 |other utility programs  |command line serial Modbus traffic monitor, serial, TCP and UDP echo servers                |
 
@@ -121,6 +121,7 @@ _Second user test release_ will be with the following changes:
  - [ ] HART protocol support;  
  - [ ] Modbus/TCP communication;  
  - [ ] TCP/UDP communication on DOS;  
+ - [x] syntax highlighter file for Microsoft Visual Studio Code.
  Only a source package will be released.
 
 ### Previous releases  

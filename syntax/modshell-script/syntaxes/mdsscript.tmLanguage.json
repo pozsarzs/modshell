@@ -1,0 +1,266 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ModShell script",
+	"patterns": [
+		{
+			"include": "#constvar"
+		},
+		{
+			"include": "#shebang"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#group1"
+		},
+		{
+			"include": "#group2a"
+		},
+		{
+			"include": "#group2b"
+		},
+		{
+			"include": "#group2c"
+		},
+		{
+			"include": "#group2d"
+		},
+		{
+			"include": "#group2e"
+		},
+		{
+			"include": "#group2f"
+		},
+		{
+			"include": "#group2g"
+		},
+		{
+			"include": "#group2h"
+		},
+		{
+			"include": "#group2i"
+		},
+		{
+			"include": "#group2l"
+		},
+		{
+			"include": "#group2m"
+		},
+		{
+			"include": "#group2n"
+		},
+		{
+			"include": "#group2o"
+		},
+		{
+			"include": "#group2p"
+		},
+		{
+			"include": "#group2r"
+		},
+		{
+			"include": "#group2s"
+		},
+		{
+			"include": "#group2t"
+		},
+		{
+			"include": "#group2u"
+		},
+		{
+			"include": "#group2v"
+		},
+		{
+			"include": "#group2w"
+		},
+		{
+			"include": "#group2x"
+		},
+		{
+			"include": "#group3"
+		},
+		{
+			"include": "#group4"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"constvar": {
+			"patterns": [{
+				"name": "variable.other.modshell",
+				"match": "\\$[a-zA-Z_][a-zA-Z0-9_]?*|\\$\\?"
+				}]
+	        },
+			"shebang": {
+			"patterns": [{
+				"name": "comment.line.shebang",
+				"match": "(^#!.*/modshell.*|^@modshell.exe.*|^:eof|^@goto.*)"
+				}]
+                },
+		"comment": {
+			"patterns": [{
+				"name": "comment.line.modshell",
+				"match": "(#.*)"
+				}]
+                },
+                "group1": {
+			"patterns": [{
+				"name": "constant.language.modshell",
+				"match": "\\b(con[0-7]|dev[0-7]|pro[0-7]|color|project|timeout)\\b"
+				}]
+                },
+		"group2a": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(add|and|applog|arrclear|arrfill|ascii|avg)\\b"
+				}]
+		},
+		"group2b": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(beep|bit)\\b"
+				}]
+		},
+		"group2c": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(carr|cd|chkdevlock|chr|cls|concat|const|conv|copy|copyreg|cos|cotan|cron)\\b"
+				}]
+		},
+		"group2d": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(datatype|date|dcon|dec|del|dir|div|dump)\\b"
+				}]
+		},
+		"group2e": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(echometh|edit|erasescr|exist|exit|exp|exphis|expreg)\\b"
+				}]
+		},
+		"group2f": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(for)\\b"
+				}]
+		},
+		"group2g": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(get|getarrsize|goto)\\b"
+				}]
+		},
+		"group2h": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(hart|help)\\b"
+				}]
+		},
+		"group2i": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(idiv|if|imod|impreg|inc|input|inputmeth|inrange|ioread|iowrite)\\b"
+				}]
+		},
+		"group2l": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(label|length|let|list|ln|loadcfg|loadreg|loadscr|lowcase)\\b"
+				}]
+		},
+		"group2m": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(macro|mbconv|mbgw|mbmon|mbsrv|md|mkcrc|mklrc|mul|mulinv)\\b"
+				}]
+		},
+		"group2n": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(not)\\b"
+				}]
+		},
+			"group2o": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(odd|or|ord)\\b"
+				}]
+		},
+		"group2p": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(pause|pow|pow2|print|printcolor|prop)\\b"
+				}]
+		},
+		"group2r": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(rd|readreg|ren|reset|rmdevlock|rnd|roll|rolr|round|run|runmeth)\\b"
+				}]
+		},
+		"group2s": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(savecfg|savereg|savescr|sendmeth|sercons|serread|serwrite|set|setarrsize|shl|shr|sin|sqr|sqrt|strdel|strfind|strins|stritem|strrepl|sub)\\b"
+				}]
+		},
+		"group2t": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(tan|tcpcons|tcpread|tcpwrite|then|to|type)\\b"
+				}]
+		},
+		"group2u": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(udpcons|udpread|udpwrite|upcase)\\b"
+				}]
+		},
+		"group2v": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(var|varmon|varr|ver)\\b"
+				}]
+		},
+		"group2w": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(writereg)\\b"
+				}]
+		},
+		"group2x": {
+			"patterns": [{
+				"name": "keyword.control.modshell",
+				"match": "\\b(xor)\\b"
+				}]
+		},
+		"group3": {
+			"patterns": [{
+				"name": "constant.language.modshell",
+				"match": "\\b(bin|chr|coil|csv|dcon|dec|dinp|hart|hex|hreg|ini|ireg|net|oct|off|rtu|ser|str|swap|tcp|xml)\\b"
+				}]
+		},
+		"group4": {
+			"patterns": [{
+				"name": "keyword.operator.modshell",
+				"match": "(<|<=|=<|=|==|>=|=>|>|<>)"
+				}]
+		},
+		"strings": {
+			"name": "string.quoted.double.modshell",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.modshell",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.mdsscript"
+}

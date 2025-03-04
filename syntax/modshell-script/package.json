@@ -1,0 +1,38 @@
+{
+  "name": "modshell-script",
+  "displayName": "ModShell script",
+  "description": "Script language of the ModShell program",
+  "version": "0.0.1",
+  "icon": "images/modshell.png",
+  "author": "Pozsar Zsolt",
+  "publisher": "pozsarzs",
+  "license": "EUPL v1.2",
+  "homepage": "https://github.com/pozsarzs/modshell",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "galleryBanner": {
+        "color": "#261d45",
+        "theme": "dark"
+    },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "mdsscript",
+      "aliases": ["ModShell script", "mdsscript"],
+      "extensions": [""],
+      "configuration": "./language-configuration.json"
+    }],
+    "snippets": [{
+      "language": "mdsscript",
+      "path": "./snippets/mdsscript.json"
+    }],
+    "grammars": [{
+      "language": "mdsscript",
+      "scopeName": "source.mdsscript",
+      "path": "./syntaxes/mdsscript.tmLanguage.json"
+    }]
+  }
+}

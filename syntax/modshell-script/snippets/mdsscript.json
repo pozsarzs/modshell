@@ -1,0 +1,903 @@
+{
+    "add": {
+        "prefix": "add",
+        "body": [ "add target value1 value2" ],
+        "description": "add command"
+    },
+    "and": {
+        "prefix": "and",
+        "body": [
+            "and target value1 value2"
+        ],
+        "description": "and command"
+    },
+    "applog": {
+        "prefix": "applog",
+        "body": [
+            "applog logfile text level [value1] [value2] [value3] [value4]"
+        ],
+        "description": "applog command"
+    },
+    "arrclear": {
+        "prefix": "arrclear",
+        "body": [
+            "arrclear array"
+        ],
+        "description": "arrclear command"
+    },
+    "arrfill": {
+        "prefix": "arrfill",
+        "body": [
+            "arrfill array data"
+        ],
+        "description": "arrfill command"
+    },
+    "ascii": {
+        "prefix": "ascii",
+        "body": [
+            "ascii [numsys|dec|hex]"
+        ],
+        "description": "ascii command"
+    },
+    "avg": {
+        "prefix": "avg",
+        "body": [
+            "avg target value1 value2 [value3] [value4] [value5] [value6]"
+        ],
+        "description": "avg command"
+    },
+    "beep": {
+        "prefix": "beep",
+        "body": [
+            "beep"
+        ],
+        "description": "beep command"
+    },
+    "bit": {
+        "prefix": "bit",
+        "body": [
+            "bit target value1 value2"
+        ],
+        "description": "bit command"
+    },
+    "carr": {
+        "prefix": "carr",
+        "body": [
+            "carr [array size]"
+        ],
+        "description": "carr command"
+    },
+    "cd": {
+        "prefix": "cd",
+        "body": [
+            "cd [path_and_directoryname]"
+        ],
+        "description": "cd command"
+    },
+    "chkdevlock": {
+        "prefix": "chkdevlock",
+        "body": [
+            "chkdevlock device"
+        ],
+        "description": "chkdevlock command"
+    },
+    "chr": {
+        "prefix": "chr",
+        "body": [
+            "chr target value"
+        ],
+        "description": "chr command"
+    },
+    "cls": {
+        "prefix": "cls",
+        "body": [
+            "cls"
+        ],
+        "description": "cls command"
+    },
+    "concat": {
+        "prefix": "concat",
+        "body": [
+            "concat target value1 value2"
+        ],
+        "description": "concat command"
+    },
+    "const": {
+        "prefix": "const",
+        "body": [
+            "const [name value]"
+        ],
+        "description": "const command"
+    },
+    "conv": {
+        "prefix": "conv",
+        "body": [
+            "conv target bin|dec|hex|oct bin|dec|hex|oct value"
+        ],
+        "description": "conv command"
+    },
+    "copy": {
+        "prefix": "copy",
+        "body": [
+            "copy path_and_filename new_path_and_filename"
+        ],
+        "description": "copy command"
+    },
+    "copyreg": {
+        "prefix": "copyreg",
+        "body": [
+            "copyreg con? ireg|hreg con? hreg address [count]"
+        ],
+        "description": "copyreg command"
+    },
+    "cos": {
+        "prefix": "cos",
+        "body": [
+            "cos target value"
+        ],
+        "description": "cos command"
+    },
+    "cotan": {
+        "prefix": "cotan",
+        "body": [
+            "cotan target value"
+        ],
+        "description": "cotan command"
+    },
+    "cron": {
+        "prefix": "cron",
+        "body": [
+            "cron rec_num hour minute"
+        ],
+        "description": "cron command"
+    },
+    "datatype": {
+        "prefix": "datatype",
+        "body": [
+            "datatype value"
+        ],
+        "description": "datatype command"
+    },
+    "date": {
+        "prefix": "date",
+        "body": [
+            "date [target]"
+        ],
+        "description": "date command"
+    },
+    "dcon": {
+        "prefix": "dcon",
+        "body": [
+            "dcon con? txarray rxarray"
+        ],
+        "description": "dcon command"
+    },
+    "dec": {
+        "prefix": "dec",
+        "body": [
+            "dec variable"
+        ],
+        "description": "dec command"
+    },
+    "del": {
+        "prefix": "del",
+        "body": [
+            "del path_and_filename"
+        ],
+        "description": "del command"
+    },
+    "dir": {
+        "prefix": "dir",
+        "body": [
+            "dir [path_and_directoryname]"
+        ],
+        "description": "dir command"
+    },
+    "div": {
+        "prefix": "div",
+        "body": [
+            "div target value1 value2"
+        ],
+        "description": "div command"
+    },
+    "dump": {
+        "prefix": "dump",
+        "body": [
+            "dump [dinp|coil|ireg|hreg address]"
+        ],
+        "description": "dump command"
+    },
+    "echometh": {
+        "prefix": "echometh",
+        "body": [
+            "echometh [off|an|hex|swap]"
+        ],
+        "description": "echometh command"
+    },
+    "edit": {
+        "prefix": "edit",
+        "body": [
+            "edit [line_number]"
+        ],
+        "description": "edit command"
+    },
+    "erasescr": {
+        "prefix": "erasescr",
+        "body": [
+            "erasescr"
+        ],
+        "description": "erasescr command"
+    },
+    "exist": {
+        "prefix": "exist",
+        "body": [
+            "exist path_and_filename"
+        ],
+        "description": "exist command"
+    },
+    "exit": {
+        "prefix": "exit",
+        "body": [
+            "exit"
+        ],
+        "description": "exit command"
+    },
+    "exp": {
+        "prefix": "exp",
+        "body": [
+            "exp target value"
+        ],
+        "description": "exp command"
+    },
+    "exphis": {
+        "prefix": "exphis",
+        "body": [
+            "exphis path_and_filename"
+        ],
+        "description": "exphis command"
+    },
+    "expreg": {
+        "prefix": "expreg",
+        "body": [
+            "expreg path_and_filename dinp|coil|ireg|hreg address [count]"
+        ],
+        "description": "expreg command"
+    },
+    "for": {
+        "prefix": "for",
+        "body": [
+            "for variable value1 to value2 do command"
+        ],
+        "description": "for command"
+    },
+    "get": {
+        "prefix": "get",
+        "body": [
+            "get dev?|pro?|con?|project|timeout"
+        ],
+        "description": "get command"
+    },
+    "getarrsize": {
+        "prefix": "getarrsize",
+        "body": [
+            "getarrsize array target"
+        ],
+        "description": "getarrsize command"
+    },
+    "goto": {
+        "prefix": "goto",
+        "body": [
+            "goto label"
+        ],
+        "description": "goto command"
+    },
+    "hart": {
+        "prefix": "hart",
+        "body": [
+            "hart con? txarray rxarray"
+        ],
+        "description": "hart command"
+    },
+    "help": {
+        "prefix": "help",
+        "body": [
+            "help [command]"
+        ],
+        "description": "help command"
+    },
+    "idiv": {
+        "prefix": "idiv",
+        "body": [
+            "idiv target value1 value2"
+        ],
+        "description": "idiv command"
+    },
+    "if": {
+        "prefix": "if",
+        "body": [
+            "if value1 <|<=|=<|=|==|>=|=>|>|<> value2 then command"
+        ],
+        "description": "if command"
+    },
+    "imod": {
+        "prefix": "imod",
+        "body": [
+            "imod target value1 value2"
+        ],
+        "description": "imod command"
+    },
+    "impreg": {
+        "prefix": "impreg",
+        "body": [
+            "impreg path_and_filename"
+        ],
+        "description": "impreg command"
+    },
+    "inc": {
+        "prefix": "inc",
+        "body": [
+            "inc variable"
+        ],
+        "description": "inc command"
+    },
+    "input": {
+        "prefix": "input",
+        "body": [
+            "input target [prompt]"
+        ],
+        "description": "input command"
+    },
+    "inputmeth": {
+        "prefix": "inputmeth",
+        "body": [
+            "inputmeth [an|hex|swap]"
+        ],
+        "description": "inputmeth command"
+    },
+    "inrange": {
+        "prefix": "inrange",
+        "body": [
+            "inrange target min max value"
+        ],
+        "description": "inrange command"
+    },
+    "ioread": {
+        "prefix": "ioread",
+        "body": [
+            "ioread byte port"
+        ],
+        "description": "ioread command"
+    },
+    "iowrite": {
+        "prefix": "iowrite",
+        "body": [
+            "iowrite port byte"
+        ],
+        "description": "iowrite command"
+    },
+    "label": {
+        "prefix": "label",
+        "body": [
+            "label name"
+        ],
+        "description": "label command"
+    },
+    "length": {
+        "prefix": "length",
+        "body": [
+            "length target value"
+        ],
+        "description": "length command"
+    },
+    "let": {
+        "prefix": "let",
+        "body": [
+            "let dinp|coil|ireg|hreg address value"
+        ],
+        "description": "let command"
+    },
+    "list": {
+        "prefix": "list",
+        "body": [
+            "list"
+        ],
+        "description": "list command"
+    },
+    "ln": {
+        "prefix": "ln",
+        "body": [
+            "ln target value"
+        ],
+        "description": "ln command"
+    },
+    "loadcfg": {
+        "prefix": "loadcfg",
+        "body": [
+            "loadcfg path_and_filename"
+        ],
+        "description": "loadcfg command"
+    },
+    "loadreg": {
+        "prefix": "loadreg",
+        "body": [
+            "loadreg path_and_filename"
+        ],
+        "description": "loadreg command"
+    },
+    "loadscr": {
+        "prefix": "loadscr",
+        "body": [
+            "loadscr path_and_filename"
+        ],
+        "description": "loadscr command"
+    },
+    "lowcase": {
+        "prefix": "lowcase",
+        "body": [
+            "lowcase target value"
+        ],
+        "description": "lowcase command"
+    },
+    "macro": {
+        "prefix": "macro",
+        "body": [
+            "macro name command with parameters"
+        ],
+        "description": "macro command"
+    },
+    "mbconv": {
+        "prefix": "mbconv",
+        "body": [
+            "mbconv n2a|a2n array"
+        ],
+        "description": "mbconv command"
+    },
+    "mbgw": {
+        "prefix": "mbgw",
+        "body": [
+            "mbgw con? con?"
+        ],
+        "description": "mbgw command"
+    },
+    "mbmon": {
+        "prefix": "mbmon",
+        "body": [
+            "mbmon [con?]"
+        ],
+        "description": "mbmon command"
+    },
+    "mbsrv": {
+        "prefix": "mbsrv",
+        "body": [
+            "mbsrv con?"
+        ],
+        "description": "mbsrv command"
+    },
+    "md": {
+        "prefix": "md",
+        "body": [
+            "md path_and_directoryname"
+        ],
+        "description": "md command"
+    },
+    "mkcrc": {
+        "prefix": "mkcrc",
+        "body": [
+            "mkcrc target string"
+        ],
+        "description": "mkcrc command"
+    },
+    "mklrc": {
+        "prefix": "mklrc",
+        "body": [
+            "mklrc target string"
+        ],
+        "description": "mklrc command"
+    },
+    "mul": {
+        "prefix": "mul",
+        "body": [
+            "mul target value1 value2"
+        ],
+        "description": "mul command"
+    },
+    "mulinv": {
+        "prefix": "mulinv",
+        "body": [
+            "mulinv target value"
+        ],
+        "description": "mulinv command"
+    },
+    "not": {
+        "prefix": "not",
+        "body": [
+            "not target value"
+        ],
+        "description": "not command"
+    },
+    "odd": {
+        "prefix": "odd",
+        "body": [
+            "odd target value"
+        ],
+        "description": "odd command"
+    },
+    "or": {
+        "prefix": "or",
+        "body": [
+            "or target value1 value2"
+        ],
+        "description": "or command"
+    },
+    "ord": {
+        "prefix": "ord",
+        "body": [
+            "ord target value"
+        ],
+        "description": "ord command"
+    },
+    "pause": {
+        "prefix": "pause",
+        "body": [
+            "pause [time]"
+        ],
+        "description": "pause command"
+    },
+    "pow": {
+        "prefix": "pow",
+        "body": [
+            "pow target base exponent"
+        ],
+        "description": "pow command"
+    },
+    "pow2": {
+        "prefix": "pow2",
+        "body": [
+            "pow2 target exponent"
+        ],
+        "description": "pow2 command"
+    },
+    "print": {
+        "prefix": "print",
+        "body": [
+            "print dinp|coil|ireg|hreg address [count] [-n]"
+        ],
+        "description": "print command"
+    },
+    "printcolor": {
+        "prefix": "printcolor",
+        "body": [
+            "printcolor foreground background"
+        ],
+        "description": "printcolor command"
+    },
+    "prop": {
+        "prefix": "prop",
+        "body": [
+            "prop target min max zero span value"
+        ],
+        "description": "prop command"
+    },
+    "rd": {
+        "prefix": "rd",
+        "body": [
+            "rd path_and_directoryname"
+        ],
+        "description": "rd command"
+    },
+    "readreg": {
+        "prefix": "readreg",
+        "body": [
+            "readreg con? dinp|coil|ireg|hreg address [count]"
+        ],
+        "description": "readreg command"
+    },
+    "ren": {
+        "prefix": "ren",
+        "body": [
+            "ren path_and_filename new_path_and_filename"
+        ],
+        "description": "ren command"
+    },
+    "reset": {
+        "prefix": "reset",
+        "body": [
+            "reset dev?|pro?|con?|project"
+        ],
+        "description": "reset command"
+    },
+    "rmdevlock": {
+        "prefix": "rmdevlock",
+        "body": [
+            "rmdevlock device"
+        ],
+        "description": "rmdevlock command"
+    },
+    "rnd": {
+        "prefix": "rnd",
+        "body": [
+            "rnd target value"
+        ],
+        "description": "rnd command"
+    },
+    "roll": {
+        "prefix": "roll",
+        "body": [
+            "roll target value1 value2"
+        ],
+        "description": "roll command"
+    },
+    "rolr": {
+        "prefix": "rolr",
+        "body": [
+            "rolr target value1 value2"
+        ],
+        "description": "rolr command"
+    },
+    "round": {
+        "prefix": "round",
+        "body": [
+            "round target value dec_places"
+        ],
+        "description": "round command"
+    },
+    "run": {
+        "prefix": "run",
+        "body": [
+            "run [-h] [-s]"
+        ],
+        "description": "run command"
+    },
+    "runmeth": {
+        "prefix": "runmeth",
+        "body": [
+            "runmeth"
+        ],
+        "description": "runmeth command"
+    },
+    "savecfg": {
+        "prefix": "savecfg",
+        "body": [
+            "savecfg path_and_filename"
+        ],
+        "description": "savecfg command"
+    },
+    "savereg": {
+        "prefix": "savereg",
+        "body": [
+            "savereg path_and_filename"
+        ],
+        "description": "savereg command"
+    },
+    "savescr": {
+        "prefix": "savescr",
+        "body": [
+            "savescr path_and_filename"
+        ],
+        "description": "savescr command"
+    },
+    "sendmeth": {
+        "prefix": "sendmeth",
+        "body": [
+            "sendmeth [chr|str|swap]"
+        ],
+        "description": "sendmeth command"
+    },
+    "sercons": {
+        "prefix": "sercons",
+        "body": [
+            "sercons [dev?]"
+        ],
+        "description": "sercons command"
+    },
+    "serread": {
+        "prefix": "serread",
+        "body": [
+            "serread dev? [target]"
+        ],
+        "description": "serread command"
+    },
+    "serwrite": {
+        "prefix": "serwrite",
+        "body": [
+            "serwrite dev? message"
+        ],
+        "description": "serwrite command"
+    },
+    "set": {
+        "prefix": "set",
+        "body": [
+            "set timeout timeout"
+        ],
+        "description": "set command"
+    },
+    "setarrsize": {
+        "prefix": "setarrsize",
+        "body": [
+            "setarrsize array size"
+        ],
+        "description": "setarrsize command"
+    },
+    "shl": {
+        "prefix": "shl",
+        "body": [
+            "shl target value1 value2"
+        ],
+        "description": "shl command"
+    },
+    "shr": {
+        "prefix": "shr",
+        "body": [
+            "shr target value1 value2"
+        ],
+        "description": "shr command"
+    },
+    "sin": {
+        "prefix": "sin",
+        "body": [
+            "sin target value"
+        ],
+        "description": "sin command"
+    },
+    "sqr": {
+        "prefix": "sqr",
+        "body": [
+            "sqr target value"
+        ],
+        "description": "sqr command"
+    },
+    "sqrt": {
+        "prefix": "sqrt",
+        "body": [
+            "sqrt target value"
+        ],
+        "description": "sqrt command"
+    },
+    "strdel": {
+        "prefix": "strdel",
+        "body": [
+            "strdel target place count"
+        ],
+        "description": "strdel command"
+    },
+    "strfind": {
+        "prefix": "strfind",
+        "body": [
+            "strfind target value"
+        ],
+        "description": "strfind command"
+    },
+    "strins": {
+        "prefix": "strins",
+        "body": [
+            "strins target place value"
+        ],
+        "description": "strins command"
+    },
+    "stritem": {
+        "prefix": "stritem",
+        "body": [
+            "stritem target value1 value2"
+        ],
+        "description": "stritem command"
+    },
+    "strrepl": {
+        "prefix": "strrepl",
+        "body": [
+            "strrepl target old new"
+        ],
+        "description": "strrepl command"
+    },
+    "sub": {
+        "prefix": "sub",
+        "body": [
+            "sub target value1 value2"
+        ],
+        "description": "sub command"
+    },
+    "tan": {
+        "prefix": "tan",
+        "body": [
+            "tan target value"
+        ],
+        "description": "tan command"
+    },
+    "tcpcons": {
+        "prefix": "tcpcons",
+        "body": [
+            "tcpcons [dev?]"
+        ],
+        "description": "tcpcons command"
+    },
+    "tcpread": {
+        "prefix": "tcpread",
+        "body": [
+            "tcpread dev? [target]"
+        ],
+        "description": "tcpread command"
+    },
+    "tcpwrite": {
+        "prefix": "tcpwrite",
+        "body": [
+            "tcpwrite dev? message"
+        ],
+        "description": "tcpwrite command"
+    },
+    "type": {
+        "prefix": "type",
+        "body": [
+            "type path_and_filename"
+        ],
+        "description": "type command"
+    },
+    "udpcons": {
+        "prefix": "udpcons",
+        "body": [
+            "udpcons [dev?]"
+        ],
+        "description": "udpcons command"
+    },
+    "udpread": {
+        "prefix": "udpread",
+        "body": [
+            "udpread dev? [target]"
+        ],
+        "description": "udpread command"
+    },
+    "udpwrite": {
+        "prefix": "udpwrite",
+        "body": [
+            "udpwrite dev? message"
+        ],
+        "description": "udpwrite command"
+    },
+    "upcase": {
+        "prefix": "upcase",
+        "body": [
+            "upcase target value"
+        ],
+        "description": "upcase command"
+    },
+    "writereg": {
+        "prefix": "writereg",
+        "body": [
+            "writereg con? coil|hreg address [count]"
+        ],
+        "description": "writereg command"
+    },
+    "xor": {
+        "prefix": "xor",
+        "body": [
+            "xor target value1 value2"
+        ],
+        "description": "xor command"
+    },
+    "var": {
+        "prefix": "var",
+        "body": [
+            "var [name value]"
+        ],
+        "description": "var command"
+    },
+    "varmon": {
+        "prefix": "varmon",
+        "body": [
+            "varmon [variable] on|off"
+        ],
+        "description": "varmon command"
+    },
+    "varr": {
+        "prefix": "varr",
+        "body": [
+            "varr [array size]"
+        ],
+        "description": "varr command"
+    },
+    "ver": {
+        "prefix": "ver",
+        "body": [
+            "ver"
+        ],
+        "description": "ver command"
+    }
+}
