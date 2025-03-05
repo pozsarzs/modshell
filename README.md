@@ -2,11 +2,9 @@
 > The program is still under development, it is not yet suitable for its task.  
 >
 
-<img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon" src="document/picture/modshell_96x96.png">   
+<img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon" src="document/picture/modshell_96x96.png">  <br>
 
 # Modshell
-
-<br>
 
 **Command-driven scriptable Modbus utility**
 
