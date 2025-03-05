@@ -2,9 +2,11 @@
 > The program is still under development, it is not yet suitable for its task.  
 >
 
-<img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon" src="desktop/modshell.png">   
+<img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon" src="document/picture/modshell_96x96.png">   
 
 # Modshell
+
+<br>
 
 **Command-driven scriptable Modbus utility**
 
@@ -121,7 +123,7 @@ _Second user test release_ will be with the following changes:
  - [ ] HART protocol support;  
  - [ ] Modbus/TCP communication;  
  - [ ] TCP/UDP communication on DOS;  
- - [x] syntax highlighter file for Microsoft Visual Studio Code.
+ - [x] syntax highlighter and suggestion extension for Visual Studio Code.  
  Only a source package will be released.
 
 ### Previous releases  
