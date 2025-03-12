@@ -1,0 +1,594 @@
+File status of the 0.1beta2 release
+-----------------------------------
+
+BUGS+WISHES.md                                              OK
+CODE_OF_CONDUCT.md                                          OK
+configure                                                   OK
+configure.in                                                OK
+LICENCE                                                     OK
+Makefile                                                    OK
+Makefile.global                                             OK
+Makefile.global.in                                          OK
+README.md                                                   OK
+autoconf/config.guess                                       OK
+autoconf/config.sub                                         OK
+autoconf/install-sh                                         OK
+desktop/Makefile                                            OK
+desktop/modshell.desktop                                    OK
+desktop/modshell-fs.desktop                                 OK
+desktop/modshell.png                                        OK
+desktop/serechoserver.desktop                               OK
+desktop/serial.png                                          OK
+desktop/sermbmonitor.desktop                                OK
+desktop/tcpechoserver.desktop                               OK
+desktop/tcp.png                                             OK
+desktop/udpechoserver.desktop                               OK
+desktop/udp.png                                             OK
+desktop/xmodshell.desktop                                   OK
+desktop/xmodshell.png                                       OK
+document/AUTHORS                                            OK
+document/changelog
+document/copyright                                          OK
+document/example/adam4018                                   OK
+document/example/addition                                   OK
+document/example/ansi                                       OK
+document/example/arrays                                     OK
+document/example/batch/adam4018.bat                         OK
+document/example/batch/addition.bat                         OK
+document/example/batch/ansi.bat                             OK
+document/example/batch/arrays.bat                           OK
+document/example/batch/copyset1.bat                         OK
+document/example/batch/copyset2.bat                         OK
+document/example/batch/for-if.bat                           OK
+document/example/batch/getdt510.bat                         OK
+document/example/batch/getpm9c1.bat                         OK
+document/example/batch/getpm9c2.bat                         OK
+document/example/batch/setdt510.bat                         OK
+document/example/copyset1                                   OK
+document/example/copyset2                                   OK
+document/example/for-if                                     OK
+document/example/getdt510                                   OK
+document/example/getpm9c1                                   OK
+document/example/getpm9c2                                   OK
+document/example/Makefile                                   OK
+document/example/setdt510                                   OK
+document/in_brief/ansi.md                                   OK
+document/in_brief/dcon.md                                   OK
+document/in_brief/hart.md
+document/in_brief/Makefile                                  OK
+document/in_brief/methods.md                                OK
+document/in_brief/modbus.md                                 OK
+document/INSTALL.md                                         OK
+document/Makefile                                           OK
+document/picture/Makefile                                   OK
+document/picture/modshell_96x96.png                         OK
+document/picture/modshell-f.png                             OK
+document/picture/modshell.png                               OK
+document/picture/modshell-r.png                             OK
+document/picture/xmodshell-dump.png                         OK
+document/picture/xmodshell-edit.png                         OK
+document/picture/xmodshell-regtable.png                     OK
+document/picture/xmodshell-sercons.png                      OK
+document/picture/xmodshell-varmon.png                       OK
+document/README.md                                          OK
+document/syntax/group-1.lst                                 OK
+document/syntax/group-2.lst                                 OK
+document/syntax/group-3.lst                                 OK
+document/syntax/group-4.lst                                 OK
+document/syntax/Makefile                                    OK
+document/syntax/README.md                                   OK
+document/VERSION                                            OK
+help/createhhk                                              OK
+help/en/Builtin-commands.htm
+help/en/Command-examples.htm
+help/en/Command-line-parameters.htm                         OK
+help/en/Differents-between-CUI-and-GUI-version.htm          OK
+help/en/Environmental-variables.htm                         OK
+help/en/Exit-status.htm                                     OK
+help/en/Files.htm                                           OK
+help/en/Home.htm                                            OK
+help/en/Hotkeys.htm                                         OK
+help/en/Installation-from-source-code.htm                   OK
+help/en/modshell_en.hhc
+help/en/modshell_en.hhk
+help/en/modshell_en.hhp                                     OK
+help/en/modshell_en.log
+help/en/Operation.htm                                       OK
+help/en/Packaging.htm                                       OK
+help/en/Predefined-constants.htm                            OK
+help/en/Predefined-macros.htm                               OK
+help/en/Predefined-variables.htm                            OK
+help/en/Utilities.htm                                       OK
+help/Makefile                                               OK
+help/modshell_en.chm
+library/inpout32/inpout32.dll                               OK
+library/inpout32/inpout32.h                                 OK
+library/inpout32/inpout32.lib                               OK
+library/inpout32/inpoutx64.dll                              OK
+library/inpout32/inpoutx64.lib                              OK
+library/inpout32/InstallDriver.exe                          OK
+library/inpout32/license.txt                                OK
+library/inpout32/ReadMe.txt                                 OK
+library/README                                              OK
+manual/Makefile                                             OK
+manual/mbconv.1                                             OK
+manual/modshell.1
+manual/numconv.1                                            OK
+manual/serialechoserver.1                                   OK
+manual/serialmbmonitor.1                                    OK
+manual/tcpechoserver.1                                      OK
+manual/udpechoserver.1                                      OK
+manual/xmodshell.1                                          OK
+message/fi/lhelp.mo                                         OK
+message/fi/lhelp.po                                         OK
+message/fr/lhelp.mo                                         OK
+message/fr/lhelp.po                                         OK
+message/hu-dos/modshell.mo
+message/hu-dos/modshell.po
+message/hu/lhelp.mo                                         OK
+message/hu/lhelp.po                                         OK
+message/hu/modshell.mo
+message/hu/modshell.po
+message/hu/serialechoserver.mo                              OK
+message/hu/serialechoserver.po                              OK
+message/hu/serialmbmonitor.mo                               OK
+message/hu/serialmbmonitor.po                               OK
+message/hu/tcpechoserver.mo                                 OK
+message/hu/tcpechoserver.po                                 OK
+message/hu/udpechoserver.mo                                 OK
+message/hu/udpechoserver.po                                 OK
+message/hu-windows/modshell.mo
+message/hu-windows/modshell.po
+message/hu-windows/serialechoserver.mo                      OK
+message/hu-windows/serialechoserver.po                      OK
+message/hu-windows/serialmbmonitor.mo                       OK
+message/hu-windows/serialmbmonitor.po                       OK
+message/hu-windows/tcpechoserver.mo                         OK
+message/hu-windows/tcpechoserver.po                         OK
+message/hu-windows/udpechoserver.mo                         OK
+message/hu-windows/udpechoserver.po                         OK
+message/hu/xmodshell.mo
+message/hu/xmodshell.po
+message/lhelp.pot                                           OK
+message/lt/lhelp.mo                                         OK
+message/lt/lhelp.po                                         OK
+message/Makefile                                            OK
+message/modshell.pot
+message/pl/lhelp.mo                                         OK
+message/pl/lhelp.po                                         OK
+message/pretranslate                                        OK
+message/ru/lhelp.mo                                         OK
+message/ru/lhelp.po                                         OK
+message/serialechoserver.pot                                OK
+message/serialmbmonitor.pot                                 OK
+message/tcpechoserver.pot                                   OK
+message/udpechoserver.pot                                   OK
+message/uk/lhelp.mo                                         OK
+message/uk/lhelp.po                                         OK
+message/xmodshell.pot
+package/dos-bin/file_id.diz
+package/dos-bin/mdshfull.bat
+package/dos-bin/modshell.ico
+package/dos-bin/modshell.txt
+package/freebsd-bin/create_links
+package/freebsd-bin/install
+package/freebsd-bin/remove_links
+package/freebsd-bin/uninstall
+package/freebsd-txz/Makefile
+package/freebsd-txz/pkg-descr
+package/freebsd-txz/pkg-plist
+package/freedos-bin/modshell.lsm
+package/linux-bin/create_links
+package/linux-bin/install
+package/linux-bin/remove_links
+package/linux-bin/uninstall
+package/linux-deb/control
+package/linux-deb/postinst
+package/linux-deb/prerm
+package/linux-rpm/modshell-0.1beta1-1.spec
+package/linux-txz/slack-desc
+package/mkpackage_dos-zip.bat
+package/mkpackage_freebsd-bin-zip
+package/mkpackage_freebsd-txz
+package/mkpackage_linux-bin-zip
+package/mkpackage_linux-deb
+package/mkpackage_linux-rpm
+package/mkpackage_linux-txz
+package/mkpackage_src-targz
+package/windows-exe/modshell-0.1beta1-win32.nsi
+package/windows-exe/modshell-0.1beta1-win64.nsi
+package/windows-msi/modshell-0.1beta1.xml
+script
+script/batch
+script/batch/mbconv.bat
+script/batch/numconv.bat
+script/Makefile
+script/mbconv
+script/numconv
+setting
+setting/modshell.ini
+source
+source/builddos.bat
+source/buildw32.bat
+source/buildw64.bat
+source/_ext
+source/_ext/convert
+source/_ext/convert/convert.diff
+source/_ext/convert/convert.pas
+source/_ext/convert/freeware.txt
+source/_ext/convert/read.me
+source/_ext/inpout32.zip
+source/_ext/modlcltranslator
+source/_ext/modlcltranslator/modlcltranslator.diff
+source/_ext/modlcltranslator/modlcltranslator.pas
+source/_ext/modsynhighlighterany
+source/_ext/modsynhighlighterany/modsynedit.inc
+source/_ext/modsynhighlighterany/modsynhighlighterany.pas
+source/_ext/modsynhighlighterany/synhighlighterany.diff
+source/_ext/protcom
+source/_ext/protcom/LICENSE
+source/_ext/protcom/protcom.pas
+source/_ext/protcom/testprco.pas
+source/_ext/README.md
+source/_ext/synapse
+source/_ext/synapse/asn1util.pas
+source/_ext/synapse/blcksock.pas
+source/_ext/synapse/clamsend.pas
+source/_ext/synapse/dnssend.pas
+source/_ext/synapse/ftpsend.pas
+source/_ext/synapse/ftptsend.pas
+source/_ext/synapse/httpsend.pas
+source/_ext/synapse/imapsend.pas
+source/_ext/synapse/laz_synapse.lpk
+source/_ext/synapse/laz_synapse.pas
+source/_ext/synapse/ldapsend.pas
+source/_ext/synapse/licence.txt
+source/_ext/synapse/mimeinln.pas
+source/_ext/synapse/mimemess.pas
+source/_ext/synapse/mimepart.pas
+source/_ext/synapse/nntpsend.pas
+source/_ext/synapse/pingsend.pas
+source/_ext/synapse/pop3send.pas
+source/_ext/synapse/README.txt
+source/_ext/synapse/Release.txt
+source/_ext/synapse/slogsend.pas
+source/_ext/synapse/smtpsend.pas
+source/_ext/synapse/snmpsend.pas
+source/_ext/synapse/sntpsend.pas
+source/_ext/synapse/ssdotnet.inc
+source/_ext/synapse/ssfpc.inc
+source/_ext/synapse/ssl_cryptlib.pas
+source/_ext/synapse/sslinux.inc
+source/_ext/synapse/ssl_openssl_lib.pas
+source/_ext/synapse/ssl_openssl.pas
+source/_ext/synapse/ssl_sbb.pas
+source/_ext/synapse/ssl_streamsec.pas
+source/_ext/synapse/sswin32.inc
+source/_ext/synapse/synachar.pas
+source/_ext/synapse/synacode.pas
+source/_ext/synapse/synacrypt.pas
+source/_ext/synapse/synadbg.pas
+source/_ext/synapse/synafpc.pas
+source/_ext/synapse/synaicnv.pas
+source/_ext/synapse/synaip.pas
+source/_ext/synapse/synamisc.pas
+source/_ext/synapse/synaser.pas
+source/_ext/synapse/synaser.txt
+source/_ext/synapse/synautil.pas
+source/_ext/synapse/synsock.pas
+source/_ext/synapse/tlntsend.pas
+source/_ext/synapse/winsock2.txt
+source/_inc
+source/_inc/commands
+source/_inc/commands/cmd_aplg.pas
+source/_inc/commands/cmd_arr.pas
+source/_inc/commands/cmd_asci.pas
+source/_inc/commands/cmd_avg.pas
+source/_inc/commands/cmd_carr.pas
+source/_inc/commands/cmd_cons.pas
+source/_inc/commands/cmd_conv.pas
+source/_inc/commands/cmd_copy.pas
+source/_inc/commands/cmd_cron.pas
+source/_inc/commands/cmd_date.pas
+source/_inc/commands/cmd_dcon.pas
+source/_inc/commands/cmd_dttp.pas
+source/_inc/commands/cmd_dump.pas
+source/_inc/commands/cmd_edit.pas
+source/_inc/commands/cmd_ehmt.pas
+source/_inc/commands/cmd_eras.pas
+source/_inc/commands/cmd_exph.pas
+source/_inc/commands/cmd_expr.pas
+source/_inc/commands/cmd_for.pas
+source/_inc/commands/cmd_get.pas
+source/_inc/commands/cmd_goto.pas
+source/_inc/commands/cmd_gpio.pas
+source/_inc/commands/cmd_gw.pas
+source/_inc/commands/cmd_hart.pas
+source/_inc/commands/cmd_help.pas
+source/_inc/commands/cmd_if.pas
+source/_inc/commands/cmd_impr.pas
+source/_inc/commands/cmd_inmt.pas
+source/_inc/commands/cmd_inpt.pas
+source/_inc/commands/cmd_io.pas
+source/_inc/commands/cmd_labl.pas
+source/_inc/commands/cmd_lcfg.pas
+source/_inc/commands/cmd_let.pas
+source/_inc/commands/cmd_list.pas
+source/_inc/commands/cmd_lock.pas
+source/_inc/commands/cmd_logc.pas
+source/_inc/commands/cmd_lreg.pas
+source/_inc/commands/cmd_lscr.pas
+source/_inc/commands/cmd_math.pas
+source/_inc/commands/cmd_mbcv.pas
+source/_inc/commands/cmd_mbmn.pas
+source/_inc/commands/cmd_mcro.pas
+source/_inc/commands/cmd_paus.pas
+source/_inc/commands/cmd_pclr.pas
+source/_inc/commands/cmd_pipe.pas
+source/_inc/commands/cmd_prnt.pas
+source/_inc/commands/cmd_prop.pas
+source/_inc/commands/cmd_read.pas
+source/_inc/commands/cmd_rnmt.pas
+source/_inc/commands/cmd_rst.pas
+source/_inc/commands/cmd_run.pas
+source/_inc/commands/cmd_scfg.pas
+source/_inc/commands/cmd_sdmt.pas
+source/_inc/commands/cmd_secn.pas
+source/_inc/commands/cmd_serd.pas
+source/_inc/commands/cmd_set.pas
+source/_inc/commands/cmd_sewr.pas
+source/_inc/commands/cmd_sreg.pas
+source/_inc/commands/cmd_srv.pas
+source/_inc/commands/cmd_sscr.pas
+source/_inc/commands/cmd_stck.pas
+source/_inc/commands/cmd_str.pas
+source/_inc/commands/cmd_sys.pas
+source/_inc/commands/cmd_tccn.pas
+source/_inc/commands/cmd_tcrd.pas
+source/_inc/commands/cmd_tcwr.pas
+source/_inc/commands/cmd_udcn.pas
+source/_inc/commands/cmd_udrd.pas
+source/_inc/commands/cmd_udwr.pas
+source/_inc/commands/cmd_var.pas
+source/_inc/commands/cmd_varr.pas
+source/_inc/commands/cmd_vrmn.pas
+source/_inc/commands/cmd_whvr.pas
+source/_inc/commands/cmd_wrte.pas
+source/_inc/commands/thr_mbmn.pas
+source/_inc/commands/thr_secn.pas
+source/_inc/commands/thr_serd.pas
+source/_inc/commands/thr_sewr.pas
+source/_inc/commands/thr_tccn.pas
+source/_inc/commands/thr_tcrd.pas
+source/_inc/commands/thr_tcwr.pas
+source/_inc/commands/thr_udcn.pas
+source/_inc/commands/thr_udrd.pas
+source/_inc/commands/thr_udwr.pas
+source/_inc/const.pas
+source/_inc/dcon
+source/_inc/dcon/dcon.pas
+source/_inc/define.pas
+source/_inc/dll.pas
+source/_inc/fllprmpt.pas
+source/_inc/.gitignore
+source/_inc/hart
+source/_inc/hart/hart.pas
+source/_inc/intrprtr.pas
+source/_inc/lockfile.pas
+source/_inc/modbus
+source/_inc/modbus/mbascii.pas
+source/_inc/modbus/mbrtu.pas
+source/_inc/modbus/mbtcp.pas
+source/_inc/modbus/mbutil.pas
+source/_inc/modbus/modbus.pas
+source/_inc/parsing.pas
+source/_inc/ports
+source/_inc/ports/gpio.pas
+source/_inc/ports/io.pas
+source/_inc/ports/network.pas
+source/_inc/ports/serport.pas
+source/_inc/README.md
+source/_inc/resstrng.pas
+source/_inc/sendmesg.pas
+source/_inc/type.pas
+source/_inc/validity.pas
+source/_inc/var.pas
+source/_inc/version.pas
+source/_inc/vrbosity.pas
+source/lhelp/basecontentprovider.pas                        OK
+source/lhelp/chmcontentprovider.pas                         OK
+source/lhelp/chmdataprovider.pas                            OK
+source/lhelp/chmpopup.lfm                                   OK
+source/lhelp/chmpopup.pas                                   OK
+source/lhelp/chmspecialparser.pas                           OK
+source/lhelp/filecontentprovider.pas                        OK
+source/lhelp/httpcontentprovider.pas                        OK
+source/lhelp/lhelpcore.lfm                                  OK
+source/lhelp/lhelpcore.pas                                  OK
+source/lhelp/lhelp.ico                                      OK
+source/lhelp/lhelp.lpi                                      OK
+source/lhelp/lhelp.lpr                                      OK
+source/lhelp/lhelp.res                                      OK
+source/lhelp/lhelpstrconsts.pas                             OK
+source/_lib/arm-linux/.gitignore                            OK
+source/_lib/i386-dos/.gitignore                             OK
+source/_lib/i386-freebsd/.gitignore                         OK
+source/_lib/i386-linux/.gitignore                           OK
+source/_lib/i386-win32/.gitignore                           OK
+source/_lib/x86_64-freebsd/.gitignore                       OK
+source/_lib/x86_64-win64/.gitignore                         OK
+source/Makefile                                             OK
+source/modshell/.gitignore                                  OK
+source/modshell/Makefile.dos                                OK
+source/modshell/Makefile.w32                                OK
+source/modshell/Makefile.w64                                OK
+source/modshell/modshell.ico                                OK
+source/modshell/modshell.lpi                                OK
+source/modshell/modshell.lps                                OK
+source/modshell/modshell.pas                                OK
+source/modshell/modshell.rc.gz                              OK
+source/modshell/modshell.res                                OK
+source/_png/Add_06_16.png                                   OK
+source/_png/ascii.png                                       OK
+source/_png/Calculator_02_16.png                            OK
+source/_png/Cancel_04_16.png                                OK
+source/_png/Clean_01_16.png                                 OK
+source/_png/Code_01_16.png                                  OK
+source/_png/Color_02_16.png                                 OK
+source/_png/Comment_01_16.png                               OK
+source/_png/Connection_01_16.png                            OK
+source/_png/Edit_03_16.png                                  OK
+source/_png/Exit_02_16.png                                  OK
+source/_png/Export_03_16.png                                OK
+source/_png/Export_05_16.png                                OK
+source/_png/Eye_01_16.png                                   OK
+source/_png/File_01_16.png                                  OK
+source/_png/File_02_16.png                                  OK
+source/_png/File_03_16.png                                  OK
+source/_png/File_04_16.png                                  OK
+source/_png/Font_26_16.png                                  OK
+source/_png/Forward_01_16.png                               OK
+source/_png/Help_03_16.png                                  OK
+source/_png/Import_01_16.png                                OK
+source/_png/Info_01_16.png                                  OK
+source/_png/lazarus_general_purpose_images.txt              OK
+source/_png/mb.png                                          OK
+source/_png/Refresh_03_16.png                               OK
+source/_png/Save_03_16.png                                  OK
+source/_png/Time_07_16.png                                  OK
+source/_png/Window_03_16.png                                OK
+source/_po/.gitignore                                       OK
+source/_ppu/.gitignore                                      OK
+source/_ppu/README.md                                       OK
+source/_ppu/ucommon.pas                                     OK
+source/_ppu/uconfig.pas
+source/_ppu/utranslt.pas                                    OK
+source/README.md                                            OK
+source/serialechoserver
+source/serialechoserver/.gitignore
+source/serialechoserver/Makefile.w32
+source/serialechoserver/Makefile.w64
+source/serialechoserver/serialechoserver.ico
+source/serialechoserver/serialechoserver.lpi
+source/serialechoserver/serialechoserver.lps
+source/serialechoserver/serialechoserver.pas
+source/serialechoserver/serialechoserver.res
+source/serialmbmonitor
+source/serialmbmonitor/.gitignore
+source/serialmbmonitor/Makefile.w32
+source/serialmbmonitor/Makefile.w64
+source/serialmbmonitor/serialmbmonitor.ico
+source/serialmbmonitor/serialmbmonitor.lpi
+source/serialmbmonitor/serialmbmonitor.lps
+source/serialmbmonitor/serialmbmonitor.pas
+source/serialmbmonitor/serialmbmonitor.res
+source/tcpechoserver
+source/tcpechoserver/.gitignore
+source/tcpechoserver/Makefile.w32
+source/tcpechoserver/Makefile.w64
+source/tcpechoserver/tcpechoserver.ico
+source/tcpechoserver/tcpechoserver.lpi
+source/tcpechoserver/tcpechoserver.lps
+source/tcpechoserver/tcpechoserver.pas
+source/tcpechoserver/tcpechoserver.res
+source/udpechoserver
+source/udpechoserver/.gitignore
+source/udpechoserver/Makefile.w32
+source/udpechoserver/Makefile.w64
+source/udpechoserver/udpechoserver.ico
+source/udpechoserver/udpechoserver.lpi
+source/udpechoserver/udpechoserver.lps
+source/udpechoserver/udpechoserver.pas
+source/udpechoserver/udpechoserver.res
+source/xmodshell
+source/xmodshell/backup
+source/xmodshell/backup/frmmain.lfm.bak
+source/xmodshell/backup/frmmain.pas.bak
+source/xmodshell/backup/xmodshell.lpi.bak
+source/xmodshell/backup/xmodshell.lpr.bak
+source/xmodshell/backup/xmodshell.lps.bak
+source/xmodshell/frmmain.lfm
+source/xmodshell/frmmain.lrj
+source/xmodshell/frmmain.pas
+source/xmodshell/frmmbmn.lfm
+source/xmodshell/frmmbmn.lrj
+source/xmodshell/frmmbmn.pas
+source/xmodshell/frmregtable.lfm
+source/xmodshell/frmregtable.lrj
+source/xmodshell/frmregtable.pas
+source/xmodshell/frmsecn.lfm
+source/xmodshell/frmsecn.lrj
+source/xmodshell/frmsecn.pas
+source/xmodshell/frmtccn.lfm
+source/xmodshell/frmtccn.lrj
+source/xmodshell/frmtccn.pas
+source/xmodshell/frmudcn.lfm
+source/xmodshell/frmudcn.lrj
+source/xmodshell/frmudcn.pas
+source/xmodshell/frmvrmn.lfm
+source/xmodshell/frmvrmn.lrj
+source/xmodshell/frmvrmn.pas
+source/xmodshell/.gitignore
+source/xmodshell/ifile-set_console_colors.pas
+source/xmodshell/imodbus-read_coil.pas
+source/xmodshell/imodbus-read_discrete_input.pas
+source/xmodshell/imodbus-read_holding_register.pas
+source/xmodshell/imodbus-read_input_register.pas
+source/xmodshell/imodbus-show_serial_modbus_traffic.pas
+source/xmodshell/imodbus-write_coil.pas
+source/xmodshell/imodbus-write_holding_register.pas
+source/xmodshell/iproject-connections-reset_connections.pas OK
+source/xmodshell/iproject-connections-set_connections.pas   OK
+source/xmodshell/iproject-devices-reset_devices.pas
+source/xmodshell/iproject-devices-set_devices.pas
+source/xmodshell/iproject-protocols-reset_protocols.pas
+source/xmodshell/iproject-protocols-set_protocols.pas
+source/xmodshell/iproject-timeout-set_timeout.pas
+source/xmodshell/iregisters-dump_registers.pas
+source/xmodshell/iregisters-export_registers.pas
+source/xmodshell/iscript-edit_script.pas
+source/xmodshell/iutilities-mini_serial_console.pas
+source/xmodshell/iutilities-mini_tcp_console.pas
+source/xmodshell/iutilities-mini_udp_console.pas
+source/xmodshell/iutilities-number_converter.pas
+source/xmodshell/iutilities-read_data_from_serial_port.pas
+source/xmodshell/iutilities-read_data_with_tcp.pas
+source/xmodshell/iutilities-read_data_with_udp.pas
+source/xmodshell/iutilities-write_data_to_serial_port.pas
+source/xmodshell/iutilities-write_data_with_tcp.pas
+source/xmodshell/iutilities-write_data_with_udp.pas
+source/xmodshell/Makefile.w32                               OK
+source/xmodshell/Makefile.w64                               OK
+source/xmodshell/xmodshell.ico                              OK
+source/xmodshell/xmodshell.lpi
+source/xmodshell/xmodshell.lpr
+source/xmodshell/xmodshell.lps
+source/xmodshell/xmodshell.res
+source/_xpm/modshell.xpm                                    OK
+source/_xpm/serial.xpm                                      OK
+source/_xpm/tcp.xpm                                         OK
+source/_xpm/udp.xpm                                         OK
+source/_xpm/xmodshell.xpm                                   OK
+syntax/Makefile                                             OK
+syntax/modshell.lang                                        OK
+syntax/modshell.nanorc                                      OK
+syntax/modshell-script-0.0.2.vsix
+syntax/modshell-script/CHANGELOG.md                         OK
+syntax/modshell-script/.gitattributes                       OK
+syntax/modshell-script/.gitignore                           OK
+syntax/modshell-script/images/modshell.png                  OK
+syntax/modshell-script/language-configuration.json          OK
+syntax/modshell-script/LICENSE.md                           OK
+syntax/modshell-script/package.json                         OK
+syntax/modshell-script/README.md                            OK
+syntax/modshell-script/snippets/mdsscript.json
+syntax/modshell-script/syntaxes/mdsscript.tmLanguage.json   OK
+syntax/modshell-script/.vscodeignore                        OK
+syntax/modshell-script/.vscode/launch.json                  OK
+syntax/modshell.syntax                                      OK
+syntax/modshell.vim                                         OK
+syntax/modshell.xml                                         OK
+syntax/modshell.yaml                                        OK
+syntax/README.md                                            OK
+syntax/scripts.vim                                          OK
+syntax/Syntax                                               OK

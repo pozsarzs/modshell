@@ -2,7 +2,9 @@
 > The program is still under development, it is not yet suitable for its task.  
 >
 
-<img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon" src="document/picture/modshell_96x96.png">  <br>
+<img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon"
+  src="document/picture/modshell_96x96.png">
+<br>
 
 # Modshell
 
@@ -56,7 +58,7 @@ HART protocols.
 |running modes           |normal or interpreter                                                                       |
 |variables               |max. 128 variables or constants (stored as string)                                          |
 |arrays                  |max. 32 dynamic size array of variables or constants (elements stored as string)            |
-|built-in commands       |129 commands in 10 categories with macro and script options)                                |
+|built-in commands       |135 commands in 10 categories with macro and script options)                                |
 |macros                  |max. 32                                                                                     |
 |script size             |max. 1024 line                                                                              |
 |example scripts         |10 scripts (shellscript and batch file versions)                                            |
@@ -112,10 +114,10 @@ HART protocols.
 
 _0.1-beta2_
 _Second user test release_ will be with the following changes:
- - [ ] new command `abs`;  
- - [ ] new command `gpio` (Industrial PC and RaspberryPi GPIO port support);  
+ - [x] new command `abs`;  
+ - [ ] new commands `gpioread`, `gpiowrite` (Industrial PC and RaspberryPi GPIO port support);  
  - [x] new command `input`;  
- - [ ] new command `stack`;  
+ - [ ] new commands `pipe`, `stack`;  
  - [ ] new command `swp`;  
  - [x] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
  - [ ] HART protocol support;  
@@ -165,7 +167,7 @@ _Second user test release_ will be with the following changes:
   <li>support for variable and constant arrays</li>    
   <li>new predefined constants</li>  
   <li>syntax highlighter file for applications using GTKSourceView (for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes), for Notepad++ (Windows only) and Vim/Neovim</li>  
-egzotikusTCP and UPD echo server utilities for testing connectivity.</li>  
+  <li>TCP and UPD echo server utilities for testing connectivity.</li>  
  </ul>  
  Only a source package will be released.
 </details>
@@ -195,7 +197,8 @@ egzotikusTCP and UPD echo server utilities for testing connectivity.</li>
   <li>28 new command (total: 94);</li>
   <li>script syntax highlighting file for Micro.</li>
  </ul>
- All types of binary and installation packages will be released along with the source package.  
+ All types of binary and installation packages will be released along with the
+ source package.  
 </details>
 
 <details>
@@ -381,142 +384,149 @@ can be selected.
 ### Direct I/O access  
 
 The program provides direct, byte-sized reading and writing of hardware I/O
-ports. On Windows operating systems, it uses the included external dynamically
-linked library.  
+ports on PCs and bit-sized reading and writing GPIO ports on Raspberry Pi and
+Industrial PCs. On Windows operating systems, it uses the included external
+dynamically linked library.  
 
 ## VI. Implemented commands  
 
 |   |command     |category     |hotkey  |description                                                          |
 |--:|:----------:|:-----------:|:------:|---------------------------------------------------------------------|
-|  1|`add`       |arithmetic   |        |addition                                                             |
-|  2|`avg`       |arithmetic   |        |average calculation                                                  |
-|  3|`conv`      |arithmetic   |ALT-C   |convert numbers between BIN, DEC, HEX and OCT format                 |
-|  4|`cos`       |arithmetic   |        |cosine function                                                      |
-|  5|`cotan`     |arithmetic   |        |cotangent function                                                   |
-|  6|`dec`       |arithmetic   |        |decrement integer                                                    |
-|  7|`div`       |arithmetic   |        |division                                                             |
-|  8|`exp`       |arithmetic   |        |natural exponential                                                  |
-|  9|`idiv`      |arithmetic   |        |integer division                                                     |
-| 10|`imod`      |arithmetic   |        |modulus division                                                     |
-| 11|`inc`       |arithmetic   |        |increment integer                                                    |
-| 12|`inrange`   |arithmetic   |        |check the value is in the range                                      |
-| 13|`ln`        |arithmetic   |        |natural logarithm                                                    |
-| 14|`mul`       |arithmetic   |        |multiplication                                                       |
-| 15|`mulinv`    |arithmetic   |        |multiplicative inverse                                               |
-| 16|`odd`       |arithmetic   |        |odd or event                                                         |
-| 17|`pow2`      |arithmetic   |        |exponentiation of two                                                |
-| 18|`pow`       |arithmetic   |        |exponentiation                                                       |
-| 19|`prop`      |arithmetic   |        |propotional value calculation (with zero and span)                   |
-| 20|`rnd`       |arithmetic   |        |create random integer                                                |
-| 21|`round`     |arithmetic   |        |round real number                                                    |
-| 22|`sin`       |arithmetic   |        |sine function                                                        |
-| 23|`sqr`       |arithmetic   |        |square                                                               |
-| 24|`sqrt`      |arithmetic   |        |square root                                                          |
-| 25|`sub`       |arithmetic   |        |substraction                                                         |
-| 26|`tan`       |arithmetic   |        |tangent function                                                     |
-| 27|`copyreg`   |communication|        |copy one or more remote registers between two connections            |
-| 28|`dcon`      |communication|        |read or write data from/to remote device with DCON protocol          |
-| 29|`hart`      |communication|        |read or write data from/to remote device with HART protocol          |
-| 30|`mbconv`    |communication|        |Modbus register number/address converter                             |
-| 31|`mbgw`      |communication|        |start internal Modbus gateway                                        |
-| 32|`mbsrv`     |communication|        |start internal Modbus slave/server                                   |
-| 33|`mbmon`     |communication|        |start serial Modbus traffic monitor                                  |
-| 34|`readreg`   |communication|ALT-R   |read one or more remote registers                                    |
-| 35|`sercons`   |communication|F7      |mini serial console                                                  |
-| 36|`serread`   |communication|        |read string from a serial device                                     |
-| 37|`serwrite`  |communication|        |write string to a serial device                                      |
-| 38|`tcpcons`   |communication|SHIFT-F7|mini TCP console                                                     |
-| 39|`tcpread`   |communication|        |read string over the network using TCP                               |
-| 40|`tcpwrite`  |communication|        |write string over the network using TCP                              |
-| 41|`udpcons`   |communication|        |mini UDP console                                                     |
-| 42|`udpread`   |communication|        |read string over the network using UDP                               |
-| 43|`udpwrite`  |communication|        |write string over the network using UDP                              |
-| 44|`writereg`  |communication|ALT-W   |write data to one or more remote registers                           |
-| 45|`get`       |configuration|ALT-G   |get device, protocol, connection, colors, project name and timeout   |
-| 46|`reset`     |configuration|ALT-T   |reset device, protocol or connection or reset project name           |
-| 47|`set`       |configuration|ALT-S   |set device, protocol, connection, colors, project name and timeout   |
-| 48|`applog`    |file         |        |append a record to log file (LOG)                                    |
-| 49|`exphis`    |file         |        |export command line history to file (TXT)                            |
-| 50|`expreg`    |file         |ALT-E   |export one or more registers to file (CSV, INI, XML)                 |
-| 51|`impreg`    |file         |ALT-I   |import one or more registers from file (INI, XML)                    |
-| 52|`loadcfg`   |file         |F3      |load settings of device, protocol and connection (?DT)               |
-| 53|`loadreg`   |file         |F5      |load all buffer registers from typed file (?DT)                      |
-| 54|`savecfg`   |file         |F2      |save settings of device, protocol and connection (?DT)               |
-| 55|`savereg`   |file         |F4      |save all registers to typed file (?DT)                               |
-| 56|`arrclear`  |general      |        |clear content of an array                                            |
-| 57|`arrfill`   |general      |        |fill an array with a character                                       |
-| 58|`ascii`     |general      |        |show ASCII table                                                     |
-| 59|`beep`      |general      |        |make a beep with internal speaker                                    |
-| 60|`carr`      |general      |        |show all constant arrays with theirs size or define a new one        |
-| 61|`cls`       |general      |F8      |clear screen                                                         |
-| 62|`const`     |general      |        |show all constants with theirs value or define a new one             |
-| 63|`cron`      |general      |        |loaded script scheduled execution                                    |
-| 64|`datatype`  |general      |        |detect type of data                                                  |
-| 65|`date`      |general      |        |show system date and time                                            |
-| 66|`echometh`  |general      |F9      |alphanumerical/hexadecimal/none local echo method for connections    |
-| 67|`exit`      |general      |F10     |exit                                                                 |
-| 68|`for`       |general      |        |loop iteration                                                       |
-| 69|`getarrsize`|general      |        |get size of an array                                                 |
-| 70|`goto`      |general      |        |jump to specified label                                              |
-| 71|`help`      |general      |F1      |show description or usage of the commands                            |
-| 72|`if`        |general      |        |selection statement                                                  |
-| 73|`input`     |general      |        |input data from console                                              |
-| 74|`inputmeth` |general      |SHIFT-F9|alphanumerical/hexadecimal data input method for connections         |
-| 75|`label`     |general      |        |define label (for goto command)                                      |
-| 76|`let`       |general      |ALT-L   |set value of a register, variable, a constant or an element of array |
-| 77|`macro`     |general      |        |show all macros with theirs value or define a new one                |
-| 78|`pause`     |general      |        |waits for a keystroke or specified time                              |
-| 79|`printcolor`|general      |        |set temporary foreground and background colors for print in CLI/TUI  |
-| 80|`print`     |general      |ALT-P   |print message, value of the variable and register                    |
-| 81|`runmeth`   |general      |        |get execution method                                                 |
-| 82|`sendmeth`  |general      |CTRL-F9 |char-to-char or string data send method for connections              |
-| 83|`setarrsize`|general      |        |set size of an array                                                 |
-| 84|`var`       |general      |        |show all variables with theirs value or define a new one             |
-| 85|`varmon`    |general      |ALT-M   |monitoring the value of variables                                    |
-| 86|`varr`      |general      |        |show all variable arrays with theirs size or define a new one        |
-| 87|`ver`       |general      |        |show version and build information of this program                   |
-| 88|`and`       |logic        |        |AND logical operations                                               |
-| 89|`bit`       |logic        |        |value of the specified bit                                           |
-| 90|`not`       |logic        |        |NOT logical operations                                               |
-| 91|`or`        |logic        |        |OR logical operations                                                |
-| 92|`roll`      |logic        |        |roll bit of integer to left                                          |
-| 93|`rolr`      |logic        |        |roll bit of integer to right                                         |
-| 94|`shl`       |logic        |        |bit shift to left                                                    |
-| 95|`shr`       |logic        |        |bit shift to right                                                   |
-| 96|`xor`       |logic        |        |XOR logical operations                                               |
-| 97|`dump`      |register     |F6      |dump all registers in binary/hexadecimal format to a table           |
-| 98|`edit`      |script       |SHIFT-F4|edit loaded script with line editor                                  |
-| 99|`erasescr`  |script       |SHIFT-F8|erase script from buffer                                             |
-|100|`list`      |script       |F11     |list loaded script                                                   |
-|101|`loadscr`   |script       |SHIFT-F3|load ModShell scriptfile from disc                                   |
-|102|`run`       |script       |F12     |run loaded script                                                    |
-|103|`savescr`   |script       |SHIFT-F2|save loaded script to disc                                           |
-|104|`chr`       |string       |        |convert byte to char                                                 |
-|105|`concat`    |string       |        |concatenate strings                                                  |
-|106|`length`    |string       |        |length of string                                                     |
-|107|`lowcase`   |string       |        |conversion to lowercase                                              |
-|108|`mkcrc`     |string       |        |make CRC value                                                       |
-|109|`mklrc`     |string       |        |make LRC value                                                       |
-|110|`ord`       |string       |        |convert char to byte                                                 |
-|111|`strdel`    |string       |        |delete specified element(s) of the string                            |
-|112|`strfind`   |string       |        |find specified element in the string                                 |
-|113|`strins`    |string       |        |insert element into string                                           |
-|114|`stritem`   |string       |        |specified element of the string                                      |
-|115|`strrepl`   |string       |        |replace element in the string                                        |
-|116|`upcase`    |string       |        |conversion to uppercase                                              | 
-|117|`cd`        |system       |        |change actual directory                                              |
-|118|`chkdevlock`|system       |        |check device lock file                                               |
-|119|`copy`      |system       |        |copy file                                                            |
-|120|`del`       |system       |        |remove file                                                          |
-|121|`dir`       |system       |        |list directory content                                               |
-|122|`exist`     |system       |        |existence of a file or directory                                     |
-|123|`ioread`    |system       |        |read a byte from an I/O port                                         |
-|124|`iowrite`   |system       |        |write a byte to an I/O port                                          |
-|125|`md`        |system       |        |make directory                                                       |
-|126|`rd`        |system       |        |remove directory                                                     |
-|127|`ren`       |system       |        |rename file                                                          |
-|128|`rmdevlock` |system       |        |remove device lock file                                              |
-|129|`type`      |system       |        |type file                                                            |
+|  1|`abs`       |arithmetic   |        |absolute value                                                       |
+|  2|`add`       |arithmetic   |        |addition                                                             |
+|  3|`avg`       |arithmetic   |        |average calculation                                                  |
+|  4|`conv`      |arithmetic   |ALT-C   |convert numbers between BIN, DEC, HEX and OCT format                 |
+|  5|`cos`       |arithmetic   |        |cosine function                                                      |
+|  6|`cotan`     |arithmetic   |        |cotangent function                                                   |
+|  7|`dec`       |arithmetic   |        |decrement integer                                                    |
+|  8|`div`       |arithmetic   |        |division                                                             |
+|  9|`exp`       |arithmetic   |        |natural exponential                                                  |
+| 10|`idiv`      |arithmetic   |        |integer division                                                     |
+| 11|`imod`      |arithmetic   |        |modulus division                                                     |
+| 12|`inc`       |arithmetic   |        |increment integer                                                    |
+| 13|`inrange`   |arithmetic   |        |check the value is in the range                                      |
+| 14|`ln`        |arithmetic   |        |natural logarithm                                                    |
+| 15|`mul`       |arithmetic   |        |multiplication                                                       |
+| 16|`mulinv`    |arithmetic   |        |multiplicative inverse                                               |
+| 17|`odd`       |arithmetic   |        |odd or event                                                         |
+| 18|`pow2`      |arithmetic   |        |exponentiation of two                                                |
+| 19|`pow`       |arithmetic   |        |exponentiation                                                       |
+| 20|`prop`      |arithmetic   |        |propotional value calculation (with zero and span)                   |
+| 21|`rnd`       |arithmetic   |        |create random integer                                                |
+| 22|`round`     |arithmetic   |        |round real number                                                    |
+| 23|`sin`       |arithmetic   |        |sine function                                                        |
+| 24|`sqr`       |arithmetic   |        |square                                                               |
+| 25|`sqrt`      |arithmetic   |        |square root                                                          |
+| 26|`sub`       |arithmetic   |        |substraction                                                         |
+| 27|`swp`       |arithmetic   |        |swap value of two variables                                          |
+| 28|`tan`       |arithmetic   |        |tangent function                                                     |
+| 29|`copyreg`   |communication|        |copy one or more remote registers between two connections            |
+| 30|`dcon`      |communication|        |read or write data from/to remote device with DCON protocol          |
+| 31|`hart`      |communication|        |read or write data from/to remote device with HART protocol          |
+| 32|`mbconv`    |communication|        |Modbus register number/address converter                             |
+| 33|`mbgw`      |communication|        |start internal Modbus gateway                                        |
+| 34|`mbsrv`     |communication|        |start internal Modbus slave/server                                   |
+| 35|`mbmon`     |communication|        |start serial Modbus traffic monitor                                  |
+| 36|`readreg`   |communication|ALT-R   |read one or more remote registers                                    |
+| 37|`sercons`   |communication|F7      |mini serial console                                                  |
+| 38|`serread`   |communication|        |read string from a serial device                                     |
+| 39|`serwrite`  |communication|        |write string to a serial device                                      |
+| 40|`tcpcons`   |communication|SHIFT-F7|mini TCP console                                                     |
+| 41|`tcpread`   |communication|        |read string over the network using TCP                               |
+| 42|`tcpwrite`  |communication|        |write string over the network using TCP                              |
+| 43|`udpcons`   |communication|        |mini UDP console                                                     |
+| 44|`udpread`   |communication|        |read string over the network using UDP                               |
+| 45|`udpwrite`  |communication|        |write string over the network using UDP                              |
+| 46|`writereg`  |communication|ALT-W   |write data to one or more remote registers                           |
+| 47|`get`       |configuration|ALT-G   |get device, protocol, connection, colors, project name and timeout   |
+| 48|`reset`     |configuration|ALT-T   |reset device, protocol or connection or reset project name           |
+| 49|`set`       |configuration|ALT-S   |set device, protocol, connection, colors, project name and timeout   |
+| 50|`applog`    |file         |        |append a record to log file (LOG)                                    |
+| 51|`exphis`    |file         |        |export command line history to file (TXT)                            |
+| 52|`expreg`    |file         |ALT-E   |export one or more registers to file (CSV, INI, XML)                 |
+| 53|`impreg`    |file         |ALT-I   |import one or more registers from file (INI, XML)                    |
+| 54|`loadcfg`   |file         |F3      |load settings of device, protocol and connection (?DT)               |
+| 55|`loadreg`   |file         |F5      |load all buffer registers from typed file (?DT)                      |
+| 56|`savecfg`   |file         |F2      |save settings of device, protocol and connection (?DT)               |
+| 57|`savereg`   |file         |F4      |save all registers to typed file (?DT)                               |
+| 58|`arrclear`  |general      |        |clear content of an array                                            |
+| 59|`arrfill`   |general      |        |fill an array with a character                                       |
+| 60|`ascii`     |general      |        |show ASCII table                                                     |
+| 61|`beep`      |general      |        |make a beep with internal speaker                                    |
+| 62|`carr`      |general      |        |show all constant arrays with theirs size or define a new one        |
+| 63|`cls`       |general      |F8      |clear screen                                                         |
+| 64|`const`     |general      |        |show all constants with theirs value or define a new one             |
+| 65|`cron`      |general      |        |loaded script scheduled execution                                    |
+| 66|`datatype`  |general      |        |detect type of data                                                  |
+| 67|`date`      |general      |        |show system date and time                                            |
+| 68|`echometh`  |general      |F9      |alphanumerical/hexadecimal/none local echo method for connections    |
+| 69|`exit`      |general      |F10     |exit                                                                 |
+| 70|`for`       |general      |        |loop iteration                                                       |
+| 71|`getarrsize`|general      |        |get size of an array                                                 |
+| 72|`goto`      |general      |        |jump to specified label                                              |
+| 73|`help`      |general      |F1      |show description or usage of the commands                            |
+| 74|`if`        |general      |        |selection statement                                                  |
+| 75|`input`     |general      |        |input data from console                                              |
+| 76|`inputmeth` |general      |SHIFT-F9|alphanumerical/hexadecimal data input method for connections         |
+| 77|`label`     |general      |        |define label (for goto command)                                      |
+| 78|`let`       |general      |ALT-L   |set value of a register, variable, a constant or an element of array |
+| 79|`macro`     |general      |        |show all macros with theirs value or define a new one                |
+| 80|`pause`     |general      |        |waits for a keystroke or specified time                              |
+| 81|`pipe`      |general      |        |use an variable array as a FIFO storage                              |
+| 82|`printcolor`|general      |        |set temporary foreground and background colors for print in CLI/TUI  |
+| 83|`print`     |general      |ALT-P   |print message, value of the variable and register                    |
+| 84|`runmeth`   |general      |        |get execution method                                                 |
+| 85|`sendmeth`  |general      |CTRL-F9 |char-to-char or string data send method for connections              |
+| 86|`setarrsize`|general      |        |set size of an array                                                 |
+| 87|`stack`     |general      |        |use an variable array as a LIFO storage                              |
+| 88|`var`       |general      |        |show all variables with theirs value or define a new one             |
+| 89|`varmon`    |general      |ALT-M   |monitoring the value of variables                                    |
+| 90|`varr`      |general      |        |show all variable arrays with theirs size or define a new one        |
+| 91|`ver`       |general      |        |show version and build information of this program                   |
+| 92|`and`       |logic        |        |AND logical operations                                               |
+| 93|`bit`       |logic        |        |value of the specified bit                                           |
+| 94|`not`       |logic        |        |NOT logical operations                                               |
+| 95|`or`        |logic        |        |OR logical operations                                                |
+| 96|`roll`      |logic        |        |roll bit of integer to left                                          |
+| 97|`rolr`      |logic        |        |roll bit of integer to right                                         |
+| 98|`shl`       |logic        |        |bit shift to left                                                    |
+| 99|`shr`       |logic        |        |bit shift to right                                                   |
+|100|`xor`       |logic        |        |XOR logical operations                                               |
+| 91|`dump`      |register     |F6      |dump all registers in binary/hexadecimal format to a table           |
+| 92|`edit`      |script       |SHIFT-F4|edit loaded script with line editor                                  |
+| 93|`erasescr`  |script       |SHIFT-F8|erase script from buffer                                             |
+|104|`list`      |script       |F11     |list loaded script                                                   |
+|105|`loadscr`   |script       |SHIFT-F3|load ModShell scriptfile from disc                                   |
+|106|`run`       |script       |F12     |run loaded script                                                    |
+|107|`savescr`   |script       |SHIFT-F2|save loaded script to disc                                           |
+|108|`chr`       |string       |        |convert byte to char                                                 |
+|109|`concat`    |string       |        |concatenate strings                                                  |
+|110|`length`    |string       |        |length of string                                                     |
+|111|`lowcase`   |string       |        |conversion to lowercase                                              |
+|112|`mkcrc`     |string       |        |make CRC value                                                       |
+|113|`mklrc`     |string       |        |make LRC value                                                       |
+|114|`ord`       |string       |        |convert char to byte                                                 |
+|115|`strdel`    |string       |        |delete specified element(s) of the string                            |
+|116|`strfind`   |string       |        |find specified element in the string                                 |
+|117|`strins`    |string       |        |insert element into string                                           |
+|118|`stritem`   |string       |        |specified element of the string                                      |
+|119|`strrepl`   |string       |        |replace element in the string                                        |
+|120|`upcase`    |string       |        |conversion to uppercase                                              | 
+|121|`cd`        |system       |        |change actual directory                                              |
+|122|`chkdevlock`|system       |        |check device lock file                                               |
+|123|`copy`      |system       |        |copy file                                                            |
+|124|`del`       |system       |        |remove file                                                          |
+|125|`dir`       |system       |        |list directory content                                               |
+|126|`exist`     |system       |        |existence of a file or directory                                     |
+|127|`gpioread`  |system       |        |read a bit from a GPIO port                                         |
+|128|`gpiowrite` |system       |        |write a bit to a GPIO port                                          |
+|129|`ioread`    |system       |        |read a byte from an I/O port                                         |
+|130|`iowrite`   |system       |        |write a byte to an I/O port                                          |
+|131|`md`        |system       |        |make directory                                                       |
+|132|`rd`        |system       |        |remove directory                                                     |
+|133|`ren`       |system       |        |rename file                                                          |
+|134|`rmdevlock` |system       |        |remove device lock file                                              |
+|135|`type`      |system       |        |type file                                                            |
 
 (Commands with function keys (F?) are executed immediately, modifier keys
 (ALT-?) only make typing easier.)  
@@ -573,8 +583,8 @@ Modshell and XModShell has a minimal built-in help which you can access by
 typing help. Additionally, you can view the manual page from *nix shell
 (_man modshell_) or _modshell.txt_ on other systems.  
 
-In the graphical version, the Online Wiki can be opened directly from the 'Help'
-menu.  
+In the graphical version, you can use Help and Online Wiki can be opened directly
+from the 'Help' menu.  
 
 ## IX. Contributing  
 

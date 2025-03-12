@@ -191,6 +191,14 @@ begin
        124: buffer[b] := buffer[b] + DES124;
        125: buffer[b] := buffer[b] + DES125;
        126: buffer[b] := buffer[b] + DES126;
+       127: buffer[b] := buffer[b] + DES127;
+       128: buffer[b] := buffer[b] + DES128;
+       129: buffer[b] := buffer[b] + DES129;
+       130: buffer[b] := buffer[b] + DES130;
+       131: buffer[b] := buffer[b] + DES131;
+       132: buffer[b] := buffer[b] + DES132;
+       133: buffer[b] := buffer[b] + DES133;
+       134: buffer[b] := buffer[b] + DES134;
       end;
     end;
     shorting;
@@ -380,7 +388,7 @@ begin
          116: writeln(USG116);
          117: writeln(USG117);
          118: writeln(USG118);
-         129: writeln(USG119);
+         119: writeln(USG119);
          120: writeln(USG120);
          121: writeln(USG121);
          122: writeln(USG122);
@@ -388,6 +396,14 @@ begin
          124: writeln(USG124);
          125: writeln(USG125);
          126: writeln(USG126);
+         127: writeln(USG127);
+         128: writeln(USG128);
+         129: writeln(USG129);
+         130: writeln(USG130);
+         131: writeln(USG131);
+         132: writeln(USG132);
+         133: writeln(USG133);
+         134: writeln(USG134);
         end;
       {$ELSE}
         with Form1 do
@@ -521,6 +537,14 @@ begin
          124: Memo1.Lines.Add('   ' + USG124);
          125: Memo1.Lines.Add('   ' + USG125);
          126: Memo1.Lines.Add('   ' + USG126);
+         127: Memo1.Lines.Add('   ' + USG127);
+         128: Memo1.Lines.Add('   ' + USG128);
+         129: Memo1.Lines.Add('   ' + USG129);
+         130: Memo1.Lines.Add('   ' + USG130);
+         131: Memo1.Lines.Add('   ' + USG131);
+         132: Memo1.Lines.Add('   ' + USG132);
+         133: Memo1.Lines.Add('   ' + USG133);
+         134: Memo1.Lines.Add('   ' + USG134);
         end;
       end;
      {$ENDIF}

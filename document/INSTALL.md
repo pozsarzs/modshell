@@ -1,7 +1,7 @@
 ## Installation from source package
 
 Lazarus LCL units are required to compile XModShell and FreePascal compiler is
-required to compile both of them programs.  
+required to compile all programs.  
 
 > [!IMPORTANT]
 > On DOS and Windows operating systems, FreePascal's BIN directory contains the
@@ -12,7 +12,7 @@ required to compile both of them programs.
   
   Build and install:
   ```
-  $ ./configure [cui=no] [gui=no] [util=no] [stagedir=...]  
+  $ ./configure [cui=no] [gui=no] [util=no] [lhelp=no] [stagedir=...]  
   $ make
   # make install
   ```
@@ -26,7 +26,7 @@ required to compile both of them programs.
   Build:
   ```
   > cd source
-  > buildw??.bat [/nocui] [/nogui] [/noutil]
+  > buildw??.bat [/nocui] [/nogui] [/noutil] [/nolhelp]
   ```  
 
 ### 3. On DOS

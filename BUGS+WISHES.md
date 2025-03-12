@@ -2,7 +2,8 @@
 > The program is still under development, it is not yet suitable for its task.  
 >
 
-<img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon" src="desktop/modshell.png">   
+<img align="left" style="float: left; margin: 0 10px 0 0;" alt="ModShell icon"
+  src="desktop/modshell.png">   
 
 ## Modshell
 

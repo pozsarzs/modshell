@@ -31,6 +31,7 @@
       <keyword>timeout</keyword>
     </context>
     <context id="keyword" style-ref="keyword">
+      <keyword>abs</keyword>
       <keyword>add</keyword>
       <keyword>and</keyword>
       <keyword>applog</keyword>
@@ -73,6 +74,8 @@
       <keyword>get</keyword>
       <keyword>getarrsize</keyword>
       <keyword>goto</keyword>
+      <keyword>gpioread</keyword>
+      <keyword>gpiowrite</keyword>
       <keyword>hart</keyword>
       <keyword>help</keyword>
       <keyword>idiv</keyword>
@@ -109,6 +112,7 @@
       <keyword>ord</keyword>
       <keyword>or</keyword>
       <keyword>pause</keyword>
+      <keyword>pipe</keyword>
       <keyword>pow2</keyword>
       <keyword>pow</keyword>
       <keyword>print</keyword>
@@ -139,12 +143,14 @@
       <keyword>sin</keyword>
       <keyword>sqrt</keyword>
       <keyword>sqr</keyword>
+      <keyword>stack</keyword>
       <keyword>strdel</keyword>
       <keyword>strfind</keyword>
       <keyword>strins</keyword>
       <keyword>stritem</keyword>
       <keyword>strrepl</keyword>
       <keyword>sub</keyword>
+      <keyword>swp</keyword>
       <keyword>tan</keyword>
       <keyword>tcpcons</keyword>
       <keyword>tcpread</keyword>

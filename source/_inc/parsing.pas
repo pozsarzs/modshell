@@ -166,6 +166,14 @@ begin
             COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2],
                                                       splitted[3], splitted[4],
                                                       splitted[5], splitted[6]);
+
+
+{129 abs
+134 swp
+132 pipe
+133 stack
+}
+
           else
           begin
             // logical functions
@@ -206,6 +214,9 @@ begin
             // direct i/o access functions
             if (b >= 125) and (b <= 126) then
               exitcode := cmd_io(b, splitted[1], splitted[2]);
+            // direct gpio access functions
+            if (b >= 130) and (b <= 131) then
+              exitcode := cmd_gpio(b, splitted[1], splitted[2]);
            end;
         end;
         vars[0].vvalue := inttostr(exitcode);

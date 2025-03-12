@@ -1,3 +1,4 @@
+abs
 add
 and
 applog
@@ -40,6 +41,8 @@ for
 get
 getarrsize
 goto
+gpioread
+gpiowrite
 hart
 help
 idiv
@@ -76,6 +79,7 @@ odd
 or
 ord
 pause
+pipe
 pow
 pow2
 print
@@ -106,12 +110,14 @@ shr
 sin
 sqr
 sqrt
+stack
 strdel
 strfind
 strins
 stritem
 strrepl
 sub
+swp
 tan
 tcpcons
 tcpread

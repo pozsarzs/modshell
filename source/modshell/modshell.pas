@@ -92,6 +92,7 @@ procedure version(h: boolean); forward;
 {$I vrbosity.pas}
 
 {$I io.pas}
+{$I gpio.pas}
 {$I network.pas}
 {$I serport.pas}
 
@@ -112,9 +113,9 @@ procedure version(h: boolean); forward;
 {$I cmd_conv.pas}
 {$I cmd_copy.pas}
 {$I cmd_cron.pas}
-{$I cmd_dttp.pas}
 {$I cmd_date.pas}
 {$I cmd_dcon.pas}
+{$I cmd_dttp.pas}
 {$I cmd_dump.pas}
 {$I cmd_edit.pas}
 {$I cmd_ehmt.pas}
@@ -124,14 +125,15 @@ procedure version(h: boolean); forward;
 {$I cmd_for.pas}
 {$I cmd_get.pas}
 {$I cmd_goto.pas}
+{$I cmd_gpio.pas}
 {$I cmd_gw.pas}
 {$I cmd_hart.pas}
 {$I cmd_help.pas}
 {$I cmd_if.pas}
-{$I cmd_io.pas}
 {$I cmd_impr.pas}
 {$I cmd_inmt.pas}
 {$I cmd_inpt.pas}
+{$I cmd_io.pas}
 {$I cmd_labl.pas}
 {$I cmd_lcfg.pas}
 {$I cmd_let.pas}
@@ -141,17 +143,18 @@ procedure version(h: boolean); forward;
 {$I cmd_lreg.pas}
 {$I cmd_lscr.pas}
 {$I cmd_math.pas}
-{$I cmd_mcro.pas}
 {$I cmd_mbcv.pas}
 {$I cmd_mbmn.pas}
+{$I cmd_mcro.pas}
 {$I cmd_paus.pas}
 {$I cmd_pclr.pas}
+{$I cmd_pipe.pas}
 {$I cmd_prnt.pas}
 {$I cmd_prop.pas}
 {$I cmd_read.pas}
+{$I cmd_rnmt.pas}
 {$I cmd_rst.pas}
 {$I cmd_run.pas}
-{$I cmd_rnmt.pas}
 {$I cmd_scfg.pas}
 {$I cmd_sdmt.pas}
 {$I cmd_secn.pas}
@@ -161,6 +164,7 @@ procedure version(h: boolean); forward;
 {$I cmd_sreg.pas}
 {$I cmd_srv.pas}
 {$I cmd_sscr.pas}
+{$I cmd_stck.pas}
 {$I cmd_str.pas}
 {$I cmd_sys.pas}
 {$I cmd_tccn.pas}

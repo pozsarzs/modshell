@@ -11,22 +11,22 @@ endif
 syn case ignore
 syn sync lines=250
 
-syn keyword modshellFunction add and applog arrclear arrfill ascii avg
+syn keyword modshellFunction abs add and applog arrclear arrfill ascii avg
 syn keyword modshellFunction beep bit
 syn keyword modshellFunction carr cd chkdevlock chr cls concat const conv copy copyreg cos cotan cron
 syn keyword modshellFunction datatype date dcon dec del dir div dump
 syn keyword modshellFunction echometh edit erasescr exist exit exp exphis expreg
 syn keyword modshellFunction for
-syn keyword modshellFunction get getarrsize goto
+syn keyword modshellFunction get getarrsize goto gpioread gpiowrite
 syn keyword modshellFunction hart help
 syn keyword modshellFunction idiv if imod impreg inc input inputmeth inrange ioread iowrite
 syn keyword modshellFunction label length let list ln loadcfg loadreg loadscr lowcase
 syn keyword modshellFunction macro mbconv mbgw mbmon mbsrv md mkcrc mklrc mul mulinv
 syn keyword modshellFunction not
 syn keyword modshellFunction odd or ord
-syn keyword modshellFunction pause pow pow2 print printcolor prop
+syn keyword modshellFunction pause pipe pow pow2 print printcolor prop
 syn keyword modshellFunction rd readreg ren reset rmdevlock rnd roll rolr round run runmeth
-syn keyword modshellFunction savecfg savereg savescr sendmeth sercons serread serwrite set setarrsize shl shr sin sqr sqrt strdel strfind strins stritem strrepl sub
+syn keyword modshellFunction savecfg savereg savescr sendmeth sercons serread serwrite set setarrsize shl shr sin sqr sqrt stack strdel strfind strins stritem strrepl sub swp
 syn keyword modshellFunction tan tcpcons tcpread tcpwrite then to type
 syn keyword modshellFunction udpcons udpread udpwrite upcase
 syn keyword modshellFunction var varmon varr ver

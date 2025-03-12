@@ -13,33 +13,35 @@
   FOR A PARTICULAR PURPOSE.
 }
 { 
-  p0      p1        p2        p3            p4
-  --------------------------------------------------
-  add     $TARGET   [$]VALUE1   [$]VALUE2
-  chr     $TARGET   [$]VALUE
-  cos     $TARGET   [$]VALUE
-  cotan   $TARGET   [$]VALUE
+  p0      p1         p2        p3            p4
+  ---------------------------------------------------
+  abs     $TARGET    [$]VALUE
+  add     $TARGET    [$]VALUE1   [$]VALUE2
+  chr     $TARGET    [$]VALUE
+  cos     $TARGET    [$]VALUE
+  cotan   $TARGET    [$]VALUE
   dec     $VARIABLE
-  div     $TARGET   [$]VALUE1   [$]VALUE2
-  exp     $TARGET   [$]VALUE
-  idiv    $TARGET   [$]VALUE1   [$]VALUE2
-  imod    $TARGET   [$]VALUE1   [$]VALUE2
-  inrange $TARGET   [$]MIN      [$]MAX      [$]VALUE
+  div     $TARGET    [$]VALUE1   [$]VALUE2
+  exp     $TARGET    [$]VALUE
+  idiv    $TARGET    [$]VALUE1   [$]VALUE2
+  imod    $TARGET    [$]VALUE1   [$]VALUE2
+  inrange $TARGET    [$]MIN      [$]MAX      [$]VALUE
   inc     $VARIABLE
-  ln      $TARGET   [$]VALUE
-  mul     $TARGET   [$]VALUE1   [$]VALUE2
-  mulinv  $TARGET   [$]VALUE
-  pow     $TARGET   [$]BASE     [$]EXPONENT
-  pow2    $TARGET   [$]EXPONENT
-  odd     $TARGET   [$]VALUE
-  ord     $TARGET   [$]VALUE
-  rnd     $TARGET   [$]VALUE
-  round   $TARGET   [$]VALUE    [$]DEC_PLACES
-  sin     $TARGET   [$]VALUE
-  sqr     $TARGET   [$]VALUE
-  sqrt    $TARGET   [$]VALUE
-  sub     $TARGET   [$]VALUE1   [$]VALUE2
-  tan     $TARGET   [$]VALUE
+  ln      $TARGET    [$]VALUE
+  mul     $TARGET    [$]VALUE1   [$]VALUE2
+  mulinv  $TARGET    [$]VALUE
+  pow     $TARGET    [$]BASE     [$]EXPONENT
+  pow2    $TARGET    [$]EXPONENT
+  odd     $TARGET    [$]VALUE
+  ord     $TARGET    [$]VALUE
+  rnd     $TARGET    [$]VALUE
+  round   $TARGET    [$]VALUE    [$]DEC_PLACES
+  sin     $TARGET    [$]VALUE
+  sqr     $TARGET    [$]VALUE
+  sqrt    $TARGET    [$]VALUE
+  sub     $TARGET    [$]VALUE1   [$]VALUE2
+  swp     $VARIABLE1 $VARIABLE2
+  tan     $TARGET    [$]VALUE
 
      | var |const|varr |carr |data |keyw.|
   ---+-----+-----+-----+-----+-----+-----+
@@ -263,6 +265,9 @@ begin
                 else vars[intisitvariable(p1)].vvalue := '0';
           78: vars[intisitvariable(p1)].vvalue :=
                 floattostr(powerof2(strtointdef(s2, 0)));
+         129: vars[intisitvariable(p1)].vvalue :=
+                floattostr(abs(strtofloatdef(s2, 0)));
+         // 134:
         else
         end
       else
@@ -316,6 +321,9 @@ begin
                 else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := '0';
           78: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] :=
                 floattostr(powerof2(strtointdef(s2, 0)));
+         129: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] :=
+               floattostr(abs(strtofloatdef(s2, 0)));
+         // 134:
         else
         end;
   except

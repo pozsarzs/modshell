@@ -115,7 +115,7 @@
 		"group2a": {
 			"patterns": [{
 				"name": "keyword.control.modshell",
-				"match": "\\b(add|and|applog|arrclear|arrfill|ascii|avg)\\b"
+				"match": "\\b(abs|add|and|applog|arrclear|arrfill|ascii|avg)\\b"
 				}]
 		},
 		"group2b": {
@@ -151,7 +151,7 @@
 		"group2g": {
 			"patterns": [{
 				"name": "keyword.control.modshell",
-				"match": "\\b(get|getarrsize|goto)\\b"
+				"match": "\\b(get|getarrsize|goto|gpioread|gpiowrite)\\b"
 				}]
 		},
 		"group2h": {
@@ -193,7 +193,7 @@
 		"group2p": {
 			"patterns": [{
 				"name": "keyword.control.modshell",
-				"match": "\\b(pause|pow|pow2|print|printcolor|prop)\\b"
+				"match": "\\b(pause|pipe|pow|pow2|print|printcolor|prop)\\b"
 				}]
 		},
 		"group2r": {
@@ -205,7 +205,7 @@
 		"group2s": {
 			"patterns": [{
 				"name": "keyword.control.modshell",
-				"match": "\\b(savecfg|savereg|savescr|sendmeth|sercons|serread|serwrite|set|setarrsize|shl|shr|sin|sqr|sqrt|strdel|strfind|strins|stritem|strrepl|sub)\\b"
+				"match": "\\b(savecfg|savereg|savescr|sendmeth|sercons|serread|serwrite|set|setarrsize|shl|shr|sin|sqr|sqrt|stack|strdel|strfind|strins|stritem|strrepl|sub|swp)\\b"
 				}]
 		},
 		"group2t": {

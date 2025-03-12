@@ -15,6 +15,7 @@ context default brightcyan
     keyword whole project brightblue
     keyword whole timeout brightblue
     # group #2
+    keyword whole abs white
     keyword whole add white
     keyword whole and white
     keyword whole applog white
@@ -57,6 +58,8 @@ context default brightcyan
     keyword whole get white
     keyword whole getarrsize white
     keyword whole goto white
+    keyword whole gpioread white
+    keyword whole gpiowrite white
     keyword whole hart white
     keyword whole help white
     keyword whole idiv white
@@ -93,6 +96,7 @@ context default brightcyan
     keyword whole or white
     keyword whole ord white
     keyword whole pause white
+    keyword whole pipe white
     keyword whole pow white
     keyword whole pow2 white
     keyword whole print white
@@ -123,12 +127,14 @@ context default brightcyan
     keyword whole sin white
     keyword whole sqr white
     keyword whole sqrt white
+    keyword whole stack white
     keyword whole strdel white
     keyword whole strfind white
     keyword whole strins white
     keyword whole stritem white
     keyword whole strrepl white
     keyword whole sub white
+    keyword whole swp white
     keyword whole tan white
     keyword whole tcpcons white
     keyword whole tcpread white

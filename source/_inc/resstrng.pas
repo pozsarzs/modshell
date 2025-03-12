@@ -23,107 +23,107 @@ resourcestring
   NUM6 = '6th ';
   NUM7 = '7th ';
   // GENERAL MESSAGES
-  MSG01 = '<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> clear <F10> exit';
-  MSG02 = 'Command-driven scriptable Modbus utility';
-  MSG03 = 'Use ''help COMMAND'' to show usage.';
-  MSG04 = 'Usage this command:';
-  MSG05 = 'parameter:';
-  MSG06 = ' is not set.';
-  MSG07 = ' device:          ';
-  MSG08 = ' port:            ';
-  MSG09 = ' baudrate:        ';
-  MSG10 = ' bits:            ';
-  MSG11 = ' protocol:        ';
-  MSG12 = ' IP address:      ';
-  MSG13 = ' device ID:       ';
-  MSG14 = 'File exist, overwrite? (y/n)';
-  MSG15 = 'Command line history has exported to ';
-  MSG16 = 'Settings has saved to ';
-  MSG17 = 'Settings has loaded from ';
-  MSG18 = 'Register content has exported to ';
-  MSG19 = 'Register content has imported from ';
-  MSG20 = 'Register content has saved to ';
-  MSG21 = 'Register content has loaded from ';
-  MSG22 = 'Useable file types: ';
-  MSG23 = 'Press a key to continue... ';
-  MSG24 = 'Note:' +  EOL +
-          '  - register: local buffer register' + EOL +
-          '  - remote register: register of the connected device' + EOL;
-  MSG25 = 'Select register type: ';
-  MSG26 = 'Local register type (dinp/coil/ireg/hreg: 1/2/3/4): ';
-  MSG27 = 'Start data address (0-9990): ';
-  MSG28 = 'Echo method: ';
-  MSG29 = 'Mini serial console (exit: <F10>)';
-  MSG30 = 'Device number (0-7): ';
-  MSG31 = 'Press <Esc> to break receiving.';
-  MSG32 = 'Variable monitor mode: ';
-  MSG33 = 'This command can only be used in a script!';
-  MSG34 = 'line';
-  MSG35 = 'hour';
-  MSG36 = 'minute';
-  MSG37 = 'status';
-  MSG38 = 'No script loaded.';
-  MSG39 = 'Scroll: [Home][PgUp][Up]-[Down][PgDn][End]';
-  MSG40 = 'Move:   [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]';
-  MSG41 = 'Edit:   [Ins][Del][Esc]';
-  MSG42 = 'all file|*';
-  MSG43 = 'batch file|*.bat|all file|*.*';
-  MSG44 = '&Cancel';
-  MSG45 = '&Set';
-  MSG46 = '&Reset';
-  MSG47 = 'foreground';
-  MSG48 = 'background';
-  MSG49 = 'type';
-  MSG50 = 'device';
-  MSG51 = 'baudrate' + EOL + 'IP address';
-  MSG52 = 'databits' + EOL + 'port';
-  MSG53 = 'parity';
-  MSG54 = 'stopbit(s)';
-  MSG55 = 'protocol';
-  MSG56 = 'ID/address';
-  MSG57 = 'CSV file|*.csv|INI file|*.ini|XML file|*.xml';
-  MSG58 = 'INI file|*.ini|XML file|*.xml';
-  MSG59 = 'registers';
-  MSG60 = 'start data address';
-  MSG61 = 'count';
-  MSG62 = '&Export';
-  MSG63 = '&Dump';
-  MSG64 = 'Use ''Project/Set console colors'' on GUI version.';
-  MSG65 = 'Use ''Script/Edit script'' on GUI version.';
-  MSG66 = 'from';
-  MSG67 = 'to';
-  MSG68 = 'number';
-  MSG69 = '&Write';
-  MSG70 = '&Start';
-  MSG71 = 'New project name:';
-  MSG72 = 'name';
-  MSG73 = 'connection';
-  MSG74 = 'variable';
-  MSG75 = 'message';
-  MSG76 = 'Data entry';
-  MSG77 = '&Read';
-  MSG78 = 'Go on!';
-  MSG79 = 'Variables';
-  MSG80 = 'Values';
-  MSG81 = 'Use ''Utilities/Mini serial console'' on GUI version.';
-  MSG82 = 'timeout';
-  MSG83 = ' or a variable';
-  MSG84 = ' or "text"';
-  MSG85 = 'Cannot use it on this operation system!';
-  MSG86 = ' device address:  ';
-  MSG87 = 'Cannot use it in GUI version!';
-  MSG88 = 'Use ''Utilities/Mini TCP console'' on GUI version.';
-  MSG89 = 'Input method: ';
-  MSG90 = 'Send method: ';
-  MSG91 = 'Monitor running...';
-  MSG92 = 'Monitor paused.';
-  MSG93 = 'Monitor stopped.';
-  MSG94 = 'Build date:  ';
-  MSG95 = 'Builder:     ';
-  MSG96 = 'FPC version: ';
-  MSG97 = 'Target OS:   ';
-  MSG98 = 'Target CPU:  ';
-  MSG99 = 'Sorry, this feature is not yet implemented.';
+   MSG01 = '<F1> help <F2> savecfg <F3> loadcfg <F4> savereg <F5> loadreg <F6> dump <F8> clear <F10> exit';
+   MSG02 = 'Command-driven scriptable Modbus utility';
+   MSG03 = 'Use ''help COMMAND'' to show usage.';
+   MSG04 = 'Usage this command:';
+   MSG05 = 'parameter:';
+   MSG06 = ' is not set.';
+   MSG07 = ' device:          ';
+   MSG08 = ' port:            ';
+   MSG09 = ' baudrate:        ';
+   MSG10 = ' bits:            ';
+   MSG11 = ' protocol:        ';
+   MSG12 = ' IP address:      ';
+   MSG13 = ' device ID:       ';
+   MSG14 = 'File exist, overwrite? (y/n)';
+   MSG15 = 'Command line history has exported to ';
+   MSG16 = 'Settings has saved to ';
+   MSG17 = 'Settings has loaded from ';
+   MSG18 = 'Register content has exported to ';
+   MSG19 = 'Register content has imported from ';
+   MSG20 = 'Register content has saved to ';
+   MSG21 = 'Register content has loaded from ';
+   MSG22 = 'Useable file types: ';
+   MSG23 = 'Press a key to continue... ';
+   MSG24 = 'Note:' +  EOL +
+            '  - register: local buffer register' + EOL +
+            '  - remote register: register of the connected device' + EOL;
+   MSG25 = 'Select register type: ';
+   MSG26 = 'Local register type (dinp/coil/ireg/hreg: 1/2/3/4): ';
+   MSG27 = 'Start data address (0-9990): ';
+   MSG28 = 'Echo method: ';
+   MSG29 = 'Mini serial console (exit: <F10>)';
+   MSG30 = 'Device number (0-7): ';
+   MSG31 = 'Press <Esc> to break receiving.';
+   MSG32 = 'Variable monitor mode: ';
+   MSG33 = 'This command can only be used in a script!';
+   MSG34 = 'line';
+   MSG35 = 'hour';
+   MSG36 = 'minute';
+   MSG37 = 'status';
+   MSG38 = 'No script loaded.';
+   MSG39 = 'Scroll: [Home][PgUp][Up]-[Down][PgDn][End]';
+   MSG40 = 'Move:   [Ctrl-Home][Ctrl-Left][Left]-[Right][Ctrl-Right][Ctrl-End]';
+   MSG41 = 'Edit:   [Ins][Del][Esc]';
+   MSG42 = 'all file|*';
+   MSG43 = 'batch file|*.bat|all file|*.*';
+   MSG44 = '&Cancel';
+   MSG45 = '&Set';
+   MSG46 = '&Reset';
+   MSG47 = 'foreground';
+   MSG48 = 'background';
+   MSG49 = 'type';
+   MSG50 = 'device';
+   MSG51 = 'baudrate' + EOL + 'IP address';
+   MSG52 = 'databits' + EOL + 'port';
+   MSG53 = 'parity';
+   MSG54 = 'stopbit(s)';
+   MSG55 = 'protocol';
+   MSG56 = 'ID/address';
+   MSG57 = 'CSV file|*.csv|INI file|*.ini|XML file|*.xml';
+   MSG58 = 'INI file|*.ini|XML file|*.xml';
+   MSG59 = 'registers';
+   MSG60 = 'start data address';
+   MSG61 = 'count';
+   MSG62 = '&Export';
+   MSG63 = '&Dump';
+   MSG64 = 'Use ''Project/Set console colors'' on GUI version.';
+   MSG65 = 'Use ''Script/Edit script'' on GUI version.';
+   MSG66 = 'from';
+   MSG67 = 'to';
+   MSG68 = 'number';
+   MSG69 = '&Write';
+   MSG70 = '&Start';
+   MSG71 = 'New project name:';
+   MSG72 = 'name';
+   MSG73 = 'connection';
+   MSG74 = 'variable';
+   MSG75 = 'message';
+   MSG76 = 'Data entry';
+   MSG77 = '&Read';
+   MSG78 = 'Go on!';
+   MSG79 = 'Variables';
+   MSG80 = 'Values';
+   MSG81 = 'Use ''Utilities/Mini serial console'' on GUI version.';
+   MSG82 = 'timeout';
+   MSG83 = ' or a variable';
+   MSG84 = ' or "text"';
+   MSG85 = 'Cannot use it on this operation system!';
+   MSG86 = ' device address:  ';
+   MSG87 = 'Cannot use it in GUI version!';
+   MSG88 = 'Use ''Utilities/Mini TCP console'' on GUI version.';
+   MSG89 = 'Input method: ';
+   MSG90 = 'Send method: ';
+   MSG91 = 'Monitor running...';
+   MSG92 = 'Monitor paused.';
+   MSG93 = 'Monitor stopped.';
+   MSG94 = 'Build date:  ';
+   MSG95 = 'Builder:     ';
+   MSG96 = 'FPC version: ';
+   MSG97 = 'Target OS:   ';
+   MSG98 = 'Target CPU:  ';
+   MSG99 = 'Sorry, this feature is not yet implemented.';
   MSG100 = '[press space]';
   MSG101 = 'Press [SPACE] to pause or [ESC] to exit.';
   MSG102 = 'Serial port: ';
@@ -209,106 +209,106 @@ resourcestring
   ERR98 = 'Cannot load inpout32.dll!';
   ERR99 = 'Minimal terminal size is 80x25!';
   // COMMAND DESCRIPTION
-  DES00='         copy one or more remote reg. between two connections';
-  DES01='F10      exit from program';
-  DES02='ALT-G    show device, protocol, connection or project name';
-  DES03='F1       show description or usage of the commands';
-  DES04='ALT-L    set value of a variable or a register';
-  DES05='ALT-P    print message, value of the variable and register';
-  DES06='ALT-R    read one or more remote registers to buffer';
-  DES07='ALT-T    reset device, protocol, connection or project name';
-  DES08='ALT-S    set device, protocol, connection, default colors, project name or timeout';
-  DES09='         show system date and time';
-  DES10='         show version and build information of this program';
-  DES11='ALT-W    write data from buffer to one or more remote registers';
-  DES12='F8       clear screen';
-  DES13='F2       save settings of device, protocol and connection';
-  DES14='F3       load settings of device, protocol and connection';
-  DES15='ALT-E    export value of the one or more registers';
-  DES16='         export command line history to make a script easily';
-  DES17='ALT-C    convert value between different numeral systems';
-  DES18='F4       save all registers';
-  DES19='F5       load all registers';
-  DES20='         list all variable with value or define a new one';
-  DES21='         set temporary foreground and background colors for print command';
-  DES22='ALT-I    import value of the one or more registers';
-  DES23='         AND logical operations';
-  DES24='         OR logical operations';
-  DES25='         NOT logical operations';
-  DES26='         XOR logical operations';
-  DES27='         bit shift to left';
-  DES28='         bit shift to right';
-  DES29='         addition mathematical operation';
-  DES30='         substraction mathematical operation';
-  DES31='         multiplication mathematical operation';
-  DES32='         division mathematical operation';
-  DES33='F6       dump all registers in binary/hexadecimal format to a table';
-  DES34='         wait for a keystroke or specified time';
-  DES35='F7       open a mini serial console';
-  DES36='         read string from serial device';
-  DES37='         write string to serial device';
-  DES38='F9       query or change local echo status';
-  DES39='SHIFT-F3 load ModShell script from file';
-  DES40='F12      run loaded ModShell script';
-  DES41='F11      list loaded ModShell script';
-  DES42='         round real number';
-  DES43='         cosine function';
-  DES44='         cotangent function';
-  DES45='         decrement integer';
-  DES46='         natural exponential';
-  DES47='         integer division';
-  DES48='         modulus division';
-  DES49='         increment integer';
-  DES50='         natural logarithm';
-  DES51='         multiplicative inverse';
-  DES52='         odd or event';
-  DES53='         create random integer';
-  DES54='         tangent function';
-  DES55='         sine function';
-  DES56='         square';
-  DES57='         square root';
-  DES58='         roll bit of integer to left';
-  DES59='         roll bit of integer to right';
-  DES60='         conversion to uppercase';
-  DES61='         length of string';
-  DES62='         conversion to lowercase';
-  DES63='         specified element of the string';
-  DES64='         convert byte to char';
-  DES65='         convert char to byte';
-  DES66='         list all constant with value or define a new one';
-  DES67='         value of the specified bit';
-  DES68='         exponentiation';
-  DES69='         jump to specified label (only in script)';
-  DES70='         selection statement';
-  DES71='         loop iteration';
-  DES72='         define label (only in script)';
-  DES73='         start internal Modbus slave/server';
-  DES74='         start internal Modbus gateway';
-  DES75='         check the value is in the range';
-  DES76='         make LRC';
-  DES77='         make CRC';
-  DES78='         exponentiation of two';
-  DES79='         show ASCII table';
-  DES80='         make a beep sound with internal speaker';
-  DES81='         calculate average';
-  DES82='         propotional value calculation (with zero and span)';
-  DES83='         concatenate strings';
-  DES84='         delete specified element(s) of the string';
-  DES85='         find specified element(s) in the string';
-  DES86='         insert element(s) into string';
-  DES87='         replace element(s) in the string';
-  DES88='ALT-M    monitoring the value of variables';
-  DES89='         append a record to log file';
-  DES90='         loaded script scheduled execution';
-  DES91='SHIFT-F4 edit loaded script with line editor';
-  DES92='SHIFT-F8 erase script from buffer';
-  DES93='SHIFT-F2 save loaded script to disc';
-  DES94='         list directory content';
-  DES95='         change directory or get name';
-  DES96='         make directory';
-  DES97='         remove directory';
-  DES98='         remove file';
-  DES99='         type file';
+   DES00='         copy one or more remote reg. between two connections';
+   DES01='F10      exit from program';
+   DES02='ALT-G    show device, protocol, connection or project name';
+   DES03='F1       show  DEScription or usage of the commands';
+   DES04='ALT-L    set value of a variable or a register';
+   DES05='ALT-P    print message, value of the variable and register';
+   DES06='ALT-R    read one or more remote registers to buffer';
+   DES07='ALT-T    reset device, protocol, connection or project name';
+   DES08='ALT-S    set device, protocol, connection, default colors, project name or timeout';
+   DES09='         show system date and time';
+   DES10='         show version and build information of this program';
+   DES11='ALT-W    write data from buffer to one or more remote registers';
+   DES12='F8       clear screen';
+   DES13='F2       save settings of device, protocol and connection';
+   DES14='F3       load settings of device, protocol and connection';
+   DES15='ALT-E    export value of the one or more registers';
+   DES16='         export command line history to make a script easily';
+   DES17='ALT-C    convert value between different numeral systems';
+   DES18='F4       save all registers';
+   DES19='F5       load all registers';
+   DES20='         list all variable with value or define a new one';
+   DES21='         set temporary foreground and background colors for print command';
+   DES22='ALT-I    import value of the one or more registers';
+   DES23='         AND logical operations';
+   DES24='         OR logical operations';
+   DES25='         NOT logical operations';
+   DES26='         XOR logical operations';
+   DES27='         bit shift to left';
+   DES28='         bit shift to right';
+   DES29='         addition mathematical operation';
+   DES30='         substraction mathematical operation';
+   DES31='         multiplication mathematical operation';
+   DES32='         division mathematical operation';
+   DES33='F6       dump all registers in binary/hexadecimal format to a table';
+   DES34='         wait for a keystroke or specified time';
+   DES35='F7       open a mini serial console';
+   DES36='         read string from serial device';
+   DES37='         write string to serial device';
+   DES38='F9       query or change local echo status';
+   DES39='SHIFT-F3 load ModShell script from file';
+   DES40='F12      run loaded ModShell script';
+   DES41='F11      list loaded ModShell script';
+   DES42='         round real number';
+   DES43='         cosine function';
+   DES44='         cotangent function';
+   DES45='         decrement integer';
+   DES46='         natural exponential';
+   DES47='         integer division';
+   DES48='         modulus division';
+   DES49='         increment integer';
+   DES50='         natural logarithm';
+   DES51='         multiplicative inverse';
+   DES52='         odd or event';
+   DES53='         create random integer';
+   DES54='         tangent function';
+   DES55='         sine function';
+   DES56='         square';
+   DES57='         square root';
+   DES58='         roll bit of integer to left';
+   DES59='         roll bit of integer to right';
+   DES60='         conversion to uppercase';
+   DES61='         length of string';
+   DES62='         conversion to lowercase';
+   DES63='         specified element of the string';
+   DES64='         convert byte to char';
+   DES65='         convert char to byte';
+   DES66='         list all constant with value or define a new one';
+   DES67='         value of the specified bit';
+   DES68='         exponentiation';
+   DES69='         jump to specified label (only in script)';
+   DES70='         selection statement';
+   DES71='         loop iteration';
+   DES72='         define label (only in script)';
+   DES73='         start internal Modbus slave/server';
+   DES74='         start internal Modbus gateway';
+   DES75='         check the value is in the range';
+   DES76='         make LRC';
+   DES77='         make CRC';
+   DES78='         exponentiation of two';
+   DES79='         show ASCII table';
+   DES80='         make a beep sound with internal speaker';
+   DES81='         calculate average';
+   DES82='         propotional value calculation (with zero and span)';
+   DES83='         concatenate strings';
+   DES84='         delete specified element(s) of the string';
+   DES85='         find specified element(s) in the string';
+   DES86='         insert element(s) into string';
+   DES87='         replace element(s) in the string';
+   DES88='ALT-M    monitoring the value of variables';
+   DES89='         append a record to log file';
+   DES90='         loaded script scheduled execution';
+   DES91='SHIFT-F4 edit loaded script with line editor';
+   DES92='SHIFT-F8 erase script from buffer';
+   DES93='SHIFT-F2 save loaded script to disc';
+   DES94='         list directory content';
+   DES95='         change directory or get name';
+   DES96='         make directory';
+   DES97='         remove directory';
+   DES98='         remove file';
+   DES99='         type file';
   DES100='         copy file';
   DES101='         rename file';
   DES102='         existence of a file or directory';
@@ -337,165 +337,171 @@ resourcestring
   DES125='         read a byte from an I/O port';  
   DES126='         write a byte to an I/O port';  
   DES127='         get running method';  
-  DES128='         show prompt and read data from console';  
+  DES128='         swap value of two variablesshow prompt and read data from console';  
+  DES129='         absolute value';
+  DES130='         read a bit from a GPIO port';
+  DES131='         write read a bit to a GPIO port';
+  DES132='         use an variable array as a FIFO storage';
+  DES133='         use an variable array as a LIFO storage';
+  DES134='         swap value of two variables';
   // COMMAND USAGE
-  USG00='copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]' + EOL +
-        'copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg [$]ADDRESS [[$]COUNT]' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
-  USG01='exit';
-  USG02='get dev?|pro?|con?|project|timeout' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.' + EOL +
-        '  - The timeout value is in s.';
-  USG03='help [[$]COMMAND]';
-  USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + EOL +
-        '  let $VARIABLE [$]VALUE' + EOL +
-        '  let $VARIABLE nul' + EOL +
-        '  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS';
-  USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]' + EOL +
-        '  print $VARIABLE [-n]' + EOL +
-        '  print "single\ line\ message" [-n]';
-  USG06='readreg con? $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
-  USG07='reset dev?|pro?|con?|project' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
-  USG08='set dev? net [$]DEVICE [$]IP_ADDRESS [$]PORT' + EOL +
-        '  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT' + EOL +
-        '  set pro? ascii|rtu|tcp [$]ID' + EOL +
-        '  set pro? dcon [$]ADDRESS' + EOL +
-        '  set con? dev? pro?' + EOL +
-        '  set color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON' + EOL +
-        '  set project [$]PROJECT_NAME' + EOL +
-        '  set timeout [$]TIMEOUT' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.' + EOL +
-        '  - The ''TIMEOUT'' value can be 1-60 (s).' + EOL +
-        '  - Colors:' + EOL +
-        '      0: black  4: red         8: darkgray    12: lightred' + EOL +
-        '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + EOL +
-        '      2: green  6: brown      10: lightgreen  14: yellow' + EOL +
-        '      3: cyan   7: lightgray  11: lightcyan   15: white';
-  USG09='date [$TARGET]';
-  USG10='ver';
-  USG11='writereg con? $REGTYPE|coil|hreg [$]ADDRESS [[$]COUNT]' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
-  USG12='cls';
-  USG13='savecfg [$]PATH_AND_FILENAME';
-  USG14='loadcfg [$]PATH_AND_FILENAME';
-  USG15='expreg [$]PATH_AND_FILENAME $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
-  USG16='exphis [$]PATH_AND_FILENAME';
-  USG17='conv $TARGET $FROM|bin|dec|hex|oct $TO|bin|dec|hex|oct [$]VALUE';
-  USG18='savereg [$]PATH_AND_FILENAME';
-  USG19='loadreg [$]PATH_AND_FILENAME';
-  USG20='var' + EOL +
-        '  var NAME [[$]VALUE]';
-  USG21='printcolor [$]FOREGROUND [$]BACKGROUND' + EOL +
-        'Notes:' + EOL +
-        '  - Colors:' + EOL +
-        '      0: black  4: red         8: darkgray    12: lightred' + EOL +
-        '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + EOL +
-        '      2: green  6: brown      10: lightgreen  14: yellow' + EOL +
-        '      3: cyan   7: lightgray  11: lightcyan   15: white';
-  USG22='impreg [$]PATH_AND_FILENAME';
-  USG23='and $TARGET [$]VALUE1 [$]VALUE2';
-  USG24='or $TARGET [$]VALUE1 [$]VALUE2';
-  USG25='not $TARGET [$]VALUE';
-  USG26='xor $TARGET [$]VALUE1 [$]VALUE2';
-  USG27='shl $TARGET [$]VALUE1 [$]VALUE2';
-  USG28='shr $TARGET [$]VALUE1 [$]VALUE2';
-  USG29='add $TARGET [$]VALUE1 [$]VALUE2';
-  USG30='sub $TARGET [$]VALUE1 [$]VALUE2';
-  USG31='mul $TARGET [$]VALUE1 [$]VALUE2';
-  USG32='div $TARGET [$]VALUE1 [$]VALUE2';
-  USG33='dump [$REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS]';
-  USG34='pause [[$]TIME]';
-  USG35='sercons [dev?]' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
-  USG36='serread dev? [$TARGET]' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
-  USG37='serwrite dev? $MESSAGE' + EOL +
-        '  serwrite dev? "MESSAGE"' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
-  USG38='echometh [off|an|hex|swap]';
-  USG39='loadscr [$]PATH_AND_FILENAME';
-  USG40='run [-h] [-s]';
-  USG41='list';
-  USG42='round $TARGET [$]VALUE [$]DEC_PLACES';
-  USG43='cos $TARGET [$]VALUE';
-  USG44='cotan $TARGET [$]VALUE';
-  USG45='dec $VARIABLE';
-  USG46='exp $TARGET [$]VALUE';
-  USG47='idiv $TARGET [$]VALUE1 [$]VALUE2';
-  USG48='imod $TARGET [$]VALUE1 [$]VALUE2';
-  USG49='inc $VARIABLE';
-  USG50='ln $TARGET [$]VALUE';
-  USG51='mulinv $TARGET [$]VALUE';
-  USG52='odd $TARGET [$]VALUE';
-  USG53='rnd $TARGET [$]VALUE';
-  USG54='tan $TARGET [$]VALUE';
-  USG55='sin $TARGET [$]VALUE';
-  USG56='sqr $TARGET [$]VALUE';
-  USG57='sqrt $TARGET [$]VALUE';
-  USG58='roll $TARGET [$]VALUE1 [$]VALUE2';
-  USG59='rolr $TARGET [$]VALUE1 [$]VALUE2';
-  USG60='upcase $TARGET [$]VALUE';
-  USG61='length $TARGET [$]VALUE';
-  USG62='lowcase $TARGET [$]VALUE';
-  USG63='stritem $TARGET [$]VALUE1 [$]VALUE2';
-  USG64='chr $TARGET [$]VALUE';
-  USG65='ord $TARGET [$]VALUE';
-  USG66='const' + EOL +
-        '  const NAME [[$]VALUE]';
-  USG67='bit $TARGET [$]VALUE1 [$]VALUE2';
-  USG68='pow $TARGET [$]BASE [$]EXPONENT';
-  USG69='goto [$]LABEL';
-  USG70='if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND';
-  USG71='for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND';
-  USG72='label NAME';
-  USG73='mbsrv con?' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
-  USG74='mbgw con? con?' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
-  USG75='inrange $TARGET [$]MIN [$]MAX [$]VALUE';
-  USG76='mklrc $TARGET [$]STRING';
-  USG77='mkcrc $TARGET [$]STRING';
-  USG78='pow2 $TARGET [$]EXPONENT';
-  USG79='ascii [$NUMSYS|dec|hex]';
-  USG80='beep';
-  USG81='avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]';
-  USG82='prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE';
-  USG83='concat $TARGET [$]VALUE1 [$]VALUE2';
-  USG84='strdel $TARGET [$]PLACE [$]COUNT';
-  USG85='strfind $TARGET [$]VALUE';
-  USG86='strins $TARGET [$]PLACE [$]VALUE';
-  USG87='strrepl $TARGET [$]OLD [$]NEW';
-  USG88='varmon on|off' + EOL +
-        '  varmon $VARIABLE on|off';
-  USG89='applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]' + EOL +
-        '  applog [$]LOGFILE "TEXT\ $$1\ TEXT" [$]LEVEL [$]VALUE1' + EOL +
-        'Notes:' + EOL +
-        '  - The ''$$1'' value can be $$1-$$4.' + EOL +
-        '  - The ''LEVEL'' value can be 0-4:' + EOL +
-        '    NOTE, MESSAGE, WARNING, ERROR, DEBUG.';
-  USG90='cron' + EOL +
-        '  cron rec_num hour minute' + EOL +
-        '  cron [-r rec_num]';
-  USG91='edit [LINE_NUMBER]';
-  USG92='erasescr';
-  USG93='savescr [$]PATH_AND_FILENAME';
-  USG94='dir [[$]PATH_AND_DIRECTORYNAME]';
-  USG95='cd [[$]PATH_AND_DIRECTORYNAME]';
-  USG96='md [$]PATH_AND_DIRECTORYNAME';
-  USG97='rd [$]PATH_AND_DIRECTORYNAME';
-  USG98='del [$]PATH_AND_FILENAME';
-  USG99='type [$]PATH_AND_FILENAME';
+   USG00='copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]' + EOL +
+         'copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg [$]ADDRESS [[$]COUNT]' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
+   USG01='exit';
+   USG02='get dev?|pro?|con?|project|timeout' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.' + EOL +
+         '  - The timeout value is in s.';
+   USG03='help [[$]COMMAND]';
+   USG04='let dinp|coil|ireg|hreg [$]ADDRESS [$]VALUE' + EOL +
+         '  let $VARIABLE [$]VALUE' + EOL +
+         '  let $VARIABLE nul' + EOL +
+         '  let $VARIABLE dinp|coil|ireg|hreg [$]ADDRESS';
+   USG05='print dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT] [-n]' + EOL +
+         '  print $VARIABLE [-n]' + EOL +
+         '  print "single\ line\ message" [-n]';
+   USG06='readreg con? $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
+   USG07='reset dev?|pro?|con?|project' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
+   USG08='set dev? net [$]DEVICE [$]IP_ADDRESS [$]PORT' + EOL +
+         '  set dev? ser [$]DEVICE [$]BAUDRATE [$]DATABIT [$]PARITY [$]STOPBIT' + EOL +
+         '  set pro? ascii|rtu|tcp [$]ID' + EOL +
+         '  set pro? dcon [$]ADDRESS' + EOL +
+         '  set con? dev? pro?' + EOL +
+         '  set color [$]FOREGROUND [$]BACKGROUND [$]RXD_TEXT [$]TXD_TEXT [$]VAR_MON' + EOL +
+         '  set project [$]PROJECT_NAME' + EOL +
+         '  set timeout [$]TIMEOUT' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.' + EOL +
+         '  - The ''TIMEOUT'' value can be 1-60 (s).' + EOL +
+         '  - Colors:' + EOL +
+         '      0: black  4: red         8: darkgray    12: lightred' + EOL +
+         '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + EOL +
+         '      2: green  6: brown      10: lightgreen  14: yellow' + EOL +
+         '      3: cyan   7: lightgray  11: lightcyan   15: white';
+   USG09='date [$TARGET]';
+   USG10='ver';
+   USG11='writereg con? $REGTYPE|coil|hreg [$]ADDRESS [[$]COUNT]' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
+   USG12='cls';
+   USG13='savecfg [$]PATH_AND_FILENAME';
+   USG14='loadcfg [$]PATH_AND_FILENAME';
+   USG15='expreg [$]PATH_AND_FILENAME $REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS [[$]COUNT]';
+   USG16='exphis [$]PATH_AND_FILENAME';
+   USG17='conv $TARGET $FROM|bin|dec|hex|oct $TO|bin|dec|hex|oct [$]VALUE';
+   USG18='savereg [$]PATH_AND_FILENAME';
+   USG19='loadreg [$]PATH_AND_FILENAME';
+   USG20='var' + EOL +
+         '  var NAME [[$]VALUE]';
+   USG21='printcolor [$]FOREGROUND [$]BACKGROUND' + EOL +
+         'Notes:' + EOL +
+         '  - Colors:' + EOL +
+         '      0: black  4: red         8: darkgray    12: lightred' + EOL +
+         '      1: blue   5: magenta:    9: lightblue   13: lightmagenta' + EOL +
+         '      2: green  6: brown      10: lightgreen  14: yellow' + EOL +
+         '      3: cyan   7: lightgray  11: lightcyan   15: white';
+   USG22='impreg [$]PATH_AND_FILENAME';
+   USG23='and $TARGET [$]VALUE1 [$]VALUE2';
+   USG24='or $TARGET [$]VALUE1 [$]VALUE2';
+   USG25='not $TARGET [$]VALUE';
+   USG26='xor $TARGET [$]VALUE1 [$]VALUE2';
+   USG27='shl $TARGET [$]VALUE1 [$]VALUE2';
+   USG28='shr $TARGET [$]VALUE1 [$]VALUE2';
+   USG29='add $TARGET [$]VALUE1 [$]VALUE2';
+   USG30='sub $TARGET [$]VALUE1 [$]VALUE2';
+   USG31='mul $TARGET [$]VALUE1 [$]VALUE2';
+   USG32='div $TARGET [$]VALUE1 [$]VALUE2';
+   USG33='dump [$REGTYPE|dinp|coil|ireg|hreg [$]ADDRESS]';
+   USG34='pause [[$]TIME]';
+   USG35='sercons [dev?]' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
+   USG36='serread dev? [$TARGET]' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
+   USG37='serwrite dev? $MESSAGE' + EOL +
+         '  serwrite dev? "MESSAGE"' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
+   USG38='echometh [off|an|hex|swap]';
+   USG39='loadscr [$]PATH_AND_FILENAME';
+   USG40='run [-h] [-s]';
+   USG41='list';
+   USG42='round $TARGET [$]VALUE [$]DEC_PLACES';
+   USG43='cos $TARGET [$]VALUE';
+   USG44='cotan $TARGET [$]VALUE';
+   USG45='dec $VARIABLE';
+   USG46='exp $TARGET [$]VALUE';
+   USG47='idiv $TARGET [$]VALUE1 [$]VALUE2';
+   USG48='imod $TARGET [$]VALUE1 [$]VALUE2';
+   USG49='inc $VARIABLE';
+   USG50='ln $TARGET [$]VALUE';
+   USG51='mulinv $TARGET [$]VALUE';
+   USG52='odd $TARGET [$]VALUE';
+   USG53='rnd $TARGET [$]VALUE';
+   USG54='tan $TARGET [$]VALUE';
+   USG55='sin $TARGET [$]VALUE';
+   USG56='sqr $TARGET [$]VALUE';
+   USG57='sqrt $TARGET [$]VALUE';
+   USG58='roll $TARGET [$]VALUE1 [$]VALUE2';
+   USG59='rolr $TARGET [$]VALUE1 [$]VALUE2';
+   USG60='upcase $TARGET [$]VALUE';
+   USG61='length $TARGET [$]VALUE';
+   USG62='lowcase $TARGET [$]VALUE';
+   USG63='stritem $TARGET [$]VALUE1 [$]VALUE2';
+   USG64='chr $TARGET [$]VALUE';
+   USG65='ord $TARGET [$]VALUE';
+   USG66='const' + EOL +
+         '  const NAME [[$]VALUE]';
+   USG67='bit $TARGET [$]VALUE1 [$]VALUE2';
+   USG68='pow $TARGET [$]BASE [$]EXPONENT';
+   USG69='goto [$]LABEL';
+   USG70='if [$]VALUE1 RELATIONAL_SIGN [$]VALUE2 then COMMAND';
+   USG71='for $VARIABLE [$]VALUE1 to [$]VALUE2 do COMMAND';
+   USG72='label NAME';
+   USG73='mbsrv con?' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
+   USG74='mbgw con? con?' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
+   USG75='inrange $TARGET [$]MIN [$]MAX [$]VALUE';
+   USG76='mklrc $TARGET [$]STRING';
+   USG77='mkcrc $TARGET [$]STRING';
+   USG78='pow2 $TARGET [$]EXPONENT';
+   USG79='ascii [$NUMSYS|dec|hex]';
+   USG80='beep';
+   USG81='avg $TARGET [$]VALUE1 [$]VALUE2 [[$]VALUE3...6]';
+   USG82='prop $TARGET [$]MIN [$]MAX [$]ZERO [$]SPAN [$]VALUE';
+   USG83='concat $TARGET [$]VALUE1 [$]VALUE2';
+   USG84='strdel $TARGET [$]PLACE [$]COUNT';
+   USG85='strfind $TARGET [$]VALUE';
+   USG86='strins $TARGET [$]PLACE [$]VALUE';
+   USG87='strrepl $TARGET [$]OLD [$]NEW';
+   USG88='varmon on|off' + EOL +
+         '  varmon $VARIABLE on|off';
+   USG89='applog [$]LOGFILE $TEXT [$]LEVEL [[$]VALUE1] ... [[$]VALUE4]' + EOL +
+         '  applog [$]LOGFILE "TEXT\ $$1\ TEXT" [$]LEVEL [$]VALUE1' + EOL +
+         'Notes:' + EOL +
+         '  - The ''$$1'' value can be $$1-$$4.' + EOL +
+         '  - The ''LEVEL'' value can be 0-4:' + EOL +
+         '    NOTE, MESSAGE, WARNING, ERROR, DEBUG.';
+   USG90='cron' + EOL +
+         '  cron rec_num hour minute' + EOL +
+         '  cron [-r rec_num]';
+   USG91='edit [LINE_NUMBER]';
+   USG92='erasescr';
+   USG93='savescr [$]PATH_AND_FILENAME';
+   USG94='dir [[$]PATH_AND_DIRECTORYNAME]';
+   USG95='cd [[$]PATH_AND_DIRECTORYNAME]';
+   USG96='md [$]PATH_AND_DIRECTORYNAME';
+   USG97='rd [$]PATH_AND_DIRECTORYNAME';
+   USG98='del [$]PATH_AND_FILENAME';
+   USG99='type [$]PATH_AND_FILENAME';
   USG100='copy [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME';
   USG101='ren [$]PATH_AND_FILENAME [$]NEW_PATH_AND_FILENAME';
   USG102='exist [$]PATH_AND_FILENAME';
@@ -512,49 +518,57 @@ resourcestring
   USG109='getarrsize ARRAY $TARGET';
   USG110='setarrsize ARRAY [$]SIZE';
   USG111='dcon con? $TXARRAY $RXARRAY' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
   USG112='tcpcons [dev?]' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
   USG113='tcpread dev? [$TARGET]' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
   USG114='tcpwrite dev? $MESSAGE' + EOL +
-        '  tcpwrite dev? "MESSAGE"' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
+         '  tcpwrite dev? "MESSAGE"' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
   USG115='udpcons [dev?]' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
   USG116='udpread dev? [$TARGET]' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
   USG117='udpwrite dev? $MESSAGE' + EOL +
-        '  udpwrite dev? "MESSAGE"' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
+         '  udpwrite dev? "MESSAGE"' + EOL +
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
   USG118='hart con? $TXARRAY $RXARRAY' + EOL +
-        'Notes:' + EOL +
-        '  - The ''?'' value can be 0-7.';
+         'Notes:' + EOL +
+         '  - The ''?'' value can be 0-7.';
   USG119='inputmeth [an|hex|swap]';
   USG120='sendmeth [chr|str|swap]';
   USG121='macro NAME command with parameters';
   USG122='mbmon [con?]';
   USG123='mbconv n2a|a2n $ARRAY';
   USG124='datatype [$]VALUE' + EOL +
-        'Notes:' + EOL +
-        '  - The result will be in the exit code:' + EOL +
-        '  0: string, 1: floating-point value, 1: integer value.';
+         'Notes:' + EOL +
+         '  - The result will be in the exit code:' + EOL +
+         '  0: string, 1: floating-point value, 1: integer value.';
   USG125='ioread [$]BYTE [$]PORT';
   USG126='iowrite [$]PORT [$]BYTE';
   USG127='runmeth' + EOL +
-        'Notes:' + EOL +
-        '  - The result will be in the exit code:' + EOL +
-        '  0: simple command line' + EOL +
-        '  1: show useable arguments' + EOL +
-        '  2: show version and build information' + EOL +
-        '  3: full sceen command line' + EOL +
-        '  4: interpreter mode' + EOL +
-        '  5: GUI mode';
+         'Notes:' + EOL +
+         '  - The result will be in the exit code:' + EOL +
+         '  0: simple command line' + EOL +
+         '  1: show useable arguments' + EOL +
+         '  2: show version and build information' + EOL +
+         '  3: full sceen command line' + EOL +
+         '  4: interpreter mode' + EOL +
+         '  5: GUI mode';
   USG128='input $TARGET [[$]PROMPT]';
+  USG129='abs $TARGET [$]VALUE';
+  USG130='gpioread [$]BOOLEAN [$]PORT';
+  USG131='gpiowrite [$]PORT [$]BOOLEAN';
+  USG132='pipe ARRAY push [$]DATA' + EOL +
+         '  pipe ARRAY pop $TARGET';
+  USG133='stack ARRAY push [$]DATA' + EOL +
+         '  stack ARRAY pop $TARGET';
+  USG134='  swp $VARIABLE1 $VARIABLE2';

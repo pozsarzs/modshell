@@ -774,7 +774,7 @@ msgid "ALT-G    show device, protocol, connection or project name"
 msgstr ""
 
 #: modshell:des03
-msgid "F1       show description or usage of the commands"
+msgid "F1       show  DEScription or usage of the commands"
 msgstr ""
 
 #: modshell:des04
@@ -1274,7 +1274,31 @@ msgid "         get running method"
 msgstr ""
 
 #: modshell:des128
-msgid "         show prompt and read data from console"
+msgid "         swap value of two variablesshow prompt and read data from console"
+msgstr ""
+
+#: modshell:des129
+msgid "         absolute value"
+msgstr ""
+
+#: modshell:des130
+msgid "         read a bit from a GPIO port"
+msgstr ""
+
+#: modshell:des131
+msgid "         write read a bit to a GPIO port"
+msgstr ""
+
+#: modshell:des132
+msgid "         use an variable array as a FIFO storage"
+msgstr ""
+
+#: modshell:des133
+msgid "         use an variable array as a LIFO storage"
+msgstr ""
+
+#: modshell:des134
+msgid "         swap value of two variables"
 msgstr ""
 
 #: modshell:usg00
@@ -1911,5 +1935,33 @@ msgstr ""
 
 #: modshell:usg128
 msgid "input $TARGET [[$]PROMPT]"
+msgstr ""
+
+#: modshell:usg129
+msgid "abs $TARGET [$]VALUE"
+msgstr ""
+
+#: modshell:usg130
+msgid "gpioread [$]BOOLEAN [$]PORT"
+msgstr ""
+
+#: modshell:usg131
+msgid "gpiowrite [$]PORT [$]BOOLEAN"
+msgstr ""
+
+#: modshell:usg132
+msgid ""
+"pipe ARRAY push [$]DATA\n"
+"  pipe ARRAY pop $TARGET"
+msgstr ""
+
+#: modshell:usg133
+msgid ""
+"stack ARRAY push [$]DATA\n"
+"  stack ARRAY pop $TARGET"
+msgstr ""
+
+#: modshell:usg134
+msgid "  swp $VARIABLE1 $VARIABLE2"
 msgstr ""
 

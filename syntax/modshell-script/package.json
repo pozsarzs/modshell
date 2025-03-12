@@ -2,7 +2,7 @@
   "name": "modshell-script",
   "displayName": "ModShell script",
   "description": "Script language of the ModShell program",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icon": "images/modshell.png",
   "author": "Pozsar Zsolt",
   "publisher": "pozsarzs",

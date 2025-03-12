@@ -1,7 +1,9 @@
 {
     "add": {
         "prefix": "add",
-        "body": [ "add target value1 value2" ],
+        "body": [ 
+            "add target value1 value2"
+        ],
         "description": "add command"
     },
     "and": {

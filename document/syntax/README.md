@@ -17,7 +17,11 @@
 
 > [!NOTE]
 > Applications using GtkSourceView, for example: Builder, Geany, Gedit, Mousepad, Pluma, Scribes.
-> The target directory is not the same for all of them.
+> The target directory is not the same for all of them.  
+> 
+> You can install VSCode extension from Marketplace from
+> https://marketplace.visualstudio.com/items?itemName=pozsarzs.modshell-script
+> URL.  
 
 ### Synopsis
 
