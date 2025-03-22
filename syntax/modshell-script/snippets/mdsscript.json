@@ -1,4 +1,11 @@
 {
+    "abs": {
+        "prefix": "abs",
+        "body": [ 
+            "abs target value1 value2"
+        ],
+        "description": "add command"
+    },
     "add": {
         "prefix": "add",
         "body": [ 
@@ -286,6 +293,20 @@
         ],
         "description": "getarrsize command"
     },
+    "gpioread": {
+        "prefix": "gpioread",
+        "body": [
+            "gpioread bit port"
+        ],
+        "description": "gpioread command"
+    },
+    "gpiowrite": {
+        "prefix": "gpiowrite",
+        "body": [
+            "gpiowrite port bit"
+        ],
+        "description": "gpiowrite command"
+    },
     "goto": {
         "prefix": "goto",
         "body": [
@@ -545,6 +566,13 @@
         ],
         "description": "pause command"
     },
+    "pipe": {
+        "prefix": "pipe",
+        "body": [
+            "pipe array push|pop data"
+        ],
+        "description": "pipe command"
+    },
     "pow": {
         "prefix": "pow",
         "body": [
@@ -709,7 +737,12 @@
     "set": {
         "prefix": "set",
         "body": [
-            "set timeout timeout"
+            "set timeout timeout",
+            "set pro? ascii|rtu|tcp id",
+            "set pro? dcon address",
+            "set pro? hart address",
+            "set con? dev? pro?",
+            "set color foreground background rxd_text txd_text varmon"
         ],
         "description": "set command"
     },
@@ -755,6 +788,13 @@
         ],
         "description": "sqrt command"
     },
+    "stack": {
+        "prefix": "stack",
+        "body": [
+            "stack array push|pop data"
+        ],
+        "description": "stack command"
+    },
     "strdel": {
         "prefix": "strdel",
         "body": [
@@ -796,6 +836,13 @@
             "sub target value1 value2"
         ],
         "description": "sub command"
+    },
+    "swap": {
+        "prefix": "swap",
+        "body": [
+            "swap value1 value2"
+        ],
+        "description": "swap command"
     },
     "tan": {
         "prefix": "tan",

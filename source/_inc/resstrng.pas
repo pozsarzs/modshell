@@ -337,7 +337,7 @@ resourcestring
   DES125='         read a byte from an I/O port';  
   DES126='         write a byte to an I/O port';  
   DES127='         get running method';  
-  DES128='         swap value of two variablesshow prompt and read data from console';  
+  DES128='         show prompt and read data from console';  
   DES129='         absolute value';
   DES130='         read a bit from a GPIO port';
   DES131='         write read a bit to a GPIO port';
