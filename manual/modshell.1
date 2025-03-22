@@ -13,7 +13,6 @@ and Modbus/TCP protocols. The basic communication protocol of the program
 is Modbus, but DCON and HART was also implemented due to communication with
 other devices. The range of foreign protocols may be expanded later.
 The program is designed for DOS, Windows and Unix-like operating systems.
-(The Modbus/TCP and HART support feature will be available from v0.1-beta2 release.)
 .SH OPTIONS
 .TP
 .B \-f \-\-fullscreen
@@ -111,8 +110,9 @@ display of sent and received data can be turned off or raw text and
 hexadecimal viewing can be selected.
 .SS Direct I/O access
 The program provides direct, byte-sized reading and writing of hardware I/O
-ports. On Windows operating systems, it uses the included external dynamically
-linked library.  
+ports on PCs and bit-sized reading and writing GPIO ports on Raspberry Pi and
+Industrial PCs. On Windows operating systems, it uses the included external
+dynamically linked library.   
 
 .SH PREDEFINED VARIABLES
 .TP
@@ -208,6 +208,10 @@ Notes:
 
 .SS Arithmetical commands
 .TP
+\fBabs\fP \fI$TARGET\fP \fI[$]VALUE\fP
+Calculates absolute value of the \fI[$]VALUE\fP and the result is placed in
+\fI$TARGET\fP.
+.TP
 \fBadd\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
 Adds the two values or variables (\fI[$]VALUE1\fP \fI[$]VALUE2\fP)
 and the result is placed in \fI$TARGET\fP.
@@ -299,6 +303,9 @@ the result is placed in \fI$TARGET\fP.
 \fBsub\fP \fI$TARGET\fP \fI[$]VALUE1\fP \fI[$]VALUE2\fP
 Substracts \fI[$]VALUE2\fP from \fI[$]VALUE1\fP and the result
 is placed in \fI$TARGET\fP.
+.TP
+\fBswp\fP \fI$VARIABLE1\fP \fI$VARIABLE2\fP
+Swaps value of the \fI$VARIABLE1\fP and \fI$VARIABLE2\fP.
 .TP
 \fBtan\fP \fI$TARGET\fP \fI[$]VALUE\fP
 Calculates tangent of \fI[$]VALUE\fP and
@@ -609,6 +616,9 @@ Make one-line macro.
 \fBpause\fP [\fI[$]TIME\fP]
 Waits for a keystroke or specified time.
 .TP
+\fBpipe\fP \fIARRAY\fP \fIpush\fP|\fIpop\fP \fI[$]DATA\fP
+Uses a variable array as a FIFO storage.  
+.TP
 \fBprint\fP \fIdinp\fP|\fIcoil\fP|\fIireg\fP|\fIhreg\fP \fI[$]ADDRESS\fP [\fI[$]COUNT\fP] [\fI-n\fP]
 Prints content of the one or more registers. Register start \fIADDRESS\fP and
 the \fICOUNT\fP must be between 0-9998. The -n parameter does not raise a line
@@ -655,6 +665,9 @@ Chr means char-to-char, str means string sending.
 .TP
 \fBsetarrsize\fP \fIARRAY\fP [\fI[$]SIZE\fP]
 Sets size of an array.
+.TP
+\fBstack\fP \fIARRAY\fP \fIpush\fP|\fIpop\fP \fI[$]DATA\fP
+Uses a variable array as a LIFO storage.  
 .TP
 \fBvar\fP
 Prints all defined variables with their values.
@@ -824,6 +837,12 @@ Removes \fI[$]PATH_AND_FILENAME\fP file.
 .TP
 \fBexist\fP \fI[$]PATH_AND_FILENAME\fP
 Existence of \fI[$]PATH_AND_FILENAME\fP file or directory.
+.TP
+\fBgpioread\fP \fI[$]BIT\fP \fI[$]PORT\fP
+Read a bit from a GPIO port.
+.TP
+\fBgpiowrite\fP \fI[$]PORT\fP \fI[$]BIT\fP
+Write a bit to a GPIO port.
 .TP
 \fBioread\fP \fI[$]BYTE\fP \fI[$]PORT\fP
 Read a byte from an I/O port.

@@ -126,7 +126,7 @@
 
 [x] manual/Makefile  
 [x] manual/mbconv.1  
-[ ] manual/modshell.1  
+[x] manual/modshell.1  
 [x] manual/numconv.1  
 [x] manual/serialechoserver.1  
 [x] manual/serialmbmonitor.1  
