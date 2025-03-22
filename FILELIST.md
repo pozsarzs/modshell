@@ -92,7 +92,7 @@
 
 [x] help/createhhk  
 [ ] help/en/Builtin-commands.htm  
-[ ] help/en/Command-examples.htm  
+[x] help/en/Command-examples.htm  
 [x] help/en/Command-line-parameters.htm  
 [x] help/en/Differents-between-CUI-and-GUI-version.htm  
 [x] help/en/Environmental-variables.htm  
@@ -101,8 +101,8 @@
 [x] help/en/Home.htm  
 [x] help/en/Hotkeys.htm  
 [x] help/en/Installation-from-source-code.htm  
-[ ] help/en/modshell_en.hhc  
-[ ] help/en/modshell_en.hhk  
+[x] help/en/modshell_en.hhc  
+[x] help/en/modshell_en.hhk  
 [x] help/en/modshell_en.hhp  
 [x] help/en/modshell_en.log  
 [x] help/en/Operation.htm  

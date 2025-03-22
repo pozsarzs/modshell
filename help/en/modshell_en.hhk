@@ -39,6 +39,10 @@
 	<param name="Local" value="Files.htm#.XML">
 	</OBJECT>
 <LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="abs">
+	<param name="Local" value="Builtin-commands.htm#abs">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
 	<param name="Name" value="add">
 	<param name="Local" value="Builtin-commands.htm#add">
 	</OBJECT>
@@ -319,6 +323,14 @@
 	<param name="Local" value="Builtin-commands.htm#getarrsize">
 	</OBJECT>
 <LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="gpioread">
+	<param name="Local" value="Builtin-commands.htm#gpioread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="gpiowrite">
+	<param name="Local" value="Builtin-commands.htm#gpiowrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
 	<param name="Name" value="goto">
 	<param name="Local" value="Builtin-commands.htm#goto">
 	</OBJECT>
@@ -573,6 +585,10 @@
 <LI> <OBJECT type="text/sitemap">
 	<param name="Name" value="ord">
 	<param name="Local" value="Builtin-commands.htm#ord">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="pipe">
+	<param name="Local" value="Builtin-commands.htm#pipe">
 	</OBJECT>
 <LI> <OBJECT type="text/sitemap">
 	<param name="Name" value="pause">
@@ -839,6 +855,10 @@
 	<param name="Local" value="Builtin-commands.htm#sqrt">
 	</OBJECT>
 <LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="stack">
+	<param name="Local" value="Builtin-commands.htm#stack">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
 	<param name="Name" value="strdel">
 	<param name="Local" value="Builtin-commands.htm#strdel">
 	</OBJECT>
@@ -877,6 +897,10 @@
 <LI> <OBJECT type="text/sitemap">
 	<param name="Name" value="subs">
 	<param name="Local" value="Command-examples.htm#subs">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="swp">
+	<param name="Local" value="Builtin-commands.htm#swp">
 	</OBJECT>
 <LI> <OBJECT type="text/sitemap">
 	<param name="Name" value="system-commands">
