@@ -17,6 +17,8 @@
     <a name="arithmetical-commands"></a>
     <h3>Arithmetical commands</h3>
     <ul style="line-height: 1.5em; list-style-type: none" >
+      <li><a name="abs"></a><strong>abs</strong> <em>$TARGET</em> <em>[$]VALUE</em><br>&nbsp;
+        Calculates absolute value of the <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
       <li><a name="add"></a><strong>add</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br>&nbsp;
         Adds the two values or variables (<em>[$]VALUE1</em> <em>[$]VALUE2</em>)
         and the result is placed in <em>$TARGET</em>.</li>
@@ -69,6 +71,8 @@
         Calculates square root of <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
       <li><a name="sub"></a><strong>sub</strong> <em>$TARGET</em> <em>[$]VALUE1</em> <em>[$]VALUE2</em><br>&nbsp;
         Substract <em>[$]VALUE2</em> from <em>[$]VALUE1</em> and the result is placed in <em>$TARGET</em>.</li>
+      <li><a name="swp"></a><strong>swp</strong> <em>$VARIABLE1</em> <em>$VARIABLE2</em><br>&nbsp;
+        Swaps value of the <em>$VARIABLE1</em> and <em>$VARIABLE2</em>.</li>
       <li><a name="tan"></a><strong>tan</strong> <em>$TARGET</em> <em>[$]VALUE</em><br>&nbsp;
         Calculates tangent of <em>[$]VALUE</em> and the result is placed in <em>$TARGET</em>.</li>
     </ul>
@@ -311,6 +315,8 @@
         Makes one-line macro.</li>
       <li><a name="pause"></a><strong>pause</strong> [<em>[$]TIME</em>]<br>&nbsp;
         Waits for a keystroke or specified time.</li>
+      <li><a name="pipe"></a><strong>pipe</strong> <em>ARRAY</em> [<em>push</em>|<em>pop</em>] <em>[$]DATA</em><br>&nbsp;
+        Uses a variable array as a FIFO storage.</li>
       <li><a name="print"></a><strong>print</strong> <em>dinp</em>|<em>coil</em>|<em>ireg</em>|<em>hreg</em> <em>[$]ADDRESS</em> [<em>[$]COUNT</em>] <em>[-n]</em><br>&nbsp;
         Prints content of the one or more registers. Register start <em>ADDRESS</em> and
         the <em>COUNT</em> must be between 0-9998. The -n parameter does not raise a line
@@ -343,6 +349,8 @@
         <em>Chr</em> means char-to-char, <em>str</em> means string sending.</li>
       <li><a name="setarrsize"></a><strong>setarrsize</strong> <em>ARRAY</em> [<em>[$]SIZE</em>]<br>&nbsp;
         Sets size of an array.</li>
+      <li><a name="stack"></a><strong>stack</strong> <em>ARRAY</em> [<em>push</em>|<em>pop</em>] <em>[$]DATA</em><br>&nbsp;
+        Uses a variable array as a LIFO storage.</li>
       <li><a name="var"></a><strong>var</strong><br>&nbsp;
         Prints all defined variables with their values.</li>
       <li><strong>var</strong> <em>VARIABLE</em> [<em>[$]VALUE</em>]<br>&nbsp;
@@ -475,6 +483,10 @@
         Removes <em>[$]PATH_AND_FILENAME</em> file.</li>
       <li><a name="exist"></a><strong>exist</strong> <em>[$]PATH_AND_FILENAME</em>
         Existence of <em>[$]PATH_AND_FILENAME</em> file or directory.</li>
+      <li><a name="gpioread"></a><strong>gpioread</strong> <em>[$]BIT</em> <em>[$]PORT</em><br>&nbsp;
+        Reads a bit from a GPIO port.</li>
+      <li><a name="gpiowrite"></a><strong>gpiowrite</strong> <em>[$]PORT</em> <em>[$]BIT</em>
+        Writes a bit to a GPIO port.</li>
       <li><a name="ioread"></a><strong>ioread</strong> <em>[$]BYTE</em> <em>[$]PORT</em><br>&nbsp;
         Reads a byte from an I/O port.</li>
       <li><a name="iowrite"></a><strong>iowrite</strong> <em>[$]PORT</em> <em>[$]BYTE</em>
