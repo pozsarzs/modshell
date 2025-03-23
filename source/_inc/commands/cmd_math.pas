@@ -54,7 +54,7 @@
 // MATHEMATICAL OPERATIONS
 function cmd_math(op: byte; p1, p2, p3, p4: string): byte;
 var
-  s2, s3, s4: string;
+  s2, s3, s4, x: string;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -132,7 +132,7 @@ begin
     exit;
   end;
   // CHECK P2 PARAMETER
-  if ((op <> 45) and (op <> 49)) then
+  if ((op <> 45) and (op <> 49) and (op <> 134)) then
   begin
     if boolisitconstant(p2) then s2 := isitconstant(p2);
     if boolisitvariable(p2) then s2 := isitvariable(p2);
@@ -156,6 +156,34 @@ begin
       exit;
     end;
     if length(s2) = 0 then s2 := p2;
+  end;
+  if op = 134 then
+  begin
+    if (not boolisitvariable(p2)) and
+       (not boolisitvariablearray(p2)) then
+    begin
+      // No such variable!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR19 + p2);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR19 + p2);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
+    if boolisitvariablearray(p2) then
+      if not boolvalidvariablearraycell(p2) then result := 1;
+    if result = 1 then
+    begin
+      // No such array cell!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR66 + p2);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR66 + p2);
+     {$ENDIF}
+      result := 1;
+      exit;
+    end;
   end;
   // CHECK P3 PARAMETER
   if ((op >= 29) and (op <= 32)) or (op = 42) or
@@ -267,7 +295,11 @@ begin
                 floattostr(powerof2(strtointdef(s2, 0)));
          129: vars[intisitvariable(p1)].vvalue :=
                 floattostr(abs(strtofloatdef(s2, 0)));
-         // 134:
+         134: begin
+                x := vars[intisitvariable(p1)].vvalue;
+                vars[intisitvariable(p1)].vvalue := vars[intisitvariable(p2)].vvalue;
+                vars[intisitvariable(p2)].vvalue := x;
+              end;
         else
         end
       else
@@ -323,7 +355,11 @@ begin
                 floattostr(powerof2(strtointdef(s2, 0)));
          129: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] :=
                floattostr(abs(strtofloatdef(s2, 0)));
-         // 134:
+         134: begin
+                x := arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)];
+                arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := arrays[intisitvariablearray(p2)].aitems[intisitvariablearrayelement(p2)];
+                arrays[intisitvariablearray(p2)].aitems[intisitvariablearrayelement(p2)] := x;
+              end;
         else
         end;
   except

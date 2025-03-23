@@ -221,11 +221,11 @@
 [x] script/batch/mbconv.bat  
 [x] script/batch/numconv.bat  
 
-[ ] setting/modshell.ini  
+[x] setting/modshell.ini  
 
 [x] source/builddos.bat  
-[ ] source/buildw32.bat  
-[ ] source/buildw64.bat  
+[x] source/buildw32.bat  
+[x] source/buildw64.bat  
 [x] source/Makefile  
 [x] source/README.md  
 [x] source/_ext/inpout32.zip  
@@ -297,7 +297,7 @@
 [x] source/_inc/commands/cmd_logc.pas  
 [x] source/_inc/commands/cmd_lreg.pas  
 [x] source/_inc/commands/cmd_lscr.pas  
-[ ] source/_inc/commands/cmd_math.pas  
+[x] source/_inc/commands/cmd_math.pas  
 [x] source/_inc/commands/cmd_mbcv.pas  
 [x] source/_inc/commands/cmd_mbmn.pas  
 [x] source/_inc/commands/cmd_mcro.pas  
@@ -376,8 +376,8 @@
 [x] source/lhelp/*  
 [x] source/modshell/.gitignore  
 [x] source/modshell/Makefile.dos  
-[ ] source/modshell/Makefile.w32  
-[ ] source/modshell/Makefile.w64  
+[x] source/modshell/Makefile.w32  
+[x] source/modshell/Makefile.w64  
 [x] source/modshell/modshell.ico  
 [x] source/modshell/modshell.lpi  
 [x] source/modshell/modshell.lps  
@@ -466,13 +466,13 @@
 [x] source/xmodshell/iutilities-write_data_to_serial_port.pas  
 [x] source/xmodshell/iutilities-write_data_with_tcp.pas  
 [x] source/xmodshell/iutilities-write_data_with_udp.pas  
-[ ] source/xmodshell/Makefile.w32  
-[ ] source/xmodshell/Makefile.w64  
+[x] source/xmodshell/Makefile.w32  
+[x] source/xmodshell/Makefile.w64  
 [x] source/xmodshell/xmodshell.ico  
 [ ] source/xmodshell/xmodshell.lpi  
 [ ] source/xmodshell/xmodshell.lpr  
-[ ] source/xmodshell/xmodshell.lps  
-[ ] source/xmodshell/xmodshell.res  
+[x] source/xmodshell/xmodshell.lps  
+[x] source/xmodshell/xmodshell.res  
 
 [x] syntax/Makefile  
 [x] syntax/modshell.lang  

@@ -71,3 +71,4 @@ const
   PREFIX: array[0..5] of string = ('dev','pro','con','project','timeout','color');
   METHOD: array[0..5] of string = ('off','an','hex','swap','chr','str');
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
+  XIFO_OP: array[0..1] of string = ('push','pop');

@@ -1,7 +1,9 @@
 modshell (0.1-beta2) unstable; urgency=low
 
   * Second user test release will be with the following changes:
+  * New command `abs`;  
   * New command `input`;  
+  * New command `swp`;  
   * compressed HTML (CHM) help (only XModShell);  
   * (...)
   * syntax highlighter and suggestion extension for Microsoft Visual Studio Code.

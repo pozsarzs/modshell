@@ -118,7 +118,7 @@ _Second user test release_ will be with the following changes:
  - [ ] new commands `gpioread`, `gpiowrite` (Industrial PC and RaspberryPi GPIO port support);  
  - [x] new command `input`;  
  - [ ] new commands `pipe`, `stack`;  
- - [ ] new command `swp`;  
+ - [x] new command `swp`;  
  - [x] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  
  - [ ] HART protocol support;  
  - [ ] Modbus/TCP communication;  
