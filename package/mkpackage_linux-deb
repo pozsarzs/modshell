@@ -4,7 +4,7 @@
 #
 
 NAME='modshell'
-VERSION='0.1beta1'
+VERSION='0.1beta2'
 RELEASE='1'
 
 if [ $# -eq 0 ]

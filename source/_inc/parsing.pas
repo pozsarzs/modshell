@@ -74,77 +74,77 @@ begin
           {$IFDEF X} Form1.ComboBox1.Enabled := false; {$ENDIF}
           result := b;
           case b of
-             0: exitcode := cmd_copyreg(splitted[1], splitted[2], splitted[3],
+              0: exitcode := cmd_copyreg(splitted[1], splitted[2], splitted[3],
                                         splitted[4], splitted[5], splitted[6]);
-             1: scriptexitcode := strtointdef(splitted[1], 0);
-             2: exitcode := cmd_get(splitted[1]);
-             3: exitcode := cmd_help(splitted[1]);
-             4: exitcode := cmd_let(splitted[1], splitted[2], splitted[3]);
-             5: exitcode := cmd_print(splitted[1], splitted[2], splitted[3],
-                                      splitted[4]);
-             6: exitcode := cmd_readreg(splitted[1], splitted[2], splitted[3],
-                                        splitted[4]);
-             7: exitcode := cmd_reset(splitted[1]);
-             8: exitcode := cmd_set(splitted[1], splitted[2], splitted[3],
-                                    splitted[4], splitted[5], splitted[6],
-                                    splitted[7]);
-             9: exitcode := cmd_date(splitted[1]);
-            10: begin version(false); exitcode := 0; end;
-            11: exitcode := cmd_writereg(splitted[1], splitted[2], splitted[3],
-                                         splitted[4]);
-            12: begin
-                  {$IFNDEF X}
-                    clrscr;
-                  {$ELSE}
-                    if Form1.Active then Form1.Memo1.Lines.Clear;
-                    if f3active then Form3.Memo1.Lines.Clear;
-                  {$ENDIF}
-                  exitcode := 0;
-                end;
-            13: exitcode := cmd_savecfg(splitted[1]);
-            14: exitcode := cmd_loadcfg(splitted[1]);
-            15: exitcode := cmd_expreg(splitted[1], splitted[2], splitted[3],
+              1: scriptexitcode := strtointdef(splitted[1], 0);
+              2: exitcode := cmd_get(splitted[1]);
+              3: exitcode := cmd_help(splitted[1]);
+              4: exitcode := cmd_let(splitted[1], splitted[2], splitted[3]);
+              5: exitcode := cmd_print(splitted[1], splitted[2], splitted[3],
                                        splitted[4]);
-            16: exitcode := cmd_exphis(splitted[1]);
-            17: exitcode := cmd_conv(splitted[1], splitted[2], splitted[3],
-                                     splitted[4]);
-            18: exitcode := cmd_savereg(splitted[1]);
-            19: exitcode := cmd_loadreg(splitted[1]);
-            20: exitcode := cmd_var(splitted[1], splitted[2]);
-            21: exitcode := cmd_printcolor(splitted[1], splitted[2]);
-            22: exitcode := cmd_impreg(splitted[1]);
-            33: exitcode := cmd_dump(splitted[1], splitted[2]);
-            34: exitcode := cmd_pause(splitted[1]);
-            35: exitcode := cmd_sercons(splitted[1]);
-            36: exitcode := cmd_serread(splitted[1], splitted[2]);
-            37: exitcode := cmd_serwrite(splitted[1], splitted[2]);
-            38: exitcode := cmd_echometh(splitted[1]);
-            39: exitcode := cmd_loadscr(splitted[1]);
-            40: exitcode := cmd_run(splitted[1], splitted[2]);
-            41: exitcode := cmd_list;
-            66: exitcode := cmd_const(splitted[1], splitted[2]);
-            69: exitcode := cmd_goto(splitted[1]);
-            70: exitcode := cmd_if(splitted[1], splitted[2], splitted[3],
-                                   splitted[4], command);
-            71: exitcode := cmd_for(splitted[1], splitted[2], splitted[3],
-                                    splitted[4], splitted[5], command);
-            72: exitcode := cmd_label;
-            73: exitcode := cmd_mbsrv(splitted[1]);
-            74: exitcode := cmd_mbgw(splitted[1], splitted[2]);
-            79: exitcode := cmd_ascii(splitted[1]);
-            80: begin sysutils.beep; exitcode := 0; end;
-            81: exitcode := cmd_avg(splitted[1], splitted[2], splitted[3],
-                                    splitted[4], splitted[5], splitted[6]);
-            82: exitcode := cmd_prop(splitted[1], splitted[2], splitted[3],
+              6: exitcode := cmd_readreg(splitted[1], splitted[2], splitted[3],
+                                         splitted[4]);
+              7: exitcode := cmd_reset(splitted[1]);
+              8: exitcode := cmd_set(splitted[1], splitted[2], splitted[3],
+                                     splitted[4], splitted[5], splitted[6],
+                                     splitted[7]);
+              9: exitcode := cmd_date(splitted[1]);
+             10: begin version(false); exitcode := 0; end;
+             11: exitcode := cmd_writereg(splitted[1], splitted[2], splitted[3],
+                                          splitted[4]);
+             12: begin
+                   {$IFNDEF X}
+                     clrscr;
+                   {$ELSE}
+                     if Form1.Active then Form1.Memo1.Lines.Clear;
+                     if f3active then Form3.Memo1.Lines.Clear;
+                   {$ENDIF}
+                   exitcode := 0;
+                 end;
+             13: exitcode := cmd_savecfg(splitted[1]);
+             14: exitcode := cmd_loadcfg(splitted[1]);
+             15: exitcode := cmd_expreg(splitted[1], splitted[2], splitted[3],
+                                        splitted[4]);
+             16: exitcode := cmd_exphis(splitted[1]);
+             17: exitcode := cmd_conv(splitted[1], splitted[2], splitted[3],
+                                      splitted[4]);
+             18: exitcode := cmd_savereg(splitted[1]);
+             19: exitcode := cmd_loadreg(splitted[1]);
+             20: exitcode := cmd_var(splitted[1], splitted[2]);
+             21: exitcode := cmd_printcolor(splitted[1], splitted[2]);
+             22: exitcode := cmd_impreg(splitted[1]);
+             33: exitcode := cmd_dump(splitted[1], splitted[2]);
+             34: exitcode := cmd_pause(splitted[1]);
+             35: exitcode := cmd_sercons(splitted[1]);
+             36: exitcode := cmd_serread(splitted[1], splitted[2]);
+             37: exitcode := cmd_serwrite(splitted[1], splitted[2]);
+             38: exitcode := cmd_echometh(splitted[1]);
+             39: exitcode := cmd_loadscr(splitted[1]);
+             40: exitcode := cmd_run(splitted[1], splitted[2]);
+             41: exitcode := cmd_list;
+             66: exitcode := cmd_const(splitted[1], splitted[2]);
+             69: exitcode := cmd_goto(splitted[1]);
+             70: exitcode := cmd_if(splitted[1], splitted[2], splitted[3],
+                                    splitted[4], command);
+             71: exitcode := cmd_for(splitted[1], splitted[2], splitted[3],
+                                     splitted[4], splitted[5], command);
+             72: exitcode := cmd_label;
+             73: exitcode := cmd_mbsrv(splitted[1]);
+             74: exitcode := cmd_mbgw(splitted[1], splitted[2]);
+             79: exitcode := cmd_ascii(splitted[1]);
+             80: begin sysutils.beep; exitcode := 0; end;
+             81: exitcode := cmd_avg(splitted[1], splitted[2], splitted[3],
                                      splitted[4], splitted[5], splitted[6]);
-            88: exitcode := cmd_varmon(splitted[1], splitted[2]);
-            89: exitcode := cmd_applog(splitted[1], splitted[2], splitted[3],
-                                       splitted[4], splitted[5], splitted[6],
-                                       splitted[7]);
-            90: exitcode := cmd_cron(splitted[1], splitted[2], splitted[3]);
-            91: exitcode := cmd_edit(splitted[1]);
-            92: exitcode := cmd_erasescr;
-            93: exitcode := cmd_savescr(splitted[1]);
+             82: exitcode := cmd_prop(splitted[1], splitted[2], splitted[3],
+                                      splitted[4], splitted[5], splitted[6]);
+             88: exitcode := cmd_varmon(splitted[1], splitted[2]);
+             89: exitcode := cmd_applog(splitted[1], splitted[2], splitted[3],
+                                        splitted[4], splitted[5], splitted[6],
+                                        splitted[7]);
+             90: exitcode := cmd_cron(splitted[1], splitted[2], splitted[3]);
+             91: exitcode := cmd_edit(splitted[1]);
+             92: exitcode := cmd_erasescr;
+             93: exitcode := cmd_savescr(splitted[1]);
             105: exitcode := cmd_carr(splitted[1], splitted[2]);
             106: exitcode := cmd_varr(splitted[1], splitted[2]);
             111: exitcode := cmd_dcon(splitted[1], splitted[2], splitted[3]);
@@ -163,17 +163,11 @@ begin
             124: exitcode := cmd_datatype(splitted[1]);
             127: exitcode := runmethod;
             128: exitcode := cmd_input(splitted[1], splitted[2]);
+            132: exitcode := cmd_pipe(splitted[1], splitted[2], splitted[3]);
+            133: exitcode := cmd_stack(splitted[1], splitted[2], splitted[3]);
             COMMARRSIZE - 1: exitcode := cmd_whatever(splitted[1], splitted[2],
                                                       splitted[3], splitted[4],
                                                       splitted[5], splitted[6]);
-
-
-{129 abs
-134 swp
-132 pipe
-133 stack
-}
-
           else
           begin
             // logical functions
@@ -193,6 +187,12 @@ begin
               exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3],
                                    splitted[4]);
             if b = 75 then
+              exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3],
+                                   splitted[4]);
+            if b = 129 then
+              exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3],
+                                   splitted[4]);
+            if b = 134 then
               exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3],
                                    splitted[4]);
             // string handler functions

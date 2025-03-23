@@ -571,4 +571,4 @@ resourcestring
          '  pipe ARRAY pop $TARGET';
   USG133='stack ARRAY push [$]DATA' + EOL +
          '  stack ARRAY pop $TARGET';
-  USG134='  swp $VARIABLE1 $VARIABLE2';
+  USG134='swp $VARIABLE1 $VARIABLE2';

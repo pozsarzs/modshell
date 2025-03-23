@@ -1274,7 +1274,7 @@ msgid "         get running method"
 msgstr ""
 
 #: modshell:des128
-msgid "         swap value of two variablesshow prompt and read data from console"
+msgid "         show prompt and read data from console"
 msgstr ""
 
 #: modshell:des129
@@ -1962,6 +1962,6 @@ msgid ""
 msgstr ""
 
 #: modshell:usg134
-msgid "  swp $VARIABLE1 $VARIABLE2"
+msgid "swp $VARIABLE1 $VARIABLE2"
 msgstr ""
 
