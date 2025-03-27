@@ -1,0 +1,73 @@
+#!/usr/local/bin/modshell -r
+# +----------------------------------------------------------------------------+
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | chk_stck                                                                   |
+# | Test script for command 'stack'                                            |
+# +----------------------------------------------------------------------------+
+#
+#  This program is free software: you can redistribute it and/or modify it
+#  under the terms of the European Union Public License 1.2 version.
+#
+#  This program is distributed in the hope that it will be useful, but WITHOUT
+#  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+#  FOR A PARTICULAR PURPOSE.
+
+# VARIABLES
+var i
+var j
+var k
+varr a 8
+varr b 9
+
+#HEADER
+print "\ "
+print "TEST\ SCRIPT\ FOR\ COMMAND\ 'STACK'"
+print "-------------------------------"
+print "\ "
+print "Check\ that\ all\ successfully\ entered\ data\ can\ be\ read"
+print "in\ the\ correct\ order."
+
+# STAGE #1 - MAKE INPUT DATA
+print "\ "
+print "\ -\ Make\ 9\ input\ data\ for\ test."
+let $i 0
+label start_make_values
+  rnd $j 255
+  let $b[$i] $j
+  inc $i
+  if $i > 8 then goto end_make_values
+  goto start_make_values
+label end_make_values
+
+# STAGE #2 - WRITE DATA TO STACK
+print "\ "
+print "\ -\ Write\ 9\ value\ to\ the\ 8\ size\ stack:"
+let $i 0
+label start_write
+  print "\ \ \ value:\ " -n
+  print $b[$i] -n 
+  stack a push $b[$i]
+  if $? = 1 then print "\ ^[1;31mCannot\ write\ this\ value!^[0m"
+  if $? <> 1 then print "\ "
+  inc $i
+  if $i > 8 then goto end_write
+  goto start_write
+label end_write
+
+# STAGE #3 - READ DATA FROM STACK
+print "\ -\ Read\ 9\ value\ from\ the\ 8\ size\ stack:"
+let $i 0
+label start_read
+  let $k None
+  stack a pop $k
+  let $j $?
+  print "\ \ \ value:\ " -n
+  print $k -n 
+  if $j = 1 then print "\ ^[1;31mCannot\ read\ this\ value!^[0m"
+  if $j <> 1 then print "\ "
+  inc $i
+  if $i > 8 then goto end_read
+  goto start_read
+label end_read  
+exit 0

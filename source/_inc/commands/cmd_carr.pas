@@ -134,7 +134,7 @@ begin
         {$IFNDEF X}
           xywrite(2, wherey, false, '$' + arrays[l].aname);
           xywrite(20, wherey, false, '[0..' +
-                  inttostr(length(arrays[l].aitems)) + ']');
+                  inttostr(length(arrays[l].aitems) - 1) + ']');
           writeln;
           inc(line);
           if line >= (termheight - 4) then

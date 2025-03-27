@@ -16,6 +16,7 @@
   p0    p1    p2   p3
   ------------------------
   stack ARRAY push [$]DATA
+  stack ARRAY pop  $TARGET
 
      | var |const|varr |carr |data |keyw.|
   ---+-----+-----+-----+-----+-----+-----+
@@ -30,10 +31,10 @@ var
   b, bb: byte;
   i: integer;
   op: byte;
-  s, s1, s2: string;
-  size: integer;
-  top: integer;
+  s, s1, s2, s3: string;
+  stlastpos, stnextpos, stmaxpos: integer;
   valid: boolean;
+  stempty, stfull: boolean;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -133,18 +134,93 @@ begin
   // CHECK P3 PARAMETER
   if op = 0 then
   begin
+    if boolisitconstant(p3) then s3 := isitconstant(p3);
+    if boolisitvariable(p3) then s3 := isitvariable(p3);
+    if boolisitconstantarray(p3) then
+      if boolvalidconstantarraycell(p3)
+        then s3 := isitconstantarray(p3)
+        else result := 1;
+    if boolisitvariablearray(p3) then
+      if boolvalidvariablearraycell(p3)
+        then s3 := isitvariablearray(p3)
+        else result := 1;
+    if result = 1 then
+    begin
+      // No such array cell!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR66 + p3);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR66 + p3);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
+    if length(s3) = 0 then s3 := p3;
   end else
   begin
+    if (not boolisitvariable(p3)) and
+       (not boolisitvariablearray(p3)) then
+    begin
+      // No such variable!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR19 + p3);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR19 + p3);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
+    if boolisitvariablearray(p3) then
+      if not boolvalidvariablearraycell(p3) then result := 1;
+    if result = 1 then
+    begin
+      // No such array cell!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR66 + p3);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR66 + p3);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
   end;
-  // ha a p2 push akkor a p3 minden lehet, ha pop akkor a p3 csak változó lehet
   // PRIMARY MISSION
+  result := 0;
+  stmaxpos := length(arrays[intisitvariablearray(p1)].aitems) - 1;
   if op = 0 then
   begin
-    // ha top < size akkor tömb[top+1] = p3 különben result = 1 és kilép
+    stfull := true;
+    // next empty position
+    for stnextpos := 0 to stmaxpos do
+      if arrays[intisitvariablearray(p1)].aitems[stnextpos] = '' then
+      begin
+        stfull := false;
+        break;
+      end;
+    // push data to the next empty position
+    if not stfull
+      then arrays[intisitvariablearray(p1)].aitems[stnextpos] := s3
+      else result := 1;
   end else
   begin
-    // p3 = tomb[top]
-    // tomb[top] = ''
+    stempty := true;
+    // next empty position
+    for stlastpos := stmaxpos downto 0 do
+      if arrays[intisitvariablearray(p1)].aitems[stlastpos] <> '' then
+      begin
+        stempty := false;
+        break;
+      end;
+    // pop data from the last filled position
+    if not stempty then
+    begin
+      if boolisitvariable(p3)
+        then vars[intisitvariable(p3)].vvalue :=
+               arrays[intisitvariablearray(p1)].aitems[stlastpos]
+        else arrays[intisitvariablearray(p3)].aitems[intisitvariablearrayelement(p3)] :=
+               arrays[intisitvariablearray(p1)].aitems[stlastpos];
+      arrays[intisitvariablearray(p1)].aitems[stlastpos] := '';
+    end
+    else result := 1;
   end;
-  result := 0;
 end;

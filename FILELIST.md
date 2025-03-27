@@ -497,3 +497,5 @@
 [x] syntax/modshell-script/syntaxes/mdsscript.tmLanguage.json  
 [x] syntax/modshell-script/.vscodeignore  
 [x] syntax/modshell-script/.vscode/launch.json  
+
+[x] testscript/chk_stck  
