@@ -1,0 +1,64 @@
+#!/usr/local/bin/modshell -r
+# +----------------------------------------------------------------------------+
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | chk_conv                                                                   |
+# | Test script for command 'conv'                                             |
+# +----------------------------------------------------------------------------+
+#
+#  This program is free software: you can redistribute it and/or modify it
+#  under the terms of the European Union Public License 1.2 version.
+#
+#  This program is distributed in the hope that it will be useful, but WITHOUT
+#  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+#  FOR A PARTICULAR PURPOSE.
+
+# VARIABLES
+var i
+var j
+var k
+varr b 8
+
+#HEADER
+print "\ "
+print "TEST\ SCRIPT\ FOR\ COMMAND\ 'CONV'"
+print "-------------------------------"
+
+# STAGE #1 - MAKE INPUT DATA
+print "\ "
+print "\ -\ Make\ 8\ input\ value\ for\ test."
+let $i 0
+label start_make_values
+  rnd $j 65535
+  let $b[$i] $j
+  inc $i
+  if $i > 7 then goto end_make_values
+  goto start_make_values
+label end_make_values
+
+# STAGE #2 - WRITE DATA TO STACK
+print "\ "
+print "\ -\ Convert\ values\ (DEC->HEX->OCT->BIN->DEC):"
+let $i 0
+label start_convert
+  print "\ \ \ " -n 
+  print $b[$i] -n
+  conv $j dec hex $b[$i]
+  print "\ (" -n
+  print $j -n 
+  conv $j hex oct $j
+  print ";\ " -n
+  print $j -n
+  conv $j oct bin $j
+  print ";\ " -n
+  print $j -n
+  conv $k bin dec $j
+  print ")\ ==\ " -n 
+  print $k -n 
+  if $b[$i] <> $k then print "\ \ ^[1;31mNot\ successful!^[0m"
+  if $b[$i] == $k then print "\ \ ^[1;32mSuccessful.^[0m"
+  inc $i
+  if $i > 7 then goto end_convert
+  goto start_convert
+label end_convert
+exit

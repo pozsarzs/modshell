@@ -498,4 +498,5 @@
 [x] syntax/modshell-script/.vscodeignore  
 [x] syntax/modshell-script/.vscode/launch.json  
 
+[x] testscript/chk_conv  
 [x] testscript/chk_stck  

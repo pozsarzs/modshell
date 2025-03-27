@@ -30,7 +30,7 @@ print "in\ the\ correct\ order."
 
 # STAGE #1 - MAKE INPUT DATA
 print "\ "
-print "\ -\ Make\ 9\ input\ data\ for\ test."
+print "\ -\ Make\ 9\ input\ value\ for\ test."
 let $i 0
 label start_make_values
   rnd $j 255
