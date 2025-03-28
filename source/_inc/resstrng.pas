@@ -212,7 +212,7 @@ resourcestring
    DES00='         copy one or more remote reg. between two connections';
    DES01='F10      exit from program';
    DES02='ALT-G    show device, protocol, connection or project name';
-   DES03='F1       show  DEScription or usage of the commands';
+   DES03='F1       show description or usage of the commands';
    DES04='ALT-L    set value of a variable or a register';
    DES05='ALT-P    print message, value of the variable and register';
    DES06='ALT-R    read one or more remote registers to buffer';

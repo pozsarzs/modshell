@@ -17,7 +17,7 @@ rules:
   - statement: "\\b(abs|add|and|applog|arrclear|arrfill|ascii|avg)\\b"
   - statement: "\\b(beep|bit)\\b"
   - statement: "\\b(carr|cd|chkdevlock|chr|cls|concat|const|conv|copy|copyreg|cos|cotan|cron)\\b"
-  - statement: "\\b(datatype|date|dcon|dec|del|dir|div|dump)\\b"
+  - statement: "\\b(datatype|date|dcon|dec|del|dir|div|do|dump)\\b"
   - statement: "\\b(echometh|edit|erasescr|exist|exit|exp|exphis|expreg)\\b"
   - statement: "\\b(for)\\b"
   - statement: "\\b(get|getarrsize|goto|gpioread|gpiowrite)\\b"

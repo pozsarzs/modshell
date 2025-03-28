@@ -133,7 +133,7 @@
 		"group2d": {
 			"patterns": [{
 				"name": "keyword.control.modshell",
-				"match": "\\b(datatype|date|dcon|dec|del|dir|div|dump)\\b"
+				"match": "\\b(datatype|date|dcon|dec|del|dir|div|do|dump)\\b"
 				}]
 		},
 		"group2e": {

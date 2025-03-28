@@ -774,7 +774,7 @@ msgid "ALT-G    show device, protocol, connection or project name"
 msgstr ""
 
 #: modshell:des03
-msgid "F1       show  DEScription or usage of the commands"
+msgid "F1       show description or usage of the commands"
 msgstr ""
 
 #: modshell:des04

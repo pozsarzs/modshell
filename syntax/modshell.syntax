@@ -45,6 +45,7 @@ context default brightcyan
     keyword whole del white
     keyword whole dir white
     keyword whole div white
+    keyword whole do white
     keyword whole dump white
     keyword whole echometh white
     keyword whole edit white

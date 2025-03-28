@@ -117,7 +117,7 @@ _Second user test release_ will be with the following changes:
  - [x] new command `abs`;  
  - [ ] new commands `gpioread`, `gpiowrite` (Industrial PC and RaspberryPi GPIO port support);  
  - [x] new command `input`;  
- - [ ] new commands `pipe`, `stack`;  
+ - [x] new commands `pipe`, `stack`;  
  - [x] new command `swp`;  
  - [x] testscript directory for testing commands;  
  - [x] compressed HTML (CHM) help in addition to the existing online Wiki (only XModShell);  

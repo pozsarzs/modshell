@@ -14,7 +14,7 @@ syn sync lines=250
 syn keyword modshellFunction abs add and applog arrclear arrfill ascii avg
 syn keyword modshellFunction beep bit
 syn keyword modshellFunction carr cd chkdevlock chr cls concat const conv copy copyreg cos cotan cron
-syn keyword modshellFunction datatype date dcon dec del dir div dump
+syn keyword modshellFunction datatype date dcon dec del dir div do dump
 syn keyword modshellFunction echometh edit erasescr exist exit exp exphis expreg
 syn keyword modshellFunction for
 syn keyword modshellFunction get getarrsize goto gpioread gpiowrite

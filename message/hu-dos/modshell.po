@@ -776,6 +776,10 @@ msgstr "Rossz c°m"
 msgid "No such array cell: "
 msgstr "Nincs ilyen cella a tîmbben: "
 
+#: modshell:err67
+msgid "Help system is not accessible!"
+msgstr "A s£g¢ nem elÇrhetã!"
+
 #: modshell:err98
 msgid "Cannot load inpout32.dll!"
 msgstr "Nem lehet betîlteni a inpout32.dll-t!"
@@ -1305,6 +1309,30 @@ msgstr "         futtat†si m¢dszer lekÇrdezÇse"
 #: modshell:des128
 msgid "         show prompt and read data from console"
 msgstr "         prompt ki°r†s Çs adatbevitel a konzolr¢l"
+
+#: modshell:des129
+msgid "         absolute value"
+msgstr "         abszol£t ÇrtÇk sz†m°t†s"
+
+#: modshell:des130
+msgid "         read a bit from a GPIO port"
+msgstr "         egy bit olvas†sa az egyik GPIO portr¢l"
+
+#: modshell:des131
+msgid "         write read a bit to a GPIO port"
+msgstr "         egy bit °r†sa az egyik GPIO portra"
+
+#: modshell:des132
+msgid "         use an variable array as a FIFO storage"
+msgstr ""
+
+#: modshell:des133
+msgid "         use an variable array as a LIFO storage"
+msgstr ""
+
+#: modshell:des134
+msgid "         swap value of two variables"
+msgstr "         kÇt v†ltoz¢ ÇrtÇkÇnek cserÇje"
 
 #: modshell:usg00
 msgid ""
@@ -2064,6 +2092,34 @@ msgstr ""
 #: modshell:usg128
 msgid "input $TARGET [[$]PROMPT]"
 msgstr "input $CêL [[$]PROMPT]"
+
+#: modshell:usg129
+msgid "abs $TARGET [$]VALUE"
+msgstr "abs $CêL [$]êRTêK"
+
+#: modshell:usg130
+msgid "gpioread [$]BOOLEAN [$]PORT"
+msgstr "gpioread [$]BIT [$]PORT"
+
+#: modshell:usg131
+msgid "gpiowrite [$]PORT [$]BOOLEAN"
+msgstr "gpiowrite [$]PORT [$]BIT"
+
+#: modshell:usg132
+msgid ""
+"pipe ARRAY push [$]DATA\n"
+"  pipe ARRAY pop $TARGET"
+msgstr ""
+
+#: modshell:usg133
+msgid ""
+"stack ARRAY push [$]DATA\n"
+"  stack ARRAY pop $TARGET"
+msgstr ""
+
+#: modshell:usg134
+msgid "swp $VARIABLE1 $VARIABLE2"
+msgstr ""
 
 #~ msgid ""
 #~ "runmeth\n"

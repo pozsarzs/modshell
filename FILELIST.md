@@ -303,7 +303,7 @@
 [x] source/_inc/commands/cmd_mcro.pas  
 [x] source/_inc/commands/cmd_paus.pas  
 [x] source/_inc/commands/cmd_pclr.pas  
-[ ] source/_inc/commands/cmd_pipe.pas  
+[x] source/_inc/commands/cmd_pipe.pas  
 [x] source/_inc/commands/cmd_prnt.pas  
 [x] source/_inc/commands/cmd_prop.pas  
 [x] source/_inc/commands/cmd_read.pas  
@@ -319,7 +319,7 @@
 [x] source/_inc/commands/cmd_sreg.pas  
 [x] source/_inc/commands/cmd_srv.pas  
 [x] source/_inc/commands/cmd_sscr.pas  
-[ ] source/_inc/commands/cmd_stck.pas  
+[x] source/_inc/commands/cmd_stck.pas  
 [x] source/_inc/commands/cmd_str.pas  
 [x] source/_inc/commands/cmd_sys.pas  
 [x] source/_inc/commands/cmd_tccn.pas  
@@ -499,4 +499,5 @@
 [x] syntax/modshell-script/.vscode/launch.json  
 
 [x] testscript/chk_conv  
+[x] testscript/chk_pipe  
 [x] testscript/chk_stck  
