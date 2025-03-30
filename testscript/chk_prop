@@ -1,0 +1,80 @@
+#!/usr/local/bin/modshell -r
+# +----------------------------------------------------------------------------+
+# | ModShell v0.1 * Command-driven scriptable Modbus utility                   |
+# | Copyright (C) 2023-2025 Pozsar Zsolt <pozsarzs@gmail.com>                  |
+# | chk_prop                                                                   |
+# | Test script for command 'prop'                                             |
+# +----------------------------------------------------------------------------+
+#
+#  This program is free software: you can redistribute it and/or modify it
+#  under the terms of the European Union Public License 1.2 version.
+#
+#  This program is distributed in the hope that it will be useful, but WITHOUT
+#  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+#  FOR A PARTICULAR PURPOSE.
+
+# VARIABLES
+var i
+var j
+var c
+var v
+varr b 4
+
+# CONSTANTS
+const a1 0
+const a2 1000
+const c1 4
+const c2 20
+const v1 0
+const v2 10
+
+#HEADER
+print "\ "
+print "TEST\ SCRIPT\ FOR\ COMMAND\ 'PROP'"
+print "-------------------------------"
+print "\ "
+print "\ -\ Base\ data:"
+print "\ \ \ Minimum\ measured\ value\ [mbar]:\ " -n
+print $a1
+print "\ \ \ Maximum\ measured\ value\ [mbar]:\ " -n
+print $a2
+print "\ \ \ Minimum\ output\ current\ [mA]:\ \ \ " -n
+print $c1
+print "\ \ \ Maximum\ output\ current\ [mA]:\ \ \ " -n
+print $c2
+print "\ \ \ Minimum\ output\ voltage\ [V]:\ \ \ \ " -n
+print $v1
+print "\ \ \ Maximum\ output\ voltage\ [V]:\ \ \ \ " -n
+print $v2
+
+# STAGE #1 - MAKE INPUT DATA
+print "\ "
+print "\ -\ Make\ 4\ input\ value\ for\ test."
+let $i 0
+label start_make_values
+  rnd $j 1000
+  let $b[$i] $j
+  inc $i
+  if $i > 3 then goto end_make_values
+  goto start_make_values
+label end_make_values
+
+# STAGE #2 - CALCULATING OUTPUT VALUES
+print "\ "
+print "\ -\ Calculating\ output\ values:"
+let $i 0
+label start
+  print "\ \ \ Measured\ value\ [mbar]:\ " -n
+  print $b[$i]
+  prop $c $a1 $a2 4 20 $b[$i]
+  print "\ \ \ Output\ current\ [mA]:\ \ \ " -n
+  print $c
+  prop $v $a1 $a2 $v1 $v2 $b[$i]
+  print "\ \ \ Output\ voltage\ [V]:\ \ \ \ " -n
+  print $v
+  print "\ "
+  inc $i
+  if $i > 3 then goto end
+  goto start
+label end
+exit

@@ -189,10 +189,10 @@ begin
             if b = 75 then
               exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3],
                                    splitted[4]);
-            if b = 129 then
+            if b = 134 then
               exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3],
                                    splitted[4]);
-            if b = 134 then
+            if b = 135 then
               exitcode := cmd_math(b, splitted[1], splitted[2], splitted[3],
                                    splitted[4]);
             // string handler functions
@@ -215,8 +215,8 @@ begin
             if (b >= 125) and (b <= 126) then
               exitcode := cmd_io(b, splitted[1], splitted[2]);
             // direct gpio access functions
-            if (b >= 130) and (b <= 131) then
-              exitcode := cmd_gpio(b, splitted[1], splitted[2]);
+            if (b >= 129) and (b <= 131) then
+              exitcode := cmd_gpio(b, splitted[1], splitted[2], splitted[3]);
            end;
         end;
         vars[0].vvalue := inttostr(exitcode);

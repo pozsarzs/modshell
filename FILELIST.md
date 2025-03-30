@@ -280,7 +280,7 @@
 [x] source/_inc/commands/cmd_for.pas  
 [x] source/_inc/commands/cmd_get.pas  
 [x] source/_inc/commands/cmd_goto.pas  
-[ ] source/_inc/commands/cmd_gpio.pas  
+[x] source/_inc/commands/cmd_gpio.pas  
 [x] source/_inc/commands/cmd_gw.pas  
 [x] source/_inc/commands/cmd_hart.pas  
 [x] source/_inc/commands/cmd_help.pas  

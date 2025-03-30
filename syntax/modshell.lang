@@ -74,6 +74,7 @@
       <keyword>get</keyword>
       <keyword>getarrsize</keyword>
       <keyword>goto</keyword>
+      <keyword>gpioinit</keyword>
       <keyword>gpioread</keyword>
       <keyword>gpiowrite</keyword>
       <keyword>hart</keyword>
@@ -182,11 +183,15 @@
       <keyword>hart</keyword>
       <keyword>hex</keyword>
       <keyword>hreg</keyword>
+      <keyword>in</keyword>
       <keyword>ini</keyword>
       <keyword>ireg</keyword>
+      <keyword>isapnp</keyword>
       <keyword>net</keyword>
       <keyword>oct</keyword>
       <keyword>off</keyword>
+      <keyword>out</keyword>
+      <keyword>rpi[1-4]</keyword>
       <keyword>rtu</keyword>
       <keyword>str</keyword>
       <keyword>ser</keyword>

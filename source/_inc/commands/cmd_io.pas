@@ -44,7 +44,7 @@ begin
     exit;
   end;
   // CHECK P1 PARAMETER
-  if op = 0 then
+  if op = 125 then
   begin
     if (not boolisitvariable(p1)) and
        (not boolisitvariablearray(p1)) then
@@ -122,12 +122,12 @@ begin
   // PRIMARY MISSION
   try
     case op of
-      0: if boolisitvariable(p1)
+      125: if boolisitvariable(p1)
            then vars[intisitvariable(p1)].vvalue :=
                   inttostr(readbytefromioport(strtoint(s2)))
            else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] :=
                 inttostr(readbytefromioport(strtoint(s2)));
-      1: result := writebytetoioport(strtoint(s1), strtoint(s2));
+      126: result := writebytetoioport(strtoint(s1), strtoint(s2));
     end;
   except
     // Operating error

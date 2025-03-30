@@ -338,12 +338,13 @@ resourcestring
   DES126='         write a byte to an I/O port';  
   DES127='         get running method';  
   DES128='         show prompt and read data from console';  
-  DES129='         absolute value';
+  DES129='         initialise a GPIO port';  
   DES130='         read a bit from a GPIO port';
   DES131='         write read a bit to a GPIO port';
   DES132='         use an variable array as a FIFO storage';
   DES133='         use an variable array as a LIFO storage';
   DES134='         swap value of two variables';
+  DES135='         absolute value';
   // COMMAND USAGE
    USG00='copyreg con? $REGTYPE|dinp|coil con? $REGTYPE|coil [$]ADDRESS [[$]COUNT]' + EOL +
          'copyreg con? $REGTYPE|ireg|hreg con? $REGTYPE|hreg [$]ADDRESS [[$]COUNT]' + EOL +
@@ -564,7 +565,8 @@ resourcestring
          '  4: interpreter mode' + EOL +
          '  5: GUI mode';
   USG128='input $TARGET [[$]PROMPT]';
-  USG129='abs $TARGET [$]VALUE';
+  USG129='gpioinit rpi1|rpi2|rpi3|rpi4 [$]PORT in|out' + EOL +
+         '  gpioinit isabus [$]BASE_ADDRESS';
   USG130='gpioread [$]BOOLEAN [$]PORT';
   USG131='gpiowrite [$]PORT [$]BOOLEAN';
   USG132='pipe ARRAY push [$]DATA' + EOL +
@@ -572,3 +574,4 @@ resourcestring
   USG133='stack ARRAY push [$]DATA' + EOL +
          '  stack ARRAY pop $TARGET';
   USG134='swp $VARIABLE1 $VARIABLE2';
+  USG135='abs $TARGET [$]VALUE';

@@ -293,6 +293,14 @@
         ],
         "description": "getarrsize command"
     },
+    "gpioinit": {
+        "prefix": "gpioinit",
+        "body": [
+            "gpioinit rpi[1-4] port in|out",
+            "gpioinit isabus base_addres"
+        ],
+        "description": "gpioinit command"
+    },
     "gpioread": {
         "prefix": "gpioread",
         "body": [

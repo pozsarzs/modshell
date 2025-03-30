@@ -10,11 +10,15 @@ dinp
 hart
 hex
 hreg
+in
 ini
 ireg
+isabus
 net
 oct
 off
+out
+rpi[1-4]
 rtu
 ser
 str

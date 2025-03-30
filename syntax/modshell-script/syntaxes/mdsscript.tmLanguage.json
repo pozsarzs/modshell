@@ -151,7 +151,7 @@
 		"group2g": {
 			"patterns": [{
 				"name": "keyword.control.modshell",
-				"match": "\\b(get|getarrsize|goto|gpioread|gpiowrite)\\b"
+				"match": "\\b(get|getarrsize|goto|gpioinit|gpioread|gpiowrite)\\b"
 				}]
 		},
 		"group2h": {
@@ -241,7 +241,7 @@
 		"group3": {
 			"patterns": [{
 				"name": "constant.language.modshell",
-				"match": "\\b(bin|chr|coil|csv|dcon|dec|dinp|hart|hex|hreg|ini|ireg|net|oct|off|rtu|ser|str|swap|tcp|xml)\\b"
+				"match": "\\b(bin|chr|coil|csv|dcon|dec|dinp|hart|hex|hreg|in|ini|ireg|isabus|net|oct|off|out|rtu|rpi[1-4]|ser|str|swap|tcp|xml)\\b"
 				}]
 		},
 		"group4": {

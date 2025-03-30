@@ -199,6 +199,7 @@ begin
        132: buffer[b] := buffer[b] + DES132;
        133: buffer[b] := buffer[b] + DES133;
        134: buffer[b] := buffer[b] + DES134;
+       135: buffer[b] := buffer[b] + DES135;
       end;
     end;
     shorting;
@@ -404,6 +405,7 @@ begin
          132: writeln(USG132);
          133: writeln(USG133);
          134: writeln(USG134);
+         135: writeln(USG135);
         end;
       {$ELSE}
         with Form1 do
@@ -545,6 +547,7 @@ begin
          132: Memo1.Lines.Add('   ' + USG132);
          133: Memo1.Lines.Add('   ' + USG133);
          134: Memo1.Lines.Add('   ' + USG134);
+         135: Memo1.Lines.Add('   ' + USG135);
         end;
       end;
      {$ENDIF}

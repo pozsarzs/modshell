@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# create vsix file
+#
+
+cd modshell-script
+vsce package
+mv *.vsix ..
+cd ..

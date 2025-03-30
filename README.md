@@ -115,7 +115,7 @@ HART protocols.
 _0.1-beta2_
 _Second user test release_ will be with the following changes:
  - [x] new command `abs`;  
- - [ ] new commands `gpioread`, `gpiowrite` (Industrial PC and RaspberryPi GPIO port support);  
+ - [ ] new commands `gpioinit`, `gpioread`, `gpiowrite` (Industrial PC and RaspberryPi GPIO port support);  
  - [x] new command `input`;  
  - [x] new commands `pipe`, `stack`;  
  - [x] new command `swp`;  
@@ -519,15 +519,16 @@ dynamically linked library.
 |124|`del`       |system       |        |remove file                                                          |
 |125|`dir`       |system       |        |list directory content                                               |
 |126|`exist`     |system       |        |existence of a file or directory                                     |
-|127|`gpioread`  |system       |        |read a bit from a GPIO port                                         |
-|128|`gpiowrite` |system       |        |write a bit to a GPIO port                                          |
-|129|`ioread`    |system       |        |read a byte from an I/O port                                         |
-|130|`iowrite`   |system       |        |write a byte to an I/O port                                          |
-|131|`md`        |system       |        |make directory                                                       |
-|132|`rd`        |system       |        |remove directory                                                     |
-|133|`ren`       |system       |        |rename file                                                          |
-|134|`rmdevlock` |system       |        |remove device lock file                                              |
-|135|`type`      |system       |        |type file                                                            |
+|127|`gpioinit`  |system       |        |initialize GPIO port                                                 |
+|128|`gpioread`  |system       |        |read a bit from a GPIO port                                          |
+|129|`gpiowrite` |system       |        |write a bit to a GPIO port                                           |
+|130|`ioread`    |system       |        |read a byte from an I/O port                                         |
+|131|`iowrite`   |system       |        |write a byte to an I/O port                                          |
+|132|`md`        |system       |        |make directory                                                       |
+|133|`rd`        |system       |        |remove directory                                                     |
+|134|`ren`       |system       |        |rename file                                                          |
+|135|`rmdevlock` |system       |        |remove device lock file                                              |
+|136|`type`      |system       |        |type file                                                            |
 
 (Commands with function keys (F?) are executed immediately, modifier keys
 (ALT-?) only make typing easier.)  

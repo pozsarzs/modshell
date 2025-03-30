@@ -293,13 +293,13 @@ begin
                 else vars[intisitvariable(p1)].vvalue := '0';
           78: vars[intisitvariable(p1)].vvalue :=
                 floattostr(powerof2(strtointdef(s2, 0)));
-         129: vars[intisitvariable(p1)].vvalue :=
-                floattostr(abs(strtofloatdef(s2, 0)));
          134: begin
                 x := vars[intisitvariable(p1)].vvalue;
                 vars[intisitvariable(p1)].vvalue := vars[intisitvariable(p2)].vvalue;
                 vars[intisitvariable(p2)].vvalue := x;
               end;
+         135: vars[intisitvariable(p1)].vvalue :=
+                floattostr(abs(strtofloatdef(s2, 0)));
         else
         end
       else
@@ -355,7 +355,7 @@ begin
                 floattostr(powerof2(strtointdef(s2, 0)));
          129: arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] :=
                floattostr(abs(strtofloatdef(s2, 0)));
-         134: begin
+         135: begin
                 x := arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)];
                 arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] := arrays[intisitvariablearray(p2)].aitems[intisitvariablearrayelement(p2)];
                 arrays[intisitvariablearray(p2)].aitems[intisitvariablearrayelement(p2)] := x;

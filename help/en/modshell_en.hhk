@@ -323,6 +323,10 @@
 	<param name="Local" value="Builtin-commands.htm#getarrsize">
 	</OBJECT>
 <LI> <OBJECT type="text/sitemap">
+	<param name="Name" value="gpioinit">
+	<param name="Local" value="Builtin-commands.htm#gpioinit">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
 	<param name="Name" value="gpioread">
 	<param name="Local" value="Builtin-commands.htm#gpioread">
 	</OBJECT>

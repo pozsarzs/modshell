@@ -42,6 +42,7 @@ for
 get
 getarrsize
 goto
+gpioinit
 gpioread
 gpiowrite
 hart

@@ -1,0 +1,1050 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Modshell createhhk script">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="arithmetical-commands">
+	<PARAM name="Local" value="Command-examples.htm#arithmetical-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="add">
+	<PARAM name="Local" value="Command-examples.htm#add">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="conv">
+	<PARAM name="Local" value="Command-examples.htm#conv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="round">
+	<PARAM name="Local" value="Command-examples.htm#round">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="subs">
+	<PARAM name="Local" value="Command-examples.htm#subs">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="communication-commands">
+	<PARAM name="Local" value="Command-examples.htm#communication-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="readreg">
+	<PARAM name="Local" value="Command-examples.htm#readreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="writereg">
+	<PARAM name="Local" value="Command-examples.htm#writereg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="copyreg">
+	<PARAM name="Local" value="Command-examples.htm#copyreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="sercons">
+	<PARAM name="Local" value="Command-examples.htm#sercons">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serread">
+	<PARAM name="Local" value="Command-examples.htm#serread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serwrite">
+	<PARAM name="Local" value="Command-examples.htm#serwrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="configuration-commands">
+	<PARAM name="Local" value="Command-examples.htm#configuration-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="get">
+	<PARAM name="Local" value="Command-examples.htm#get">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="reset">
+	<PARAM name="Local" value="Command-examples.htm#reset">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="set">
+	<PARAM name="Local" value="Command-examples.htm#set">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="file-operation-commands">
+	<PARAM name="Local" value="Command-examples.htm#file-operation-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="applog">
+	<PARAM name="Local" value="Command-examples.htm#applog">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="exphis">
+	<PARAM name="Local" value="Command-examples.htm#exphis">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="expreg">
+	<PARAM name="Local" value="Command-examples.htm#expreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="impreg">
+	<PARAM name="Local" value="Command-examples.htm#impreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="loadcfg">
+	<PARAM name="Local" value="Command-examples.htm#loadcfg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="loadreg">
+	<PARAM name="Local" value="Command-examples.htm#loadreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="savecfg">
+	<PARAM name="Local" value="Command-examples.htm#savecfg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="savereg">
+	<PARAM name="Local" value="Command-examples.htm#savereg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="general-commands">
+	<PARAM name="Local" value="Command-examples.htm#general-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="cron">
+	<PARAM name="Local" value="Command-examples.htm#cron">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="echo">
+	<PARAM name="Local" value="Command-examples.htm#echo">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="help">
+	<PARAM name="Local" value="Command-examples.htm#help">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="let">
+	<PARAM name="Local" value="Command-examples.htm#let">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="pause">
+	<PARAM name="Local" value="Command-examples.htm#pause">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="print">
+	<PARAM name="Local" value="Command-examples.htm#print">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="var">
+	<PARAM name="Local" value="Command-examples.htm#var">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="varr">
+	<PARAM name="Local" value="Command-examples.htm#varr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="logical-commands">
+	<PARAM name="Local" value="Command-examples.htm#logical-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="and">
+	<PARAM name="Local" value="Command-examples.htm#and">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="or">
+	<PARAM name="Local" value="Command-examples.htm#or">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="not">
+	<PARAM name="Local" value="Command-examples.htm#not">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="shr">
+	<PARAM name="Local" value="Command-examples.htm#shr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="register-handler-commands">
+	<PARAM name="Local" value="Command-examples.htm#register-handler-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="dump">
+	<PARAM name="Local" value="Command-examples.htm#dump">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="let">
+	<PARAM name="Local" value="Command-examples.htm#let">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="print">
+	<PARAM name="Local" value="Command-examples.htm#print">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="script-operation-commands">
+	<PARAM name="Local" value="Command-examples.htm#script-operation-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="loadscr">
+	<PARAM name="Local" value="Command-examples.htm#loadscr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="run">
+	<PARAM name="Local" value="Command-examples.htm#run">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="string-handler-commands">
+	<PARAM name="Local" value="Command-examples.htm#string-handler-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="chr">
+	<PARAM name="Local" value="Command-examples.htm#chr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="length">
+	<PARAM name="Local" value="Command-examples.htm#length">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="stritem">
+	<PARAM name="Local" value="Command-examples.htm#stritem">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="upcase">
+	<PARAM name="Local" value="Command-examples.htm#upcase">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="system-commands">
+	<PARAM name="Local" value="Command-examples.htm#system-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="type">
+	<PARAM name="Local" value="Command-examples.htm#type">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="ren">
+	<PARAM name="Local" value="Command-examples.htm#ren">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="modshell.ini">
+	<PARAM name="Local" value="Files.htm#modshell.ini">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="console.log">
+	<PARAM name="Local" value="Files.htm#console.log">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mbmon.log">
+	<PARAM name="Local" value="Files.htm#mbmon.log">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="scriptfile[.mds]">
+	<PARAM name="Local" value="Files.htm#scriptfile[.mds]">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="scriptfile[.bat]">
+	<PARAM name="Local" value="Files.htm#scriptfile[.bat]">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value=".DDT">
+	<PARAM name="Local" value="Files.htm#.DDT">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value=".PDT">
+	<PARAM name="Local" value="Files.htm#.PDT">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value=".CDT">
+	<PARAM name="Local" value="Files.htm#.CDT">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value=".BDT">
+	<PARAM name="Local" value="Files.htm#.BDT">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value=".WDT">
+	<PARAM name="Local" value="Files.htm#.WDT">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value=".CSV">
+	<PARAM name="Local" value="Files.htm#.CSV">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value=".INI">
+	<PARAM name="Local" value="Files.htm#.INI">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value=".XML">
+	<PARAM name="Local" value="Files.htm#.XML">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="modshell">
+	<PARAM name="Local" value="Environmental-variables.htm#modshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="xmodshell">
+	<PARAM name="Local" value="Environmental-variables.htm#xmodshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serialechoserver">
+	<PARAM name="Local" value="Environmental-variables.htm#serialechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="tcpechoserver">
+	<PARAM name="Local" value="Environmental-variables.htm#tcpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="udpechoserver">
+	<PARAM name="Local" value="Environmental-variables.htm#udpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serialmbmonitor">
+	<PARAM name="Local" value="Environmental-variables.htm#serialmbmonitor">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="modshell">
+	<PARAM name="Local" value="Command-line-parameters.htm#modshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="xmodshell">
+	<PARAM name="Local" value="Command-line-parameters.htm#xmodshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serialechoserver">
+	<PARAM name="Local" value="Command-line-parameters.htm#serialechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="tcpechoserver">
+	<PARAM name="Local" value="Command-line-parameters.htm#tcpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="udpechoserver">
+	<PARAM name="Local" value="Command-line-parameters.htm#udpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serialmbmonitor">
+	<PARAM name="Local" value="Command-line-parameters.htm#serialmbmonitor">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mbconv">
+	<PARAM name="Local" value="Command-line-parameters.htm#mbconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="numconv">
+	<PARAM name="Local" value="Command-line-parameters.htm#numconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serialechoserver">
+	<PARAM name="Local" value="Utilities.htm#serialechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="tcpechoserver">
+	<PARAM name="Local" value="Utilities.htm#tcpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="udpechoserver">
+	<PARAM name="Local" value="Utilities.htm#udpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serialmbmonitor">
+	<PARAM name="Local" value="Utilities.htm#serialmbmonitor">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mbconv">
+	<PARAM name="Local" value="Utilities.htm#mbconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="numconv">
+	<PARAM name="Local" value="Utilities.htm#numconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="modshell">
+	<PARAM name="Local" value="Exit-status.htm#modshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="xmodshell">
+	<PARAM name="Local" value="Exit-status.htm#xmodshell">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serialechoserver">
+	<PARAM name="Local" value="Exit-status.htm#serialechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="tcpechoserver">
+	<PARAM name="Local" value="Exit-status.htm#tcpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="udpechoserver">
+	<PARAM name="Local" value="Exit-status.htm#udpechoserver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serialmbmonitor">
+	<PARAM name="Local" value="Exit-status.htm#serialmbmonitor">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mbconv">
+	<PARAM name="Local" value="Exit-status.htm#mbconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="numconv">
+	<PARAM name="Local" value="Exit-status.htm#numconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="operating-principle">
+	<PARAM name="Local" value="Operation.htm#operating-principle">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="projects">
+	<PARAM name="Local" value="Operation.htm#projects">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="file-operations">
+	<PARAM name="Local" value="Operation.htm#file-operations">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="script-operations">
+	<PARAM name="Local" value="Operation.htm#script-operations">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="raw-serial-connection">
+	<PARAM name="Local" value="Operation.htm#raw-serial-connection">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serial-connection-with-dcon-protocol">
+	<PARAM name="Local" value="Operation.htm#serial-connection-with-dcon-protocol">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serial-connection-with-hart-protocol">
+	<PARAM name="Local" value="Operation.htm#serial-connection-with-hart-protocol">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="raw-tcp-connection">
+	<PARAM name="Local" value="Operation.htm#raw-tcp-connection">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="raw-udp-connection">
+	<PARAM name="Local" value="Operation.htm#raw-udp-connection">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="direct-io-access">
+	<PARAM name="Local" value="Operation.htm#direct-io-access">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="freebsd">
+	<PARAM name="Local" value="Packaging.htm#freebsd">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="linux">
+	<PARAM name="Local" value="Packaging.htm#linux">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="windows">
+	<PARAM name="Local" value="Packaging.htm#windows">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="dos">
+	<PARAM name="Local" value="Packaging.htm#dos">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="arithmetical-commands">
+	<PARAM name="Local" value="Builtin-commands.htm#arithmetical-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="abs">
+	<PARAM name="Local" value="Builtin-commands.htm#abs">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="add">
+	<PARAM name="Local" value="Builtin-commands.htm#add">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="avg">
+	<PARAM name="Local" value="Builtin-commands.htm#avg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="conv">
+	<PARAM name="Local" value="Builtin-commands.htm#conv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="cos">
+	<PARAM name="Local" value="Builtin-commands.htm#cos">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="cotan">
+	<PARAM name="Local" value="Builtin-commands.htm#cotan">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="dec">
+	<PARAM name="Local" value="Builtin-commands.htm#dec">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="div">
+	<PARAM name="Local" value="Builtin-commands.htm#div">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="exp">
+	<PARAM name="Local" value="Builtin-commands.htm#exp">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="idiv">
+	<PARAM name="Local" value="Builtin-commands.htm#idiv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="imod">
+	<PARAM name="Local" value="Builtin-commands.htm#imod">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="inc">
+	<PARAM name="Local" value="Builtin-commands.htm#inc">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="ln">
+	<PARAM name="Local" value="Builtin-commands.htm#ln">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mul">
+	<PARAM name="Local" value="Builtin-commands.htm#mul">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mulinv">
+	<PARAM name="Local" value="Builtin-commands.htm#mulinv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="odd">
+	<PARAM name="Local" value="Builtin-commands.htm#odd">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="pow">
+	<PARAM name="Local" value="Builtin-commands.htm#pow">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="pow2">
+	<PARAM name="Local" value="Builtin-commands.htm#pow2">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="prop">
+	<PARAM name="Local" value="Builtin-commands.htm#prop">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="rnd">
+	<PARAM name="Local" value="Builtin-commands.htm#rnd">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="round">
+	<PARAM name="Local" value="Builtin-commands.htm#round">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="sin">
+	<PARAM name="Local" value="Builtin-commands.htm#sin">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="sqr">
+	<PARAM name="Local" value="Builtin-commands.htm#sqr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="sqrt">
+	<PARAM name="Local" value="Builtin-commands.htm#sqrt">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="sub">
+	<PARAM name="Local" value="Builtin-commands.htm#sub">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="swp">
+	<PARAM name="Local" value="Builtin-commands.htm#swp">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="tan">
+	<PARAM name="Local" value="Builtin-commands.htm#tan">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="communication-commands">
+	<PARAM name="Local" value="Builtin-commands.htm#communication-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="copyreg">
+	<PARAM name="Local" value="Builtin-commands.htm#copyreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="dcon">
+	<PARAM name="Local" value="Builtin-commands.htm#dcon">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="hart">
+	<PARAM name="Local" value="Builtin-commands.htm#hart">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mbgw">
+	<PARAM name="Local" value="Builtin-commands.htm#mbgw">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mbconv">
+	<PARAM name="Local" value="Builtin-commands.htm#mbconv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mbmon">
+	<PARAM name="Local" value="Builtin-commands.htm#mbmon">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mbsrv">
+	<PARAM name="Local" value="Builtin-commands.htm#mbsrv">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="readreg">
+	<PARAM name="Local" value="Builtin-commands.htm#readreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serread">
+	<PARAM name="Local" value="Builtin-commands.htm#serread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="serwrite">
+	<PARAM name="Local" value="Builtin-commands.htm#serwrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="tcpcons">
+	<PARAM name="Local" value="Builtin-commands.htm#tcpcons">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="tcpread">
+	<PARAM name="Local" value="Builtin-commands.htm#tcpread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="tcpwrite">
+	<PARAM name="Local" value="Builtin-commands.htm#tcpwrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="udpcons">
+	<PARAM name="Local" value="Builtin-commands.htm#udpcons">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="udpread">
+	<PARAM name="Local" value="Builtin-commands.htm#udpread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="udpwrite">
+	<PARAM name="Local" value="Builtin-commands.htm#udpwrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="writereg">
+	<PARAM name="Local" value="Builtin-commands.htm#writereg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="configuration-commands">
+	<PARAM name="Local" value="Builtin-commands.htm#configuration-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="get">
+	<PARAM name="Local" value="Builtin-commands.htm#get">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="reset">
+	<PARAM name="Local" value="Builtin-commands.htm#reset">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="set">
+	<PARAM name="Local" value="Builtin-commands.htm#set">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="file-operation-commands">
+	<PARAM name="Local" value="Builtin-commands.htm#file-operation-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="applog">
+	<PARAM name="Local" value="Builtin-commands.htm#applog">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="exphis">
+	<PARAM name="Local" value="Builtin-commands.htm#exphis">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="expreg">
+	<PARAM name="Local" value="Builtin-commands.htm#expreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="impreg">
+	<PARAM name="Local" value="Builtin-commands.htm#impreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="loadcfg">
+	<PARAM name="Local" value="Builtin-commands.htm#loadcfg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="loadreg">
+	<PARAM name="Local" value="Builtin-commands.htm#loadreg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="savecfg">
+	<PARAM name="Local" value="Builtin-commands.htm#savecfg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="savereg">
+	<PARAM name="Local" value="Builtin-commands.htm#savereg">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="general-commands">
+	<PARAM name="Local" value="Builtin-commands.htm#general-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="arrclear">
+	<PARAM name="Local" value="Builtin-commands.htm#arrclear">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="arrfill">
+	<PARAM name="Local" value="Builtin-commands.htm#arrfill">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="ascii">
+	<PARAM name="Local" value="Builtin-commands.htm#ascii">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="beep">
+	<PARAM name="Local" value="Builtin-commands.htm#beep">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="carr">
+	<PARAM name="Local" value="Builtin-commands.htm#carr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="cls">
+	<PARAM name="Local" value="Builtin-commands.htm#cls">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="const">
+	<PARAM name="Local" value="Builtin-commands.htm#const">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="cron">
+	<PARAM name="Local" value="Builtin-commands.htm#cron">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="datatype">
+	<PARAM name="Local" value="Builtin-commands.htm#datatype">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="date">
+	<PARAM name="Local" value="Builtin-commands.htm#date">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="echometh">
+	<PARAM name="Local" value="Builtin-commands.htm#echometh">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="exit">
+	<PARAM name="Local" value="Builtin-commands.htm#exit">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="for">
+	<PARAM name="Local" value="Builtin-commands.htm#for">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="to">
+	<PARAM name="Local" value="Builtin-commands.htm#to">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="do">
+	<PARAM name="Local" value="Builtin-commands.htm#do">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="getarrsize">
+	<PARAM name="Local" value="Builtin-commands.htm#getarrsize">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="goto">
+	<PARAM name="Local" value="Builtin-commands.htm#goto">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="help">
+	<PARAM name="Local" value="Builtin-commands.htm#help">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="if">
+	<PARAM name="Local" value="Builtin-commands.htm#if">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="then">
+	<PARAM name="Local" value="Builtin-commands.htm#then">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="input">
+	<PARAM name="Local" value="Builtin-commands.htm#input">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="inputmeth">
+	<PARAM name="Local" value="Builtin-commands.htm#inputmeth">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="label">
+	<PARAM name="Local" value="Builtin-commands.htm#label">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="let">
+	<PARAM name="Local" value="Builtin-commands.htm#let">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="macro">
+	<PARAM name="Local" value="Builtin-commands.htm#macro">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="pause">
+	<PARAM name="Local" value="Builtin-commands.htm#pause">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="pipe">
+	<PARAM name="Local" value="Builtin-commands.htm#pipe">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="print">
+	<PARAM name="Local" value="Builtin-commands.htm#print">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="printcolor">
+	<PARAM name="Local" value="Builtin-commands.htm#printcolor">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="runmeth">
+	<PARAM name="Local" value="Builtin-commands.htm#runmeth">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="sendmeth">
+	<PARAM name="Local" value="Builtin-commands.htm#sendmeth">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="setarrsize">
+	<PARAM name="Local" value="Builtin-commands.htm#setarrsize">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="stack">
+	<PARAM name="Local" value="Builtin-commands.htm#stack">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="var">
+	<PARAM name="Local" value="Builtin-commands.htm#var">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="varmon">
+	<PARAM name="Local" value="Builtin-commands.htm#varmon">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="varr">
+	<PARAM name="Local" value="Builtin-commands.htm#varr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="ver">
+	<PARAM name="Local" value="Builtin-commands.htm#ver">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="logical-commands">
+	<PARAM name="Local" value="Builtin-commands.htm#logical-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="and">
+	<PARAM name="Local" value="Builtin-commands.htm#and">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="bit">
+	<PARAM name="Local" value="Builtin-commands.htm#bit">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="not">
+	<PARAM name="Local" value="Builtin-commands.htm#not">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="or">
+	<PARAM name="Local" value="Builtin-commands.htm#or">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="roll">
+	<PARAM name="Local" value="Builtin-commands.htm#roll">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="rols">
+	<PARAM name="Local" value="Builtin-commands.htm#rols">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="shl">
+	<PARAM name="Local" value="Builtin-commands.htm#shl">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="shr">
+	<PARAM name="Local" value="Builtin-commands.htm#shr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="xor">
+	<PARAM name="Local" value="Builtin-commands.htm#xor">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="register-handler-commands">
+	<PARAM name="Local" value="Builtin-commands.htm#register-handler-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="dump">
+	<PARAM name="Local" value="Builtin-commands.htm#dump">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="let">
+	<PARAM name="Local" value="Builtin-commands.htm#let">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="script-operation-commands">
+	<PARAM name="Local" value="Builtin-commands.htm#script-operation-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="edit">
+	<PARAM name="Local" value="Builtin-commands.htm#edit">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="erasescr">
+	<PARAM name="Local" value="Builtin-commands.htm#erasescr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="list">
+	<PARAM name="Local" value="Builtin-commands.htm#list">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="loadscr">
+	<PARAM name="Local" value="Builtin-commands.htm#loadscr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="run">
+	<PARAM name="Local" value="Builtin-commands.htm#run">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="savescr">
+	<PARAM name="Local" value="Builtin-commands.htm#savescr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="string-handler-commands">
+	<PARAM name="Local" value="Builtin-commands.htm#string-handler-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="chr">
+	<PARAM name="Local" value="Builtin-commands.htm#chr">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="concat">
+	<PARAM name="Local" value="Builtin-commands.htm#concat">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="length">
+	<PARAM name="Local" value="Builtin-commands.htm#length">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="lowcase">
+	<PARAM name="Local" value="Builtin-commands.htm#lowcase">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mklrc">
+	<PARAM name="Local" value="Builtin-commands.htm#mklrc">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="mkcrc">
+	<PARAM name="Local" value="Builtin-commands.htm#mkcrc">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="ord">
+	<PARAM name="Local" value="Builtin-commands.htm#ord">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="strdel">
+	<PARAM name="Local" value="Builtin-commands.htm#strdel">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="strfind">
+	<PARAM name="Local" value="Builtin-commands.htm#strfind">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="strins">
+	<PARAM name="Local" value="Builtin-commands.htm#strins">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="stritem">
+	<PARAM name="Local" value="Builtin-commands.htm#stritem">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="strrepl">
+	<PARAM name="Local" value="Builtin-commands.htm#strrepl">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="upcase">
+	<PARAM name="Local" value="Builtin-commands.htm#upcase">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="file-and-directory-management-system-commands">
+	<PARAM name="Local" value="Builtin-commands.htm#file-and-directory-management-system-commands">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="cd">
+	<PARAM name="Local" value="Builtin-commands.htm#cd">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="chkdevlock">
+	<PARAM name="Local" value="Builtin-commands.htm#chkdevlock">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="copy">
+	<PARAM name="Local" value="Builtin-commands.htm#copy">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="dir">
+	<PARAM name="Local" value="Builtin-commands.htm#dir">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="del">
+	<PARAM name="Local" value="Builtin-commands.htm#del">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="exist">
+	<PARAM name="Local" value="Builtin-commands.htm#exist">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="gpioinit">
+	<PARAM name="Local" value="Builtin-commands.htm#gpioinit">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="gpioread">
+	<PARAM name="Local" value="Builtin-commands.htm#gpioread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="gpiowrite">
+	<PARAM name="Local" value="Builtin-commands.htm#gpiowrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="ioread">
+	<PARAM name="Local" value="Builtin-commands.htm#ioread">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="iowrite">
+	<PARAM name="Local" value="Builtin-commands.htm#iowrite">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="md">
+	<PARAM name="Local" value="Builtin-commands.htm#md">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="rd">
+	<PARAM name="Local" value="Builtin-commands.htm#rd">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="ren">
+	<PARAM name="Local" value="Builtin-commands.htm#ren">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="rmdevlock">
+	<PARAM name="Local" value="Builtin-commands.htm#rmdevlock">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="type">
+	<PARAM name="Local" value="Builtin-commands.htm#type">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="on-unix-like-systems">
+	<PARAM name="Local" value="Installation-from-source-code.htm#on-unix-like-systems">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="on-windows">
+	<PARAM name="Local" value="Installation-from-source-code.htm#on-windows">
+	</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+	<PARAM name="Name" value="on-dos">
+	<PARAM name="Local" value="Installation-from-source-code.htm#on-dos">
+	</OBJECT>
+</UL>
+</BODY></HTML>

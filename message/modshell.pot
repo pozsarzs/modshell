@@ -1278,7 +1278,7 @@ msgid "         show prompt and read data from console"
 msgstr ""
 
 #: modshell:des129
-msgid "         absolute value"
+msgid "         initialise a GPIO port"
 msgstr ""
 
 #: modshell:des130
@@ -1299,6 +1299,10 @@ msgstr ""
 
 #: modshell:des134
 msgid "         swap value of two variables"
+msgstr ""
+
+#: modshell:des135
+msgid "         absolute value"
 msgstr ""
 
 #: modshell:usg00
@@ -1938,7 +1942,9 @@ msgid "input $TARGET [[$]PROMPT]"
 msgstr ""
 
 #: modshell:usg129
-msgid "abs $TARGET [$]VALUE"
+msgid ""
+"gpioinit rpi1|rpi2|rpi3|rpi4 [$]PORT in|out\n"
+"  gpioinit isabus [$]BASE_ADDRESS"
 msgstr ""
 
 #: modshell:usg130
@@ -1963,5 +1969,9 @@ msgstr ""
 
 #: modshell:usg134
 msgid "swp $VARIABLE1 $VARIABLE2"
+msgstr ""
+
+#: modshell:usg135
+msgid "abs $TARGET [$]VALUE"
 msgstr ""
 

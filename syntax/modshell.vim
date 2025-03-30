@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	ModShell script
 " Maintainer:	Pozsar Zsolt <pozsarzs@gmail.com>
-" Last Change:	2025 Jan 25
+" Last Change:	2025 Mar 30
 
 " Quit when a (custom) syntax file was already loaded
 if exists("b:current_syntax")
@@ -17,7 +17,7 @@ syn keyword modshellFunction carr cd chkdevlock chr cls concat const conv copy c
 syn keyword modshellFunction datatype date dcon dec del dir div do dump
 syn keyword modshellFunction echometh edit erasescr exist exit exp exphis expreg
 syn keyword modshellFunction for
-syn keyword modshellFunction get getarrsize goto gpioread gpiowrite
+syn keyword modshellFunction get getarrsize goto gpioinit gpioread gpiowrite
 syn keyword modshellFunction hart help
 syn keyword modshellFunction idiv if imod impreg inc input inputmeth inrange ioread iowrite
 syn keyword modshellFunction label length let list ln loadcfg loadreg loadscr lowcase
@@ -38,13 +38,14 @@ syn keyword modshellPredefined bin
 syn keyword modshellPredefined chr coil csv
 syn keyword modshellPredefined dcon dec dinp
 syn keyword modshellPredefined hart hex hreg
-syn keyword modshellPredefined ini ireg
+syn keyword modshellPredefined in ini ireg isabus
 syn keyword modshellPredefined net
-syn keyword modshellPredefined oct off
+syn keyword modshellPredefined oct off out
 syn keyword modshellPredefined rtu
 syn keyword modshellPredefined ser str swap
 syn keyword modshellPredefined tcp
 syn keyword modshellPredefined xml
+syn keyword modshellPredefined "rpi[0-4]"
 
 syn match modshellSymbolOperator "[<>]=\="
 syn match modshellSymbolOperator "=\=[<>]"

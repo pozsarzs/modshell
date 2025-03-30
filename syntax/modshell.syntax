@@ -59,6 +59,7 @@ context default brightcyan
     keyword whole get white
     keyword whole getarrsize white
     keyword whole goto white
+    keyword whole gpioinit white
     keyword whole gpioread white
     keyword whole gpiowrite white
     keyword whole hart white
@@ -166,12 +167,16 @@ context default brightcyan
     keyword whole hart brightred
     keyword whole hex brightred
     keyword whole hreg brightred
+    keyword whole in brightred
     keyword whole ini brightred
     keyword whole ireg brightred
+    keyword whole isabus brightred
     keyword whole net brightred
     keyword whole oct brightred
     keyword whole off brightred
+    keyword whole out brightred
     keyword whole rtu brightred
+    keyword whole rpi\{1234\} brightred
     keyword whole ser brightred
     keyword whole str brightred
     keyword whole swap brightred

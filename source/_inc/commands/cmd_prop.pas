@@ -194,7 +194,7 @@ begin
     f4 := strtofloatdef(s4, 0);
     f5 := strtofloatdef(s5, 0);
     f6 := strtofloatdef(s6, 0);
-    if boolisitvariablearray(p1)
+    if not boolisitvariablearray(p1)
       then vars[intisitvariable(p1)].vvalue :=
              floattostr((((f5 - f4) / (f3 - f2)) * (f6 - f2)) + f4)
       else arrays[intisitvariablearray(p1)].aitems[intisitvariablearrayelement(p1)] :=
