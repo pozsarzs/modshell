@@ -30,8 +30,12 @@
 // DIRECT GPIO ACCESS COMMANDS  
 function cmd_gpio(op: byte; p1, p2, p3: string): byte;
 var
+  b: byte;
   s1: string = '';
-  s2: string;
+  s, s2, s3: string;
+  i1: integer = 0;
+  i3: integer = 0;
+  valid: boolean = false;
 begin
   result := 0;
   // CHECK LENGTH OF PARAMETERS
@@ -49,6 +53,48 @@ begin
   // CHECK P1 PARAMETER
   if op = 129 then
   begin
+    if boolisitconstant(p1) then s1 := isitconstant(p1);
+    if boolisitvariable(p1) then s1 := isitvariable(p1);
+    if boolisitconstantarray(p1) then
+      if boolvalidconstantarraycell(p1)
+        then s1 := isitconstantarray(p1)
+        else result := 1;
+    if boolisitvariablearray(p1) then
+      if boolvalidvariablearraycell(p1)
+        then s1 := isitvariablearray(p1)
+        else result := 1;
+    if result = 1 then
+    begin
+      // No such array cell!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR66 + p1);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR66 + p1);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
+    if length(s1) = 0 then s1 := p1;
+    for b := 0 to 3 do
+      if RPI_VER[b] = s1 then
+      begin
+        valid := true;
+        i1 := b;
+        break;
+      end;
+    if not valid then
+    begin
+      // What is the 1st parameter?
+      s := NUM1 + MSG05;
+      for b := 0 to 3 do s := s + ' ' + RPI_VER[b];
+      {$IFNDEF X}
+        if verbosity(2) then writeln(s);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(s);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
   end;
   if op = 130 then
   begin
@@ -129,11 +175,64 @@ begin
   // CHECK P3 PARAMETER
   if op = 129 then
   begin
+    if boolisitconstant(p3) then s3 := isitconstant(p3);
+    if boolisitvariable(p3) then s3 := isitvariable(p3);
+    if boolisitconstantarray(p3) then
+      if boolvalidconstantarraycell(p3)
+        then s3 := isitconstantarray(p3)
+        else result := 1;
+    if boolisitvariablearray(p3) then
+      if boolvalidvariablearraycell(p3)
+        then s3 := isitvariablearray(p3)
+        else result := 1;
+    if result = 1 then
+    begin
+      // No such array cell!
+      {$IFNDEF X}
+        if verbosity(2) then writeln(ERR66 + p3);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(ERR66 + p3);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
+    if length(s3) = 0 then s3 := p3;
+    for b := 0 to 1 do
+      if GPIO_MODE[b] = s3 then
+      begin
+        valid := true;
+        i3 := b;
+        break;
+      end;
+    if not valid then
+    begin
+      // What is the 3rd parameter?
+      s := NUM3 + MSG05;
+      for b := 0 to 1 do s := s + ' ' + GPIO_MODE[b];
+      {$IFNDEF X}
+        if verbosity(2) then writeln(s);
+      {$ELSE}
+        Form1.Memo1.Lines.Add(s);
+      {$ENDIF}
+      result := 1;
+      exit;
+    end;
   end;
   // PRIMARY MISSION
   try
     case op of
-      // 129:
+      129: {$IFDEF UNIX}
+             {$IFDEF CPUARM}
+               // Linux on Raspberry Pi 
+               result := initgpioport(i1, strtoint(s2), i3);
+             {$ELSE}
+               // Linux on x86, x86_64
+               result := initgpioport(strtoint(s2));
+             {$ENDIF}
+           {$ELSE}
+             // DOS, Windows
+             result := initgpioport(strtoint(s2));
+           {$ENDIF}
       130: if boolisitvariable(p1)
            then vars[intisitvariable(p1)].vvalue :=
                   booltostr(readbitfromgpioport(strtoint(s2)))
