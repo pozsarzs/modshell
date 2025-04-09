@@ -79,7 +79,8 @@ HART protocols.
 |                        |internal server for remote access to own registers                                          |
 |                        |gateway to access devices using other ports or protocols                                    |
 |                        |internal serial monitor for decode ASCII or RTU telegrams                                   |
-|direct I/O port access  |supported, on Windows with external freeware DLL                                            |
+|direct I/O port access  |supported                                                                                   |
+|GPIO port access        |supported on IPC (max. 64 port) and Raspberry Pi version 1-4                                |
 |local Modbus registers  |2x9999 boolean and 2x9999 word type                                                         |
 |script syntax plugins   |for editors using GtkSourceView, MCEdit, Micro, Nano, Notepad++, (Neo)Vim and VSCode        |
 |utility scripts         |2 script                                                                                    |

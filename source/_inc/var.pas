@@ -60,3 +60,9 @@ var
   splitted: array[0..7] of string;
   // CONNECTION TIMEOUT
   timeout: integer = 3; // default timeout in s
+  {$IFNDEF CPUARM}
+    // ISA style GPIO port
+    gpio_ba: word = 0;
+    gpio_mirror: array[0..7, 0..7] of boolean;
+  {$ENDIF}
+  

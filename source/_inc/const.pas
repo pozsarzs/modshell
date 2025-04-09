@@ -73,4 +73,4 @@ const
   NUM_SYS: array[0..3] of string = ('bin','dec','hex','oct');
   XIFO_OP: array[0..1] of string = ('push','pop');
   GPIO_MODE: array[0..1] of string = ('in','out');
-  RPI_VER: array[0..3] of string = ('rpi1','rpi2','rpi3','rpi4');
+  RPI_VER: array[0..4] of string = ('isabus','rpi1','rpi2','rpi3','rpi4');

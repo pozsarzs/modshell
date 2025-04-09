@@ -75,7 +75,7 @@ begin
       exit;
     end;
     if length(s1) = 0 then s1 := p1;
-    for b := 0 to 3 do
+    for b := 0 to 4 do
       if RPI_VER[b] = s1 then
       begin
         valid := true;
@@ -86,7 +86,7 @@ begin
     begin
       // What is the 1st parameter?
       s := NUM1 + MSG05;
-      for b := 0 to 3 do s := s + ' ' + RPI_VER[b];
+      for b := 0 to 4 do s := s + ' ' + RPI_VER[b];
       {$IFNDEF X}
         if verbosity(2) then writeln(s);
       {$ELSE}
