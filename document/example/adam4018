@@ -15,7 +15,7 @@ varr rxbuff 2
 cls
 print "Example\ script\ -\ Read\ data\ with\ DCON\ protocol\ from\ ADAM-4018"
 print "------------------------------------------------------------"
-print "Protocol:\ Modbus/RTU"
+print "Protocol:\ DCON"
 print "ID:\ " -n
 print $ID
 echometh hex
